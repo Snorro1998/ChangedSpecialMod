@@ -1,0 +1,63 @@
+This Terraria mod is about the game Changed by DragonSnow. It adds laboratories on the surface where you will find Latex beasts. They are quite strong and grow stronger with every boss you defeat.
+
+-------- Contents ---------
+
+- 3 surface biomes
+- 3 Town NPCs
+- 22 normal monsters
+- Some extra monsters on the drunk world
+- 3 Bosses
+- 5 upgradeable weapons
+- 2 mounts
+- Many furniture items
+- Transformation mechanic (WIP)
+
+
+------- Mod support -------
+
+This mod only has built-in support for bosschecklist. It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
+
+
+--------- Credits ---------
+
+Art
+- DragonSnow4	       <Twitter>
+- Hayden_FencFoxo  <Twitter>
+- xethogd#1874        
+- Snorro
+
+Programming
+- Snorro
+- The code for the main menu style was copied and altered from the Calamity mod
+
+Music
+- ShiZi
+
+
+--------- Changelog ---------
+
+For information about previous versions, please check out the change notes in the steam workshop.
+
+0.3
+
+Additions and changes
+- Added black and white syringes, allowing you to transform into latex beasts
+- Added support for boss checklist
+- Added black latex, white latex and dry dirt solutions for the clentaminator
+- Resprited several NPCs to fit better in the game
+- Prototype glows red during a blood moon and rgb colors during a party
+- Increased drop chance of ink from Squid Dogs
+- Nerfed White Tail damage
+- Reduced number of labs on medium and large worlds
+- Enemies can spawn lovestruck on Valentines day, making them harmless
+- Basketball can now be thrown
+- Increased number of blocks required to form a biome from 200 to 800
+- Changed the shape of the biomes from a square to an ellipse
+- Drunk latices are now shown in the bestiary
+
+Fixed
+- Several issues with spawning and despawning of bosses
+- Fixed wrong crafting recipes for a couple of items
+- Puro not wearing a bandana during the Pirate Invasion
+- Picture viewing UI jittering when moving
+

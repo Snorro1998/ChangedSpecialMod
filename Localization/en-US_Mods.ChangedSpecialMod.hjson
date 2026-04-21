@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: White Tail
+		SpawnInfo: Can appear in any goo zone after defeating at least 20 latex beasts.
+		DespawnMessage: White Tail is no longer after you
+	}
+
+	WolfKing: {
+		EntryName: Wolf King
+		SpawnInfo: Can be found in a room covered in black goo.
+		DespawnMessage: Wolf King is no longer after you
+	}
+
+	Behemoth: {
+		EntryName: Behemoth
+		SpawnInfo: Can be found in a room covered in white goo.
+		DespawnMessage: Behemoth is no longer after you
+	}
+}

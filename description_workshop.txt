@@ -1,0 +1,63 @@
+﻿
+﻿[h1]Changed Special Mod[/h1]
+This Terraria mod is about the game Changed by DragonSnow. It adds laboratories on the surface where you will find Latex beasts. They are quite strong and grow stronger with every boss defeated.
+
+[h2]Contents[/h2]
+[list]
+	[*]3 surface biomes
+	[*]3 town NPCs
+	[*]22 monsters
+	[*]Some extra monsters on the drunk world
+	[*]3 bosses
+	[*]5 upgradeable weapons
+	[*]2 mounts
+	[*]Many furniture items
+	[*]Transformation mechanic (WIP)
+[/list]
+
+
+[h2]Mod Support[/h2]
+This mod only has built-in support for bosschecklist. It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
+
+
+[h2]Credits[/h2]
+[b]Art[/b]
+[list]
+	[*]DragonSnow     <[url=https://x.com/DragonSnow4] Twitter [/url]>
+	[*]Hayden         <[url=https://x.com/Hayden_FencFoxo] Twitter [/url]>
+	[*]xethogd#1874
+	[*]Snorro
+[/list]
+[b]Programming[/b]
+	[*]Snorro
+	[*]The code for the main menu style was copied and altered from the Calamity mod
+[b]Music[/b]
+	[*]ShiZi
+
+
+[h2]Changelog[/h2]
+For information about previous versions, please check out the change notes.
+
+[h3]0.3[/h3]
+[b]Additions and changes[/b]
+[list]
+	[*]Added black and white syringes, allowing you to transform into latex beasts
+	[*]Added support for boss checklist
+	[*]Added black latex, white latex and dry dirt solutions for the clentaminator
+	[*]Resprited several NPCs to fit better in the game
+	[*]Prototype glows red during a blood moon and rgb colors during a party
+	[*]Increased drop chance of ink from Squid Dogs
+	[*]Nerfed White Tail damage
+	[*]Reduced number of labs on medium and large worlds
+	[*]Enemies can spawn lovestruck on Valentines day, making them harmless
+	[*]Basketball can now be thrown
+	[*]Increased number of blocks required to form a biome from 200 to 800
+	[*]Changed the shape of the biomes from a square to an ellipse
+[/list]
+[b]Fixed[/b]
+[list]
+	[*]Several issues with spawning and despawning of bosses
+	[*]Fixed wrong crafting recipes for a couple of items
+	[*]Puro not wearing a bandana during the Pirate Invasion
+	[*]Picture viewing UI jittering when moving
+[/list]
