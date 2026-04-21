@@ -13,7 +13,7 @@ namespace ChangedSpecialMod.Content.Projectiles
 	public class BookProjectile : ModProjectile
 	{
         private const float moveSpeed = 15;
-        private const float rotationSpeed = 0.05f; //radians per tick
+        private const float rotationSpeed = 0.05f;
         private const int nBlockDetectionRange = 20;
         private float bookRotationSpeed = 0;
 
@@ -24,9 +24,6 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         public override void SetDefaults() 
         {
-			//Projectile.CloneDefaults(ProjectileID.BookOfSkullsSkull);
-			//AIType = ProjectileID.BookOfSkullsSkull;
-
             Projectile.noDropItem = true;
             Projectile.timeLeft = 600;
 			Projectile.alpha = 0;
@@ -59,31 +56,6 @@ namespace ChangedSpecialMod.Content.Projectiles
             float rotation = Projectile.rotation;
 			var position = Projectile.Center;
 
-            /*
-            Projectile.spriteDirection = 1;
-
-            // Normalize the rotation to be between 0 and 2 PI
-			if (rotation < 0)
-			{
-				float tmp = rotation * -1;
-				tmp = (float)(tmp % (Math.PI * 2));
-				rotation = (float)(Math.PI * 2 - tmp);
-			}
-			else
-			{
-                rotation = (float)(rotation % (Math.PI * 2));
-            }
-
-
-
-            // Flip the sprite vertically if facing left, otherwise the paper plane would fly upside down
-            if (rotation >= 0.5 * Math.PI && rotation < 1.5 * Math.PI)
-			{
-				spriteEffects = SpriteEffects.FlipVertically;
-			}
-
-            */
-
             Rectangle rectangle = new Rectangle(0, frameY, texture.Width, frameHeight);
             Vector2 origin = rectangle.Size() / 2f;
             SpriteEffects spriteEffects = SpriteEffects.None;
@@ -101,7 +73,6 @@ namespace ChangedSpecialMod.Content.Projectiles
         public override void PostDraw(Color lightColor)
         {
             Dust.NewDustDirect(Projectile.Center, 10, 10, DustID.Torch, 0, 0, 0, default(Color), 1.25f).noGravity = true;
-            //Dust.NewDustPerfect(Projectile.Center, DustID.Lava, Vector2.Zero, 100, default(Color), 1.25f).noGravity = true;
         }
 
         public override void OnSpawn(IEntitySource source)
@@ -113,7 +84,6 @@ namespace ChangedSpecialMod.Content.Projectiles
         {
             Projectile.rotation += bookRotationSpeed;
 
-            //Projectile.rotation = Projectile.velocity.ToRotation();
             var target = Projectile.FindTargetWithinRange(nBlockDetectionRange * 16, false); 
             if (target != null)
             {
@@ -138,17 +108,6 @@ namespace ChangedSpecialMod.Content.Projectiles
                 newDirection.Normalize();
 
                 Projectile.velocity = newDirection * speed;
-                /*
-                float dirX = target.Center.X - Projectile.Center.X; 
-                float dirY = target.Center.Y - Projectile.Center.Y; 
-                var targetRotation = (float)Math.Atan2(dirY, dirX);
-
-                float rotationDifference = MathHelper.WrapAngle(targetRotation - Projectile.rotation);
-                Projectile.rotation += MathHelper.Clamp(rotationDifference, -rotationSpeed, rotationSpeed);
-
-                // We only update the velocity, because rotation is purely visually and will be updated during the next tick
-                Projectile.velocity = new Vector2((float)Math.Cos(Projectile.rotation), (float)Math.Sin(Projectile.rotation)) * moveSpeed; 
-                */
             } 
         }
 

@@ -1,13 +1,10 @@
 ﻿using ChangedSpecialMod.Content.Items.Weapons;
-using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
-using Mono.Cecil;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace ChangedSpecialMod.Content.Projectiles
 {
@@ -27,8 +24,6 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            //ChangedUtils.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height, false);
-
             // If the projectile hits the left or right side of the tile, reverse the X velocity
             if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon)
             {
@@ -53,7 +48,6 @@ namespace ChangedSpecialMod.Content.Projectiles
             {
                 Projectile.velocity.Y = 0;
             }
-
 
             return false;
         }

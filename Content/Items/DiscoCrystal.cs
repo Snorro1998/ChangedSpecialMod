@@ -7,8 +7,6 @@ namespace ChangedSpecialMod.Content.Items
 {
     public class DiscoCrystal : ModItem
     {
-        // The Display Name and Tooltip of this item can be edited in the Localization/en-US_Mods.ChangedSpecialMod.hjson file.
-
         public override void SetDefaults()
         {
             Item.value = Item.buyPrice(0, 1, 0, 0);

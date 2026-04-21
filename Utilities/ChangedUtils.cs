@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Assets;
-using ChangedSpecialMod.Common.Systems;
+﻿using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.NPCs;
@@ -18,7 +17,6 @@ using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 
 // This thing is a mess and contains all kinds of functions that probably should be in their own class
@@ -34,11 +32,6 @@ namespace ChangedSpecialMod.Utilities
     {
         // Set to false by the White Tail summon to prevent message appearing twice
         public static bool AnnounceBoss = true;
-
-        //public static string CurrentMusicBlackLatexZone = Sounds.MusicBlackLatexZone;
-        //public static string CurrentMusicWhiteLatexZone = Sounds.MusicWhiteLatexZone;
-        //public static string CurrentMusicCityRuins = Sounds.MusicLabSlow;
-        //public static string CurrentMusicParty = Sounds.MusicPuroDance;
 
         public static bool InBlackLatexBiome(Player player) => player.InModBiome<BlackLatexSurfaceBiome>();
         public static bool InWhiteLatexBiome(Player player) => player.InModBiome<WhiteLatexSurfaceBiome>();
@@ -178,9 +171,7 @@ namespace ChangedSpecialMod.Utilities
 
             Vector2 startPos = drawCentered ? proj.Center : proj.position;
             Vector2 drawPos = startPos - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
-            //drawPos.Y -= 24;
-            //var drawData = new DrawData(texture, drawPos, rectangle, proj.GetAlpha(lightColor));
-            //GameShaders.Armor.Apply(armorShaderToUse, proj, drawData);
+
             Main.spriteBatch.Draw(texture, drawPos, rectangle, proj.GetAlpha(lightColor), rotation, origin, scale, spriteEffects, 0f);
 
         }
@@ -384,7 +375,7 @@ namespace ChangedSpecialMod.Utilities
             var solarEclipse = Main.eclipse && Main.IsItDay();
             var DD2EventActive = (DD2Event.Ongoing && player.ZoneOldOneArmy);
             var nearMeteor = player.ZoneMeteor;
-            var bossAlive = IsBossAlive();// Main.CurrentFrameFlags.AnyActiveBossNPC;
+            var bossAlive = IsBossAlive();
 
             return (!isInInvasionZone && !pumpkinMoon && !frostMoon && !solarEclipse && !DD2EventActive && !nearMeteor && !bossAlive);
         }
@@ -392,78 +383,6 @@ namespace ChangedSpecialMod.Utilities
         public static bool NoInvasionOrEvent()
         {
             return Main.invasionType == 0 && !(Main.CurrentFrameFlags.AnyActiveBossNPC && !NPC.LunarApocalypseIsUp);
-        }
-
-        /// <summary>
-        /// Get the spawn chance for land and flying creatures
-        /// </summary>
-        /// <returns></returns>
-        public static float GetSpawnCondition()
-        {
-            return new float[]
-            {
-                // Critter, to make them appear in towns
-                SpawnCondition.TownCritter.Chance,
-                SpawnCondition.TownGeneralCritter.Chance,
-
-                SpawnCondition.Overworld.Chance,
-                SpawnCondition.OverworldDayRain.Chance,
-                SpawnCondition.OverworldNightMonster.Chance,
-                SpawnCondition.OverworldDaySlime.Chance,
-                SpawnCondition.SurfaceJungle.Chance,
-                
-                // World evils and hallow
-                SpawnCondition.Crimson.Chance,
-                SpawnCondition.Corruption.Chance,
-                SpawnCondition.OverworldHallow.Chance,
-            }.Max();
-        }
-
-        /// <summary>
-        /// Get the spawn chance for swimming creatures. Currently this is only used by the squid dog cub
-        /// </summary>
-        /// <returns></returns>
-        public static float GetSpawnConditionFish()
-        {
-            var chance = new float[] 
-            {
-                SpawnCondition.WaterCritter.Chance,
-                SpawnCondition.CorruptWaterCritter.Chance,
-                SpawnCondition.DefaultWaterCritter.Chance,
-                SpawnCondition.HardmodeCrimsonWater.Chance,
-                SpawnCondition.HardmodeJungleWater.Chance,
-                SpawnCondition.HardmodeMushroomWater.Chance,
-                SpawnCondition.JungleWater.Chance,
-                SpawnCondition.OverworldWaterCritter.Chance,
-                SpawnCondition.OverworldWaterSurfaceCritter.Chance,
-                SpawnCondition.TownDefaultWaterCritter.Chance,
-                SpawnCondition.TownOverworldWaterCritter.Chance,
-                SpawnCondition.TownOverworldWaterSurfaceCritter.Chance,
-                SpawnCondition.TownWaterCritter.Chance,
-                SpawnCondition.OverworldUnderwaterCritter.Chance,
-                SpawnCondition.TownOverworldUnderwaterCritter.Chance
-            }.Max();
-
-            return Math.Sign(chance) * 5;
-        }
-
-        /// <summary>
-        /// Check if the latex beast has the right goo type to spawn in an area
-        /// </summary>
-        /// <param name="spawnInfo"></param>
-        /// <param name="gooType"></param>
-        /// <returns></returns>
-        public static float GetEnvironmentSpawnChance(NPCSpawnInfo spawnInfo, GooType gooType)
-        {
-            var player = spawnInfo.Player;
-            if ((gooType == GooType.None && InChangedBiome(player)) ||
-                (gooType == GooType.Black && (InBlackLatexBiome(player) || InCityRuinsBiome(player))) ||
-                (gooType == GooType.White && (InWhiteLatexBiome(player) || InCityRuinsBiome(player))) ||
-                (gooType == GooType.BlackOnly && (InBlackLatexBiome(player))) ||
-                (gooType == GooType.WhiteOnly && (InWhiteLatexBiome(player))))
-                return 1.0f;
-
-            return 0.0f;
         }
 
         public static bool IsItWindy()
@@ -575,10 +494,9 @@ namespace ChangedSpecialMod.Utilities
         public static float GetSurfaceSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc, int NPCID)
         {
             var playerTransfurTypeMultiplier = PlayerTransfurTypeMultiplier(spawnInfo, npc, NPCID);
-            var environmentSpawnChance = NewSpawnLogic(spawnInfo, npc); //GetEnvironmentSpawnChance(spawnInfo, npc.GooType);
+            var environmentSpawnChance = NewSpawnLogic(spawnInfo, npc);
             var weatherSpawnChance = GetWeatherSpawnChance(npc.ElementType);
-            //var spawnConditionChance = 1; npc.IsFish ? GetSpawnConditionFish() : GetSpawnCondition();
-            return playerTransfurTypeMultiplier * environmentSpawnChance * weatherSpawnChance;// * spawnConditionChance;
+            return playerTransfurTypeMultiplier * environmentSpawnChance * weatherSpawnChance;
         }
 
         public static float NewSpawnLogic(NPCSpawnInfo spawnInfo, ChangedNPC npc)

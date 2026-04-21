@@ -12,10 +12,8 @@ namespace ChangedSpecialMod.Content.Projectiles
         {
             Main.projFrames[Type] = 5;
             Main.projPet[Type] = true;
-
             ProjectileID.Sets.MinionTargettingFeature[Type] = true;
             ProjectileID.Sets.MinionSacrificable[Type] = true;
-            //ProjectileID.Sets.Minion[Type] = true;
         }
 
         public override void SetDefaults()

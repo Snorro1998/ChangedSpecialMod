@@ -1,18 +1,10 @@
 ﻿using ChangedSpecialMod.Assets;
-using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Dusts;
-using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Security.Policy;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.Graphics.Renderers;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -62,7 +54,6 @@ namespace ChangedSpecialMod.Content.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             ChangedUtils.DrawProjectileCentered(Projectile, lightColor);
-            //DrawProjectileCentered(Projectile, lightColor);
             return false;
         }
 
@@ -85,34 +76,10 @@ namespace ChangedSpecialMod.Content.Projectiles
 
             Vector2 startPos = drawCentered ? proj.Center : proj.position;
             Vector2 drawPos = startPos - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
-            //drawPos.Y -= 24;
-            //var drawData = new DrawData(texture, drawPos, rectangle, proj.GetAlpha(lightColor));
-            //GameShaders.Armor.Apply(armorShaderToUse, proj, drawData);
+
             Main.spriteBatch.Draw(texture, drawPos, rectangle, proj.GetAlpha(lightColor), rotation, origin, scale, spriteEffects, 0f);
 
         }
-        /*
-        public override void FindFrame(int frameHeight)
-        {
-            Projectile.gfxOffY = 8;
-            imageCounter += imageSpeed;
-            if (imageCounter >= ImageLength * 60)
-            {
-                if (Loop)
-                {
-                    imageCounter %= ImageLength * 60;
-                }
-                else
-                {
-                    imageCounter = ImageLength * 60 - 1;
-                }
-            }
-
-            var arrayIndex = (int)(imageCounter / 60D);
-            imageIndex = animation[arrayIndex];
-            Projectile.frame = imageIndex;
-        }
-        */
 
         private void SwitchState(ActionState newState)
         {
@@ -152,8 +119,6 @@ namespace ChangedSpecialMod.Content.Projectiles
                 SoundEngine.PlaySound(Sounds.SoundSpike, Projectile.Center);
             }
 
-            // For now they will be up for the same time as they are idle before they are up
-            //if (AITimer >= AITimeIdle)
             if (AITimer > 30)
             {
                 SwitchState(ActionState.Down);
