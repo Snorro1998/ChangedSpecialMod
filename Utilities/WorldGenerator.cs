@@ -5,7 +5,6 @@ using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Channels;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -296,8 +295,6 @@ namespace ChangedSpecialMod.Utilities
             ModContent.TileType<Painting3>(),
             ModContent.TileType<Painting4>(),
             ModContent.TileType<Painting5>(), 
-            //ModContent.TileType<Painting6>(),     // Ninja
-            //ModContent.TileType<Painting7>(),     // Cuddly
             ModContent.TileType<Painting8>(),
             ModContent.TileType<Painting9>(),
             ModContent.TileType<Painting10>(),
@@ -321,7 +318,7 @@ namespace ChangedSpecialMod.Utilities
             ModContent.TileType<DrunkPainting1>(),  // Puro closeup
             ModContent.TileType<DrunkPainting2>(),  // Shark derp
             ModContent.TileType<DrunkPainting3>(),  // Squid Dog derp
-            ModContent.TileType<DrunkPainting4>(),   // Puro derp
+            ModContent.TileType<DrunkPainting4>(),  // Puro derp
 
             ModContent.TileType<Pictures1>()
         };
@@ -599,7 +596,7 @@ namespace ChangedSpecialMod.Utilities
         }
 
         // Add a chest to the lab so it won't get destroyed by meteors
-        // (during testing one fell right next to it, but they don't do that if there is a chest nearby)
+        // during testing one fell right next to it, but they don't do that if there is a chest nearby
         public static void AddChest(int xStart, int roomWidth, int yCur, int h)
         {
             var ww = xStart + 2;
@@ -757,22 +754,6 @@ namespace ChangedSpecialMod.Utilities
                     if (tileType != -1)
                     {
                         tile.TileType = (ushort)tileType;
-                        /*
-                        if (ShouldReplaceWall(tile.WallType))
-                        {
-                            byte wallPaint = 0;
-                            if (labType == LabType.Black)
-                                wallPaint = PaintID.BlackPaint;
-                            else if (labType == LabType.White)
-                                wallPaint = PaintID.WhitePaint;
-
-                            if (wallPaint != 0)
-                            {
-                                tile.WallType = WallID.Slime;
-                                tile.WallColor = wallPaint;
-                            }    
-                        }
-                        */
                     }
                 }
             }

@@ -1,6 +1,3 @@
-using ChangedSpecialMod.Common.Systems;
-using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Utilities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -1,6 +1,4 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable;
-using ChangedSpecialMod.Content.Tiles;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -9,7 +7,6 @@ using Terraria.GameContent.Generation;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using static Terraria.GameContent.PotionOfReturnGateHelper;
 
 namespace ChangedSpecialMod.Utilities
 {
@@ -65,11 +62,9 @@ namespace ChangedSpecialMod.Utilities
                     switch (Main.maxTilesX)
                     {
                         case WorldGen.WorldSizeLargeX:
-                            nBuildings = 2;//3
+                            nBuildings = 2;
                             break;
                         case WorldGen.WorldSizeMediumX:
-                            nBuildings = 1;//1
-                            break;
                         case WorldGen.WorldSizeSmallX:
                             nBuildings = 1;
                             break;
@@ -112,7 +107,7 @@ namespace ChangedSpecialMod.Utilities
                     // If there are 2 labs, make one white and the other one black
                     if (nLabs == 2)
                     {
-                        NewFindWhiteLatexLabNearSnow();
+                        FindWhiteLatexLabNearSnow();
                         if (newLabs[0].labType == LabType.White)
                             newLabs[1].labType = LabType.Black;
                         else
@@ -120,36 +115,17 @@ namespace ChangedSpecialMod.Utilities
                     }
                     else if (nLabs > 2)
                     {
-                        NewFindWhiteLatexLabNearSnow();
-                        NewFindOtherWhiteLatexLabs(nBuildingsPerType - 1);
-                        NewFindBlackLatexLabs(nBuildingsPerType);
-                    }
-
-                    NewGenerateLabs();
-
-                    // Old logic
-                    /*
-                    FindPositionsForBuildings(nBuildings, xStartLeft, widthLeft);
-                    FindPositionsForBuildings(nBuildings, xStartRight, widthRight);
-
-                    int nLabTypes = Enum.GetValues<LabType>().Length;
-                    var nBuildingsPerType = Math.Max(1, labPositions.Count / nLabTypes);
-                    
-                    // If less then 3 buildings all will be the city ruins
-                    if (nBuildingsPerType > 0)
-                    {
                         FindWhiteLatexLabNearSnow();
                         FindOtherWhiteLatexLabs(nBuildingsPerType - 1);
                         FindBlackLatexLabs(nBuildingsPerType);
                     }
 
                     GenerateLabs();
-                    */
                 }));
             }
         }
 
-        private void NewGenerateLabs()
+        private void GenerateLabs()
         {
             var biomeWidth = 100;
             switch (Main.maxTilesX)
@@ -176,45 +152,10 @@ namespace ChangedSpecialMod.Utilities
                 var latexType = lab.labType;
                 lab.Lab.Generate((int)pos.X, (int)pos.Y, latexType);
                 WorldGenerator.CreateLatexBiome((int)pos.X, (int)pos.Y, lab.Lab.totalWidth, lab.Lab.totalHeight, biomeWidth, 50, latexType);
-                //var pos = labPositions[i];
-                //var latexType = labTypes[i];
-                //Building building = new Building();
-                //building.Generate((int)pos.X, (int)pos.Y, latexType);
-                //WorldGenerator.CreateLatexBiome((int)pos.X, (int)pos.Y, building.totalWidth, building.totalHeight, biomeWidth, 50, latexType);
             }
         }
 
-        private void GenerateLabs()
-        {
-            var biomeWidth = 100;
-            switch (Main.maxTilesX)
-            {
-                case WorldGen.WorldSizeLargeX:
-                    biomeWidth = 100;
-                    break;
-                case WorldGen.WorldSizeMediumX:
-                    biomeWidth = 76;
-                    break;
-                case WorldGen.WorldSizeSmallX:
-                    biomeWidth = 50;
-                    break;
-                // Custom world size
-                default:
-                    biomeWidth = Math.Max(50, Main.maxTilesX / 84);
-                    break;
-            }
-
-            for (int i = 0; i < labPositions.Count; i++)
-            {
-                var pos = labPositions[i];
-                var latexType = labTypes[i];
-                Building building = new Building();
-                building.Generate((int)pos.X, (int)pos.Y, latexType);
-                WorldGenerator.CreateLatexBiome((int)pos.X, (int)pos.Y, building.totalWidth, building.totalHeight, biomeWidth, 50, latexType);
-            }
-        }
-
-        private void NewFindWhiteLatexLabNearSnow()
+        private void FindWhiteLatexLabNearSnow()
         {
             var snowCenter = GenVars.snowOriginLeft + (GenVars.snowOriginRight - GenVars.snowOriginLeft) / 2;
             var minDist = int.MaxValue;
@@ -235,81 +176,21 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-        private void NewFindOtherWhiteLatexLabs(int nBuildingsPerType)
-        {
-            if (nBuildingsPerType < 1)
-                return;
-            var labList = new List<int>();
-            for (int i = 0; i < newLabs.Count; i++)
-            {
-                var labType = newLabs[i].labType;
-                if (labType == LabType.CityRuins)
-                    labList.Add(i);
-            }
-            labList = labList.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
-            //ChangedUtils.Shuffle(labList);
-            for (int i = 0; i < nBuildingsPerType; i++)
-            {
-                newLabs[labList[i]].labType = LabType.White;
-            }
-        }
-
-        private void NewFindBlackLatexLabs(int nBuildingsPerType)
-        {
-            if (nBuildingsPerType < 1)
-                return;
-            var labList = new List<int>();
-            for (int i = 0; i < newLabs.Count; i++)
-            {
-                var labType = newLabs[i].labType;
-                if (labType == LabType.CityRuins)
-                    labList.Add(i);
-            }
-            labList = labList.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
-
-            for (int i = 0; i < nBuildingsPerType; i++)
-            {
-                newLabs[labList[i]].labType = LabType.Black;
-            }
-        }
-
-        private void FindWhiteLatexLabNearSnow()
-        {
-            var snowCenter = GenVars.snowOriginLeft + (GenVars.snowOriginRight - GenVars.snowOriginLeft) / 2;
-            var minDist = int.MaxValue;
-            var snowLabIndex = -1;
-            for (var i = 0; i < labPositions.Count; i++)
-            {
-                var pos = labPositions[i];
-                var dist = Math.Abs((int)pos.X - snowCenter);
-                if (dist < minDist)
-                {
-                    minDist = dist;
-                    snowLabIndex = i;
-                }
-            }
-            if (snowLabIndex != -1)
-            {
-                labTypes[snowLabIndex] = LabType.White;
-            }
-        }
-
         private void FindOtherWhiteLatexLabs(int nBuildingsPerType)
         {
             if (nBuildingsPerType < 1)
                 return;
             var labList = new List<int>();
-            for (int i = 0; i < labTypes.Count; i++)
+            for (int i = 0; i < newLabs.Count; i++)
             {
-                var labType = labTypes[i];
+                var labType = newLabs[i].labType;
                 if (labType == LabType.CityRuins)
                     labList.Add(i);
             }
             labList = labList.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
-            //ChangedUtils.Shuffle(labList);
             for (int i = 0; i < nBuildingsPerType; i++)
             {
-                labTypes[labList[i]] = LabType.White;
+                newLabs[labList[i]].labType = LabType.White;
             }
         }
 
@@ -318,48 +199,17 @@ namespace ChangedSpecialMod.Utilities
             if (nBuildingsPerType < 1)
                 return;
             var labList = new List<int>();
-            for (int i = 0; i < labTypes.Count; i++)
+            for (int i = 0; i < newLabs.Count; i++)
             {
-                var labType = labTypes[i];
+                var labType = newLabs[i].labType;
                 if (labType == LabType.CityRuins)
                     labList.Add(i);
             }
             labList = labList.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
-
             for (int i = 0; i < nBuildingsPerType; i++)
             {
-                labTypes[labList[i]] = LabType.Black;
+                newLabs[labList[i]].labType = LabType.Black;
             }
-        }
-
-        private bool CheckAtXPosition(int x)
-        {
-            var IgnoreBlockTypes = new List<int>()
-            {
-                TileID.LivingWood,
-                TileID.LeafBlock,
-                TileID.LivingMahogany,
-                TileID.LivingMahoganyLeaves
-            };
-
-            int y = (int)GenVars.worldSurfaceLow;
-            while (y < Main.worldSurface)
-            {
-                if (WorldGen.SolidTile(x, y))
-                {
-                    var tileType = Main.tile[x, y].TileType;
-                    var wallType = Main.tile[x, y].WallType;
-                    if (!IgnoreBlockTypes.Contains((int)tileType))
-                    {
-                        labPositions.Add(new Vector2(x, y));
-                        labTypes.Add(0);
-                        return true;
-                    }
-                }
-                y++;
-            }
-
-            return false;
         }
 
         private void InitLabs(int nBuildings, int xStart, int widthTotal)
@@ -452,8 +302,6 @@ namespace ChangedSpecialMod.Utilities
                     if (!IgnoreBlockTypes.Contains((int)tileType) || attempt >= maxAttempts)
                     {
                         lab.Position = new Vector2(x, y);
-                        //labPositions.Add(new Vector2(x, y));
-                        //labTypes.Add(0);
                         return;
                     }
 
@@ -476,36 +324,6 @@ namespace ChangedSpecialMod.Utilities
                 y++;
             }
             // if we get here it failed
-        }
-
-        private void FindPositionsForBuildings(int nBuildings, int xStart, int widthTotal)
-        {
-            var isLeftSide = xStart < Main.maxTilesX / 2;
-            var spacing = widthTotal / nBuildings;
-
-            for (int i = 0; i < nBuildings; i++)
-            {
-                var halfSpace = spacing / 2;
-                int x = xStart + i * spacing + halfSpace;
-                int randomXShift = ChangedUtils.WorldGenRandNext(-halfSpace / 2, halfSpace / 2);
-                Main.rand.Next(0, 3);
-                x += randomXShift;
-
-                // Move the position if it is too close to the dungeon
-                if (Math.Abs(x - GenVars.dungeonX) < 100)
-                {
-                    x = isLeftSide ? x + 200 : x - 200;
-                }
-
-                // Check in a straight line down for a solid surface and add it to the position list if it was found
-                // This can fail if checking at a corruption shaft or a living tree
-                var succes = CheckAtXPosition(x);
-                // Check left if it failed
-                if (!succes) succes = CheckAtXPosition(x - 8);
-                // Check right if it failed
-                if (!succes) succes = CheckAtXPosition(x + 8);
-                // Give up if everyting failed
-            }
         }
     }
 }
