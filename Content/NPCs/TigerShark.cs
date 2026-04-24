@@ -52,15 +52,14 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.BaseScaleMultiplier = 0.7f;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-
             changedNPC.HatXOffset = 0;
             changedNPC.HatYOffset = -32;
             changedNPC.RemoveAllHats();
-
             changedNPC.GooType = GooType.None;
             changedNPC.ElementType = ElementType.Water;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -84,12 +83,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
             var changedNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

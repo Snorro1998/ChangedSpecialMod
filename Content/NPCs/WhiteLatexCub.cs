@@ -4,7 +4,6 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -43,17 +42,17 @@ namespace ChangedSpecialMod.Content.NPCs
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-            ChangedGlobalNPC.HatXOffset = -2;
-            ChangedGlobalNPC.HatYOffset = -17;//-16
-            ChangedGlobalNPC.GooType = GooType.White;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
-
-            ChangedGlobalNPC.SetHalloweenHatsForWhiteLatex();
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.HatXOffset = -2;
+            changedNPC.HatYOffset = -17;//-16
+            changedNPC.GooType = GooType.White;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.SetHalloweenHatsForWhiteLatex();
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -78,12 +77,6 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         private void UpdateHatPosition(int frameHeight)

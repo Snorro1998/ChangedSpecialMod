@@ -5,7 +5,6 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -51,15 +50,14 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-
             changedNPC.SetHalloweenHatsForBlackLatex();
-
             changedNPC.GooType = GooType.Black;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanHaveBeer = true;
             changedNPC.BeerXOffset = -16;
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -83,12 +81,6 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

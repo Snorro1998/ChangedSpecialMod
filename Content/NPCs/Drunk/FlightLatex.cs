@@ -49,6 +49,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.GooType = GooType.White;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -67,13 +68,6 @@ namespace ChangedSpecialMod.Content.NPCs
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
         }
 
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
-        }
-
-        
         public override void FindFrame(int frameHeight)
         {
             int currentFrame = NPC.frame.Y / frameHeight;

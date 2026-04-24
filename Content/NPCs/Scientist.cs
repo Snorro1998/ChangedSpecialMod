@@ -23,12 +23,31 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
+    public class ShopData
+    {
+        public string InternalName;
+        public string DisplayKey;
+
+        public ShopData(string internalName, string displayKey)
+        {
+            InternalName = internalName;
+            DisplayKey = displayKey;
+        }
+    }
+
     [AutoloadHead]
     public class Scientist : ModNPC
     {
-        public const string ShopName = "Shop";
-        public const string ShopName2 = "Second shop";
-        public int NumberOfTimesTalkedTo = 0;
+        private static int shopIndex = 0;
+        private const string ShopNamePath = "Mods.ChangedSpecialMod.ShopNames";
+
+        private static readonly List<ShopData> Shops = new()
+        {
+            new ShopData("First Shop", "Furniture"),
+            new ShopData("Second shop", "Potions"),
+            new ShopData("Third shop", "BossSummons"),
+            new ShopData("Fourth shop", "SolutionsShop"),
+        };
 
         private static int ShimmerHeadIndex;
         private static Profiles.StackedNPCProfile NPCProfile;
@@ -280,27 +299,29 @@ namespace ChangedSpecialMod.Content.NPCs
             return dialogue.GetDialogue(keyWords);
         }
 
+
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            var shopNamePath = "Mods.ChangedSpecialMod.ShopNames";
-            button = Language.GetTextValue($"{shopNamePath}.Furniture");
-            button2 = Language.GetTextValue($"{shopNamePath}.Potions");
+            button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
+
+            var currentShop = Shops[shopIndex];
+            button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shop)
         {
-            if (firstButton) 
+            if (firstButton)
             {
-                shop = ShopName;
+                shop = Shops[shopIndex].InternalName;
             }
-            else 
+            else
             {
-                shop = ShopName2;
+                shopIndex = (shopIndex + 1) % Shops.Count;
             }
         }
 
         public override void AddShops() {
-            new NPCShop(Type, ShopName)
+            new NPCShop(Type, Shops[0].InternalName)
                 .Add<Items.Placeable.LabTileBlock>()
                 .Add<Items.Placeable.CautionTileBlock>()
                 .Add<Items.Placeable.Furniture.LabDoor>()
@@ -315,7 +336,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.RedOfficeChair>()
                 .Add<Items.Placeable.Furniture.BlueOfficeChair>()
                 .Register();
-            new NPCShop(Type, ShopName2)
+
+            new NPCShop(Type, Shops[1].InternalName)
                 .Add(ItemID.Bottle)
                 .Add(ItemID.LesserHealingPotion)
                 .Add(ItemID.LesserManaPotion)
@@ -326,9 +348,15 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ItemID.NightOwlPotion)
                 .Add(ItemID.FlipperPotion)
                 .Add(ItemID.IronskinPotion)
+                .Register();
+
+            new NPCShop(Type, Shops[2].InternalName)
                 .Add<Items.Summons.SummonWhiteTail>()
                 .Add<Items.Summons.SummonWolfKing>()
                 .Add<Items.Summons.SummonBehemoth>()
+                .Register();
+
+            new NPCShop(Type, Shops[3].InternalName)
                 .Add<BlackLatexSolution>()
                 .Add<WhiteLatexSolution>()
                 .Add<DryDirtSolution>()
@@ -437,6 +465,19 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             multiplier = 12f;
             randomOffset = 2f;
+        }
+
+        // Immune to white latecis except White tail and squid dog.
+        // Even though they are white, they have the gootype none so they can spawn anywhere
+        public override bool CanBeHitByNPC(NPC attacker)
+        {
+            //var b = Mod.TryFind<ModNPC>("qa", out ModNPC result);
+
+            var changedNPC = NPC.Changed();
+            var attackerChangedNPC = attacker.Changed();
+            if (changedNPC != null && attackerChangedNPC != null && changedNPC.GooType == attackerChangedNPC.GooType)
+                return false;
+            return true;
         }
 
         private void UpdateHatPosition(int frameHeight)

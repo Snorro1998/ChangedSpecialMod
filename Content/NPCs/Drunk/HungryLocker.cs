@@ -57,6 +57,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultOnHitPlayer = false;
             changedNPC.DefaultHitEffect = true;
             changedNPC.RemoveAllHats();
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -75,12 +76,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return 0;
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

@@ -1,12 +1,10 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Mounts;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -45,16 +43,16 @@ namespace ChangedSpecialMod.Content.NPCs
 			AnimationType = NPCID.Wolf;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-
-            ChangedGlobalNPC.HatXOffset = -8;
-            ChangedGlobalNPC.HatYOffset = -34;
-            ChangedGlobalNPC.GooType = GooType.White;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.HatXOffset = -8;
+            changedNPC.HatYOffset = -34;
+            changedNPC.GooType = GooType.White;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -76,12 +74,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

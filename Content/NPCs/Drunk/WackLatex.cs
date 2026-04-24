@@ -49,16 +49,18 @@ namespace ChangedSpecialMod.Content.NPCs
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-            ChangedGlobalNPC.SetHalloweenHatsForBlackLatex();
-            ChangedGlobalNPC.GooType = GooType.Black;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
-            ChangedGlobalNPC.RemoveHat(ItemID.FlowerBoyHat);
-            ChangedGlobalNPC.RemoveHat(ItemID.TheBrideHat);
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.SetHalloweenHatsForBlackLatex();
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.RemoveHat(ItemID.FlowerBoyHat);
+            changedNPC.RemoveHat(ItemID.TheBrideHat);
+            changedNPC.RemoveHat(ItemID.BuccaneerBandana);
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -80,12 +82,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void AI()

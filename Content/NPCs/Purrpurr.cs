@@ -1,14 +1,9 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using rail;
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -65,12 +60,12 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
-
             changedNPC.ChangeHatPosition(ItemID.FlowerBoyHat, new int[] { 0, 14 });
             changedNPC.ChangeHatPosition(ItemID.TheBrideHat, new int[] { 4, 5 });
             changedNPC.ChangeHatPosition(ItemID.JackOLanternMask, new int[] { 0, 8 });
             changedNPC.ChangeHatPosition(ItemID.GhostMask, new int[] { 2, 10 });
             changedNPC.ChangeHatPosition(ItemID.WitchHat, new int[] { 4, 6 });
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -83,12 +78,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return ChangedUtils.GetWorldEvilSpawnChance(spawnInfo, NPC, ModContent.NPCType<Purrpurr>(), false);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         private void UpdateHatPosition(int frameHeight)

@@ -8,6 +8,33 @@
 
 Mods: {
 	ChangedSpecialMod: {
+		MusicDisplay: {
+			ModName: Changed
+			Authors.Shizi: ShiZi
+
+			Music: {
+				MusicBlackLatexZone: Black Goo Zone
+				MusicBlackLatexZone2: Scarlet Crystal Mine
+				MusicCrystalZone: Crystal Zone
+				MusicWhiteLatexZone: White Goo Jungle
+				MusicLibrary: Library
+				MusicLabSlow: Laboratory (slow)
+				MusicLab: Laboratory
+				MusicVents: Vent Pipe
+				MusicPuro: Puro The Black Goo
+				MusicGreenhouse: Greenhouse
+				MusicHappyBirthday: Birthday Song
+				MusicPuroDance: Puro Dance
+				MusicRun: RUN
+				MusicWhiteTailChase2: The White Tail Chase pt.2
+				# Not 100% sure, because they have no names
+				MusicWolfKing: The Wolf King
+				MusicBehemoth: The Behemoth
+				MusicShark: The Shark
+				MusicSquidDog: Squid Dog
+			}
+		}
+
 		Items: {
 			Painting1: {
 				DisplayName: The Silly Poofball
@@ -683,12 +710,17 @@ Mods: {
 		}
 
 		ShopNames: {
+			Shop: Shop
+			BossSummons: Boss Summons
+			CycleShop: Cycle shop
 			Herbs: Herbs
-			FruitAndHerbs: Fruit and herbs
 			Furniture: Furniture
-			Fruit: Fruit
+			Fruits: Fruit
 			MusicBoxes: Music boxes
 			Potions: Potions
+			SolutionsShop: Solutions
+			Paintings: Paintings
+			Pictures: Pictures
 		}
 
 		Messages: {
@@ -1355,6 +1387,17 @@ Mods: {
 			TransfurDevolve.DisplayName: Transfur Devolve
 			TransfurEvolve.DisplayName: Transfur Evolve
 		}
+
+		Configs: {
+			ChangedSpecialModClientConfig: {
+				DisplayName: Client Config
+
+				TransfurSound: {
+					Label: Transfur Sound
+					Tooltip: ""
+				}
+			}
+		}
 	}
 }
 
@@ -1724,6 +1767,9 @@ RandomWorldName_Noun: {
 
 # You better make a screenshot if you see this one
 SpecialWorldName.TheConstant: Mmmmm Orange
-# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-UI.PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
-UI.PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+
+UI: {
+	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
+	PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
+	PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+}

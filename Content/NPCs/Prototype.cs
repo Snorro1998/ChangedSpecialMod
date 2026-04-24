@@ -26,6 +26,16 @@ namespace ChangedSpecialMod.Content.NPCs
     [AutoloadHead]
     public class Prototype : ModNPC
     {
+        private static int shopIndex = 0;
+        private const string ShopNamePath = "Mods.ChangedSpecialMod.ShopNames";
+
+        private static readonly List<ShopData> Shops = new()
+        {
+            new ShopData("First Shop", "Fruits"),
+            new ShopData("Second shop", "Herbs"),
+            new ShopData("Third shop", "MusicBoxes")
+        };
+
         // Everything starting with state needs to be figured out still
         private enum ActionState
         {
@@ -56,8 +66,6 @@ namespace ChangedSpecialMod.Content.NPCs
             State1001 = 1001
         }
 
-        public const string ShopName = "Shop";
-        public const string ShopName2 = "Second shop";
         private static Profiles.StackedNPCProfile NPCProfile;
 
         // This should add up to 1 or it will break (so don't use something like 0.3)
@@ -222,29 +230,29 @@ namespace ChangedSpecialMod.Content.NPCs
             return dialogue.GetDialogue(keyWords);
 		}
 
-		public override void SetChatButtons(ref string button, ref string button2) 
-		{
-            var shopNamePath = "Mods.ChangedSpecialMod.ShopNames";
-            button = Language.GetTextValue($"{shopNamePath}.FruitAndHerbs");
-            button2 = Language.GetTextValue($"{shopNamePath}.MusicBoxes");
-		}
-
-		public override void OnChatButtonClicked(bool firstButton, ref string shop) 
-		{
-			if (firstButton) 
-            {
-				shop = ShopName;
-			}
-			else 
-            {
-                shop = ShopName2;
-            }
-		}
-
-		public override void AddShops() 
+        public override void SetChatButtons(ref string button, ref string button2)
         {
-			new NPCShop(Type, ShopName)
-                // Fruit
+            button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
+
+            var currentShop = Shops[shopIndex];
+            button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
+        }
+
+        public override void OnChatButtonClicked(bool firstButton, ref string shop)
+        {
+            if (firstButton)
+            {
+                shop = Shops[shopIndex].InternalName;
+            }
+            else
+            {
+                shopIndex = (shopIndex + 1) % Shops.Count;
+            }
+        }
+
+        public override void AddShops() 
+        {
+			new NPCShop(Type, Shops[0].InternalName)
                 .Add(ItemID.Apple)
                 .Add(ItemID.Apricot)
                 .Add(ItemID.Banana)
@@ -263,8 +271,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ItemID.Pomegranate)
                 .Add(ItemID.Rambutan)
                 .Add(ItemID.SpicyPepper)
+                .Register();
 
-                // Herbs
+            new NPCShop(Type, Shops[1].InternalName)
                 .Add(ItemID.Daybloom)
                 .Add(ItemID.Moonglow)
                 .Add(ItemID.Blinkroot)
@@ -274,7 +283,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ItemID.Shiverthorn)
                 .Register();
 
-            new NPCShop(Type, ShopName2)
+            new NPCShop(Type, Shops[2].InternalName)
                 .Add(ModContent.ItemType<MusicBoxBlackLatexZone1>())
                 .Add(ModContent.ItemType<MusicBoxBlackLatexZone2>())
                 .Add(ModContent.ItemType<MusicBoxCrystalZone>())

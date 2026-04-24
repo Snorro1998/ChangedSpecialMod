@@ -1,20 +1,13 @@
-using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Threading;
 using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -51,17 +44,16 @@ namespace ChangedSpecialMod.Content.NPCs
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
-            var ChangedNPC = NPC.Changed();
-            ChangedNPC.AdjustStatScaling(NPC);
-            ChangedNPC.SetNPCName(NPC);
-            ChangedNPC.HatXOffset = -4;
-            ChangedNPC.HatYOffset = -36;
-            ChangedNPC.GooType = GooType.Black;
-            ChangedNPC.ElementType = ElementType.None;
-            ChangedNPC.DefaultOnHitPlayer = true;
-            ChangedNPC.DefaultHitEffect = true;
-
-           // ChangedNPC.RemoveAllHats();
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.HatXOffset = -4;
+            changedNPC.HatYOffset = -36;
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -85,12 +77,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         private void UpdateHatPosition(int frameHeight)

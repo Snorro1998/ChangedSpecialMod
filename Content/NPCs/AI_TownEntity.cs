@@ -192,15 +192,15 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
                 npc.ai[0] = ((num == 0) ? 20 : Main.rand.Next(20, 20 + num));
                 npc.ai[1] = 200 + Main.rand.Next(300);
-                if (npc.ai[0] == 20f && npc.type == 637)
+                if (npc.ai[0] == 20f && npc.type == NPCID.TownCat)
                 {
                     npc.ai[1] = 500 + Main.rand.Next(200);
                 }
-                if (npc.ai[0] == 21f && npc.type == 638)
+                if (npc.ai[0] == 21f && npc.type == NPCID.TownDog)
                 {
                     npc.ai[1] = 100 + Main.rand.Next(100);
                 }
-                if (npc.ai[0] == 22f && npc.type == 656)
+                if (npc.ai[0] == 22f && npc.type == NPCID.TownBunny)
                 {
                     npc.ai[1] = 200 + Main.rand.Next(200);
                 }
@@ -688,7 +688,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 npc.UpdateHomeTileState(npc.homeless, (int)npc.Center.X / 16, (int)(npc.position.Y + (float)npc.height + 4f) / 16);
             }
-            bool flag3 = false;
+            bool talkingWithPlayer = false;
             int num6 = (int)(npc.position.X + (float)(npc.width / 2)) / 16;
             int num7 = (int)(npc.position.Y + (float)npc.height + 1f) / 16;
             AI_007_FindGoodRestingSpot(npc, num6, num7, out var floorX, out var floorY);
@@ -709,7 +709,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     // If being talked to
                     if (Main.player[j].active && Main.player[j].talkNPC == npc.whoAmI)
                     {
-                        flag3 = true;
+                        talkingWithPlayer = true;
                         if (npc.ai[0] != 0f)
                         {
                             npc.netUpdate = true;
@@ -760,7 +760,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     {
                         npc.UpdateHomeTileState(npc.homeless, (int)(npc.Center.X / 16f), (int)(npc.position.Y + (float)npc.height + 2f) / 16);
                     }
-                    if (!flag3 && npc.ai[0] == 0f)
+                    if (!talkingWithPlayer && npc.ai[0] == 0f)
                     {
                         npc.ai[0] = 1f;
                         npc.ai[1] = 200f;
@@ -827,12 +827,12 @@ namespace ChangedSpecialMod.Content.NPCs
             bool flag10 = isTurtle || isFrogOrYellowTownSlime;
             bool flag11 = flag8;
             bool flag12 = flag8;
-            float num8 = 200f;
+            float dangerDetecRange = 200f;
             if (NPCID.Sets.DangerDetectRange[npc.type] != -1)
             {
-                num8 = NPCID.Sets.DangerDetectRange[npc.type];
+                dangerDetecRange = NPCID.Sets.DangerDetectRange[npc.type];
             }
-            bool flag13 = false;
+            bool enemyNearby = false;
             bool flag14 = false;
             float num9 = -1f;
             float num10 = -1f;
@@ -840,49 +840,53 @@ namespace ChangedSpecialMod.Content.NPCs
             int num12 = -1;
             int num13 = -1;
             bool keepwalking;
-            if (!isTurtle && Main.netMode != 1 && !flag3)
+
+            // Check for enemies
+            if (!isTurtle && Main.netMode != 1 && !talkingWithPlayer)
             {
                 for (int m = 0; m < 200; m++)
                 {
-                    if (!Main.npc[m].active || Main.npc[m].friendly || Main.npc[m].damage <= 0 || !(Main.npc[m].Distance(npc.Center) < num8) || (npc.type == NPCID.SkeletonMerchant && NPCID.Sets.Skeletons[Main.npc[m].type]) || (!Main.npc[m].noTileCollide && !Collision.CanHit(npc.Center, 0, 0, Main.npc[m].Center, 0, 0)) || !NPCLoader.CanHitNPC(Main.npc[m], npc))
+                    if (!Main.npc[m].active || Main.npc[m].friendly || Main.npc[m].damage <= 0 || !(Main.npc[m].Distance(npc.Center) < dangerDetecRange) || (npc.type == NPCID.SkeletonMerchant && NPCID.Sets.Skeletons[Main.npc[m].type]) || (!Main.npc[m].noTileCollide && !Collision.CanHit(npc.Center, 0, 0, Main.npc[m].Center, 0, 0)) || !NPCLoader.CanHitNPC(Main.npc[m], npc))
                     {
                         continue;
                     }
                     bool flag15 = Main.npc[m].CanBeChasedBy(npc);
-                    flag13 = true;
-                    float num14 = Main.npc[m].Center.X - npc.Center.X;
-                    if (npc.type == 614)
+                    enemyNearby = true;
+                    float xDifference = Main.npc[m].Center.X - npc.Center.X;
+                    if (npc.type == NPCID.ExplosiveBunny)
                     {
-                        if (num14 < 0f && (num9 == -1f || num14 > num9))
+                        if (xDifference < 0f && (num9 == -1f || xDifference > num9))
                         {
-                            num10 = num14;
+                            num10 = xDifference;
                             num13 = m;
                         }
-                        if (num14 > 0f && (num10 == -1f || num14 < num10))
+                        if (xDifference > 0f && (num10 == -1f || xDifference < num10))
                         {
-                            num9 = num14;
+                            num9 = xDifference;
                             num12 = m;
                         }
                         continue;
                     }
-                    if (num14 < 0f && (num9 == -1f || num14 > num9))
+                    // Enemy to the right
+                    if (xDifference < 0f && (num9 == -1f || xDifference > num9))
                     {
-                        num9 = num14;
+                        num9 = xDifference;
                         if (flag15)
                         {
                             num12 = m;
                         }
                     }
-                    if (num14 > 0f && (num10 == -1f || num14 < num10))
+                    // Enemy to the left
+                    if (xDifference > 0f && (num10 == -1f || xDifference < num10))
                     {
-                        num10 = num14;
+                        num10 = xDifference;
                         if (flag15)
                         {
                             num13 = m;
                         }
                     }
                 }
-                if (flag13)
+                if (enemyNearby)
                 {
                     num11 = ((num9 == -1f) ? 1 : ((num10 != -1f) ? (num10 < 0f - num9).ToDirectionInt() : (-1)));
                     float num15 = 0f;
@@ -909,7 +913,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     {
                         if (NPCID.Sets.PrettySafe[npc.type] != -1 && (float)NPCID.Sets.PrettySafe[npc.type] < num15)
                         {
-                            flag13 = false;
+                            enemyNearby = false;
                             flag14 = NPCID.Sets.AttackType[npc.type] > -1;
                         }
                         else if (npc.ai[0] != 1f)
@@ -968,7 +972,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.localAI[3] = 0f;
                     npc.netUpdate = true;
                 }
-                else if (shouldStayInside && !flag3 && !NPCID.Sets.TownCritter[npc.type])
+                else if (shouldStayInside && !talkingWithPlayer && !NPCID.Sets.TownCritter[npc.type])
                 {
                     if (Main.netMode != 1)
                     {
@@ -1035,7 +1039,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        if (!flag3 && NPCID.Sets.IsTownPet[npc.type] && npc.ai[1] >= 100f && npc.ai[1] <= 150f)
+                        if (!talkingWithPlayer && NPCID.Sets.IsTownPet[npc.type] && npc.ai[1] >= 100f && npc.ai[1] <= 150f)
                         {
                             AI_007_AttemptToPlayIdleAnimationsForPets(npc, num16);
                         }
@@ -1198,12 +1202,12 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                     float movementSpeed = 1f;
                     float acceleration = 0.07f;
-                    if (npc.type == NPCID.ExplosiveBunny && flag13)
+                    if (npc.type == NPCID.ExplosiveBunny && enemyNearby)
                     {
                         movementSpeed = 1.5f;
                         acceleration = 0.1f;
                     }
-                    else if (npc.type == NPCID.Squirrel || npc.type == NPCID.SquirrelGold || npc.type == 538 || (npc.type >= 639 && npc.type <= 645))
+                    else if (npc.type == NPCID.Squirrel || npc.type == NPCID.SquirrelGold || npc.type == NPCID.SquirrelRed || (npc.type >= NPCID.GemSquirrelAmethyst && npc.type <= NPCID.GemSquirrelAmber))
                     {
                         movementSpeed = 1.5f;
                     }
@@ -1238,7 +1242,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         movementSpeed = 2f;
                         acceleration = 1f;
                     }
-                    if (npc.friendly && (flag13 || flag17))
+                    if (npc.friendly && (enemyNearby || flag17))
                     {
                         movementSpeed = 1.5f;
                         float num19 = 1f - (float)npc.life / (float)npc.lifeMax;
@@ -1417,7 +1421,7 @@ namespace ChangedSpecialMod.Content.NPCs
                             if ((npc.velocity.X < 0f && npc.direction == -1) || (npc.velocity.X > 0f && npc.direction == 1))
                             {
                                 bool flag22 = false;
-                                bool flag23 = false;
+                                bool runFromEnemy = false;
                                 if (tileSafely5.HasUnactuatedTile && Main.tileSolid[tileSafely5.TileType] && !Main.tileSolidTop[tileSafely5.TileType] && (!flag21 || (tileSafely4.HasUnactuatedTile && Main.tileSolid[tileSafely4.TileType] && !Main.tileSolidTop[tileSafely4.TileType])))
                                 {
                                     if (!Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 5, num21 - 1) && !Collision.SolidTiles(num20, num20, num21 - 5, num21 - 3))
@@ -1434,9 +1438,9 @@ namespace ChangedSpecialMod.Content.NPCs
                                             npc.netUpdate = true;
                                         }
                                     }
-                                    else if (flag13)
+                                    else if (enemyNearby)
                                     {
-                                        flag23 = true;
+                                        runFromEnemy = true;
                                         flag22 = true;
                                     }
                                     else if (!flag20)
@@ -1451,9 +1455,9 @@ namespace ChangedSpecialMod.Content.NPCs
                                         npc.velocity.Y = -5f;
                                         npc.netUpdate = true;
                                     }
-                                    else if (flag13)
+                                    else if (enemyNearby)
                                     {
-                                        flag23 = true;
+                                        runFromEnemy = true;
                                         flag22 = true;
                                     }
                                     else
@@ -1468,9 +1472,9 @@ namespace ChangedSpecialMod.Content.NPCs
                                         npc.velocity.Y = -4.4f;
                                         npc.netUpdate = true;
                                     }
-                                    else if (flag13)
+                                    else if (enemyNearby)
                                     {
-                                        flag23 = true;
+                                        runFromEnemy = true;
                                         flag22 = true;
                                     }
                                     else
@@ -1484,9 +1488,9 @@ namespace ChangedSpecialMod.Content.NPCs
                                     {
                                         flag22 = true;
                                     }
-                                    if (flag13)
+                                    if (enemyNearby)
                                     {
-                                        flag23 = true;
+                                        runFromEnemy = true;
                                     }
                                 }
                                 else if (flag12 && !Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 2, num21 - 1))
@@ -1494,7 +1498,7 @@ namespace ChangedSpecialMod.Content.NPCs
                                     npc.velocity.Y = -5f;
                                     npc.netUpdate = true;
                                 }
-                                if (flag23)
+                                if (runFromEnemy)
                                 {
                                     keepwalking3 = false;
                                     npc.velocity.X = 0f;
@@ -1586,7 +1590,8 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 npc.velocity.X *= 0.8f;
                 npc.ai[1] -= 1f;
-                if (npc.ai[0] == 8f && npc.ai[1] < 60f && flag13)
+                // Extend running time if enemy is still nearby
+                if (npc.ai[0] == 8f && npc.ai[1] < 60f && enemyNearby)
                 {
                     npc.ai[1] = 180f;
                     npc.netUpdate = true;
@@ -1842,7 +1847,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
                 if (npc.ai[1] <= 0f)
                 {
-                    npc.ai[0] = ((npc.localAI[2] == 8f && flag13) ? 8 : 0);
+                    npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
                     npc.ai[1] = num40 + Main.rand.Next(maxValue);
                     npc.ai[2] = 0f;
                     npc.localAI[1] = (npc.localAI[3] = num40 / 2 + Main.rand.Next(maxValue));
@@ -2124,7 +2129,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
                 if (npc.ai[1] <= 0f)
                 {
-                    npc.ai[0] = ((npc.localAI[2] == 8f && flag13) ? 8 : 0);
+                    npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
                     npc.ai[1] = num49 + Main.rand.Next(maxValue2);
                     npc.ai[2] = 0f;
                     npc.localAI[1] = (npc.localAI[3] = num49 / 2 + Main.rand.Next(maxValue2));
@@ -2333,7 +2338,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
                 if (npc.ai[1] <= 0f)
                 {
-                    npc.ai[0] = ((npc.localAI[2] == 8f && flag13) ? 8 : 0);
+                    npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
                     npc.ai[1] = num59 + Main.rand.Next(maxValue3);
                     npc.ai[2] = 0f;
                     npc.localAI[1] = (npc.localAI[3] = num59 / 2 + Main.rand.Next(maxValue3));
@@ -2443,7 +2448,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (npc.ai[1] <= 0f)
                 {
                     bool flag25 = false;
-                    if (flag13)
+                    if (enemyNearby)
                     {
                         int num80 = -num11;
                         if (!Collision.CanHit(npc.Center, 0, 0, npc.Center + Vector2.UnitX * num80 * 32f, 0, 0) || npc.localAI[2] == 8f)
@@ -2459,6 +2464,7 @@ namespace ChangedSpecialMod.Content.NPCs
                             {
                                 num82 = ((num83 == -1 || !Collision.CanHit(npc.Center, 0, 0, Main.npc[num83].Center, 0, 0)) ? (-1) : num83);
                             }
+                            // switch to melee attack
                             if (num82 != -1)
                             {
                                 npc.ai[0] = 15f;
@@ -2476,7 +2482,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                     if (!flag25)
                     {
-                        npc.ai[0] = ((npc.localAI[2] == 8f && flag13) ? 8 : 0);
+                        npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
                         npc.ai[1] = num74 + Main.rand.Next(maxValue4);
                         npc.ai[2] = 0f;
                         npc.localAI[1] = (npc.localAI[3] = num74 / 2 + Main.rand.Next(maxValue4));
@@ -2559,10 +2565,10 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.velocity.Y -= 0.2f;
                 }
             }
-            if (Main.netMode != 1 && npc.isLikeATownNPC && !flag3)
+            if (Main.netMode != 1 && npc.isLikeATownNPC && !talkingWithPlayer)
             {
-                bool flag26 = npc.ai[0] < 2f && !flag13 && !npc.wet;
-                bool flag27 = (npc.ai[0] < 2f || npc.ai[0] == 8f) && (flag13 || flag14);
+                bool flag26 = npc.ai[0] < 2f && !enemyNearby && !npc.wet;
+                bool flag27 = (npc.ai[0] < 2f || npc.ai[0] == 8f) && (enemyNearby || flag14);
                 if (npc.localAI[1] > 0f)
                 {
                     npc.localAI[1] -= 1f;
@@ -2571,17 +2577,17 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     flag27 = false;
                 }
-                if (flag27 && npc.type == 124 && npc.localAI[0] == 1f)
+                if (flag27 && npc.type == NPCID.Mechanic && npc.localAI[0] == 1f)
                 {
                     flag27 = false;
                 }
-                if (flag27 && npc.type == 20)
+                if (flag27 && npc.type == NPCID.Dryad)
                 {
                     flag27 = false;
-                    for (int num89 = 0; num89 < 200; num89++)
+                    for (int npcIndex = 0; npcIndex < 200; npcIndex++)
                     {
-                        NPC nPC3 = Main.npc[num89];
-                        if (nPC3.active && nPC3.townNPC && !(npc.Distance(nPC3.Center) > 1200f) && nPC3.FindBuffIndex(165) == -1)
+                        NPC nPC3 = Main.npc[npcIndex];
+                        if (nPC3.active && nPC3.townNPC && !(npc.Distance(nPC3.Center) > 1200f) && nPC3.FindBuffIndex(BuffID.DryadsWard) == -1)
                         {
                             flag27 = true;
                             break;
@@ -2671,7 +2677,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Bartender holding beer
-                else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == 550)
+                else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == NPCID.DD2Bartender)
                 {
                     int num104 = 300;
                     int num105 = 150;
@@ -2725,7 +2731,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 else if (flag26 && npc.ai[0] == 1f && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
                 {
                     Point point = (npc.Bottom + Vector2.UnitX * npc.direction * 24 + Vector2.UnitY * -2f).ToTileCoordinates();
-                    //Point point = (npc.Bottom + Vector2.UnitX * npc.direction * 2 + Vector2.UnitY * -2f).ToTileCoordinates();
                     bool isPlant = WorldGen.InWorld(point.X, point.Y, 1);
                     if (isPlant)
                     {

@@ -65,6 +65,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
 
             changedNPC.SetHalloweenHatsForBlackLatex();
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -108,12 +109,6 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             base.FindFrame(frameHeight);
             UpdateHatPosition(frameHeight);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

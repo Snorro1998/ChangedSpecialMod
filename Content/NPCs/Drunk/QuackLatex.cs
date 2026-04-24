@@ -51,17 +51,17 @@ namespace ChangedSpecialMod.Content.NPCs
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
-            var ChangedNPC = NPC.Changed();
-            ChangedNPC.AdjustStatScaling(NPC);
-            ChangedNPC.SetNPCName(NPC);
-            ChangedNPC.HatXOffset = -2;
-            ChangedNPC.HatYOffset = -2;
-            ChangedNPC.GooType = GooType.Black;
-            ChangedNPC.ElementType = ElementType.None;
-            ChangedNPC.DefaultOnHitPlayer = true;
-            ChangedNPC.DefaultHitEffect = true;
-
-            ChangedNPC.RemoveAllHats();
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.HatXOffset = -2;
+            changedNPC.HatYOffset = -2;
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.RemoveAllHats();
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -83,12 +83,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

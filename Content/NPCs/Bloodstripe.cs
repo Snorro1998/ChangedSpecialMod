@@ -62,6 +62,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             changedNPC.ChangeHatPosition(ItemID.FlowerBoyHat, new int[] { 0, 14 });
             changedNPC.ChangeHatPosition(ItemID.BuccaneerBandana, new int[] { 6, 8 });
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -72,11 +73,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return ChangedUtils.GetWorldEvilSpawnChance(spawnInfo, NPC, ModContent.NPCType<Bloodstripe>(), true);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
         }
 
         private void UpdateHatPosition(int frameHeight)

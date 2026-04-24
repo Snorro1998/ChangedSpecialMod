@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
 using Terraria.ID;
@@ -215,6 +217,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public float HitEffectScale = 1.0f;
 
         public bool Drunk = false;
+        public bool DoOnSpawnExtra = false;
 
         public override bool InstancePerEntity => true;
 
@@ -742,13 +745,20 @@ namespace ChangedSpecialMod.Content.NPCs
                 CurrentHat = hat;
         }
 
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
+            var changedNPC = npc.Changed();
+            if (changedNPC != null && changedNPC.DoOnSpawnExtra)
+                OnSpawnExtra(npc);
+            base.OnSpawn(npc, source);
+
+        }
+
         public void OnSpawnExtra(NPC npc = null)
         {
             PickHat();
             if (npc != null && SeasonSystem.season == SeasonalEvent.Valentine && Main.rand.NextBool(3))
-            {
                 npc.AddBuff(BuffID.Lovestruck, 60 * 20);
-            }
         }
 
         public void DrawBeerGlass(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -811,9 +821,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 var direction = npc.spriteDirection;
                 if (changedNPC.MirrorHat)
-                {
                     direction *= -1;
-                }
 
                 Vector2 hatOffset = new Vector2(-direction * xOffset * npc.scale, yOffset * npc.scale);
 
@@ -835,9 +843,7 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             if (changedNPC.HasBeer)
-            {
                 DrawBeerGlass(npc, spriteBatch, screenPos, drawColor);
-            }
         }
 
         public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
@@ -846,7 +852,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var ChangedGlobalNPC = npc.Changed();
             if (ChangedGlobalNPC == null || !ChangedGlobalNPC.DefaultOnHitPlayer)
                 return;
-            if (hurtInfo.Damage > 0)
+            if (hurtInfo.Damage > 0 && ChangedSpecialModClientConfig.Instance.TransfurSound)
             {
                 AudioSystem.PlaySoundWithProbability(Sounds.SoundTransfur, npc.Center, 3);
             }
@@ -872,6 +878,27 @@ namespace ChangedSpecialMod.Content.NPCs
                 dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
                 dust.scale *= npc.scale * changedNPC.HitEffectScale + Main.rand.NextFloat(-0.03f, 0.03f);
             }
+        }
+
+        private void DoRandomEmote(NPC npc)
+        {
+            var chancedNPC = npc.Changed();
+            if (chancedNPC != null && chancedNPC.GooType != GooType.Invalid && npc.HasValidTarget && npc.HasBuff(BuffID.Lovestruck))
+            {
+                // 0 love, 88 kiss
+                var emoteId = ChangedUtils.Choose(0, 88);
+                var player = Main.player[npc.target];
+                if (player.Distance(npc.Center) < 160 && Main.rand.NextBool(100))
+                {
+                    EmoteBubble.NewBubble(emoteId, new WorldUIAnchor(npc), 90);
+                }
+            }
+        }
+
+        public override void AI(NPC npc)
+        {
+            base.AI(npc);
+            DoRandomEmote(npc);
         }
     }
 }

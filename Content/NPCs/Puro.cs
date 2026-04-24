@@ -87,9 +87,19 @@ namespace ChangedSpecialMod.Content.NPCs
 	[AutoloadHead]
 	public class Puro : ModNPC
 	{
-		public const string ShopName = "Shop";
-		public const string ShopName2 = "Second shop";
-		public int NumberOfTimesTalkedTo = 0;
+        private static int shopIndex = 0;
+        private const string ShopNamePath = "Mods.ChangedSpecialMod.ShopNames";
+
+        private static readonly List<ShopData> Shops = new()
+        {
+            new ShopData("First Shop", "Shop"),
+            new ShopData("Second shop", "Paintings"),
+            new ShopData("Third shop", "Pictures")
+        };
+
+        //public const string ShopName = "Shop";
+		//public const string ShopName2 = "Second shop";
+		//public int NumberOfTimesTalkedTo = 0;
 
 		private static int ShimmerHeadIndex;
 		private static Profiles.StackedNPCProfile NPCProfile;
@@ -264,8 +274,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override void SetStaticDefaults() 
 		{
-			Main.npcFrameCount[Type] = 30; //25
-			NPCID.Sets.ExtraFramesCount[Type] = 14; //9 // Generally for Town NPCs, but this is how the NPC does extra things such as sitting in a chair and talking to other NPCs. This is the remaining frames after the walking frames.
+			Main.npcFrameCount[Type] = 44; //30//25
+			NPCID.Sets.ExtraFramesCount[Type] = 28;//14 //9 // Generally for Town NPCs, but this is how the NPC does extra things such as sitting in a chair and talking to other NPCs. This is the remaining frames after the walking frames.
 			NPCID.Sets.AttackFrameCount[Type] = 4; // The amount of frames in the attacking animation.
 			NPCID.Sets.DangerDetectRange[Type] = 700; // The amount of pixels away from the center of the NPC that it tries to attack enemies.
 			NPCID.Sets.AttackType[Type] = 0; // The type of attack the Town NPC performs. 0 = throwing, 1 = shooting, 2 = magic, 3 = melee
@@ -395,27 +405,29 @@ namespace ChangedSpecialMod.Content.NPCs
             return dialogue.GetDialogue(keyWords);
 		}
 
-		public override void SetChatButtons(ref string button, ref string button2) 
-		{
-			button = Language.GetTextValue("LegacyInterface.28");
-			button2 = "Paintings";//Language.GetTextValue("LegacyInterface.28");
-		}
-
-		public override void OnChatButtonClicked(bool firstButton, ref string shop) 
-		{
-			if (firstButton) 
-            {
-				shop = ShopName;
-			}
-			else 
-            {
-                shop = ShopName2;
-            }
-		}
-
-		public override void AddShops() 
+        public override void SetChatButtons(ref string button, ref string button2)
         {
-			new NPCShop(Type, ShopName)
+            button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
+
+            var currentShop = Shops[shopIndex];
+            button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
+        }
+
+        public override void OnChatButtonClicked(bool firstButton, ref string shop)
+        {
+            if (firstButton)
+            {
+                shop = Shops[shopIndex].InternalName;
+            }
+            else
+            {
+                shopIndex = (shopIndex + 1) % Shops.Count;
+            }
+        }
+
+        public override void AddShops() 
+        {
+			new NPCShop(Type, Shops[0].InternalName)
                 .Add(ItemID.Book)
                 .Add<Items.Weapons.Encyclopedia>()
                 .Add<Items.Placeable.DryDirtBlock>()
@@ -437,7 +449,7 @@ namespace ChangedSpecialMod.Content.NPCs
 				.Add<Items.Seasons.SetSeasonNone>()
                 .Register();
 
-			new NPCShop(Type, ShopName2)
+			new NPCShop(Type, Shops[1].InternalName)
                 // Normal paintings
                 .Add<Items.Placeable.Furniture.Painting1>()
                 .Add<Items.Placeable.Furniture.Painting2>()
@@ -465,6 +477,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.DrunkPainting3>()
                 .Add<Items.Placeable.Furniture.DrunkPainting4>()
 
+                .Register();
+
+            new NPCShop(Type, Shops[2].InternalName)
                 // Pictures
                 .Add<Items.Placeable.Furniture.Pictures1>()
                 .Add<Items.Placeable.Furniture.Pictures2>()
@@ -636,16 +651,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.BeerYOffset = beerYOffset;
         }
 
-        public override void LoadData(TagCompound tag) 
-        {
-			NumberOfTimesTalkedTo = tag.GetInt("numberOfTimesTalkedTo");
-		}
-
-		public override void SaveData(TagCompound tag)
-        {
-			tag["numberOfTimesTalkedTo"] = NumberOfTimesTalkedTo;
-		}
-
         public bool IsGrounded()
         {
             return NPC.velocity.Y == 0f;
@@ -656,10 +661,50 @@ namespace ChangedSpecialMod.Content.NPCs
             return NPC.ai[0] == 5f;
         }
 
+        public override bool CanBeHitByNPC(NPC attacker)
+        {
+            var changedNPC = NPC.Changed();
+            var attackerChangedNPC = attacker.Changed();
+            if (changedNPC != null && attackerChangedNPC != null && changedNPC.GooType == attackerChangedNPC.GooType)
+                return false;
+            return true;
+        }
+
         // This is the vanilla code with unnecessary conditions removed (like pets and town slimes)
         // The frame logic for talking and shaking hands is still here but disabled, because it got messed up after adding more frames for sitting
         public override void FindFrame(int frameHeight)
         {
+            bool enemyNearby = false;
+            float dangerDetectRange = 200f;
+            if (NPCID.Sets.DangerDetectRange[NPC.type] != -1)
+            {
+                dangerDetectRange = NPCID.Sets.DangerDetectRange[NPC.type];
+            }
+            for (int m = 0; m < Main.maxNPCs; m++)
+            {
+                var tmpNPC = Main.npc[m];
+                if (!tmpNPC.active || tmpNPC.friendly || tmpNPC.damage <= 0 || tmpNPC.lifeMax < NPC.life || !(tmpNPC.Distance(NPC.Center) < dangerDetectRange) || (NPC.type == NPCID.SkeletonMerchant && NPCID.Sets.Skeletons[tmpNPC.type]) || (!tmpNPC.noTileCollide && !Collision.CanHit(NPC.Center, 0, 0, tmpNPC.Center, 0, 0)) || !NPCLoader.CanHitNPC(tmpNPC, NPC))
+                {
+                    continue;
+                }
+                bool flag15 = Main.npc[m].CanBeChasedBy(NPC);
+                enemyNearby = true;
+            }
+
+            var nOranges = 0;
+            // Look for how many flying oranges are around him
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                var projectile = Main.projectile[i];
+                if (!projectile.active || projectile.type != ModContent.ProjectileType<OrangeProjectile>() || projectile.Distance(NPC.Center) > dangerDetectRange)
+                    continue;
+                nOranges++;
+            }
+
+            // There is no enemy nearby, but this will give him shocked eyes
+            if (nOranges > 20)
+                enemyNearby = true;
+
             // Set this to true anywhere to determine when a certain piece of code is executed. It will rapidly flip the sprite around
             bool testFlag = false;
             int extraFrames = (NPC.isLikeATownNPC ? NPCID.Sets.ExtraFramesCount[NPC.type] : 0);
@@ -675,7 +720,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
 
                 int nFramesWithoutAttackAnim = Main.npcFrameCount[NPC.type] - NPCID.Sets.AttackFrameCount[NPC.type];
-                int frameSleep = nFramesWithoutAttackAnim - 3;
 
                 if (NPC.ai[0] == 23f)
                 {
@@ -1386,37 +1430,68 @@ namespace ChangedSpecialMod.Content.NPCs
                 // Standing still
                 else if (NPC.velocity.X == 0f)
                 {
-                    NPC.frame.Y = 0;
+                    int frameIndex = enemyNearby ? 24 : 0;
+                    NPC.frame.Y = frameIndex * frameHeight;
                     NPC.frameCounter = 0.0;
+                }
+                // Running scared
+                else if (enemyNearby)
+                {
+                    int frameIndex = NPC.frame.Y / frameHeight;
+
+                    int frameCountMax = 6;
+                    int frameIndexMin = 24;
+                    int frameIndexMax = 38;
+                    NPC.frameCounter += Math.Abs(NPC.velocity.X) * 2f;
+                    NPC.frameCounter += animationSpeed;
+
+                    if (frameIndex < frameIndexMin)
+                    {
+                        frameIndex = frameIndexMin;
+                    }
+                    if (NPC.frameCounter > (double)frameCountMax)
+                    {
+                        frameIndex++;
+                        NPC.frameCounter = 0.0;
+                    }
+                    if (frameIndex >= frameIndexMax)
+                    {
+                        frameIndex = frameIndexMin;
+                        NPC.frameCounter = 0.0;
+                    }
+                    NPC.frame.Y = frameIndex * frameHeight;
                 }
                 // Walking
                 else
                 {
-                    int num375 = 6;
+                    int frameCountMax = 6;
                     NPC.frameCounter += Math.Abs(NPC.velocity.X) * 2f;
                     NPC.frameCounter += animationSpeed;
-                    int num376 = frameHeight * 2;
+                    // Frame 2
+                    int frameIndex = frameHeight * 2;
 
-                    if (NPC.frame.Y < num376)
+                    if (NPC.frame.Y < frameIndex)
                     {
-                        NPC.frame.Y = num376;
+                        NPC.frame.Y = frameIndex;
                     }
-                    if (NPC.frameCounter > (double)num375)
+                    if (NPC.frameCounter > (double)frameCountMax)
                     {
                         NPC.frame.Y += frameHeight;
                         NPC.frameCounter = 0.0;
                     }
+                    // 30 - 14 = 16, so only frames 2..15 are used for the walking animation
                     if (NPC.frame.Y / frameHeight >= Main.npcFrameCount[NPC.type] - extraFrames)
                     {
-                        NPC.frame.Y = num376;
+                        NPC.frame.Y = frameIndex;
                     }
                 }
             }
             // Falling down
             else
             {
+                int frameIndex = enemyNearby ? 35 : 1;
+                NPC.frame.Y = frameIndex * frameHeight;
                 NPC.frameCounter = 0.0;
-                NPC.frame.Y = frameHeight;
             }
 
             if (testFlag)

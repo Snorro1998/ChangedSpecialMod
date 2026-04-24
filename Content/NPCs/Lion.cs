@@ -44,18 +44,17 @@ namespace ChangedSpecialMod.Content.NPCs
 
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-
-            ChangedGlobalNPC.HatXOffset = -4;
-            ChangedGlobalNPC.HatYOffset = -31;
-            ChangedGlobalNPC.GooType = GooType.None;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
-
-            ChangedGlobalNPC.RemoveAllHats();
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.HatXOffset = -4;
+            changedNPC.HatYOffset = -31;
+            changedNPC.GooType = GooType.None;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.RemoveAllHats();
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -81,12 +80,6 @@ namespace ChangedSpecialMod.Content.NPCs
             }
             var ChangedGlobalNPC = NPC.Changed();
             return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

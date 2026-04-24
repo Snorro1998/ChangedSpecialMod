@@ -53,13 +53,10 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-
             changedNPC.HatXOffset = -2;
             changedNPC.HatYOffset = -23;
-
             changedNPC.RemoveHatsFromType(HatType.Rain);
             changedNPC.RemoveHat(ItemID.TreeMask);
-
             changedNPC.SetHalloweenHatsForWhiteLatex();
             changedNPC.ChangeHatPosition(ItemID.Fez, new int[] { 2, 2 });
             changedNPC.ChangeHatPosition(ItemID.JackOLanternMask, new int[] { 0, 3 });
@@ -69,6 +66,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ElementType = ElementType.Water;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
+            changedNPC.DoOnSpawnExtra = true;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -96,12 +94,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
             var changedNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            NPC.Changed().OnSpawnExtra(NPC);
-            base.OnSpawn(source);
         }
 
         private void UpdateHatPosition(int frameHeight)

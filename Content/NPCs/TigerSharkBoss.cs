@@ -1,6 +1,5 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Projectiles.SharkBossFight;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -45,7 +44,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private int[] ProjectileOptionsFirstPhase = new int[] { };
         private int[] ProjectileOptionsSecondPhase = new int[] { };
-
 
         private bool SecondPhase { get { return NPC.life < NPC.lifeMax / 2; } }
 
@@ -119,13 +117,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return 0;
-            /*
-            // He isn't fast, but he also requires the White Tail or any other boss to be defeated first
-            if (!ChangedUtils.CanSpawnFastLatex())
-                return 0;
-            var changedNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
-            */
         }
 
         public override void OnSpawn(IEntitySource source)
@@ -172,7 +163,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AITimer++;
             CheckIfShouldDash();
-            SpawnFishes();
+            //SpawnFishes();
 
             if (AITimer == 1)
             {
@@ -376,12 +367,6 @@ namespace ChangedSpecialMod.Content.NPCs
                         SwitchState(ActionState.AttackSharkWall);
                         AIAttack++;
                     }
-                    else
-                    {
-                        SwitchState(ActionState.Fly);
-                        AIAttack = 0;
-                    }
-                    /*
                     else if (AIAttack == 1)
                     {
                         SwitchState(ActionState.AttackWhirlpoolVertical);
@@ -392,6 +377,14 @@ namespace ChangedSpecialMod.Content.NPCs
                         SwitchState(ActionState.AttackWall);
                         AIAttack = 0;
                     }
+                    /*
+                    else
+                    {
+                        SwitchState(ActionState.Fly);
+                        AIAttack = 0;
+                    }*/
+                    /*
+
                     */
                 }
             }

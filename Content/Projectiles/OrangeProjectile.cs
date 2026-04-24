@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Content.Dusts;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -69,5 +70,11 @@ namespace ChangedSpecialMod.Content.Projectiles
 			Projectile.ai[0] += 0.1f;
 			Projectile.velocity *= 0.75f;
 		}
-	}
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            ChangedUtils.DrawProjectileCentered(Projectile, lightColor);
+            return false;
+        }
+    }
 }

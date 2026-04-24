@@ -486,11 +486,6 @@ namespace ChangedSpecialMod.Utilities
             return multiplier;
         }
 
-        float Cross(Vector2 a, Vector2 b)
-        {
-            return a.X * b.Y - a.Y * b.X;
-        }
-
         public static float GetSurfaceSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc, int NPCID)
         {
             var playerTransfurTypeMultiplier = PlayerTransfurTypeMultiplier(spawnInfo, npc, NPCID);
@@ -550,7 +545,7 @@ namespace ChangedSpecialMod.Utilities
             if (npc.IsFish)
             {
                 if (inBiome && spawnTileIsWater)
-                    return 1.0f;
+                    return 4.0f;//1
                 return 0.0f;
             }
 

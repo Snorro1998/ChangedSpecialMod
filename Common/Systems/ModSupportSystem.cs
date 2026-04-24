@@ -1,9 +1,11 @@
-﻿using ChangedSpecialMod.Content.Items.Summons;
+﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -11,23 +13,58 @@ namespace ChangedSpecialMod.Common.Systems
 {
     public class ModSupportSystem : ModSystem
     {
+        public static ChangedSpecialMod changedMod = null;
         public static Mod modBossChecklist = null;
+        public static Mod modFargosMutant = null;
+        public static Mod modMusicDisplay = null;
+
 
         public override void Load()
         {
+            changedMod = null;
+            changedMod = ChangedSpecialMod.Instance;
+
             modBossChecklist = null;
             ModLoader.TryGetMod("BossChecklist", out modBossChecklist);
+            modFargosMutant = null;
+            ModLoader.TryGetMod("Fargowiltas", out modFargosMutant);
+            modMusicDisplay = null;
+            ModLoader.TryGetMod("MusicDisplay", out modMusicDisplay);
         }
 
         public override void Unload()
         {
             modBossChecklist = null;
+            modMusicDisplay = null;
+            modFargosMutant = null;
+        }
+
+        public override void PostAddRecipes()
+        {
+
         }
 
         public override void PostSetupContent()
         {
-            AddChangedBosses();
-            base.PostSetupContent();
+            SetupBossChecklist();
+            SetupFargosMutant();
+            SetupMusicDisplay();
+        }
+
+        private void SetupFargosMutant()
+        {
+            if (modFargosMutant is null)
+                return;
+
+            void AddToMutantShop(string bossName, string summonItemName, Func<bool> downed, int price)
+            {
+                BossChecklistProgressionValues.TryGetValue(bossName, out float order);
+                modFargosMutant.Call("AddSummon", order, "ChangedSpecialMod", summonItemName, downed, price);
+            }
+
+            AddToMutantShop("WhiteTail", "SummonWhiteTail", () => DownedBossSystem.DownedWhiteTail, Item.buyPrice(gold: 2));
+            AddToMutantShop("WolfKing", "SummonWolfKing", () => DownedBossSystem.DownedWolfKing, Item.buyPrice(gold: 2));
+            AddToMutantShop("Behemoth", "SummonBehemoth", () => DownedBossSystem.DownedBehemoth, Item.buyPrice(gold: 2));
         }
 
         /*
@@ -56,6 +93,8 @@ namespace ChangedSpecialMod.Common.Systems
             { "WhiteTail", 1.5f },
             { "WolfKing", 2.5f },
             { "Behemoth", 5.5f }
+            //{ "Shark", ??? },
+            //{ "SquidDog", ??? },
         };
 
         public static LocalizedText GetText(string key)
@@ -73,11 +112,9 @@ namespace ChangedSpecialMod.Common.Systems
             return GetText($"BossChecklistIntegration.{entryName}.DespawnMessage");
         }
 
-        public static void AddChangedBosses()
+        public static void SetupBossChecklist()
         {
-            ChangedSpecialMod changedMod = ChangedSpecialMod.Instance;
-
-            if (modBossChecklist == null || changedMod == null)
+            if (changedMod == null || modBossChecklist == null)
                 return;
 
             // White Tail
@@ -153,6 +190,55 @@ namespace ChangedSpecialMod.Common.Systems
         public static void AddBoss(Mod hostMod, string name, float difficulty, Func<bool> downed, object npcTypes, Dictionary<string, object> extraInfo)
         {
             modBossChecklist.Call("LogBoss", hostMod, name, difficulty, downed, npcTypes, extraInfo);
+        }
+
+        public static void SetupMusicDisplay()
+        {
+            if (changedMod == null || modMusicDisplay == null)
+                return;
+
+            LocalizedText modName = Language.GetText("Mods.ChangedSpecialMod.MusicDisplay.ModName");
+            LocalizedText author = Language.GetText("Mods.ChangedSpecialMod.MusicDisplay.Authors.Shizi");
+
+            // Is displayed like this. The number is the parameter index
+            // 4: Current Music
+            // 1: Song name
+            // 2: Artist
+            // 3: Mod name
+            var defaultColors = new Color[] { Color.White, new Color(230, 230, 230), new Color(180, 180, 180), new Color(120, 120, 120) };
+            var partyColors = new Color[] { Color.Red, Color.Green, Color.Blue, Color.Yellow };
+
+            // Normal
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicBlackLatexZone, "MusicBlackLatexZone", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicBlackLatexZone2, "MusicBlackLatexZone2", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicCrystalZone, "MusicCrystalZone", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicWhiteLatexZone, "MusicWhiteLatexZone", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicLibrary, "MusicLibrary", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicLabSlow, "MusicLabSlow", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicLab, "MusicLab", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicVents, "MusicVents", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicPuro, "MusicPuro", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicGreenhouse, "MusicGreenhouse", defaultColors);
+            
+            // Party
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicHappyBirthday, "MusicHappyBirthday", partyColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicPuroDance, "MusicPuroDance", partyColors);
+            
+            // Drunk
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicRun, "MusicRun", defaultColors);
+            
+            // Bosses
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicWhiteTailChase2, "MusicWhiteTailChase2", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicWolfKing, "MusicWolfKing", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicBehemoth, "MusicBehemoth", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicShark, "MusicShark", defaultColors);
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicSquidDog, "MusicSquidDog", defaultColors);
+        }
+
+        private static void MusicDisplayAddTrack(Mod hostMod, LocalizedText modName, LocalizedText author, string musicPath, string musicName, Color[] colors)
+        {
+            LocalizedText displayName = Language.GetText($"Mods.ChangedSpecialMod.MusicDisplay.Music.{musicName}");
+            modMusicDisplay.Call("AddMusic", (short)MusicLoader.GetMusicSlot(hostMod, musicPath), displayName, author, modName, null, colors);
         }
     }
 }
