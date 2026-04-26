@@ -313,27 +313,12 @@ namespace ChangedSpecialMod.Content.NPCs
                 changedEmotes.Add(ModContent.EmoteBubbleType<BehemothEmote>());
 
             if (isChangedNPC || Main.rand.NextBool(chance))
-            {
                 emoteList.AddRange(changedEmotes);
-            }
-            /*
-            if (isChangedNPC)
-            {
-                emoteList.Clear();
-                emoteList = changedEmotes;
-            }
-            else if (Main.rand.NextBool(chance))
-            {
-                emoteList.AddRange(changedEmotes);
-            }
-            */
 
             emoteList.AddRange(changedEmotes);
-
             return emoteList;
         }
 
-        // This works for vanilla NPCs but somehow not for Changed NPCs
         public override int? PickEmote(NPC npc, Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
         {
             emoteList = GetEmoteList(npc, closestPlayer, emoteList);
@@ -347,27 +332,36 @@ namespace ChangedSpecialMod.Content.NPCs
             // NPCs present
             var npc = NPC.FindFirstNPC(NPCID.Dryad);
             if (npc >= 0) keyWords.Add("NameDryad", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(NPCID.Guide);
             if (npc >= 0) keyWords.Add("NameGuide", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(NPCID.Merchant);
             if (npc >= 0) keyWords.Add("NameMerchant", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(NPCID.DD2Bartender);
             if (npc >= 0) keyWords.Add("NameTavernKeep", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(NPCID.Nurse);
             if (npc >= 0) keyWords.Add("NameNurse", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(NPCID.Angler);
             if (npc >= 0) keyWords.Add("NameAngler", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(NPCID.BestiaryGirl);
             if (npc >= 0) keyWords.Add("NameZoologist", Main.npc[npc].GivenName);
+            
             npc = NPC.FindFirstNPC(ModContent.NPCType<Puro>());
-            if (npc >= 0) keyWords.Add("Puro", "");
+            if (npc >= 0) keyWords.Add("Puro", string.Empty);
+            
             npc = NPC.FindFirstNPC(ModContent.NPCType<Scientist>());
-            if (npc >= 0) keyWords.Add("DrK", "");
+            if (npc >= 0) keyWords.Add("DrK", string.Empty);
+            
             npc = NPC.FindFirstNPC(ModContent.NPCType<Prototype>());
-            if (npc >= 0) keyWords.Add("Prototype", "");
+            if (npc >= 0) keyWords.Add("Prototype", string.Empty);
 
             // Bosses slain
-            if (DownedBossSystem.DownedBehemoth) keyWords.Add("Behemoth", "");
+            if (DownedBossSystem.DownedBehemoth) keyWords.Add("Behemoth", string.Empty);
 
 
             var player = Main.LocalPlayer;

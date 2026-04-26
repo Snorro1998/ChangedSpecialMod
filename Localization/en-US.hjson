@@ -1354,6 +1354,7 @@ Mods: {
 			GoldfishProjectile.DisplayName: Goldfish Projectile
 			TornadoProjectile.DisplayName: Tornado Projectile
 			WaterProjectile.DisplayName: Water Projectile
+			NPCSwordSwing.DisplayName: N P C Sword Swing
 		}
 
 		Buffs: {

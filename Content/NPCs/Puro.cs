@@ -21,7 +21,6 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 
 namespace ChangedSpecialMod.Content.NPCs
@@ -87,6 +86,7 @@ namespace ChangedSpecialMod.Content.NPCs
 	[AutoloadHead]
 	public class Puro : ModNPC
 	{
+        private int attackTimer = 0;
         private static int shopIndex = 0;
         private const string ShopNamePath = "Mods.ChangedSpecialMod.ShopNames";
 
@@ -106,8 +106,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         // This should add up to 1 or it will break (so don't use something like 0.3)
         public float animationSpeed = 1.0f;
-		
-		public static DialogueObject DialogueNormal = new DialogueObject(
+
+        public static DialogueObject DialogueNormal = new DialogueObject(
             "Puro",
 			new List<string>
 			{

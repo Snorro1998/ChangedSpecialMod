@@ -24,11 +24,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.DrawYOffset = 2;
-            TileObjectData.newTile.StyleMultiplier = 2;
-            TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
-            TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-            TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
-            TileObjectData.addAlternate(1);
             TileObjectData.addTile(Type);
 
             DustType = DustID.Silver;

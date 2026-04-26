@@ -17,7 +17,7 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modBossChecklist = null;
         public static Mod modFargosMutant = null;
         public static Mod modMusicDisplay = null;
-
+        public static Mod modVernoc = null;
 
         public override void Load()
         {
