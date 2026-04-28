@@ -56,6 +56,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 4;
+            ChangedUtils.HideFromBestiary(this);
+            /*
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -63,6 +65,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 PortraitScale = 1 / NPC.scale * 0.7f
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
+            */
         }
 
         public override void SetDefaults() 
@@ -100,6 +103,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
         }
 
+        /*
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
@@ -107,6 +111,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.TigerSharkBoss.Description")),
             });
         }
+        */
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

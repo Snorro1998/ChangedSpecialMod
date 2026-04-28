@@ -1,3 +1,3 @@
 displayName = Changed Special
 author = Snorro
-version = 0.3
+version = 0.4

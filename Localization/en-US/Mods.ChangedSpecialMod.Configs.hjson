@@ -1,0 +1,45 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Client Config
+
+	TransfurSound: {
+		Label: Transfur Sound
+		Tooltip: ""
+	}
+
+	WhipCrackSound: {
+		Tooltip: ""
+		Label: Whip Crack Sound
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: ""
+		Label: NPCs Can Use Changed Emotes
+	}
+
+	Headers: {
+		Audio: Audio
+		Misc: Misc Header
+		WorldGeneration: World Generation Header
+	}
+
+	NumberOfLabs: {
+		Label: Number Of Labs
+		Tooltip:
+			'''
+			The number of labs per side of the world. 
+			The default value 1 will generate 1 lab on small 
+			and medium worlds and 2 labs on large worlds.
+			WARNING Large values on small worlds can crash your game.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Maximum Floors
+		Tooltip: The maximum number of floors a lab can have
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Maximum Rooms Horizontal
+		Tooltip: The maximum number of rooms a lab can have in the horizontal direction
+	}
+}

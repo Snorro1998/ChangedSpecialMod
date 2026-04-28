@@ -6,6 +6,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
+using ChangedSpecialMod.Common.WorldGeneration;
+using ChangedSpecialMod.Common.Configs;
 
 namespace ChangedSpecialMod.Utilities
 {
@@ -47,9 +49,9 @@ namespace ChangedSpecialMod.Utilities
             int RoomHeightMax = 13;
 
             int xMinRooms = 4;
-            int xMaxRooms = 5;
+            int xMaxRooms = ChangedSpecialModClientConfig.Instance.MaximumRoomsHorizontal;
             int yMinRooms = 3;
-            int yMaxRooms = 4;
+            int yMaxRooms = ChangedSpecialModClientConfig.Instance.MaximumFloors;
 
             nHor = ChangedUtils.WorldGenRandNext(xMinRooms, xMaxRooms + 1);
             nVer = ChangedUtils.WorldGenRandNext(yMinRooms, yMaxRooms + 1);
@@ -169,6 +171,7 @@ namespace ChangedSpecialMod.Utilities
                 {
                     var xx = xCurrent + x;
                     var yy = yCurrent + y;
+                    WorldGenerator.DestroyChestAtPosition(xx, yy);
                     Main.tile[xx, yy].ClearEverything();
                 }
             }
@@ -241,6 +244,7 @@ namespace ChangedSpecialMod.Utilities
                     if (tile.HasTile)
                     {
                         // Remove and replace the tile instead of trying to adjust the shape
+                        WorldGenerator.DestroyChestAtPosition(x, y);
                         WorldGen.KillTile(x, y, false, false, true);
                         breakout = true;
                     }
@@ -293,7 +297,7 @@ namespace ChangedSpecialMod.Utilities
                             }
                         }
                         else if (rr == (int)RoomType.Elevator)
-                            room = new RoomStairs();
+                            room = new RoomElevator();
                         else if (rr == (int)RoomType.BossRoomLeft || rr == (int)RoomType.BossRoomRight)
                         {
                             room = labType == LabType.White ? new RoomWhiteGoo() : new RoomBlackGoo();
@@ -304,7 +308,7 @@ namespace ChangedSpecialMod.Utilities
                         var flooded = false;
 
                         // If the room isn't an elevator, there is a chance it will be flooded
-                        if (isLowFloor && room is not RoomStairs)
+                        if (isLowFloor && room is not RoomElevator)
                             flooded = Utils.NextBool(WorldGen.genRand, 2);
 
                         WorldGenerator.MakeBox(xCurrent, yCurrent, width, height, room.FloorType, room.GetWallType(), (byte)room.FloorPaint, (byte)room.WallPaint, leftSideOpen);
@@ -316,7 +320,7 @@ namespace ChangedSpecialMod.Utilities
 
                         WorldGenerator.AddWire(xCurrent, yCurrent, width, height, room.HasLightSwitch);
 
-                        if (room is RoomStairs)
+                        if (room is RoomElevator)
                         {
                             WorldGen.PlaceTile(xCurrent + width / 2, yCurrent + height - 3, ModContent.TileType<Elevator>(), true, true);
                         }
@@ -340,14 +344,17 @@ namespace ChangedSpecialMod.Utilities
                             // So currenlty it will always place a balloon chandelier if chandelierstyle is not -1
                             var xxPos = xCurrent + width / 2;
                             var yyPos = yCurrent + 1;
-                            WorldGen.PlaceTile(xCurrent + width / 2, yCurrent + 1, TileID.Chandeliers, true, true, -1, 0);
+                            var placedChandelier = WorldGen.PlaceTile(xCurrent + width / 2, yCurrent + 1, TileID.Chandeliers, true, true, -1, 0);
 
-                            for (int b = yyPos; b < yyPos + 3; b++)
+                            if (placedChandelier)
                             {
-                                for (int a = xxPos - 1; a < xxPos + 2; a++)
+                                for (int b = yyPos; b < yyPos + 3; b++)
                                 {
-                                    Main.tile[a, b].TileFrameX += 162;
-                                    Main.tile[a, b].TileFrameY += 540;
+                                    for (int a = xxPos - 1; a < xxPos + 2; a++)
+                                    {
+                                        Main.tile[a, b].TileFrameX += 162;
+                                        Main.tile[a, b].TileFrameY += 540;
+                                    }
                                 }
                             }
                         }

@@ -20,6 +20,11 @@ This mod has built-in support for:
 - Fargos Mutant Mod
 - Music Display
 
+Additionally, town npcs can sell fruits and herbs from these mods:
+- Calamity
+- Spirit and Spirit Reforged
+- Thorium
+
 It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
@@ -45,20 +50,42 @@ For information about previous versions, please check out the change notes in th
 
 0.4
 
-Additions and changes
+General
+- Added orange statue
+- Resprited all emotes
+- Updated book barrage weapon
+- Split the shops into categories
+
+Mod support
 - Added support for Fargos Mutant Mod
 - Added support for Music display
-- Added orange statue
-- Added config option to disable transfur sound
-- Resprited all emotes
-- Prototype glows orange during an eclipse
-- Updated book barrage weapon
+
+Config
+- Added world generation options for the number of labs and their dimensions
+- Added option to disable transfur sound
+- Added option to disable whip crack sound
+
+NPCs
+- Reduced chance that NPCs will use Changed emotes when talking
+- Resprited Tiger Shark
+- Squid Dogs lash out with their tentacles
 - Puro looks shocked if chased by strong enemies
-- Made Puro immune to black latices
-- Made Dr K immune to white latices
+- Puro immune to black latices
+- Prototype glows orange during an eclipse
+- Prototype sells fruit from Calamity, Thorium, Spirit and Spirit Reforged
+- Dr K immune to white latices
+
+Renamed
+- Lion -> Feng Yu
+- Flying Dark Latex -> Yufeng Cub
+- Winged Dark Latex -> Yufeng
+- Whisker Wand Cat -> Ming Cat
 
 Fixed
+- Player sprite jittering very slightly when transfurred and moving
 - Wrong offset of some projectiles
 - Broken dialogue for Puro during an eclipse
 - Wolf King applying no building debuff to all players instead of players near him
-
+- Prototype still used old texture for map icon
+- Might latex didn't fit in the bestiary frame
+- Yufeng not wearing hats

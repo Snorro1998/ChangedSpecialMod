@@ -1,0 +1,671 @@
+Painting1: {
+	DisplayName: The Silly Poofball
+	Tooltip: Adorable until he grows up
+}
+
+Painting2: {
+	DisplayName: Wolf King
+	Tooltip: A mighty beast
+}
+
+Painting3: {
+	DisplayName: The Effects of Oranges
+	Tooltip: Healthy
+}
+
+Painting4: {
+	DisplayName: Shhhhhh
+	Tooltip: Quiet, or else they will find you
+}
+
+Painting5: {
+	DisplayName: Comedy
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: The Dark Ninja
+	Tooltip: Epic
+}
+
+Painting7: {
+	DisplayName: Best Buddies
+	Tooltip: Cuddly
+}
+
+Painting8: {
+	DisplayName: Snack Time
+	Tooltip: Tasty
+}
+
+Painting9: {
+	DisplayName: Puro the Black Goo
+	Tooltip: Cute
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: The Squid Dog
+	Tooltip: A Menacing Mollusc
+}
+
+Painting12: {
+	DisplayName: Snow Leopard
+	Tooltip: Calm
+}
+
+Painting13: {
+	DisplayName: Caught
+	Tooltip: Oh no
+}
+
+DrunkPainting1: {
+	DisplayName: Orang
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Shork
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: Sqwed Dawg
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: Purbles
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: Music Box (Laboratory)
+	Tooltip: By ShiZi
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Black Latex Banner
+}
+
+SquidDogBanner: {
+	DisplayName: Squid Dog Banner
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Elevator
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Puro Plush
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Basketball (Placeable)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Shark Plush
+}
+
+Orange: {
+	DisplayName: Orange
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Black Latex Block
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Caution Tile Block
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Dry Dirt Block
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Blue Gas Tank
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Blue Office Chair
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Document Paper
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Generator
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Green Office Chair
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Iris Scanner
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Lab Door
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Lab Table
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Mount Bookest
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Music Box (Crystal Zone)
+	Tooltip: By ShiZi
+}
+
+PackingBox: {
+	DisplayName: Packing Box
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Packing Box Key
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Red Gas Tank
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Red Office Chair
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Stack Of Boxes
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Storage Box
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Storage Box Key
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: White Latex Bookcases
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Lab Tile Block
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: White Latex Block
+	Tooltip: ""
+}
+
+DebugEvolutionResetter: {
+	Tooltip: ""
+	DisplayName: Debug Evolution Resetter
+}
+
+RottenOrange: {
+	DisplayName: Rotten Orange
+	Tooltip: Just holding this is enough to see strange things
+}
+
+TigerPaw: {
+	DisplayName: Crimclaw
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Encyclopedia
+	Tooltip: Feel the weight of knowledge
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Dreadhorn
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Mollash
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Wendigo Banner
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Bloodstripe Banner
+}
+
+BlackGoopBanner: {
+	DisplayName: Black Goop Banner
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: White Goop Banner
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: German Shepherd Banner
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Slimy Horseshoe
+	Tooltip: Summons a rideable White Latex mount
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Black Wing
+	Tooltip: Summons a rideable Yufeng mount
+}
+
+Literature: {
+	DisplayName: Literature
+	Tooltip: Full of hot topics
+}
+
+WhiskerStaff: {
+	DisplayName: Whisker Wand
+	Tooltip: Summons a cat to fight for you
+}
+
+PurrpurrBanner: {
+	DisplayName: Purrpurr Banner
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Book Barrage
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Watering Can
+}
+
+MusicBoxPuro: {
+	DisplayName: Music Box (Puro the Black Goo)
+	Tooltip: By ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Music Box (Puro Dance)
+	Tooltip: By ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Summons a massive purple cat to fight for you
+	DisplayName: Purrpurr Wand
+}
+
+TabbyStaff: {
+	Tooltip: Summons a large tabby cat to fight for you
+	DisplayName: Tabby Staff
+}
+
+FennecPlush: {
+	DisplayName: Fennec Plush
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Twintacle
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Mega Mauler
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Shredder
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Tentatrio
+}
+
+Bashskewer: {
+	DisplayName: Bashskewer
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Daemonspike
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Alpine Hat
+	Tooltip: ""
+}
+
+SetSeasonHalloween: {
+	DisplayName: Set Season Halloween
+	Tooltip: Sets the season to Halloween
+}
+
+SetSeasonOktoberfest: {
+	DisplayName: Set Season Oktoberfest
+	Tooltip: Sets the season to Oktoberfest
+}
+
+SetSeasonXmas: {
+	DisplayName: Set Season Christmas
+	Tooltip: Sets the season to Christmas
+}
+
+ElevatorUp: {
+	Tooltip: This item does nothing and is only used when hovering over an elevator
+	DisplayName: Icon Elevator Up
+}
+
+ElevatorDown: {
+	Tooltip: This item does nothing and is only used when hovering over an elevator
+	DisplayName: Icon Elevator Down
+}
+
+SetSeasonValentine: {
+	DisplayName: Set Season Valentine
+	Tooltip: ""
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Music Box (Happy Birthday)
+	Tooltip: By ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Music Box (Library)
+	Tooltip: By ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Music Box (White Goo Jungle)
+	Tooltip: By ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Music Box (Scarlet Crystal Mine)
+	Tooltip: By ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Music Box (Black Goo Zone)
+	Tooltip: By ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Music Box (Wolf King)
+	Tooltip: By ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Yufeng Latex Banner
+}
+
+SummonWolfKing: {
+	Tooltip: Summons the Wolf King
+	DisplayName: Strange Swivel Chair
+}
+
+SummonBehemoth: {
+	Tooltip: Summons the Behemoth
+	DisplayName: Humongous Hand
+}
+
+DebugResetBosses: {
+	DisplayName: Debug Reset Bosses
+	Tooltip: Resets progression for all Changed bosses
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Fan
+}
+
+SetSeasonNone: {
+	Tooltip: ""
+	DisplayName: Set Season None
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Wolf Den
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Music Box (Greenhouse)
+	Tooltip: By ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Music Box (Laboratory Slow)
+	Tooltip: By ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: By ShiZi
+	DisplayName: Music Box (Vents)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: White Latex Banner
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Locker
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Blocks
+}
+
+MusicBoxBehemoth: {
+	Tooltip: By ShiZi
+	DisplayName: Music Box (Behemoth)
+}
+
+SummonWhiteTail: {
+	Tooltip: Summons the White Tail
+	DisplayName: Suspicious Slime Ball
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Yes
+	DisplayName: Debug Spawn All NPCs
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: White Crystal
+}
+
+CrystalGreen: {
+	DisplayName: Green Crystal
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Red Crystal
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: White Pillar
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Awoo
+	DisplayName: Creature of the Night
+}
+
+Painting16: {
+	DisplayName: The Scientist
+	Tooltip: Spooky
+}
+
+Painting17: {
+	DisplayName: Sleeping Fox
+	Tooltip: Don't wake him up
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Music Box (White Tail)
+	Tooltip: By ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Cryopod
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Pictures (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Pictures (Black Latex)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Pictures (Outside)
+}
+
+Pictures4: {
+	DisplayName: Pictures (Corridor)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Pictures (Bacteria)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Pictures (Friends)
+}
+
+BlackSyringe: {
+	DisplayName: Black Syringe
+	Tooltip:
+		'''
+		Transforms you into a black latex
+		- Provides immunity to black latexes
+		- Hitting the same monster as you are makes you evolve
+		- You can switch between unlocked forms with the 'devolve' and 'evolve' keys
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: White Syringe
+	Tooltip:
+		'''
+		Transforms you into a white latex
+		- Provides immunity to white latexes
+		- Hitting the same monster as you are makes you evolve
+		- You can switch between unlocked forms with the 'devolve' and 'evolve' keys
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Basketball
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Disco Crystal
+	Tooltip: Carrying this will make crystals behave like disco lights
+}
+
+BlackLatexSolution: {
+	DisplayName: Black Latex Solution
+	Tooltip: Spreads the black latex area
+}
+
+WhiteLatexSolution: {
+	DisplayName: White Latex Solution
+	Tooltip: Spreads the white latex area
+}
+
+DryDirtSolution: {
+	DisplayName: Dry Dirt Solution
+	Tooltip: ""
+}
+
+OrangeStatue: {
+	DisplayName: Orange Statue
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Sunglasses
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: Squid Dog Syringe
+	Tooltip:
+		'''
+		Transforms you into a Squid Dog
+		- Can lash out tentacles with the 'ability' key
+		- Allows you to breathe underwater
+		'''
+}

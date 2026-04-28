@@ -20,6 +20,15 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
+    public static class SizeScale
+    {
+        public static float scaleNormal = 1f;
+        public static float scaleBig = 1.2f;
+        public static float scaleHuge = 1.4f;
+        public static float scaleGiant = 1.6f;
+        public static float scaleBehemoth = 2.5f;
+    }
+
     public enum GooType
     {
         Invalid,
@@ -124,6 +133,8 @@ namespace ChangedSpecialMod.Content.NPCs
             new HatStruct(ItemID.WizardHat, HatType.Silly, new int[] { 1, -1 }),
             new HatStruct(ItemID.WizardsHat, HatType.Silly, new int[] { 1, -1 }),
 
+            //new HatStruct(-1, HatType.Silly,new int[] { 0, 8 }, "Content/Items/Sunglasses"),
+
             // Valentine
             // Heart hairpin is too big so we do a regular heart
             new HatStruct(ItemID.TheBrideHat, HatType.Valentine, new int[] { 2, 4 }),
@@ -145,6 +156,12 @@ namespace ChangedSpecialMod.Content.NPCs
             new HatStruct(ItemID.SnowHat, HatType.XMas, new int[] { 0, 0 }),
             new HatStruct(ItemID.TreeMask, HatType.XMas, new int[] { 3, 0 }),
         };
+        public void RemoveHat(int hatId) => NewHats = NewHats.Where(x => x.HatId != hatId).ToList();
+        public void AddHat(HatStruct hat) => NewHats.Add(hat);
+        public void RemoveHatsFromType(HatType hatType) => NewHats = NewHats.Where(x => x.HType != hatType).ToList();
+        public void RemoveAllHats() => NewHats = new List<HatStruct>();
+        public void SetHalloweenHatsForBlackLatex() => RemoveHat(ItemID.GhostMask);
+        public void SetHalloweenHatsForWhiteLatex() => RemoveHat(ItemID.WitchHat);
 
         public void ChangeHatPosition(int hatId, int[] offset)
         {
@@ -154,42 +171,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 tmpHat.Offset = offset;
             }
         }
-
-        public void RemoveHat(int hatId)
-        {
-            NewHats = NewHats.Where(x => x.HatId != hatId).ToList();
-        }
-
-        public void AddHat(HatStruct hat)
-        {
-            NewHats.Add(hat);
-        }
-
-        public void RemoveHatsFromType(HatType hatType)
-        {
-            NewHats = NewHats.Where(x => x.HType != hatType).ToList();
-        }
-
-        public void RemoveAllHats()
-        {
-            NewHats = new List<HatStruct>();
-        }
-
-        public void SetHalloweenHatsForBlackLatex()
-        {
-            RemoveHat(ItemID.GhostMask);
-        }
-
-        public void SetHalloweenHatsForWhiteLatex()
-        {
-            RemoveHat(ItemID.WitchHat);
-        }
-
-        public float scaleNormal { get; set; } = 1f;
-        public float scaleBig { get; set; } = 1.2f;
-        public float scaleHuge { get; set; } = 1.4f;
-        public float scaleGiant { get; set; } = 1.6f;//1.8
-        public float scaleBehemoth { get; set; } = 2.5f;
 
         // If the NPC is already big, we can change this value to make statscaling increase his size less
         public float BaseScaleMultiplier { get; set; } = 1.0f;
@@ -261,8 +242,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public List<int> GetEmoteList(NPC npc, Player closestPlayer, List<int> emoteList)
         {
-            // Chance to add Changed emotes to the list of options and will always do it when living in a Changed biome
-            var chance = ChangedUtils.InChangedBiome(closestPlayer) ? 1 : 2;
+            if (!ChangedSpecialModClientConfig.Instance.NPCsCanUseChangedEmotes)
+                return emoteList;
+
+            var chance = 3;
             var isPuro = npc.type == ModContent.NPCType<Puro>();
             var isDrK = npc.type == ModContent.NPCType<Scientist>();
             var isPrototype = npc.type == ModContent.NPCType<Prototype>();
@@ -315,7 +298,6 @@ namespace ChangedSpecialMod.Content.NPCs
             if (isChangedNPC || Main.rand.NextBool(chance))
                 emoteList.AddRange(changedEmotes);
 
-            emoteList.AddRange(changedEmotes);
             return emoteList;
         }
 
@@ -500,13 +482,9 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (overwriteName != null)
                 npcName = overwriteName;
+
             var scale = npc.scale / BaseScaleMultiplier;
             var sizeDescription = GetSizeDescription(npc);
-
-            //var fullName = $"{sizeDescription} {npcName}";
-            // For debugging: replace the name with the stats of the monster
-            //if (debugShowStats)
-            //   fullName = $"scale={scale}|def={npc.defense}|dmg={npc.damage}|kb={npc.knockBackResist}";
             npc.GivenName = $"{sizeDescription} {npcName}";
         }
 
@@ -515,13 +493,13 @@ namespace ChangedSpecialMod.Content.NPCs
             float scale = npc.scale / BaseScaleMultiplier;
             string sizeKey = null;
 
-            if (scale >= scaleBehemoth)
+            if (scale >= SizeScale.scaleBehemoth)
                 sizeKey = "Behemoth";
-            else if (scale >= scaleGiant)
+            else if (scale >= SizeScale.scaleGiant)
                 sizeKey = "Giant";
-            else if (scale >= scaleHuge)
+            else if (scale >= SizeScale.scaleHuge)
                 sizeKey = "Huge";
-            else if (scale >= scaleBig)
+            else if (scale >= SizeScale.scaleBig)
                 sizeKey = "Big";
 
             string sizeDescription = sizeKey != null
@@ -768,8 +746,8 @@ namespace ChangedSpecialMod.Content.NPCs
             var vals = CurrentHat.Offset;
 
             // Adjust for head position
-            var xOffset = ChangedNPC.BeerXOffset;//HatXOffset + vals[0];
-            var yOffset = ChangedNPC.BeerYOffset;// HatYOffset + vals[1];
+            var xOffset = ChangedNPC.BeerXOffset;
+            var yOffset = ChangedNPC.BeerYOffset;
             Vector2 hatOffset = new Vector2(-npc.spriteDirection * xOffset * npc.scale, yOffset * npc.scale);
 
             SpriteEffects effects = npc.spriteDirection == -1

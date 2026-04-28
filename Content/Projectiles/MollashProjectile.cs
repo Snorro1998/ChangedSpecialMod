@@ -1,10 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ChangedSpecialMod.Common.Configs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -15,9 +13,6 @@ namespace ChangedSpecialMod.Content.Projectiles
 {
     public class MollashProjectile : ModProjectile
     {
-        // The texture doesn't have the same name as the item, so this property points to it.
-        //public override string Texture => "ExampleMod/Content/Projectiles/ExampleWhipProjectile";
-
         public override void SetStaticDefaults()
         {
             // This makes the projectile use whip collision detection and allows flasks to be applied to it.
@@ -62,14 +57,6 @@ namespace ChangedSpecialMod.Content.Projectiles
             // However, the use of UnitX basically turns it into a more complicated way of checking if the projectile's velocity is above or equal to zero on the X axis.
             Projectile.spriteDirection = Projectile.velocity.X >= 0f ? 1 : -1;
 
-            // remove these 3 lines if you don't want the charging mechanic
-            /*
-            if (!Charge(owner))
-            {
-                return; // timer doesn't update while charging, freezing the animation at the start.
-            }
-            */
-
             Timer++;
 
             float swingTime = owner.itemAnimationMax * Projectile.MaxUpdates;
@@ -85,7 +72,8 @@ namespace ChangedSpecialMod.Content.Projectiles
                 // Plays a whipcrack sound at the tip of the whip.
                 List<Vector2> points = Projectile.WhipPointsForCollision;
                 Projectile.FillWhipControlPoints(Projectile, points);
-                SoundEngine.PlaySound(SoundID.Item153, points[points.Count - 1]);
+                if (ChangedSpecialModClientConfig.Instance.WhipCrackSound)
+                    SoundEngine.PlaySound(SoundID.Item153, points[points.Count - 1]);
             }
 
             // Spawn Dust along the whip path
@@ -127,7 +115,6 @@ namespace ChangedSpecialMod.Content.Projectiles
         private void DrawLine(List<Vector2> list)
         {
             Texture2D texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Projectiles/MollashSpine").Value;
-                //TextureAssets.FishingLine.Value;
             Rectangle frame = texture.Frame();
             Vector2 origin = new Vector2(frame.Width / 2 - 3, 0);
 
@@ -153,12 +140,6 @@ namespace ChangedSpecialMod.Content.Projectiles
             Projectile.FillWhipControlPoints(Projectile, list);
 
             DrawLine(list);
-
-            //Main.DrawWhip_WhipBland(Projectile, list);
-            // The code below is for custom drawing.
-            // If you don't want that, you can remove it all and instead call one of vanilla's DrawWhip methods, like above.
-            // However, you must adhere to how they draw if you do.
-
             SpriteEffects flip = Projectile.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
             Texture2D texture = TextureAssets.Projectile[Type].Value;
@@ -173,39 +154,6 @@ namespace ChangedSpecialMod.Content.Projectiles
                 Vector2 origin = new Vector2(5, 8); // Offset for where the player's hand will start measured from the top left of the image.
                 float scale = 1;
 
-                /*
-                // These statements determine what part of the spritesheet to draw for the current segment.
-                // They can also be changed to suit your sprite.
-                if (i == list.Count - 2)
-                {
-                    // This is the head of the whip. You need to measure the sprite to figure out these values.
-                    frame.Y = 18; // Distance from the top of the sprite to the start of the frame.
-                    frame.Height = 18; // Height of the frame.
-
-                    // For a more impactful look, this scales the tip of the whip up when fully extended, and down when curled up.
-                    Projectile.GetWhipSettings(Projectile, out float timeToFlyOut, out int _, out float _);
-                    float t = Timer / timeToFlyOut;
-                    scale = MathHelper.Lerp(0.5f, 1.5f, Utils.GetLerpValue(0.1f, 0.7f, t, true) * Utils.GetLerpValue(0.9f, 0.7f, t, true));
-                }
-                else if (i > 10)
-                {
-                    // Third segment
-                    frame.Y = 18;
-                    frame.Height = 18;
-                }
-                else if (i > 5)
-                {
-                    // Second Segment
-                    frame.Y = 18;
-                    frame.Height = 18;
-                }
-                else if (i > 0)
-                {
-                    // First Segment
-                    frame.Y = 18;
-                    frame.Height = 18;
-                }
-                */
                 if (i == list.Count - 2)
                 {
                     frame.Y = 68;

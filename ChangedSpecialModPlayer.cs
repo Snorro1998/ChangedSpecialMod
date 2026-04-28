@@ -145,8 +145,12 @@ namespace ChangedSpecialMod
             // Your custom drawing logic
             Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
 
-            var playerPos = new Vector2(player.Center.X, player.Center.Y + player.gfxOffY);
+            Vector2 playerPos = player.Center;
+            playerPos.Y += player.gfxOffY;
             Vector2 position = playerPos - Main.screenPosition;
+            position = new Vector2((int)position.X, (int)position.Y);
+            //var playerPos = new Vector2(player.Center.X, player.Center.Y + player.gfxOffY);
+            //Vector2 position = playerPos - Main.screenPosition;
             var effects = player.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
             var frameWidth = texture.Width;
@@ -286,6 +290,47 @@ namespace ChangedSpecialMod
 
             if (KeybindSystem.TransfurEvolveKeybind.JustPressed)
                 Evolve();
+
+            if (KeybindSystem.TransfurAttackKeybind.Current)
+                TransfurAttack();
+        }
+
+        private void TransfurAttack()
+        {
+            if (transfurIndex == TransfurType.None)
+                return;
+
+            Vector2 aimDirection = Main.MouseWorld - Player.Center;
+            //float distance = aimDirection.Length();
+            aimDirection.Normalize();
+
+            if (transfurIndex == TransfurType.SquidAdult)
+            {
+                //var target = Main.player[NPC.target];
+                // For some strange reason, projectile damage is doubled
+
+                var projectileType = ModContent.ProjectileType<PlayerMollashProjectileStraight>();
+                var mollashProjectile = Main.projectile.FirstOrDefault(x => x.active && x.type == projectileType);
+                if (mollashProjectile != null)
+                    return;
+
+                var items = Player.inventory.Where(x => x != null && !x.IsAir && x.ammo == AmmoID.None && !x.consumable).ToList();
+                var highestItemDamage = items.Any() ? (int)(items.OrderByDescending(x => x.damage).FirstOrDefault().damage * 0.75f) : 10;
+
+                var whipDamage = Math.Max(10, highestItemDamage);
+                Projectile.NewProjectile(
+                    Player.GetSource_FromAI(),
+                    Player.Center,
+                    Vector2.Zero,
+                    projectileType,//
+                    whipDamage, // damage
+                    2f, // knockback
+                    -1,
+                    Player.whoAmI,
+                    aimDirection.ToRotation(),//(target.Center - NPC.Center).ToRotation(), // ai[1] = direction
+                    Player.direction
+                );
+            }
         }
 
         public void SetOrRemoveTransfur(TransfurType transfur)
@@ -607,6 +652,17 @@ namespace ChangedSpecialMod
                     speedMultiplier = 0.75f;
                     damageBonus = 0.3f;
                 }
+
+                else if (transfurType == TransfurType.SquidAdult)
+                {
+                    lifeMultiplier = 1.25f;
+                    extraDefense = 5;
+                    speedMultiplier = 1f;
+                    Player.ignoreWater = true;
+                    if (Player.wet)
+                        Player.AddBuff(BuffID.Gills, 1);
+                }
+
                 Player.jumpHeight = (int)(Player.jumpHeight * jumpHeightMultiplier);
                 Player.statDefense += extraDefense;
                 Player.statLifeMax2 = (int)(Player.statLifeMax2 * lifeMultiplier);

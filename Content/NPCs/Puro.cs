@@ -93,8 +93,8 @@ namespace ChangedSpecialMod.Content.NPCs
         private static readonly List<ShopData> Shops = new()
         {
             new ShopData("First Shop", "Shop"),
-            new ShopData("Second shop", "Paintings"),
-            new ShopData("Third shop", "Pictures")
+            new ShopData("Second Shop", "Paintings"),
+            new ShopData("Third Shop", "Pictures")
         };
 
         //public const string ShopName = "Shop";
@@ -551,9 +551,8 @@ namespace ChangedSpecialMod.Content.NPCs
 			randomOffset = 2f;
 		}
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        private void DetermineHat(ChangedNPC changedNPC)
         {
-            var changedNPC = NPC.Changed();
             var hatId = -1;
             string modHat = null;
             changedNPC.HasBeer = false;
@@ -587,10 +586,10 @@ namespace ChangedSpecialMod.Content.NPCs
                         hatId = ItemID.SantaHat;
                         break;
                 }
-			}
+            }
 
-			if (hatId != -1 || modHat != null)
-			{
+            if (hatId != -1 || modHat != null)
+            {
                 if (modHat != null)
                     changedNPC.SetHat(modHat);
                 else
@@ -600,7 +599,12 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 changedNPC.RemoveHat();
             }
+        }
 
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            var changedNPC = NPC.Changed();
+            DetermineHat(changedNPC);
             changedNPC.PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }
@@ -705,8 +709,6 @@ namespace ChangedSpecialMod.Content.NPCs
             if (nOranges > 20)
                 enemyNearby = true;
 
-            // Set this to true anywhere to determine when a certain piece of code is executed. It will rapidly flip the sprite around
-            bool testFlag = false;
             int extraFrames = (NPC.isLikeATownNPC ? NPCID.Sets.ExtraFramesCount[NPC.type] : 0);
             if (IsGrounded())
             {
@@ -1493,9 +1495,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 NPC.frame.Y = frameIndex * frameHeight;
                 NPC.frameCounter = 0.0;
             }
-
-            if (testFlag)
-                NPC.spriteDirection = Utils.SelectRandom(Main.rand, -1, 1);
 
             UpdateHatPosition(frameHeight);
             UpdateBeerPosition(frameHeight);

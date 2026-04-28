@@ -1,12 +1,12 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.Items.Weapons;
+using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -30,7 +30,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
 			NPC.height = 45;
             NPC.damage = 40;
@@ -128,6 +129,35 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
+        }
+
+        public override void AI()
+        {
+            base.AI();
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                var player = Main.player[NPC.target];
+                var projectileType = ModContent.ProjectileType<NPCMollashProjectileStraight>();
+                var mollashProjectile = Main.projectile.FirstOrDefault(x => x.active && x.type == projectileType);
+                if (NPC.HasValidTarget && NPC.Distance(player.Center) < 200 && mollashProjectile == null && Main.rand.NextBool(100) && Collision.CanHit(NPC.Center, 1, 1, player.Center, 1, 1))
+                {
+                    var target = Main.player[NPC.target];
+                    // For some strange reason, projectile damage is doubled
+                    var whipDamage = (int)(NPC.damage * 0.5f);
+                    Projectile.NewProjectile(
+                        NPC.GetSource_FromAI(),
+                        NPC.Center,
+                        Vector2.Zero,
+                        projectileType,//
+                        whipDamage, // damage
+                        2f, // knockback
+                        -1,
+                        NPC.whoAmI,
+                        (target.Center - NPC.Center).ToRotation(), // ai[1] = direction
+                        NPC.spriteDirection
+                    );
+                }
+            }
         }
     }
 }

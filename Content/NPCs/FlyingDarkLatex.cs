@@ -56,11 +56,11 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             // Remove the default portrait, otherwise you get two of them
-            bestiaryEntry.Info.RemoveAt(2);
+            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
                 //  Add the new portrait with the modified rarity
-                new NPCPortraitInfoElement(3),
+                //new NPCPortraitInfoElement(3),
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.Description")),
             });
         }

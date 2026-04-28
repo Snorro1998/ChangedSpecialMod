@@ -17,7 +17,10 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modBossChecklist = null;
         public static Mod modFargosMutant = null;
         public static Mod modMusicDisplay = null;
-        public static Mod modVernoc = null;
+        public static Mod modThorium = null;
+        public static Mod modCalamity = null;
+        public static Mod modSpirit = null;
+        public static Mod modSpiritReforged = null;
 
         public override void Load()
         {
@@ -30,6 +33,14 @@ namespace ChangedSpecialMod.Common.Systems
             ModLoader.TryGetMod("Fargowiltas", out modFargosMutant);
             modMusicDisplay = null;
             ModLoader.TryGetMod("MusicDisplay", out modMusicDisplay);
+            modThorium = null;
+            ModLoader.TryGetMod("ThoriumMod", out modThorium);
+            modCalamity = null;
+            ModLoader.TryGetMod("CalamityMod", out modCalamity);
+            modSpirit = null;
+            ModLoader.TryGetMod("SpiritMod", out modSpirit);
+            modSpiritReforged = null;
+            ModLoader.TryGetMod("SpiritReforged", out modSpiritReforged);
         }
 
         public override void Unload()
@@ -37,6 +48,11 @@ namespace ChangedSpecialMod.Common.Systems
             modBossChecklist = null;
             modMusicDisplay = null;
             modFargosMutant = null;
+            modMusicDisplay = null;
+            modThorium = null;
+            modCalamity = null;
+            modSpirit = null;
+            modSpiritReforged = null;
         }
 
         public override void PostAddRecipes()

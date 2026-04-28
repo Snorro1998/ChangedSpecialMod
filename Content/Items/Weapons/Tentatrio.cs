@@ -54,15 +54,13 @@ namespace ChangedSpecialMod.Content.Items.Weapons
 
         public override void AddRecipes()
         {
-            Recipe recipe = Recipe.Create(ModContent.ItemType<Tentatrio>());
-
-            recipe.AddIngredient(ModContent.ItemType<Twintacle>());
-            recipe.AddIngredient(ItemID.SoulofFright, 5);
-            recipe.AddIngredient(ItemID.SoulofMight, 5);
-            recipe.AddIngredient(ItemID.SoulofSight, 5);
-            recipe.AddTile(TileID.Anvils);
-
-            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<Twintacle>())
+                .AddIngredient(ItemID.SoulofFright, 5)
+                .AddIngredient(ItemID.SoulofMight, 5)
+                .AddIngredient(ItemID.SoulofSight, 5)
+                .AddTile(TileID.Anvils)
+                .Register();
         }
 
         public override bool MeleePrefix()

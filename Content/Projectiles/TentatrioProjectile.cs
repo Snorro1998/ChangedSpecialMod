@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ChangedSpecialMod.Common.Configs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,8 @@ namespace ChangedSpecialMod.Content.Projectiles
                 // Plays a whipcrack sound at the tip of the whip.
                 List<Vector2> points = Projectile.WhipPointsForCollision;
                 Projectile.FillWhipControlPoints(Projectile, points);
-                SoundEngine.PlaySound(SoundID.Item153, points[points.Count - 1]);
+                if (ChangedSpecialModClientConfig.Instance.WhipCrackSound)
+                    SoundEngine.PlaySound(SoundID.Item153, points[points.Count - 1]);
             }
 
             // Spawn Dust along the whip path

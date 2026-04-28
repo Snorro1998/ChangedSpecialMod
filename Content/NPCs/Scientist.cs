@@ -44,9 +44,10 @@ namespace ChangedSpecialMod.Content.NPCs
         private static readonly List<ShopData> Shops = new()
         {
             new ShopData("First Shop", "Furniture"),
-            new ShopData("Second shop", "Potions"),
-            new ShopData("Third shop", "BossSummons"),
-            new ShopData("Fourth shop", "SolutionsShop"),
+            new ShopData("Second Shop", "Potions"),
+            new ShopData("Third Shop", "BossSummons"),
+            new ShopData("Fourth Shop", "Solutions"),
+            new ShopData("Fifth Shop", "Syringes"),
         };
 
         private static int ShimmerHeadIndex;
@@ -361,6 +362,12 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<WhiteLatexSolution>()
                 .Add<DryDirtSolution>()
                 .Register();
+
+            new NPCShop(Type, Shops[4].InternalName)
+                .Add<BlackSyringe>()
+                .Add<WhiteSyringe>()
+                .Add<SquidDogSyringe>()
+                .Register();
         }
 
         /// <summary>
@@ -370,50 +377,67 @@ namespace ChangedSpecialMod.Content.NPCs
         /// <param name="items"></param>
 		public override void ModifyActiveShop(string shopName, Item[] items)
         {
-            var healthPotion = ItemID.LesserHealingPotion;
-            var manaPotion = ItemID.LesserManaPotion;
-            var hardMode = Main.hardMode;
-            var killedAllMechs = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
-            var killedMoonLord = NPC.downedMoonlord;
-
-            if (hardMode)
+            // Potions
+            if (shopName.Contains("Second Shop"))
             {
-                if (killedMoonLord)
+                var healthPotion = ItemID.LesserHealingPotion;
+                var manaPotion = ItemID.LesserManaPotion;
+                var hardMode = Main.hardMode;
+                var killedAllMechs = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
+                var killedMoonLord = NPC.downedMoonlord;
+
+                if (hardMode)
                 {
-                    healthPotion = ItemID.SuperHealingPotion;
-                    manaPotion = ItemID.SuperManaPotion;
+                    if (killedMoonLord)
+                    {
+                        healthPotion = ItemID.SuperHealingPotion;
+                        manaPotion = ItemID.SuperManaPotion;
+                    }
+                    else if (killedAllMechs)
+                    {
+                        healthPotion = ItemID.GreaterHealingPotion;
+                        manaPotion = ItemID.GreaterManaPotion;
+                    }
+                    else
+                    {
+                        healthPotion = ItemID.HealingPotion;
+                        manaPotion = ItemID.ManaPotion;
+                    }
                 }
-                else if (killedAllMechs)
+
+                if (healthPotion != ItemID.LesserHealingPotion)
                 {
-                    healthPotion = ItemID.GreaterHealingPotion;
-                    manaPotion = ItemID.GreaterManaPotion;
-                }
-                else
-                {
-                    healthPotion = ItemID.HealingPotion;
-                    manaPotion = ItemID.ManaPotion;
+                    foreach (Item item in items)
+                    {
+                        // Skip 'air' items and null items.
+                        if (item == null || item.type == ItemID.None)
+                        {
+                            continue;
+                        }
+
+                        if (item.type == ItemID.LesserHealingPotion)
+                        {
+                            item.type = healthPotion;
+                        }
+                        else if (item.type == ItemID.LesserManaPotion)
+                        {
+                            item.type = manaPotion;
+                        }
+                    }
                 }
             }
+        }
 
-            if (healthPotion != ItemID.LesserHealingPotion)
+        private void AddItemToShop(ref Item[] items, int itemId)
+        {
+            for (int i = 0; i < items.Length; i++)
             {
-                foreach (Item item in items)
-                {
-                    // Skip 'air' items and null items.
-                    if (item == null || item.type == ItemID.None)
-                    {
-                        continue;
-                    }
-
-                    if (item.type == ItemID.LesserHealingPotion)
-                    {
-                        item.type = healthPotion;
-                    }
-                    else if (item.type == ItemID.LesserManaPotion)
-                    {
-                        item.type = manaPotion;
-                    }
-                }
+                var item = items[i];
+                if (item != null && item.type != ItemID.None)
+                    continue;
+                if (item == null)
+                    item = new Item(ItemID.DirtBlock);
+                item.SetDefaults(itemId);
             }
         }
 

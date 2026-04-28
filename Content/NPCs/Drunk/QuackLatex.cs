@@ -23,7 +23,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override string Texture => "ChangedSpecialMod/Content/NPCs/Drunk/QuackLatex";
         public override void SetStaticDefaults() 
 		{
-            Main.npcFrameCount[Type] = 4;
+            Main.npcFrameCount[Type] = 10;
             //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             //ChangedUtils.HideFromBestiary(this);
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
@@ -48,7 +48,7 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.knockBackResist = 0.5f;
             NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
-			AnimationType = NPCID.Zombie;
+			AnimationType = NPCID.Duck;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
             var changedNPC = NPC.Changed();

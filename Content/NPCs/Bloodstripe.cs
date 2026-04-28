@@ -31,10 +31,10 @@ namespace ChangedSpecialMod.Content.NPCs
 		public override void SetDefaults() 
         {
 			NPC.width = 25;
-			NPC.height = 84;//56
+			NPC.height = 84;
             NPC.damage = 40;
             NPC.defense = 12;
-            NPC.lifeMax = 300;//400
+            NPC.lifeMax = 300;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = ChangedUtils.GetNPCValue(gold: 1);
@@ -106,8 +106,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
+            bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
+                new NPCPortraitInfoElement(3),
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Bloodstripe.Description")),
             });
         }

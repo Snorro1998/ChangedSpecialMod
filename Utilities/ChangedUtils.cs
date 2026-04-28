@@ -231,12 +231,16 @@ namespace ChangedSpecialMod.Utilities
 
         public static int MainRandNext(int minValue, int maxValue)
         {
+            if (maxValue <= minValue)
+                maxValue = minValue + 1;
             // This is stupid. In all random functions it is exclusive maxValue but Utils.Next is inclusive maxValue
             return Utils.Next(Main.rand, new Terraria.Utilities.IntRange(minValue, maxValue - 1));
         }
 
         public static int WorldGenRandNext(int minValue, int maxValue)
         {
+            if (maxValue <= minValue)
+                maxValue = minValue + 1;
             // This is stupid. In all random functions it is exclusive maxValue but Utils.Next is inclusive maxValue
             return Utils.Next(WorldGen.genRand, new Terraria.Utilities.IntRange(minValue, maxValue - 1));
         }

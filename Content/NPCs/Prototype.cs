@@ -1,6 +1,7 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
+using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
@@ -32,8 +33,8 @@ namespace ChangedSpecialMod.Content.NPCs
         private static readonly List<ShopData> Shops = new()
         {
             new ShopData("First Shop", "Fruits"),
-            new ShopData("Second shop", "Herbs"),
-            new ShopData("Third shop", "MusicBoxes")
+            new ShopData("Second Shop", "Herbs"),
+            new ShopData("Third Shop", "MusicBoxes")
         };
 
         // Everything starting with state needs to be figured out still
@@ -206,13 +207,13 @@ namespace ChangedSpecialMod.Content.NPCs
         {
 			return new List<string>() 
             {
-                "A-126",    // Change the first letter to an e and swap the second and last letter
+                "A-126",    // Something random
                 "4MM13",    // Ammy
                 "GH44",     // Super Bubsy cheatcode cuz why not
                 "0R4-N93",  // Orange
                 "XJ-9",     // Jenny Wakeman, also a blue robot
                 "H4Y-D3N",  // Hayden
-                "SH1-Z1"    // Shizi
+                "SH1-Z1",   // Shizi
             };
 		}
 
@@ -252,6 +253,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void AddShops() 
         {
+            // Fruit
 			new NPCShop(Type, Shops[0].InternalName)
                 .Add(ItemID.Apple)
                 .Add(ItemID.Apricot)
@@ -303,7 +305,86 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Register();
         }
 
-		public override void ModifyNPCLoot(NPCLoot npcLoot)
+        public override void ModifyActiveShop(string shopName, Item[] items) 
+        {
+            // I don't know why, but it suddenly changed from First Shop to ChangedSpecialMod/Prototype/First Shop
+            // No I don't want to fix that right now so just check if the name contains the shop name instead of equal
+
+            // Don't do anything for the other shops
+            if (shopName.Contains("First Shop") || shopName.Contains("Second Shop")) 
+            { 
+                // Clear out the shop in case he sells pylons or things from other mods
+                for (int i = 0; i < items.Length; i++) 
+                { 
+                    var item = items[i]; 
+                    if (item == null) 
+                        continue; 
+                    item.type = ItemID.None; 
+                } 
+
+                var externalMods = ExternalModItemSystem.GetExternalMods();
+                var itemList = new List<int>(); 
+                // Fruit shop
+                if (shopName.Contains("First Shop")) 
+                { 
+                    itemList = new List<int>() 
+                    { 
+                        ItemID.Apple, 
+                        ItemID.Apricot, 
+                        ItemID.Banana, 
+                        ItemID.BlackCurrant, 
+                        ModContent.ItemType<Orange>(), 
+                        ItemID.BloodOrange, 
+                        ItemID.Cherry, 
+                        ItemID.Coconut, 
+                        ItemID.Elderberry, 
+                        ItemID.Grapefruit, 
+                        ItemID.Lemon, 
+                        ItemID.Mango, 
+                        ItemID.Peach, 
+                        ItemID.Pineapple, 
+                        ItemID.Plum, 
+                        ItemID.Pomegranate, 
+                        ItemID.Rambutan, 
+                        ItemID.SpicyPepper, 
+                    };
+                    foreach (var mod in externalMods)
+                    {
+                        itemList.AddRange(mod.GetAvailable(ItemCategory.Fruit));
+                    }
+                } 
+                // Herb shop
+                else if (shopName.Contains("Second Shop")) 
+                { 
+                    itemList = new List<int>() 
+                    { 
+                        ItemID.Daybloom, 
+                        ItemID.Moonglow, 
+                        ItemID.Blinkroot, 
+                        ItemID.Deathweed, 
+                        ItemID.Waterleaf, 
+                        ItemID.Fireblossom, 
+                        ItemID.Shiverthorn 
+                    };
+                    foreach (var mod in externalMods)
+                    {
+                        itemList.AddRange(mod.GetAvailable(ItemCategory.Herb));
+                    }
+                } 
+                var nShopSlots = 40; 
+                // Replace items in the shop
+                for (int i = 0; i < itemList.Count; i++) 
+                { 
+                    // Stop if the shop is full
+                    if (i >= nShopSlots) break; 
+                    if (items[i] == null) 
+                        items[i] = new Item(ItemID.DirtBlock); 
+                    items[i].SetDefaults(itemList[i]); 
+                } 
+            } 
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WateringCan>()));
 		}
@@ -362,7 +443,7 @@ namespace ChangedSpecialMod.Content.NPCs
             throw       26 27 28 29
             */
 
-            var changedNPC = NPC.Changed();
+        var changedNPC = NPC.Changed();
             var frame = NPC.frame;
             var frameIndex = frame.Top / frameHeight;
             var hatYOffset = -36;

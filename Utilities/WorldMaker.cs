@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChangedSpecialMod.Common.Configs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -35,12 +36,6 @@ namespace ChangedSpecialMod.Utilities
     {
         public const int distFromBeach = 50;
         public const int distFromWorldCenter = 400;
-
-        // World positions
-        public List<Vector2> labPositions = new List<Vector2>();
-        // The type of lab
-        public List<LabType> labTypes = new List<LabType>();
-
         public List<LabStruct> newLabs = new List<LabStruct>();
 
         // TODO: Check for protected structures
@@ -70,9 +65,16 @@ namespace ChangedSpecialMod.Utilities
                             break;
                         // Anything else
                         default:
-                            nBuildings = Math.Max(1, Main.maxTilesX / 2800);
+                            nBuildings = Math.Max(1, Main.maxTilesX / 4000);
                             break;
                     }
+
+                    var configNLabs = ChangedSpecialModClientConfig.Instance.NumberOfLabs;
+                    if (configNLabs != 1)
+                        nBuildings = configNLabs;
+
+                    if (nBuildings == 0)
+                        return;
 
                     var leftBeachPosition = GenVars.leftBeachEnd;
                     var rightBeachPosition = GenVars.rightBeachStart;
@@ -88,8 +90,6 @@ namespace ChangedSpecialMod.Utilities
                     var xEndRight = rightBeachPosition - distFromBeach;
                     var widthRight = xEndRight - xStartRight;
 
-                    labPositions.Clear();
-                    labTypes.Clear();
                     newLabs.Clear();
 
                     // Create lab classes and calculate their layouts
@@ -101,7 +101,7 @@ namespace ChangedSpecialMod.Utilities
 
                     int nLabs = newLabs.Count;
                     int nLabTypes = Enum.GetValues<LabType>().Length;
-                    var nBuildingsPerType = Math.Max(1, labPositions.Count / nLabTypes);
+                    var nBuildingsPerType = Math.Max(1, newLabs.Count / nLabTypes);
 
                     // By default all labs are the city ruins type, where all latex types can spawn
                     // If there are 2 labs, make one white and the other one black

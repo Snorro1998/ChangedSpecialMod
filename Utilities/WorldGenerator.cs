@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Content.Items;
+﻿using ChangedSpecialMod.Common.WorldGeneration;
+using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
@@ -8,279 +9,10 @@ using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace ChangedSpecialMod.Utilities
 {
-    public class Room
-    {
-        public int FloorType { get; }
-        public int FloorPaint { get; }
-        public int[] WallType { get; }
-        public int WallPaint { get; }
-        public bool HasPainting { get; }
-        public int LanternStyle { get; }
-        public int TorchStyle { get; }
-        public int ChandelierStyle { get; }
-        public bool HasLightSwitch { get; }
-        public bool HasFans { get; }
-        public int[] Decor {  get; }
-        public bool PlacedSingleDecor = false;
-        public int SingleDecor { get; }
-        public bool HasChest { get; }
-        public int Width = 1;
-        public int Height = 1;
-
-        protected Room(int floorType, int floorPaint, int[] wallType, int wallPaint, bool hasPainting, bool hasChest, int[] decor, int singleDecor, int lanternStyle, int torchStyle, int chandelierStyle, bool hasLightSwitch, bool hasFans)
-        {
-            FloorType = floorType;
-            FloorPaint = floorPaint;
-            WallType = wallType;
-            WallPaint = wallPaint;
-            HasPainting = hasPainting;
-            HasChest = hasChest;
-            Decor = decor;
-            SingleDecor = singleDecor;
-            LanternStyle = lanternStyle;
-            TorchStyle = torchStyle;
-            ChandelierStyle = chandelierStyle;
-            HasLightSwitch = hasLightSwitch;
-            HasFans = hasFans;
-        }
-
-        public int GetWallType()
-        {
-            return WallType[ChangedUtils.WorldGenRandNext(0, WallType.Length)];
-        }
-
-        public int GetDecor()
-        {
-            return Decor[ChangedUtils.WorldGenRandNext(0, Decor.Length)];
-        }
-    }
-
-    public class RoomDefault : Room
-    {
-        public RoomDefault() : base(
-            floorType:      ModContent.TileType<Lab_TileTile>(),
-            floorPaint:     PaintID.None,
-            wallType:       [WallID.GoldBrick],
-            wallPaint:      PaintID.PurplePaint,
-            hasPainting:    true,
-            hasChest:       false,
-            decor:          [ModContent.TileType<WhiteLatexBookcases>()],
-            singleDecor:    -1,
-            lanternStyle:   0,
-            torchStyle:     -1,
-            chandelierStyle:-1,
-            hasLightSwitch: false,
-            hasFans: false
-        ){}
-    }
-
-    public class RoomGenerator : Room
-    {
-        public RoomGenerator() : base(
-            floorType:      ModContent.TileType<Lab_TileTile>(),
-            floorPaint:     PaintID.None,
-            wallType:       [WallID.LeadBrick],
-            wallPaint:      PaintID.None,
-            hasPainting:    false,
-            hasChest:       false,
-            decor:          [ModContent.TileType<Generator>()],
-            singleDecor:    -1,
-            lanternStyle:   0,
-            torchStyle:     -1,
-            chandelierStyle:-1,
-            hasLightSwitch: true,
-            hasFans: false
-        )
-        {}
-    }
-
-    public class RoomGas : Room
-    {
-        public RoomGas() : base(
-            floorType:      ModContent.TileType<Lab_TileTile>(),
-            floorPaint:     PaintID.None,
-            wallType:       [WallID.LeadBrick],
-            wallPaint:      PaintID.None,
-            hasPainting:    true,
-            hasChest:       false,
-            decor:          [ModContent.TileType<RedGasTank>(), ModContent.TileType<BlueGasTank>()],
-            singleDecor:    -1,
-            lanternStyle:   0,
-            torchStyle:     -1,
-            chandelierStyle:-1,
-            hasLightSwitch: false,
-            hasFans: true
-        )
-        { }
-    }
-
-    public class RoomGreenhouse : Room
-    {
-        public RoomGreenhouse() : base(
-            floorType:      ModContent.TileType<Lab_TileTile>(),
-            floorPaint:     PaintID.None,
-            wallType:       [WallID.Glass],
-            wallPaint:      PaintID.None,
-            hasPainting:    false,
-            hasChest:       false,
-            decor:          [TileID.PottedPlants1, TileID.PottedPlants2],
-            singleDecor:    ModContent.TileType<WateringCan>(),
-            lanternStyle:   -1,
-            torchStyle:     -1,
-            chandelierStyle:-1,
-            hasLightSwitch: false,
-            hasFans: false
-        )
-        {}
-    }
-
-    public class RoomLibrary : Room
-    {
-        public RoomLibrary() : base(
-            floorType:      TileID.WoodBlock,
-            floorPaint:     PaintID.None,
-            wallType:       [WallID.Planked],
-            wallPaint:      PaintID.None,
-            hasPainting:    true,
-            hasChest:       false,
-            decor:          [ModContent.TileType<MountBookest>(), TileID.Bookcases],
-            singleDecor:    -1,
-            lanternStyle:   0,
-            torchStyle:     -1,
-            chandelierStyle:-1,
-            hasLightSwitch: false,
-            hasFans: false
-        )
-        {}
-    }
-
-    public class RoomToy : Room
-    {
-        public RoomToy() : base(
-            floorType:      TileID.WoodBlock,
-            floorPaint:     PaintID.None,
-            wallType:       [WallID.SquigglesWallpaper],
-            wallPaint:      PaintID.None,
-            hasPainting:    true,
-            hasChest:       false,
-            decor:          [ModContent.TileType<Basketball>(), ModContent.TileType<PuroPlush>(), ModContent.TileType<SharkPlush>(), ModContent.TileType<FennecPlush>(), ModContent.TileType<Blocks>()],
-            singleDecor:    -1,
-            lanternStyle:   -1, //20
-            torchStyle:     -1,
-            chandelierStyle:47,
-            hasLightSwitch: false,
-            hasFans: false
-        )
-        { }
-    }
-
-    // For now this is more like a storage room, so add a chest in here until we make a proper storage room
-    public class RoomLab : Room
-    {
-        public RoomLab() : base(
-            ModContent.TileType<Lab_TileTile>(),
-            PaintID.None,
-            [WallID.Planked],
-            PaintID.None,
-            true,
-            true,
-            // Don't add chairs or else it can be a valid house and NPCs will move in before you have found it
-            // We could also remove the light from the room
-            [ModContent.TileType<LabTable>(), ModContent.TileType<StackOfBoxes>(), ModContent.TileType<Locker>()/*, ModContent.TileType<BlueOfficeChair>()*/],
-            singleDecor: -1,
-            lanternStyle: 0,
-            torchStyle: -1,
-            chandelierStyle: -1,
-            false,
-            hasFans: true
-        )
-        { }
-    }
-
-    public class RoomBlackGoo : Room
-    {
-        public RoomBlackGoo() : base(
-            ModContent.TileType<BlackLatexTile>(),
-            PaintID.None,
-            [WallID.Slime/*, WallID.Honeyfall*/],
-            PaintID.BlackPaint,
-            true,
-            false,
-            [ModContent.TileType<CrystalGreen>(), ModContent.TileType<CrystalRed>()],
-            singleDecor: -1,
-            lanternStyle: -1,
-            torchStyle: 3,
-            chandelierStyle: -1,
-            false,
-            hasFans: false
-        )
-        {}
-    }
-
-    public class RoomWhiteGoo : Room
-    {
-        public RoomWhiteGoo() : base(
-            ModContent.TileType<WhiteLatexTile>(),
-            PaintID.None,
-            [WallID.Slime/*, WallID.Honeyfall*/],
-            PaintID.WhitePaint,
-            true,
-            false,
-            [ModContent.TileType<CrystalWhite>(), ModContent.TileType<PillarWhite>(), ModContent.TileType<WhiteLatexBookcases>()],
-            singleDecor: -1,
-            lanternStyle: -1,
-            torchStyle: 5,
-            chandelierStyle: -1,
-            false,
-            hasFans: false
-        )
-        {}
-    }
-
-    public class RoomBathroom : Room
-    {
-        public RoomBathroom() : base(
-            ModContent.TileType<Lab_TileTile>(),
-            PaintID.None,
-            [WallID.GrayBrick],
-            PaintID.DeepLimePaint,
-            false,
-            false,
-            [TileID.Bathtubs, TileID.Dressers, TileID.Sinks],
-            singleDecor: -1,
-            0,
-            -1,
-            chandelierStyle: -1,
-            false,
-            hasFans: false
-        )
-        {}
-    }
-
-    // Currently no stairs and just an elevator with plants near it
-    public class RoomStairs : Room
-    {
-        public RoomStairs() : base(
-            ModContent.TileType<Lab_TileTile>(),
-            PaintID.None,
-            [WallID.Wood],
-            PaintID.None,
-            false,
-            false,
-            [TileID.PottedPlants1],
-            singleDecor: -1,
-            0,
-            -1,
-            chandelierStyle: -1,
-            false,
-            hasFans: false
-        )
-        { }
-    }
-
     public static class WorldGenerator
     {
         public static int RoomWidthMin = 11;
@@ -290,6 +22,7 @@ namespace ChangedSpecialMod.Utilities
 
         private static int[] globalWallDecorations = new int[]
         {
+            // Paintings
             ModContent.TileType<Painting1>(),
             ModContent.TileType<Painting2>(),
             ModContent.TileType<Painting3>(),
@@ -301,18 +34,22 @@ namespace ChangedSpecialMod.Utilities
             ModContent.TileType<Painting11>(),
             ModContent.TileType<Painting16>(),
             ModContent.TileType<Painting17>(),
-            ModContent.TileType<IrisScanner>(),
 
+            // Pictures
             ModContent.TileType<Pictures1>(),
             ModContent.TileType<Pictures2>(),
             ModContent.TileType<Pictures3>(),
             ModContent.TileType<Pictures4>(),
             ModContent.TileType<Pictures5>(),
             ModContent.TileType<Pictures6>(),
+
+            // Others
+            ModContent.TileType<IrisScanner>(),
         };
 
         private static int[] globalWallDecorationsDrunk = new int[]
         {
+            // Paintings
             ModContent.TileType<Painting5>(),       // Laughing
             ModContent.TileType<Painting7>(),       // Cuddly
             ModContent.TileType<DrunkPainting1>(),  // Puro closeup
@@ -320,6 +57,7 @@ namespace ChangedSpecialMod.Utilities
             ModContent.TileType<DrunkPainting3>(),  // Squid Dog derp
             ModContent.TileType<DrunkPainting4>(),  // Puro derp
 
+            // Pictures
             ModContent.TileType<Pictures1>()
         };
 
@@ -348,6 +86,7 @@ namespace ChangedSpecialMod.Utilities
         public static int RoomIndex = 0;
         public static int RoomIndexLow = 0;
 
+        // Shuffle the global arrays based on the seed when generating a new world
         public static void OnGenerateNewWorld()
         {
             WallDecorationIndex = 0;
@@ -365,6 +104,22 @@ namespace ChangedSpecialMod.Utilities
 
             RoomsLow = (Room[])globalRoomsLow.Clone();
             RoomsLow = RoomsLow.ToList().OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToArray();
+        }
+
+        public static void DestroyChestAtPosition(int x, int y)
+        {
+            if (!WorldGen.InWorld(x, y))
+                return;
+
+            var tile = Main.tile[x, y];
+            if (tile == null || !tile.HasTile)
+                return;
+
+            (int xTop, int yTop) = TileObjectData.TopLeft(x, y);
+
+            var chestId = Chest.FindChest(xTop, yTop);
+            if (chestId != -1)
+                Chest.DestroyChestDirect(xTop, yTop, chestId);
         }
 
         public static void FloodRoom(int xPos, int yPos, int width, int height)
@@ -425,6 +180,7 @@ namespace ChangedSpecialMod.Utilities
                     // Remove wall from the room to the left
                     if (leftSideOpen && x == xPos && y > yPos && y < bottom)
                     {
+                        DestroyChestAtPosition(x, y);
                         WorldGen.KillTile(x, y);
                     }
 
@@ -484,8 +240,11 @@ namespace ChangedSpecialMod.Utilities
             if (Main.tile[left, bottom - 3].TileType != doorClosed &&
                 Main.tile[left, bottom - 3].TileType != doorOpen)
             {
+                DestroyChestAtPosition(left, bottom - 1);
                 WorldGen.KillTile(left, bottom - 1, false, false, true);
+                DestroyChestAtPosition(left, bottom - 2);
                 WorldGen.KillTile(left, bottom - 2, false, false, true);
+                DestroyChestAtPosition(left, bottom - 3);
                 WorldGen.KillTile(left, bottom - 3, false, false, true);
                 WorldGen.PlaceTile(left, bottom - 3, doorType, true, true);
             }
@@ -494,8 +253,11 @@ namespace ChangedSpecialMod.Utilities
             if (Main.tile[right, bottom - 3].TileType != doorClosed &&
                 Main.tile[right, bottom - 3].TileType != doorOpen)
             {
+                DestroyChestAtPosition(right, bottom - 1);
                 WorldGen.KillTile(right, bottom - 1, false, false, true);
+                DestroyChestAtPosition(right, bottom - 2);
                 WorldGen.KillTile(right, bottom - 2, false, false, true);
+                DestroyChestAtPosition(right, bottom - 3);
                 WorldGen.KillTile(right, bottom - 3, false, false, true);
                 WorldGen.PlaceTile(right, bottom - 3, doorType, true, true);
             }
@@ -595,8 +357,8 @@ namespace ChangedSpecialMod.Utilities
             return placedAnything;
         }
 
-        // Add a chest to the lab so it won't get destroyed by meteors
-        // during testing one fell right next to it, but they don't do that if there is a chest nearby
+        // We don't have many useful items, but we still add a chest to the lab so it won't get destroyed by meteors
+        // During testing one fell right next to it, but they don't do that if there is a chest nearby
         public static void AddChest(int xStart, int roomWidth, int yCur, int h)
         {
             var ww = xStart + 2;
@@ -736,7 +498,7 @@ namespace ChangedSpecialMod.Utilities
                     // Distance from ellipse edge in tiles
                     double edgeDistance = (1.0 - distance) * Math.Min(radiusX, radiusY);
 
-                    // Normalize falloff (0 at edge → 1 inside)
+                    // Normalize falloff (0 at edge -> 1 inside)
                     double falloffFactor = Math.Clamp(edgeDistance / distFallOff, 0.0, 1.0);
 
                     // Convert to integer chance
@@ -755,21 +517,6 @@ namespace ChangedSpecialMod.Utilities
                     {
                         tile.TileType = (ushort)tileType;
                     }
-                }
-            }
-        }
-
-
-        public static void KillAll(int xPos, int yPos)
-        {
-            for (int y = yPos; y < yPos + 100; y++)
-            {
-                for (int x = xPos; x < xPos + 100; x++)
-                {
-                    WorldGen.KillWire(x, y);
-                    WorldGen.KillWall(x, y);
-                    WorldGen.KillTile(x, y);
-                    Main.tile[x, y].LiquidAmount = 0;
                 }
             }
         }

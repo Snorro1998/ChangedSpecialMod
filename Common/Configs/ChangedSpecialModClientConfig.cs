@@ -13,7 +13,28 @@ namespace ChangedSpecialMod.Common.Configs
 
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("WorldGeneration")]
+
+        [Range(0, 20)]
+        [DefaultValue(1)]
+        public int NumberOfLabs { get; set; }
+
+        [Range(4, 15)]
+        [DefaultValue(4)]
+        public int MaximumFloors { get; set; }
+        [Range(4, 8)]
+        [DefaultValue(4)]
+        public int MaximumRoomsHorizontal { get; set; }
+
+        [Header("Audio")]
         [DefaultValue(true)]
         public bool TransfurSound;
+
+        [DefaultValue(true)]
+        public bool WhipCrackSound;
+
+        [Header("Misc")]
+        [DefaultValue(true)]
+        public bool NPCsCanUseChangedEmotes;
     }
 }
