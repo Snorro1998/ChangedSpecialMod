@@ -16,6 +16,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			TileID.Sets.IgnoredByNpcStepUp[Type] = true; // This line makes NPCs not try to step up this tile during their movement. Only use this for furniture with solid tops.
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
 			TileObjectData.addTile(Type);
-		}
+            DustType = DustID.SnowBlock;
+        }
 	}
 }

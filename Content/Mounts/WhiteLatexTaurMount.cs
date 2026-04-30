@@ -7,7 +7,6 @@ namespace ChangedSpecialMod.Content.Mounts
 {
     public class WhiteLatexTaurMount : ModMount
     {
-
         public override void SetStaticDefaults()
         {
             // Movement

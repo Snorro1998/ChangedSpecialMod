@@ -35,7 +35,7 @@ namespace ChangedSpecialMod.Content.Biomes
             var nDryDirt = tileCounter.DryDirtBlockCount;
             var nWhiteLatex = tileCounter.WhiteLatexBlockCount;
             var nBlackLatex = tileCounter.BlackLatexBlockCount;
-            bool enoughBlocks = nBlackLatex >= 800 && nBlackLatex > nDryDirt && nBlackLatex > nWhiteLatex;
+            bool enoughBlocks = nBlackLatex >= tileCounter.NBlocksNeeded && nBlackLatex > nDryDirt && nBlackLatex > nWhiteLatex;
 			bool surfaceZone = player.ZoneSkyHeight || player.ZoneOverworldHeight;
 			return enoughBlocks && surfaceZone;
 		}

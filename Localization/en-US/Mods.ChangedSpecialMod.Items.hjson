@@ -669,3 +669,13 @@ SquidDogSyringe: {
 		- Allows you to breathe underwater
 		'''
 }
+
+BlackLatexSand: {
+	DisplayName: Black Latex Sand
+	Tooltip: ""
+}
+
+WhiteLatexSand: {
+	DisplayName: White Latex Sand
+	Tooltip: ""
+}

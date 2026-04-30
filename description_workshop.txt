@@ -38,26 +38,51 @@ This mod only has built-in support for bosschecklist. It should also work fine w
 [h2]Changelog[/h2]
 For information about previous versions, please check out the change notes.
 
-[h3]0.3[/h3]
-[b]Additions and changes[/b]
+[h3]0.4[/h3]
+
+[b]General[/b]
 [list]
-	[*]Added black and white syringes, allowing you to transform into latex beasts
-	[*]Added support for boss checklist
-	[*]Added black latex, white latex and dry dirt solutions for the clentaminator
-	[*]Resprited several NPCs to fit better in the game
-	[*]Prototype glows red during a blood moon and rgb colors during a party
-	[*]Increased drop chance of ink from Squid Dogs
-	[*]Nerfed White Tail damage
-	[*]Reduced number of labs on medium and large worlds
-	[*]Enemies can spawn lovestruck on Valentines day, making them harmless
-	[*]Basketball can now be thrown
-	[*]Increased number of blocks required to form a biome from 200 to 800
-	[*]Changed the shape of the biomes from a square to an ellipse
+	[*]Added orange statue
+	[*]Resprited all emotes
+	[*]Updated book barrage weapon
+	[*]Split the shops into categories
+[/list]
+[b]Mod support[/b]
+[list]
+	[*]Added support for Fargos Mutant Mod
+	[*]Added support for Music display
+[/list]
+[b]Config[/b]
+[list]
+	[*]Added world generation options for the number of labs and their dimensions
+	[*]Added option to disable transfur sound
+	[*]Added option to disable whip crack sound
+[/list]
+[b]NPCs[/b]
+[list]
+	[*]Reduced chance that NPCs will use Changed emotes when talking
+	[*]Resprited Tiger Shark
+	[*]Squid Dogs lash out with their tentacles
+	[*]Puro looks shocked if chased by strong enemies
+	[*]Puro immune to black latices
+	[*]Prototype glows orange during an eclipse
+	[*]Prototype sells fruit from Calamity, Thorium, Spirit and Spirit Reforged
+	[*]Dr K immune to white latices
+[/list]
+[b]Renamed[/b]
+[list]
+	[*]Lion -> Feng Yu
+	[*]Flying Dark Latex -> Yufeng Cub
+	[*]Winged Dark Latex -> Yufeng
+	[*]Whisker Wand Cat -> Ming Cat
 [/list]
 [b]Fixed[/b]
 [list]
-	[*]Several issues with spawning and despawning of bosses
-	[*]Fixed wrong crafting recipes for a couple of items
-	[*]Puro not wearing a bandana during the Pirate Invasion
-	[*]Picture viewing UI jittering when moving
+	[*]Player sprite jittering very slightly when transfurred and moving
+	[*]Wrong offset of some projectiles
+	[*]Broken dialogue for Puro during an eclipse
+	[*]Wolf King applying no building debuff to all players instead of players near him
+	[*]Prototype still used old texture for map icon
+	[*]Might latex didn't fit in the bestiary frame
+	[*]Yufeng not wearing hats
 [/list]

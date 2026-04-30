@@ -26,9 +26,7 @@ namespace ChangedSpecialMod.Content.Projectiles
         {
             // If the projectile hits the left or right side of the tile, reverse the X velocity
             if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon)
-            {
                 Projectile.velocity.X = -oldVelocity.X;
-            }
 
             // If the projectile hits the top or bottom side of the tile, reverse the Y velocity
             if (Math.Abs(Projectile.velocity.Y - oldVelocity.Y) > float.Epsilon)
@@ -41,13 +39,9 @@ namespace ChangedSpecialMod.Content.Projectiles
             var vec = oldVelocity + Projectile.velocity;
 
             if (Projectile.velocity.Length() > 0.5f && vec.Length() > 0.5f)
-            {
                 SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-            }
             else
-            {
                 Projectile.velocity.Y = 0;
-            }
 
             return false;
         }

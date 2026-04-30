@@ -22,9 +22,13 @@ namespace ChangedSpecialMod.Common.Configs
         [Range(4, 15)]
         [DefaultValue(4)]
         public int MaximumFloors { get; set; }
-        [Range(4, 8)]
-        [DefaultValue(4)]
+        [Range(5, 8)]
+        [DefaultValue(5)]
         public int MaximumRoomsHorizontal { get; set; }
+
+        [Range(1, 30)]
+        [DefaultValue(10)]
+        public int LatexSpreadChance { get; set; }
 
         [Header("Audio")]
         [DefaultValue(true)]

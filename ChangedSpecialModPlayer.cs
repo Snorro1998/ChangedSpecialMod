@@ -1,6 +1,5 @@
 ﻿using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
@@ -142,15 +141,11 @@ namespace ChangedSpecialMod
                 }
             }
 
-            // Your custom drawing logic
             Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
-
             Vector2 playerPos = player.Center;
             playerPos.Y += player.gfxOffY;
             Vector2 position = playerPos - Main.screenPosition;
             position = new Vector2((int)position.X, (int)position.Y);
-            //var playerPos = new Vector2(player.Center.X, player.Center.Y + player.gfxOffY);
-            //Vector2 position = playerPos - Main.screenPosition;
             var effects = player.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
             var frameWidth = texture.Width;
@@ -192,7 +187,7 @@ namespace ChangedSpecialMod
             drawInfo.DrawDataCache.Add(new DrawData(
                 texture,
                 position,
-                sourceRect,//NPC.frame,
+                sourceRect,
                 tmpColor,
                 0f,
                 new Vector2(frameWidth / 2, frameHeight / 2),
@@ -200,19 +195,6 @@ namespace ChangedSpecialMod
                 effects,
                 0f
             ));
-            /*
-            drawInfo.DrawDataCache.Add(new DrawData(
-                texture,
-                position,
-                null,
-                Color.White,
-                0f,
-                texture.Size() / 2,
-                1f,
-                effects,
-                0
-            ));
-            */
         }
     }
 
@@ -278,9 +260,7 @@ namespace ChangedSpecialMod
 
             // Type was changed
             if (targetType != transfurIndex)
-            {
                 SetTransfur(targetType);
-            }
         }
 
         public override void ProcessTriggers(TriggersSet triggersSet)
@@ -301,14 +281,10 @@ namespace ChangedSpecialMod
                 return;
 
             Vector2 aimDirection = Main.MouseWorld - Player.Center;
-            //float distance = aimDirection.Length();
             aimDirection.Normalize();
 
             if (transfurIndex == TransfurType.SquidAdult)
             {
-                //var target = Main.player[NPC.target];
-                // For some strange reason, projectile damage is doubled
-
                 var projectileType = ModContent.ProjectileType<PlayerMollashProjectileStraight>();
                 var mollashProjectile = Main.projectile.FirstOrDefault(x => x.active && x.type == projectileType);
                 if (mollashProjectile != null)
@@ -322,12 +298,12 @@ namespace ChangedSpecialMod
                     Player.GetSource_FromAI(),
                     Player.Center,
                     Vector2.Zero,
-                    projectileType,//
-                    whipDamage, // damage
-                    2f, // knockback
+                    projectileType,
+                    whipDamage,
+                    2f,
                     -1,
                     Player.whoAmI,
-                    aimDirection.ToRotation(),//(target.Center - NPC.Center).ToRotation(), // ai[1] = direction
+                    aimDirection.ToRotation(),
                     Player.direction
                 );
             }
@@ -411,9 +387,7 @@ namespace ChangedSpecialMod
                 drawInfo.ArkhalisColor = Color.Transparent;
 
                 drawInfo.selectionGlowColor = Color.Transparent;
-
                 drawInfo.itemColor = Color.Transparent;
-
                 drawInfo.floatingTubeColor = Color.Transparent;
             }
             base.ModifyDrawInfo(ref drawInfo);
@@ -468,7 +442,6 @@ namespace ChangedSpecialMod
 
             foreach (var player in Main.ActivePlayers)
             {
-                //if (ChangedUtils.InChangedBiome(player))
                 {
                     int minRangeFromPlayer = 80;
                     int maxRange = 120;                         // Same range as the clentaminator, so probably enough to be off-screen
@@ -618,7 +591,6 @@ namespace ChangedSpecialMod
                 if (isGoop)
                 {
                     lifeMultiplier = 0.6f;
-                    //extraDefense = 1;
                     speedMultiplier = 0.75f;
                     jumpHeightMultiplier = 1.8f;
 
@@ -629,7 +601,6 @@ namespace ChangedSpecialMod
                 else if (isCub)
                 {
                     lifeMultiplier = 0.8f;
-                    //extraDefense = 2;
                     speedMultiplier = 1.2f;
                     jumpHeightMultiplier = 1.5f;
                 }

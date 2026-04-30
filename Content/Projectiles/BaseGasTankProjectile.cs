@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Projectiles
 {
-	public abstract class GasTankProjectile : ModProjectile
+	public abstract class BaseGasTankProjectile : ModProjectile
 	{
         public ref float Velocity => ref Projectile.ai[2];
 

@@ -5,7 +5,8 @@ namespace ChangedSpecialMod.Content.Dusts
 {
 	public class ChangedSolution : ModDust
 	{
-		public override void SetStaticDefaults() {
+		public override void SetStaticDefaults() 
+		{
 			UpdateType = DustID.PureSpray;
 		}
 	}

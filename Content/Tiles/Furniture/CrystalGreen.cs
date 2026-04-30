@@ -21,7 +21,9 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.StyleHorizontal = true;
             TileID.Sets.FramesOnKillWall[Type] = false;
             TileObjectData.addTile(Type);
-            DustType = DustID.WoodFurniture;
+            DustType = DustID.GreenTorch;
+            HitSound = SoundID.Item27;
+            AddMapEntry(new Color(21, 255, 147));
         }
 
         // Ignore style nonsense and always drop the correct item

@@ -1,12 +1,16 @@
-﻿using ChangedSpecialMod.Common.WorldGeneration;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.WorldGeneration;
 using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -104,6 +108,80 @@ namespace ChangedSpecialMod.Utilities
 
             RoomsLow = (Room[])globalRoomsLow.Clone();
             RoomsLow = RoomsLow.ToList().OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToArray();
+        }
+
+        public static void GrowCrystal(int i, int j, GooType gooType)
+        {
+            if (gooType == GooType.Black)
+            {
+                var topTile = Main.tile[i, j - 1];
+                var bottomTile = Main.tile[i, j + 1];
+
+                if (!topTile.HasTile && topTile.TileType != ModContent.TileType<CrystalGreen>() && topTile.TileType != ModContent.TileType<CrystalRed>())
+                {
+                    var tileType = ChangedUtils.Choose(ModContent.TileType<CrystalGreen>(), ModContent.TileType<CrystalRed>());
+                    ChangedUtils.PlaceRandomTile(i, j, tileType);
+                }
+            }
+            else if (gooType == GooType.White)
+            {
+                var topTile = Main.tile[i, j - 1];
+                var bottomTile = Main.tile[i, j + 1];
+
+                if (!topTile.HasTile && topTile.TileType != ModContent.TileType<CrystalWhite>() && topTile.TileType != ModContent.TileType<PillarWhite>())
+                {
+                    var tileType = ChangedUtils.Choose(ModContent.TileType<PillarWhite>(), ModContent.TileType<CrystalWhite>());
+                    ChangedUtils.PlaceRandomTile(i, j, tileType);
+                }
+            }
+        }
+
+
+        public static void Corrupt(int i, int j, GooType gooType)
+        {
+            var shouldSpread = Main.rand.Next(ChangedSpecialModClientConfig.Instance.LatexSpreadChance) == 0;
+                var journeyModWorldSpreadDisabled = CreativePowerManager.Instance.GetPower<CreativePowers.StopBiomeSpreadPower>().Enabled;
+            
+            if (journeyModWorldSpreadDisabled || j > Main.worldSurface /*|| !Main.hardMode*/ || !shouldSpread)
+                return;
+
+            var spreadRange = 3;
+            var possibleTilesX = new List<int>();
+            var possibleTilesY = new List<int>();
+            var possibleTileConversionType = new List<int>();
+
+            for (var y = j - spreadRange; y < j + spreadRange; y++)
+            {
+                for (var x = i - spreadRange; x < i + spreadRange; x++)
+                {
+                    if (!WorldGen.InWorld(x, j))
+                        return;
+
+                    Tile target = Main.tile[x, y];
+                    if (target == null)
+                        return;
+
+                    var conversionType = -1;
+                    conversionType = GetTileType(target, gooType, true);
+
+                    if (conversionType != -1)
+                    {
+                        possibleTilesX.Add(x);
+                        possibleTilesY.Add(y);
+                        possibleTileConversionType.Add(conversionType);
+                    }
+                }
+            }
+
+            if (possibleTilesX.Any())
+            {
+                var index = ChangedUtils.MainRandNext(0, possibleTilesX.Count);
+                var targetX = possibleTilesX[index];
+                var targetY = possibleTilesY[index];
+                var conversionType = possibleTileConversionType[index];
+                Main.tile[targetX, targetY].TileType = (ushort)conversionType;
+                WorldGen.SquareTileFrame(targetX, targetY);
+            }
         }
 
         public static void DestroyChestAtPosition(int x, int y)
@@ -396,30 +474,21 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-        public static int GetTileType(Tile tile, LabType labType)
+        private static int GetTileTypeBlackLatex(Tile tile)
         {
             int tileType = -1;
 
-            // Pick biome tile
-            var tmpTileType = ModContent.TileType<DryDirt>();
-            switch (labType)
-            {
-                case LabType.Black:
-                    tmpTileType = ModContent.TileType<BlackLatexTile>();
-                    break;
-                case LabType.White:
-                    tmpTileType = ModContent.TileType<WhiteLatexTile>();
-                    break;
-            }
-
             switch (tile.TileType)
             {
+                case TileID.Sand:
+                    tileType = ModContent.TileType<BlackLatexSandTile>();
+                    break;
+
                 case TileID.Grass:
                 case TileID.Dirt:
                 case TileID.ClayBlock:
 
                 // Desert
-                case TileID.Sand:
                 case TileID.HardenedSand:
 
                 // Corruption
@@ -439,12 +508,129 @@ namespace ChangedSpecialMod.Utilities
                 // Snow
                 case TileID.SnowBlock:
                 case TileID.IceBlock:
-                    tileType = tmpTileType;
+                    tileType = ModContent.TileType<BlackLatexTile>();
                     break;
                 default:
                     break;
             }
 
+            return tileType;
+        }
+
+        private static int GetTileTypeWhiteLatex(Tile tile)
+        {
+            int tileType = -1;
+
+            switch (tile.TileType)
+            {
+                case TileID.Sand:
+                    tileType = ModContent.TileType<WhiteLatexSandTile>();
+                    break;
+
+                case TileID.Grass:
+                case TileID.Dirt:
+                case TileID.ClayBlock:
+
+                // Desert
+                case TileID.HardenedSand:
+
+                // Corruption
+                case TileID.CorruptGrass:
+                case TileID.Ebonsand:
+                case TileID.Ebonstone:
+
+                // Crimson
+                case TileID.CrimsonGrass:
+                case TileID.Crimsand:
+                case TileID.Crimstone:
+
+                // Jungle
+                case TileID.Mud:
+                case TileID.JungleGrass:
+
+                // Snow
+                case TileID.SnowBlock:
+                case TileID.IceBlock:
+                    tileType = ModContent.TileType<WhiteLatexTile>();
+                    break;
+                default:
+                    break;
+            }
+
+            return tileType;
+        }
+
+        private static int GetTileTypeDryDirt(Tile tile)
+        {
+            int tileType = -1;
+
+            switch (tile.TileType)
+            {
+                // TODO add white sand
+                case TileID.Sand:
+                //    tileType = ModContent.TileType<BlackLatexSandTile>();
+                //    break;
+
+                case TileID.Grass:
+                case TileID.Dirt:
+                case TileID.ClayBlock:
+
+                // Desert
+                case TileID.HardenedSand:
+
+                // Corruption
+                case TileID.CorruptGrass:
+                case TileID.Ebonsand:
+                case TileID.Ebonstone:
+
+                // Crimson
+                case TileID.CrimsonGrass:
+                case TileID.Crimsand:
+                case TileID.Crimstone:
+
+                // Jungle
+                case TileID.Mud:
+                case TileID.JungleGrass:
+
+                // Snow
+                case TileID.SnowBlock:
+                case TileID.IceBlock:
+                    tileType = ModContent.TileType<DryDirt>();
+                    break;
+                default:
+                    break;
+            }
+
+            return tileType;
+        }
+
+        public static int GetTileType(Tile tile, GooType gooType, bool onlySpread = false)
+        {
+            int tileType = -1;
+
+            if (tile == null || !tile.HasTile)
+                return tileType;
+
+            // If not during worldgen, only allow a few types
+            if (onlySpread)
+            {
+                switch (tile.TileType)
+                {
+                    case TileID.Grass:
+                    case TileID.Dirt:
+                    case TileID.Sand:
+                        break;
+                    default:
+                        return tileType;
+                }
+            }
+
+            if (gooType == GooType.Black)
+                tileType = GetTileTypeBlackLatex(tile);
+            else if (gooType == GooType.White)
+                tileType = GetTileTypeWhiteLatex(tile);
+            else if (gooType == GooType.None)
+                tileType = GetTileTypeDryDirt(tile);
             return tileType;
         }
 
@@ -511,7 +697,12 @@ namespace ChangedSpecialMod.Utilities
                         continue;
 
                     var tile = Main.tile[x, y];
-                    var tileType = GetTileType(tile, labType);
+                    GooType gooType = GooType.None;
+                    if (labType == LabType.Black)
+                        gooType = GooType.Black;
+                    else if (labType == LabType.White)
+                        gooType = GooType.White;
+                    var tileType = GetTileType(tile, gooType);
 
                     if (tileType != -1)
                     {

@@ -9,7 +9,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
 	public class MountBookest : ModTile
 	{
-		public override void SetStaticDefaults() {
+		public override void SetStaticDefaults() 
+		{
 			// Properties
 			Main.tileTable[Type] = true;
 			Main.tileSolidTop[Type] = true;
@@ -17,10 +18,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			Main.tileLavaDeath[Type] = true;
 			Main.tileFrameImportant[Type] = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;
-			TileID.Sets.IgnoredByNpcStepUp[Type] = true; // This line makes NPCs not try to step up this tile during their movement. Only use this for furniture with solid tops.
+			TileID.Sets.IgnoredByNpcStepUp[Type] = true;
 
-			DustType = ModContent.DustType<Dusts.Sparkle>();
-			AdjTiles = new int[] { TileID.Tables };
+            DustType = DustID.WoodFurniture;
+            AdjTiles = new int[] { TileID.Tables };
 
 			// Placement
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
@@ -34,7 +35,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.Table"));
 		}
 
-		public override void NumDust(int x, int y, bool fail, ref int num) {
+		public override void NumDust(int x, int y, bool fail, ref int num) 
+		{
 			num = fail ? 1 : 3;
 		}
 	}

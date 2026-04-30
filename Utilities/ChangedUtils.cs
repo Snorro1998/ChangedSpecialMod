@@ -5,6 +5,7 @@ using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -100,7 +101,8 @@ namespace ChangedSpecialMod.Utilities
 
             ModContent.TileType<DryDirt>(),
             ModContent.TileType<BlackLatexTile>(),
-            ModContent.TileType<BlackLatexTile>(),
+            ModContent.TileType<BlackLatexSandTile>(),
+            ModContent.TileType<WhiteLatexTile>(),
             ModContent.TileType<Lab_TileTile>(),
         };
 

@@ -25,7 +25,7 @@ namespace ChangedSpecialMod.Content.Biomes
             var tileCounter = ModContent.GetInstance<CityRuinsBiomeTileCount>();
             var nDryDirt = tileCounter.DryDirtBlockCount;
             var nWhiteLatex = tileCounter.WhiteLatexBlockCount;
-            bool enoughBlocks = nDryDirt >= 800 && nDryDirt > nWhiteLatex;
+            bool enoughBlocks = nDryDirt >= tileCounter.NBlocksNeeded && nDryDirt > nWhiteLatex;
             bool surfaceZone = player.ZoneSkyHeight || player.ZoneOverworldHeight;
             return enoughBlocks && surfaceZone;
         }

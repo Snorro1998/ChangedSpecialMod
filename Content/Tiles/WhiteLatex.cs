@@ -19,25 +19,15 @@ namespace ChangedSpecialMod.Content.Tiles
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = DustID.SnowBlock;//ModContent.DustType<Sparkle>();
+            DustType = DustID.SnowBlock;
             ItemDrop = ModContent.ItemType<WhiteLatexBlock>();
             AddMapEntry(new Color(200, 200, 200));
         }
 
         public override void RandomUpdate(int i, int j)
         {
-            //if (Main.rand.Next(2) == 0)
-            {
-                var topTile = Main.tile[i, j - 1];
-                var bottomTile = Main.tile[i, j + 1];
-
-                if (!topTile.HasTile && topTile.TileType != ModContent.TileType<CrystalWhite>() && topTile.TileType != ModContent.TileType<PillarWhite>())
-                {
-                    var tileType = ChangedUtils.Choose(ModContent.TileType<PillarWhite>(), ModContent.TileType<CrystalWhite>());
-                    ChangedUtils.PlaceRandomTile(i, j, tileType);
-                }
-            }
-
+            WorldGenerator.GrowCrystal(i, j, NPCs.GooType.White);
+            WorldGenerator.Corrupt(i, j, NPCs.GooType.White);
             base.RandomUpdate(i, j);
         }
     }

@@ -21,10 +21,11 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.StyleHorizontal = true;
             TileID.Sets.FramesOnKillWall[Type] = false;
             TileObjectData.addTile(Type);
-            DustType = DustID.WoodFurniture;
+            DustType = DustID.WhiteTorch;
+            HitSound = SoundID.Item27;
+            AddMapEntry(new Color(220, 220, 220));
         }
 
-        // Ignore style nonsense and always drop the correct item
         public override IEnumerable<Item> GetItemDrops(int i, int j)
         {
             yield return new Item(ModContent.ItemType<Items.Placeable.Furniture.CrystalWhite>());

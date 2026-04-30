@@ -19,7 +19,7 @@ namespace ChangedSpecialMod.Content.Tiles
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = ModContent.DustType<Sparkle>();
+            DustType = DustID.SnowBlock;
             ItemDrop = ModContent.ItemType<CautionTileBlock>();
             AddMapEntry(new Color(255, 191, 28));
             // Set other values here

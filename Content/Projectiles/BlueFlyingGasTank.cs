@@ -1,7 +1,7 @@
 ﻿namespace ChangedSpecialMod.Content.Projectiles
 {
-	public class BlueFlyingGasTank : GasTankProjectile
-	{
+	public class BlueFlyingGasTank : BaseGasTankProjectile
+    {
 
 	}
 }

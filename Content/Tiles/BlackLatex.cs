@@ -1,8 +1,10 @@
 ﻿using ChangedSpecialMod.Content.Items.Placeable;
 using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +18,7 @@ namespace ChangedSpecialMod.Content.Tiles
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
-            Main.tileMerge[ModContent.TileType<BlackLatexTile>()][TileID.Stone] = true;
+            ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexTile>());
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
@@ -25,22 +27,10 @@ namespace ChangedSpecialMod.Content.Tiles
             AddMapEntry(new Color(35, 34, 41));
             // Set other values here
         }
-
         public override void RandomUpdate(int i, int j)
         {
-            // If you want to slow it down
-            //if (Main.rand.Next(2) == 0)
-            {
-                var topTile = Main.tile[i, j - 1];
-                var bottomTile = Main.tile[i, j + 1];
-
-                if (!topTile.HasTile && topTile.TileType != ModContent.TileType<CrystalGreen>() && topTile.TileType != ModContent.TileType<CrystalRed>())
-                {
-                    var tileType = ChangedUtils.Choose(ModContent.TileType<CrystalGreen>(), ModContent.TileType<CrystalRed>());
-                    ChangedUtils.PlaceRandomTile(i, j, tileType);
-                }
-            }
-
+            WorldGenerator.GrowCrystal(i, j, NPCs.GooType.Black);
+            WorldGenerator.Corrupt(i, j, NPCs.GooType.Black);
             base.RandomUpdate(i, j);
         }
     }

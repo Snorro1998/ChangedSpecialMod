@@ -18,8 +18,8 @@ ChangedSpecialModClientConfig: {
 
 	Headers: {
 		Audio: Audio
-		Misc: Misc Header
-		WorldGeneration: World Generation Header
+		Misc: Misc
+		WorldGeneration: World Generation
 	}
 
 	NumberOfLabs: {
@@ -41,5 +41,10 @@ ChangedSpecialModClientConfig: {
 	MaximumRoomsHorizontal: {
 		Label: Maximum Rooms Horizontal
 		Tooltip: The maximum number of rooms a lab can have in the horizontal direction
+	}
+
+	LatexSpreadChance: {
+		Label: Latex Spread Chance
+		Tooltip: The chance of 1 in X that latex can spread to other blocks in hardmode
 	}
 }

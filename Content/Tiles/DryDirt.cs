@@ -18,9 +18,9 @@ namespace ChangedSpecialMod.Content.Tiles
             ChangedUtils.SetTileMerge(ModContent.TileType<DryDirt>());
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = DustID.Mud;//ModContent.DustType<Sparkle>();
-            ItemDrop = ModContent.ItemType <DryDirtBlock>();
-            AddMapEntry(new Color(200, 200, 200));
+            DustType = DustID.Mud;
+            ItemDrop = ModContent.ItemType<DryDirtBlock>();
+            AddMapEntry(new Color(77, 54, 50));
         }
 
 

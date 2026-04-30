@@ -1,5 +1,4 @@
-﻿
-using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Utilities;
 using Terraria.GameContent.UI;
 using Terraria.ModLoader;
 

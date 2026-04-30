@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -70,7 +71,7 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             if (Progress > (float)spawnDustTreshold)
             {
                 float dustScale = 1f;
-                int dustType = DustID.Asphalt;//ModContent.DustType<ExampleSolutionDust>();
+                int dustType = DustID.Asphalt;
 
                 if (Progress == spawnDustTreshold + 1)
                     dustScale = 0.2f;
@@ -106,74 +107,37 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             return false;
         }
 
-        private static bool ConvertCrystal(int i, int j, int type, int conversionType)
+        private static bool SandConversion(int i, int j, int type, int conversionType)
         {
-            var xPos = i;
-            var yPos = j;
-            var sourceTile = ModContent.TileType<Tiles.Furniture.CrystalWhite>();
-            var targetTile = ChangedUtils.Choose(ModContent.TileType<Tiles.Furniture.CrystalRed>(), ModContent.TileType<Tiles.Furniture.CrystalGreen>());
-            var tileWidth = 3;
-            var tileHeight = 3;
-            for (var k = 0; k < tileWidth; k++)
-            {
-                var tmpXPos = i - k;
-                if (tmpXPos < 0)
-                {
-                    xPos = 0;
-                    break;
-                }
-                var tmpTile = Main.tile[tmpXPos, j];
-                if (!tmpTile.HasTile || tmpTile.TileType != (ushort)sourceTile)
-                {
-                    xPos = tmpXPos + 1;
-                    break;
-                }
-            }
-
-            for (var k = 0; k < tileHeight; k++)
-            {
-                var tmpYPos = j - k;
-                if (tmpYPos < 0)
-                {
-                    yPos = 0;
-                    break;
-                }
-                var tmpTile = Main.tile[i, tmpYPos];
-                if (!tmpTile.HasTile || tmpTile.TileType != (ushort)sourceTile)
-                {
-                    yPos = tmpYPos + 1;
-                    break;
-                }
-            }
-
-            for (int k = xPos; k < xPos + tileWidth; k++)
-            {
-                for (int l = yPos; l < yPos + tileHeight; l++)
-                {
-                    var tile = Main.tile[k, l];
-                    tile.TileType = (ushort)targetTile;
-                }
-            }
-
+            WorldGen.ConvertTile(i, j, ModContent.TileType<BlackLatexSandTile>());
             return false;
         }
 
-        private static bool PurityConversion(int i, int j, int type, int conversionType)
+        private static bool PurityDirtConversion(int i, int j, int type, int conversionType)
         {
             WorldGen.ConvertTile(i, j, TileID.Dirt);
             return false;
         }
 
+        private static bool PuritySandConversion(int i, int j, int type, int conversionType)
+        {
+            WorldGen.ConvertTile(i, j, TileID.Sand);
+            return false;
+        }
+
         public override void PostSetupContent()
         {
+            // Black latex solution
             TileLoader.RegisterConversion(TileID.Dirt, Type, NormalConversion);
             TileLoader.RegisterConversion(TileID.Grass, Type, NormalConversion);
+            TileLoader.RegisterConversion(TileID.Sand, Type, SandConversion);
             TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), Type, NormalConversion);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), Type, SandConversion);
             TileLoader.RegisterConversion(ModContent.TileType<DryDirt>(), Type, NormalConversion);
-            //TileLoader.RegisterConversion(ModContent.TileType<Tiles.Furniture.CrystalWhite>(), Type, ConvertCrystal);
 
             // Green solution
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), BiomeConversionID.Purity, PurityConversion);
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), BiomeConversionID.Purity, PurityDirtConversion);
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexSandTile>(), BiomeConversionID.Purity, PuritySandConversion);
         }
     }
 }
