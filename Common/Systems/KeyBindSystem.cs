@@ -12,7 +12,7 @@ namespace ChangedSpecialMod.Common.Systems
         {
             TransfurEvolveKeybind = KeybindLoader.RegisterKeybind(Mod, "TransfurEvolve", "P");
             TransfurDevolveKeybind = KeybindLoader.RegisterKeybind(Mod, "TransfurDevolve", "O");
-            TransfurAttackKeybind = KeybindLoader.RegisterKeybind(Mod, "TransfurAttack", "Mouse3");
+            TransfurAttackKeybind = KeybindLoader.RegisterKeybind(Mod, "TransfurAttack", "Mouse2");//Mouse3
         }
 
         public override void Unload()

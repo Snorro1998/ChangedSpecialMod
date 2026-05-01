@@ -14,6 +14,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
 	public class PillarWhite : ModTile
 	{
+        private int spawnChance = 5;
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -55,7 +56,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Main.rand.NextBool(2))
+            if (!Main.rand.NextBool(spawnChance))
                 return;
 
             var topLeft = TileObjectData.TopLeft(i, j);

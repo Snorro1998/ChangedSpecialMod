@@ -48,6 +48,8 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.SetNPCName(NPC);
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
+            changedNPC.CanEvolve = true;
+            changedNPC.EvolveType = ModContent.NPCType<DarkLatexCub>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -63,5 +65,5 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
-	}	
+    }	
 }

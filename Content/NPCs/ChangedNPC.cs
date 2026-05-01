@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
@@ -199,6 +200,9 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public bool Drunk = false;
         public bool DoOnSpawnExtra = false;
+
+        public int EvolveType = -1;
+        public bool CanEvolve = false;
 
         public override bool InstancePerEntity => true;
 
@@ -867,10 +871,35 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
+        public void CheckForEvolution(NPC npc)
+        {
+            if (npc == null)
+                return;
+
+            var changedNPC = npc.Changed();
+            
+            if (changedNPC == null || !changedNPC.CanEvolve)
+                return;
+
+            foreach (var tmpNpc in Main.npc)
+            {
+                if (tmpNpc == null || !tmpNpc.active || tmpNpc.type != npc.type || tmpNpc.whoAmI == npc.whoAmI)
+                    continue;
+
+                if (npc.Distance(tmpNpc.Center) < 16)
+                {
+                    tmpNpc.active = false;
+                    npc.Transform(changedNPC.EvolveType);
+                    SoundEngine.PlaySound(Sounds.SoundTransfur, npc.Center);
+                }
+            }
+        }
+
         public override void AI(NPC npc)
         {
             base.AI(npc);
             DoRandomEmote(npc);
+            CheckForEvolution(npc);
         }
     }
 }

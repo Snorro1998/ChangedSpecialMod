@@ -1,17 +1,10 @@
-﻿using ChangedSpecialMod.Common.Systems;
-using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Placeable;
+﻿using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Utilities;
-using Microsoft.Xna.Framework;
-using MonoMod.Cil;
-using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -21,8 +14,8 @@ namespace ChangedSpecialMod.Content.NPCs
 		{
             Main.npcFrameCount[Type] = 4;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 1.25f,
                 PortraitScale = 1 / NPC.scale * 1.25f
             };
@@ -48,13 +41,15 @@ namespace ChangedSpecialMod.Content.NPCs
             Banner = Type;
             BannerItem = ModContent.ItemType<Items.Placeable.Banners.WhiteGoopBanner>();
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.GooType = GooType.White;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
+            var changedNPC = NPC.Changed();
+            changedNPC.GooType = GooType.White;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.CanEvolve = true;
+            changedNPC.EvolveType = ModContent.NPCType<WhiteLatexCub>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

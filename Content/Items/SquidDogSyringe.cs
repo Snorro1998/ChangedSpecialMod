@@ -20,7 +20,7 @@ namespace ChangedSpecialMod.Content.Items
         public override bool? UseItem(Player player)
         {
             var changedPlayer = player.ChangedPlayer();
-            changedPlayer.SetOrRemoveTransfur(TransfurType.SquidAdult);
+            changedPlayer.SetTransfurType(NPCs.GooType.None);
             return true;
         }
     }
