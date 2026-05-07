@@ -40,6 +40,12 @@ namespace ChangedSpecialMod.Assets
         public static readonly string MusicShark = Music("Shark");
         public static readonly string MusicSquidDog = Music("SquidDog");
 
+        public static readonly string Music30 = Music("Music30");
+
+        // Minecraft Changed Addon
+        // Not used at the moment because I am not sure if we are allowed.
+        public static readonly string MusicMeaninglessStrafe = Music("MusicMeaninglessStrafe");
+
         // Sounds
         public static readonly SoundStyle SoundTransfur = new(Sound("Poison"));       // Transfur
         public static readonly SoundStyle SoundSlam = new(Sound("Blow6"));            // Behemoth slamming fist
@@ -54,6 +60,8 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundDoor = new(Sound("Close2"));           // Door sound, currently unused because I couldn't figure out how to overwrite the vanilla door sound properly
         public static readonly SoundStyle SoundSave = new(Sound("Save"));             // Iris scanner
         public static readonly SoundStyle SoundLoad = new(Sound("Load"));             // Iris scanner
+
+        public static readonly SoundStyle SoundPlush = new(Sound("Plush"));           // From the Minecraft mod
 
         // Boss fight
         public static readonly SoundStyle SoundSword1 = new(Sound("Sword1"));         // Wolf King snapping fingers

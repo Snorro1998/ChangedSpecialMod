@@ -1,10 +1,9 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Placeable;
 using ChangedSpecialMod.Utilities;
 using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -16,17 +15,14 @@ namespace ChangedSpecialMod.Content.NPCs
 	{
         public override void SetStaticDefaults()
         {
+            Main.npcCatchable[Type] = true;
             Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Bunny];
-            //Main.npcCatchable[Type] = true;
-
             NPCID.Sets.CountsAsCritter[Type] = true;
             NPCID.Sets.TakesDamageFromHostilesWithoutBeingFriendly[Type] = false;
             NPCID.Sets.TownCritter[Type] = true;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
-                //Scale = 1 / NPC.scale * 1.25f,
-                //PortraitScale = 1 / NPC.scale * 1.25f
+            {
+                Velocity = 1f,
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -34,7 +30,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.Bunny);
-            //NPC.catchItem = ModContent.ItemType<WhiteLatexBlock>();
             NPC.lavaImmune = false;
             AIType = NPCID.Bunny;
             AnimationType = NPCID.Bunny;
@@ -43,6 +38,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.height = 8;
             NPC.HitSound = SoundID.NPCHit4;
             NPC.DeathSound = SoundID.NPCDeath14;
+            NPC.catchItem = ModContent.ItemType<SweeperItem>();
             SpawnModBiomes = new int[] 
             {
                 ModContent.GetInstance<BlackLatexSurfaceBiome>().Type,
@@ -75,21 +71,9 @@ namespace ChangedSpecialMod.Content.NPCs
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Sweeper1").Type, 1f);
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Sweeper2").Type, 1f);
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Sweeper3").Type, 1f);
-                    /*
-                    int randomGoreCount = Main.rand.Next(1, 4);
-                    for (int i = 0; i < randomGoreCount; i++)
-                    {
-                        Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WulfrumEnemyGore" + Main.rand.Next(1, 11).ToString()).Type, 1f);
-                    }
-                    */
                 }
             }
         }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot) 
-        {
-
-		}
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
@@ -114,5 +98,24 @@ namespace ChangedSpecialMod.Content.NPCs
 
             return 0f;
         }
-	}
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            // Not spawned by the player
+            if (!(source is EntitySource_Parent { Entity: Player }) && Main.rand.NextBool(20))
+            {
+                NPC.Transform(ModContent.NPCType<SweeperPuro>());
+            }
+        }
+    }
+    public class SweeperItem : ModItem
+    {
+        public override void SetDefaults()
+        {
+            Item.CloneDefaults(ItemID.Frog);
+            Item.makeNPC = ModContent.NPCType<Sweeper>();
+            Item.value += Item.buyPrice(0, 0, 30, 0);
+            Item.rare = ItemRarityID.Blue;
+        }
+    }
 }

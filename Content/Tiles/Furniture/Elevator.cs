@@ -29,6 +29,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
         public override bool RightClick(int i, int j)
         {
+            Player player = Main.LocalPlayer;
+            if (!player.IsWithinSnappngRangeToTile(i, j, 5 * 16))
+                return false;
+
             // Disable usage if you are fighting the wolf king or behemoth and play a buzzer sound
             if (ChangedUtils.HasWolfKingFightStarted()/* || NPC.AnyNPCs(ModContent.NPCType<Behemoth>())*/)
             {
@@ -36,7 +40,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 return true;
             }
 
-            Player player = Main.LocalPlayer;
             var coords = TileObjectData.TopLeft(i, j);
             var topLeftTile = Main.tile[coords.X, coords.Y];
             // Going up
@@ -65,6 +68,9 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;
+            if (!player.IsWithinSnappngRangeToTile(i, j, 5 * 16))
+                return;
+
             var coords = TileObjectData.TopLeft(i, j);
             var topLeftTile = Main.tile[coords.X, coords.Y];
             // Going up

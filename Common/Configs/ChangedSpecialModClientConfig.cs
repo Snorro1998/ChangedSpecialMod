@@ -40,5 +40,8 @@ namespace ChangedSpecialMod.Common.Configs
         [Header("Misc")]
         [DefaultValue(true)]
         public bool NPCsCanUseChangedEmotes;
+
+        [DefaultValue(false)]
+        public bool DebugItems;
     }
 }

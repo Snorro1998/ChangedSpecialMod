@@ -1,9 +1,11 @@
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Ammo;
-using ChangedSpecialMod.Content.Projectiles;
+using ChangedSpecialMod.Content.Items.Debug;
+using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -48,6 +50,7 @@ namespace ChangedSpecialMod.Content.NPCs
             new ShopData("Third Shop", "BossSummons"),
             new ShopData("Fourth Shop", "Solutions"),
             new ShopData("Fifth Shop", "Syringes"),
+            new ShopData("Sixth Shop", "DebugItems"),
         };
 
         private static int ShimmerHeadIndex;
@@ -315,9 +318,11 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 shop = Shops[shopIndex].InternalName;
             }
+            // Cycle shops
             else
             {
-                shopIndex = (shopIndex + 1) % Shops.Count;
+                var nShops = ChangedSpecialModClientConfig.Instance.DebugItems ? Shops.Count : Shops.Count - 1;
+                shopIndex = (shopIndex + 1) % nShops;
             }
         }
 
@@ -367,6 +372,13 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<BlackSyringe>()
                 .Add<WhiteSyringe>()
                 .Add<SquidDogSyringe>()
+                .Register();
+
+            new NPCShop(Type, Shops[5].InternalName)
+                .Add<DebugSpawnAllNPCs>()
+                .Add<DebugResetBosses>()
+                .Add<SummonShark>()
+                .Add<SummonExperiment009>()
                 .Register();
         }
 

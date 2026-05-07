@@ -37,3 +37,6 @@ BlackLatexSandBallFallingProjectile.DisplayName: Black Latex Sand Ball Falling P
 BlackLatexSandBallGunProjectile.DisplayName: Black Latex Sand Ball Gun Projectile
 WhiteLatexSandBallFallingProjectile.DisplayName: White Latex Sand Ball Falling Projectile
 WhiteLatexSandBallGunProjectile.DisplayName: White Latex Sand Ball Gun Projectile
+LightningBoltProjectile.DisplayName: Lightning Bolt Projectile
+ElectricOrbProjectile.DisplayName: Electric Orb Projectile
+FakeCloudProjectile.DisplayName: Fake Cloud Projectile

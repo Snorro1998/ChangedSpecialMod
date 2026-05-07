@@ -84,13 +84,23 @@ namespace ChangedSpecialMod
             //player.maxRunSpeed = (int)(player.maxRunSpeed * speedMulti);
             player.GetDamage<MeleeDamageClass>() += damageBonus;
 
-
             // Dont set it to false in case other mods also affect this value
             // It is set to false every update anyways
             if (ignoreWater)
+            {
                 player.ignoreWater = true;
+                player.accFlipper = true;
+            }
             if (player.wet && waterBreathing)
+            {
                 player.AddBuff(BuffID.Gills, 1);
+
+                // This is not needed for vanilla, but it is needed if you don't  
+                // want the damaging effects of the Abyss from Calamity
+                // Set breath to 10X the max value so the meter won't flicker rapidly
+                player.breath = 2000;
+                player.breathCD = 0;
+            }
         }
     }
 
@@ -433,6 +443,23 @@ namespace ChangedSpecialMod
             );
         }
 
+        public void SetTransfurFromNumber(GooType gooType, int number)
+        {
+            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
+                InitTransfurTypes();
+
+            List<Transfur> targetList = GetEvolutionLine(gooType);
+
+            if (targetList == null)
+                return;
+
+            if (number < 0 || number >= targetList.Count) 
+                return;
+
+            var tf = targetList[number];
+            SetTransfur(tf);
+        }
+
         public void SetTransfurType(GooType gooType)
         {
             if (EvolutionsLines == null || EvolutionsLines.Count == 0)
@@ -603,16 +630,20 @@ namespace ChangedSpecialMod
         public void MakeCrystalsShinier()
         {
             var indexRed = ModContent.TileType<Content.Tiles.Furniture.CrystalRed>();
-            var indexGreen = ModContent.TileType<Content.Tiles.Furniture.CrystalRed>();
+            var indexGreen = ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>();
+            var indexWhite = ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>();
+
             if (Player.townNPCs > 0 && BirthdayParty.PartyIsUp)
             {
                 Main.tileShine[indexRed] = 800;
                 Main.tileShine[indexGreen] = 800;
+                Main.tileShine[indexWhite] = 800;
             }
             else
             {
                 Main.tileShine[indexRed] = 2400;
                 Main.tileShine[indexGreen] = 2400;
+                Main.tileShine[indexWhite] = 2400;
             }
         }
 
@@ -629,12 +660,24 @@ namespace ChangedSpecialMod
             return base.CanBeHitByNPC(npc, ref cooldownSlot);
         }
 
+        /*
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (TransfurTypeCurrent != null && TransfurTypeCurrent.npcType == target.type)
                 Evolve();
 
             base.OnHitNPC(target, hit, damageDone);
+        }
+        */
+
+        // Remove this once we made a copy of the projectile. It is hard
+        // Add electrified debuff during experiment009 boss fight
+        public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
+        {
+            if (proj.type == ProjectileID.VortexLightning && NPC.AnyNPCs(ModContent.NPCType<Experiment009>()))
+            {
+                Player.AddBuff(BuffID.Electrified, 60);
+            }
         }
 
         public override void PostUpdateEquips()

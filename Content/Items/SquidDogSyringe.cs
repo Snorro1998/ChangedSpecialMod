@@ -12,9 +12,10 @@ namespace ChangedSpecialMod.Content.Items
         {
             Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.LightRed;
-            Item.useStyle = ItemUseStyleID.HiddenAnimation;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.useAnimation = 10;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.consumable = false;
         }
 
         public override bool? UseItem(Player player)

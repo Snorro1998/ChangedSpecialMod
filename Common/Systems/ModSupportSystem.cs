@@ -215,6 +215,7 @@ namespace ChangedSpecialMod.Common.Systems
 
             LocalizedText modName = Language.GetText("Mods.ChangedSpecialMod.MusicDisplay.ModName");
             LocalizedText author = Language.GetText("Mods.ChangedSpecialMod.MusicDisplay.Authors.Shizi");
+            LocalizedText authorHaise = Language.GetText("Mods.ChangedSpecialMod.MusicDisplay.Authors.Haise");
 
             // Is displayed like this. The number is the parameter index
             // 4: Current Music
@@ -249,6 +250,13 @@ namespace ChangedSpecialMod.Common.Systems
             MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicBehemoth, "MusicBehemoth", defaultColors);
             MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicShark, "MusicShark", defaultColors);
             MusicDisplayAddTrack(changedMod, modName, author, Sounds.MusicSquidDog, "MusicSquidDog", defaultColors);
+
+            // Upcoming, unknown song names
+            MusicDisplayAddTrack(changedMod, modName, author, Sounds.Music30, "Music30", defaultColors);
+
+            // Changed Minecraft addon
+            // Need to ask for permission, so don't use it anywhere now. It also sounds a lot different then most songs
+            MusicDisplayAddTrack(changedMod, modName, authorHaise, Sounds.MusicMeaninglessStrafe, "MusicMeaninglessStrafe", defaultColors);
         }
 
         private static void MusicDisplayAddTrack(Mod hostMod, LocalizedText modName, LocalizedText author, string musicPath, string musicName, Color[] colors)

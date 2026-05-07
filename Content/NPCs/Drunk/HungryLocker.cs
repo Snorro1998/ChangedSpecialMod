@@ -22,11 +22,9 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
 			Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<MaleDarkLatex>();
-            //ChangedUtils.HideFromBestiary(this);
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 1.25f,
                 PortraitScale = 1 / NPC.scale * 1.25f
             };

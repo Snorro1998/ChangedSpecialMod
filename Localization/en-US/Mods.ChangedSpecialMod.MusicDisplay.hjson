@@ -1,5 +1,9 @@
 ModName: Changed
-Authors.Shizi: ShiZi
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
 
 Music: {
 	MusicBlackLatexZone: Black Goo Zone
@@ -21,4 +25,6 @@ Music: {
 	MusicBehemoth: The Behemoth
 	MusicShark: The Shark
 	MusicSquidDog: Squid Dog
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
 }

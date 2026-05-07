@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Common.Systems;
+﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.NPCs;
@@ -16,6 +17,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.UI.Elements;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,6 +35,8 @@ namespace ChangedSpecialMod.Utilities
     {
         // Set to false by the White Tail summon to prevent message appearing twice
         public static bool AnnounceBoss = true;
+
+        public static Texture2D _dummyTexture;
 
         public static bool InBlackLatexBiome(Player player) => player.InModBiome<BlackLatexSurfaceBiome>();
         public static bool InWhiteLatexBiome(Player player) => player.InModBiome<WhiteLatexSurfaceBiome>();
@@ -267,6 +271,28 @@ namespace ChangedSpecialMod.Utilities
             // Skeletron or others if you skipped him
             var downedVanilla = NPC.downedBoss3 || Main.hardMode;
             return downedVanilla || DownedBossSystem.DownedWolfKing;
+        }
+
+        public static void TransfurEffect(NPC npc)
+        {
+            if (!Main.dedServ)
+            {
+                var changedNPC = npc.Changed();
+                if (changedNPC == null)
+                    return;
+
+                var dustType = changedNPC.GooType == GooType.Black ? DustID.Asphalt : DustID.SnowSpray;
+                var nParticles = 40;
+                for (int i = 0; i < nParticles; i++)
+                {
+                    var dust = Dust.NewDustDirect(npc.Center, npc.width, npc.height, dustType, 0, 0, 1);
+                    dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
+                    dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
+                }
+            }
+
+
+            SoundEngine.PlaySound(Sounds.SoundTransfur, npc.Center);
         }
 
         public static bool PlayerIsWearingBalloon(Player player)

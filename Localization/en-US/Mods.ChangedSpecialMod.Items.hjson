@@ -671,11 +671,51 @@ SquidDogSyringe: {
 }
 
 BlackLatexSand: {
-	DisplayName: Black Latex Sand
-	Tooltip: ""
+	DisplayName: Black Slimy Sand
+	Tooltip:
+		'''
+		Can be used with the sand gun
+		- Turns critters and slimes into goops
+		- Makes black latex beasts evolve
+		'''
 }
 
 WhiteLatexSand: {
-	DisplayName: White Latex Sand
+	DisplayName: White Slimy Sand
+	Tooltip:
+		'''
+		Can be used with the sand gun
+		- Turns critters and slimes into goops
+		- Makes white latex beasts evolve
+		'''
+}
+
+DebugOpenTransfurWindow: {
+	DisplayName: Debug Open Transfur Window
+	Tooltip: ""
+}
+
+SuperSyringe: {
+	DisplayName: Super Syringe
+	Tooltip: Transforms you into any latex beast
+}
+
+SummonExperiment009: {
+	DisplayName: Summon Experiment009
+	Tooltip: ""
+}
+
+SummonShark: {
+	DisplayName: Summon Shark
+	Tooltip: ""
+}
+
+SweeperItem: {
+	DisplayName: Sweeper Item
+	Tooltip: ""
+}
+
+SweeperPuroItem: {
+	DisplayName: Sweeper Puro Item
 	Tooltip: ""
 }

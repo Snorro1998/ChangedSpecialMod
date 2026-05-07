@@ -140,9 +140,9 @@ namespace ChangedSpecialMod.Utilities
         public static void Corrupt(int i, int j, GooType gooType)
         {
             var shouldSpread = Main.rand.Next(ChangedSpecialModClientConfig.Instance.LatexSpreadChance) == 0;
-                var journeyModWorldSpreadDisabled = CreativePowerManager.Instance.GetPower<CreativePowers.StopBiomeSpreadPower>().Enabled;
+            var journeyModWorldSpreadDisabled = CreativePowerManager.Instance.GetPower<CreativePowers.StopBiomeSpreadPower>().Enabled;
             
-            if (journeyModWorldSpreadDisabled || j > Main.worldSurface /*|| !Main.hardMode*/ || !shouldSpread)
+            if (journeyModWorldSpreadDisabled || j > Main.worldSurface || !Main.hardMode || !shouldSpread)
                 return;
 
             var spreadRange = 3;

@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Utilities;
+using ChangedSpecialMod.Utilities.UI.TransfurUI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,15 +12,19 @@ namespace ChangedSpecialMod.Content.Items
         {
             Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.LightRed;
-            Item.useStyle = ItemUseStyleID.HiddenAnimation;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.useAnimation = 10;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.consumable = false;
         }
 
         public override bool? UseItem(Player player)
         {
             var changedPlayer = player.ChangedPlayer();
-            changedPlayer.SetTransfurType(NPCs.GooType.White);
+            if (changedPlayer.TransfurTypeCurrent != null)
+                changedPlayer.SetTransfurType(NPCs.GooType.Invalid);
+            else
+                ModContent.GetInstance<TransfurUISystem>().ToggleUI(2);
             return true;
         }
     }

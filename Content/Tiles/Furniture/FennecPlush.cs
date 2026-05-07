@@ -1,7 +1,8 @@
-﻿using Terraria;
+﻿using ChangedSpecialMod.Assets;
+using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -25,6 +26,27 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileID.Sets.FramesOnKillWall[Type] = false;
             TileObjectData.addTile(Type);
             DustType = DustID.WoodFurniture;
+        }
+
+        public override bool RightClick(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+            if (!player.IsWithinSnappngRangeToTile(i, j, 5 * 16))
+                return false;
+
+            SoundEngine.PlaySound(Sounds.SoundPlush, player.Center);
+            return true;
+        }
+
+        public override void MouseOver(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+            if (!player.IsWithinSnappngRangeToTile(i, j, 5 * 16))
+                return;
+
+            player.noThrow = 2;
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.FennecPlush>();
         }
     }
 }

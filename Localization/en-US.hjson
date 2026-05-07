@@ -560,6 +560,13 @@ Mods: {
 			}
 
 			TigerSharkBoss.DisplayName: Tiger Shark Boss
+
+			SweeperPuro: {
+				DisplayName: Puroomba
+				Description: He goes vroomba.
+			}
+
+			Experiment009.DisplayName: Experiment009
 		}
 
 		BossMessages: {

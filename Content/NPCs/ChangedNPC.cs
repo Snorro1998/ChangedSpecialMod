@@ -358,7 +358,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 keyWords.Add("NamePlayer", player.name);
 
                 var hasNormalBook = player.inventory.Any(item => item.type == ItemID.Book);
-                
                 var hasBookOfSkulls = player.inventory.Any(item => item.type == ItemID.BookofSkulls);
                 var hasWaterBolt = player.inventory.Any(item => item.type == ItemID.WaterBolt);
                 var hasDemonScythe = player.inventory.Any(item => item.type == ItemID.DemonScythe);
@@ -373,35 +372,36 @@ namespace ChangedSpecialMod.Content.NPCs
                 var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
                     hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
 
-                var hasCubTransform = changedPlayer.transfurIndex == TransfurType.BlackCub || changedPlayer.transfurIndex == TransfurType.WhiteCub;
+                var playerTransfur = changedPlayer.TransfurTypeCurrent;
+                var hasCubTransform = playerTransfur != null && (playerTransfur.npcType == ModContent.NPCType<DarkLatexCub>() || playerTransfur.npcType == ModContent.NPCType<WhiteLatexCub>());
 
                 if (player.inventory.Any(item => item.type == ModContent.ItemType<Orange>()))
-                    keyWords.Add("PlayerHasOrange", "");
+                    keyWords.Add("PlayerHasOrange", string.Empty);
                 if (hasAnyBook)
-                    keyWords.Add("PlayerHasBook", "");
+                    keyWords.Add("PlayerHasBook", string.Empty);
                 if (hasBookOfSkulls)
-                    keyWords.Add("PlayerHasBookOfSkulls", "");
+                    keyWords.Add("PlayerHasBookOfSkulls", string.Empty);
                 if (hasWaterBolt)
-                    keyWords.Add("PlayerHasWaterBolt", "");
+                    keyWords.Add("PlayerHasWaterBolt", string.Empty);
                 if (hasGoldenShower)
-                    keyWords.Add("PlayerHasGoldenShower", "");
+                    keyWords.Add("PlayerHasGoldenShower", string.Empty);
                 var wearingPartyHat = player.armor.Any(item => item.type == ItemID.PartyHat);
                 if (!wearingPartyHat)
-                    keyWords.Add("PlayerHasNoPartyHat", "");
+                    keyWords.Add("PlayerHasNoPartyHat", string.Empty);
                 if (ChangedUtils.PlayerIsWearingBalloon(player))
-                    keyWords.Add("PlayerIsWearingBalloon", "");
+                    keyWords.Add("PlayerIsWearingBalloon", string.Empty);
                 if (ChangedUtils.PlayerIsWearingWeddingDress(player))
-                    keyWords.Add("PlayerIsWearingWeddingDress", "");
+                    keyWords.Add("PlayerIsWearingWeddingDress", string.Empty);
 
                 if (hasCubTransform)
-                    keyWords.Add("TransfurCub", "");
+                    keyWords.Add("TransfurCub", string.Empty);
 
                 // Iterate projectile list
                 foreach (var projectile in Main.ActiveProjectiles)
                 {
                     if (projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>() && projectile.owner == Main.myPlayer)
                     {
-                        keyWords.Add("PlayerHasPurrpurr", "");
+                        keyWords.Add("PlayerHasPurrpurr", string.Empty);
                         break;
                     }
                 }
@@ -410,34 +410,34 @@ namespace ChangedSpecialMod.Content.NPCs
             // Number of crimson blocks in the world
             if (WorldGen.tBlood > 0)
             {
-                keyWords.Add("Crimson", "");
+                keyWords.Add("Crimson", string.Empty);
             }
 
             // Number of corruption blocks in the world
             if (WorldGen.tEvil > 0)
             {
-                keyWords.Add("Corruption", "");
+                keyWords.Add("Corruption", string.Empty);
             }
 
             // Number of hallow blocks in the world
             if (WorldGen.tGood > 0)
             {
-                keyWords.Add("Hallow", "");
+                keyWords.Add("Hallow", string.Empty);
             }
 
             if (Main.IsItRaining)
             {
-                keyWords.Add("Rain", "");
+                keyWords.Add("Rain", string.Empty);
             }
 
             if (Main.IsItStorming)
             {
-                keyWords.Add("Thunder", "");
+                keyWords.Add("Thunder", string.Empty);
             }
 
             if (ChangedUtils.IsItWindy())
             {
-                keyWords.Add("Windy", "");
+                keyWords.Add("Windy", string.Empty);
             }
 
             // Seasons
@@ -462,7 +462,7 @@ namespace ChangedSpecialMod.Content.NPCs
             }
             if (seasonKeyWord != null)
             {
-                keyWords.Add(seasonKeyWord, "");
+                keyWords.Add(seasonKeyWord, string.Empty);
             }
 
             return keyWords;
@@ -530,7 +530,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 
                 DownedBossSystem.DownedWhiteTail,   // White tail
                 DownedBossSystem.DownedWolfKing,    // Wolf King
-                DownedBossSystem.DownedBehemoth     // Behemoth
+                DownedBossSystem.DownedBehemoth,    // Behemoth
+                //DownedBossSystem.DownedShark        // Shark
             };
 
             var earlyHardmodeBossesDowned = new bool[]
@@ -890,7 +891,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     tmpNpc.active = false;
                     npc.Transform(changedNPC.EvolveType);
-                    SoundEngine.PlaySound(Sounds.SoundTransfur, npc.Center);
+                    ChangedUtils.TransfurEffect(npc);
                 }
             }
         }

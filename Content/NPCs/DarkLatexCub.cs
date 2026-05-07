@@ -69,6 +69,8 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.CanEvolve = true;
+            changedNPC.EvolveType = ModContent.NPCType<MaleDarkLatex>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

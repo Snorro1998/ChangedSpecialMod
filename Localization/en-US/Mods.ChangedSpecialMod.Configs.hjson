@@ -7,12 +7,12 @@ ChangedSpecialModClientConfig: {
 	}
 
 	WhipCrackSound: {
-		Tooltip: ""
+		Tooltip: If the Mollash weapon and its upgrades should play a whip crack sound.
 		Label: Whip Crack Sound
 	}
 
 	NPCsCanUseChangedEmotes: {
-		Tooltip: ""
+		Tooltip: When NPCs talk they can use emotes about Changed.
 		Label: NPCs Can Use Changed Emotes
 	}
 
@@ -46,5 +46,10 @@ ChangedSpecialModClientConfig: {
 	LatexSpreadChance: {
 		Label: Latex Spread Chance
 		Tooltip: The chance of 1 in X that latex can spread to other blocks in hardmode
+	}
+
+	DebugItems: {
+		Label: Debug Items
+		Tooltip: ""
 	}
 }

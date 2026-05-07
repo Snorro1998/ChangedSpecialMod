@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -14,7 +15,9 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
 	public class PillarWhite : ModTile
 	{
-        private int spawnChance = 5;
+        private int defaultSpawnChance = 10;
+        private int defaultMaxNPCs = 5;
+
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -56,6 +59,22 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
         public override void RandomUpdate(int i, int j)
         {
+            var spawnChance = defaultSpawnChance;
+            var maxNPCs = defaultMaxNPCs;
+
+            var player = ChangedUtils.GetClosestPlayer(i, j);
+            var power = CreativePowerManager.Instance.GetPower<CreativePowers.SpawnRateSliderPerPlayerPower>();
+            if (power != null && power.GetIsUnlocked())
+            {
+                if (power.GetShouldDisableSpawnsFor(player.whoAmI))
+                    return;
+                if (power.GetRemappedSliderValueFor(player.whoAmI, out var sliderValue))
+                {
+                    spawnChance = (int)Math.Max(1, defaultSpawnChance / sliderValue);
+                    maxNPCs = (int)Math.Ceiling(defaultMaxNPCs * sliderValue);
+                }
+            }
+
             if (!Main.rand.NextBool(spawnChance))
                 return;
 
@@ -64,7 +83,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             i = topLeft.X;
             j = topLeft.Y;
 
-            var player = ChangedUtils.GetClosestPlayer(i, j);
             var xPos = (int)((i + 0.5f) * 16);
             var yPos = (j + 3) * 16;
 
@@ -72,13 +90,12 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             var maxDist = 30 * 16;
             var pos = new Vector2(xPos, yPos);
             var npcType = ChangedUtils.Choose(ModContent.NPCType<WhiteGoop>(), ModContent.NPCType<WhiteLatexCub>(), ModContent.NPCType<WhiteKnight>());
-            var maxNPCs = 6;
             var nNpcs = Main.npc.Where(x => x.active && !x.friendly).ToList().Count;
 
             if (player != null && nNpcs < maxNPCs && player.Distance(pos) > minDist && player.Distance(pos) < maxDist)
                 SpawnLatex(xPos, yPos, npcType, player.whoAmI);
 
-            base.RandomUpdate(i, j);
+            //base.RandomUpdate(i, j);
         }
     }
 }
