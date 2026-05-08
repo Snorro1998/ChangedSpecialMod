@@ -2,7 +2,6 @@ using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Utilities;
 using System;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
@@ -17,10 +16,9 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 6;
-            //ChangedUtils.HideFromBestiary(this);
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 1.25f,
                 PortraitScale = 1 / NPC.scale * 1.25f
             };
@@ -64,8 +62,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!ChangedUtils.IsDrunk(spawnInfo.Player))
                 return 0;
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void FindFrame(int frameHeight)

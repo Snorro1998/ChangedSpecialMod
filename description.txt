@@ -17,6 +17,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 
 This mod has built-in support for:
 - Boss Checklist
+- Census
 - Fargos Mutant Mod
 - Music Display
 
@@ -60,6 +61,7 @@ General
 - Plushies make squeeky sound when right clicked
 - Added rare sweeper variant
 - Sweepers can be caught and released
+- Added support for Census mod
 
 Added Slimy sand
 - Black and white latex blocks for sand
@@ -70,7 +72,8 @@ Added Slimy sand
 Transfur
 - Added a new menu when using syringes
 - Removed evolution requirements
-- Goops can merge and evolve
+- Goops can merge turn into cubs
+- Cubs can also merge and turn into adults
 - Added a super syringe, which is made from all other syringes
 
 Fix

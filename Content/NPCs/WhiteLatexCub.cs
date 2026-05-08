@@ -19,8 +19,8 @@ namespace ChangedSpecialMod.Content.NPCs
             Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
             NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 1.25f,
                 PortraitScale = 1 / NPC.scale * 1.25f
             };
@@ -33,11 +33,11 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.damage = 20;
 			NPC.defense = 6;
 			NPC.lifeMax = 50;
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
-            NPC.aiStyle = NPCAIStyleID.Fighter;// -1;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
@@ -46,7 +46,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.HatXOffset = -2;
-            changedNPC.HatYOffset = -17;//-16
+            changedNPC.HatYOffset = -17;
             changedNPC.GooType = GooType.White;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
@@ -57,12 +57,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            // Remove the default portrait, otherwise you get two of them
-            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                //  Add the new portrait with the modified rarity
-                //new NPCPortraitInfoElement(3),
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCub.Description")),
             });
         }
@@ -75,8 +71,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         private void UpdateHatPosition(int frameHeight)

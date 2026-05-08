@@ -711,11 +711,11 @@ SummonShark: {
 }
 
 SweeperItem: {
-	DisplayName: Sweeper Item
-	Tooltip: ""
+	DisplayName: Sweeper
+	Tooltip: Scrubber specialist
 }
 
 SweeperPuroItem: {
-	DisplayName: Sweeper Puro Item
-	Tooltip: ""
+	DisplayName: Puroomba
+	Tooltip: Vroom
 }

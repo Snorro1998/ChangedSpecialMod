@@ -19,8 +19,8 @@ namespace ChangedSpecialMod.Content.NPCs
 			Main.npcFrameCount[Type] = 4;
             NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 1.25f,
                 PortraitScale = 1 / NPC.scale * 1.25f
             };
@@ -34,20 +34,20 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.damage = 25;
             NPC.defense = 10;
             NPC.lifeMax = 70;
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			AIType = NPCID.Unicorn;
-            AnimationType = -1;// NPCID.Zombie;
+            AnimationType = -1;
             SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.HatXOffset = -4;
-            changedNPC.HatYOffset = -32;//-31
+            changedNPC.HatYOffset = -32;
             changedNPC.GooType = GooType.Black;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
@@ -72,8 +72,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!ChangedUtils.CanSpawnFastLatex())
                 return 0;
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

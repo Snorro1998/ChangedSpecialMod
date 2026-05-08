@@ -45,8 +45,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type,
                 ModContent.GetInstance<CityRuinsSurfaceBiome>().Type 
             };
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.GooType = GooType.None;
+            var changedNPC = NPC.Changed();
+            changedNPC.GooType = GooType.None;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -82,8 +82,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 var nSweepers = Main.npc.Where(x => x.active && x.type == Type).Count();
                 if (nSweepers < 2)
                 {
-                    var ChangedGlobalNPC = NPC.Changed();
-                    var monsterChance = ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+                    var changedNPC = NPC.Changed();
+                    var monsterChance = ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
                     var critterChance = new float[]
                     {
                     SpawnCondition.OverworldDayGrassCritter.Chance,

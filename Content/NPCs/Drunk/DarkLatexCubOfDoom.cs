@@ -4,7 +4,6 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -17,19 +16,13 @@ namespace ChangedSpecialMod.Content.NPCs
 	{
         public override string Texture => "ChangedSpecialMod/Content/NPCs/Drunk/DarkLatexCubOfDoom";
 
-        public ref float AI_State => ref NPC.ai[3];
-        public float MoveSpeed = 3.0f;
-        public float MinRange = 64.0f;
-        public float Acceleration = 1.0f / 60.0f * 4.0f;
-
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
             NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
-            //ChangedUtils.HideFromBestiary(this);
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 2.5f ,
                 PortraitScale = 2.5f
             };
@@ -63,7 +56,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
-
             changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.DoOnSpawnExtra = true;
         }
@@ -85,8 +77,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!ChangedUtils.IsDrunk(spawnInfo.Player) || NPC.AnyNPCs(NPC.type))
                 return 0;
-            var ChangedGlobalNPC = NPC.Changed();
-            return 0.4f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return 0.4f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         private void UpdateHatPosition(int frameHeight)

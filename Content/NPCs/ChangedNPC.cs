@@ -206,6 +206,21 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool InstancePerEntity => true;
 
+        // Debug method to visualize a position by spamming confetti particles at it
+        public void VisualizePosition(NPC npc, int xPos, int yPos)
+        {
+            var dustPos = new Vector2(xPos, yPos);
+
+            for (int i = 0; i < 10; i++)
+            {
+                int dustType = Main.rand.Next(139, 143);
+                var dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, dustType);
+                dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
+                dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
+                dust.scale *= 1f + Main.rand.NextFloat(-0.03f, 0.03f);
+            }
+        }
+
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             // Disable all vanilla spawns if a Changed Boss is alive
@@ -826,8 +841,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
         {
             base.OnHitPlayer(npc, target, hurtInfo);
-            var ChangedGlobalNPC = npc.Changed();
-            if (ChangedGlobalNPC == null || !ChangedGlobalNPC.DefaultOnHitPlayer)
+            var changedNPC = npc.Changed();
+            if (changedNPC == null || !changedNPC.DefaultOnHitPlayer)
                 return;
             if (hurtInfo.Damage > 0 && ChangedSpecialModClientConfig.Instance.TransfurSound)
             {

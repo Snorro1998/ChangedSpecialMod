@@ -523,8 +523,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public void UpdateStats()
 		{
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
+            var changedNPC = NPC.Changed();
+            changedNPC.AdjustStatScaling(NPC);
         }
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback) 

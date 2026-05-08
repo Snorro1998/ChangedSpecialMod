@@ -14,9 +14,16 @@ namespace ChangedSpecialMod.Common.Systems
     public class ModSupportSystem : ModSystem
     {
         public static ChangedSpecialMod changedMod = null;
+
+        // Informational
         public static Mod modBossChecklist = null;
-        public static Mod modFargosMutant = null;
         public static Mod modMusicDisplay = null;
+        public static Mod modCensus = null;
+
+        // Shops
+        public static Mod modFargosMutant = null;
+        
+        // Content mods
         public static Mod modThorium = null;
         public static Mod modCalamity = null;
         public static Mod modSpirit = null;
@@ -27,12 +34,19 @@ namespace ChangedSpecialMod.Common.Systems
             changedMod = null;
             changedMod = ChangedSpecialMod.Instance;
 
+            // Informational
             modBossChecklist = null;
             ModLoader.TryGetMod("BossChecklist", out modBossChecklist);
-            modFargosMutant = null;
-            ModLoader.TryGetMod("Fargowiltas", out modFargosMutant);
             modMusicDisplay = null;
             ModLoader.TryGetMod("MusicDisplay", out modMusicDisplay);
+            modCensus = null;
+            ModLoader.TryGetMod("Census", out modCensus);
+
+            // Shops
+            modFargosMutant = null;
+            ModLoader.TryGetMod("Fargowiltas", out modFargosMutant);
+
+            // Content mods
             modThorium = null;
             ModLoader.TryGetMod("ThoriumMod", out modThorium);
             modCalamity = null;
@@ -47,8 +61,10 @@ namespace ChangedSpecialMod.Common.Systems
         {
             modBossChecklist = null;
             modMusicDisplay = null;
+            modCensus = null;
+
             modFargosMutant = null;
-            modMusicDisplay = null;
+
             modThorium = null;
             modCalamity = null;
             modSpirit = null;
@@ -65,6 +81,17 @@ namespace ChangedSpecialMod.Common.Systems
             SetupBossChecklist();
             SetupFargosMutant();
             SetupMusicDisplay();
+            SetupCensus();
+        }
+
+        private void SetupCensus()
+        {
+            if (changedMod == null || modCensus == null)
+                return;
+
+            modCensus.Call("TownNPCCondition", ModContent.NPCType<Puro>());
+            modCensus.Call("TownNPCCondition", ModContent.NPCType<Prototype>());
+            modCensus.Call("TownNPCCondition", ModContent.NPCType<Scientist>());
         }
 
         private void SetupFargosMutant()

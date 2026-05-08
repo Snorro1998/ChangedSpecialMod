@@ -1,8 +1,6 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Utilities;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -20,8 +18,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 0.6f,
                 PortraitScale = 1 / NPC.scale * 0.6f
             };
@@ -33,8 +31,8 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.height = 96;
             NPC.damage = 40;
             NPC.defense = 12;
-            NPC.lifeMax = 300;//400
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.lifeMax = 300;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = ChangedUtils.GetNPCValue(gold: 1);
             NPC.knockBackResist = 0.1f;
@@ -49,14 +47,14 @@ namespace ChangedSpecialMod.Content.NPCs
             BannerItem = ModContent.ItemType<Items.Placeable.Banners.WendigoBanner>();
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.BaseScaleMultiplier = 0.7f;
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-            ChangedGlobalNPC.GooType = GooType.Black;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
+            var changedNPC = NPC.Changed();
+            changedNPC.BaseScaleMultiplier = 0.7f;
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -69,8 +67,8 @@ namespace ChangedSpecialMod.Content.NPCs
             if (!ChangedUtils.CanSpawnStrongLatex() || NPC.AnyNPCs(ModContent.NPCType<Wendigo>()))
                 return 0;
 
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type) * 0.3f;
+            var changedNPC = NPC.Changed();
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type) * 0.3f;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

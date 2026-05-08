@@ -52,6 +52,8 @@ Mods: {
 					LikeNPC_Princess: "{NPCName} is so sweet, she even offered to brush my fur!"
 					Princess_LovesNPC: I just can't get enough of the delicious cupcakes {NPCName} makes!
 				}
+
+				Census.SpawnCondition: White Tail defeated
 			}
 
 			#This is used to display the NPC's dialogues.
@@ -286,6 +288,8 @@ Mods: {
 					LikeNPC_Princess: "{NPCName} :)"
 					Princess_LovesNPC: "{NPCName} :)"
 				}
+
+				Census.SpawnCondition: Behemoth defeated
 			}
 
 			UI: {
@@ -506,6 +510,7 @@ Mods: {
 
 				DisplayName: Scientist
 				Description: A scientist who previously worked on a cure for a deadly virus.
+				Census.SpawnCondition: Behemoth defeated
 			}
 
 			FlightLatex: {

@@ -3,13 +3,10 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -21,15 +18,13 @@ namespace ChangedSpecialMod.Content.NPCs
     {
         public override string Texture => "ChangedSpecialMod/Content/NPCs/Drunk/PuroWormHead";
         public override int BodyType => ModContent.NPCType<PuroWormBody>();
-
         public override int TailType => ModContent.NPCType<PuroWormTail>();
 
         public override void SetStaticDefaults()
         {
-            //ChangedUtils.HideFromBestiary(this);
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 1.25f,
                 PortraitScale = 1 / NPC.scale * 1.25f,
                 Position = new Vector2(0, 32)
@@ -52,21 +47,16 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.scale = 1;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
-            var ChangedNPC = NPC.Changed();
-            ChangedNPC.BaseScaleMultiplier = 1;
-            ChangedNPC.AdjustStatScaling(NPC);
-            ChangedNPC.SetNPCName(NPC);
-            ChangedNPC.GooType = GooType.Black;
-            ChangedNPC.ElementType = ElementType.None;
-            ChangedNPC.DefaultOnHitPlayer = true;
-            ChangedNPC.DefaultHitEffect = true;
-            ChangedNPC.HitEffectScale = 3;
-
-            ChangedNPC.RemoveHatsFromType(HatType.Halloween);
-            ChangedNPC.RemoveHatsFromType(HatType.Party);
-            ChangedNPC.RemoveHatsFromType(HatType.Rain);
-            ChangedNPC.RemoveHatsFromType(HatType.Silly);
-            ChangedNPC.RemoveHatsFromType(HatType.XMas);
+            var changedNPC = NPC.Changed();
+            changedNPC.BaseScaleMultiplier = 1;
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.HitEffectScale = 3;
+            changedNPC.RemoveAllHats();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -81,8 +71,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!ChangedUtils.IsDrunk(spawnInfo.Player))
                 return 0;
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void Init()
@@ -103,6 +93,7 @@ namespace ChangedSpecialMod.Content.NPCs
             worm.Acceleration = 0.045f;
         }
 
+        /*
         private int attackCounter;
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -122,22 +113,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     attackCounter--; // tick down the attack counter.
                 }
-                /*
-                Player target = Main.player[NPC.target];
-                // If the attack counter is 0, this NPC is less than 12.5 tiles away from its target, and has a path to the target unobstructed by blocks, summon a projectile.
-                if (attackCounter <= 0 && Vector2.Distance(NPC.Center, target.Center) < 200 && Collision.CanHit(NPC.Center, 1, 1, target.Center, 1, 1))
-                {
-                    Vector2 direction = (target.Center - NPC.Center).SafeNormalize(Vector2.UnitX);
-                    direction = direction.RotatedByRandom(MathHelper.ToRadians(10));
-
-                    int projectile = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, direction * 1, ProjectileID.ShadowBeamHostile, 5, 0, Main.myPlayer);
-                    Main.projectile[projectile].timeLeft = 300;
-                    attackCounter = 500;
-                    NPC.netUpdate = true;
-                }
-                */
             }
         }
+        */
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
@@ -238,15 +216,15 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.scale = 1;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.BaseScaleMultiplier = 1;
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-            ChangedGlobalNPC.GooType = GooType.Black;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
-            ChangedGlobalNPC.HitEffectScale = 3;
+            var changedNPC = NPC.Changed();
+            changedNPC.BaseScaleMultiplier = 1;
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.HitEffectScale = 3;
 
             // Extra body parts should use the same Banner value as the main ModNPC.
             //Banner = ModContent.NPCType<PuroWormHead>();
@@ -284,15 +262,15 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.scale = 1;
             SpawnModBiomes = new int[] { ModContent.GetInstance<ZDrunkBiome>().Type };
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.BaseScaleMultiplier = 1;
-            ChangedGlobalNPC.AdjustStatScaling(NPC);
-            ChangedGlobalNPC.SetNPCName(NPC);
-            ChangedGlobalNPC.GooType = GooType.Black;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
-            ChangedGlobalNPC.HitEffectScale = 3;
+            var changedNPC = NPC.Changed();
+            changedNPC.BaseScaleMultiplier = 1;
+            changedNPC.AdjustStatScaling(NPC);
+            changedNPC.SetNPCName(NPC);
+            changedNPC.GooType = GooType.Black;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
+            changedNPC.HitEffectScale = 3;
 
             // Extra body parts should use the same Banner value as the main ModNPC.
             //Banner = ModContent.NPCType<ExampleWormHead>();

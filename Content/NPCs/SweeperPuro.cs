@@ -46,8 +46,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type,
                 ModContent.GetInstance<CityRuinsSurfaceBiome>().Type 
             };
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.GooType = GooType.None;
+            var changedNPC = NPC.Changed();
+            changedNPC.GooType = GooType.None;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -104,6 +104,14 @@ namespace ChangedSpecialMod.Content.NPCs
             Item.makeNPC = ModContent.NPCType<SweeperPuro>();
             Item.value += Item.buyPrice(0, 0, 30, 0);
             Item.rare = ItemRarityID.Blue;
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<SweeperItem>())
+                .AddIngredient(ModContent.ItemType<PuroPlush>())
+                .Register();
         }
     }
 }

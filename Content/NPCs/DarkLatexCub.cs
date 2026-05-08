@@ -3,13 +3,9 @@ using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
-using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -18,17 +14,6 @@ namespace ChangedSpecialMod.Content.NPCs
 {
 	public class DarkLatexCub : ModNPC
 	{
-        private enum ActionState
-        {
-            Walking,
-            Sitting
-        }
-
-        public ref float AI_State => ref NPC.ai[3];
-        public float MoveSpeed = 3.0f;
-        public float MinRange = 64.0f;
-        public float Acceleration = 1.0f / 60.0f * 4.0f;
-
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 4;
@@ -89,8 +74,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         private void UpdateHatPosition(int frameHeight)
@@ -113,42 +98,6 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             base.FindFrame(frameHeight);
             UpdateHatPosition(frameHeight);
-        }
-
-        public void Walking()
-        {
-            NPC.TargetClosest(true);
-            NPC.velocity.X = Math.Clamp(NPC.velocity.X + NPC.direction * Acceleration, -MoveSpeed, MoveSpeed);
-            
-            if (NPC.velocity.Y == 0)
-            {
-                if (NPC.HasValidTarget && Main.player[NPC.target].Distance(NPC.Center) < MinRange)
-                {
-                    AI_State = (float)ActionState.Sitting;
-                    SoundEngine.PlaySound(Assets.Sounds.SoundTransfur, NPC.Center);
-                }
-                else
-                {
-                    NPC.velocity.Y = -5;
-                }
-            }
-
-        }
-
-        public void Sitting()
-        {
-            if (NPC.velocity.Y == 0)
-            {
-                NPC.velocity.X = 0;
-            }
-
-            NPC.TargetClosest(true);
-
-            if (NPC.HasValidTarget && Main.player[NPC.target].Distance(NPC.Center) > MinRange)
-            {
-                AI_State = (float)ActionState.Walking;
-                SoundEngine.PlaySound(Assets.Sounds.SoundTransfur, NPC.Center);
-            }
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

@@ -2,11 +2,9 @@ using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -29,13 +27,11 @@ namespace ChangedSpecialMod.Content.NPCs
             Grow        // Teleport to player
         }
 
-        float maxRunVelocity = 8f; //3f
+        float maxRunVelocity = 8f;
         float maxWanderVelocity = 2f;
 
         public float knockDelay = 60f;
-        //backuptimer = 60 = 1s
         public float wanderTime = 5f;
-
         public int maxFollowDistance = 300 * 16;
 
 
@@ -66,10 +62,10 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.width = 36;
             NPC.height = 32;
-            NPC.damage = 20; //25
+            NPC.damage = 20;
             NPC.defense = 10;
             NPC.lifeMax = 2000;
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = ChangedUtils.GetNPCValue(gold: 3);
             NPC.knockBackResist = 0.1f;
@@ -80,11 +76,11 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.boss = true;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
 
-            var ChangedGlobalNPC = NPC.Changed();
-            ChangedGlobalNPC.GooType = GooType.None;
-            ChangedGlobalNPC.ElementType = ElementType.None;
-            ChangedGlobalNPC.DefaultOnHitPlayer = true;
-            ChangedGlobalNPC.DefaultHitEffect = true;
+            var changedNPC = NPC.Changed();
+            changedNPC.GooType = GooType.None;
+            changedNPC.ElementType = ElementType.None;
+            changedNPC.DefaultOnHitPlayer = true;
+            changedNPC.DefaultHitEffect = true;
         }
 
         
@@ -94,7 +90,6 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 var npcName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteTail.DisplayName");
                 Main.NewText(Language.GetTextValue("Announcement.HasAwoken", npcName), new Color(175, 75, 255));
-                //Main.NewText("White Tail has awoken!", 255, 0, 255);
             }
 
             ChangedUtils.AnnounceBoss = true;
@@ -167,7 +162,7 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             // Increase the change even further if the player has more then 200 hp
-            var playerHP = spawnInfo.Player.statLifeMax2;// Math.Max(0, spawnInfo.Player.statLifeMax2 - 100);
+            var playerHP = spawnInfo.Player.statLifeMax2;
             var playerHPMultiplier = Math.Max(0, playerHP - 200) / 200 * nMinKills;
 
             var nKills = 0.3f * nGoop + 0.5f * nCub + nAdult + 1.5f * nFlying + playerHPMultiplier;
@@ -178,8 +173,8 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             var chance = 0.5f + (nKills - nMinKills) * (2.5f / (nMaxKills - nMinKills));
-            var ChangedGlobalNPC = NPC.Changed();
-            return chance * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            return chance * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public void SwitchState(ActionState newState)
@@ -557,21 +552,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     Jump(5);
                 }
-            }
-        }
-
-        // Debug method to visualize a position by spamming confetti particles at it
-        public void VisualizePosition(int xPos, int yPos)
-        {
-            var dustPos = new Vector2(xPos, yPos);
-
-            for (int i = 0; i < 10; i++)
-            {
-                int dustType = Main.rand.Next(139, 143);
-                var dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, dustType);
-                dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
-                dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
-                dust.scale *= 1f + Main.rand.NextFloat(-0.03f, 0.03f);
             }
         }
 
