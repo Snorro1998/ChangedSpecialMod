@@ -2,19 +2,20 @@
 using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ChangedSpecialMod.Content.Tiles.Furniture
+namespace ChangedSpecialMod.Content.Tiles.Furniture.Plushies
 {
-	public class PuroPlush : ModTile
+	public abstract class BasePlush : ModTile
 	{
-		public override void SetStaticDefaults() 
+        public abstract int CursorItemIconID { get; }
+
+        public override void SetStaticDefaults() 
         {
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
+            Main.tileFrameImportant[Type] = true;
+            Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
             TileObjectData.newTile.StyleWrapLimit = 2;
@@ -46,7 +47,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<Items.Placeable.Furniture.PuroPlush>();
+            player.cursorItemIconID = CursorItemIconID;
         }
     }
 }

@@ -6,13 +6,13 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 
 namespace ChangedSpecialMod.Content.Tiles
 {
-    // See ExampleMod/Content/Items/Placeable/ExampleMusicBox.cs for more explanation on music.
-    public class MusicBoxPuroDanceTile : ModTile
+    public abstract class BaseMusicBoxTile : ModTile
     {
+        public abstract int CursorItemIconID { get; }
+
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -35,7 +35,7 @@ namespace ChangedSpecialMod.Content.Tiles
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<MusicBoxPuroDance>();
+            player.cursorItemIconID = CursorItemIconID;
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -45,7 +45,6 @@ namespace ChangedSpecialMod.Content.Tiles
 
         public override void EmitParticles(int i, int j, Tile tileCache, short tileFrameX, short tileFrameY, Color tileLight, bool visible)
         {
-            // This code spawns the music notes when the music box is open.
             Tile tile = Main.tile[i, j];
 
             if (!visible || tile.TileFrameX != 36 || tile.TileFrameY % 36 != 0 || (int)Main.timeForVisualEffects % 7 != 0 || !Main.rand.NextBool(3))

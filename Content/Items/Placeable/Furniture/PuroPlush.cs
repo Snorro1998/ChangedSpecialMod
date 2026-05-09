@@ -8,7 +8,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
     {
 		public override void SetDefaults() 
 		{
-			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.PuroPlush>());
+			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.Plushies.PuroPlush>());
 			Item.width = 32;
 			Item.height = 32;
 			Item.rare = ItemRarityID.Blue;
