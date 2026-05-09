@@ -102,7 +102,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void OnSpawn(IEntitySource source)
         {
             // Not spawned by the player
-            if (!(source is EntitySource_Parent { Entity: Player }) && Main.rand.NextBool(20))
+            if (!(source is EntitySource_Parent { Entity: Player }) && Main.rand.NextBool(30))
             {
                 NPC.Transform(ModContent.NPCType<SweeperPuro>());
             }

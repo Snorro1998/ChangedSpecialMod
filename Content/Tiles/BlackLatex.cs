@@ -1,10 +1,7 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable;
-using ChangedSpecialMod.Content.Tiles.Furniture;
-using ChangedSpecialMod.Content.Tiles.Latex;
+﻿using ChangedSpecialMod.Content.Items.Placeable.Latex;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,10 +19,9 @@ namespace ChangedSpecialMod.Content.Tiles
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = DustID.Asphalt;//ModContent.DustType<Sparkle>();
+            DustType = DustID.Asphalt;
             ItemDrop = ModContent.ItemType<BlackLatexBlock>();
             AddMapEntry(new Color(35, 34, 41));
-            // Set other values here
         }
         public override void RandomUpdate(int i, int j)
         {

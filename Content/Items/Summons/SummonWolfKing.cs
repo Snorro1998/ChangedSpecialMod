@@ -1,9 +1,6 @@
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
-using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.Items.Placeable.Crystals;
 using ChangedSpecialMod.Utilities;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,32 +22,6 @@ namespace ChangedSpecialMod.Content.Items.Summons
         {
             var result = ChangedUtils.WolfKingSpawnCheck(true);
             return true;
-            /*
-            if (NPC.AnyNPCs(ModContent.NPCType<WolfKingSpawn>()) || NPC.AnyNPCs(ModContent.NPCType<WolfKing>()))
-                return true;
-
-            int blockCheckSpacing = 8;
-
-            for (int y = 0; y < Main.worldSurface; y += blockCheckSpacing)
-            {
-                for (int x = 0; x < Main.maxTilesX; x += blockCheckSpacing)
-                {
-                    if (x < Main.maxTilesX)
-                    {
-                        var tile = Main.tile[x, y];
-                        if (ChangedUtils.IsBlackLatexWall(tile))
-                        {
-                            player.position = new Vector2(x * 16, y * 16);
-                            SoundEngine.PlaySound(SoundID.NPCDeath64, player.Center);
-                            ChangedUtils.SpawnWolfKing(x, y, player);
-                            return true;
-                        }
-                    }
-                }
-            }
-
-            return false;
-            */
         }
 
         public override void AddRecipes()

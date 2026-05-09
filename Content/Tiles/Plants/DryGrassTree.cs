@@ -1,9 +1,11 @@
-﻿using ChangedSpecialMod.Content.NPCs;
+﻿using ChangedSpecialMod.Content.Items.Food;
+using ChangedSpecialMod.Content.Items.Placeable;
+using ChangedSpecialMod.Content.Items.Placeable.Latex;
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mono.Cecil;
 using ReLogic.Content;
 using System;
 using Terraria;
@@ -82,11 +84,11 @@ namespace ChangedSpecialMod.Content.Tiles.Plants
             var amount = 1;
             items.Add(ItemID.Wood, 2);
             items.Add(ItemID.Acorn, 2);
-            var blackBlockID = ModContent.ItemType<Items.Placeable.BlackLatexBlock>();
-            items.Add(ModContent.ItemType<Items.Placeable.BlackLatexBlock>(), 1);
-            var whiteBlockID = ModContent.ItemType<Items.Placeable.WhiteLatexBlock>();
-            items.Add(ModContent.ItemType<Items.Placeable.WhiteLatexBlock>(), 1);
-            items.Add(ModContent.ItemType<Items.Orange>(), 1);
+            var blackBlockID = ModContent.ItemType<BlackLatexBlock>();
+            items.Add(ModContent.ItemType<BlackLatexBlock>(), 1);
+            var whiteBlockID = ModContent.ItemType<WhiteLatexBlock>();
+            items.Add(ModContent.ItemType<WhiteLatexBlock>(), 1);
+            items.Add(ModContent.ItemType<Orange>(), 1);
             var itemId = items.Get();
 
             if (itemId == blackBlockID || itemId == whiteBlockID)

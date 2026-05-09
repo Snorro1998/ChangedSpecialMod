@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
@@ -353,6 +354,9 @@ namespace ChangedSpecialMod
 
         private List<Transfur> GetEvolutionLine(GooType gooType)
         {
+            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
+                InitTransfurTypes();
+
             if (EvolutionsLines == null || !EvolutionsLines.ContainsKey(gooType))
                 return null;
             return EvolutionsLines[gooType];
@@ -402,12 +406,13 @@ namespace ChangedSpecialMod
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
+            /*
             if (KeybindSystem.TransfurDevolveKeybind.JustPressed)
                 Devolve();
 
             if (KeybindSystem.TransfurEvolveKeybind.JustPressed)
                 Evolve();
-
+            */
             if (KeybindSystem.TransfurAttackKeybind.Current)
                 TransfurAttack();
         }
@@ -445,8 +450,8 @@ namespace ChangedSpecialMod
 
         public void SetTransfurFromNumber(GooType gooType, int number)
         {
-            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-                InitTransfurTypes();
+            //if (EvolutionsLines == null || EvolutionsLines.Count == 0)
+            //    InitTransfurTypes();
 
             List<Transfur> targetList = GetEvolutionLine(gooType);
 
@@ -462,8 +467,8 @@ namespace ChangedSpecialMod
 
         public void SetTransfurType(GooType gooType)
         {
-            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-                InitTransfurTypes();
+            //if (EvolutionsLines == null || EvolutionsLines.Count == 0)
+            //    InitTransfurTypes();
 
             if (TransfurTypeCurrent != null)
             {
@@ -501,7 +506,7 @@ namespace ChangedSpecialMod
             }
 
             if (transfur != null)
-                SoundEngine.PlaySound(Sounds.SoundTransfur, Player.Center);
+                AudioSystem.PlayTransfurSound(Player.Center);
 
             TransfurTypeCurrent = transfur;
         }
@@ -620,6 +625,37 @@ namespace ChangedSpecialMod
             }
         }
 
+        public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
+        {
+            var changedNPC = npc?.Changed();
+            if (changedNPC != null && changedNPC.GooType != GooType.Invalid && ChangedSpecialModClientConfig.Instance.NPCsCanTransfurPlayer)
+            {
+                var damage = hurtInfo.Damage;
+                // Damage would kill player
+                if (damage > Player.statLife && TransfurTypeCurrent == null)
+                {
+                    List<Transfur> targetList = GetEvolutionLine(changedNPC.GooType);
+                    var targetTransfur = targetList.FirstOrDefault(x => x.npcType == npc.type);
+                    if (targetTransfur != null)
+                    {
+                        // Nullify damage and transfur player
+                        Player.statLife += damage;
+                        Player.statLife += 50;
+                        SetTransfur(targetTransfur);
+                    }
+                }
+            }
+
+
+            base.OnHitByNPC(npc, hurtInfo);
+        }
+
+        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
+        {
+            base.Kill(damage, hitDirection, pvp, damageSource);
+            SetTransfur(null);
+        }
+
         public override void PreUpdate()
         {
             base.PreUpdate();
@@ -660,17 +696,8 @@ namespace ChangedSpecialMod
             return base.CanBeHitByNPC(npc, ref cooldownSlot);
         }
 
-        /*
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            if (TransfurTypeCurrent != null && TransfurTypeCurrent.npcType == target.type)
-                Evolve();
 
-            base.OnHitNPC(target, hit, damageDone);
-        }
-        */
-
-        // Remove this once we made a copy of the projectile. It is hard
+        // Remove this once we made a copy of the projectile, which is hard due to how they are programmed
         // Add electrified debuff during experiment009 boss fight
         public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
         {

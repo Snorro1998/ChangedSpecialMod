@@ -291,8 +291,7 @@ namespace ChangedSpecialMod.Utilities
                 }
             }
 
-
-            SoundEngine.PlaySound(Sounds.SoundTransfur, npc.Center);
+            AudioSystem.PlayTransfurSound(npc.Center);
         }
 
         public static bool PlayerIsWearingBalloon(Player player)

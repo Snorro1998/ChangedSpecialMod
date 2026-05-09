@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Content.Items.Food;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

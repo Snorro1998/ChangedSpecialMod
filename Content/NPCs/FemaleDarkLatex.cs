@@ -1,11 +1,10 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

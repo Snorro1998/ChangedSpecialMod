@@ -6,14 +6,13 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
 {
 	public class Fan : ModItem
 	{
-		public override void SetDefaults() {
-			// Vanilla has many useful methods like these, use them! This substitutes setting Item.createTile and Item.placeStyle as well as setting a few values that are common across all placeable items
+		public override void SetDefaults() 
+        {
 			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.Fan>());
-
 			Item.width = 32;
 			Item.height = 32;
 			Item.rare = ItemRarityID.Blue;
-            Item.value = Item.buyPrice(0, 0, 1, 50);
+            Item.value = Item.buyPrice(0, 1);
         }
 
         public override void AddRecipes()

@@ -1,6 +1,7 @@
 using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -169,7 +170,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 SwitchAnimation(AnimGrow);
                 Loop = false;
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
             if (AITimer >= 60)
@@ -186,7 +187,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 SwitchAnimation(AnimShrink);
                 Loop = false;
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
             if (AITimer >= 60)

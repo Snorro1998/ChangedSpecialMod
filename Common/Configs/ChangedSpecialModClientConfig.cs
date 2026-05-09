@@ -14,7 +14,6 @@ namespace ChangedSpecialMod.Common.Configs
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
         [Header("WorldGeneration")]
-
         [Range(0, 20)]
         [DefaultValue(1)]
         public int NumberOfLabs { get; set; }
@@ -22,6 +21,7 @@ namespace ChangedSpecialMod.Common.Configs
         [Range(4, 15)]
         [DefaultValue(4)]
         public int MaximumFloors { get; set; }
+
         [Range(5, 8)]
         [DefaultValue(5)]
         public int MaximumRoomsHorizontal { get; set; }
@@ -30,6 +30,7 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(10)]
         public int LatexSpreadChance { get; set; }
 
+
         [Header("Audio")]
         [DefaultValue(true)]
         public bool TransfurSound;
@@ -37,11 +38,20 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(true)]
         public bool WhipCrackSound;
 
+
         [Header("Misc")]
         [DefaultValue(true)]
         public bool NPCsCanUseChangedEmotes;
 
         [DefaultValue(false)]
         public bool DebugItems;
+
+
+        [Header("Transfur")]
+        [DefaultValue(false)]
+        public bool NPCsCanTransfurPlayer;
+
+        [DefaultValue(false)]
+        public bool CustomHealthBar;
     }
 }

@@ -2,7 +2,7 @@
 using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
@@ -844,7 +843,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = npc.Changed();
             if (changedNPC == null || !changedNPC.DefaultOnHitPlayer)
                 return;
-            if (hurtInfo.Damage > 0 && ChangedSpecialModClientConfig.Instance.TransfurSound)
+            if (hurtInfo.Damage > 0 && ChangedSpecialModClientConfig.Instance.TransfurSound && !ChangedSpecialModClientConfig.Instance.NPCsCanTransfurPlayer)
             {
                 AudioSystem.PlaySoundWithProbability(Sounds.SoundTransfur, npc.Center, 3);
             }

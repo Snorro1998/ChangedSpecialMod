@@ -21,7 +21,8 @@ namespace ChangedSpecialMod.Content.Items.Seasons
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.consumable = true;
+            Item.consumable = false;
+            Item.value = Item.buyPrice(0, 1);
         }
 
         public override bool? UseItem(Player player)

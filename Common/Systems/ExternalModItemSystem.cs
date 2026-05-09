@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.NPCs;
+﻿using ChangedSpecialMod.Content.Items.Food;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

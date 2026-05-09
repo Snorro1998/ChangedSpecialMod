@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using Terraria;

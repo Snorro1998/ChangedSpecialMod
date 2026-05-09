@@ -1,7 +1,7 @@
+using ChangedSpecialMod.Content.Items.Food;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ChangedSpecialMod.Content.Tiles;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
 {

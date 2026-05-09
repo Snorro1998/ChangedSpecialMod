@@ -1,5 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;

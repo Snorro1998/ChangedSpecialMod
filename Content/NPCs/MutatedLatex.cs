@@ -1,6 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -39,8 +38,8 @@ namespace ChangedSpecialMod.Content.NPCs
 			Main.npcFrameCount[Type] = 4;
             NPCID.Sets.ShimmerTransformToNPC[Type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 0.2f,
                 PortraitScale = 1 / NPC.scale * 0.2f
             };
@@ -69,16 +68,12 @@ namespace ChangedSpecialMod.Content.NPCs
             //changedNPC.SetNPCName(NPC);
 
             changedNPC.SetHalloweenHatsForBlackLatex();
-
             changedNPC.GooType = GooType.None;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanHaveBeer = true;
             changedNPC.BeerXOffset = -16;
-
-
-
             //NPC.scale *= 0.4f;// Main.rand.NextFloat(0.4f, 0.7f);
         }
 

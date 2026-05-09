@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 namespace ChangedSpecialMod.Content.NPCs
 {
     // This character was normal sized, but it was the only purple one I could find and the corruption was missing a big,
-    // strong character like the Buff Tiger. Also, I just like em big
+    // strong character like the Bloodstripe.
 	public class Purrpurr : ModNPC
 	{
         public override void SetStaticDefaults() 
@@ -21,8 +21,8 @@ namespace ChangedSpecialMod.Content.NPCs
 			Main.npcFrameCount[Type] = 4;
             NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            { // Influences how the NPC looks in the Bestiary
-                Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+            {
+                Velocity = 1f,
                 Scale = 1 / NPC.scale * 0.9f,
                 PortraitScale = 1 / NPC.scale * 0.9f
             };

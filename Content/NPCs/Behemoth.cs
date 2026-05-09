@@ -1,10 +1,9 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
-using System;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
@@ -233,7 +232,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (AITimer == 1)
             {
                 SwitchAnimation(animGrow);
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
             if (AITimer >= 2 * 60)
@@ -288,7 +287,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 npcDirection *= -1;
                 SwitchAnimation(animShrink);
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
             if (AITimer >= 2 * 60)
@@ -330,7 +329,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 npcDirection *= -1;
                 SwitchAnimation(animShrink);
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
             if (AITimer >= 90)

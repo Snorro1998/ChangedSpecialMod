@@ -13,7 +13,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 	{
         int nTimesClicked = 0;
 
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults() 
+        {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true;
@@ -22,8 +23,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.AnchorBottom = AnchorData.Empty;
             TileObjectData.newTile.AnchorWall = true;
             TileObjectData.addTile(Type);
-
-            AddMapEntry(new Color(191, 142, 111), Language.GetText("ItemName.IrisScanner"));
+            AddMapEntry(new Color(191, 142, 111), Language.GetText("Mods.ChangedSpecialMod.Tiles.IrisScanner"));
         }
 
         public override bool RightClick(int i, int j)

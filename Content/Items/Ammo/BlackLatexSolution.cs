@@ -1,7 +1,5 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable.Furniture;
-using ChangedSpecialMod.Content.Tiles;
+﻿using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Latex;
-using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

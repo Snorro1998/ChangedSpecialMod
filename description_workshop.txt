@@ -17,7 +17,22 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 
 
 [h2]Mod Support[/h2]
-This mod only has built-in support for bosschecklist. It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
+This mod has built-in support for:
+[list]
+	[*]Boss Checklist
+	[*]Census
+	[*]Fargos Mutant Mod
+	[*]Music Display
+[/list]
+
+Additionally, town npcs can sell fruits and herbs from these mods:
+[list]
+	[*]Calamity
+	[*]Spirit and Spirit Reforged
+	[*]Thorium
+[/list]
+
+It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
 [h2]Credits[/h2]
@@ -29,10 +44,14 @@ This mod only has built-in support for bosschecklist. It should also work fine w
 	[*]Snorro
 [/list]
 [b]Programming[/b]
+[list]
 	[*]Snorro
 	[*]The code for the main menu style was copied and altered from the Calamity mod
+[/list]
 [b]Music[/b]
+[list]
 	[*]ShiZi
+[/list]
 
 
 [h2]Changelog[/h2]
@@ -42,47 +61,42 @@ For information about previous versions, please check out the change notes.
 
 [b]General[/b]
 [list]
-	[*]Added orange statue
-	[*]Resprited all emotes
-	[*]Updated book barrage weapon
-	[*]Split the shops into categories
+	[*]Improved hit particles and sounds of some blocks
+	[*]Latex blocks can spread in hardmode through sand, dirt and grass. The speed can be configured
+	[*]White latecis can now also spawn from the white pillars
+	[*]Plushies make squeeky sound when right clicked
+	[*]Added rare sweeper variant
+	[*]Sweepers can be caught and released
+	[*]Added support for Census mod
+	[*]Season changing items are no longer consumed when used
+	[*]All latex blocks can be converted into normal blocks with the extractinator
 [/list]
-[b]Mod support[/b]
+
+[b]Added Slimy sand[/b]
 [list]
-	[*]Added support for Fargos Mutant Mod
-	[*]Added support for Music display
+	[*]Black and white latex blocks for sand
+	[*]Can be fired from a sandgun
+	[*]Turns critters and slimes into goops
+	[*]Can also make latex beasts evolve
 [/list]
-[b]Config[/b]
+
+[b]Transfur[/b]
 [list]
-	[*]Added world generation options for the number of labs and their dimensions
-	[*]Added option to disable transfur sound
-	[*]Added option to disable whip crack sound
+	[*]Added a new menu when using syringes
+	[*]Removed evolution requirements
+	[*]Goops can merge turn into cubs
+	[*]Cubs can also merge and turn into adults
+	[*]Added a super syringe, which is made from all other syringes
+	[*]Added custom health bars when transfurred. Can be disabled in the config
 [/list]
-[b]NPCs[/b]
+
+[b]Fix[/b]
 [list]
-	[*]Reduced chance that NPCs will use Changed emotes when talking
-	[*]Resprited Tiger Shark
-	[*]Squid Dogs lash out with their tentacles
-	[*]Puro looks shocked if chased by strong enemies
-	[*]Puro immune to black latices
-	[*]Prototype glows orange during an eclipse
-	[*]Prototype sells fruit from Calamity, Thorium, Spirit and Spirit Reforged
-	[*]Dr K immune to white latices
-[/list]
-[b]Renamed[/b]
-[list]
-	[*]Lion -> Feng Yu
-	[*]Flying Dark Latex -> Yufeng Cub
-	[*]Winged Dark Latex -> Yufeng
-	[*]Whisker Wand Cat -> Ming Cat
-[/list]
-[b]Fixed[/b]
-[list]
-	[*]Player sprite jittering very slightly when transfurred and moving
-	[*]Wrong offset of some projectiles
-	[*]Broken dialogue for Puro during an eclipse
-	[*]Wolf King applying no building debuff to all players instead of players near him
-	[*]Prototype still used old texture for map icon
-	[*]Might latex didn't fit in the bestiary frame
-	[*]Yufeng not wearing hats
+	[*]Config option for labs accidentally set lower by default, resulting in smaller labs
+	[*]Black latex not merging properly with most blocks
+	[*]Added missing map icons for crystals
+	[*]Fixed wrong block colors on the map
+	[*]Elevator interaction range was enormous
+	[*]Sweepers turning into bunnies when caught
+	[*]Latex blocks were converted into gems and coins with the extractinator
 [/list]

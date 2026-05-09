@@ -415,7 +415,7 @@ ElevatorDown: {
 
 SetSeasonValentine: {
 	DisplayName: Set Season Valentine
-	Tooltip: ""
+	Tooltip: Sets the season to Valentine
 }
 
 MusicBoxHappyBirthday: {
@@ -474,7 +474,7 @@ Fan: {
 }
 
 SetSeasonNone: {
-	Tooltip: ""
+	Tooltip: Deactivates any active season
 	DisplayName: Set Season None
 }
 
@@ -510,7 +510,7 @@ Locker: {
 
 Blocks: {
 	Tooltip: ""
-	DisplayName: Blocks
+	DisplayName: Toy Blocks
 }
 
 MusicBoxBehemoth: {
@@ -607,10 +607,8 @@ BlackSyringe: {
 	DisplayName: Black Syringe
 	Tooltip:
 		'''
-		Transforms you into a black latex
-		- Provides immunity to black latexes
-		- Hitting the same monster as you are makes you evolve
-		- You can switch between unlocked forms with the 'devolve' and 'evolve' keys
+		- Transforms you into a black latex
+		- Provides immunity to black latecis
 		'''
 }
 
@@ -618,10 +616,8 @@ WhiteSyringe: {
 	DisplayName: White Syringe
 	Tooltip:
 		'''
-		Transforms you into a white latex
-		- Provides immunity to white latexes
-		- Hitting the same monster as you are makes you evolve
-		- You can switch between unlocked forms with the 'devolve' and 'evolve' keys
+		- Transforms you into a white latex
+		- Provides immunity to white latecis
 		'''
 }
 
@@ -647,7 +643,7 @@ WhiteLatexSolution: {
 
 DryDirtSolution: {
 	DisplayName: Dry Dirt Solution
-	Tooltip: ""
+	Tooltip: Spreads the city ruins
 }
 
 OrangeStatue: {
@@ -664,7 +660,7 @@ SquidDogSyringe: {
 	DisplayName: Squid Dog Syringe
 	Tooltip:
 		'''
-		Transforms you into a Squid Dog
+		- Transforms you into a Squid Dog
 		- Can lash out tentacles with the 'ability' key
 		- Allows you to breathe underwater
 		'''
@@ -701,12 +697,12 @@ SuperSyringe: {
 }
 
 SummonExperiment009: {
-	DisplayName: Summon Experiment009
+	DisplayName: Debug Summon Experiment009
 	Tooltip: ""
 }
 
 SummonShark: {
-	DisplayName: Summon Shark
+	DisplayName: Debug Summon Shark
 	Tooltip: ""
 }
 
@@ -718,4 +714,9 @@ SweeperItem: {
 SweeperPuroItem: {
 	DisplayName: Puroomba
 	Tooltip: Vroom
+}
+
+Paper: {
+	DisplayName: Paper
+	Tooltip: ""
 }

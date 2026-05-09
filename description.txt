@@ -62,6 +62,8 @@ General
 - Added rare sweeper variant
 - Sweepers can be caught and released
 - Added support for Census mod
+- Season changing items are no longer consumed when used
+- All latex blocks can be converted into normal blocks with the extractinator
 
 Added Slimy sand
 - Black and white latex blocks for sand
@@ -75,6 +77,7 @@ Transfur
 - Goops can merge turn into cubs
 - Cubs can also merge and turn into adults
 - Added a super syringe, which is made from all other syringes
+- Added custom health bars when transfurred. Can be disabled in the config
 
 Fix
 - Config option for labs accidentally set lower by default, resulting in smaller labs
@@ -83,3 +86,4 @@ Fix
 - Fixed wrong block colors on the map
 - Elevator interaction range was enormous
 - Sweepers turning into bunnies when caught
+- Latex blocks were converted into gems and coins with the extractinator

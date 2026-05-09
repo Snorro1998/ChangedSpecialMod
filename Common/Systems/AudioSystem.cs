@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
@@ -137,7 +138,13 @@ namespace ChangedSpecialMod.Common.Systems
         public static void PlaySoundWithProbability(SoundStyle sound, Vector2 position, int probability = 1)
         {
             if (Main.rand.NextBool(probability))
-                SoundEngine.PlaySound(sound, position);
+                PlayTransfurSound(position);
+        }
+
+        public static void PlayTransfurSound(Vector2 position)
+        {
+            if (ChangedSpecialModClientConfig.Instance.TransfurSound)
+                SoundEngine.PlaySound(Sounds.SoundTransfur, position);
         }
     }
 }

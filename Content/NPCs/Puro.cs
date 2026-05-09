@@ -1,7 +1,7 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -94,7 +94,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             new ShopData("First Shop", "Shop"),
             new ShopData("Second Shop", "Paintings"),
-            new ShopData("Third Shop", "Pictures")
+            new ShopData("Third Shop", "Pictures"),
+            new ShopData("Fourth Shop", "Seasonal"),
         };
 
         //public const string ShopName = "Shop";
@@ -431,8 +432,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ItemID.Book)
                 .Add<Items.Weapons.Encyclopedia>()
                 .Add<Items.Placeable.DryDirtBlock>()
-                .Add<Items.Placeable.BlackLatexBlock>()
-                .Add<Items.Placeable.WhiteLatexBlock>()
+                .Add<Items.Placeable.Latex.BlackLatexSand>()
+                .Add<Items.Placeable.Latex.BlackLatexBlock>()
+                .Add<Items.Placeable.Latex.WhiteLatexSand>()
+                .Add<Items.Placeable.Latex.WhiteLatexBlock>()
 				.Add<Items.Placeable.Furniture.PackingBox>()
 				.Add<Items.Placeable.Furniture.DocumentPaper>()
 				.Add<Items.Placeable.Furniture.StorageBox>()
@@ -442,11 +445,6 @@ namespace ChangedSpecialMod.Content.NPCs
 				.Add<Items.Placeable.Furniture.FennecPlush>()
 				.Add<Items.Placeable.Furniture.Basketball>()
 				.Add<Items.Placeable.Furniture.Blocks>()
-				.Add<Items.Seasons.SetSeasonValentine>()
-				.Add<Items.Seasons.SetSeasonOktoberfest>()
-				.Add<Items.Seasons.SetSeasonHalloween>()
-				.Add<Items.Seasons.SetSeasonXmas>()
-				.Add<Items.Seasons.SetSeasonNone>()
                 .Register();
 
 			new NPCShop(Type, Shops[1].InternalName)
@@ -476,7 +474,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.DrunkPainting2>()
                 .Add<Items.Placeable.Furniture.DrunkPainting3>()
                 .Add<Items.Placeable.Furniture.DrunkPainting4>()
-
                 .Register();
 
             new NPCShop(Type, Shops[2].InternalName)
@@ -487,7 +484,14 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.Pictures4>()
                 .Add<Items.Placeable.Furniture.Pictures5>()
                 .Add<Items.Placeable.Furniture.Pictures6>()
+                .Register();
 
+            new NPCShop(Type, Shops[3].InternalName)
+                .Add<Items.Seasons.SetSeasonNone>()
+                .Add<Items.Seasons.SetSeasonValentine>()
+                .Add<Items.Seasons.SetSeasonOktoberfest>()
+                .Add<Items.Seasons.SetSeasonHalloween>()
+                .Add<Items.Seasons.SetSeasonXmas>()
                 .Register();
 
         }

@@ -29,7 +29,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
         // Ignore style nonsense and always drop the correct item
         public override IEnumerable<Item> GetItemDrops(int i, int j)
         {
-            yield return new Item(ModContent.ItemType<Items.Placeable.Furniture.CrystalGreen>());
+            yield return new Item(ModContent.ItemType<Items.Placeable.Crystals.CrystalGreen>());
         }
 
         public override void EmitParticles(int i, int j, Tile tile, short tileFrameX, short tileFrameY, Color tileLight, bool visible)

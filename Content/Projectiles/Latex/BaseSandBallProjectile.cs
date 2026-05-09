@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using System;
@@ -42,7 +43,7 @@ namespace ChangedSpecialMod.Content.Projectiles.Latex
 
             if (transformIndex != -1)
             {
-                SoundEngine.PlaySound(Sounds.SoundTransfur, target.Center);
+                AudioSystem.PlayTransfurSound(target.Center);
                 target.Transform(transformIndex);
                 Projectile.Kill();
             }

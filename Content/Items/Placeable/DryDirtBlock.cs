@@ -18,5 +18,11 @@ namespace ChangedSpecialMod.Content.Items.Placeable
             Item.width = 12;
             Item.height = 12;
         }
+
+        public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
+        {
+            resultType = ItemID.DirtBlock;
+            resultStack = 1;
+        }
     }
 }

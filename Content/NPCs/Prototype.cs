@@ -1,7 +1,7 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
@@ -259,7 +259,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ItemID.Apricot)
                 .Add(ItemID.Banana)
                 .Add(ItemID.BlackCurrant)
-                .Add<Items.Orange>()
+                .Add<Orange>()
                 .Add(ItemID.BloodOrange)
                 .Add(ItemID.Cherry)
                 .Add(ItemID.Coconut)

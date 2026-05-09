@@ -1,6 +1,6 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.WorldGeneration;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;

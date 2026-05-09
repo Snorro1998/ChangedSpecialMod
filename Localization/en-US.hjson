@@ -632,6 +632,8 @@ Mods: {
 				MapEntry0: Storage Box
 				MapEntry1: Storage Box
 			}
+
+			IrisScanner: Iris Scanner
 		}
 
 		Buffs: {

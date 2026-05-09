@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.Items
+namespace ChangedSpecialMod.Content.Items.Food
 {
     public class Orange : ModItem
     {

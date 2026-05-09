@@ -1,7 +1,7 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;

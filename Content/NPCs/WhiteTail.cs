@@ -1,7 +1,7 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -303,7 +303,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
                 NPC.TargetClosest(false);
                 var player = Main.player[NPC.target];
                 int targetTileX = (int)player.Center.X / 16;
@@ -343,7 +343,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
-                SoundEngine.PlaySound(Sounds.SoundTransfur, NPC.Center);
+                AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
             if (NPC.scale < 0.02f)

@@ -11,7 +11,7 @@ namespace ChangedSpecialMod.Content.Items
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 20;
-            Item.value = 100;
+            Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;
