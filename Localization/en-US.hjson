@@ -67,17 +67,17 @@ Mods: {
 					NPCTavernKeep: I told {NameTavernKeep} he should expand his menu with orange drinks and dishes! Think of all the delicious possibilities like citrus salad, orange pound cake, orange juice, oh and mimosa! Mmmmm mimosa...
 					NPCAngler: "{NameAngler} is so reckless. Yesterday he nearly got pulled into the water by a Squid Dog while he was fishing."
 					NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
-					NPCZoologist: "{NameZoologist} looks so cuddly, but not as cuddly as you hehehe."
+					NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
 					Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
 					Book2: Hello human! Have you seen my book?
 					Book3: Will you help me make the biggest book tower?
 					Book4: Human! Look at this amazing book I just found!
 					Book5: One day I will write a book about the amazing adventures of {NamePlayer}!
-					Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something from it together human?
+					Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together human?
 					# Globglobgabgalab
 					Book7: I am the gooey glabgalab, and I love books.
 					Orange1: What's your favorite color? My favorite color is orange.
-					Orange2: Mmmm *munch* orange *munch* Oh hello human.
+					Orange2: Mmmm *munch* orange *munch* Oh, hello human.
 					Orange3: I don't have a favorite child but if I did, it would be this orange.
 					Orange4: I had a dream last night where I was in a ball pit filled with oranges.
 					Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
@@ -116,7 +116,7 @@ Mods: {
 					Halloween1: "{Halloween}Citrus orb of juice and seed, grant me warmth in hour of need. Sour flee and sweet remain, Citrus ward against all bane!"
 					Halloween2: "{Halloween}Wooooh! I am Boo-ro!"
 					Halloween3: "{Halloween}BOO! Hehe I scared you didn't I?"
-					Halloween4: "{Halloween}Grrrr! I am the evil Wizard Wolf. And I will turn you into into a juicy orange and swallow you whole!"
+					Halloween4: "{Halloween}Grrrr! I am the evil Wizard Wolf. And I will turn you into a juicy orange and swallow you whole!"
 					Halloween5: "{Halloween}I am going to scare everybody and take their candy!"
 					Xmas1: "{Xmas}Ho ho ho! Hello human!"
 					Xmas2: "{Xmas}What should I ask from Santa? More books or more oranges?"
@@ -170,7 +170,7 @@ Mods: {
 				}
 
 				DrK: {
-					NPCAngler: "{NameAngler} is always outside catching fish, and I always inside the lab fishing for results."
+					NPCAngler: "{NameAngler} is always outside catching fish, and I am always inside the lab fishing for results."
 					NPCNurse: It is good to have {NameNurse} around here, because I was running out of syringes.
 					NPCZoologist: I wonder what happened to {NameZoologist}. Did she only get partially transfurred?
 					Normal1: Perfect timing. I just needed a volunteer for my next experiment.
@@ -192,7 +192,7 @@ Mods: {
 					Thunder2: "{Thunder}How fitting, the lightning just struck the Thunder Science building."
 					Windy1: "{Windy}Who left the window open? Now all my notes are scattered on the floor!"
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Please don't open that 'Golden Shower' book of yours around here."
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{Puro}Why are you wearing a wedding dress? Are you going to get married with your black jelly wolf buddy?"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{Puro}Why are you wearing a wedding dress? Are you going to get married to your black jelly wolf buddy?"
 					PlayerHasPurrpurr: "{PlayerHasPurrpurr} What? Did you befriend that giant cat? Okay I have to admit that is impressive."
 					Valentine1: "{Valentine}Love is like chemistry. It has unexpected results and things can get really hot."
 					Valentine2: "{Valentine}What? Don't tell me you wanted to ask me on a date for Valentine. I have more important things to do."
@@ -201,24 +201,25 @@ Mods: {
 					Oktoberfest3: "{Oktoberfest}Only the dose makes the poison, so I can have another beer!"
 					Oktoberfest4: "{Oktoberfest}In the Bratwurst-case scenario, I have to do this experiment all over again."
 					# Spooky Scary Skeletons
-					Halloween1: "{Halloween}Spooky scary scientists, will haunt you in your dreams!"
-					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp and my eyes glowing red."
-					Halloween3: "{Halloween}If you inhale the fumes from this beaker, you will look more gruesome then with any halloween costume."
-					Halloween4: "{Halloween}To be a succesfull doctor like me you need to have... Brainz! BRAINZZZ!"
-					Xmas1: "{Xmas}A wishlist for Santa? No I don't believe in him. I believe in science."
-					Xmas2: "{Xmas}What do you think of this chemical cocktail? Isn't it beautiful? It has even more colors then a Christmas tree!"
+					Halloween1: "{Halloween}Spooky scary scientists will haunt you in your dreams!"
+					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp and my eyes are glowing red."
+					Halloween3: "{Halloween}If you inhale the fumes from this beaker, you will look more gruesome than with any halloween costume."
+					Halloween4: "{Halloween}To be a succesful doctor like me you need to have... Brainz! BRAINZZZ!"
+					Xmas1: "{Xmas}A wishlist for Santa? No, I don't believe in him. I believe in science."
+					Xmas2: "{Xmas}What do you think of this chemical cocktail? Isn't it beautiful? It has even more colors than a Christmas tree!"
 					Xmas3: "{Xmas}Outside there is some snow, my beaker starts to glow. It's getting really hot. But we carry on, why not! It blew up in my face, and wrecked my own workplace. But the resulting goo is a massive breakthrough!"
 					Xmas4: "{Xmas}If I had a carrot for a nose, they would mistake me for a snowman."
 
 					BloodMoon: {
-						BloodMoon1: Get here subject! I have to run a few tests on you!
+						BloodMoon1: Get here test subject! I have to run a few tests on you!
 						BloodMoon2: Do you want to explode?
 						BloodMoon3: Muahaha! I am going to get you and turn you into one of us!
 					}
 
 					Pirates: {
 						Pirates1: If those violent, mindless thieves destroy my equipment they will regret it!
-						Pirates2: Pirates are so materialistic and don't realize that knowledge is much more valuable then some gold.
+						Pirates2: Pirates are so materialistic and don't realize that knowledge is much more valuable than some gold.
+						Pirates3: I was on the verge of a breakthrough before those blasted bandits kicked in my door.
 					}
 
 					Martians: {

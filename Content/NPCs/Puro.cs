@@ -119,6 +119,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 "NPCMerchant",
                 "NPCTavernKeep",
                 "NPCAngler",
+                "NPCZoologist",
 
 				// Books
 				"Book1",

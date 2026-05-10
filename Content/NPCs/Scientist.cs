@@ -129,6 +129,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 "Pirates1",
                 "Pirates2",
+                "Pirates3",
             }
         );
 
@@ -378,7 +379,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<DebugSpawnAllNPCs>()
                 .Add<DebugResetBosses>()
                 .Add<SummonShark>()
-                .Add<SummonExperiment009>()
                 .Register();
         }
 
