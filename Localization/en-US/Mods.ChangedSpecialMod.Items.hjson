@@ -563,6 +563,11 @@ Painting17: {
 	Tooltip: Don't wake him up
 }
 
+Painting18: {
+	DisplayName: World of Goo
+	Tooltip: Building a Bridge
+}
+
 MusicBoxWhiteTail: {
 	DisplayName: Music Box (White Tail)
 	Tooltip: By ShiZi

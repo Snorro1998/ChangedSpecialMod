@@ -282,7 +282,7 @@ namespace ChangedSpecialMod.Common.Systems
             MusicDisplayAddTrack(changedMod, modName, author, Sounds.Music30, "Music30", defaultColors);
 
             // Changed Minecraft addon
-            // Need to ask for permission, so don't use it anywhere now. It also sounds a lot different then most songs
+            // Need to ask for permission, so don't use it anywhere now. It sounds very different from most songs
             MusicDisplayAddTrack(changedMod, modName, authorHaise, Sounds.MusicMeaninglessStrafe, "MusicMeaninglessStrafe", defaultColors);
         }
 
