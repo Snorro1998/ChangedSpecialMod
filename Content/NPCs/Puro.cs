@@ -113,12 +113,13 @@ namespace ChangedSpecialMod.Content.NPCs
 			new List<string>
 			{
 				// NPC
+                "NPCAngler",
                 "NPCDryad",
                 "NPCGuide",
                 "NPCNurse",
                 "NPCMerchant",
                 "NPCTavernKeep",
-                "NPCAngler",
+                "NPCTaxCollector",
                 "NPCZoologist",
 
 				// Books
@@ -276,7 +277,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override void SetStaticDefaults() 
 		{
-			Main.npcFrameCount[Type] = 44; //30//25
+			Main.npcFrameCount[Type] = 44;
 			NPCID.Sets.ExtraFramesCount[Type] = 28;//14 //9 // Generally for Town NPCs, but this is how the NPC does extra things such as sitting in a chair and talking to other NPCs. This is the remaining frames after the walking frames.
 			NPCID.Sets.AttackFrameCount[Type] = 4; // The amount of frames in the attacking animation.
 			NPCID.Sets.DangerDetectRange[Type] = 700; // The amount of pixels away from the center of the NPC that it tries to attack enemies.

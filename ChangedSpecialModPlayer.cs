@@ -699,7 +699,6 @@ namespace ChangedSpecialMod
 
         // Remove this once we made a copy of the projectile, which is hard due to how they are programmed
         // Add electrified debuff during experiment009 boss fight
-        /*
         public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
         {
             if (proj.type == ProjectileID.VortexLightning && NPC.AnyNPCs(ModContent.NPCType<Experiment009>()))
@@ -707,7 +706,6 @@ namespace ChangedSpecialMod
                 Player.AddBuff(BuffID.Electrified, 60);
             }
         }
-        */
 
         public override void PostUpdateEquips()
         {

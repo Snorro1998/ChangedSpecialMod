@@ -61,12 +61,13 @@ Mods: {
 				# This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
 				Puro: {
 					# NPCs
+					NPCAngler: "{NameAngler} is so reckless. Yesterday he nearly got pulled into the water by a Squid Dog while he was fishing."
 					NPCDryad: I wonder if {NameDryad} knows how to grow an orange tree.
 					NPCGuide: Do you think {NameGuide} can tell me what else I can make from my oranges besides drinks and dishes?
 					NPCMerchant: If only {NameMerchant} sold orange juice, he would be rich!
 					NPCTavernKeep: I told {NameTavernKeep} he should expand his menu with orange drinks and dishes! Think of all the delicious possibilities like citrus salad, orange pound cake, orange juice, oh and mimosa! Mmmmm mimosa...
-					NPCAngler: "{NameAngler} is so reckless. Yesterday he nearly got pulled into the water by a Squid Dog while he was fishing."
 					NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
+					NPCTaxCollector: "Human what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them."
 					NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
 					Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
 					Book2: Hello human! Have you seen my book?

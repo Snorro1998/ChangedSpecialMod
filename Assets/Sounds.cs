@@ -44,7 +44,7 @@ namespace ChangedSpecialMod.Assets
 
         // Minecraft Changed Addon
         // Not used at the moment because I am not sure if we are allowed.
-        public static readonly string MusicMeaninglessStrafe = Music("MusicMeaninglessStrafe");
+        public static readonly string MusicMeaninglessStrafe = Music("MeaninglessStrafe");
 
         // Sounds
         public static readonly SoundStyle SoundTransfur = new(Sound("Poison"));       // Transfur

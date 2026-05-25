@@ -56,7 +56,6 @@ namespace ChangedSpecialMod.Content.Tiles.Plants
         {
             Tile tile = Framing.GetTileSafely(i, j);
             bool growSuccess = WorldGen.GrowTree(i, j);
-
             bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 
             // If growing the tree was a success and the player is near, show growing effects

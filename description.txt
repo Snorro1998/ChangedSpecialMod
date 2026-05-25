@@ -52,38 +52,11 @@ Other
 
 For information about previous versions, please check out the change notes in the steam workshop.
 
-0.5
+0.6
 
 General
-- Improved hit particles and sounds of some blocks
-- Latex blocks can spread in hardmode through sand, dirt and grass. The speed can be configured
-- White latecis can now also spawn from the white pillars
-- Plushies make squeeky sound when right clicked
-- Added rare sweeper variant
-- Sweepers can be caught and released
-- Added support for Census mod
-- Season changing items are no longer consumed when used
-- All latex blocks can be converted into normal blocks with the extractinator
-
-Added Slimy sand
-- Black and white latex blocks for sand
-- Can be fired from a sandgun
-- Turns critters and slimes into goops
-- Can also make latex beasts evolve
-
-Transfur
-- Added a new menu when using syringes
-- Removed evolution requirements
-- Goops can merge turn into cubs
-- Cubs can also merge and turn into adults
-- Added a super syringe, which is made from all other syringes
-- Added custom health bars when transfurred. Can be disabled in the config
+- Added "World of Goo" painting
+- Prototype can make trees grows faster when watering them
 
 Fix
-- Config option for labs accidentally set lower by default, resulting in smaller labs
-- Black latex not merging properly with most blocks
-- Added missing map icons for crystals
-- Fixed wrong block colors on the map
-- Elevator interaction range was enormous
-- Sweepers turning into bunnies when caught
-- Latex blocks were converted into gems and coins with the extractinator
+- Puro's interaction area extended too far vertically

@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Content.NPCs
     {
         public static List<int> PlantList = new List<int>
         {
-            //TileID.Saplings,
+            TileID.Saplings,
             //TileID.Cactus,
             //TileID.Trees,
             TileID.Pumpkins,
@@ -30,7 +30,7 @@ namespace ChangedSpecialMod.Content.NPCs
             TileID.PottedLavaPlantTendrils,
         };
 
-    private static void AI_007_TownEntities_TeleportToHome(NPC npc, int homeFloorX, int homeFloorY)
+        private static void AI_007_TownEntities_TeleportToHome(NPC npc, int homeFloorX, int homeFloorY)
         {
             bool flag = false;
             for (int i = 0; i < 3; i++)
@@ -70,14 +70,14 @@ namespace ChangedSpecialMod.Content.NPCs
             }
             if (flag)
             {
-                flag &= tile.TileType != 15 || tile.TileFrameY < 1080 || tile.TileFrameY > 1098;
+                flag &= tile.TileType != TileID.Chairs || tile.TileFrameY < 1080 || tile.TileFrameY > 1098;
             }
             if (flag)
             {
                 Point point = (npc.Bottom + Vector2.UnitY * -2f).ToTileCoordinates();
                 for (int i = 0; i < 200; i++)
                 {
-                    if (Main.npc[i].active && Main.npc[i].aiStyle == 7 && Main.npc[i].townNPC && Main.npc[i].ai[0] == 5f && (Main.npc[i].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
+                    if (Main.npc[i].active && Main.npc[i].aiStyle == NPCAIStyleID.Passive && Main.npc[i].townNPC && Main.npc[i].ai[0] == 5f && (Main.npc[i].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
                     {
                         flag = false;
                         break;
@@ -182,7 +182,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (npc.velocity.X == 0f && Main.netMode != 1 && Main.rand.Next(petIdleChance) == 0)
             {
                 int num = 3;
-                if (npc.type == 638)
+                if (npc.type == NPCID.TownDog)
                 {
                     num = 2;
                 }
@@ -314,7 +314,7 @@ namespace ChangedSpecialMod.Content.NPCs
             Point point = new Point(floorX, floorY);
             Point point2 = new Point(-1, -1);
             int num = -1;
-            if (npc.type == 638 || npc.type == 656 || NPCID.Sets.IsTownSlime[npc.type] || npc.ai[0] == 5f)
+            if (npc.type == NPCID.TownDog || npc.type == NPCID.TownBunny || NPCID.Sets.IsTownSlime[npc.type] || npc.ai[0] == 5f)
             {
                 return;
             }
@@ -345,7 +345,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 return;
             }
             Tile tile2 = Main.tile[point2.X, point2.Y];
-            if (tile2.TileType == 497 || tile2.TileType == 15)
+            if (tile2.TileType == TileID.Toilets || tile2.TileType == TileID.Chairs)
             {
                 if (tile2.TileFrameY % 40 != 0)
                 {
@@ -398,7 +398,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public static void AI_007_TownEntities(NPC npc)
         {
             // Chance he will water plants if walking near them
-            int waterPlantsChance = 90;
+            int waterPlantsChance = 75; //90
             // Chance he will sit down if walking near a chair
             int sitDownChance = 300;
 
@@ -539,7 +539,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 npc.localAI[0] = flag2.ToInt();
             }
             // Switch to swimming variant when entering the water, which is a completely different npc
-            if ((npc.type == NPCID.Duck || npc.type == 364 || npc.type == 602 || npc.type == 608) && Main.netMode != 1 && (npc.velocity.Y > 4f || npc.velocity.Y < -4f || npc.wet))
+            if ((npc.type == NPCID.Duck || npc.type == NPCID.DuckWhite || npc.type == NPCID.Seagull || npc.type == NPCID.Grebe) && Main.netMode != NetmodeID.MultiplayerClient && (npc.velocity.Y > 4f || npc.velocity.Y < -4f || npc.wet))
             {
                 int num4 = npc.direction;
                 npc.Transform(npc.type + 1);
@@ -2567,7 +2567,7 @@ namespace ChangedSpecialMod.Content.NPCs
             }
             if (Main.netMode != 1 && npc.isLikeATownNPC && !talkingWithPlayer)
             {
-                bool flag26 = npc.ai[0] < 2f && !enemyNearby && !npc.wet;
+                bool noEnemyNearbyAndNotWet = npc.ai[0] < 2f && !enemyNearby && !npc.wet;
                 bool flag27 = (npc.ai[0] < 2f || npc.ai[0] == 8f) && (enemyNearby || flag14);
                 if (npc.localAI[1] > 0f)
                 {
@@ -2595,7 +2595,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Talk to another npc if near them
-                if (npc.CanTalk && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(300) == 0)
+                if (npc.CanTalk && noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(300) == 0)
                 {
                     int talkTime = 420;
                     talkTime = ((Main.rand.Next(2) != 0) ? (talkTime * Main.rand.Next(1, 3)) : (talkTime * Main.rand.Next(1, 4)));
@@ -2625,7 +2625,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Rock paper scissors?
-                else if (npc.CanTalk && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1800) == 0)
+                else if (npc.CanTalk && noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1800) == 0)
                 {
                     int num95 = 420;
                     num95 = ((Main.rand.Next(2) != 0) ? (num95 * Main.rand.Next(1, 3)) : (num95 * Main.rand.Next(1, 4)));
@@ -2657,7 +2657,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Throw confetti if there is a party
-                else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0 && (npc.type == 208 || (BirthdayParty.PartyIsUp && NPCID.Sets.AttackType[npc.type] == NPCID.Sets.AttackType[208])))
+                else if (!NPCID.Sets.IsTownPet[npc.type] && noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0 && (npc.type == 208 || (BirthdayParty.PartyIsUp && NPCID.Sets.AttackType[npc.type] == NPCID.Sets.AttackType[208])))
                 {
                     int num100 = 300;
                     int num101 = 150;
@@ -2677,7 +2677,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Bartender holding beer
-                else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == NPCID.DD2Bartender)
+                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == NPCID.DD2Bartender)
                 {
                     int num104 = 300;
                     int num105 = 150;
@@ -2696,19 +2696,19 @@ namespace ChangedSpecialMod.Content.NPCs
                         }
                     }
                 }
-                else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1800) == 0)
+                else if (!NPCID.Sets.IsTownPet[npc.type] && noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1800) == 0)
                 {
                     npc.ai[0] = 2f;
                     npc.ai[1] = 45 * Main.rand.Next(1, 2);
                     npc.netUpdate = true;
                 }
-                else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == NPCID.Pirate && !flag14)
+                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == NPCID.Pirate && !flag14)
                 {
                     npc.ai[0] = 11f;
                     npc.ai[1] = 30 * Main.rand.Next(1, 4);
                     npc.netUpdate = true;
                 }
-                else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0)
+                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0)
                 {
                     int num108 = 220;
                     int num109 = 150;
@@ -2728,7 +2728,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Our new code. Randomly try to water plants
-                else if (flag26 && npc.ai[0] == 1f && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
+                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 1f && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
                 {
                     Point point = (npc.Bottom + Vector2.UnitX * npc.direction * 24 + Vector2.UnitY * -2f).ToTileCoordinates();
                     bool isPlant = WorldGen.InWorld(point.X, point.Y, 1);
@@ -2743,11 +2743,23 @@ namespace ChangedSpecialMod.Content.NPCs
                             npc.ai[0] = 30f;
                             npc.ai[1] = wateringTime;
                             npc.netUpdate = true;
+
+                            //if (Main.rand.NextBool(2))
+                            {
+                                bool growSuccess = WorldGen.GrowTree(point.X, point.Y);
+                                bool isPlayerNear = WorldGen.PlayerLOS(point.X, point.Y);
+
+                                // If growing the tree was a success and the player is near, show growing effects
+                                if (growSuccess && isPlayerNear)
+                                {
+                                    WorldGen.TreeGrowFXCheck(point.X, point.Y);
+                                }
+                            }
                         }
                     }
                 }
                 // Try to sit down
-                else if (flag26 && npc.ai[0] == 1f && npc.velocity.Y == 0f && sitDownChance > 0 && Main.rand.Next(sitDownChance) == 0)
+                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 1f && npc.velocity.Y == 0f && sitDownChance > 0 && Main.rand.Next(sitDownChance) == 0)
                 {
                     Point point = (npc.Bottom + Vector2.UnitY * -2f).ToTileCoordinates();
                     bool isNotOccupied = WorldGen.InWorld(point.X, point.Y, 1);
@@ -2796,7 +2808,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         }
                     }
                 }
-                else if (flag26 && npc.ai[0] == 1f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && Utils.PlotTileLine(npc.Top, npc.Bottom, npc.width, DelegateMethods.SearchAvoidedByNPCs))
+                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 1f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && Utils.PlotTileLine(npc.Top, npc.Bottom, npc.width, DelegateMethods.SearchAvoidedByNPCs))
                 {
                     Point point2 = (npc.Center + new Vector2(npc.direction * 10, 0f)).ToTileCoordinates();
                     bool flag31 = WorldGen.InWorld(point2.X, point2.Y, 1);
@@ -2938,12 +2950,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            /*
-            if (npc.type == ModContent.NPCType<Prototype>())
-            {
-                Lighting.AddLight(npc.Center, Color.LightBlue.ToVector3());
-            }
-            */
         }
     }
 }

@@ -350,7 +350,10 @@ namespace ChangedSpecialMod.Content.NPCs
             
             npc = NPC.FindFirstNPC(NPCID.BestiaryGirl);
             if (npc >= 0) keyWords.Add("NameZoologist", Main.npc[npc].GivenName);
-            
+
+            npc = NPC.FindFirstNPC(NPCID.TaxCollector);
+            if (npc >= 0) keyWords.Add("NameTaxCollector", Main.npc[npc].GivenName);
+
             npc = NPC.FindFirstNPC(ModContent.NPCType<Puro>());
             if (npc >= 0) keyWords.Add("Puro", string.Empty);
             

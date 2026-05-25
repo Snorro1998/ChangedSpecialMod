@@ -136,7 +136,6 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-
         public static void Corrupt(int i, int j, GooType gooType)
         {
             var shouldSpread = Main.rand.Next(ChangedSpecialModClientConfig.Instance.LatexSpreadChance) == 0;
