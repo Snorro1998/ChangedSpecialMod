@@ -401,6 +401,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<DebugSpawnAllNPCs>()
                 .Add<DebugResetBosses>()
                 .Add<SummonShark>()
+                .Add<SummonExperiment009>()
                 .Register();
         }
 
