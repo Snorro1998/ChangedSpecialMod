@@ -63,4 +63,9 @@ ChangedSpecialModClientConfig: {
 		Label: Custom Health Bar
 		Tooltip: Draws the health bar in different colors when transfurred.
 	}
+
+	Evolution: {
+		Label: Evolution
+		Tooltip: Latex beast will grow bigger and stronger with every boss defeated
+	}
 }

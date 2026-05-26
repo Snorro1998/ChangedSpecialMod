@@ -29,46 +29,54 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modSpirit = null;
         public static Mod modSpiritReforged = null;
 
+        public static Mod modBoulderBackport = null;
+
         public override void Load()
         {
-            changedMod = null;
             changedMod = ChangedSpecialMod.Instance;
 
             // Informational
-            modBossChecklist = null;
-            ModLoader.TryGetMod("BossChecklist", out modBossChecklist);
-            modMusicDisplay = null;
-            ModLoader.TryGetMod("MusicDisplay", out modMusicDisplay);
-            modCensus = null;
-            ModLoader.TryGetMod("Census", out modCensus);
+            modBossChecklist = GetMod("BossChecklist");
+            modMusicDisplay = GetMod("MusicDisplay");
+            modCensus = GetMod("Census");
 
             // Shops
-            modFargosMutant = null;
-            ModLoader.TryGetMod("Fargowiltas", out modFargosMutant);
+            modFargosMutant = GetMod("Fargowiltas");
 
             // Content mods
-            modThorium = null;
-            ModLoader.TryGetMod("ThoriumMod", out modThorium);
-            modCalamity = null;
-            ModLoader.TryGetMod("CalamityMod", out modCalamity);
-            modSpirit = null;
-            ModLoader.TryGetMod("SpiritMod", out modSpirit);
-            modSpiritReforged = null;
-            ModLoader.TryGetMod("SpiritReforged", out modSpiritReforged);
+            modThorium = GetMod("ThoriumMod");
+            modCalamity = GetMod("CalamityMod");
+            modSpirit = GetMod("SpiritMod");
+            modSpiritReforged = GetMod("SpiritReforged");
+
+            modBoulderBackport = GetMod("BoulderBackport");
+        }
+
+        private static Mod GetMod(string name)
+        {
+            ModLoader.TryGetMod(name, out Mod mod);
+            return mod;
         }
 
         public override void Unload()
         {
+            changedMod = null;
+
+            // Informational
             modBossChecklist = null;
             modMusicDisplay = null;
             modCensus = null;
 
+            // Shops
             modFargosMutant = null;
 
+            // Content mods
             modThorium = null;
             modCalamity = null;
             modSpirit = null;
             modSpiritReforged = null;
+
+            modBoulderBackport = null;
         }
 
         public override void PostAddRecipes()

@@ -691,24 +691,19 @@ WhiteLatexSand: {
 		'''
 }
 
-DebugOpenTransfurWindow: {
-	DisplayName: Debug Open Transfur Window
-	Tooltip: ""
-}
-
 SuperSyringe: {
 	DisplayName: Super Syringe
 	Tooltip: Transforms you into any latex beast
 }
 
 SummonExperiment009: {
-	DisplayName: Debug Summon Experiment009
-	Tooltip: ""
+	DisplayName: Debug Summon Experiment 009 Boss
+	Tooltip: Unfinished. From the Minecraft Changed Addon Plus mod.
 }
 
 SummonShark: {
-	DisplayName: Debug Summon Shark
-	Tooltip: ""
+	DisplayName: Debug Summon Shark Boss
+	Tooltip: Unfinished.
 }
 
 SweeperItem: {
@@ -724,4 +719,9 @@ SweeperPuroItem: {
 Paper: {
 	DisplayName: Paper
 	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: Vroom
 }

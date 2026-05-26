@@ -532,6 +532,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public void AdjustStatScaling(NPC npc)
         {
+            if (!ChangedSpecialModClientConfig.Instance.Evolution)
+            {
+                npc.scale = BaseScaleMultiplier;
+                return;
+            }
+
             var player = Main.LocalPlayer;
 
             // We only take our bosses and the ones required for progression. 

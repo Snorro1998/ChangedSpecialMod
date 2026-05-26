@@ -43,8 +43,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override void SetDefaults() 
         {
-            NPC.width = 192;//96
-            NPC.height = 192;//129
+            NPC.width = 192;
+            NPC.height = 192;
             NPC.damage = 0;
             NPC.defense = 32;
             NPC.lifeMax = 5000;
@@ -138,9 +138,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
-
                 int type = ModContent.NPCType<Behemoth>();
-
                 NPC.NewNPC(NPC.GetSource_FromAI(), 0, 0, type);
 
                 foreach (var npc in Main.npc)
@@ -157,9 +155,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void AI()
         {
-            // Players cannot build or break blocks when he is not in his idle state.
-            // The code for this is in ChangedSpecialModPlayer, because doing it here instead does not work
-
             switch (AIState)
             {
                 case (float)ActionState.Idle:

@@ -101,7 +101,8 @@ namespace ChangedSpecialMod.Content.Projectiles
                     player.Hurt(
                         PlayerDeathReason.ByNPC(ownerIndex),
                         damage,
-                        0
+                        0,
+                        armorPenetration:1000
                     );
                 }
             }
@@ -121,27 +122,6 @@ namespace ChangedSpecialMod.Content.Projectiles
                     npc.SimpleStrikeNPC(damage, 0, false);
                     HitNPCs.Add(npc.whoAmI);
                 }
-            }
-        }
-
-        private void DrawLine(List<Vector2> list)
-        {
-            Texture2D texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Projectiles/MollashSpineThin").Value;
-            Rectangle frame = texture.Frame();
-            Vector2 origin = new Vector2(frame.Width / 2 - 3, 0);
-
-            Vector2 pos = list[0];
-            for (int i = 0; i < list.Count - 2; i++)
-            {
-                Vector2 element = list[i];
-                Vector2 diff = list[i + 1] - element;
-
-                float rotation = diff.ToRotation() - MathHelper.PiOver2;
-                Color color = Lighting.GetColor(element.ToTileCoordinates());
-                Vector2 scale = new Vector2(1, (diff.Length()) / frame.Height);
-
-                Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, color, rotation, origin, scale, SpriteEffects.None, 0);
-                pos += diff;
             }
         }
 
@@ -191,8 +171,6 @@ namespace ChangedSpecialMod.Content.Projectiles
                 out segmentPositions,
                 out segmentRotations
             );
-
-            //DrawLine(segmentPositions);
 
             for (int i = 0; i < segmentPositions.Count; i++)
             {

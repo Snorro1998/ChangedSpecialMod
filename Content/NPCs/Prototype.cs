@@ -74,34 +74,34 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public static DialogueObject DialogueNormal = new DialogueObject(
             "Prototype",
-            new List<string>
-            {                
-                "Emotion1",
-                "Emotion2",
-                "Emotion3",
-                "Emotion4",
-                "Emotion5",
-                "Emotion6"
+            new List<DialogueElement>
+            {
+                new DialogueElement("Emotion1"),
+                new DialogueElement("Emotion2", "Surprised"),
+                new DialogueElement("Emotion3"),
+                new DialogueElement("Emotion4"),
+                new DialogueElement("Emotion5"),
+                new DialogueElement("Emotion6", "Naughty"),
             }
         );
 
         public static DialogueObject DialogueInjured = new DialogueObject(
             "Prototype.Injured",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Injured1",
-                "Injured2",
-                "Injured3"
+                new DialogueElement("Injured1"),
+                new DialogueElement("Injured2"),
+                new DialogueElement("Injured3")
             }
         );
 
         public static DialogueObject DialogueNearlyDead = new DialogueObject(
             "Prototype.NearlyDead",
-            new List<string>
+            new List<DialogueElement>
             {
-                "NearlyDead1",
-                "NearlyDead2",
-                "NearlyDead3"
+                new DialogueElement("NearlyDead1"),
+                new DialogueElement("NearlyDead2"),
+                new DialogueElement("NearlyDead3")
             }
         );
 
@@ -133,7 +133,6 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
 
             NPC.Happiness
-                //.SetBiomeAffection<CityRuinsSurfaceBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<BlackLatexSurfaceBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<WhiteLatexSurfaceBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<OceanBiome>(AffectionLevel.Hate)
@@ -228,8 +227,31 @@ namespace ChangedSpecialMod.Content.NPCs
             else if (NPC.life <= 0.6f * NPC.lifeMax)
                 dialogue = DialogueInjured;
 
-            return dialogue.GetDialogue(keyWords);
-		}
+            (string dialogueText, string emotionText) = dialogue.GetDialogue(keyWords);
+
+            // Set the portrait based on the chosen text
+            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
+            if (modBoulderBackport != null)
+            {
+                var basePath = "ChangedSpecialMod/Content/NPCs/Prototype";
+                var emotion = emotionText;
+
+                if (BirthdayParty.PartyIsUp)
+                    basePath += "/Party";
+                else if (Main.bloodMoon)
+                    basePath += "/Bloodmoon";
+                /*
+                else if (SeasonSystem.season == SeasonalEvent.Valentine)
+                    basePath += "/Valentine";
+                else if (SeasonSystem.season == SeasonalEvent.Oktoberfest)
+                    basePath += "/Oktoberfest";
+                */
+
+                modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Prototype>(), $"{basePath}/{emotion}");
+            }
+
+            return dialogueText;
+        }
 
         public override void SetChatButtons(ref string button, ref string button2)
         {

@@ -27,7 +27,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
 			NPC.height = 18;
 			NPC.damage = 20;
@@ -53,6 +54,8 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.SetHalloweenHatsForWhiteLatex();
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.CanEvolve = true;
+            changedNPC.EvolveType = ModContent.NPCType<WhiteKnight>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

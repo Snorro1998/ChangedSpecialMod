@@ -86,7 +86,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (fr == 1)
             {
-                changedNPC.HatYOffset = -17;//-16
+                changedNPC.HatYOffset = -17;
             }
             else 
             {

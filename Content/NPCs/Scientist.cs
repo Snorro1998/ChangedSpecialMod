@@ -61,117 +61,117 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public static DialogueObject DialogueNormal = new DialogueObject(
             "DrK",
-            new List<string>
+            new List<DialogueElement>
             {
 				// NPC
-                "NPCNurse",
-                "NPCAngler",
-                "NPCZoologist",
-
+                new DialogueElement("NPCNurse"),
+                new DialogueElement("NPCAngler", "Happy"),
+                new DialogueElement("NPCZoologist"),
+                
 				// Normal
-				"Normal1",
-                "Normal2",
-                "Normal3",
-                "Normal4",
-                "Normal5",
-                "Normal6",
-                "Normal7",
-                "Normal8",
-                "Normal9",
-                "Normal10",
-                "Normal11",
+                new DialogueElement("Normal1", "Happy"),
+                new DialogueElement("Normal2"),
+                new DialogueElement("Normal3"),
+                new DialogueElement("Normal4", "Happy"),
+                new DialogueElement("Normal5"),
+                new DialogueElement("Normal6"),
+                new DialogueElement("Normal7", "Happy"),
+                new DialogueElement("Normal8"),
+                new DialogueElement("Normal9"),
+                new DialogueElement("Normal10"),
+                new DialogueElement("Normal11"),
 
                 // World Evil
-                "Crimson1",
-                "Crimson2",
-                "Corruption1",
-                "Corruption2",
+                new DialogueElement("Crimson1", "Tired"),
+                new DialogueElement("Crimson2"),
+                new DialogueElement("Corruption1", "Tired"),
+                new DialogueElement("Corruption2"),
 
-				//Thunder
-                "Thunder1",
-                "Thunder2",
+                //Thunder
+                new DialogueElement("Thunder1"),
+                new DialogueElement("Thunder2"),
 
-				//Windy
-				"Windy1",
+                //Windy
+                new DialogueElement("Windy1"),
 
                 // Valentine
-                "Valentine1",
-                "Valentine2",
+                new DialogueElement("Valentine1"),
+                new DialogueElement("Valentine2"),
 
                 //Oktoberfest
-                "Oktoberfest1",
-                "Oktoberfest2",
-                "Oktoberfest3",
-                "Oktoberfest4",
+                new DialogueElement("Oktoberfest1"),
+                new DialogueElement("Oktoberfest2"),
+                new DialogueElement("Oktoberfest3"),
+                new DialogueElement("Oktoberfest4"),
 
                 //Halloween
-                "Halloween1",
-                "Halloween2",
-                "Halloween3",
-                "Halloween4",
+                new DialogueElement("Halloween1"),
+                new DialogueElement("Halloween2"),
+                new DialogueElement("Halloween3"),
+                new DialogueElement("Halloween4"),
 
                 //Xmas
-                "Xmas1",
-                "Xmas2",
-                "Xmas3",
-                "Xmas4",
+                new DialogueElement("Xmas1"),
+                new DialogueElement("Xmas2"),
+                new DialogueElement("Xmas3"),
+                new DialogueElement("Xmas4"),
 
                 //Items
-                "PlayerHasGoldenShower",
-                "PlayerIsWearingWeddingDress",
-                "PlayerHasPurrpurr"
+                new DialogueElement("PlayerHasGoldenShower"),
+                new DialogueElement("PlayerIsWearingWeddingDress"),
+                new DialogueElement("PlayerHasPurrpurr")
             }
         );
 
         public static DialogueObject DialoguePirates = new DialogueObject(
             "DrK.Pirates",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Pirates1",
-                "Pirates2",
-                "Pirates3",
+                new DialogueElement("Pirates1", "Angry"),
+                new DialogueElement("Pirates2"),
+                new DialogueElement("Pirates3", "Angry"),
             }
         );
 
         public static DialogueObject DialogueMartians = new DialogueObject(
             "DrK.Martians",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Martians1",
-                "Martians2"
+                new DialogueElement("Martians1"),
+                new DialogueElement("Martians2")
             }
         );
 
         public static DialogueObject DialogueBloodMoon = new DialogueObject(
             "DrK.BloodMoon",
-            new List<string>
+            new List<DialogueElement>
             {
-                "BloodMoon1",
-                "BloodMoon2",
-                "BloodMoon3"
+                new DialogueElement("BloodMoon1", "Insane"),
+                new DialogueElement("BloodMoon2", "Insane"),
+                new DialogueElement("BloodMoon3", "Insane")
             }
         );
 
         public static DialogueObject DialogueEclipse = new DialogueObject(
             "DrK.Eclipse",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Eclipse1",
-                "Eclipse2",
-                "Eclipse3",
+                new DialogueElement("Eclipse1"),
+                new DialogueElement("Eclipse2"),
+                new DialogueElement("Eclipse3"),
             }
         );
 
         public static DialogueObject DialogueParty = new DialogueObject(
             "DrK.Party",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Party1",
-                "Party2",
-                "Party3",
-                "Party4",
-                "Party5",
-                "Party6"
+                new DialogueElement("Party1"),
+                new DialogueElement("Party2"),
+                new DialogueElement("Party3"),
+                new DialogueElement("Party4", "Happy"),
+                new DialogueElement("Party5", "Happy"),
+                new DialogueElement("Party6", "Naughty")
             }
         );
 
@@ -301,7 +301,29 @@ namespace ChangedSpecialMod.Content.NPCs
                     break;
             }
 
-            return dialogue.GetDialogue(keyWords);
+
+            (string dialogueText, string emotionText) = dialogue.GetDialogue(keyWords);
+
+            // Set the portrait based on the chosen text
+            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
+            if (modBoulderBackport != null)
+            {
+                var basePath = "ChangedSpecialMod/Content/NPCs/Scientist";
+                var emotion = emotionText;
+
+                if (dialogue == DialogueParty)
+                    basePath += "/Party";
+                /*
+                else if (SeasonSystem.season == SeasonalEvent.Valentine)
+                    basePath += "/Valentine";
+                else if (SeasonSystem.season == SeasonalEvent.Oktoberfest)
+                    basePath += "/Oktoberfest";
+                */
+
+                modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Scientist>(), $"{basePath}/{emotion}");
+            }
+
+            return dialogueText;
         }
 
 

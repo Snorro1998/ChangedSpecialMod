@@ -1,4 +1,3 @@
-using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Syringes;
@@ -19,6 +18,7 @@ namespace ChangedSpecialMod.Content.NPCs
     [AutoloadBossHead]
     public class Behemoth : ModNPC
 	{
+        // Only his hands have attack states
         private enum ActionState
         {
             Grow,
@@ -35,10 +35,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public int[] animation = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1 };
 
-        public int[] animGrow = new int[] { 0, 1, 2, 3, 4, 5, 6, 7};
-        public int[] animIdle = new int[] { 7, 8, 9 };
-        public int[] animShrink = new int[] { 6, 5, 4, 3, 2, 1, 0 };
-        public int[] animShock = new int[] { 13 };
+        public static readonly int[] animGrow = new int[] { 0, 1, 2, 3, 4, 5, 6, 7};
+        public static readonly int[] animIdle = new int[] { 7, 8, 9 };
+        public static readonly int[] animShrink = new int[] { 6, 5, 4, 3, 2, 1, 0 };
+        public static readonly int[] animShock = new int[] { 13 };
 
         public int ImageLength {get { return animation.Length; }}
         public bool Loop = false;
@@ -72,12 +72,11 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override void SetDefaults() 
         {
-			NPC.width = 192;//96
-			NPC.height = 192;//129
+			NPC.width = 192;
+			NPC.height = 192;
             NPC.damage = 0;
-            NPC.defense = 12;//32
+            NPC.defense = 12;
             NPC.lifeMax = 6000;
-            //NPCHit6 = werewolf hurt sound
             NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = Item.buyPrice(0, 8);
@@ -102,7 +101,8 @@ namespace ChangedSpecialMod.Content.NPCs
             if (NPC.life <= 1 && AIState != (float)ActionState.ShrinkDeath)
             {
                 NPC.life = 1;
-                return false; // Stops death
+                // Stops death
+                return false;
             }
 
             return true;
@@ -221,8 +221,8 @@ namespace ChangedSpecialMod.Content.NPCs
             var entitySource = NPC.GetSource_FromAI();
             int xPos = (int)NPC.Center.X + Main.rand.Next(-10, 10);
             //BehemothHand
-            NPC npcHand = NPC.NewNPCDirect(entitySource, xPos, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
-            NPC npcHand2 = NPC.NewNPCDirect(entitySource, xPos + 96, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
+            NPC.NewNPCDirect(entitySource, xPos, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
+            NPC.NewNPCDirect(entitySource, xPos + 96, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
         }
 
         private void StateGrow()
@@ -272,11 +272,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (!NPC.HasValidTarget)
                     SwitchState(ActionState.Shrink);
             }
-            /*
-            else
-            {
-                SwitchState(ActionState.ShrinkDespawn);
-            }*/
         }
 
         private void StateShrink()
@@ -400,11 +395,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 case (float)ActionState.Death:
                     StateDeath();
                     break;
-                    /*
-                case (float)ActionState.ShrinkDespawn:
-                    StateShrinkDespawn();
-                    break;
-                    */
             }
         }
     }

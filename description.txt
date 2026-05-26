@@ -20,6 +20,7 @@ This mod has built-in support for:
 - Census
 - Fargos Mutant Mod
 - Music Display
+- Boulder Backport (needs to be installed if you want to see dialogue portraits)
 
 Additionally, town npcs can sell fruits and herbs from these mods:
 - Calamity
@@ -27,6 +28,7 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 - Thorium
 
 It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
+Please note that Boulder Backport can crash your game when reloading mods. This has nothing to do with this mod.
 
 
 --------- Credits ---------
@@ -50,13 +52,23 @@ Other
 
 --------- Changelog ---------
 
-For information about previous versions, please check out the change notes in the steam workshop.
+For information about older versions, please check out the change notes in the steam workshop.
+The previous version was 0.6, but it was shown as 0.5 accidentally. This update is a bit smaller
+so an extra number has been added to the version number.
 
-0.6
+0.6.1
 
 General
-- Added "World of Goo" painting
+- Added many dialogue portraits (requires Boulder Backport)
+- Added some extra dialogue for Puro
+- Added "World of Goo" and "Puroomba" paintings
+- Added config option for evolution
 - Prototype can make trees grows faster when watering them
+
+Updated Sprites
+- Crimclaw
+- Strange Swivel Chair
+- Gas Tanks
 
 Fix
 - Puro's interaction area extended too far vertically

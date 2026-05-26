@@ -1,11 +1,8 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -36,8 +33,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.height = 45;
             NPC.damage = 40;
             NPC.defense = 12;
-            NPC.lifeMax = 100; //320
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.lifeMax = 100;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 60f;
             NPC.knockBackResist = 0.4f;

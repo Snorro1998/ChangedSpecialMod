@@ -25,32 +25,160 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
+    public class DialogueElement
+    {
+        public string Dialogue;
+        public string Emotion;
+
+        public DialogueElement(string dialogue, string emotion = "Talk")
+        {
+            Dialogue = dialogue;
+            Emotion = emotion;
+        }
+    }
+
+    public class HappinessObject
+    {
+        public List<string> txtHate;
+        public List<string> txtDislike;
+        public List<string> txtLike;
+        public List<string> txtLove;
+        public int Happiness = 0;
+        public bool ContainsAny = false;
+        private string basePath = string.Empty;
+
+        private string GetNPCText(int npcType, string textName)
+        {
+            if (npcType == -1)
+                return null;
+            var npcIndex = NPC.FindFirstNPC(npcType);
+            if (npcIndex != -1)
+            {
+                var txt = Language.GetTextValue($"{basePath}.{textName}");
+                if (txt != null)
+                    return Regex.Replace(txt, @"\{.*?\}", Main.npc[npcIndex].FullName);
+            }
+            return null;
+        }
+
+        private string GetBiomeText(string biomeName, string textName)
+        {
+            if (textName == null || biomeName == null)
+                return null;
+            var txt = Language.GetTextValue($"{basePath}.{textName}");
+            if (txt != null)
+                return Regex.Replace(txt, @"\{.*?\}", biomeName);
+            return null;
+        }
+
+        private void TryAddText(string inputText, ref List<string> texts)
+        {
+            if (inputText == null || inputText == string.Empty)
+                return;
+            texts.Add(inputText);
+        }
+
+        public HappinessObject(NPC npc, string npcName, int hateNPC, int dislikeNPC, int likeNPC, int loveNPC)
+        {
+            basePath = $"Mods.ChangedSpecialMod.NPCs.{npcName}.TownNPCMood";
+            var baseBiomes = $"Mods.ChangedSpecialMod.Biomes";
+            txtHate = new List<string>();
+            txtDislike = new List<string>();
+            txtLike = new List<string>();
+            txtLove = new List<string>();
+            var npcText = Main.npcChatText;
+
+            string hateBiome = ShopHelper.BiomeNameByKey("Desert");
+            string dislikeBiome = null;
+            string likeBiome = ShopHelper.BiomeNameByKey("Forest");
+            string loveBiome = ShopHelper.BiomeNameByKey($"{baseBiomes}.BlackLatexSurfaceBiome.TownNPCDialogueName");
+
+            // Hate
+            TryAddText(Language.GetTextValue($"{basePath}.NoHome"), ref txtHate);
+            TryAddText(Language.GetTextValue($"{basePath}.FarFromHome"), ref txtHate);
+            TryAddText(Language.GetTextValue($"{basePath}.HateCrowded"), ref txtHate);
+            TryAddText(GetNPCText(hateNPC, "HateNPC"), ref txtHate);
+            TryAddText(GetBiomeText(hateBiome, "HateBiome"), ref txtHate);
+            foreach (var txt in txtHate)
+            {
+                //Main.NewText(txt);
+                if (npcText.Contains(txt))
+                {
+                    ContainsAny = true;
+                    Happiness -= 2;
+                }
+            }
+
+            // Dislike
+            TryAddText(Language.GetTextValue($"{basePath}.DislikeCrowded"), ref txtDislike);
+            TryAddText(GetNPCText(dislikeNPC, "DislikeNPC"), ref txtDislike);
+            TryAddText(GetBiomeText(dislikeBiome, "DislikeBiome"), ref txtDislike);
+            foreach (var txt in txtDislike)
+            {
+                //Main.NewText(txt);
+                if (npcText.Contains(txt))
+                {
+                    ContainsAny = true;
+                    Happiness -= 1;
+                }
+            }
+
+            // Like
+            TryAddText(Language.GetTextValue($"{basePath}.Content"), ref txtLike);
+            TryAddText(GetNPCText(likeNPC, "LikeNPC"), ref txtLike);
+            TryAddText(GetBiomeText(likeBiome, "LikeBiome"), ref txtLike);
+            foreach (var txt in txtLike)
+            {
+                //Main.NewText(txt);
+                if (npcText.Contains(txt))
+                {
+                    ContainsAny = true;
+                    Happiness += 1;
+                }
+            }
+
+            // Love
+            TryAddText(Language.GetTextValue($"{basePath}.LoveSpace"), ref txtLove);
+            TryAddText(GetNPCText(loveNPC, "LoveNPC"), ref txtLove);
+            TryAddText(GetBiomeText(loveBiome, "LoveBiome"), ref txtLove);
+            foreach (var txt in txtLove)
+            {
+                //Main.NewText(txt);
+                if (npcText.Contains(txt))
+                {
+                    ContainsAny = true;
+                    Happiness += 2;
+                }
+            }
+        }
+    }
+
     public class DialogueObject
 	{
         private string BasePathDialogue = "Mods.ChangedSpecialMod.NPCs.Dialogue";
         private string CharacterName = "Puro";
-        private List<string> Dialogue = new List<string>();
+        private List<DialogueElement> Dialogue = new List<DialogueElement>();
         private Dictionary<string, string> KeyWords = new Dictionary<string, string>();
 
-		public DialogueObject(string characterName, List<string> dialogue)
+		public DialogueObject(string characterName, List<DialogueElement> dialogue)
 		{
             CharacterName = characterName;
-			Dialogue = dialogue ?? new List<string>();
+			Dialogue = dialogue ?? new List<DialogueElement>();
 			ChangedUtils.Shuffle(Dialogue);
 		}
 
         // Keywords can often change so we don't set it during creation. For example when an NPC dies it should not pick an option with his name anymore
-        public string GetDialogue(Dictionary<string, string> keyWords)
+        public (string, string) GetDialogue(Dictionary<string, string> keyWords)
 		{
 			if (keyWords != null) KeyWords = keyWords;
             var length = Dialogue.Count;
-            if (length == 0) return null;
+            if (length == 0) return (null, null);
 
             // Iterate all dialogue options
             for (var i = 0; i < length; i++)
             {
                 var strKey = Dialogue.First();
-                var str = Language.GetTextValue($"{BasePathDialogue}.{CharacterName}.{strKey}");
+                var str = Language.GetTextValue($"{BasePathDialogue}.{CharacterName}.{strKey.Dialogue}");
 
                 Dialogue.RemoveAt(0);
 				Dialogue.Add(strKey);
@@ -70,14 +198,14 @@ namespace ChangedSpecialMod.Content.NPCs
 						}
 						str = str.Replace("{" + key + "}", KeyWords[key]);
 					}
-					if (!failed) return str;
+					if (!failed) return (str, strKey.Emotion);
 				}
 				else
 				{
-					return str;
+					return (str, strKey.Emotion);
 				}
             }
-			return null;
+			return (null, null);
 		}
 	}
 
@@ -86,9 +214,15 @@ namespace ChangedSpecialMod.Content.NPCs
 	[AutoloadHead]
 	public class Puro : ModNPC
 	{
-        private int attackTimer = 0;
         private static int shopIndex = 0;
         private const string ShopNamePath = "Mods.ChangedSpecialMod.ShopNames";
+
+        private int loveNPC = NPCID.BestiaryGirl;
+        private int likeNPC = NPCID.PartyGirl;
+        private int dislikeNPC = NPCID.TaxCollector;
+        private int hateNPC = NPCID.Angler;
+
+        private HappinessObject happinessOld = null;
 
         private static readonly List<ShopData> Shops = new()
         {
@@ -108,165 +242,163 @@ namespace ChangedSpecialMod.Content.NPCs
         // This should add up to 1 or it will break (so don't use something like 0.3)
         public float animationSpeed = 1.0f;
 
+        private DialogueObject dialogueCurrent = null;
+
         public static DialogueObject DialogueNormal = new DialogueObject(
             "Puro",
-			new List<string>
+			new List<DialogueElement>
 			{
 				// NPC
-                "NPCAngler",
-                "NPCDryad",
-                "NPCGuide",
-                "NPCNurse",
-                "NPCMerchant",
-                "NPCTavernKeep",
-                "NPCTaxCollector",
-                "NPCZoologist",
-
+                new DialogueElement("NPCAngler", "Angry"),
+                new DialogueElement("NPCDryad", "Question"),
+                new DialogueElement("NPCGuide", "Question"),
+                new DialogueElement("NPCNurse", "Happy"),
+                new DialogueElement("NPCMerchant", "Happy"),
+                new DialogueElement("NPCTavernKeep"),
+                new DialogueElement("NPCTaxCollector", "Question"),
+                new DialogueElement("NPCZoologist", "Happy"),
+                
 				// Books
-				"Book1",
-                "Book2",
-                "Book3",
-                "Book4",
-                "Book5",
-                "Book6",
-                "Book7",
-
+				new DialogueElement("Book1"),
+				new DialogueElement("Book2"),
+				new DialogueElement("Book3"),
+				new DialogueElement("Book4", "Happy"),
+				new DialogueElement("Book5", "Happy"),
+				new DialogueElement("Book6"),
+				new DialogueElement("Book7", "Derp"),
+                
 				// Orange
-                "Orange1",
-                "Orange2",
-                "Orange3",
-                "Orange4",
-                "Orange5",
-                "Orange6",
+                new DialogueElement("Orange1"),
+                new DialogueElement("Orange2", "Derp"),
+                new DialogueElement("Orange3"),
+                new DialogueElement("Orange4", "Neutral"),
+                new DialogueElement("Orange5"),
+                new DialogueElement("Orange6"),
 
 				// Normal
-				"Normal1",
+				new DialogueElement("Normal1", "Happy"),
 
 				// World Evil
-                "Crimson1",
-                "Crimson2",
-                "Corruption1",
-
+                new DialogueElement("Crimson1"),
+                new DialogueElement("Crimson2", "Shocked"),
+                new DialogueElement("Corruption1", "Shocked"),
+                
 				// Changed
-                "Changed1",
-                "Changed2",
-                //"Changed3",
-                //"Changed4",
-                //"Changed5",
-                //"Changed6",
-
+                new DialogueElement("Changed1"),
+                new DialogueElement("Changed2"),
+                
 				//Rain
-                "Rain1",
-                "Rain2",
+                new DialogueElement("Rain1"),
+                new DialogueElement("Rain2"),
 
 				//Thunder
-                "Thunder1",
-                "Thunder2",
+                new DialogueElement("Thunder1"),
+                new DialogueElement("Thunder2", "Shocked"),
 
 				//Windy
-				"Windy1",
-				"Windy2",
-				"Windy3",
+				new DialogueElement("Windy1"),
+                new DialogueElement("Windy2", "Shocked"),
+                new DialogueElement("Windy3"),
 
                 //Valentine
-                "Valentine1",
-                "Valentine2",
+                new DialogueElement("Valentine1"),
+                new DialogueElement("Valentine2"),
 
                 //Oktoberfest
-                "Oktoberfest1",
-                "Oktoberfest2",
-                "Oktoberfest3",
-                "Oktoberfest4",
+                new DialogueElement("Oktoberfest1"),
+                new DialogueElement("Oktoberfest2"),
+                new DialogueElement("Oktoberfest3"),
+                new DialogueElement("Oktoberfest4"),
 
                 //Halloween
-                "Halloween1",
-                "Halloween2",
-                "Halloween3",
-                "Halloween4",
-                "Halloween5",
-
+                new DialogueElement("Halloween1"),
+                new DialogueElement("Halloween2"),
+                new DialogueElement("Halloween3"),
+                new DialogueElement("Halloween4"),
+                new DialogueElement("Halloween5"),
+                
                 //Xmas
-                "Xmas1",
-                "Xmas2",
-                "Xmas3",
-                "Xmas4",
-                "Xmas5",
+                new DialogueElement("Xmas1"),
+                new DialogueElement("Xmas2"),
+                new DialogueElement("Xmas3"),
+                new DialogueElement("Xmas4"),
+                new DialogueElement("Xmas5"),
 
 				//Items
-				"PlayerHasOrange",
-                "PlayerHasBook",
-                "PlayerHasBookOfSkulls",
-                "PlayerHasWaterBolt",
-                "PlayerHasGoldenShower",
-                "PlayerIsWearingBalloon",
-				"PlayerIsWearingWeddingDress",
-                "PlayerHasPurrpurr",
+				new DialogueElement("PlayerHasOrange"),
+                new DialogueElement("PlayerHasBook"),
+                new DialogueElement("PlayerHasBookOfSkulls"),
+                new DialogueElement("PlayerHasWaterBolt"),
+                new DialogueElement("PlayerHasGoldenShower"),
+                new DialogueElement("PlayerIsWearingBalloon"),
+                new DialogueElement("PlayerIsWearingWeddingDress"),
+                new DialogueElement("PlayerHasPurrpurr"),
 
                 //Transfurs
-                "TransfurCub"
+                new DialogueElement("TransfurCub")
             }
 		);
 
 		public static DialogueObject DialoguePirates = new DialogueObject(
             "Puro.Pirates",
-            new List<string>
+            new List<DialogueElement>
 			{
-                "Pirates1",
-                "Pirates2",
-                "Pirates3",
-                "Pirates4",
-                "Pirates5"
+                new DialogueElement("Pirates1"),
+                new DialogueElement("Pirates2"),
+                new DialogueElement("Pirates3"),
+                new DialogueElement("Pirates4"),
+                new DialogueElement("Pirates5")
             }
 		);
 
         public static DialogueObject DialogueMartians = new DialogueObject(
             "Puro.Martians",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Martians1",
-                "Martians2",
-                "Martians3"
+                new DialogueElement("Martians1"),
+                new DialogueElement("Martians2"),
+                new DialogueElement("Martians3")
             }
         );
 
         public static DialogueObject DialogueBloodMoon = new DialogueObject(
             "Puro.BloodMoon",
-            new List<string>
+            new List<DialogueElement>
 			{
-				"BloodMoon1",
-				"BloodMoon2",
-				"BloodMoon3",
-				"BloodMoon4",
-				"BloodMoon5"
+                new DialogueElement("BloodMoon1", "Question"),
+                new DialogueElement("BloodMoon2", "Evil"),
+                new DialogueElement("BloodMoon3", "Evil"),
+                new DialogueElement("BloodMoon4", "Evil"),
+                new DialogueElement("BloodMoon5", "Evil"),
 			}
 		);
 
 		public static DialogueObject DialogueEclipse = new DialogueObject(
             "Puro.Eclipse",
-            new List<string>
+            new List<DialogueElement>
             {
-                "Eclipse1",
-                "Eclipse2",
-                "Eclipse3"
+                new DialogueElement("Eclipse1"),
+                new DialogueElement("Eclipse2"),
+                new DialogueElement("Eclipse3"),
             }
         );
 
         public static DialogueObject DialogueParty = new DialogueObject(
             "Puro.Party",
-            new List<string>
+            new List<DialogueElement>
 			{
-				"Party1",
-				"Party2",
-                "Party3",
-                "Party4",
-                "Party5",
-                "Party6",
-                "Party7",
-                "Party8",
-                "Party9",
-                "Party10",
-                "Party11",
-                "Party12",
+                new DialogueElement("Party1", "Shocked"),
+                new DialogueElement("Party2"),
+                new DialogueElement("Party3", "Question"),
+                new DialogueElement("Party4", "Happy"),
+                new DialogueElement("Party5"),
+                new DialogueElement("Party6", "Embarrassed"),
+                new DialogueElement("Party7", "Question"),
+                new DialogueElement("Party8", "Derp"),
+                new DialogueElement("Party9", "Happy"),
+                new DialogueElement("Party10"),
+                new DialogueElement("Party11"),
+                new DialogueElement("Party12", "Happy")
             }
 		);
 
@@ -299,10 +431,10 @@ namespace ChangedSpecialMod.Content.NPCs
 				.SetBiomeAffection<DesertBiome>(AffectionLevel.Hate) 
                 // Black latexes hate white ones, so maybe that should also be added
 				
-				.SetNPCAffection(NPCID.BestiaryGirl, AffectionLevel.Love) 
-				.SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Like) 
-				.SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Dislike)
-				.SetNPCAffection(NPCID.Angler, AffectionLevel.Hate); 
+				.SetNPCAffection(loveNPC, AffectionLevel.Love) 
+				.SetNPCAffection(likeNPC, AffectionLevel.Like) 
+				.SetNPCAffection(dislikeNPC, AffectionLevel.Dislike)
+				.SetNPCAffection(hateNPC, AffectionLevel.Hate); 
 
 			NPCProfile = new Profiles.StackedNPCProfile(
 				new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture + "_Party"),
@@ -378,42 +510,90 @@ namespace ChangedSpecialMod.Content.NPCs
             var invasionType = Main.invasionType;
             var eclipse = Main.eclipse;
             var bloodMoon = Main.bloodMoon;
-            DialogueObject dialogue = DialogueNormal;
+            dialogueCurrent = DialogueNormal;
 
 			switch (invasionType)
 			{
 				case InvasionID.PirateInvasion:
-					dialogue = DialoguePirates;
+                    dialogueCurrent = DialoguePirates;
 					break;
 				case InvasionID.MartianMadness:
-					dialogue = DialogueMartians;
+                    dialogueCurrent = DialogueMartians;
 					break;
 				default:
                     // He also wears a partyhat on the birthday season, but doesnt use the dialogue there
 					if (BirthdayParty.PartyIsUp)
-					{
-						dialogue = DialogueParty;
-                    }
-					else if (Main.bloodMoon)
-					{
-						dialogue = DialogueBloodMoon;
-					}
-					else if (Main.eclipse)
-					{
-						dialogue = DialogueEclipse;
-					}
-					break;
+                        dialogueCurrent = DialogueParty;
+                    else if (Main.bloodMoon)
+                        dialogueCurrent = DialogueBloodMoon;
+                    else if (Main.eclipse)
+                        dialogueCurrent = DialogueEclipse;
+                    break;
             }
 
-            return dialogue.GetDialogue(keyWords);
+            (string dialogueText, string emotionText) = dialogueCurrent.GetDialogue(keyWords);
+            UpdatePortrait(emotionText);
+            return dialogueText;
 		}
+
+        private void UpdatePortrait(string emotionText)
+        {
+            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
+            if (modBoulderBackport != null)
+            {
+                var basePath = "ChangedSpecialMod/Content/NPCs/Puro";
+                var emotion = emotionText;
+
+                if (dialogueCurrent == DialogueParty)
+                    basePath += "/Party";
+                /*
+                else if (SeasonSystem.season == SeasonalEvent.Valentine)
+                    basePath += "/Valentine";
+                else if (SeasonSystem.season == SeasonalEvent.Oktoberfest)
+                    basePath += "/Oktoberfest";
+                */
+
+                modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Puro>(), $"{basePath}/{emotion}");
+            }
+        }
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
-
             var currentShop = Shops[shopIndex];
             button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
+            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
+            if (modBoulderBackport != null)
+                UpdatePortraitOnHappinessButtonClicked();
+        }
+
+        // This is run every frame and is truly awful 
+        // happinessOld is used for caching so at least the texture won't be updated every time
+        private void UpdatePortraitOnHappinessButtonClicked()
+        {
+            var happiness = new HappinessObject(NPC, "Puro", NPCID.Angler, NPCID.TaxCollector, NPCID.PartyGirl, NPCID.BestiaryGirl);
+            // This will only be true if the happiness dialogue is open
+            if (happiness.ContainsAny)
+            {                
+                if (happinessOld == null)
+                {
+                    happinessOld = happiness;
+                    var emotion = "Neutral";
+                    if (happiness.Happiness > 3)
+                        emotion = "Love";
+                    else if (happiness.Happiness > 0)
+                        emotion = "Happy";
+                    else if (happiness.Happiness < -3)
+                        emotion = "Evil";
+                    else if (happiness.Happiness < 0)
+                        emotion = "Angry";
+                    UpdatePortrait(emotion);
+                }
+            }
+            else
+            {
+                happinessOld = null;
+            }
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shop)
@@ -463,6 +643,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.Painting16>()
                 .Add<Items.Placeable.Furniture.Painting17>()
                 .Add<Items.Placeable.Furniture.Painting18>()
+                .Add<Items.Placeable.Furniture.Painting19>()
 
                 // Big paintings
                 .Add<Items.Placeable.Furniture.Painting6>()

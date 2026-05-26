@@ -41,6 +41,9 @@ namespace ChangedSpecialMod.Common.Configs
 
         [Header("Misc")]
         [DefaultValue(true)]
+        public bool Evolution;
+
+        [DefaultValue(true)]
         public bool NPCsCanUseChangedEmotes;
 
         [DefaultValue(false)]
