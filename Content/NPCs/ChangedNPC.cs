@@ -40,17 +40,6 @@ namespace ChangedSpecialMod.Content.NPCs
         WhiteOnly
     }
 
-    public enum Category
-    {
-        None,
-        Goop,
-        Cub,
-        Adult,
-        Flying,
-        Fast,
-        Beefy
-    }
-
     public enum ElementType
     {
         None,
@@ -88,7 +77,6 @@ namespace ChangedSpecialMod.Content.NPCs
             SizePerBoss = sizePerBoss / bossCount;
         }
     }
-
 
     public class HatStruct
     {
@@ -540,8 +528,11 @@ namespace ChangedSpecialMod.Content.NPCs
 
             var player = Main.LocalPlayer;
 
-            // We only take our bosses and the ones required for progression. 
-            // We also take the goblin and pirate events
+            // TODO add these when created
+            // DownedBossSystem.DownedShark
+            // Squid Dog
+            // Hyena
+
             var preHardmodeBossesDowned = new bool[]
             {
                 NPC.downedSlimeKing,                // King Slime
@@ -554,7 +545,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 DownedBossSystem.DownedWhiteTail,   // White tail
                 DownedBossSystem.DownedWolfKing,    // Wolf King
                 DownedBossSystem.DownedBehemoth,    // Behemoth
-                //DownedBossSystem.DownedShark        // Shark
             };
 
             var earlyHardmodeBossesDowned = new bool[]
@@ -885,8 +875,9 @@ namespace ChangedSpecialMod.Content.NPCs
             var chancedNPC = npc.Changed();
             if (chancedNPC != null && chancedNPC.GooType != GooType.Invalid && npc.HasValidTarget && npc.HasBuff(BuffID.Lovestruck))
             {
-                // 0 love, 88 kiss
-                var emoteId = ChangedUtils.Choose(0, 88);
+                int emoteLove = 0;
+                int emoteKiss = 88;
+                var emoteId = ChangedUtils.Choose(emoteLove, emoteKiss);
                 var player = Main.player[npc.target];
                 if (player.Distance(npc.Center) < 160 && Main.rand.NextBool(100))
                 {

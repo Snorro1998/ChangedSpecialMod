@@ -15,6 +15,43 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
+    public class BodyPart
+    {
+        private string bodyPartName;
+        public int bodyPartID;
+        public float Rotation;
+
+        public BodyPart(string bodyPartName, int bodyPartID)
+        {
+            this.bodyPartName = bodyPartName;
+            this.bodyPartID = bodyPartID;
+        }
+
+        private Texture2D GetTexture()
+        {
+            // Caching this doesn't work and I don't know why
+            return ChangedSpecialMod.Instance.Assets.Request<Texture2D>($"Assets/Textures/Body/{bodyPartName}{bodyPartID}").Value;
+        }
+
+        public void Draw(NPC npc, SpriteBatch spriteBatch, Vector2 drawPos, Vector2 offset, Color drawColor, SpriteEffects effects)
+        {
+            var rotation = Rotation * npc.spriteDirection;
+            var texture = GetTexture();
+            offset.X *= npc.spriteDirection;
+            spriteBatch.Draw(
+                texture,
+                drawPos + (offset * npc.scale),
+                null,
+                drawColor,
+                npc.rotation + rotation,
+                texture.Size() / 2f,
+                npc.scale,
+                effects,
+                0f
+            );
+        }
+    }
+
 	public class MutatedLatex : ModNPC
 	{
         private Color color = Color.White;
@@ -59,13 +96,12 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
-            AnimationType = NPCID.None;// NPCID.Zombie;
+            AnimationType = NPCID.None;
             SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.BaseScaleMultiplier = 0.4f;
             changedNPC.AdjustStatScaling(NPC);
-            //changedNPC.SetNPCName(NPC);
 
             changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.GooType = GooType.None;
@@ -102,12 +138,8 @@ namespace ChangedSpecialMod.Content.NPCs
             return multiplier * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
         }
 
-        public override void OnSpawn(IEntitySource source)
+        private void ChooseBodyParts()
         {
-            var changedNPC = NPC.Changed();
-            NPC.TargetClosest();
-            //NPC.GivenName = "Mutated Latex";
-
             // Choose body parts
             tailIndex = ChangedUtils.Choose(3, 4, 7, 8, 10, 12, 13, 14);
             torsoIndex = ChangedUtils.Choose(1, 2, 3, 11, 12);
@@ -119,6 +151,14 @@ namespace ChangedSpecialMod.Content.NPCs
             hairIndex = ChangedUtils.Choose(1, 2, 3, 4, 5, 6);
             fluffIndex = ChangedUtils.Choose(1, 2, 7, 9, 11);
             secondHead = Main.rand.NextBool(3);
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            var changedNPC = NPC.Changed();
+            NPC.TargetClosest();
+
+            ChooseBodyParts();
             hasMask = false;
 
             changedNPC.GooType = ChangedUtils.Choose(GooType.Black, GooType.White);
@@ -197,53 +237,51 @@ namespace ChangedSpecialMod.Content.NPCs
             base.OnSpawn(source);
         }
 
-        private void DrawTexture(SpriteBatch spriteBatch, Texture2D texture, Vector2 drawPos, Vector2 offset, Color drawColor, SpriteEffects effects, float rotation)
+        private void DrawHead(ChangedNPC changedNPC, SpriteBatch spriteBatch, Vector2 drawPos, Vector2 offset, Color drawColor, Color hairColor, Color eyeColor, Color lightingColor, SpriteEffects effects, float rotation, bool hideEars)
         {
             offset.X *= NPC.spriteDirection;
-            spriteBatch.Draw(
-                texture,
-                drawPos + (offset * NPC.scale),
-                null,
-                drawColor,
-                NPC.rotation + rotation,
-                texture.Size() / 2f,
-                NPC.scale,
-                effects,
-                0f
-            );
-        }
-
-        private void DrawHead(ChangedNPC changedNPC, SpriteBatch spriteBatch, Texture2D headTexture, Texture2D earsTexture, Texture2D eyeTexture, Texture2D hairTexture, Texture2D pupilTexture, Vector2 drawPos, Vector2 offset, Color drawColor, Color hairColor, Color eyeColor, Color lightingColor, SpriteEffects effects, float rotation, bool hideEars)
-        {
-            offset *= NPC.spriteDirection;
-            rotation *= NPC.spriteDirection;
+            //rotation *= NPC.spriteDirection;
             drawPos += offset;
-
 
             // Ears
             if (!hideEars)
-                DrawTexture(spriteBatch, earsTexture, drawPos, new Vector2(0, -64), drawColor, effects, rotation);
+            {
+                var bodyPartEars = new BodyPart("Ears", earsIndex);
+                bodyPartEars.Rotation = rotation;
+                bodyPartEars.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -64), drawColor, effects);
+            }
+            
             // Head
-            DrawTexture(spriteBatch, headTexture, drawPos, new Vector2(0, -64), drawColor, effects, rotation);
+            var bodyPartHead = new BodyPart("Head", headIndex);
+            bodyPartHead.Rotation = rotation;
+            bodyPartHead.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -64), drawColor, effects);
 
             if (hasMask)
             {
-                var blackLatexMaskTexture = Mod.Assets.Request<Texture2D>("Assets/Textures/Body/HeadBlackLatex1").Value;
-                DrawTexture(spriteBatch, blackLatexMaskTexture, drawPos, new Vector2(0, -64), lightingColor, effects, rotation);
+                var bodyPartBlackLatexMask = new BodyPart("HeadBlackLatex", 1);
+                bodyPartBlackLatexMask.Rotation = rotation;
+                bodyPartBlackLatexMask.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -64), lightingColor, effects);
             }
             else
             {
                 // Eye base should be white
-                DrawTexture(spriteBatch, eyeTexture, drawPos, new Vector2(0, -64), lightingColor, effects, rotation);
+                var bodyPartEye = new BodyPart("Eye", eyeIndex);
+                bodyPartEye.Rotation = rotation;
+                bodyPartEye.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -64), lightingColor, effects);
 
+                // Pupil
                 if (eyeIndex < 6)
                 {
-                    DrawTexture(spriteBatch, pupilTexture, drawPos, new Vector2(0, -64), eyeColor, effects, rotation);
+                    var bodyPartPupil = new BodyPart("Pupil", 1);
+                    bodyPartPupil.Rotation = rotation;
+                    bodyPartPupil.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -64), eyeColor, effects);
                 }
             }
 
             // Hair
-            DrawTexture(spriteBatch, hairTexture, drawPos, new Vector2(0, -64), hairColor, effects, rotation);
+            var bodyPartHair = new BodyPart("Hair", hairIndex);
+            bodyPartHair.Rotation = rotation;
+            bodyPartHair.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -64), hairColor, effects);
         }
 
         public override void FindFrame(int frameHeight)
@@ -251,12 +289,8 @@ namespace ChangedSpecialMod.Content.NPCs
             int frameNumber = NPC.frame.Y / frameHeight;
 
             if (NPC.velocity.Y == 0 && Math.Abs(NPC.velocity.X) > 0.4f)
-            {
-                
                 NPC.frameCounter += 1.0f;
-            }
 
-            // No idea why 1000 is needed here, because it isn't for other npcs
             if (NPC.frameCounter >= 8)
             {
                 NPC.frameCounter = 0;
@@ -266,12 +300,21 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.frame.Y = frameNumber * frameHeight;
         }
 
+        private Color GetColor(Color color, Color lightingColor)
+        {
+            return new Color((int)((float)color.R * ((float)lightingColor.R / 255.0f)),
+                (int)((float)color.G * ((float)lightingColor.G / 255.0f)),
+                (int)((float)color.B * ((float)lightingColor.B / 255.0f)));
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (NPC.velocity.Y == 0)
                 NPC.spriteDirection = NPC.direction;
+
             Color lightingColor = Lighting.GetColor((int)NPC.Center.X / 16, (int)(NPC.Center.Y / 16f));
             var changedNPC = NPC.Changed();
+            
             if (NPC.IsABestiaryIconDummy)
             {
                 changedNPC.GooType = GooType.Black;
@@ -290,48 +333,30 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             // Body color
-            drawColor = new Color((int)((float)color.R * ((float)lightingColor.R / 255.0f)), 
-                (int)((float)color.G * ((float)lightingColor.G / 255.0f)), 
-                (int)((float)color.B * ((float)lightingColor.B / 255.0f)));
+            drawColor = GetColor(color, lightingColor);
 
             // Hair color
-            var drawColor2 = new Color((int)((float)hairColor.R * ((float)lightingColor.R / 255.0f)),
-                (int)((float)hairColor.G * ((float)lightingColor.G / 255.0f)),
-                (int)((float)hairColor.B * ((float)lightingColor.B / 255.0f)));
+            var drawColorHair = GetColor(hairColor, lightingColor);
 
             // Eye color
-            var drawColor3 = new Color((int)((float)eyeColor.R * ((float)lightingColor.R / 255.0f)),
-                (int)((float)eyeColor.G * ((float)lightingColor.G / 255.0f)),
-                (int)((float)eyeColor.B * ((float)lightingColor.B / 255.0f)));
+            var drawColorEyes = GetColor(eyeColor, lightingColor);
 
-            var tailTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Tail{tailIndex}").Value;
-            
-            var legLTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/LegL{legsIndex}").Value;
-            var legRTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/LegR{legsIndex}").Value;
+            var bodyPartTail = new BodyPart("Tail", tailIndex);
+            var bodyPartLegL = new BodyPart("LegL", legsIndex);
+            var bodyPartLegR = new BodyPart("LegR", legsIndex);
+            var bodyPartTorso = new BodyPart("Torso", torsoIndex);
+            //head
+            //ears
+            var bodyPartArmL = new BodyPart("ArmL", armIndex);
+            var bodyPartArmR = new BodyPart("ArmR", armIndex);
+            // eye
+            // hair
+            var bodyPartFluff = new BodyPart("Fluff", fluffIndex);
+            // pupil
+            // blackmask
 
-            //var legsTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Legs{legsIndex}").Value;
-            var bodyTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Torso{torsoIndex}").Value;
-            
-            var headTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Head{headIndex}").Value;
-            var earsTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Ears{earsIndex}").Value;
-
-            var armLTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/ArmL{armIndex}").Value;
-            var armRTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/ArmR{armIndex}").Value;
-
-            var eyeTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Eye{eyeIndex}").Value;
-            var hairTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Hair{hairIndex}").Value;
-
-            var fluffTexture = Mod.Assets.Request<Texture2D>($"Assets/Textures/Body/Fluff{fluffIndex}").Value;
-            var pupilTexture = Mod.Assets.Request<Texture2D>("Assets/Textures/Body/Pupil").Value;
-
-            var blackLatexMaskTexture = Mod.Assets.Request<Texture2D>("Assets/Textures/Body/HeadBlackLatex1").Value;
-
-            // Base NPC draw position (matches vanilla)
             Vector2 drawPos = NPC.Center - screenPos;
-
-            // Remove gfxOffY so it doesn't get applied twice
             drawPos.Y += NPC.gfxOffY;
-
             drawPos.Y += 8;
 
             SpriteEffects effects = NPC.spriteDirection == 1
@@ -339,94 +364,74 @@ namespace ChangedSpecialMod.Content.NPCs
                 : SpriteEffects.None;
 
             var walkCycleYOffset = 0;
-            var tailRotation = 0.3f;
-            var armLRotation = 0.3f;
-            var armRotation = -0.1f;
-            var legLRotation = 0f;
-            var legRRotation = 0f;
-
             int frame = NPC.frame.Y / 59;
 
             if (frame == 0)
             {
                 walkCycleYOffset = 0;
-                armLRotation = 0.6f;
-                armRotation = -0.4f;
-                tailRotation = 0.3f;
-                legLRotation = 0;
-                legRRotation = 0;
+                bodyPartArmL.Rotation = 0.6f;
+                bodyPartArmR.Rotation = -0.4f;
+                bodyPartTail.Rotation = 0.3f;
+                bodyPartLegL.Rotation = 0;
+                bodyPartLegR.Rotation = 0;
             }
 
-            if (frame == 1)
+            else if (frame == 1)
             {
                 walkCycleYOffset = -1;
-                armLRotation = 0.3f;
-                armRotation = -0.1f;
-                tailRotation = 0.6f;
-                legLRotation = 0.375f;
-                legRRotation = -0.375f;
+                bodyPartArmL.Rotation = 0.3f;
+                bodyPartArmR.Rotation = -0.1f;
+                bodyPartTail.Rotation = 0.6f;
+                bodyPartLegL.Rotation = 0.375f;
+                bodyPartLegR.Rotation = -0.375f;
             }
 
-            if (frame == 2)
+            else if (frame == 2)
             {
                 walkCycleYOffset = -2;
-                armLRotation = 0f;
-                armRotation = 0.2f;
-                tailRotation = 0.3f;
-                legLRotation = 0.75f;
-                legRRotation = -0.75f;
+                bodyPartArmL.Rotation = 0f;
+                bodyPartArmR.Rotation = 0.2f;
+                bodyPartTail.Rotation = 0.3f;
+                bodyPartLegL.Rotation = 0.75f;
+                bodyPartLegR.Rotation = -0.75f;
             }
 
-            if (frame == 3)
+            else if (frame == 3)
             {
                 walkCycleYOffset = -1;
-                armLRotation = 0.3f;
-                armRotation = -0.1f;
-                tailRotation = 0f;
-                legLRotation = 0.375f;
-                legRRotation = -0.375f;
+                bodyPartArmL.Rotation = 0.3f;
+                bodyPartArmR.Rotation = -0.1f;
+                bodyPartTail.Rotation = 0f;
+                bodyPartLegL.Rotation = 0.375f;
+                bodyPartLegR.Rotation = -0.375f;
             }
-            
-            tailRotation *= NPC.spriteDirection;
-            armLRotation *= NPC.spriteDirection;
-            armRotation *= NPC.spriteDirection;
-            legLRotation *= NPC.spriteDirection;
-            legRRotation *= NPC.spriteDirection;
 
             drawPos.Y += walkCycleYOffset;
-
             var hideEars = headIndex > 12;
-            var hideTail = legsIndex == 10; 
+            var hideTail = bodyPartLegL.bodyPartID == 7;
 
-            // Tail
             if (!hideTail)
-                DrawTexture(spriteBatch, tailTexture, drawPos, Vector2.Zero, drawColor, effects, tailRotation);
-            // Left Leg
-            DrawTexture(spriteBatch, legLTexture, drawPos, Vector2.Zero, drawColor, effects, legLRotation);
-            // Left arm
-            DrawTexture(spriteBatch, armLTexture, drawPos, new Vector2(0 + 10, -32 - 13), drawColor, effects, armLRotation);
-            // Right Leg
-            DrawTexture(spriteBatch, legRTexture, drawPos, Vector2.Zero, drawColor, effects, legRRotation);
-            // Torso
-            DrawTexture(spriteBatch, bodyTexture, drawPos, new Vector2(0, -32), drawColor, effects, 0);
-            // Fluff
-            DrawTexture(spriteBatch, fluffTexture, drawPos, new Vector2(0, -56), drawColor2, effects, 0);//-48
-            // Head
+                bodyPartTail.Draw(NPC, spriteBatch, drawPos, Vector2.Zero, drawColor, effects);
+
+            bodyPartArmL.Draw(NPC, spriteBatch, drawPos, new Vector2(10, -45), drawColor, effects);
+            bodyPartLegL.Draw(NPC, spriteBatch, drawPos, Vector2.Zero, drawColor, effects);
+            bodyPartLegR.Draw(NPC, spriteBatch, drawPos, Vector2.Zero, drawColor, effects);
+            bodyPartTorso.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -32), drawColor, effects);
+            bodyPartFluff.Draw(NPC, spriteBatch, drawPos, new Vector2(0, -56), drawColorHair, effects);
+
+            // Two heads
             if (secondHead)
             {
-                DrawHead(changedNPC, spriteBatch, headTexture, earsTexture, eyeTexture, hairTexture, pupilTexture, drawPos, new Vector2(8, 0), drawColor, drawColor2, drawColor3, lightingColor, effects, 0.15f, hideEars);
-                DrawHead(changedNPC, spriteBatch, headTexture, earsTexture, eyeTexture, hairTexture, pupilTexture, drawPos, new Vector2(-8, 0), drawColor, drawColor2, drawColor3, lightingColor, effects, -0.15f, hideEars);
+                DrawHead(changedNPC, spriteBatch, drawPos, new Vector2(8, 0), drawColor, drawColorHair, drawColorEyes, lightingColor, effects, 0.15f, hideEars);
+                DrawHead(changedNPC, spriteBatch, drawPos, new Vector2(-8, 0), drawColor, drawColorHair, drawColorEyes, lightingColor, effects, -0.15f, hideEars);
             }
+            // One head
             else
             {
-                // Head
-                DrawHead(changedNPC, spriteBatch, headTexture, earsTexture, eyeTexture, hairTexture, pupilTexture, drawPos, Vector2.Zero, drawColor, drawColor2, drawColor3, lightingColor, effects, 0, hideEars);
+                DrawHead(changedNPC, spriteBatch, drawPos, Vector2.Zero, drawColor, drawColorHair, drawColorEyes, lightingColor, effects, 0, hideEars);
             }
-            
-            // Right arm
-            DrawTexture(spriteBatch, armRTexture, drawPos, new Vector2(0 - 11, -32 - 14), drawColor, effects, armRotation);
- 
 
+            bodyPartArmR.Draw(NPC, spriteBatch, drawPos, new Vector2(-11, -46), drawColor, effects);
             return false;
         }
     }
