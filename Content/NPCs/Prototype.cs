@@ -68,6 +68,7 @@ namespace ChangedSpecialMod.Content.NPCs
         }
 
         private static Profiles.StackedNPCProfile NPCProfile;
+        private DialogueObject dialogueCurrent = null;
 
         // This should add up to 1 or it will break (so don't use something like 0.3)
         public float animationSpeed = 1.0f;
@@ -77,7 +78,7 @@ namespace ChangedSpecialMod.Content.NPCs
             new List<DialogueElement>
             {
                 new DialogueElement("Emotion1"),
-                new DialogueElement("Emotion2", "Surprised"),
+                new DialogueElement("Emotion2", "Shocked"),
                 new DialogueElement("Emotion3"),
                 new DialogueElement("Emotion4"),
                 new DialogueElement("Emotion5"),
@@ -220,26 +221,28 @@ namespace ChangedSpecialMod.Content.NPCs
 		{
             var changedNPC = NPC.Changed();
             var keyWords = changedNPC.GetChatKeyWords();
-            DialogueObject dialogue = DialogueNormal;
+            dialogueCurrent = DialogueNormal;
 
             if (NPC.life <= 0.3f * NPC.lifeMax)
-                dialogue = DialogueNearlyDead;
+                dialogueCurrent = DialogueNearlyDead;
             else if (NPC.life <= 0.6f * NPC.lifeMax)
-                dialogue = DialogueInjured;
+                dialogueCurrent = DialogueInjured;
 
-            (string dialogueText, string emotionText) = dialogue.GetDialogue(keyWords);
+            (string dialogueText, string emotionText) = dialogueCurrent.GetDialogue(keyWords);
+            UpdatePortrait(emotionText);
+            return dialogueText;
+        }
 
-            // Set the portrait based on the chosen text
+        private void UpdatePortrait(string emotion)
+        {
+            string eventName = null;
             var modBoulderBackport = ModSupportSystem.modBoulderBackport;
             if (modBoulderBackport != null)
             {
                 var basePath = "ChangedSpecialMod/Content/NPCs/Prototype";
-                var emotion = emotionText;
 
                 if (BirthdayParty.PartyIsUp)
                     basePath += "/Party";
-                else if (Main.bloodMoon)
-                    basePath += "/Bloodmoon";
                 /*
                 else if (SeasonSystem.season == SeasonalEvent.Valentine)
                     basePath += "/Valentine";
@@ -249,8 +252,14 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Prototype>(), $"{basePath}/{emotion}");
             }
-
-            return dialogueText;
+            else
+            {
+                if (BirthdayParty.PartyIsUp)
+                    eventName = "Party";
+                else if (Main.bloodMoon)
+                    eventName = "Bloodmoon";
+                NPCPortraitSystem.SetEmotionAndEvent(eventName, emotion);
+            }
         }
 
         public override void SetChatButtons(ref string button, ref string button2)

@@ -17,6 +17,7 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -354,33 +355,32 @@ namespace ChangedSpecialMod.Content.NPCs
             // Bosses slain
             if (DownedBossSystem.DownedBehemoth) keyWords.Add("Behemoth", string.Empty);
 
-
             var player = Main.LocalPlayer;
             if (player != null)
             {
                 var changedPlayer = player.ChangedPlayer();
-
                 keyWords.Add("NamePlayer", player.name);
 
-                var hasNormalBook = player.inventory.Any(item => item.type == ItemID.Book);
-                var hasBookOfSkulls = player.inventory.Any(item => item.type == ItemID.BookofSkulls);
-                var hasWaterBolt = player.inventory.Any(item => item.type == ItemID.WaterBolt);
-                var hasDemonScythe = player.inventory.Any(item => item.type == ItemID.DemonScythe);
+                var hasNormalBook = player.HasItem(ItemID.Book);
+                var hasBookOfSkulls = player.HasItem(ItemID.BookofSkulls);
+                var hasWaterBolt = player.HasItem(ItemID.WaterBolt);
+                var hasDemonScythe = player.HasItem(ItemID.DemonScythe);
 
-                var hasCrystalStorm = player.inventory.Any(item => item.type == ItemID.CrystalStorm);
-                var hasCursedFlames = player.inventory.Any(item => item.type == ItemID.CursedFlames);
-                var hasGoldenShower = player.inventory.Any(item => item.type == ItemID.GoldenShower);
-                var hasRazorblade = player.inventory.Any(item => item.type == ItemID.RazorbladeTyphoon);
-                var hasMagnetSphere = player.inventory.Any(item => item.type == ItemID.MagnetSphere);
-                var hasLunarFlare = player.inventory.Any(item => item.type == ItemID.LunarFlareBook);
+                var hasCrystalStorm = player.HasItem(ItemID.CrystalStorm);
+                var hasCursedFlames = player.HasItem(ItemID.CursedFlames);
+                var hasGoldenShower = player.HasItem(ItemID.GoldenShower);
+                var hasRazorblade = player.HasItem(ItemID.RazorbladeTyphoon);
+                var hasMagnetSphere = player.HasItem(ItemID.MagnetSphere);
+                var hasLunarFlare = player.HasItem(ItemID.LunarFlareBook);
 
                 var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
                     hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
 
                 var playerTransfur = changedPlayer.TransfurTypeCurrent;
                 var hasCubTransform = playerTransfur != null && (playerTransfur.npcType == ModContent.NPCType<DarkLatexCub>() || playerTransfur.npcType == ModContent.NPCType<WhiteLatexCub>());
+                var hasOrange = player.HasItem(ModContent.ItemType<Orange>());
 
-                if (player.inventory.Any(item => item.type == ModContent.ItemType<Orange>()))
+                if (hasOrange)
                     keyWords.Add("PlayerHasOrange", string.Empty);
                 if (hasAnyBook)
                     keyWords.Add("PlayerHasBook", string.Empty);

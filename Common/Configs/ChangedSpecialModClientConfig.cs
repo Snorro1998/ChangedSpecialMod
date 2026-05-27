@@ -39,12 +39,17 @@ namespace ChangedSpecialMod.Common.Configs
         public bool WhipCrackSound;
 
 
+        [Header("Npc")]
+        [DefaultValue(true)]
+        public bool NPCsCanUseChangedEmotes;
+
+        [DefaultValue(true)]
+        public bool DialoguePortraits;
+
+
         [Header("Misc")]
         [DefaultValue(true)]
         public bool Evolution;
-
-        [DefaultValue(true)]
-        public bool NPCsCanUseChangedEmotes;
 
         [DefaultValue(false)]
         public bool DebugItems;

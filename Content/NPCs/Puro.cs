@@ -183,15 +183,15 @@ namespace ChangedSpecialMod.Content.NPCs
             return dialogueText;
 		}
 
-        private void UpdatePortrait(string emotionText)
+        private void UpdatePortrait(string emotion)
         {
+            string eventName = null;
             var modBoulderBackport = ModSupportSystem.modBoulderBackport;
             if (modBoulderBackport != null)
             {
                 var basePath = "ChangedSpecialMod/Content/NPCs/Puro";
-                var emotion = emotionText;
 
-                if (dialogueCurrent == DialogueParty)
+                if (BirthdayParty.PartyIsUp)
                     basePath += "/Party";
                 /*
                 else if (SeasonSystem.season == SeasonalEvent.Valentine)
@@ -202,6 +202,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Puro>(), $"{basePath}/{emotion}");
             }
+            else
+            {
+                if (BirthdayParty.PartyIsUp)
+                    eventName = "Party";
+                NPCPortraitSystem.SetEmotionAndEvent(eventName, emotion);
+            }
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
@@ -209,9 +215,7 @@ namespace ChangedSpecialMod.Content.NPCs
             button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
             var currentShop = Shops[shopIndex];
             button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
-            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
-            if (modBoulderBackport != null)
-                UpdatePortraitOnHappinessButtonClicked();
+            UpdatePortraitOnHappinessButtonClicked();
         }
 
         // This is awful, because it is run every frame

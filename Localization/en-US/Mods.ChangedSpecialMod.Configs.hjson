@@ -21,6 +21,7 @@ ChangedSpecialModClientConfig: {
 		Misc: Misc
 		WorldGeneration: World Generation
 		Transfur: Transfur
+		Npc: Npc Header
 	}
 
 	NumberOfLabs: {
@@ -67,5 +68,10 @@ ChangedSpecialModClientConfig: {
 	Evolution: {
 		Label: Evolution
 		Tooltip: Latex beast will grow bigger and stronger with every boss defeated
+	}
+
+	DialoguePortraits: {
+		Label: Dialogue Portraits
+		Tooltip: ""
 	}
 }

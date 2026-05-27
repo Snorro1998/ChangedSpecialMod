@@ -55,6 +55,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private static int ShimmerHeadIndex;
         private static Profiles.StackedNPCProfile NPCProfile;
+        private DialogueObject dialogueCurrent = null;
 
         // This should add up to 1 or it will break (so don't use something like 0.3)
         public float animationSpeed = 1.0f;
@@ -146,9 +147,9 @@ namespace ChangedSpecialMod.Content.NPCs
             "DrK.BloodMoon",
             new List<DialogueElement>
             {
-                new DialogueElement("BloodMoon1", "Insane"),
-                new DialogueElement("BloodMoon2", "Insane"),
-                new DialogueElement("BloodMoon3", "Insane")
+                new DialogueElement("BloodMoon1", "Evil"),
+                new DialogueElement("BloodMoon2", "Evil"),
+                new DialogueElement("BloodMoon3", "Evil")
             }
         );
 
@@ -275,43 +276,46 @@ namespace ChangedSpecialMod.Content.NPCs
             var invasionType = Main.invasionType;
             var eclipse = Main.eclipse;
             var bloodMoon = Main.bloodMoon;
-            DialogueObject dialogue = DialogueNormal;
+            dialogueCurrent = DialogueNormal;
 
             switch (invasionType)
             {
                 case InvasionID.PirateInvasion:
-                    dialogue = DialoguePirates;
+                    dialogueCurrent = DialoguePirates;
                     break;
                 case InvasionID.MartianMadness:
-                    dialogue = DialogueMartians;
+                    dialogueCurrent = DialogueMartians;
                     break;
                 default:
                     if (BirthdayParty.PartyIsUp)
                     {
-                        dialogue = DialogueParty;
+                        dialogueCurrent = DialogueParty;
                     }
                     else if (Main.bloodMoon)
                     {
-                        dialogue = DialogueBloodMoon;
+                        dialogueCurrent = DialogueBloodMoon;
                     }
                     else if (Main.eclipse)
                     {
-                        dialogue = DialogueEclipse;
+                        dialogueCurrent = DialogueEclipse;
                     }
                     break;
             }
 
+            (string dialogueText, string emotionText) = dialogueCurrent.GetDialogue(keyWords);
+            UpdatePortrait(emotionText);
+            return dialogueText;
+        }
 
-            (string dialogueText, string emotionText) = dialogue.GetDialogue(keyWords);
-
-            // Set the portrait based on the chosen text
+        private void UpdatePortrait(string emotion)
+        {
+            string eventName = null;
             var modBoulderBackport = ModSupportSystem.modBoulderBackport;
             if (modBoulderBackport != null)
             {
                 var basePath = "ChangedSpecialMod/Content/NPCs/Scientist";
-                var emotion = emotionText;
 
-                if (dialogue == DialogueParty)
+                if (BirthdayParty.PartyIsUp)
                     basePath += "/Party";
                 /*
                 else if (SeasonSystem.season == SeasonalEvent.Valentine)
@@ -322,10 +326,11 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Scientist>(), $"{basePath}/{emotion}");
             }
-
-            return dialogueText;
+            else
+            {
+                NPCPortraitSystem.SetEmotionAndEvent(eventName, emotion);
+            }
         }
-
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
