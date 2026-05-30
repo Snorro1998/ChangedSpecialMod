@@ -38,6 +38,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
 				// Normal
 				new DialogueElement("Normal1", "Happy"),
+				new DialogueElement("Normal2", "Happy"),
 
 				// World Evil
                 new DialogueElement("Crimson1"),
@@ -93,7 +94,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("PlayerHasGoldenShower"),
                 new DialogueElement("PlayerIsWearingBalloon"),
                 new DialogueElement("PlayerIsWearingWeddingDress"),
-                new DialogueElement("PlayerHasPurrpurr"),
+                new DialogueElement("PlayerHasPurrpurr", "Shocked"),
 
                 //Transfurs
                 new DialogueElement("TransfurCub")

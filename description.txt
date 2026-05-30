@@ -51,9 +51,8 @@ Other
 --------- Changelog ---------
 
 For information about previous versions, please check out the change notes in the steam workshop.
-This update is a bit smaller so an extra number has been added to the version number.
 
-0.6.0
+0.5.1
 
 General
 - Added dialogue portraits
@@ -61,11 +60,13 @@ General
 - Added "World of Goo" and "Puroomba" paintings
 - Added config option for evolution
 - Prototype can make trees grows faster when watering them
+- Renamed "Sqwed Dawg" painting to "Squog"
 
-Updated Sprites
+Resprited
 - Crimclaw
 - Strange Swivel Chair
 - Gas Tanks
+- Purrpurr
 
 Fix
 - Puro's interaction area extended too far vertically

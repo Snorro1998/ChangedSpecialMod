@@ -229,37 +229,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 dialogueCurrent = DialogueInjured;
 
             (string dialogueText, string emotionText) = dialogueCurrent.GetDialogue(keyWords);
-            UpdatePortrait(emotionText);
+            NPCPortraitSystem.UpdatePortrait(ModContent.NPCType<Prototype>(), emotionText);
             return dialogueText;
-        }
-
-        private void UpdatePortrait(string emotion)
-        {
-            string eventName = null;
-            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
-            if (modBoulderBackport != null)
-            {
-                var basePath = "ChangedSpecialMod/Content/NPCs/Prototype";
-
-                if (BirthdayParty.PartyIsUp)
-                    basePath += "/Party";
-                /*
-                else if (SeasonSystem.season == SeasonalEvent.Valentine)
-                    basePath += "/Valentine";
-                else if (SeasonSystem.season == SeasonalEvent.Oktoberfest)
-                    basePath += "/Oktoberfest";
-                */
-
-                modBoulderBackport.Call("AddPortrait", ModContent.NPCType<Prototype>(), $"{basePath}/{emotion}");
-            }
-            else
-            {
-                if (BirthdayParty.PartyIsUp)
-                    eventName = "Party";
-                else if (Main.bloodMoon)
-                    eventName = "Bloodmoon";
-                NPCPortraitSystem.SetEmotionAndEvent(eventName, emotion);
-            }
         }
 
         public override void SetChatButtons(ref string button, ref string button2)

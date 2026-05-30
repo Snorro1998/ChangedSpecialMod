@@ -6,6 +6,7 @@ using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 
@@ -18,6 +19,7 @@ namespace ChangedSpecialMod.Common.Systems
         private static string EventName = null;
         private static string Emotion = "Talk";
         private static List<int> npcsWithPortraits;
+        private static string portraitTexturePath;
 
         static NPCPortraitSystem()
         {
@@ -96,10 +98,23 @@ namespace ChangedSpecialMod.Common.Systems
             }
         }
 
-        public static void SetEmotionAndEvent(string eventName, string emotion)
+        public static void UpdatePortrait(int npcID, string emotion)
         {
-            EventName = eventName;
-            Emotion = emotion;
+            var talkNPC = Main.npc[Main.LocalPlayer.talkNPC];
+            var npcName = talkNPC.ModNPC.GetType().Name;
+
+            string eventName = "Normal";
+            if (BirthdayParty.PartyIsUp)
+                eventName = "Party";
+            else if (Main.bloodMoon)
+                eventName = "Bloodmoon";
+
+            portraitTexturePath = $"ChangedSpecialMod/Content/NPCs/{npcName}/{eventName}/{emotion}";
+
+            // If Boulder Backport is installed, use its portrait system
+            var modBoulderBackport = ModSupportSystem.modBoulderBackport;
+            if (modBoulderBackport != null)
+                modBoulderBackport.Call("AddPortrait", npcID, portraitTexturePath);
         }
 
         private static void DrawNPCPortrait()
@@ -108,21 +123,15 @@ namespace ChangedSpecialMod.Common.Systems
             if (ModSupportSystem.modBoulderBackport != null || !ChangedSpecialModClientConfig.Instance.DialoguePortraits)
                 return;
 
-            string talkNPCName = null;
             var talkNPC = Main.npc[Main.LocalPlayer.talkNPC];
 
             if (!npcsWithPortraits.Contains(talkNPC.type))
                 return;
 
-            talkNPCName = talkNPC.ModNPC.GetType().Name;
+            if (portraitTexturePath == null)
+                return;
 
-            var basePath = $"ChangedSpecialMod/Content/NPCs/{talkNPCName}";
-            if (EventName != null)
-                basePath += $"/{EventName}";
-            else
-                basePath += "/Normal";
-
-            var portrait = ModContent.Request<Texture2D>($"{basePath}/{Emotion}").Value;
+            var portrait = ModContent.Request<Texture2D>(portraitTexturePath).Value;
 
             var npcChatTopLeft = new Vector2(Main.screenWidth / 2 - 250, 100);
             var drawPos = npcChatTopLeft + new Vector2(-62, 62);

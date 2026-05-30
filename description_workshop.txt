@@ -57,46 +57,27 @@ It should also work fine with most other mods. The only issue that can occur is 
 [h2]Changelog[/h2]
 For information about previous versions, please check out the change notes.
 
-[h3]0.5[/h3]
+[h3]0.5.1[/h3]
 
 [b]General[/b]
 [list]
-	[*]Improved hit particles and sounds of some blocks
-	[*]Latex blocks can spread in hardmode through sand, dirt and grass. The speed can be configured
-	[*]White latecis can now also spawn from the white pillars
-	[*]Plushies make squeeky sound when right clicked
-	[*]Added rare sweeper variant
-	[*]Sweepers can be caught and released
-	[*]Added support for Census mod
-	[*]Season changing items are no longer consumed when used
-	[*]All latex blocks can be converted into normal blocks with the extractinator
+	[*]Added dialogue portraits
+	[*]Added some extra dialogue for Puro
+	[*]Added "World of Goo" and "Puroomba" paintings
+	[*]Added config option for evolution
+	[*]Prototype can make trees grows faster when watering them
+	[*]Renamed "Sqwed Dawg" painting to "Squog"
 [/list]
 
-[b]Added Slimy sand[/b]
+[b]Resprited[/b]
 [list]
-	[*]Black and white latex blocks for sand
-	[*]Can be fired from a sandgun
-	[*]Turns critters and slimes into goops
-	[*]Can also make latex beasts evolve
-[/list]
-
-[b]Transfur[/b]
-[list]
-	[*]Added a new menu when using syringes
-	[*]Removed evolution requirements
-	[*]Goops can merge turn into cubs
-	[*]Cubs can also merge and turn into adults
-	[*]Added a super syringe, which is made from all other syringes
-	[*]Added custom health bars when transfurred. Can be disabled in the config
+	[*]Crimclaw
+	[*]Strange Swivel Chair
+	[*]Gas Tanks
+	[*]Purrpurr
 [/list]
 
 [b]Fix[/b]
 [list]
-	[*]Config option for labs accidentally set lower by default, resulting in smaller labs
-	[*]Black latex not merging properly with most blocks
-	[*]Added missing map icons for crystals
-	[*]Fixed wrong block colors on the map
-	[*]Elevator interaction range was enormous
-	[*]Sweepers turning into bunnies when caught
-	[*]Latex blocks were converted into gems and coins with the extractinator
+	[*]Puro's interaction area extended too far vertically
 [/list]

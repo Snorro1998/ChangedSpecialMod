@@ -314,6 +314,18 @@ namespace ChangedSpecialMod.Content.NPCs
             return base.PickEmote(npc, closestPlayer, emoteList, otherAnchor);
         }
 
+        public override void GetChat(NPC npc, ref string chat)
+        {
+            switch (npc.type)
+            {
+                case NPCID.Angler:
+                    chat = "Squog";
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public Dictionary<string, string> GetChatKeyWords()
         {
             var keyWords = new Dictionary<string, string>() { };
@@ -879,7 +891,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 int emoteKiss = 88;
                 var emoteId = ChangedUtils.Choose(emoteLove, emoteKiss);
                 var player = Main.player[npc.target];
-                if (player.Distance(npc.Center) < 160 && Main.rand.NextBool(100))
+                if (player.Distance(npc.Center) < 160 && Main.rand.NextBool(200))
                 {
                     EmoteBubble.NewBubble(emoteId, new WorldUIAnchor(npc), 90);
                 }

@@ -110,7 +110,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanHaveBeer = true;
             changedNPC.BeerXOffset = -16;
-            //NPC.scale *= 0.4f;// Main.rand.NextFloat(0.4f, 0.7f);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

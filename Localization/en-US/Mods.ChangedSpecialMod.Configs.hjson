@@ -21,7 +21,7 @@ ChangedSpecialModClientConfig: {
 		Misc: Misc
 		WorldGeneration: World Generation
 		Transfur: Transfur
-		Npc: Npc Header
+		Npc: NPC
 	}
 
 	NumberOfLabs: {
@@ -72,6 +72,11 @@ ChangedSpecialModClientConfig: {
 
 	DialoguePortraits: {
 		Label: Dialogue Portraits
-		Tooltip: ""
+		Tooltip:
+			'''
+			If town NPCs from this mod will have portraits when being talked to. 
+			If playing with Boulder Backport installed, this setting is ignored and 
+			its option "Modded Town NPC Portraits" is used instead.
+			'''
 	}
 }
