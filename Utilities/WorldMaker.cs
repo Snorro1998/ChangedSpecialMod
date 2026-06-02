@@ -41,10 +41,11 @@ namespace ChangedSpecialMod.Utilities
         // TODO: Check for protected structures
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
-            int islandIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Smooth World")); //Floating Islands Smooth World
-            if (islandIndex != -1)
+            // If another mod removes this task, nothing will be generated
+            int taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Smooth World")); //Floating Islands Smooth World
+            if (taskIndex != -1)
             {
-                tasks.Insert(islandIndex + 1, new PassLegacy("ChangedStructures", (progress, config) =>
+                tasks.Insert(taskIndex + 1, new PassLegacy("ChangedStructures", (progress, config) =>
                 {
                     progress.Message = "Adding Thunder Science Buildings";
 
@@ -122,7 +123,71 @@ namespace ChangedSpecialMod.Utilities
 
                     GenerateLabs();
                 }));
+
+                HandleSpecialSeeds(ref tasks, taskIndex + 1);
             }
+        }
+
+        private void HandleSpecialSeeds(ref List<GenPass> tasks, int taskIndex)
+        {
+            var worldSeedName = WorldGen.currentWorldSeed.ToLower();
+            var seedBlackLatex = worldSeedName.Contains("blackgoozone");
+            var seedWhiteLatex = worldSeedName.Contains("whitegoojungle");
+            var seedDryDirt = worldSeedName.Contains("drydrydirt");
+            var seedOrange = worldSeedName.Contains("muchorange");
+
+            if (seedBlackLatex)
+                AddLatexEverywhereTask(ref tasks, taskIndex, Content.NPCs.GooType.Black);
+            else if (seedWhiteLatex)
+                AddLatexEverywhereTask(ref tasks, taskIndex, Content.NPCs.GooType.White);
+            else if (seedDryDirt)
+                AddLatexEverywhereTask(ref tasks, taskIndex, Content.NPCs.GooType.None);
+            else if (seedOrange)
+            {
+                var lastIndex = tasks.Count - 1;
+                var color = PaintID.DeepOrangePaint;
+                tasks.Insert(lastIndex, new PassLegacy("ChangedSeedOrange", (progress, config) =>
+                {
+                    progress.Message = "Orange";
+
+                    for (int y = 0; y < Main.maxTilesY; y++)
+                    {
+                        for (int x = 0; x < Main.maxTilesX; x++)
+                        {
+                            var tile = Main.tile[x, y];
+                            if (tile != null)
+                            {
+                                if (tile.HasTile)
+                                    tile.TileColor = color;
+                                if (tile.WallType != WallID.None)
+                                    tile.WallColor = color;
+                            }
+                        }
+                    }
+                }));
+            }
+        }
+
+        private void AddLatexEverywhereTask(ref List<GenPass> tasks, int passIndex, Content.NPCs.GooType gooType)
+        {
+            tasks.Insert(passIndex, new PassLegacy("ChangedSeedLatexEverywhere", (progress, config) =>
+            {
+                progress.Message = "Spreading too much latex";
+
+                for (int y = 0; y < Main.worldSurface; y++)
+                {
+                    for (int x = 0; x < Main.maxTilesX; x++)
+                    {
+                        var tile = Main.tile[x, y];
+                        if (tile != null && tile.HasTile)
+                        {
+                            var tileType = WorldGenerator.GetTileType(tile, gooType);
+                            if (tileType != -1)
+                                tile.TileType = (ushort)tileType;
+                        }
+                    }
+                }
+            }));
         }
 
         private void GenerateLabs()

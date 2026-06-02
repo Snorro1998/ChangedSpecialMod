@@ -11,6 +11,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Latex
         {
             Item.ResearchUnlockCount = 100;
             ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<WhiteLatexBlock>();
         }
 
         public override void SetDefaults()

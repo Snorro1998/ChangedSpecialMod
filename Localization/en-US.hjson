@@ -575,6 +575,8 @@ Mods: {
 			}
 
 			Experiment009.DisplayName: Experiment 009
+			DarkLatexCubTownPet.DisplayName: Black Goo Puppy
+			WhiteLatexCubTownPet.DisplayName: White Goo Puppy
 		}
 
 		BossMessages: {

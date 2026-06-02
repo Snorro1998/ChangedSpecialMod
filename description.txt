@@ -56,17 +56,27 @@ For information about previous versions, please check out the change notes in th
 
 General
 - Added dialogue portraits
-- Added some extra dialogue for Puro
+- Added more dialogue for Puro
 - Added "World of Goo" and "Puroomba" paintings
 - Added config option for evolution
-- Prototype can make trees grows faster when watering them
+- Prototype can instantly grow saplings into trees when watering them
 - Renamed "Sqwed Dawg" painting to "Squog"
+- Latex blocks and crystals can be shimmered
+
+Added Town Pets
+- Black and White Latex cub
+- Pet licenses can be bought from the Zoologist after the Changed bosses have been defeated
+
+Added Special World Seeds
+- BlackGooZone: Black latex everywhere
+- WhiteGooJungle: White latex everywhere
+- DryDryDirt: Dry dirt everywhere
+- MuchOrange: Paints the whole world orange
 
 Resprited
 - Crimclaw
 - Strange Swivel Chair
 - Gas Tanks
-- Purrpurr
 
 Fix
 - Puro's interaction area extended too far vertically

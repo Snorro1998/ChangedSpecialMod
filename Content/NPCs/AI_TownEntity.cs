@@ -30,6 +30,16 @@ namespace ChangedSpecialMod.Content.NPCs
             TileID.PottedLavaPlantTendrils,
         };
 
+        public static bool ShouldWater(int tileType)
+        {
+            if (tileType < 0 || (tileType >= TileID.Sets.TreeSapling.Length || tileType >= TileID.Sets.CommonSapling.Length))
+                return false;
+
+            var isTreeSapling = TileID.Sets.TreeSapling[tileType];
+            var isCommonSapling = TileID.Sets.CommonSapling[tileType];
+            return PlantList.Contains(tileType) || isTreeSapling || isCommonSapling;
+        }
+
         private static void AI_007_TownEntities_TeleportToHome(NPC npc, int homeFloorX, int homeFloorY)
         {
             bool flag = false;
@@ -2735,7 +2745,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     if (isPlant)
                     {
                         Tile checkTile = Main.tile[point.X, point.Y];
-                        isPlant = PlantList.Contains((int)checkTile.TileType);
+                        isPlant = ShouldWater((int)checkTile.TileType);//PlantList.Contains((int)checkTile.TileType);
 
                         if (isPlant)
                         {

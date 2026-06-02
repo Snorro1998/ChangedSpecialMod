@@ -725,3 +725,13 @@ Painting19: {
 	DisplayName: Puroomba
 	Tooltip: Vroom
 }
+
+BlackLatexCubLicense: {
+	DisplayName: Black Goo Puppy License
+	Tooltip: Use to adopt a black goo puppy for your town
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: White Goo Puppy License
+	Tooltip: Use to adopt a white goo puppy for your town
+}

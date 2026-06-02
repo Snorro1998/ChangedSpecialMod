@@ -13,6 +13,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Latex
             ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
             ItemID.Sets.SandgunAmmoProjectileData[Type] = new(ModContent.ProjectileType<WhiteLatexSandBallGunProjectile>(), 10);
             Item.value = Item.buyPrice(0, 0, 0, 5);
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<BlackLatexSand>();
         }
 
         public override void SetDefaults()

@@ -3,6 +3,7 @@ using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items.Food;
+using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
 using Terraria.ID;
@@ -247,6 +249,20 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
+        public override void ModifyShop(NPCShop shop)
+        {
+            int npcType = shop.NpcType;
+
+            Condition conditionBlackLatexCubPet = new Condition(Language.GetText("Conditions.NightDayFullMoon"), () => DownedBossSystem.DownedWolfKing);
+            Condition conditionWhiteLatexCubPet = new Condition(Language.GetText("Conditions.NightDayFullMoon"), () => DownedBossSystem.DownedBehemoth);
+
+            if (npcType == NPCID.BestiaryGirl)
+            {
+                shop.InsertAfter(ItemID.LicenseBunny, ModContent.ItemType<BlackLatexCubLicense>(), conditionBlackLatexCubPet);
+                shop.InsertAfter(ItemID.LicenseBunny, ModContent.ItemType<WhiteLatexCubLicense>(), conditionWhiteLatexCubPet);
+            }
+        }
+
         public List<int> GetEmoteList(NPC npc, Player closestPlayer, List<int> emoteList)
         {
             if (!ChangedSpecialModClientConfig.Instance.NPCsCanUseChangedEmotes)
@@ -316,13 +332,113 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void GetChat(NPC npc, ref string chat)
         {
-            switch (npc.type)
+            var player = Main.LocalPlayer;
+            var changedPlayer = player?.ChangedPlayer();
+
+            var puroPresent = NPC.FindFirstNPC(ModContent.NPCType<Puro>()) != -1;
+            var prototypePresent = NPC.FindFirstNPC(ModContent.NPCType<Prototype>()) != -1;
+            var drkPresent = NPC.FindFirstNPC(ModContent.NPCType<Scientist>()) != -1;
+
+            if (changedPlayer == null)
+                return;
+
+            var transfur = changedPlayer.TransfurTypeCurrent;
+
+            if (transfur != null)
             {
-                case NPCID.Angler:
-                    chat = "Squog";
-                    break;
-                default:
-                    break;
+                var isBlackGoop = transfur.npcType == ModContent.NPCType<BlackGoop>();
+                var isWhiteGoop = transfur.npcType == ModContent.NPCType<WhiteGoop>();
+                var isGoop = isBlackGoop || isWhiteGoop;
+                var isPuppy = transfur.npcType == ModContent.NPCType<DarkLatexCub>() || transfur.npcType == ModContent.NPCType<WhiteLatexCub>();
+                var isBlackAdult = transfur.npcType == ModContent.NPCType<MaleDarkLatex>() || transfur.npcType == ModContent.NPCType<FemaleDarkLatex>();
+                var isWhiteAdult = transfur.npcType == ModContent.NPCType<WhiteKnight>();
+                var isAdult = isBlackAdult || isWhiteAdult;
+                var isSquidDog = transfur.npcType == ModContent.NPCType<SquidDog>();
+
+                if (isGoop)
+                {
+                    switch (npc.type)
+                    {
+                        case NPCID.TaxCollector:
+                            chat = "Bah! Who forgot to take off their shoes? Now there are puddles of goo everywhere!";
+                            break;
+                        case NPCID.Wizard:
+                            if (isWhiteGoop)
+                                chat = "A walking milk pudding! The magic candy spell worked!";
+                            else
+                                chat = "A walking chocolate pudding! The magic candy spell worked!";
+                            break;
+                    }
+                }
+
+                else if (isPuppy)
+                {
+                    switch (npc.type)
+                    {
+                        case NPCID.TaxCollector:
+                            if (NPC.boughtDog)
+                                chat = $"Go away mutt! {player.name} only has a license for one dog!";
+                            else
+                                chat = $"Go away mutt! And don't come back until {player.name} has bought a dog license!";
+                            break;
+                    }
+                }
+
+                else if (isAdult)
+                {
+                    switch (npc.type)
+                    {
+                        case NPCID.Wizard:
+                            if (isBlackAdult && puroPresent)
+                                chat = "Well, hi there, Puro! What can I do for you today?";
+                            else if (isWhiteAdult && drkPresent)
+                                chat = "Well, hi there, doctor K! What can I do for you today?";
+                            break;
+                    }
+                }
+
+                else if (isSquidDog)
+                {
+                    switch (npc.type)
+                    {
+                        case NPCID.Angler:
+                            chat = "No way! A Squid Dog! Yes, please stay here for a while.";
+                            break;
+                        case NPCID.Pirate:
+                            chat = "Arr, what sea monster might ye be? A krakanine?";
+                            break;
+                        case NPCID.TaxCollector:
+                            chat = "Shoo! Go bother someone else you stupid sea monster!";
+                            break;
+                    }
+                }
+            }
+            else if (Main.rand.NextBool(8))//10
+            {
+                List<string> chatOptions = new List<string>();
+                if (puroPresent)
+                {
+                    switch (npc.type)
+                    {
+                        case NPCID.TaxCollector:
+                            chatOptions.Add("If that black jelly wolf doesn't pay rent soon, I will charge him for animal tax too!");
+                            break;
+                    }
+                }
+                if (drkPresent)
+                {
+                    switch (npc.type)
+                    {
+                        case NPCID.TaxCollector:
+                            chatOptions.Add("Doctor K said he paid the rent, but the figures don't add up. I bet he has a phd in tax evasion!");
+                            break;
+                    }
+                }
+
+                if (chatOptions.Count > 0)
+                {
+                    chat = chatOptions[Main.rand.Next(chatOptions.Count)];
+                }
             }
         }
 
