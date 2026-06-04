@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Cola Blanco
+		SpawnInfo: Puede aparecer en cualquier zona de limo tras derrotar al menos a 20 monstruos.
+		DespawnMessage: Cola Blanco ya no te persigue
+	}
+
+	WolfKing: {
+		EntryName: Rey Lobo
+		SpawnInfo: Se puede encontrar en una habitación cubierta de limo negro.
+		DespawnMessage: Rey Lobo ya no te persigue
+	}
+
+	Behemoth: {
+		EntryName: Behemot
+		SpawnInfo: Se puede encontrar en una habitación cubierta de limo blanco.
+		DespawnMessage: Behemot ya no te persigue
+	}
+}

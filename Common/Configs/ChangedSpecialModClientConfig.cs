@@ -44,6 +44,9 @@ namespace ChangedSpecialMod.Common.Configs
         public bool NPCsCanUseChangedEmotes;
 
         [DefaultValue(true)]
+        public bool ExtraDialogue;
+
+        [DefaultValue(true)]
         public bool DialoguePortraits;
 
 

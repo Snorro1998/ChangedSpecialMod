@@ -1,0 +1,30 @@
+# 8 entries in vanilla
+# 75 percent change it will pick one of these name compositions
+# Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
+# A name will never be chosen if it has more then 27 characters
+RandomWorldName_Composition: {
+	Colin1: The {Adjective} {Location} of Colin
+	Colin2: "{Adjective} {Location} of Colin"
+	Colin3: The {Location} of Colin
+	Colin4: "{Location} of Colin"
+	DrK1: The {Adjective} {Location} of Dr. K
+	DrK2: "{Adjective} {Location} of Dr. K"
+	DrK3: The {Location} of Dr. K
+	DrK4: "{Location} of Dr. K"
+	Oranges1: The {Adjective} {Location} of Oranges
+	Oranges2: "{Adjective} {Location} of Oranges"
+	Oranges3: The {Location} of Oranges
+	Oranges4: "{Location} of Oranges"
+	Puro1: The {Adjective} {Location} of Puro
+	Puro2: "{Adjective} {Location} of Puro"
+	Puro3: The {Location} of Puro
+	Puro4: "{Location} of Puro"
+	SquidDog1: The {Adjective} {Location} of Squid Dog
+	SquidDog2: "{Adjective} {Location} of Squid Dog"
+	SquidDog3: The {Location} of Squid Dog
+	SquidDog4: "{Location} of Squid Dog"
+	TigerShark1: The {Adjective} {Location} of Tiger Shark
+	TigerShark2: "{Adjective} {Location} of Tiger Shark"
+	TigerShark3: The {Location} of Tiger Shark
+	TigerShark4: "{Location} of Tiger Shark"
+}

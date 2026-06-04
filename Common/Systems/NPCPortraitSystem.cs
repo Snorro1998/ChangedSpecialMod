@@ -15,9 +15,6 @@ namespace ChangedSpecialMod.Common.Systems
     public class NPCPortraitSystem : ModSystem
     {
         private static Asset<Texture2D> PortraitBackground;
-
-        private static string EventName = null;
-        private static string Emotion = "Talk";
         private static List<int> npcsWithPortraits;
         private static string portraitTexturePath;
 

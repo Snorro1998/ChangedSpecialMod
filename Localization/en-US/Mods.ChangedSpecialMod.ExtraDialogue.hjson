@@ -1,0 +1,289 @@
+Angler: {
+	NPC: {
+		Puro: Puro said I should stop trying to catch a Squid Dog. If it's really too dangerous for a kid, I'll let YOU catch one!
+		Prototype: If I threw {NamePrototype} in the water, would he electrocute all the fish like an electric eel?
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: No way! A Squid Dog! Yes, please stay here for a while.
+	}
+}
+
+BestiaryGirl: {
+	NPC: {
+		Puro: I've never seen a wolf as soft and fluffy as Puro before!
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Oh my gosh! A puppy! You are so cute!
+		WhiteCub: Oh my gosh! A puppy! You are so cute!
+		SquidDog: None
+	}
+}
+
+Clothier: {
+	NPC: {
+		Puro: That crystal mask of Puro creeps me out. It reminds me of something I have seen before.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Cyborg: {
+	NPC: {
+		Puro: Unknown life form detected! Smells faintly of oranges.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Strange puddle detected
+		WhiteGoop: Strange puddle detected
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Analyzing mollusc-canine amalgamation...
+	}
+}
+
+DD2Bartender: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: What's wrong with Doctor K? Yesterday he asked if I wanted to sell his moonshine made out of toilet paper.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Do you really have that many arms? Or am I seeing double because of all that ale?
+	}
+}
+
+Demolitionist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Have you heard about explosive bunnies? Would you like me to strap dynamite to you so you can be an explosive puppy?
+		WhiteCub: Have you heard about explosive bunnies? Would you like me to strap dynamite to you so you can be an explosive puppy?
+		SquidDog: Begone monster! Or I will bring out the depth charges!
+	}
+}
+
+DyeTrader: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Doctor K might be an expert in bioengineering, but he knows nothing about fashion.
+	}
+
+	Transfur: {
+		BlackGoop: AH! Why is the black dye walking?
+		WhiteGoop: AH! Why is the white dye walking?
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Keep your wet paws away from my robe! I don't want the colors to fade!
+	}
+}
+
+Golfer: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Can you keep a secret? I accidentally broke some of Doctor K's stuff when I was golfing in his room.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Hey, if you ever find golf balls in the water, could you please bring them back to me?
+	}
+}
+
+Guide: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: If you want to learn more about the goo monsters, Doctor K is your best bet.
+	}
+
+	Transfur: {
+		BlackGoop: Be careful, little goop. Someone might accidentally step on you.
+		WhiteGoop: Be careful, little goop. Someone might accidentally step on you.
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: I am here to give you advice. I recommend you get back in the water before you get dehydrated.
+	}
+}
+
+Mechanic: {
+	NPC: {
+		Puro: None
+		Prototype: What? {NamePrototype} is acting strange again? Have you tried turning him off and on?
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: A puddle? Don't tell me one of the pumps broke again.
+		WhiteGoop: A puddle? Don't tell me one of the pumps broke again.
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Nurse: {
+	NPC: {
+		Puro: I told Puro that he had to eat two oranges a day to stay healthy. He said that he eats at least ten a day.
+		Prototype: Once, I asked {NamePrototype} to help me with an examination, but he just sprayed water in the patient's face.
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Please don't tell me you broke all your arms.
+	}
+}
+
+Painter: {
+	NPC: {
+		Puro: Can you bring me more orange paint? Puro asked me if I could paint his whole room with it.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Do you happen to have any ink for me? I've run out of carbon black.
+	}
+}
+
+PartyGirl: {
+	NPC: {
+		Puro: I love to party with Puro! He is a real party animal!
+		Prototype: "{NamePrototype} is a real party machine. He can play music and function as a disco ball at the same time."
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Wow, the chocolate cake is moving! Now that is a cool party trick!
+		WhiteGoop: Wow, the cake is moving! Now that is a cool party trick!
+		BlackCub: Hello! Did you come for the pet party?
+		WhiteCub: Hello! Did you come for the pet party?
+		SquidDog: Let's dance! Give me your hand! Or both hands. Uh, or... four hands?
+	}
+}
+
+Pirate: {
+	NPC: {
+		Puro: Ahoy, me takes that blackbeard wolf under me wing, landlubber. Me love raisin' sea pups!
+		Prototype: None
+		Scientist: Arrr, that scientist be looking as pale as a ghost. Me thinks he be cursed.
+	}
+
+	Transfur: {
+		BlackGoop: Stand still ye blob 'o tar. I need ye to fix the hole in me ship!
+		WhiteGoop: Stand still ye blob 'o tar. I need ye to fix the hole in me ship!
+		BlackCub: Yar, ye be the most adorable sea pup me has ever seen!
+		WhiteCub: Yar, ye be the most adorable sea pup me has ever seen!
+		SquidDog: Arr, what sea monster might ye be? A canine kraken?
+	}
+}
+
+SantaClaus: {
+	NPC: {
+		Puro: I can give almost anything as a gift, and then there is that one person who has put nothing but oranges on their wish list.
+		Prototype: My elves should make a toy version of {NamePrototype}. I'm sure kids will love it.
+		Scientist: I will add Doctor K to the naughty list, because he does not believe in me.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Maybe I should put you inside a present and give it to someone who wants a puppy for Christmas.
+		WhiteCub: Maybe I should put you inside a present and give it to someone who wants a puppy for Christmas.
+		SquidDog: I don't know who you are, but you are definitely on the naughty list!
+	}
+}
+
+Stylist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Is that a walking clump of hair? Gross.
+		WhiteGoop: Is that a walking clump of hair? Gross.
+		BlackCub: Sorry, I can't help you. This is not a dog grooming salon.
+		WhiteCub: Sorry, I can't help you. This is not a dog grooming salon.
+		SquidDog: Sorry, I can't help you. This is not a dog grooming salon.
+	}
+}
+
+TaxCollector: {
+	NPC: {
+		Puro: If that black jelly wolf doesn't pay rent soon, I will charge him animal tax too!
+		Prototype: Thanks to that oversized microwave called {NamePrototype} the energy bill has more than doubled!
+		Scientist: Doctor K said he paid the rent, but the figures don't add up. I bet he has a PhD in tax evasion!
+	}
+
+	Transfur: {
+		BlackGoop: Bah! Who forgot to wipe their shoes? Now there is mud everywhere!
+		WhiteGoop: Bah! Who forgot to wipe their shoes? Now there is mud everywhere!
+		BlackCub: Go away mutt! {NamePlayer} only has a license for one dog!
+		WhiteCub: Go away mutt! {NamePlayer} only has a license for one dog!
+		BlackCubNoLicense: Go away mutt! And don't come back until {NamePlayer} has bought a dog license!
+		WhiteCubNoLicense: Go away mutt! And don't come back until {NamePlayer} has bought a dog license!
+		SquidDog: Shoo! Go bother someone else you stupid sea monster!
+	}
+}
+
+Wizard: {
+	NPC: {
+		Puro: I can't let Puro read my spellbooks. He is already a mighty beast and doesn't need to breathe fire as well.
+		Prototype: None
+		Scientist: Why does Doctor K try to analyze what I am doing with science? It is just... magic.
+	}
+
+	Transfur: {
+		BlackGoop: A walking chocolate pudding! The magic candy spell worked!
+		WhiteGoop: A walking milk pudding! The magic candy spell worked!
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}

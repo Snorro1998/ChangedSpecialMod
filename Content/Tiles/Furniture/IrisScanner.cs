@@ -36,14 +36,14 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
             if (nTimesClicked == 0)
             {
-                Main.NewText("Spawn point set!", 255, 240, 20);
+                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.SpawnPointSet"), 255, 240, 20);
                 //Main.NewText("Spawn point set!", 255, 240, 20);
                 SoundEngine.PlaySound(Assets.Sounds.SoundSave, new Vector2(i * 16, j * 16));
                 player.ChangeSpawn(spawnX, spawnY);
             }
             else
             {
-                Main.NewText("Spawn point removed!", 255, 240, 20);
+                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.SpawnPointRemoved"), 255, 240, 20);
                 //Main.NewText("Spawn point removed!", 255, 240, 20);
                 SoundEngine.PlaySound(Assets.Sounds.SoundLoad, new Vector2(i * 16, j * 16));
                 player.RemoveSpawn();

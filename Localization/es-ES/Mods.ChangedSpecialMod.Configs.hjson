@@ -1,0 +1,87 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Configuración del cliente
+
+	TransfurSound: {
+		Label: Sonido de transformación
+		Tooltip: Si se reproduce el sonido de transformación.
+	}
+
+	WhipCrackSound: {
+		Tooltip: Si el 'Látigo de Molusco' y sus mejoras deber�an reproducir un sonido de chasquido de látigo.
+		Label: Sonido de chasquido de látigo
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Los personajes pueden usar emoticonos sobre Changed.
+		Label: Personajes pueden usar emoticonos sobre Changed
+	}
+
+	ExtraDialogue: {
+		Tooltip: Si se debería añadir más diálogo a los personajes normales de Terraria.
+		Label: Diálogo adicional
+	}
+
+	Headers: {
+		Audio: Audio
+		Misc: Misceláneos
+		WorldGeneration: Generación Mundial
+		Transfur: Transformación
+		Npc: Personajes
+	}
+
+	NumberOfLabs: {
+		Label: Número de laboratorios
+		Tooltip:
+			'''
+			El número de laboratorios por lado del mundo.
+			El valor predeterminado 1 generará 1 laboratorio 
+			en mundos pequeños y medianos, y 2 laboratorios en mundos grandes.
+			ADVERTENCIA: Los valores grandes en mundos pequeños pueden provocar que el juego se bloquee.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Número máximo de pisos
+		Tooltip: El número máximo de plantas que puede tener un laboratorio.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Número máximo de habitaciones horizontales
+		Tooltip: El número máximo de salas que puede tener un laboratorio en dirección horizontal.
+	}
+
+	LatexSpreadChance: {
+		Label: Probabilidad de propagación del látex
+		Tooltip: La probabilidad de que el látex se propague a otros bloques en el modo difícil es de 1 entre X.
+	}
+
+	DebugItems: {
+		Label: Elementos de depuración
+		Tooltip: Si está habilitada, el Dr. K. venderá elementos de depuración.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: Los personajes pueden transformar al jugador.
+		Tooltip: En la mayoría de los casos, morir a manos de un monstruo te convertirá en uno de ellos.
+	}
+
+	CustomHealthBar: {
+		Label: Barra de salud de color
+		Tooltip: Cuando te transformes, dibuja la barra de salud en diferentes colores.
+	}
+
+	Evolution: {
+		Label: Evolución
+		Tooltip: Los monstruos se hacen más grandes y fuertes con cada jefe derrotado.
+	}
+
+	DialoguePortraits: {
+		Label: Retratos de personajes
+		Tooltip:
+			'''
+			Si los personajes de este mod tienen retratos cuando se habla con ellos.
+			Si se juega con "Boulder Backport" instalado, esta configuración se ignora 
+			y se utiliza en su lugar la opción "Modded Town NPC Portraits".
+			'''
+	}
+}

@@ -13,13 +13,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.Enums;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -330,155 +328,256 @@ namespace ChangedSpecialMod.Content.NPCs
             return base.PickEmote(npc, closestPlayer, emoteList, otherAnchor);
         }
 
+        private string GetDialogueTextNPC(string talkingNPC, string subject, Dictionary<string, string> keywords = null)
+        {
+            var path = $"Mods.ChangedSpecialMod.ExtraDialogue.{talkingNPC}.NPC.{subject}";
+            if (Language.Exists(path))
+            {
+                var result = Language.GetTextValue(path);
+                if (keywords != null)
+                {
+                    var keys = keywords.Keys.ToList();
+                    foreach (var key in keys)
+                        result = result.Replace("{" + key + "}", $"{keywords[key]}");
+                }
+                return result;
+            }
+            return null;
+        }
+
+        private string GetDialogueTextTransfur(string talkingNPC, string subject, Dictionary<string, string> keywords = null)
+        {
+            var path = $"Mods.ChangedSpecialMod.ExtraDialogue.{talkingNPC}.Transfur.{subject}";
+            if (Language.Exists(path))
+            {
+                var result = Language.GetTextValue(path);
+                if (keywords != null)
+                {
+                    var keys = keywords.Keys.ToList();
+                    foreach (var key in keys)
+                        result = result.Replace("{" + key + "}", $"{keywords[key]}");
+                }
+                return result;
+            }
+            return null;
+        }
+
+        private string GetChatTransfurAdult(int npcType, Transfur transfur, bool puroPresent, bool drkPresent)
+        {
+            string chat = null;
+            switch (npcType)
+            {
+                case NPCID.DyeTrader:
+                    chat = "No! Don't come any closer! I will never get the stains out of my robe if you touch it with your slimy paws!";
+                    break;
+                case NPCID.SantaClaus:
+                    chat = "Hohoho-oh no!";
+                    break;
+                case NPCID.Stylist:
+                    chat = "Sorry, I can't help you. This is not a dog grooming salon.";
+                    break;
+                case NPCID.WitchDoctor:
+                    chat = "Leave, abomination, before I lose my temper.";
+                    break;
+                case NPCID.Wizard:
+                    if (transfur.gooType == GooType.Black && puroPresent)
+                        chat = "Well, hi there, Puro! What can I do for you today?";
+                    else if (transfur.gooType == GooType.White && drkPresent)
+                        chat = "Well, hi there, doctor K! What can I do for you today?";
+                    else
+                        chat = "Well, hi there! What can I do for you today?";
+                    break;
+            }
+            return chat;
+        }
+
         public override void GetChat(NPC npc, ref string chat)
         {
+            if (!ChangedSpecialModClientConfig.Instance.ExtraDialogue)
+                return;
+
             var player = Main.LocalPlayer;
             var changedPlayer = player?.ChangedPlayer();
-
-            var puroPresent = NPC.FindFirstNPC(ModContent.NPCType<Puro>()) != -1;
-            var prototypePresent = NPC.FindFirstNPC(ModContent.NPCType<Prototype>()) != -1;
-            var drkPresent = NPC.FindFirstNPC(ModContent.NPCType<Scientist>()) != -1;
 
             if (changedPlayer == null)
                 return;
 
+            var npcIdentifiers = GetNPCIdentifiers();
+            if (!npcIdentifiers.ContainsKey(npc.type))
+                return;
+
+            var npcIdentifier = npcIdentifiers[npc.type];
+            var keywords = GetChatKeyWords();
+
             var transfur = changedPlayer.TransfurTypeCurrent;
+            string tmpChat = null;
 
             if (transfur != null)
             {
-                var isBlackGoop = transfur.npcType == ModContent.NPCType<BlackGoop>();
-                var isWhiteGoop = transfur.npcType == ModContent.NPCType<WhiteGoop>();
-                var isGoop = isBlackGoop || isWhiteGoop;
-                var isPuppy = transfur.npcType == ModContent.NPCType<DarkLatexCub>() || transfur.npcType == ModContent.NPCType<WhiteLatexCub>();
+                bool HasTransfur(string transfurName)
+                {
+                    return keywords.ContainsKey($"Transfur{transfurName}");
+                }
+
                 var isBlackAdult = transfur.npcType == ModContent.NPCType<MaleDarkLatex>() || transfur.npcType == ModContent.NPCType<FemaleDarkLatex>();
                 var isWhiteAdult = transfur.npcType == ModContent.NPCType<WhiteKnight>();
                 var isAdult = isBlackAdult || isWhiteAdult;
+
                 var isSquidDog = transfur.npcType == ModContent.NPCType<SquidDog>();
 
-                if (isGoop)
+                if (HasTransfur("BlackGoop"))
+                    tmpChat = GetDialogueTextTransfur(npcIdentifier, "BlackGoop");
+                else if (HasTransfur("WhiteGoop"))
+                    tmpChat = GetDialogueTextTransfur(npcIdentifier, "WhiteGoop");
+
+                else if (HasTransfur("BlackCub"))
                 {
-                    switch (npc.type)
-                    {
-                        case NPCID.TaxCollector:
-                            chat = "Bah! Who forgot to take off their shoes? Now there are puddles of goo everywhere!";
-                            break;
-                        case NPCID.Wizard:
-                            if (isWhiteGoop)
-                                chat = "A walking milk pudding! The magic candy spell worked!";
-                            else
-                                chat = "A walking chocolate pudding! The magic candy spell worked!";
-                            break;
-                    }
+                    if (npc.type == NPCID.TaxCollector && !keywords.ContainsKey("HasDogLicense"))
+                        tmpChat = GetDialogueTextTransfur(npcIdentifier, "BlackCubNoLicense", keywords);
+                    else
+                        tmpChat = GetDialogueTextTransfur(npcIdentifier, "BlackCub", keywords);
+                }
+                else if (HasTransfur("WhiteCub"))
+                {
+                    if (npc.type == NPCID.TaxCollector && !keywords.ContainsKey("HasDogLicense"))
+                        tmpChat = GetDialogueTextTransfur(npcIdentifier, "WhiteCubNoLicense", keywords);
+                    else
+                        tmpChat = GetDialogueTextTransfur(npcIdentifier, "WhiteCub", keywords);
                 }
 
-                else if (isPuppy)
-                {
-                    switch (npc.type)
-                    {
-                        case NPCID.TaxCollector:
-                            if (NPC.boughtDog)
-                                chat = $"Go away mutt! {player.name} only has a license for one dog!";
-                            else
-                                chat = $"Go away mutt! And don't come back until {player.name} has bought a dog license!";
-                            break;
-                    }
-                }
-
+                /*
                 else if (isAdult)
-                {
-                    switch (npc.type)
-                    {
-                        case NPCID.Wizard:
-                            if (isBlackAdult && puroPresent)
-                                chat = "Well, hi there, Puro! What can I do for you today?";
-                            else if (isWhiteAdult && drkPresent)
-                                chat = "Well, hi there, doctor K! What can I do for you today?";
-                            break;
-                    }
-                }
-
+                    tmpChat = GetChatTransfurAdult(npc.type, transfur, puroPresent, drkPresent);
+                */
                 else if (isSquidDog)
-                {
-                    switch (npc.type)
-                    {
-                        case NPCID.Angler:
-                            chat = "No way! A Squid Dog! Yes, please stay here for a while.";
-                            break;
-                        case NPCID.Pirate:
-                            chat = "Arr, what sea monster might ye be? A krakanine?";
-                            break;
-                        case NPCID.TaxCollector:
-                            chat = "Shoo! Go bother someone else you stupid sea monster!";
-                            break;
-                    }
-                }
+                    tmpChat = GetDialogueTextTransfur(npcIdentifier, "SquidDog");
+                
             }
-            else if (Main.rand.NextBool(8))//10
+            else if (Main.rand.NextBool(8))
             {
+                string randomChat = null;
                 List<string> chatOptions = new List<string>();
-                if (puroPresent)
+
+                var npcNames = new List<string>()
                 {
-                    switch (npc.type)
-                    {
-                        case NPCID.TaxCollector:
-                            chatOptions.Add("If that black jelly wolf doesn't pay rent soon, I will charge him for animal tax too!");
-                            break;
-                    }
-                }
-                if (drkPresent)
+                    "Puro",
+                    "Prototype",
+                    "Scientist"
+                };
+
+                foreach (var npcName in npcNames)
                 {
-                    switch (npc.type)
-                    {
-                        case NPCID.TaxCollector:
-                            chatOptions.Add("Doctor K said he paid the rent, but the figures don't add up. I bet he has a phd in tax evasion!");
-                            break;
-                    }
+                    randomChat = GetDialogueTextNPC(npcIdentifier, npcName, keywords);
+                    if (randomChat != null)
+                        chatOptions.Add(randomChat);
                 }
 
                 if (chatOptions.Count > 0)
-                {
-                    chat = chatOptions[Main.rand.Next(chatOptions.Count)];
-                }
+                    tmpChat = chatOptions[Main.rand.Next(chatOptions.Count)];
             }
+
+            if (tmpChat != null && tmpChat != "None")
+                chat = tmpChat;
+        }
+
+        private Dictionary<int, string> GetNPCIdentifiers()
+        {
+            var npcIdentifiers = new Dictionary<int, string>()
+            {
+                // Vanilla
+                { NPCID.Angler,         "Angler" },
+                { NPCID.BestiaryGirl,   "Zoologist" },
+                { NPCID.Clothier,       "Clothier" },
+                { NPCID.Cyborg,         "Cyborg" },
+                { NPCID.DD2Bartender,   "TavernKeep" },
+                { NPCID.Demolitionist,  "Demolitionist" },
+                { NPCID.Dryad,          "Dryad" },
+                { NPCID.DyeTrader,      "DyeTrader" },
+                { NPCID.Golfer,         "Golfer" },
+                { NPCID.Guide,          "Guide" },
+                { NPCID.Mechanic,       "Mechanic" },
+                { NPCID.Merchant,       "Merchant" },
+                { NPCID.Nurse,          "Nurse" },
+                { NPCID.Painter,        "Painter" },
+                { NPCID.PartyGirl,      "PartyGirl" },
+                { NPCID.Pirate,         "Pirate" },
+                { NPCID.SantaClaus,     "SantaClaus" },
+                { NPCID.Stylist,        "Stylist" },
+                { NPCID.TaxCollector,   "TaxCollector" },
+                { NPCID.WitchDoctor,    "WitchDoctor" },
+                { NPCID.Wizard,         "Wizard" },
+
+                // Changed
+                { ModContent.NPCType<Puro>(), "Puro" },
+                { ModContent.NPCType<Prototype>(), "Prototype" },
+                { ModContent.NPCType<Scientist>(), "Scientist" },
+            };
+
+            void AddModdedNPC(Mod mod, string identifier, string localizationName)
+            {
+                if (mod.TryFind<ModNPC>(identifier, out ModNPC tmpNPC))
+                    npcIdentifiers.Add(tmpNPC.Type, localizationName);
+            }
+
+            // These are not used at the moment, but can be if you add entries in the localization
+            var modThorium = ModSupportSystem.modThorium;
+            if (modThorium != null)
+            {
+                AddModdedNPC(modThorium, "Cobbler", "ThoriumCobbler");
+                AddModdedNPC(modThorium, "DesertAcolyte", "ThoriumDesertAcolyte");
+                AddModdedNPC(modThorium, "Cook", "ThoriumCook");
+                AddModdedNPC(modThorium, "ConfusedZombie", "ThoriumConfusedZombie");
+                AddModdedNPC(modThorium, "Blacksmith", "ThoriumBlacksmith");
+                AddModdedNPC(modThorium, "Tracker", "ThoriumTracker");
+                AddModdedNPC(modThorium, "Diverman", "ThoriumDiverman");
+                AddModdedNPC(modThorium, "Druid", "ThoriumDruid");
+                AddModdedNPC(modThorium, "Spiritualist", "ThoriumSpiritualist");
+                AddModdedNPC(modThorium, "WeaponMaster", "ThoriumWeaponMaster");
+            }
+
+            var modCalamity = ModSupportSystem.modCalamity;
+            if (modCalamity != null)
+            {
+                AddModdedNPC(modCalamity, "DILF", "CalamityArchmage");
+                AddModdedNPC(modCalamity, "THIEF", "CalamityBandit");
+                AddModdedNPC(modCalamity, "SEAHOE", "CalamitySeaKing");
+                AddModdedNPC(modCalamity, "WITCH", "CalamityBrimstoneWitch");
+            }
+
+            var modCoralite = ModSupportSystem.modCoralite;
+            if (modCoralite != null)
+            {
+                AddModdedNPC(modCoralite, "CrystalRobot", "CoroliteCrystalRobot");
+                AddModdedNPC(modCoralite, "ElfRanger", "CoroliteElfRanger");
+            }
+
+            return npcIdentifiers;
         }
 
         public Dictionary<string, string> GetChatKeyWords()
         {
             var keyWords = new Dictionary<string, string>() { };
+            var npcIdentifiers = GetNPCIdentifiers();
 
-            // NPCs present
-            var npc = NPC.FindFirstNPC(NPCID.Dryad);
-            if (npc >= 0) keyWords.Add("NameDryad", Main.npc[npc].GivenName);
-            
-            npc = NPC.FindFirstNPC(NPCID.Guide);
-            if (npc >= 0) keyWords.Add("NameGuide", Main.npc[npc].GivenName);
-            
-            npc = NPC.FindFirstNPC(NPCID.Merchant);
-            if (npc >= 0) keyWords.Add("NameMerchant", Main.npc[npc].GivenName);
-            
-            npc = NPC.FindFirstNPC(NPCID.DD2Bartender);
-            if (npc >= 0) keyWords.Add("NameTavernKeep", Main.npc[npc].GivenName);
-            
-            npc = NPC.FindFirstNPC(NPCID.Nurse);
-            if (npc >= 0) keyWords.Add("NameNurse", Main.npc[npc].GivenName);
-            
-            npc = NPC.FindFirstNPC(NPCID.Angler);
-            if (npc >= 0) keyWords.Add("NameAngler", Main.npc[npc].GivenName);
-            
-            npc = NPC.FindFirstNPC(NPCID.BestiaryGirl);
-            if (npc >= 0) keyWords.Add("NameZoologist", Main.npc[npc].GivenName);
+            void AddIf(bool condition, string key, string value = "")
+            {
+                if (condition)
+                    keyWords.Add(key, value);
+            }
 
-            npc = NPC.FindFirstNPC(NPCID.TaxCollector);
-            if (npc >= 0) keyWords.Add("NameTaxCollector", Main.npc[npc].GivenName);
-
-            npc = NPC.FindFirstNPC(ModContent.NPCType<Puro>());
-            if (npc >= 0) keyWords.Add("Puro", string.Empty);
-            
-            npc = NPC.FindFirstNPC(ModContent.NPCType<Scientist>());
-            if (npc >= 0) keyWords.Add("DrK", string.Empty);
-            
-            npc = NPC.FindFirstNPC(ModContent.NPCType<Prototype>());
-            if (npc >= 0) keyWords.Add("Prototype", string.Empty);
+            // Check which NPCs on the list are present and add keywords for them
+            var npcIDs = npcIdentifiers.Keys.ToList();
+            foreach (var npcID in npcIDs)
+            {
+                var npcIndex = NPC.FindFirstNPC(npcID);
+                if (npcIndex != -1)
+                {
+                    var npcIdentifier = npcIdentifiers[npcID];
+                    var tmpNPC = Main.npc[npcIndex];
+                    keyWords.Add($"Name{npcIdentifier}", tmpNPC.GivenName);
+                    keyWords.Add($"{npcIdentifier}Present", string.Empty);
+                }
+            }
 
             // Bosses slain
             if (DownedBossSystem.DownedBehemoth) keyWords.Add("Behemoth", string.Empty);
@@ -504,20 +603,12 @@ namespace ChangedSpecialMod.Content.NPCs
                 var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
                     hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
 
-                var playerTransfur = changedPlayer.TransfurTypeCurrent;
-                var hasCubTransform = playerTransfur != null && (playerTransfur.npcType == ModContent.NPCType<DarkLatexCub>() || playerTransfur.npcType == ModContent.NPCType<WhiteLatexCub>());
-                var hasOrange = player.HasItem(ModContent.ItemType<Orange>());
+                AddIf(player.HasItem(ModContent.ItemType<Orange>()), "PlayerHasOrange");
+                AddIf(hasAnyBook, "PlayerHasBook");
+                AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");
+                AddIf(hasWaterBolt, "PlayerHasWaterBolt");
+                AddIf(hasGoldenShower, "PlayerHasGoldenShower");
 
-                if (hasOrange)
-                    keyWords.Add("PlayerHasOrange", string.Empty);
-                if (hasAnyBook)
-                    keyWords.Add("PlayerHasBook", string.Empty);
-                if (hasBookOfSkulls)
-                    keyWords.Add("PlayerHasBookOfSkulls", string.Empty);
-                if (hasWaterBolt)
-                    keyWords.Add("PlayerHasWaterBolt", string.Empty);
-                if (hasGoldenShower)
-                    keyWords.Add("PlayerHasGoldenShower", string.Empty);
                 var wearingPartyHat = player.armor.Any(item => item.type == ItemID.PartyHat);
                 if (!wearingPartyHat)
                     keyWords.Add("PlayerHasNoPartyHat", string.Empty);
@@ -526,8 +617,39 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (ChangedUtils.PlayerIsWearingWeddingDress(player))
                     keyWords.Add("PlayerIsWearingWeddingDress", string.Empty);
 
-                if (hasCubTransform)
-                    keyWords.Add("TransfurCub", string.Empty);
+                AddIf(NPC.boughtDog, "HasDogLicense");
+
+                // Transfur
+                var playerTransfur = changedPlayer.TransfurTypeCurrent;
+
+                if (playerTransfur != null)
+                {
+                    var transfurBlackGoop = playerTransfur.npcType == ModContent.NPCType<BlackGoop>();
+                    var transfurWhiteGoop = playerTransfur.npcType == ModContent.NPCType<WhiteGoop>();
+                    var transfurBlackCub = playerTransfur.npcType == ModContent.NPCType<DarkLatexCub>();
+                    var transfurWhiteCub = playerTransfur.npcType == ModContent.NPCType<WhiteLatexCub>();
+
+                    if (transfurBlackGoop)
+                    {
+                        keyWords.Add("TransfurGoop", string.Empty);
+                        keyWords.Add("TransfurBlackGoop", string.Empty);
+                    }
+                    else if (transfurWhiteGoop)
+                    {
+                        keyWords.Add("TransfurGoop", string.Empty);
+                        keyWords.Add("TransfurWhiteGoop", string.Empty);
+                    }
+                    else if (transfurBlackCub)
+                    {
+                        keyWords.Add("TransfurCub", string.Empty);
+                        keyWords.Add("TransfurBlackCub", string.Empty);
+                    }
+                    else if (transfurWhiteCub)
+                    {
+                        keyWords.Add("TransfurCub", string.Empty);
+                        keyWords.Add("TransfurWhiteCub", string.Empty);
+                    }
+                }
 
                 // Iterate projectile list
                 foreach (var projectile in Main.ActiveProjectiles)
@@ -540,38 +662,15 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
             }
 
-            // Number of crimson blocks in the world
-            if (WorldGen.tBlood > 0)
-            {
-                keyWords.Add("Crimson", string.Empty);
-            }
+            // World evil
+            AddIf(WorldGen.tBlood > 0, "Crimson");
+            AddIf(WorldGen.tEvil > 0, "Corruption");
+            AddIf(WorldGen.tGood > 0, "Hallow");
 
-            // Number of corruption blocks in the world
-            if (WorldGen.tEvil > 0)
-            {
-                keyWords.Add("Corruption", string.Empty);
-            }
-
-            // Number of hallow blocks in the world
-            if (WorldGen.tGood > 0)
-            {
-                keyWords.Add("Hallow", string.Empty);
-            }
-
-            if (Main.IsItRaining)
-            {
-                keyWords.Add("Rain", string.Empty);
-            }
-
-            if (Main.IsItStorming)
-            {
-                keyWords.Add("Thunder", string.Empty);
-            }
-
-            if (ChangedUtils.IsItWindy())
-            {
-                keyWords.Add("Windy", string.Empty);
-            }
+            // Weather
+            AddIf(Main.IsItRaining, "Rain");
+            AddIf(Main.IsItStorming, "Thunder");
+            AddIf(ChangedUtils.IsItWindy(), "Windy");
 
             // Seasons
             string seasonKeyWord = null;

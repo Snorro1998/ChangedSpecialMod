@@ -1,0 +1,734 @@
+Painting1: {
+	DisplayName: La tonta bola de pelo
+	Tooltip: Adorable hasta que crezca.
+}
+
+Painting2: {
+	DisplayName: Rey Lobo
+	Tooltip: Una bestia poderosa
+}
+
+Painting3: {
+	DisplayName: Los efectos de las naranjas
+	Tooltip: Saludable
+}
+
+Painting4: {
+	DisplayName: Shhhhhh
+	Tooltip: Silencio, o te encontrarán.
+}
+
+Painting5: {
+	DisplayName: Comedia
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: El ninja oscuro
+	Tooltip: Épico
+}
+
+Painting7: {
+	DisplayName: Mejores amigos
+	Tooltip: Abrazable
+}
+
+Painting8: {
+	DisplayName: Hora de la merienda
+	Tooltip: Sabroso
+}
+
+Painting9: {
+	DisplayName: Puro el lodo negro
+	Tooltip: Lindo
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: El perro calamar
+	Tooltip: Un molusco amenazante
+}
+
+Painting12: {
+	DisplayName: Leopardo de las nieves
+	Tooltip: Calma
+}
+
+Painting13: {
+	DisplayName: Capturado
+	Tooltip: Oh no
+}
+
+DrunkPainting1: {
+	DisplayName: Naran
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Tiburón
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: Perro calamar
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: Purbles
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: Caja de música (Laboratorio)
+	Tooltip: Por ShiZi
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Estandarte de Látex Negro
+}
+
+SquidDogBanner: {
+	DisplayName: Estandarte de Perro Calamar
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Ascensor
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Peluche de Puro
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Pelota de baloncesto (Colocable)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Peluche de tiburón
+}
+
+Orange: {
+	DisplayName: Naranja
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Bloque de látex negro
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Bloqueo de peligro
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Bloque de tierra seca
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Tanque de gasolina azul
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Silla de oficina azul
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Papel para documentos
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Generador
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Silla de oficina verde
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Escáner de iris
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Puerta de laboratorio
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Mesa de laboratorio
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Monte Libro
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Caja de música (Zona Cristalina)
+	Tooltip: Por ShiZi
+}
+
+PackingBox: {
+	DisplayName: Caja de embalaje
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Llave de Caja de embalaje
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Tanque de gasolina rojo
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Silla de oficina roja
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Pila de cajas
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Caja de almacenamiento
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Llave de Caja de almacenamiento
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Estantería de látex blanca
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Baldosa de laboratorio
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: Bloque de látex blanco
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Naranja podrida
+	Tooltip: Con solo sostener esto es suficiente para ver cosas extrañas.
+}
+
+TigerPaw: {
+	DisplayName: Garra carmesí
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Enciclopedia
+	Tooltip: Siente el peso del conocimiento
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Cuerno temible
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Látigo de Molusco
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Estandarte de Wendigo
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Estandarte de Sangreraya
+}
+
+BlackGoopBanner: {
+	DisplayName: Estandarte de Mancha Negra
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Estandarte de Mancha Blanco
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Estandarte de perro pastor alemán
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Herradura Babosa
+	Tooltip: Summons a rideable White Latex mount
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Ala Negra
+	Tooltip: Summons a rideable Yufeng mount
+}
+
+Literature: {
+	DisplayName: Literatura
+	Tooltip: Está lleno de temas candentes.
+}
+
+WhiskerStaff: {
+	DisplayName: Varita de bigotes
+	Tooltip: Invoca a un gato para que luche por ti.
+}
+
+PurrpurrBanner: {
+	DisplayName: Estandarte de Gatomorado
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Aluvión de libros
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Regadera
+}
+
+MusicBoxPuro: {
+	DisplayName: Caja de música (Puro el Látex Negro)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Caja de música (Danza Puro)
+	Tooltip: Por ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Invoca a un enorme gato morado para que luche por ti.
+	DisplayName: Varita de Gatomorado
+}
+
+TabbyStaff: {
+	Tooltip: Invoca a un gato atigrado grande para que luche por ti.
+	DisplayName: Varita de gato atigrado
+}
+
+FennecPlush: {
+	DisplayName: Peluche de feneco
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Tentáculodos
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Megagarra
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Desfibradora
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Tentatrio
+}
+
+Bashskewer: {
+	DisplayName: Brocheta de Cristal
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Pincho Demoníaco
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Sombrero alpino
+	Tooltip: ""
+}
+
+SetSeasonHalloween: {
+	DisplayName: Temporada Halloween
+	Tooltip: Cambia la temporada a Halloween.
+}
+
+SetSeasonOktoberfest: {
+	DisplayName: Temporada Oktoberfest
+	Tooltip: Cambia la temporada a Oktoberfest
+}
+
+SetSeasonXmas: {
+	DisplayName: Temporada navideña
+	Tooltip: Cambia la temporada a navideña
+}
+
+ElevatorUp: {
+	Tooltip: Este objeto no hace nada y solo se usa al estar sobre un ascensor.
+	DisplayName: Icono Ascensor Arriba
+}
+
+ElevatorDown: {
+	Tooltip: Este objeto no hace nada y solo se usa al estar sobre un ascensor.
+	DisplayName: Icono del ascensor abajo
+}
+
+SetSeasonValentine: {
+	DisplayName: Temporada Día de San Valentín
+	Tooltip: Cambia la temporada a Día de San Valentín
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Caja de música (Feliz cumpleaños)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Caja de música (Biblioteca)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Caja de música (Jungla de limo blanco)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Caja de música (Mina de cristal escarlata)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Caja de música (Zona de limo negro)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Caja de música (Rey Lobo)
+	Tooltip: Por ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Estandarte de Cachorro de Yufeng
+}
+
+SummonWolfKing: {
+	Tooltip: Invoca al Rey Lobo
+	DisplayName: Silla giratoria extraña
+}
+
+SummonBehemoth: {
+	Tooltip: Invoca al Behemot
+	DisplayName: Mano descomunal
+}
+
+DebugResetBosses: {
+	DisplayName: Reiniciar el progreso de la pelea contra el jefe
+	Tooltip: Restablece la progresión para todos los jefes de Changed.
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Ventilador
+}
+
+SetSeasonNone: {
+	Tooltip: Desactiva cualquier temporada activa
+	DisplayName: Establecer temporada ninguna
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Guarida del lobo
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Caja de música (Invernadero)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Caja de música (Laboratorio, lento)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: Por ShiZi
+	DisplayName: Caja de música (Ventilador)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: Estandarte de Látex Blanco
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Taquilla
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Bloques de juguete
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Por ShiZi
+	DisplayName: Caja de música (Behemot)
+}
+
+SummonWhiteTail: {
+	Tooltip: Invoca al Cola Blanca
+	DisplayName: Bola viscosa sospechosa
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Sí
+	DisplayName: Generar todos los personajes
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Cristal blanco
+}
+
+CrystalGreen: {
+	DisplayName: Cristal verde
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Cristal rojo
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Pilar Blanco
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Awoo
+	DisplayName: Criatura de la noche
+}
+
+Painting16: {
+	DisplayName: El científico
+	Tooltip: Escalofriante
+}
+
+Painting17: {
+	DisplayName: Zorro durmiente
+	Tooltip: No lo despiertes.
+}
+
+Painting18: {
+	DisplayName: Mundo de limo
+	Tooltip: Construyendo un puente
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Caja de música (Cola Blanco)
+	Tooltip: Por ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Criópodo
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Fotos (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Fotos (Limo negro)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Fotos (Afuera)
+}
+
+Pictures4: {
+	DisplayName: Fotos (Corredor)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Fotos (Bacterias)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Fotos (Amigos)
+}
+
+BlackSyringe: {
+	DisplayName: Jeringa negra
+	Tooltip:
+		'''
+		- Te transforma en un zorro Látex Negro
+		- Proporciona inmunidad a los Látex Negro
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: Jeringa blanca
+	Tooltip:
+		'''
+		- Te transforma en un zorro Látex Blanco
+		- Proporciona inmunidad a los Látex Blanco
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Pelota de baloncesto
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Cristal de discoteca
+	Tooltip: Llevar esto hará que los cristales se comporten como luces de discoteca.
+}
+
+BlackLatexSolution: {
+	DisplayName: Solución de limo negro
+	Tooltip: Extiende la zona látex negra
+}
+
+WhiteLatexSolution: {
+	DisplayName: Solución de limo blanco
+	Tooltip: Extiende la zona látex blanca
+}
+
+DryDirtSolution: {
+	DisplayName: Solución de tierra seca
+	Tooltip: Extender el ruinas de la ciudad
+}
+
+OrangeStatue: {
+	DisplayName: Estatua naranja
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Gafas de sol
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: Squid Dog Syringe
+	Tooltip:
+		'''
+		- Te transforma en un perro calamar
+		- Puede lanzar tentáculos con la tecla de "habilidad".
+		- Te permite respirar bajo el agua.
+		'''
+}
+
+BlackLatexSand: {
+	DisplayName: Arena negra babosa
+	Tooltip:
+		'''
+		Se puede utilizar con la pistola de arena.
+		- Convierte a las criaturas y los limos en masas gelatinosas.
+		- hace que los látex negros evolucionen
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: Arena blanca babosa
+	Tooltip:
+		'''
+		Se puede utilizar con la pistola de arena.
+		- Convierte a las criaturas y los limos en masas gelatinosas.
+		- hace que los látex blancos evolucionen
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: Súper jeringa
+	Tooltip: Te transforma en cualquier látex
+}
+
+SummonExperiment009: {
+	DisplayName: Invocar Experimento 009 Jefe
+	Tooltip: Inconcluso. De Minecraft Changed Addon Plus mod.
+}
+
+SummonShark: {
+	DisplayName: Invocar al jefe tiburón
+	Tooltip: Inconcluso.
+}
+
+SweeperItem: {
+	DisplayName: Robot Barredor
+	Tooltip: Especialista en limpieza
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: Vroom
+}
+
+Paper: {
+	DisplayName: Papel
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: Vroom
+}
+
+BlackLatexCubLicense: {
+	DisplayName: Licencia de cachorro de látex negro
+	UseLicense: La licencia se teletransporta al servicio de entregas perrunas...
+	Tooltip: Utiliza este formulario para adoptar un cachorro de látex negro para tu ciudad.
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: Licencia de cachorro de látex blanco
+	UseLicense: La licencia se teletransporta al servicio de entregas perrunas...
+	Tooltip: Utiliza este formulario para adoptar un cachorro de látex blanco para tu ciudad.
+}

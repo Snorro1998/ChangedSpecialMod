@@ -28,6 +28,7 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modCalamity = null;
         public static Mod modSpirit = null;
         public static Mod modSpiritReforged = null;
+        public static Mod modCoralite = null;
 
         public static Mod modBoulderBackport = null;
 
@@ -48,6 +49,7 @@ namespace ChangedSpecialMod.Common.Systems
             modCalamity = GetMod("CalamityMod");
             modSpirit = GetMod("SpiritMod");
             modSpiritReforged = GetMod("SpiritReforged");
+            modCoralite = GetMod("Coralite");
 
             modBoulderBackport = GetMod("BoulderBackport");
         }
@@ -75,6 +77,7 @@ namespace ChangedSpecialMod.Common.Systems
             modCalamity = null;
             modSpirit = null;
             modSpiritReforged = null;
+            modCoralite = null;
 
             modBoulderBackport = null;
         }

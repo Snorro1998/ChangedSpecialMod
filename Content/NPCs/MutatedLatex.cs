@@ -182,25 +182,25 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
             }
 
-            var tmpName = "Mutated Latex";
+            var tmpName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.MutatedLatex.DisplayName");
 
             // Pick skin color
             switch (changedNPC.GooType)
             {
                 // GooType none, drunk
                 default:
-                    tmpName = "Furry";
+                    tmpName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.MutatedLatex.DisplayNameDrunk");
                     color = new Color(Main.rand.Next(255), Main.rand.Next(255), Main.rand.Next(255));
                     // Pick tuft hair so you always get multiple colors
                     hairIndex = ChangedUtils.Choose(4, 5, 6);
                     break;
                 case GooType.Black:
-                    tmpName = "Mutated Black Latex";
+                    tmpName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.MutatedLatex.DisplayNameBlack");
                     color = new Color(57, 57, 57);
                     hasMask = true;
                     break;
                 case GooType.White:
-                    tmpName = "Mutated White Latex";
+                    tmpName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.MutatedLatex.DisplayNameWhite");
                     color = Color.White;
                     break;
             }

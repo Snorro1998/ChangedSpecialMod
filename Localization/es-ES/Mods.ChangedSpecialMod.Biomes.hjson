@@ -1,0 +1,24 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: Ruinas de la Ciudad
+	TownNPCDialogueName: las ruinas de la ciudad
+}
+
+CityRuinsUndergroundBiome: {
+	// DisplayName: City Ruins Underground Biome
+	// TownNPCDialogueName: the City Ruins Underground Biome
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: Zona de Látex Blanco
+	TownNPCDialogueName: la Zona de Látex Blanco
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: Zona de Látex Negro
+	TownNPCDialogueName: la Zona de Látex Negro
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: el bioma borracho
+	DisplayName: Borracho
+}

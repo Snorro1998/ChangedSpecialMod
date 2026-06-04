@@ -238,11 +238,6 @@ WhiteLatexBlock: {
 	Tooltip: ""
 }
 
-DebugEvolutionResetter: {
-	Tooltip: ""
-	DisplayName: Debug Evolution Resetter
-}
-
 RottenOrange: {
 	DisplayName: Rotten Orange
 	Tooltip: Just holding this is enough to see strange things
@@ -450,7 +445,7 @@ MusicBoxWolfKing: {
 
 FlyingDarkLatexBanner: {
 	Tooltip: ""
-	DisplayName: Yufeng Latex Banner
+	DisplayName: Yufeng Cub Banner
 }
 
 SummonWolfKing: {
@@ -464,7 +459,7 @@ SummonBehemoth: {
 }
 
 DebugResetBosses: {
-	DisplayName: Debug Reset Bosses
+	DisplayName: Reset boss fight progress
 	Tooltip: Resets progression for all Changed bosses
 }
 
@@ -728,10 +723,12 @@ Painting19: {
 
 BlackLatexCubLicense: {
 	DisplayName: Black Goo Puppy License
+	UseLicense: The license teleports away to the dog delivery service...
 	Tooltip: Use to adopt a black goo puppy for your town
 }
 
 WhiteLatexCubLicense: {
 	DisplayName: White Goo Puppy License
+	UseLicense: The license teleports away to the dog delivery service...
 	Tooltip: Use to adopt a white goo puppy for your town
 }

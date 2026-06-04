@@ -37,7 +37,7 @@ namespace ChangedSpecialMod.Content.Items.Licenses
             {
                 if (player.whoAmI == Main.myPlayer)
                 {
-                    UnlockPet(ref TownPetSystem.boughtWhiteLatexCubPet, npcType, this.GetLocalizationKey("UseWhiteLatexCubLicense")); // Modified NPC.UnlockOrExchangePet method.
+                    UnlockPet(ref TownPetSystem.boughtWhiteLatexCubPet, npcType, this.GetLocalizationKey("UseLicense")); // Modified NPC.UnlockOrExchangePet method.
                 }
                 return true;
             }

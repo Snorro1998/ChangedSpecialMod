@@ -16,6 +16,11 @@ ChangedSpecialModClientConfig: {
 		Label: NPCs Can Use Changed Emotes
 	}
 
+	ExtraDialogue: {
+		Tooltip: If more dialogue should be added to regular Terraria NPCs.
+		Label: Extra Dialogue
+	}
+
 	Headers: {
 		Audio: Audio
 		Misc: Misc
@@ -74,7 +79,7 @@ ChangedSpecialModClientConfig: {
 		Label: Dialogue Portraits
 		Tooltip:
 			'''
-			If town NPCs from this mod will have portraits when being talked to. 
+			If the town NPCs in this mod have portraits when you talk to them.
 			If playing with Boulder Backport installed, this setting is ignored and 
 			its option "Modded Town NPC Portraits" is used instead.
 			'''
