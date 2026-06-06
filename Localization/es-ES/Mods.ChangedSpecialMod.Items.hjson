@@ -383,21 +383,6 @@ AlpineHat: {
 	Tooltip: ""
 }
 
-SetSeasonHalloween: {
-	DisplayName: Temporada Halloween
-	Tooltip: Cambia la temporada a Halloween.
-}
-
-SetSeasonOktoberfest: {
-	DisplayName: Temporada Oktoberfest
-	Tooltip: Cambia la temporada a Oktoberfest
-}
-
-SetSeasonXmas: {
-	DisplayName: Temporada navideña
-	Tooltip: Cambia la temporada a navideña
-}
-
 ElevatorUp: {
 	Tooltip: Este objeto no hace nada y solo se usa al estar sobre un ascensor.
 	DisplayName: Icono Ascensor Arriba
@@ -406,11 +391,6 @@ ElevatorUp: {
 ElevatorDown: {
 	Tooltip: Este objeto no hace nada y solo se usa al estar sobre un ascensor.
 	DisplayName: Icono del ascensor abajo
-}
-
-SetSeasonValentine: {
-	DisplayName: Temporada Día de San Valentín
-	Tooltip: Cambia la temporada a Día de San Valentín
 }
 
 MusicBoxHappyBirthday: {
@@ -466,11 +446,6 @@ DebugResetBosses: {
 Fan: {
 	Tooltip: ""
 	DisplayName: Ventilador
-}
-
-SetSeasonNone: {
-	Tooltip: Desactiva cualquier temporada activa
-	DisplayName: Establecer temporada ninguna
 }
 
 Painting14: {
@@ -731,4 +706,14 @@ WhiteLatexCubLicense: {
 	DisplayName: Licencia de cachorro de látex blanco
 	UseLicense: La licencia se teletransporta al servicio de entregas perrunas...
 	Tooltip: Utiliza este formulario para adoptar un cachorro de látex blanco para tu ciudad.
+}
+
+Calendar: {
+	DisplayName: Calendario
+	Tooltip: Te permite cambiar la temporada actual.
+}
+
+SombreroHat: {
+	DisplayName: Sombrero de charro
+	// Tooltip: ""
 }

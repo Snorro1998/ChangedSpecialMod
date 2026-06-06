@@ -150,6 +150,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 NPC.active = false;
+                NPC.netUpdate = true;
             }
         }
 

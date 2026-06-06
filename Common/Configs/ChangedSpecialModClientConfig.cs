@@ -13,6 +13,30 @@ namespace ChangedSpecialMod.Common.Configs
 
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("Audio")]
+        [DefaultValue(true)]
+        public bool TransfurSound { get; set; }
+
+        [DefaultValue(true)]
+        public bool WhipCrackSound { get; set; }
+
+        [Header("Npc")]
+        [DefaultValue(true)]
+        public bool NPCsCanUseChangedEmotes { get; set; }
+
+        [DefaultValue(true)]
+        public bool ExtraDialogue { get; set; }
+
+        [DefaultValue(true)]
+        public bool DialoguePortraits { get; set; }
+
+        [Header("Transfur")]
+        [DefaultValue(false)]
+        public bool NPCsCanTransfurPlayer { get; set; }
+
+        [DefaultValue(false)]
+        public bool CustomHealthBar { get; set; }
+
         [Header("WorldGeneration")]
         [Range(0, 20)]
         [DefaultValue(1)]
@@ -26,43 +50,18 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(5)]
         public int MaximumRoomsHorizontal { get; set; }
 
+        [DefaultValue(true)]
+        public bool LatexSpread { get; set; }
+
         [Range(1, 30)]
         [DefaultValue(10)]
         public int LatexSpreadChance { get; set; }
 
-
-        [Header("Audio")]
-        [DefaultValue(true)]
-        public bool TransfurSound;
-
-        [DefaultValue(true)]
-        public bool WhipCrackSound;
-
-
-        [Header("Npc")]
-        [DefaultValue(true)]
-        public bool NPCsCanUseChangedEmotes;
-
-        [DefaultValue(true)]
-        public bool ExtraDialogue;
-
-        [DefaultValue(true)]
-        public bool DialoguePortraits;
-
-
         [Header("Misc")]
         [DefaultValue(true)]
-        public bool Evolution;
+        public bool Evolution { get; set; }
 
         [DefaultValue(false)]
-        public bool DebugItems;
-
-
-        [Header("Transfur")]
-        [DefaultValue(false)]
-        public bool NPCsCanTransfurPlayer;
-
-        [DefaultValue(false)]
-        public bool CustomHealthBar;
+        public bool DebugItems { get; set; }
     }
 }

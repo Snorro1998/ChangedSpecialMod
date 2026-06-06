@@ -597,6 +597,9 @@ namespace ChangedSpecialMod.Content.NPCs
                     case SeasonalEvent.Valentine:
                         hatId = ItemID.GarlandHat;
                         break;
+                    case SeasonalEvent.Fiesta:
+                        modHat = "Content/Items/SombreroHat";
+                        break;
                     case SeasonalEvent.Oktoberfest:
                         hatId = ItemID.BallaHat;
                         break;

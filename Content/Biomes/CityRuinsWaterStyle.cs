@@ -27,8 +27,13 @@ namespace ChangedSpecialMod.Content.Biomes
 			b = 1f;
 		}
 
-		public override Color BiomeHairColor() {
-			return Color.White;
+        /*
+        r = 0.45f;
+		g = 0.60f;
+		b = 1f;
+		*/
+        public override Color BiomeHairColor() {
+			return Color.WhiteSmoke;
 		}
 
 		public override byte GetRainVariant() {

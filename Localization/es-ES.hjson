@@ -15,9 +15,19 @@ Mods: {
 			Behemoth: Behemot
 		}
 
+		Seasons: {
+			None: None
+			Valentine: Día de San Valentín
+			Fiesta: Fiesta
+			Oktoberfest: Oktoberfest
+			Halloween: Víspera de Todos los Santos
+			Xmas: Navidad
+		}
+
 		EventAnnouncement: {
 			None: Todo vuelve a la normalidad.
 			Valentine: ¡El amor está en el aire!
+			Fiesta: Suavemente!
 			Oktoberfest: ¡El Oktoberfest ha comenzado!
 			Halloween: ¡Está empezando a dar miedo!
 			Xmas: ¡Ya empieza a parecerse mucho a la Navidad!
@@ -125,7 +135,7 @@ Mods: {
 					Xmas3: "{Xmas}Navidad, Navidad, hoy es Navidad!"
 					Xmas4: "{Xmas}¿Te gustaría ayudarme a decorar mi naranjo con adornos navideños?"
 					Xmas5: "{Xmas}Oche de paz, noche de amor"
-					Siesta1: "{Siesta1}Hola, me has Atrapado en medio suavemente."
+					Fiesta1: "{Siesta1}Hola, me has Atrapado en medio suavemente."
 
 					BloodMoon: {
 						BloodMoon1: Aléjate de mí, humano. Hoy no me siento yo mismo.
@@ -583,11 +593,25 @@ Mods: {
 			DarkLatexCubTownPet: {
 				DisplayName: Cachorro de Látex Negro
 				Description: Lindo
+
+				Dialogue: {
+					Normal1: Guau!
+					Normal2: Bark!
+					Normal3: Guau guau!
+					Normal4: *Snif* *snif*
+				}
 			}
 
 			WhiteLatexCubTownPet: {
 				DisplayName: Cachorro de Látex Blanco
 				Description: Lindo
+
+				Dialogue: {
+					Normal1: Guau!
+					Normal2: Guau!
+					Normal3: Guau guau!
+					Normal4: *Snif* *snif*
+				}
 			}
 		}
 

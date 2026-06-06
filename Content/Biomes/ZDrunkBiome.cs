@@ -12,6 +12,9 @@ namespace ChangedSpecialMod.Content.Biomes
     // The translations fixes the name anyways
     public class ZDrunkBiome : ModBiome
 	{
+        // I don't want a custom water style, so I made one as close as I could to vanilla
+        // This override must happen, or else the game crashes completely if you take a screenshot in snapshot mode
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<CityRuinsWaterStyle>();
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<CityRuinsSurfaceBackgroundStyle>();
 		public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
 		public override string BestiaryIcon => base.BestiaryIcon;

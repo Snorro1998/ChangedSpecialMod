@@ -40,7 +40,6 @@ namespace ChangedSpecialMod.Content.NPCs
             new ShopData("First Shop", "Shop"),
             new ShopData("Second Shop", "Paintings"),
             new ShopData("Third Shop", "Pictures"),
-            new ShopData("Fourth Shop", "Seasonal"),
         };
 
 		private static int ShimmerHeadIndex;
@@ -229,6 +228,7 @@ namespace ChangedSpecialMod.Content.NPCs
 			new NPCShop(Type, Shops[0].InternalName)
                 .Add(ItemID.Book)
                 .Add<Items.Weapons.Encyclopedia>()
+                .Add<Items.Calendar>()
                 .Add<Items.Placeable.DryDirtBlock>()
                 .Add<Items.Placeable.Latex.BlackLatexSand>()
                 .Add<Items.Placeable.Latex.BlackLatexBlock>()
@@ -285,15 +285,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.Pictures5>()
                 .Add<Items.Placeable.Furniture.Pictures6>()
                 .Register();
-
-            new NPCShop(Type, Shops[3].InternalName)
-                .Add<Items.Seasons.SetSeasonNone>()
-                .Add<Items.Seasons.SetSeasonValentine>()
-                .Add<Items.Seasons.SetSeasonOktoberfest>()
-                .Add<Items.Seasons.SetSeasonHalloween>()
-                .Add<Items.Seasons.SetSeasonXmas>()
-                .Register();
-
         }
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -378,6 +369,9 @@ namespace ChangedSpecialMod.Content.NPCs
                         break;
                     case SeasonalEvent.Valentine:
                         hatId = ItemID.Heart;
+                        break;
+                    case SeasonalEvent.Fiesta:
+                        modHat = "Content/Items/SombreroHat";
                         break;
                     case SeasonalEvent.Oktoberfest:
                         changedNPC.HasBeer = true;

@@ -54,6 +54,7 @@ namespace ChangedSpecialMod.Content.NPCs
         All,
         Rain,
         Party,
+        Fiesta,
         Silly,
         Valentine,
         OktoberFest,
@@ -144,6 +145,9 @@ namespace ChangedSpecialMod.Content.NPCs
             new HatStruct(ItemID.SantaHat, HatType.XMas, new int[] { 3, -2 }),
             new HatStruct(ItemID.SnowHat, HatType.XMas, new int[] { 0, 0 }),
             new HatStruct(ItemID.TreeMask, HatType.XMas, new int[] { 3, 0 }),
+
+            // Fiesta
+            new HatStruct(-1, HatType.Fiesta,new int[] { 1, -2 }, "Content/Items/SombreroHat"),
         };
         public void RemoveHat(int hatId) => NewHats = NewHats.Where(x => x.HatId != hatId).ToList();
         public void AddHat(HatStruct hat) => NewHats.Add(hat);

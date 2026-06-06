@@ -287,7 +287,16 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
+                AIState = 1;
+                AITimer = 0;
+                NPC.netUpdate = true;
+                NPC.Transform(ModContent.NPCType<WolfKing>());
+                AIState = 1;
+                AITimer = 0;
+                NPC.netUpdate = true;
+                /*
                 NPC.active = false;
+                NPC.netUpdate = true;
                 int type = ModContent.NPCType<WolfKing>();
                 NPC.NewNPC(NPC.GetSource_FromAI(), 0, 0, type);
 
@@ -299,69 +308,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         break;
                     }
                 }
-            }
-        }
-
-        private void SpawnCheerleaders()
-        {
-            if (Main.netMode == NetmodeID.MultiplayerClient) return;
-            var entitySource = NPC.GetSource_FromAI();
-            int count = 4;
-            int distFromBoss = 6;
-            int distBetween = 4;
-
-            var npcType = ModContent.NPCType<Cheerleader>();
-
-            foreach (var npc in Main.ActiveNPCs)
-            {
-                if (npc.type == npcType)
-                {
-                    npc.active = false;
-                }
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                //0,1,2,3
-                int xPos = (int)NPC.Center.X;
-
-                switch(i)
-                {
-                    case 0:
-                        xPos = xPos - 16 * (distFromBoss + distBetween * 1);
-                        break;
-                    case 1:
-                        xPos = xPos - 16 * (distFromBoss + distBetween * 0);
-                        break;
-                    case 2:
-                        xPos = xPos + 16 * (distFromBoss + distBetween * 0);
-                        break;
-                    case 3:
-                        xPos = xPos + 16 * (distFromBoss + distBetween * 1);
-                        break;
-                    default:
-                        break;
-                }
-
-                int yPos = (int)NPC.Center.Y;
-                NPC minionNPC = NPC.NewNPCDirect(entitySource, xPos, yPos, npcType, NPC.whoAmI);
-
-                // Minions left of him
-                if (i < count / 2)
-                {
-                    minionNPC.direction = 1;
-                }
-                // Minions right of him
-                else
-                {
-                    minionNPC.direction = -1;
-                }
-
-                minionNPC.spriteDirection = minionNPC.direction;
-
-                // Return if we reached the spawn cap
-                if (minionNPC.whoAmI == Main.maxNPCs)
-                    return;
+                */
             }
         }
 

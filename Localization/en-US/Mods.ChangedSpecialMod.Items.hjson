@@ -383,21 +383,6 @@ AlpineHat: {
 	Tooltip: ""
 }
 
-SetSeasonHalloween: {
-	DisplayName: Set Season Halloween
-	Tooltip: Sets the season to Halloween
-}
-
-SetSeasonOktoberfest: {
-	DisplayName: Set Season Oktoberfest
-	Tooltip: Sets the season to Oktoberfest
-}
-
-SetSeasonXmas: {
-	DisplayName: Set Season Christmas
-	Tooltip: Sets the season to Christmas
-}
-
 ElevatorUp: {
 	Tooltip: This item does nothing and is only used when hovering over an elevator
 	DisplayName: Icon Elevator Up
@@ -406,11 +391,6 @@ ElevatorUp: {
 ElevatorDown: {
 	Tooltip: This item does nothing and is only used when hovering over an elevator
 	DisplayName: Icon Elevator Down
-}
-
-SetSeasonValentine: {
-	DisplayName: Set Season Valentine
-	Tooltip: Sets the season to Valentine
 }
 
 MusicBoxHappyBirthday: {
@@ -466,11 +446,6 @@ DebugResetBosses: {
 Fan: {
 	Tooltip: ""
 	DisplayName: Fan
-}
-
-SetSeasonNone: {
-	Tooltip: Deactivates any active season
-	DisplayName: Set Season None
 }
 
 Painting14: {
@@ -731,4 +706,14 @@ WhiteLatexCubLicense: {
 	DisplayName: White Goo Puppy License
 	UseLicense: The license teleports away to the dog delivery service...
 	Tooltip: Use to adopt a white goo puppy for your town
+}
+
+Calendar: {
+	DisplayName: Calendar
+	Tooltip: Allows you to change the current season
+}
+
+SombreroHat: {
+	DisplayName: Sombrero Hat
+	Tooltip: ""
 }

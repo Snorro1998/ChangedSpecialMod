@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
@@ -11,6 +12,7 @@ namespace ChangedSpecialMod.Common.Systems
         None = 0,
         Birthday,
         Valentine,
+        Fiesta,
         Easter,
         Oktoberfest,
         Halloween,
@@ -84,8 +86,11 @@ namespace ChangedSpecialMod.Common.Systems
         /// Set the season. This will happen after loading the mod or by using certain items.
         /// </summary>
         /// <param name="overWriteSeason"></param>
-        public static void SetSeason(SeasonalEvent overWriteSeason = SeasonalEvent.Invalid)
+        public static void SetSeason(SeasonalEvent overWriteSeason = SeasonalEvent.Invalid, bool announce = false)
         {
+            //Main.NewText("setseason " + announce.ToString());
+            string eventName = null;
+
             // Overwriting the season
             if (overWriteSeason != SeasonalEvent.Invalid)
             {
@@ -96,11 +101,16 @@ namespace ChangedSpecialMod.Common.Systems
                     Main.xMas = false;
                 }
                 else if (season == SeasonalEvent.XMas)
-                {
+                {   
                     Main.halloween = false;
                     Main.xMas = true;
                 }
-                return;
+                else
+                {
+                    Main.halloween = false;
+                    Main.xMas = false;
+                }
+                //return;
             }
 
             // Getting the season normally
@@ -150,6 +160,27 @@ namespace ChangedSpecialMod.Common.Systems
                         break;
                     }
                 }
+            }
+
+            Dictionary<SeasonalEvent, string> eventNames = new Dictionary<SeasonalEvent, string>
+            {
+                { SeasonalEvent.None, "None" },
+                { SeasonalEvent.Valentine, "Valentine" },
+                { SeasonalEvent.Fiesta, "Fiesta" },
+                { SeasonalEvent.Oktoberfest, "Oktoberfest" },
+                { SeasonalEvent.Halloween, "Halloween" },
+                { SeasonalEvent.XMas, "Xmas" }
+            };
+
+            if (eventNames.ContainsKey(season))
+                eventName = eventNames[season];
+
+            //Main.NewText("setseason " + (eventName != null ? eventName : "error"));
+
+            if (eventName != null && announce)
+            {
+                string msg = Language.GetTextValue($"Mods.ChangedSpecialMod.EventAnnouncement.{eventName}");
+                Main.NewText(msg);
             }
         }
     }

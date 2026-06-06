@@ -5,28 +5,28 @@ using Terraria.ModLoader;
 using Terraria.UI;
 
 
-namespace ChangedSpecialMod.Utilities.UI.TransfurUI
+namespace ChangedSpecialMod.Utilities.UI.SeasonUI
 {
     [Autoload(Side = ModSide.Client)]
-    public class TransfurUISystem : ModSystem
+    public class SeasonUISystem : ModSystem
     {
-        private UserInterface transfurUserInterface;
-        internal TransfurUI transfurUI;
+        private UserInterface userInterface;
+        internal SeasonUI uiPanel;
 
         public void ShowMyUI(int categories)
         {
-            transfurUI.SetVisibleCategories(categories);
-            transfurUserInterface?.SetState(transfurUI);
+            uiPanel.SetVisibleCategories(categories);
+            userInterface?.SetState(uiPanel);
         }
 
         public void HideMyUI()
         {
-            transfurUserInterface?.SetState(null);
+            userInterface?.SetState(null);
         }
 
         public void ToggleUI(int categories)
         {
-            var state = transfurUserInterface?.CurrentState;
+            var state = userInterface?.CurrentState;
             if (state != null)
             {
                 HideMyUI();
@@ -39,32 +39,30 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
 
         public override void PostSetupContent()
         {
-            transfurUserInterface = new UserInterface();
-            transfurUI = new TransfurUI();
-            transfurUI.Activate();
+            userInterface = new UserInterface();
+            uiPanel = new SeasonUI();
+            uiPanel.Activate();
         }
 
         public override void UpdateUI(GameTime gameTime)
         {
-            if (transfurUserInterface?.CurrentState != null)
+            if (userInterface?.CurrentState != null)
             {
-                transfurUserInterface?.Update(gameTime);
+                userInterface?.Update(gameTime);
             }
         }
 
-        // Adding a custom layer to the vanilla layer list that will call .Draw on your interface if it has a state
-        // Setting the InterfaceScaleType to UI for appropriate UI scaling
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
             int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
             if (mouseTextIndex != -1)
             {
                 layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer(
-                    "TransfurUI",
+                    "SeasonUI",
                     delegate {
-                        if (transfurUserInterface?.CurrentState != null)
+                        if (userInterface?.CurrentState != null)
                         {
-                            transfurUserInterface.Draw(Main.spriteBatch, new GameTime());
+                            userInterface.Draw(Main.spriteBatch, new GameTime());
                         }
                         return true;
                     },

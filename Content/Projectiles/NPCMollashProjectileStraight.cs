@@ -102,7 +102,7 @@ namespace ChangedSpecialMod.Content.Projectiles
                         PlayerDeathReason.ByNPC(ownerIndex),
                         damage,
                         0,
-                        armorPenetration:1000
+                        armorPenetration:0//1000
                     );
                 }
             }

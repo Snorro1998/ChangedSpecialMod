@@ -15,9 +15,19 @@ Mods: {
 			Behemoth: Behemoth
 		}
 
+		Seasons: {
+			None: None
+			Valentine: Valentine
+			Fiesta: Fiesta
+			Oktoberfest: Oktoberfest
+			Halloween: Halloween
+			Xmas: Christmas
+		}
+
 		EventAnnouncement: {
 			None: Everything returns to normal
 			Valentine: Love is in the air!
+			Fiesta: Suavemente!
 			Oktoberfest: The Oktoberfest has begun!
 			Halloween: It's starting to get spooky!
 			Xmas: It's beginning to look a lot like Christmas!
@@ -125,7 +135,7 @@ Mods: {
 					Xmas3: "{Xmas}Jingle bells, Puro smells, human on a sleigh!"
 					Xmas4: "{Xmas}Would you like to help me decorate my orange tree with Christmas ornaments?"
 					Xmas5: "{Xmas}Silent night, citrus bright. All is calm, peel held tight. Round orange, golden and sweet. Spoiled rotten, with such a nice treat."
-					Siesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+					Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 					BloodMoon: {
 						BloodMoon1: Stay away from me human. I am not feeling like myself today.
@@ -583,11 +593,25 @@ Mods: {
 			DarkLatexCubTownPet: {
 				DisplayName: Black Goo Puppy
 				Description: Cute
+
+				Dialogue: {
+					Normal1: Woof!
+					Normal2: Bark!
+					Normal3: Woof woof!
+					Normal4: *Snif* *snif*
+				}
 			}
 
 			WhiteLatexCubTownPet: {
 				DisplayName: White Goo Puppy
 				Description: Cute
+
+				Dialogue: {
+					Normal1: Woof!
+					Normal2: Bark!
+					Normal3: Woof woof!
+					Normal4: *Snif* *snif*
+				}
 			}
 		}
 

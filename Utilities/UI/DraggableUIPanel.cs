@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
 
-namespace ChangedSpecialMod.Utilities.UI.TransfurUI
+namespace ChangedSpecialMod.Utilities.UI
 {
     // This DraggableUIPanel class inherits from UIPanel
     // Inheriting is a great tool for UI design. By inheriting, we get the background drawing for free from UIPanel

@@ -596,29 +596,34 @@ namespace ChangedSpecialMod
 
             foreach (var player in Main.ActivePlayers)
             {
+                int minRangeFromPlayer = 80;
+                int maxRange = 120;                         // Same range as the clentaminator, so probably enough to be off-screen
+                int blockCheckSpacing = 8;                  // Only check every 8 blocks for performance
+                var xPos = (int)(player.position.X / 16);
+                var yPos = (int)(player.position.Y / 16);
+
+                for (int y = -maxRange; y <= maxRange; y += blockCheckSpacing)
                 {
-                    int minRangeFromPlayer = 80;
-                    int maxRange = 120;                         // Same range as the clentaminator, so probably enough to be off-screen
-                    int blockCheckSpacing = 8;                  // Only check every 8 blocks for performance
-                    var xPos = (int)(player.position.X / 16);
-                    var yPos = (int)(player.position.Y / 16);
-
-                    for (int y = -maxRange; y <= maxRange; y += blockCheckSpacing)
+                    for (int x = -maxRange; x <= maxRange; x += blockCheckSpacing)
                     {
-                        for (int x = -maxRange; x <= maxRange; x += blockCheckSpacing)
+                        if (Math.Abs(x) <= minRangeFromPlayer)
+                            continue;
+
+                        var tmpX = xPos + x;
+                        var tmpY = yPos + y;
+
+                        if (tmpX < 0 || tmpX >= Main.maxTilesX)
+                            continue;
+
+                        if (tmpY < 0 || tmpY >= Main.maxTilesY)
+                            continue;
+
+                        var tile = Main.tile[tmpX, tmpY];
+
+                        if (ChangedUtils.IsWhiteLatexWall(tile))
                         {
-                            if (Math.Abs(x) <= minRangeFromPlayer)
-                                continue;
-
-                            var tmpX = xPos + x;
-                            var tmpY = yPos + y;
-                            var tile = Main.tile[tmpX, tmpY];
-
-                            if (ChangedUtils.IsWhiteLatexWall(tile))
-                            {
-                                ChangedUtils.SpawnBehemoth(tmpX, tmpY, player);
-                                return;
-                            }
+                            ChangedUtils.SpawnBehemoth(tmpX, tmpY, player);
+                            return;
                         }
                     }
                 }

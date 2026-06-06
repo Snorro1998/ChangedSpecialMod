@@ -22,11 +22,11 @@ ChangedSpecialModClientConfig: {
 	}
 
 	Headers: {
-		Audio: Audio
-		Misc: Misceláneos
-		WorldGeneration: Generación Mundial
-		Transfur: Transformación
-		Npc: Personajes
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Misceláneos]"
+		WorldGeneration: "[c/ffeb6e:Generación Mundial]"
+		Transfur: "[c/ffeb6e:Transformación]"
+		Npc: "[c/ffeb6e:Personajes]"
 	}
 
 	NumberOfLabs: {
@@ -48,6 +48,11 @@ ChangedSpecialModClientConfig: {
 	MaximumRoomsHorizontal: {
 		Label: Número máximo de habitaciones horizontales
 		Tooltip: El número máximo de salas que puede tener un laboratorio en dirección horizontal.
+	}
+
+	LatexSpread: {
+		Label: Propagación del látex
+		Tooltip: Que el látex se propague a otros bloques en el modo difícil.
 	}
 
 	LatexSpreadChance: {

@@ -40,7 +40,7 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             NPCID.Sets.IsTownPet[Type] = true; // Our NPC is a Town Pet
             NPCID.Sets.CannotSitOnFurniture[Type] = false; // True by default which means they cannot sit in chairs. True means they can sit on furniture like the Town Cat.
            // NPCID.Sets.TownNPCBestiaryPriority.Add(Type); // Puts our NPC with all of the other Town NPCs.
-            NPCID.Sets.PlayerDistanceWhilePetting[Type] = 32; // Distance the player stands from the Town Pet to pet.
+            NPCID.Sets.PlayerDistanceWhilePetting[Type] = 24; // Distance the player stands from the Town Pet to pet.
             NPCID.Sets.IsPetSmallForPetting[Type] = true; // If set to true, the player's arm will be angled down while petting.
 
             /*
@@ -96,18 +96,22 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public readonly List<string> NameList = new()
         {
-            "Boaz",         // A friend's poodle
+            "Boaz",
             "Blaidd",       // Elden Ring
             "Claude",       // Claude Abras
             "Coal",
-            "Duncan",       // A friend's labrador
             "Fenris",       // Norse Mythology (Fenrir) 
             "Furbles",      // Furby
             "Gromit",       // Wallace and Gromit
-            "Haruki",       // Tennis Ace
+            "Haruki",
             "Hati",         // Norse Mythology
             "Kurama",       // Naruto
-            "Lothar",       // Outland Wanderer
+            "Loki",
+            "Lothar",
+            "Luna",
+            "Pudding",
+            "Shadow",
+            "Zorro"
         };
 
         public override List<string> SetNPCNameList()
@@ -117,7 +121,15 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override string GetChat()
         {
-            return ":D";
+            var options = new List<string>()
+            {
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal1"),
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal2"),
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal3"),
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal4")
+            };
+
+            return options[Main.rand.Next(options.Count)];
         }
 
         public override bool PreAI()

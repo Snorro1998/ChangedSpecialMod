@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs.TownPets
@@ -34,7 +35,7 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             NPCID.Sets.IsTownPet[Type] = true;
             NPCID.Sets.CannotSitOnFurniture[Type] = false;
             //NPCID.Sets.TownNPCBestiaryPriority.Add(Type);
-            NPCID.Sets.PlayerDistanceWhilePetting[Type] = 32;
+            NPCID.Sets.PlayerDistanceWhilePetting[Type] = 24;
             NPCID.Sets.IsPetSmallForPetting[Type] = true;
 
             /*
@@ -88,17 +89,22 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public readonly List<string> NameList = new()
         {
-            "Arabella",     // My rabbit
+            "Bella",
+            "Baba",         // Baba is you
             "Bolt",         // Bolt
-            "Dori",         // Crayon Shin Chan
+            "Cotton",
+            "Dori",
             "Fel",          // Campfire cooking in another world
-            "Flops",        // My rabbit
+            "Hachi",        // Hachiko
             "Lea",
             "Marshmallow",
+            "Milo",
+            "Nova",
             "Pimpi",
-            "Sebas",        // Outland Wanderer
+            "Sebas",
             "Skoll",        // Norse Mythology
-            "Snowball"
+            "Snowball",
+            "Sugar"
         };
 
         public override List<string> SetNPCNameList()
@@ -108,7 +114,15 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override string GetChat()
         {
-            return ":D";
+            var options = new List<string>()
+            {
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal1"),
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal2"),
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal3"),
+                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal4")
+            };
+
+            return options[Main.rand.Next(options.Count)];
         }
 
         public override bool PreAI()

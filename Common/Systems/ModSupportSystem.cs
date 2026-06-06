@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -119,6 +120,41 @@ namespace ChangedSpecialMod.Common.Systems
             AddToMutantShop("WhiteTail", "SummonWhiteTail", () => DownedBossSystem.DownedWhiteTail, Item.buyPrice(gold: 2));
             AddToMutantShop("WolfKing", "SummonWolfKing", () => DownedBossSystem.DownedWolfKing, Item.buyPrice(gold: 2));
             AddToMutantShop("Behemoth", "SummonBehemoth", () => DownedBossSystem.DownedBehemoth, Item.buyPrice(gold: 2));
+        }
+
+        /*
+        public static void SpiritActivateMysticMoon()
+        {
+            if (modSpirit == null || Main.IsItDay())
+                return;
+
+            SetOtherModBool("SpiritMod.MyWorld", "calmNight", false);
+            SetOtherModBool("SpiritMod.MyWorld", "jellySky", false);
+            SetOtherModBool("SpiritMod.MyWorld", "blueMoon", true);
+        }
+
+        public static void SpiritActivateJellyMoon()
+        {
+            if (modSpirit == null || Main.IsItDay())
+                return;
+
+            SetOtherModBool("SpiritMod.MyWorld", "calmNight", false);
+            SetOtherModBool("SpiritMod.MyWorld", "jellySky", true);
+            SetOtherModBool("SpiritMod.MyWorld", "blueMoon", false);
+        }
+        */
+
+        private static void SetOtherModBool(string className, string fieldName, bool newValue)
+        {
+            Type myWorldType = modSpirit.Code.GetType(className);
+
+            FieldInfo boolField = myWorldType?.GetField(
+                fieldName,
+                BindingFlags.Public | BindingFlags.Static
+            );
+
+            if (boolField != null)
+                boolField.SetValue(null, newValue);
         }
 
         /*

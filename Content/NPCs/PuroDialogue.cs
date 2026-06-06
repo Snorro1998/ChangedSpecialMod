@@ -75,14 +75,14 @@ namespace ChangedSpecialMod.Content.NPCs
                 //Halloween
                 new DialogueElement("Halloween1"),
                 new DialogueElement("Halloween2"),
-                new DialogueElement("Halloween3"),
-                new DialogueElement("Halloween4"),
+                new DialogueElement("Halloween3", "Evil"),
+                new DialogueElement("Halloween4", "Evil"),
                 new DialogueElement("Halloween5"),
                 
                 //Xmas
                 new DialogueElement("Xmas1"),
-                new DialogueElement("Xmas2"),
-                new DialogueElement("Xmas3"),
+                new DialogueElement("Xmas2", "Question"),
+                new DialogueElement("Xmas3", "Happy"),
                 new DialogueElement("Xmas4"),
                 new DialogueElement("Xmas5"),
 

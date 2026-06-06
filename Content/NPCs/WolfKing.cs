@@ -22,6 +22,8 @@ namespace ChangedSpecialMod.Content.NPCs
 	{
         private enum ActionState
         {
+            // 0, means he was spawned directly which is not intended
+            Invalid,
             Awake,
             Idle,
             Snap,
@@ -87,6 +89,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void OnSpawn(IEntitySource source)
         {
+            // He was spawned directly instead of WolfKingSpawn. This breaks the fight so we remove him,
+            // check if there is a black latex room in the world and restart the fight
+            NPC.active = false;
+            ChangedUtils.WolfKingSpawnCheck(true);
+
+            /*
             if (NPC.AnyNPCs(ModContent.NPCType<WolfKingSpawn>()))
             {
                 NPC.active = false;
@@ -116,6 +124,27 @@ namespace ChangedSpecialMod.Content.NPCs
                 ChangedUtils.WolfKingSpawnCheck(true);
                 return;
             }
+            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            */
+        }
+
+        private void AfterTransform()
+        {
+            NPC otherWolfKing = null;
+            foreach (var npc in Main.npc)
+            {
+                if (npc.type == ModContent.NPCType<WolfKing>() && npc.active && npc.whoAmI != NPC.whoAmI)
+                {
+                    otherWolfKing = npc;
+                    break;
+                }
+            }
+            if (otherWolfKing != null)
+            {
+                NPC.active = false;
+                return;
+            }
+
             ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
         }
 
@@ -231,6 +260,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
+                AfterTransform();
                 RoomBounds = FindRoomBounds();
                 SwitchAnimation(animIdle);
                 SwitchState(ActionState.Idle);

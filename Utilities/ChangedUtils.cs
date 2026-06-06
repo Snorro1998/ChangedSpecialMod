@@ -1642,6 +1642,13 @@ namespace ChangedSpecialMod.Utilities
 
                             var tmpX = xPos + x;
                             var tmpY = yPos + y;
+
+                            if (tmpX < 0 || tmpX >= Main.maxTilesX)
+                                continue;
+
+                            if (tmpY < 0 || tmpY >= Main.maxTilesY)
+                                continue;
+
                             var tile = Main.tile[tmpX, tmpY];
 
                             if (ChangedUtils.IsBlackLatexWall(tile))

@@ -143,7 +143,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     var target = Main.player[NPC.target];
                     // For some strange reason, projectile damage is doubled
-                    var whipDamage = (int)(NPC.damage * 0.5f);
+                    var whipDamage = (int)(NPC.damage * 0.75f);//0.5
                     Projectile.NewProjectile(
                         NPC.GetSource_FromAI(),
                         NPC.Center,
