@@ -506,6 +506,7 @@ namespace ChangedSpecialMod.Content.NPCs
             randomOffset = 2f;
         }
 
+        /*
         // Immune to white latecis except White tail and squid dog.
         // Even though they are white, they have the gootype none so they can spawn anywhere
         public override bool CanBeHitByNPC(NPC attacker)
@@ -518,6 +519,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 return false;
             return true;
         }
+        */
 
         private void UpdateHatPosition(int frameHeight)
         {

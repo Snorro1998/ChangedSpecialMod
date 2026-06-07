@@ -65,6 +65,9 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             NPC.knockBackResist = 0.5f;
             NPC.housingCategory = 1;
             AnimationType = NPCID.TownBunny;
+            var changedNPC = NPC.Changed();
+            changedNPC.GooType = GooType.White;
+            changedNPC.DefaultHitEffect = true;
         }
 
         /*

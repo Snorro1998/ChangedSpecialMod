@@ -613,6 +613,11 @@ Mods: {
 					Normal4: *Snif* *snif*
 				}
 			}
+
+			ExoSuitRobot: {
+				// DisplayName: Maintenance Robot
+				// Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
+			}
 		}
 
 		BossMessages: {

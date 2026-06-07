@@ -463,6 +463,7 @@ namespace ChangedSpecialMod.Content.NPCs
             return NPC.ai[0] == 5f;
         }
 
+        /*
         public override bool CanBeHitByNPC(NPC attacker)
         {
             var changedNPC = NPC.Changed();
@@ -471,5 +472,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 return false;
             return true;
         }
+        */
     }
 }
