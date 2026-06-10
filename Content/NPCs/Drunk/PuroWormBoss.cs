@@ -123,7 +123,8 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 Color color = new Color(Main.rand.Next(255), Main.rand.Next(255), Main.rand.Next(255));
                 SoundEngine.PlaySound(Assets.Sounds.SoundNom, NPC.Center);
-                CombatText.NewText(new Rectangle((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height), color, "Mmm orange", true);
+                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Dialogue.PuroWorm.Dialogue1");
+                CombatText.NewText(new Rectangle((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height), color, msg, true);
             }
             base.OnHitPlayer(target, hurtInfo);
         }

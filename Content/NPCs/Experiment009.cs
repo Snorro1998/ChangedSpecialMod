@@ -9,6 +9,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Graphics.CameraModifiers;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 
@@ -104,7 +105,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void OnSpawn(IEntitySource source)
         {
-            Main.NewText("This boss fight is an experiment, so don't expect much from it");
+            Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WIPBossFight"));
             NPC.TargetClosest(false);
         }
 

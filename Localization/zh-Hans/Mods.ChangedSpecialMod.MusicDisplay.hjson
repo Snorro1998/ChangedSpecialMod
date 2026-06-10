@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: 噬子
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: 黑色粘液丛林
+	MusicBlackLatexZone2: 猩红水晶矿
+	MusicCrystalZone: 水晶区
+	MusicWhiteLatexZone: 白色粘液丛林
+	MusicLibrary: 图书馆
+	MusicLabSlow: 实验室 (慢的)
+	MusicLab: 实验室
+	MusicVents: 通风管
+	MusicPuro: 普羅黑色粘液
+	MusicGreenhouse: 温室
+	MusicHappyBirthday: 生日歌
+	MusicPuroDance: 普羅之舞
+	MusicRun: 逃跑！
+	MusicWhiteTailChase2: 白尾追逐第二部分
+	# Not 100% sure, because they have no names
+	MusicWolfKing: 狼王
+	MusicBehemoth: 巨人
+	MusicShark: 鲨鱼
+	MusicSquidDog: 鱿鱼狗
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

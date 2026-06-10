@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Utilities;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -16,6 +18,16 @@ namespace ChangedSpecialMod.Content.NPCs
 
             // We make him shoot out lasers like eyezor
             var isEyezor = npc.type == NPCID.Eyezor || npc.type == ModContent.NPCType<ExoSuitRobot>();
+            var isBlackCub = npc.type == ModContent.NPCType<DarkLatexCub>();
+
+            if (isBlackCub && npc.HasValidTarget && npc.velocity.Y == 0 && npc.Distance(Main.player[npc.target].Center) < 2 * 16)
+            {
+                var player = Main.player[npc.target];
+                player.velocity.X /= 2;
+                player.AddBuff(BuffID.Slow, 3 * 60);
+                npc.Transform(ModContent.NPCType<DarkLatexCubSitting>());
+                return;
+            }
 
             if (Main.player[npc.target].position.Y + (float)Main.player[npc.target].height == npc.position.Y + (float)npc.height)
             {
@@ -1024,7 +1036,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     return;
                 }
             }
-            if (npc.type == 428)
+            if (npc.type == NPCID.VortexLarva)
             {
                 npc.localAI[0] += 1f;
                 if (npc.localAI[0] >= 300f)
@@ -1055,7 +1067,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.position -= npc.netOffset;
                 }
             }
-            if (npc.type == 427)
+            if (npc.type == NPCID.VortexHornet)
             {
                 npc.localAI[0] += 1f;
                 npc.localAI[0] += Math.Abs(npc.velocity.X) / 2f;
@@ -1153,16 +1165,16 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 flag6 = false;
             }
-            if (Main.netMode != 1 && npc.type == 198 && (double)npc.life <= (double)npc.lifeMax * 0.55)
+            if (Main.netMode != NetmodeID.MultiplayerClient && npc.type == NPCID.Lihzahrd && (double)npc.life <= (double)npc.lifeMax * 0.55)
             {
                 npc.Transform(199);
             }
-            if (Main.netMode != 1 && npc.type == 348 && (double)npc.life <= (double)npc.lifeMax * 0.55)
+            if (Main.netMode != NetmodeID.MultiplayerClient && npc.type == NPCID.Nutcracker && (double)npc.life <= (double)npc.lifeMax * 0.55)
             {
                 npc.Transform(349);
             }
             int num56 = 60;
-            if (npc.type == 120)
+            if (npc.type == NPCID.ChaosElemental)
             {
                 num56 = 180;
                 if (npc.ai[3] == -120f)
@@ -1195,7 +1207,7 @@ namespace ChangedSpecialMod.Content.NPCs
             }
             bool flag7 = false;
             bool flag8 = true;
-            if (npc.type == NPCID.Yeti || npc.type == NPCID.CorruptBunny || npc.type == NPCID.Crab || npc.type == 109 || npc.type == 110 || npc.type == 111 || npc.type == 120 || npc.type == 163 || npc.type == 164 || npc.type == 239 || npc.type == 168 || npc.type == 199 || npc.type == 206 || npc.type == 214 || npc.type == 215 || npc.type == 216 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 220 || npc.type == 226 || npc.type == 243 || isEyezor || npc.type == 257 || npc.type == 258 || npc.type == 290 || npc.type == 291 || npc.type == 292 || npc.type == 293 || npc.type == 305 || npc.type == 306 || npc.type == 307 || npc.type == 308 || npc.type == 309 || npc.type == 348 || npc.type == 349 || npc.type == 350 || npc.type == 351 || npc.type == 379 || (npc.type >= 430 && npc.type <= 436) || npc.type == 591 || npc.type == 380 || npc.type == 381 || npc.type == 382 || npc.type == 383 || npc.type == 386 || npc.type == 391 || (npc.type >= 449 && npc.type <= 452) || npc.type == 466 || npc.type == 464 || npc.type == 166 || npc.type == 469 || npc.type == 468 || npc.type == NPCID.GoblinSummoner || npc.type == 470 || npc.type == 480 || npc.type == 481 || npc.type == 482 || npc.type == 411 || npc.type == 424 || npc.type == 409 || (npc.type >= 494 && npc.type <= 506) || npc.type == 425 || npc.type == 427 || npc.type == 426 || npc.type == 428 || npc.type == 580 || npc.type == 508 || npc.type == 415 || npc.type == 419 || npc.type == 520 || (npc.type >= 524 && npc.type <= 527) || npc.type == 528 || npc.type == 529 || npc.type == 530 || npc.type == 532 || npc.type == 582 || npc.type == 624 || npc.type == 631)
+            if (npc.type == NPCID.Yeti || npc.type == NPCID.CorruptBunny || npc.type == NPCID.Crab || npc.type == 109 || npc.type == 110 || npc.type == 111 || npc.type == 120 || npc.type == 163 || npc.type == 164 || npc.type == 239 || npc.type == 168 || npc.type == 199 || npc.type == 206 || npc.type == 214 || npc.type == 215 || npc.type == 216 || npc.type == 217 || npc.type == NPCID.CyanBeetle || npc.type == 219 || npc.type == 220 || npc.type == 226 || npc.type == 243 || isEyezor || npc.type == 257 || npc.type == 258 || npc.type == 290 || npc.type == 291 || npc.type == 292 || npc.type == 293 || npc.type == 305 || npc.type == 306 || npc.type == 307 || npc.type == 308 || npc.type == 309 || npc.type == 348 || npc.type == 349 || npc.type == 350 || npc.type == 351 || npc.type == 379 || (npc.type >= 430 && npc.type <= 436) || npc.type == 591 || npc.type == 380 || npc.type == 381 || npc.type == 382 || npc.type == 383 || npc.type == 386 || npc.type == 391 || (npc.type >= 449 && npc.type <= 452) || npc.type == 466 || npc.type == 464 || npc.type == 166 || npc.type == 469 || npc.type == 468 || npc.type == NPCID.GoblinSummoner || npc.type == 470 || npc.type == 480 || npc.type == 481 || npc.type == 482 || npc.type == 411 || npc.type == 424 || npc.type == 409 || (npc.type >= 494 && npc.type <= 506) || npc.type == 425 || npc.type == 427 || npc.type == 426 || npc.type == 428 || npc.type == 580 || npc.type == 508 || npc.type == 415 || npc.type == 419 || npc.type == 520 || (npc.type >= 524 && npc.type <= 527) || npc.type == 528 || npc.type == 529 || npc.type == 530 || npc.type == NPCID.DesertBeast || npc.type == NPCID.LarvaeAntlion || npc.type == NPCID.Gnome || npc.type == NPCID.RockGolem)
             {
                 flag8 = false;
             }
@@ -1209,13 +1221,13 @@ namespace ChangedSpecialMod.Content.NPCs
             bool flag10 = true;
             switch (npc.type)
             {
-                case 110:
-                case 111:
-                case 206:
-                case 214:
-                case 215:
-                case 216:
-                case 291:
+                case NPCID.SkeletonArcher:
+                case NPCID.GoblinArcher:
+                case NPCID.IcyMerman:
+                case NPCID.PirateDeadeye:
+                case NPCID.PirateCrossbower:
+                case NPCID.PirateCaptain:
+                case NPCID.SkeletonSniper:
                 case 292:
                 case 293:
                 case 350:
@@ -1472,11 +1484,11 @@ namespace ChangedSpecialMod.Content.NPCs
                     {
                         //SoundEngine.PlaySound(14, (int)npc.position.X, (int)npc.position.Y);
                     }
-                    if ((npc.type == NPCID.BloodZombie || npc.type == 586) && Main.rand.Next(800) == 0)
+                    if ((npc.type == NPCID.BloodZombie || npc.type == NPCID.ZombieMerman) && Main.rand.Next(800) == 0)
                     {
                         //SoundEngine.PlaySound(14, (int)npc.position.X, (int)npc.position.Y, npc.type);
                     }
-                    if ((npc.type == NPCID.Mummy || npc.type == 79 || npc.type == 80 || npc.type == 630) && Main.rand.Next(500) == 0)
+                    if ((npc.type == NPCID.Mummy || npc.type == NPCID.DarkMummy || npc.type == NPCID.LightMummy || npc.type == NPCID.BloodMummy) && Main.rand.Next(500) == 0)
                     {
                         //SoundEngine.PlaySound(26, (int)npc.position.X, (int)npc.position.Y);
                     }
@@ -1531,7 +1543,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.direction = 1;
                 }
             }
-            if (npc.type == 159 || npc.type == 349)
+            if (npc.type == NPCID.Vampire || npc.type == NPCID.NutcrackerSpinning)
             {
                 if (npc.type == 159 && ((npc.velocity.X > 0f && npc.direction < 0) || (npc.velocity.X < 0f && npc.direction > 0)))
                 {
@@ -1689,7 +1701,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            else if (npc.type == 21 || npc.type == 26 || npc.type == 31 || npc.type == 294 || npc.type == 295 || npc.type == 296 || npc.type == 47 || npc.type == 73 || npc.type == 140 || npc.type == 164 || npc.type == 239 || npc.type == 167 || npc.type == 168 || npc.type == 185 || npc.type == 198 || npc.type == 201 || npc.type == 202 || npc.type == 203 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 226 || npc.type == 181 || npc.type == 254 || npc.type == 338 || npc.type == 339 || npc.type == 340 || npc.type == 342 || npc.type == 385 || npc.type == 389 || npc.type == 462 || npc.type == 463 || npc.type == 466 || npc.type == 464 || npc.type == 469 || npc.type == 470 || npc.type == 480 || npc.type == 482 || npc.type == 425 || npc.type == 429 || npc.type == 586 || npc.type == 631 || npc.type == 635)
+            else if (npc.type == 21 || npc.type == 26 || npc.type == 31 || npc.type == 294 || npc.type == 295 || npc.type == 296 || npc.type == 47 || npc.type == NPCID.GoblinScout || npc.type == 140 || npc.type == 164 || npc.type == 239 || npc.type == 167 || npc.type == 168 || npc.type == 185 || npc.type == 198 || npc.type == 201 || npc.type == 202 || npc.type == 203 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 226 || npc.type == 181 || npc.type == 254 || npc.type == 338 || npc.type == 339 || npc.type == 340 || npc.type == 342 || npc.type == 385 || npc.type == 389 || npc.type == 462 || npc.type == 463 || npc.type == 466 || npc.type == 464 || npc.type == 469 || npc.type == 470 || npc.type == 480 || npc.type == 482 || npc.type == 425 || npc.type == 429 || npc.type == 586 || npc.type == 631 || npc.type == 635 || isBlackCub)
             {
                 float num80 = 1.5f;
                 if (npc.type == 181 && Main.remixWorld)
@@ -3049,7 +3061,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     num141 = 15f / num141;
                     num139 *= num141;
                     num140 *= num141;
-                    int projectileDamage = 30;
+                    int projectileDamage = npc.damage / 2; //30;
                     int num143 = 83;
                     vector34.X += num139 * 3f;
                     vector34.Y += num140 * 3f;
@@ -3826,7 +3838,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         }
                     }
                 }
-                if (npc.type == 520)
+                if (npc.type == NPCID.MartianWalker)
                 {
                     npc.localAI[2] += 1f;
                     if (npc.localAI[2] >= 6f)
@@ -3836,7 +3848,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            if (npc.type == NPCID.Clown && Main.netMode != 1 && !Main.player[npc.target].dead)
+            if (npc.type == NPCID.Clown && Main.netMode != NetmodeID.MultiplayerClient && !Main.player[npc.target].dead)
             {
                 if (npc.justHit)
                 {
@@ -3897,11 +3909,11 @@ namespace ChangedSpecialMod.Content.NPCs
                     return;
                 }
             }
-            if (npc.type == 428)
+            if (npc.type == NPCID.VortexLarva)
             {
                 flag5 = false;
             }
-            if (npc.velocity.Y >= 0f && (npc.type != 580 || npc.directionY != 1))
+            if (npc.velocity.Y >= 0f && (npc.type != NPCID.WalkingAntlion || npc.directionY != 1))
             {
                 int num188 = 0;
                 if (npc.velocity.X < 0f)
@@ -3959,7 +3971,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         {
                             float num192 = vector39.Y + (float)npc.height - num191;
                             float num193 = 16.1f;
-                            if (npc.type == 163 || npc.type == 164 || npc.type == 236 || npc.type == 239 || npc.type == 530)
+                            if (npc.type == NPCID.BlackRecluse || npc.type == NPCID.WallCreeper || npc.type == NPCID.JungleCreeper || npc.type == NPCID.BloodCrawler || npc.type == NPCID.DesertScorpionWalk)
                             {
                                 num193 += 8f;
                             }
@@ -3984,7 +3996,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 int num194 = (int)((npc.position.X + (float)(npc.width / 2) + (float)(15 * npc.direction)) / 16f);
                 int num195 = (int)((npc.position.Y + (float)npc.height - 15f) / 16f);
-                if (npc.type == NPCID.Clown || npc.type == 163 || npc.type == 164 || npc.type == 199 || npc.type == 236 || npc.type == 239 || npc.type == 257 || npc.type == 258 || npc.type == 290 || npc.type == 391 || npc.type == 425 || npc.type == 427 || npc.type == 426 || npc.type == 580 || npc.type == 508 || npc.type == 415 || npc.type == 530 || npc.type == 532 || npc.type == 582)
+                if (npc.type == NPCID.Clown || npc.type == NPCID.BlackRecluse || npc.type == 164 || npc.type == 199 || npc.type == 236 || npc.type == 239 || npc.type == 257 || npc.type == 258 || npc.type == 290 || npc.type == 391 || npc.type == 425 || npc.type == 427 || npc.type == 426 || npc.type == 580 || npc.type == 508 || npc.type == 415 || npc.type == 530 || npc.type == 532 || npc.type == 582)
                 {
                     num194 = (int)((npc.position.X + (float)(npc.width / 2) + (float)((npc.width / 2 + 16) * npc.direction)) / 16f);
                 }
@@ -4029,7 +4041,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.ai[3] = 0f;
                     if (npc.ai[2] >= 60f)
                     {
-                        bool flag23 = npc.type == NPCID.Zombie || npc.type == 430 || npc.type == 590 || npc.type == 331 || npc.type == 332 || npc.type == 132 || npc.type == 161 || npc.type == 186 || npc.type == 187 || npc.type == 188 || npc.type == 189 || npc.type == 200 || npc.type == 223 || npc.type == 320 || npc.type == 321 || npc.type == 319 || npc.type == 21 || npc.type == 324 || npc.type == 323 || npc.type == 322 || npc.type == 44 || npc.type == 196 || npc.type == 167 || npc.type == 77 || npc.type == 197 || npc.type == 202 || npc.type == 203 || npc.type == 449 || npc.type == 450 || npc.type == 451 || npc.type == 452 || npc.type == 481 || npc.type == 201 || npc.type == 635;
+                        bool flag23 = npc.type == NPCID.Zombie || npc.type == NPCID.ArmedZombie || npc.type == NPCID.TorchZombie || npc.type == NPCID.ZombieXmas || npc.type == NPCID.ZombieSweater || npc.type == NPCID.BaldZombie || npc.type == NPCID.ZombieEskimo || npc.type == 186 || npc.type == 187 || npc.type == NPCID.SwampZombie || npc.type == 189 || npc.type == NPCID.FemaleZombie || npc.type == 223 || npc.type == 320 || npc.type == 321 || npc.type == 319 || npc.type == 21 || npc.type == 324 || npc.type == 323 || npc.type == 322 || npc.type == NPCID.UndeadMiner || npc.type == 196 || npc.type == 167 || npc.type == NPCID.ArmoredSkeleton || npc.type == 197 || npc.type == 202 || npc.type == 203 || npc.type == 449 || npc.type == 450 || npc.type == 451 || npc.type == 452 || npc.type == NPCID.GreekSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.SporeSkeleton;
                         bool flag24 = Main.player[npc.target].ZoneGraveyard && Main.rand.Next(60) == 0;
                         if ((!Main.bloodMoon || Main.getGoodWorld) && !flag24 && flag23)
                         {
@@ -4037,16 +4049,16 @@ namespace ChangedSpecialMod.Content.NPCs
                         }
                         npc.velocity.X = 0.5f * (float)(-npc.direction);
                         int num196 = 5;
-                        if (Main.tile[num194, num195 - 1].TileType == 388)
+                        if (Main.tile[num194, num195 - 1].TileType == TileID.TallGateClosed)
                         {
                             num196 = 2;
                         }
                         npc.ai[1] += num196;
-                        if (npc.type == 27)
+                        if (npc.type == NPCID.GoblinThief)
                         {
                             npc.ai[1] += 1f;
                         }
-                        if (npc.type == NPCID.AngryBones || npc.type == 294 || npc.type == 295 || npc.type == 296)
+                        if (npc.type == NPCID.AngryBones || npc.type == NPCID.AngryBonesBig || npc.type == 295 || npc.type == 296)
                         {
                             npc.ai[1] += 6f;
                         }
@@ -4057,14 +4069,14 @@ namespace ChangedSpecialMod.Content.NPCs
                             flag25 = true;
                             npc.ai[1] = 10f;
                         }
-                        if (npc.type == 460)
+                        if (npc.type == NPCID.Butcher)
                         {
                             flag25 = true;
                         }
                         WorldGen.KillTile(num194, num195 - 1, fail: true);
                         if ((Main.netMode != 1 || !flag25) && flag25 && Main.netMode != 1)
                         {
-                            if (npc.type == 26)
+                            if (npc.type == NPCID.GoblinPeon)
                             {
                                 WorldGen.KillTile(num194, num195 - 1);
                                 if (Main.netMode == 2)

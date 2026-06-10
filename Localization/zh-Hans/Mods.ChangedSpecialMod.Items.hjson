@@ -1,0 +1,729 @@
+Painting1: {
+	DisplayName: 傻乎乎的绒球
+	Tooltip: 长大之前都很可爱
+}
+
+Painting2: {
+	DisplayName: 狼王
+	Tooltip: 一头强大的野兽
+}
+
+Painting3: {
+	DisplayName: 橙子的作用
+	Tooltip: 健康
+}
+
+Painting4: {
+	DisplayName: 嘘……
+	Tooltip: 安静点，否则他们会找到你。
+}
+
+Painting5: {
+	DisplayName: 喜剧
+	Tooltip: 哈哈哈哈！
+}
+
+Painting6: {
+	DisplayName: 黑暗忍者
+	Tooltip: 史诗
+}
+
+Painting7: {
+	DisplayName: 拥抱
+	Tooltip: 可爱的
+}
+
+Painting8: {
+	DisplayName: 点心时间
+	Tooltip: 可口
+}
+
+Painting9: {
+	DisplayName: 普羅黑粘液
+	Tooltip: 可爱的
+}
+
+Painting10: {
+	DisplayName: 法棍面包
+	Tooltip: 可口的
+}
+
+Painting11: {
+	DisplayName: 鱿鱼狗
+	Tooltip: 一种危险的软体动物
+}
+
+Painting12: {
+	DisplayName: 雪豹
+	Tooltip: 冷静的
+}
+
+Painting13: {
+	DisplayName: 捕捉
+	Tooltip: 哦不
+}
+
+DrunkPainting1: {
+	DisplayName: 橙子子
+	Tooltip: 嗯
+}
+
+DrunkPainting2: {
+	DisplayName: 鲨鱼
+	Tooltip: 德普
+}
+
+DrunkPainting3: {
+	DisplayName: 乌贼犬犬
+	Tooltip: 德普
+}
+
+DrunkPainting4: {
+	DisplayName: 普羅羅羅
+	Tooltip: 德普
+}
+
+MusicBoxLab: {
+	DisplayName: 音乐盒 (实验室)
+	Tooltip: 噬子
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: 黑色粘液横幅
+}
+
+SquidDogBanner: {
+	DisplayName: 乌贼犬横幅
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: 电梯
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: 普羅毛绒玩具
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: 篮球 (可放置)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: 虎鲨毛绒玩具
+}
+
+Orange: {
+	DisplayName: 橙子
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: 黑色粘液块
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: 危险的方块
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: 干燥的泥土块
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: 蓝色气体罐
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: 蓝色办公椅
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: 文件纸
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: 发电机
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: 绿色办公椅
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: 虹膜扫描仪
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: 实验室门
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: 实验室工作台
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: 书山
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: 音乐盒 (水晶区)
+	Tooltip: 噬子
+}
+
+PackingBox: {
+	DisplayName: 包装盒
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: 包装盒钥匙
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: 红色气罐
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: 红色办公椅
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: 一堆箱子
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: 储物盒
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: 储物箱钥匙
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: 白色粘液书架
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: 实验室瓷砖
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: 白色粘液块
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: 烂橙子
+	Tooltip: 携带这个就足以看到奇怪的事情。
+}
+
+TigerPaw: {
+	DisplayName: 绯红之爪
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: 百科全书
+	Tooltip: 感受知识的重量
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: 恐怖号角
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: 软体动物鞭
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: 温迪戈横幅
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: 绯红之虎横幅
+}
+
+BlackGoopBanner: {
+	DisplayName: 黑色的水坑横幅
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: 白色的水坑横幅
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: 德国牧羊犬横幅
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: 黏糊糊的马蹄铁
+	Tooltip: 召唤一只可骑乘的白色史莱姆坐骑
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: 黑翅
+	Tooltip: 召唤一头可骑乘的与锋坐骑
+}
+
+Literature: {
+	DisplayName: 文学
+	Tooltip: 充满热门话题
+}
+
+WhiskerStaff: {
+	DisplayName: 猫须魔杖
+	Tooltip: 召唤一只猫为你而战
+}
+
+PurrpurrBanner: {
+	DisplayName: 紫呼噜猫横幅
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: 书雨
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: 喷壶
+}
+
+MusicBoxPuro: {
+	DisplayName: 音乐盒 (普羅黑色粘液)
+	Tooltip: 噬子
+}
+
+MusicBoxPuroDance: {
+	DisplayName: 音乐盒 (普羅之舞)
+	Tooltip: 噬子
+}
+
+PurrpurrStaff: {
+	Tooltip: 召唤一只巨大的紫色猫为你而战
+	DisplayName: 紫呼噜猫魔杖
+}
+
+TabbyStaff: {
+	Tooltip: 召唤一只大型虎斑猫为你而战
+	DisplayName: 虎斑猫魔杖
+}
+
+FennecPlush: {
+	DisplayName: 耳廓狐毛绒玩具
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: 双触手
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: 巨型粉碎机
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: 碎纸机
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: 触手三人组
+}
+
+Bashskewer: {
+	DisplayName: 巴什烤肉串
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: 恶魔尖刺
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: 高山帽
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: 此项没有其他功能；它仅在将鼠标光标移动到电梯上时使用。
+	DisplayName: 图标电梯向上
+}
+
+ElevatorDown: {
+	Tooltip: 此项没有其他功能；它仅在将鼠标光标移动到电梯上时使用。
+	DisplayName: 图标电梯下行
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: 音乐盒 (生日歌)
+	Tooltip: 噬子
+}
+
+MusicBoxLibrary: {
+	DisplayName: 音乐盒 (图书馆)
+	Tooltip: 噬子
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: 音乐盒 (白色粘液丛林)
+	Tooltip: 噬子
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: 音乐盒 (猩红水晶矿)
+	Tooltip: 噬子
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: 音乐盒 (黑色粘液丛林)
+	Tooltip: 噬子
+}
+
+MusicBoxWolfKing: {
+	DisplayName: 音乐盒 (狼王)
+	Tooltip: 噬子
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: 与锋小狗横幅
+}
+
+SummonWolfKing: {
+	Tooltip: 召唤狼王
+	DisplayName: 奇怪的旋转椅
+}
+
+SummonBehemoth: {
+	Tooltip: 召唤庞然大物
+	DisplayName: 巨手
+}
+
+DebugResetBosses: {
+	DisplayName: 重置首领战进度
+	Tooltip: 重置所有《Changed》首领的进度
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: 壁扇
+}
+
+Painting14: {
+	Tooltip: 呼呼
+	DisplayName: 狼穴
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: 音乐盒 (温室)
+	Tooltip: 噬子
+}
+
+MusicBoxLabSlow: {
+	DisplayName: 音乐盒 (慢的)
+	Tooltip: 噬子
+}
+
+MusicBoxVents: {
+	Tooltip: 噬子
+	DisplayName: 音乐盒 (通风管)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: 白色粘液横幅
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: 储物柜
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: 玩具积木
+}
+
+MusicBoxBehemoth: {
+	Tooltip: 噬子
+	DisplayName: 音乐盒 (巨人)
+}
+
+SummonWhiteTail: {
+	Tooltip: 召唤白尾
+	DisplayName: 可疑的粘液球
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: 是的
+	DisplayName: 生成所有角色
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: 白水晶
+}
+
+CrystalGreen: {
+	DisplayName: 绿晶
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: 红水晶
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: 白色柱子
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: 啊呜
+	DisplayName: 夜之生物
+}
+
+Painting16: {
+	DisplayName: 科学家
+	Tooltip: 幽灵般的
+}
+
+Painting17: {
+	DisplayName: 睡狐
+	Tooltip: 别叫醒他
+}
+
+Painting18: {
+	DisplayName: 粘粘世界
+	Tooltip: 建造桥梁
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: 音乐盒 (白尾)
+	Tooltip: 噬子
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: 冷冻舱
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: 图片 (普羅)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: 图片 (黑色粘液)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: 图片 (塔外)
+}
+
+Pictures4: {
+	DisplayName: 图片 (走廊)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: 图片 (细菌)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: 图片 (朋友们)
+}
+
+BlackSyringe: {
+	DisplayName: 黑色注射器
+	Tooltip:
+		'''
+		- 把你变成一团黑色黏液
+		- 提供对黑粘液的免疫力
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: 白色注射器
+	Tooltip:
+		'''
+		- 把你变成一团白色黏液
+		- 能够免疫白色粘液
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: 篮球
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: 迪斯科水晶
+	Tooltip: 携带此物会让水晶像迪斯科灯一样闪烁。
+}
+
+BlackLatexSolution: {
+	DisplayName: 黑色粘液溶液
+	Tooltip: 它会扩散黑色粘液区域
+}
+
+WhiteLatexSolution: {
+	DisplayName: 白色粘液溶液
+	Tooltip: 它会扩散白色粘液区域
+}
+
+DryDirtSolution: {
+	DisplayName: 干燥污垢溶液
+	Tooltip: 它蔓延开来，城市废墟遍布。
+}
+
+OrangeStatue: {
+	DisplayName: 橙色雕像
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: 太阳镜
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: 鱿鱼狗注射器
+	Tooltip:
+		'''
+		- 把你变成一只鱿鱼狗
+		- 可以使用“能力”键伸出触手
+		- 使你能够在水下呼吸
+		'''
+}
+
+BlackLatexSand: {
+	DisplayName: 黑色黏糊糊的沙子
+	Tooltip:
+		'''
+		可与沙枪配合使用
+		- 将小动物和黏液变成水坑
+		- 使黑色粘液怪兽进化
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: 白色黏糊糊的沙子
+	Tooltip:
+		'''
+		可与沙枪配合使用
+		- 将小动物和黏液变成水坑
+		- 使白色粘液怪兽进化
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: 超级注射器
+	Tooltip: 把你变成任何史莱姆怪兽
+}
+
+SummonExperiment009: {
+	DisplayName: 召唤实验体009号首领
+	Tooltip: 不完整。 来自 Minecraft 模组“Changed Addon Plus mod”.
+}
+
+SummonShark: {
+	DisplayName: 召唤鲨鱼首领
+	Tooltip: 不完整。
+}
+
+SweeperItem: {
+	DisplayName: 扫地机器人
+	Tooltip: 清洁专家
+}
+
+SweeperPuroItem: {
+	DisplayName: 普羅吸尘器
+	Tooltip: 速度恶魔
+}
+
+Paper: {
+	DisplayName: 纸
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: 普羅吸尘器
+	Tooltip: 速度恶魔
+}
+
+BlackLatexCubLicense: {
+	DisplayName: 黑色粘液小狗证
+	UseLicense: 驾照瞬间被传送到了送狗服务公司……
+	Tooltip: 用它来领养一只黑色粘液小狗到你的城镇
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: 白色粘液小狗证
+	UseLicense: 驾照瞬间被传送到了送狗服务公司……
+	Tooltip: 用它来领养一只白色粘液小狗到你的城镇
+}
+
+Calendar: {
+	DisplayName: 日历
+	Tooltip: 允许您更改当前季节。
+}
+
+SombreroHat: {
+	DisplayName: 墨西哥帽
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: 天堂
+	Tooltip: 梦想成真
+}
+
+DrunkPainting6: {
+	DisplayName: 柑橘类股票
+	Tooltip: 巨额利润
+}

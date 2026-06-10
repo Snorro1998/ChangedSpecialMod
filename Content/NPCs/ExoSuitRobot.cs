@@ -32,7 +32,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.width = 18;
             NPC.height = 40;
-            NPC.damage = 40;
+            NPC.damage = 35;//40
             NPC.defense = 12;
             NPC.lifeMax = 300;
             NPC.HitSound = SoundID.NPCHit4;
@@ -59,18 +59,53 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
+            bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.ExoSuitRobot.Description")),
+                new NPCPortraitInfoElement(3),
+                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.ExoSuitRobot.Description")),
             });
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Hotdog, 5));
-            npcLoot.Add(ItemDropRule.Common(ItemID.DogWhistle, 10));
-            npcLoot.Add(ItemDropRule.Common(ItemID.DogEars, 20));
-            npcLoot.Add(ItemDropRule.Common(ItemID.DogTail, 20));
+            // Only sold by the travelling merchant
+            npcLoot.Add(ItemDropRule.Common(ItemID.DPSMeter, 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.Stopwatch, 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.LifeformAnalyzer, 20));
+
+            npcLoot.Add(ItemDropRule.Common(ItemID.Radar, 20));
+            /*
+            npcLoot.Add(ItemDropRule.Common(ItemID.TallyCounter, 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.MetalDetector, 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.Compass, 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.DepthMeter, 20));
+            */
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (NPC.life <= 0)
+            {
+                for (int k = 0; k < 30; k++)
+                {
+                    var dustID = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.HeatRay, hit.HitDirection, -1f, 0, default, 1f);
+                    if (dustID != -1)
+                    {
+                        var dust = Main.dust[dustID];
+                        dust.scale *= 4;
+                    }
+                }
+
+                if (!Main.dedServ)
+                {
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExoSuitRobot1").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExoSuitRobot2").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExoSuitRobot3").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExoSuitRobot4").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ExoSuitRobot5").Type, 1f);
+                }
+            }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -79,7 +114,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0f;
 
             var changedNPC = NPC.Changed();
-            return 0.4f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

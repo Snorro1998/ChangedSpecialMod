@@ -88,7 +88,6 @@ namespace ChangedSpecialMod.Common.Systems
         /// <param name="overWriteSeason"></param>
         public static void SetSeason(SeasonalEvent overWriteSeason = SeasonalEvent.Invalid, bool announce = false)
         {
-            //Main.NewText("setseason " + announce.ToString());
             string eventName = null;
 
             // Overwriting the season
@@ -174,8 +173,6 @@ namespace ChangedSpecialMod.Common.Systems
 
             if (eventNames.ContainsKey(season))
                 eventName = eventNames[season];
-
-            //Main.NewText("setseason " + (eventName != null ? eventName : "error"));
 
             if (eventName != null && announce)
             {

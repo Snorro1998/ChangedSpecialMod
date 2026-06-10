@@ -1,6 +1,7 @@
 using ChangedSpecialMod.Common.Systems;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Debug
@@ -19,7 +20,7 @@ namespace ChangedSpecialMod.Content.Items.Debug
 
         public override bool? UseItem(Player player)
         {
-            Main.NewText("Changed boss progression reset!");
+            Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.BossProgressionReset"));
             DownedBossSystem.DownedWolfKing = false;
             DownedBossSystem.DownedWhiteTail = false;
             DownedBossSystem.DownedBehemoth = false;

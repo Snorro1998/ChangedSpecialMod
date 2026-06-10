@@ -73,5 +73,7 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundBalloon = new(Sound("Balloon"));       // Gas tank flying
         public static readonly SoundStyle SoundNom = new(Sound("Nom"));               // Hungry locker and Puro worm
         public static readonly SoundStyle SoundAroo = new(Sound("Aroo"));             // Cheerleaders on the drunk world seed
+        public static readonly SoundStyle SoundGroanTube1 = new(Sound("GroanTube1")); // Cub sitting down
+        public static readonly SoundStyle SoundGroanTube2 = new(Sound("GroanTube2")); // Cub standing up
     }
 }

@@ -136,7 +136,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AITimer++;
 
-            if (AITimer == 1)
+            if (AITimer == 1 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int type = ModContent.NPCType<Behemoth>();
                 NPC.NewNPC(NPC.GetSource_FromAI(), 0, 0, type);

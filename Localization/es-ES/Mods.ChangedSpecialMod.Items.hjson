@@ -717,3 +717,13 @@ SombreroHat: {
 	DisplayName: Sombrero de charro
 	// Tooltip: ""
 }
+
+DrunkPainting5: {
+	DisplayName: Paraíso
+	Tooltip: Vivir el sueño
+}
+
+DrunkPainting6: {
+	DisplayName: Acciones de Cítricos
+	Tooltip: Grandes ganancias
+}

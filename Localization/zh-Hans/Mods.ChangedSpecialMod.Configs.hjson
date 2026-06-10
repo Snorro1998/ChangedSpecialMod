@@ -1,0 +1,92 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: 客户端配置
+
+	TransfurSound: {
+		Label: 同化音
+		Tooltip: 如果应该播放同化音效。
+	}
+
+	WhipCrackSound: {
+		Tooltip: 如果武器能发出鞭子抽打的声音。
+		Label: 鞭子抽打声
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: 角色可以谈论《Changed》。
+		Label: 角色可以使用《Changed》表情
+	}
+
+	ExtraDialogue: {
+		Tooltip: 是否应该为《Terraria》中的普通角色添加更多对话。
+		Label: 额外对话
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:声音的]"
+		Misc: "[c/ffeb6e:各种各样的]"
+		WorldGeneration: "[c/ffeb6e:世界世代]"
+		Transfur: "[c/ffeb6e:转型]"
+		Npc: "[c/ffeb6e:人物]"
+	}
+
+	NumberOfLabs: {
+		Label: 实验室数量
+		Tooltip:
+			'''
+			世界每边的实验室数量。
+			默认值 1 将在小型和中型世界中生成 1 
+			个实验室，在大型世界中生成 2 个实验室。
+			警告：在小型世界中使用过大的值可能会导致游戏崩溃。
+			'''
+	}
+
+	MaximumFloors: {
+		Label: 最大楼层数
+		Tooltip: 实验室的最大楼层数。
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: 水平方向房间数量最多
+		Tooltip: 实验室在水平方向上最多可以有的房间数。
+	}
+
+	LatexSpread: {
+		Label: 粘液蔓延
+		Tooltip: 如果史莱姆在困难模式下可以蔓延到其他方块上。
+	}
+
+	LatexSpreadChance: {
+		Label: 粘液扩散几率
+		Tooltip: 在困难模式下，史莱姆有 1/X 的概率会蔓延到其他方块上。
+	}
+
+	DebugItems: {
+		Label: 调试项
+		Tooltip: 如果启用此功能，K博士将出售调试物品。
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: 史莱姆可以同化玩家
+		Tooltip: 被史莱姆杀死后，大多数情况下你会变成史莱姆。
+	}
+
+	CustomHealthBar: {
+		Label: 自定义生命条
+		Tooltip: 当玩家变身时，生命条会以不同的颜色显示。
+	}
+
+	Evolution: {
+		Label: 进化
+		Tooltip: 每击败一个 Boss，史莱姆就会变得更大更强。
+	}
+
+	DialoguePortraits: {
+		Label: 人物肖像
+		Tooltip:
+			'''
+			如果这个模组中的角色在对话时会显示头像。
+			如果安装了"Boulder Backport"，则此设置将被忽略，
+			并改用其选项"Modded Town NPC Portraits"。
+			'''
+	}
+}

@@ -274,6 +274,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.DrunkPainting2>()
                 .Add<Items.Placeable.Furniture.DrunkPainting3>()
                 .Add<Items.Placeable.Furniture.DrunkPainting4>()
+                .Add<Items.Placeable.Furniture.DrunkPainting5>()
+                .Add<Items.Placeable.Furniture.DrunkPainting6>()
                 .Register();
 
             new NPCShop(Type, Shops[2].InternalName)

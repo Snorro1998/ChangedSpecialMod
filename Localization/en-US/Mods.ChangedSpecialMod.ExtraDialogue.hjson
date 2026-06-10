@@ -114,7 +114,7 @@ Golfer: {
 	NPC: {
 		Puro: None
 		Prototype: None
-		Scientist: Can you keep a secret? I accidentally broke some of Doctor K's stuff when I was golfing in his room.
+		Scientist: Can you keep a secret? I accidentally broke some of Doctor K's stuff while I was golfing in his room.
 	}
 
 	Transfur: {
@@ -130,7 +130,7 @@ Guide: {
 	NPC: {
 		Puro: None
 		Prototype: None
-		Scientist: If you want to learn more about the goo monsters, Doctor K is your best bet.
+		Scientist: If you want to learn more about the goo monsters, Doctor K is your best choice.
 	}
 
 	Transfur: {
@@ -193,15 +193,15 @@ Painter: {
 PartyGirl: {
 	NPC: {
 		Puro: I love to party with Puro! He is a real party animal!
-		Prototype: "{NamePrototype} is a real party machine. He can play music and function as a disco ball at the same time."
+		Prototype: "{NamePrototype} is a real party machine. He can play music and act as a disco ball at the same time."
 		Scientist: None
 	}
 
 	Transfur: {
 		BlackGoop: Wow, the chocolate cake is moving! Now that is a cool party trick!
 		WhiteGoop: Wow, the cake is moving! Now that is a cool party trick!
-		BlackCub: Hello! Did you come for the pet party?
-		WhiteCub: Hello! Did you come for the pet party?
+		BlackCub: Hello! Are you here for the pet party?
+		WhiteCub: Hello! Are you here for the pet party?
 		SquidDog: Let's dance! Give me your hand! Or both hands. Uh, or... four hands?
 	}
 }
@@ -225,15 +225,15 @@ Pirate: {
 SantaClaus: {
 	NPC: {
 		Puro: I can give almost anything as a gift, and then there is that one person who has put nothing but oranges on their wish list.
-		Prototype: My elves should make a toy version of {NamePrototype}. I'm sure kids will love it.
+		Prototype: My elves should make a toy version of {NamePrototype}. I'm sure the kids will love it.
 		Scientist: I will add Doctor K to the naughty list, because he does not believe in me.
 	}
 
 	Transfur: {
 		BlackGoop: None
 		WhiteGoop: None
-		BlackCub: Maybe I should put you inside a present and give it to someone who wants a puppy for Christmas.
-		WhiteCub: Maybe I should put you inside a present and give it to someone who wants a puppy for Christmas.
+		BlackCub: Perhaps I should put you in a gift box and give you to someone who wants a puppy for Christmas.
+		WhiteCub: Perhaps I should put you in a gift box and give you to someone who wants a puppy for Christmas.
 		SquidDog: I don't know who you are, but you are definitely on the naughty list!
 	}
 }

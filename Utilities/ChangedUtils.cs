@@ -1445,9 +1445,6 @@ namespace ChangedSpecialMod.Utilities
                     projectile.velocity.Y = 10f;
                 }
             }
-
-            //if (testFlag)
-            //    Main.NewText("testflag hit");
         }
 
         public static void SpawnWolfKing(int tmpX, int tmpY, Player player)

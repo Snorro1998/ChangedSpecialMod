@@ -34,8 +34,11 @@ Mods: {
 		}
 
 		Messages: {
-			SpawnPointSet: Spawn point set! No it doesn't work yet unfortunately :(
-			SpawnPointRemoved: Spawn point removed! No it doesn't work yet unfortunately :(
+			TogglePower: Use the switch to turn the power on and off.
+			BossProgressionReset: Changed boss progression reset!
+			WolfKingCanSpawn: You hear distant howls from the laboratory...
+			BehemothCanSpawn: Something stirs in the White Goo zone...
+			WIPBossFight: This boss fight is still being developed, so don't expect much for now.
 		}
 
 		NPCs: {
@@ -90,7 +93,7 @@ Mods: {
 					Orange1: What's your favorite color? My favorite color is orange.
 					Orange2: Mmmm *munch* orange *munch* Oh, hello human.
 					Orange3: I don't have a favorite child but if I did, it would be this orange.
-					Orange4: Last night I dreamt I was in a ball pit full of oranges.
+					Orange4: Last night I dreamt I was in a ball pit filled with oranges.
 					Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
 					Orange6: I know everything about oranges, so you could say I am a citrus connoisseur!
 					Crimson1: "{Crimson}Did you know that some trees in the Crimson grow blood oranges? Do you think you could get me one?"
@@ -215,11 +218,11 @@ Mods: {
 					Oktoberfest4: "{Oktoberfest}In the Bratwurst-case scenario, I have to do this experiment all over again."
 					# Spooky Scary Skeletons
 					Halloween1: "{Halloween}Spooky scary scientists will haunt you in your dreams!"
-					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp and my eyes are glowing red."
+					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp, and my eyes gleam red."
 					Halloween3: "{Halloween}If you inhale the fumes from this beaker, you'll look more terrifying than in any Halloween costume."
-					Halloween4: "{Halloween}To be a succesful doctor like me you need to have... Brainz! BRAINZZZ!"
+					Halloween4: "{Halloween}To be a successful doctor like me you need to have... Brainz! BRAINZZZ!"
 					Xmas1: "{Xmas}A wishlist for Santa? No, I don't believe in him. I believe in science."
-					Xmas2: "{Xmas}What do you think of this chemical cocktail? Isn't it beautiful? It has even more colors than a Christmas tree!"
+					Xmas2: "{Xmas}What do you think of this chemical mixture? Isn't it beautiful? Its colors are even more vibrant than a Christmas tree!"
 					Xmas3: "{Xmas}Outside there is some snow, my beaker starts to glow. It's getting really hot. But we carry on, why not! It blew up in my face, and wrecked my own workplace. But the resulting goo is a massive breakthrough!"
 					Xmas4: "{Xmas}If I had a carrot for a nose, they would mistake me for a snowman."
 
@@ -278,6 +281,8 @@ Mods: {
 						NearlyDead3: ... --- ...
 					}
 				}
+
+				PuroWorm.Dialogue1: Mmm orange
 			}
 
 			Prototype: {
@@ -325,7 +330,7 @@ Mods: {
 
 			WingedDarkLatex: {
 				DisplayName: Yufeng
-				Description: This dragon-like beast has grown too large to fly, but it can still run faster than almost any other creature thanks to its strong legs.
+				Description: This dragon-like beast has grown too big to fly, but thanks to its powerful legs, it can still run faster than almost any other creature.
 			}
 
 			FlyingDarkLatex: {
@@ -355,7 +360,7 @@ Mods: {
 
 			Bloodstripe: {
 				DisplayName: Bloodstripe
-				Description: This huge, hulking tiger can break anything in half with its paws.
+				Description: This huge, hulking tiger can crush anything with its paws.
 			}
 
 			Wendigo: {
@@ -529,7 +534,7 @@ Mods: {
 
 			FlightLatex: {
 				DisplayName: Flight Latex
-				Description: Flying on a carpet.
+				Description: Flying on a magic carpet.
 			}
 
 			SnackLatex: {
@@ -618,11 +623,8 @@ Mods: {
 				DisplayName: Maintenance Robot
 				Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
 			}
-		}
 
-		BossMessages: {
-			WolfKingCanSpawn: You hear distant howls from the laboratory...
-			BehemothCanSpawn: Something stirs in the White Goo zone...
+			DarkLatexCubSitting.DisplayName: Dark Latex Cub
 		}
 
 		Emotes: {

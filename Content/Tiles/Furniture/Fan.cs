@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -57,7 +58,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
         public override bool RightClick(int i, int j)
         {
-            Main.NewText("Use the switch to toggle the power");
+            Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.TogglePower"));
             SoundEngine.PlaySound(Assets.Sounds.SoundBuzzer2);
             return true;
         }

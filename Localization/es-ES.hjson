@@ -34,8 +34,11 @@ Mods: {
 		}
 
 		Messages: {
-			SpawnPointSet: ¡Punto de aparición establecido! Lamentablemente, aún no funciona. :(
-			SpawnPointRemoved: ¡Punto de aparición eliminado! Lamentablemente, todavía no funciona. :(
+			TogglePower: Utilice el interruptor para encender y apagar la electricidad.
+			BossProgressionReset: ¡La progresión del jefe se ha restablecido!(
+			WolfKingCanSpawn: Se oyen aullidos lejanos procedentes del laboratorio....
+			BehemothCanSpawn: Algo se agita en la Zona de Látex Blanco...
+			WIPBossFight: Esta batalla contra el jefe aún está en desarrollo, así que no esperen mucho por ahora.
 		}
 
 		NPCs: {
@@ -278,6 +281,8 @@ Mods: {
 						NearlyDead3: ... --- ...
 					}
 				}
+
+				PuroWorm.Dialogue1: Mmmm naranja
 			}
 
 			Prototype: {
@@ -355,7 +360,7 @@ Mods: {
 
 			Bloodstripe: {
 				DisplayName: Sangreraya
-				Description: Este enorme y corpulento tigre puede partir cualquier cosa por la mitad con sus garras.
+				Description: Este enorme y corpulento tigre puede aplastar cualquier cosa con sus garras.
 			}
 
 			Wendigo: {
@@ -618,11 +623,8 @@ Mods: {
 				// DisplayName: Maintenance Robot
 				// Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
 			}
-		}
 
-		BossMessages: {
-			WolfKingCanSpawn: Se oyen aullidos lejanos procedentes del laboratorio....
-			BehemothCanSpawn: Algo se agita en la Zona de Látex Blanco...
+			DarkLatexCubSitting.DisplayName: Cachorro de Látex Negro
 		}
 
 		Emotes: {

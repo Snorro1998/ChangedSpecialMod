@@ -60,6 +60,8 @@ namespace ChangedSpecialMod.Utilities
             ModContent.TileType<DrunkPainting2>(),  // Shark derp
             ModContent.TileType<DrunkPainting3>(),  // Squid Dog derp
             ModContent.TileType<DrunkPainting4>(),  // Puro derp
+            ModContent.TileType<DrunkPainting5>(),  // Puro with oranges
+            ModContent.TileType<DrunkPainting6>(),  // Citrus Stonks
 
             // Pictures
             ModContent.TileType<Pictures1>()

@@ -285,7 +285,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AITimer++;
 
-            if (AITimer == 1)
+            if (AITimer == 1 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 AIState = 1;
                 AITimer = 0;

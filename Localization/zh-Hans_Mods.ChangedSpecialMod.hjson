@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: 白尾
+		SpawnInfo: 击败至少二十只史莱姆后，可在任何史莱姆区域出现。
+		DespawnMessage: 白尾不再追杀你了。
+	}
+
+	WolfKing: {
+		EntryName: 狼王
+		SpawnInfo: 可以在一个布满黑色粘液的房间里找到。
+		DespawnMessage: 狼王不再追杀你了。
+	}
+
+	Behemoth: {
+		EntryName: 巨人
+		SpawnInfo: 可以在一个布满白色粘液的房间里找到。
+		DespawnMessage: 巨人不再追杀你了。
+	}
+}

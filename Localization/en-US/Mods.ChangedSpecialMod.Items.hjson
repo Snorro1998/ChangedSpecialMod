@@ -139,7 +139,7 @@ DryDirtBlock: {
 }
 
 BlueGasTank: {
-	DisplayName: Blue Gas Tank
+	DisplayName: Blue Gas Cylinder
 	Tooltip: ""
 }
 
@@ -199,7 +199,7 @@ PackingBoxKey: {
 }
 
 RedGasTank: {
-	DisplayName: Red Gas Tank
+	DisplayName: Red Gas Cylinder
 	Tooltip: ""
 }
 
@@ -716,4 +716,14 @@ Calendar: {
 SombreroHat: {
 	DisplayName: Sombrero Hat
 	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Paradise
+	Tooltip: Living the dream
+}
+
+DrunkPainting6: {
+	DisplayName: Citrus Stonks
+	Tooltip: Big business
 }

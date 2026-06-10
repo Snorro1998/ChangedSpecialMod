@@ -100,7 +100,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!DownedBossSystem.DownedWhiteTail)
             {
-                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.BossMessages.WolfKingCanSpawn");
+                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WolfKingCanSpawn");
                 Main.NewText(msg, byte.MaxValue, 240, 20);
             }
 

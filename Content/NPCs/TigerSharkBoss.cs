@@ -12,6 +12,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 
@@ -105,7 +106,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void OnSpawn(IEntitySource source)
         {
-            Main.NewText("This boss fight is still being developed, so don't expect much for now");
+            Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WIPBossFight"));
             NPC.TargetClosest(false);
             ProjectileOptionsFirstPhase = new int[] 
             { 

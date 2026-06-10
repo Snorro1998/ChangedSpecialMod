@@ -54,8 +54,16 @@ For information about previous versions, please check out the change notes in th
 
 0.5.2
 
-Nothing added, just bug fixes
+General
+- Added Chinese translations
+- Added Citrus Stonks and Paradise paintings
+- Added maintenance robot. He is quite rare and behaves like eyezor, shooting lasers at the player.
+- Black Puppies will now sit down when close to the player and slow them down
+- Reduced the chance of the Puro cloud appearing
 
 Fix
+- Improved some English texts
+- Fixed some corrupted Spanish translations
 - Game crashed completely when taking a snapshot in any of the Changed biomes
 - Wolf King and Behemoth causing error message "Index was outside the bounds of the array" in the chat
+- Might have fixed the Wolf King not working in multiplayer, but it needs more testing

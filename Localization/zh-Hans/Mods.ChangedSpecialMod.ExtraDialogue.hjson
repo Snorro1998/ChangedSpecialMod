@@ -1,0 +1,289 @@
+Angler: {
+	NPC: {
+		Puro: 普罗说我不应该再去抓鱿鱼狗了。如果对小孩子来说真的太危险，那我就让你去抓吧！
+		Prototype: 如果我把{NamePrototype}扔进水里，他会像电鳗一样电死所有的鱼吗？
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 不会吧！鱿鱼狗！好的，请在这里待一会儿。
+	}
+}
+
+BestiaryGirl: {
+	NPC: {
+		Puro: 我以前从未见过像普罗这样毛茸茸的狼！
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: 我的天哪！一只小狗！你太可爱了！
+		WhiteCub: 我的天哪！一只小狗！你太可爱了！
+		SquidDog: None
+	}
+}
+
+Clothier: {
+	NPC: {
+		Puro: 普罗的那个水晶面具让我毛骨悚然。它让我想起以前见过的什么东西。
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Cyborg: {
+	NPC: {
+		Puro: 发现未知生命体！散发着淡淡的橘子香味。
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: 发现奇怪水坑
+		WhiteGoop: 发现奇怪水坑
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 分析软体动物-犬类融合……
+	}
+}
+
+DD2Bartender: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: K医生怎么了？昨天他问我愿不愿意卖他用卫生纸酿的私酒。
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 你真的有那么多胳膊吗？还是我喝多了啤酒眼花了？
+	}
+}
+
+Demolitionist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: 你听说过爆炸兔吗？你想让我把炸药绑在你身上，让你变成一只爆炸小狗吗？
+		WhiteCub: 你听说过爆炸兔吗？你想让我把炸药绑在你身上，让你变成一只爆炸小狗吗？
+		SquidDog: 怪物，滚开！否则我就要放深水炸弹了！
+	}
+}
+
+DyeTrader: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: K 博士或许是生物工程方面的专家，但他对时尚一窍不通。
+	}
+
+	Transfur: {
+		BlackGoop: 啊！为什么黑色染料会走路？
+		WhiteGoop: 啊！为什么白色染料会走路？
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 别让你的湿爪子碰我的睡袍！我可不想它褪色！
+	}
+}
+
+Golfer: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: 你能保守秘密吗？我在K医生的房间里打高尔夫的时候，不小心弄坏了他的一些东西。
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 嘿，如果你在水里捡到高尔夫球，能不能帮我带回来？
+	}
+}
+
+Guide: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: 如果你想了解更多关于史莱姆怪物的知识，K博士是你的最佳选择。
+	}
+
+	Transfur: {
+		BlackGoop: 小心点，小史莱姆。有人可能会不小心踩到你。
+		WhiteGoop: 小心点，小史莱姆。有人可能会不小心踩到你。
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 我来给你提建议。我建议你在脱水之前赶紧回到水里。
+	}
+}
+
+Mechanic: {
+	NPC: {
+		Puro: None
+		Prototype: 什么？{NamePrototype}又出问题了？你试过把它关机重启吗？
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: 水坑？别告诉我又是水泵坏了。
+		WhiteGoop: 水坑？别告诉我又是水泵坏了。
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Nurse: {
+	NPC: {
+		Puro: 我告诉普罗，为了保持健康，他每天要吃两个橙子。他说他每天至少吃十个。
+		Prototype: 有一次，我请{NamePrototype}帮我做检查，结果他却往病人脸上喷水。
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 请别告诉我你把八条胳膊都弄断了。
+	}
+}
+
+Painter: {
+	NPC: {
+		Puro: 你能再给我拿些橙色油漆来吗？普罗想把整个房间都涂成橙色。
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: 请问你那里有墨水吗？我的炭黑墨水用完了。
+	}
+}
+
+PartyGirl: {
+	NPC: {
+		Puro: 我喜欢和普罗一起玩！他真是个派对动物！
+		Prototype: "{NamePrototype}真是一台派对机器。他可以同时播放音乐和充当迪斯科球。"
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: 哇，巧克力蛋糕居然会动！这真是个很酷的派对小把戏！
+		WhiteGoop: 哇，蛋糕会动了！这真是个很酷的派对小把戏！
+		BlackCub: 你好！你是来参加宠物派对的吗？
+		WhiteCub: 你好！你是来参加宠物派对的吗？
+		SquidDog: 来跳舞吧！把你的手给我！或者两只手。呃，或者……四只手？
+	}
+}
+
+Pirate: {
+	NPC: {
+		Puro: 嘿，旱鸭子，我会照顾好那只黑胡子狼的。我喜欢养海狼。
+		Prototype: None
+		Scientist: 啊，那位科学家脸色苍白得像个鬼。我觉得他被诅咒了。
+	}
+
+	Transfur: {
+		BlackGoop: 你这团焦油，给我站住！我需要你来修补我船上的洞！
+		WhiteGoop: 你这团焦油，给我站住！我需要你来修补我船上的洞！
+		BlackCub: 呀，你是我见过的最可爱的小狗！
+		WhiteCub: 呀，你是我见过的最可爱的小狗！
+		SquidDog: 啊，你是什么海怪？犬形鱿鱼吗？
+	}
+}
+
+SantaClaus: {
+	NPC: {
+		Puro: 我几乎什么都可以送人，但总有一个人，他的愿望清单上只有橘子。
+		Prototype: 我的精灵们应该制作一个{NamePrototype}的玩具版本。我相信孩子们一定会喜欢的。
+		Scientist: 我要把K医生列入黑名单，因为他不相信我。
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: 或许我应该把你装进礼物盒里，送给一个想要在圣诞节收到小狗的人。
+		WhiteCub: 或许我应该把你装进礼物盒里，送给一个想要在圣诞节收到小狗的人。
+		SquidDog: 我不知道你是谁，但你绝对上了黑名单！
+	}
+}
+
+Stylist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: 那是什么？一团会走路的毛发吗？真恶心。
+		WhiteGoop: 那是什么？一团会走路的毛发吗？真恶心。
+		BlackCub: 抱歉，我帮不了你。这里不是宠物美容店。
+		WhiteCub: 抱歉，我帮不了你。这里不是宠物美容店。
+		SquidDog: 抱歉，我帮不了你。这里不是宠物美容店。
+	}
+}
+
+TaxCollector: {
+	NPC: {
+		Puro: 如果那只黑果冻狼再不交房租，我就要向它征收动物税！
+		Prototype: 多亏了那台名为{NamePrototype}的超大微波炉，我的电费账单翻了一倍多！
+		Scientist: K医生说他付了房租，但账目对不上。我敢打赌他肯定有逃税方面的博士学位！
+	}
+
+	Transfur: {
+		BlackGoop: 哎呀！谁忘了擦鞋？现在到处都是泥巴！
+		WhiteGoop: 哎呀！谁忘了擦鞋？现在到处都是泥巴！
+		BlackCub: 走开，杂种狗！{NamePlayer} 只持有一只狗的许可证！
+		WhiteCub: 走开，杂种狗！{NamePlayer} 只持有一只狗的许可证！
+		BlackCubNoLicense: 滚开，杂种狗！等{NamePlayer}买了狗证再回来！
+		WhiteCubNoLicense: 滚开，杂种狗！等{NamePlayer}买了狗证再回来！
+		SquidDog: 滚开！你这愚蠢的海怪，去骚扰别人吧！
+	}
+}
+
+Wizard: {
+	NPC: {
+		Puro: 我不能让普罗看我的法术书。他已经是一头强大的野兽了，他并不需要具备喷火的能力。
+		Prototype: None
+		Scientist: 为什么K博士要用科学来分析我做的事情？就是这样……魔法。
+	}
+
+	Transfur: {
+		BlackGoop: 一个会走路的巧克力布丁！神奇的糖果咒语奏效了！
+		WhiteGoop: 一个会走路的牛奶布丁！神奇的糖果咒语奏效了！
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}

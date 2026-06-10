@@ -1,0 +1,30 @@
+# 8 entries in vanilla
+# 75 percent change it will pick one of these name compositions
+# Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
+# A name will never be chosen if it has more then 27 characters
+RandomWorldName_Composition: {
+	Colin1: 林的{Adjective}{Location}
+	Colin2: 林的{Adjective}{Location}
+	Colin3: 林的{Location}
+	Colin4: 林的{Location}
+	DrK1: K博士的{Adjective}{Location}
+	DrK2: K博士的{Adjective}{Location}
+	DrK3: K博士的{Location}
+	DrK4: K博士的{Location}
+	Oranges1: 橙子的{Adjective}{Location}
+	Oranges2: 橙子的{Adjective}{Location}
+	Oranges3: 橙子的{Location}
+	Oranges4: 橙子的{Location}
+	Puro1: 普羅的{Adjective}{Location}
+	Puro2: 普羅的{Adjective}{Location}
+	Puro3: 普羅的{Location}
+	Puro4: 普羅的{Location}
+	SquidDog1: 鱿鱼狗的{Adjective}{Location}
+	SquidDog2: 鱿鱼狗的{Adjective}{Location}
+	SquidDog3: 鱿鱼狗的{Location}
+	SquidDog4: 鱿鱼狗的{Location}
+	TigerShark1: 虎鲨的{Adjective}{Location}
+	TigerShark2: 虎鲨的{Adjective}{Location}
+	TigerShark3: 虎鲨的{Location}
+	TigerShark4: 虎鲨的{Location}
+}

@@ -78,7 +78,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return 0f;
+            return 0;
         }
 
         public override void AI()

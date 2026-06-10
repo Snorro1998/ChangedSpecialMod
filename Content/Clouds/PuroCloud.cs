@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Content.Clouds
                 return 10f;
             }
 
-            return 0.5f;
+            return 0.25f; //0.5f
         }
         public override void OnSpawn(Cloud cloud)
         {

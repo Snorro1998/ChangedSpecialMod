@@ -175,7 +175,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!DownedBossSystem.DownedWolfKing)
             {
-                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.BossMessages.BehemothCanSpawn");
+                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.Messages.BehemothCanSpawn");
                 Main.NewText(msg, byte.MaxValue, 240, 20);
             }
 

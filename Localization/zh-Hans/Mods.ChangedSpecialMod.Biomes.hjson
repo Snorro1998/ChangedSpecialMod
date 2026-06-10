@@ -1,0 +1,24 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: 城市废墟
+	TownNPCDialogueName: 城市废墟
+}
+
+CityRuinsUndergroundBiome: {
+	DisplayName: City Ruins Underground Biome
+	TownNPCDialogueName: the City Ruins Underground Biome
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: 白色粘液区
+	TownNPCDialogueName: 白色粘液区
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: 黑色粘液区域
+	TownNPCDialogueName: 黑色粘液区域
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: 醉酒生物群落
+	DisplayName: 醉
+}
