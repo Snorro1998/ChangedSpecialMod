@@ -18,6 +18,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static ChangedSpecialMod.ChangedSpecialMod;
 
 
 // This thing is a mess and contains all kinds of functions that probably should be in their own class
@@ -1595,31 +1596,16 @@ namespace ChangedSpecialMod.Utilities
             }
 
             // he is about 4 blocks wide, no 12
-            tmpX = (int)(leftPos + 0.5f * (rightPos - leftPos) - 6);
-            tmpY = topPos - 1;//(int)(topPos + 0.5f * (bottomPos - topPos));
+            tmpX = (int)(leftPos + 0.5f * (rightPos - leftPos) - 6 + 6);
+            tmpY = bottomPos - 1;//(int)(topPos + 0.5f * (bottomPos - topPos));
 
             int type = ModContent.NPCType<BehemothSpawn>();
-            // Idk why, this works but spawning at a specified position doesn't
-            // Also when he just spawned, he is not active yet so we can't use Main.ActiveNPCs
-            //NPC.SpawnOnPlayer(player.whoAmI, type);
-
-            var npcIndex = NPC.NewNPC(player.GetSource_FromAI(), 0, 0, type);
+            var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), tmpX * 16, tmpY * 16, type);
 
             // Server sync
             if (Main.netMode == NetmodeID.Server && npcIndex != -1)
             {
                 NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
-            }
-
-            // Move hands closer to him
-            foreach (var npc in Main.npc)
-            {
-                if (npc.type == type || npc.type == ModContent.NPCType<BehemothHand>())
-                {
-                    npc.position = new Vector2(tmpX * 16, tmpY * 16);
-                    if (Main.netMode == NetmodeID.Server)
-                        NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
-                }
             }
         }
 
@@ -1672,6 +1658,57 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
+        public static void TeleportPlayer(int playerIndex, int xPos, int yPos)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                ModPacket packet = ChangedSpecialMod.Instance.GetPacket();
+                packet.Write((byte)MessageType.TeleportPlayer);
+                packet.Write((short)playerIndex);
+                packet.Write((short)xPos);
+                packet.Write((short)yPos);
+                packet.Send();
+            }
+            else
+                DoTeleportPlayer(playerIndex, xPos, yPos);
+            /*
+            if (playerIndex != -1 && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                var player = Main.player[playerIndex];
+                player.position = new Vector2(xPos * 16, yPos * 16);
+
+                if (Main.netMode == NetmodeID.Server)
+                    NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, xPos * 16, yPos * 16, 1, 0, 0);
+            }
+            */
+        }
+
+        public static void DoTeleportPlayer(int playerIndex, int xPos, int yPos)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient || playerIndex == -1)
+                return;
+
+            var player = Main.player[playerIndex];
+            player.position = new Vector2(xPos * 16, yPos * 16);
+
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, xPos * 16, yPos * 16, 1, 0, 0);
+        }
+
+        public static void PlayerSpawnsWolfKing(int playerIndex)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                ModPacket packet = ChangedSpecialMod.Instance.GetPacket();
+                packet.Write((byte)MessageType.PlayerSpawnsWolfKing);
+                packet.Write((short)playerIndex);
+                packet.Send();
+            }
+
+            else
+                WolfKingSpawnCheck(true, playerIndex);
+        }
+
         public static bool WolfKingSpawnCheck(bool summon = false, int playerIndex = -1)
         {
             if (Main.netMode == NetmodeID.MultiplayerClient)
@@ -1698,10 +1735,7 @@ namespace ChangedSpecialMod.Utilities
                             if (ChangedUtils.IsBlackLatexWall(tile))
                             {
                                 var player = Main.player[playerIndex];//GetClosestPlayer(x, y);
-                                player.position = new Vector2(x * 16, y * 16);
-
-                                if (Main.netMode == NetmodeID.Server)
-                                    NetMessage.SendData(MessageID.SyncPlayer, number: playerIndex);
+                                TeleportPlayer(player.whoAmI, x, y);
 
                                 SoundEngine.PlaySound(SoundID.NPCDeath64, player.Center);
                                 ChangedUtils.SpawnWolfKing(x, y, player);

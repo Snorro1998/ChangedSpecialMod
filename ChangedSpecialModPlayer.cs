@@ -362,57 +362,8 @@ namespace ChangedSpecialMod
             return EvolutionsLines[gooType];
         }
 
-        private void Devolve()
-        {
-            if (TransfurTypeCurrent == null)
-                return;
-
-            List<Transfur> targetList = GetEvolutionLine(TransfurTypeCurrent.gooType);
-
-            if (targetList == null)
-                return;
-
-            var index = targetList.IndexOf(TransfurTypeCurrent);
-            if (index == -1)
-                return;
-
-            if (index <= 0)
-                SetTransfur(null);
-            else
-                SetTransfur(targetList[index - 1]);
-
-        }
-
-        private void Evolve()
-        {
-            if (TransfurTypeCurrent == null)
-                return;
-
-            List<Transfur> targetList = GetEvolutionLine(TransfurTypeCurrent.gooType);
-
-            if (targetList == null)
-                return;
-
-            var index = targetList.IndexOf(TransfurTypeCurrent);
-            if (index == -1)
-                return;
-
-            if (index >= targetList.Count - 1)
-                return;
-            else
-                SetTransfur(targetList[index + 1]);
-
-        }
-
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
-            /*
-            if (KeybindSystem.TransfurDevolveKeybind.JustPressed)
-                Devolve();
-
-            if (KeybindSystem.TransfurEvolveKeybind.JustPressed)
-                Evolve();
-            */
             if (KeybindSystem.TransfurAttackKeybind.Current)
                 TransfurAttack();
         }
@@ -450,9 +401,6 @@ namespace ChangedSpecialMod
 
         public void SetTransfurFromNumber(GooType gooType, int number)
         {
-            //if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-            //    InitTransfurTypes();
-
             List<Transfur> targetList = GetEvolutionLine(gooType);
 
             if (targetList == null)
@@ -486,7 +434,7 @@ namespace ChangedSpecialMod
 
         private void SetTransfur(Transfur transfur)
         {
-            if (!Main.dedServ)
+            if (Main.netMode != NetmodeID.Server)
             {
                 var dustTransfur = TransfurTypeCurrent;
                 if (dustTransfur == null)

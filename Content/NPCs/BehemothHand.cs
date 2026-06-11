@@ -53,6 +53,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public ref float AIState => ref NPC.ai[0];
         public ref float AITimer => ref NPC.ai[1];
+        public ref float AIPreviousAttacks => ref NPC.ai[2];
 
         public int npcDirection = 1;
         public float shrinkTime = 2f;
@@ -239,7 +240,7 @@ namespace ChangedSpecialMod.Content.NPCs
             bool flag = NPC.Distance(targetData.Center) >= 450f;
             NPC.localAI[3] = MathHelper.Clamp(NPC.localAI[3] + (float)flag.ToDirectionInt(), 0f, 30f);
             float lifePercent = (float)NPC.life / (float)NPC.lifeMax;
-
+            /*
             if (NPC.homeTileX == -1 && NPC.homeTileY == -1)
             {
                 Point point = NPC.Bottom.ToTileCoordinates();
@@ -255,6 +256,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 NPC.timeLeft = 0;
             }
+            */
 
             switch ((int)AIState)
             {

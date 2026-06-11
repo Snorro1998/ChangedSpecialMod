@@ -29,6 +29,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             base.KillMultiTile(i, j, frameX, frameY);
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             var rareChance = Main.drunkWorld ? 1 : 30;
             var player = ChangedUtils.GetClosestPlayer(i, j);
             if (player != null && ChangedUtils.IsDrunk(player))
@@ -46,9 +50,14 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
         private void SpawnHungryLocker(int i, int j)
         {
-            var player = Main.LocalPlayer;
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             var source = WorldGen.GetItemSource_FromTileBreak(i, j);
-            NPC npcHand = NPC.NewNPCDirect(source, (i + 1) * 16, (j + 3) * 16, ModContent.NPCType<HungryLocker>());
+            NPC npc = NPC.NewNPCDirect(source, (i + 1) * 16, (j + 3) * 16, ModContent.NPCType<HungryLocker>());
+
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
         }
 
         public override void RandomUpdate(int i, int j)

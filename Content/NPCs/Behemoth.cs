@@ -33,7 +33,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public double imageSpeed = 5D;
         public int imageIndex = 0;
 
-        public int[] animation = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1 };
+        public int[] animation = new int[] { 0, 1, 2, 3, 4, 5, 6, 7 };
 
         public static readonly int[] animGrow = new int[] { 0, 1, 2, 3, 4, 5, 6, 7};
         public static readonly int[] animIdle = new int[] { 7, 8, 9 };
@@ -218,11 +218,20 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private void SpawnHand()
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             var entitySource = NPC.GetSource_FromAI();
             int xPos = (int)NPC.Center.X + Main.rand.Next(-10, 10);
             //BehemothHand
-            NPC.NewNPCDirect(entitySource, xPos, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
-            NPC.NewNPCDirect(entitySource, xPos + 96, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
+            var handIndex1 = NPC.NewNPCDirect(entitySource, xPos, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
+            var handIndex2 = NPC.NewNPCDirect(entitySource, xPos + 96, (int)NPC.Center.Y, ModContent.NPCType<BehemothHand>(), NPC.whoAmI);
+
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.SyncNPC, number: handIndex1.whoAmI);
+                NetMessage.SendData(MessageID.SyncNPC, number: handIndex2.whoAmI);
+            }
         }
 
         private void StateGrow()
@@ -359,7 +368,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.TargetClosest(false);
 
-            if (NPC.HasValidTarget)
+            if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 var player = Main.player[NPC.target];
 
@@ -373,6 +382,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         NPC.position = new Vector2(xPos * 16 - 0.5f * NPC.width, y * 16 -  NPC.height);
                         NPC.direction = player.Center.X < NPC.Center.X ? -1 : 1;
                         NPC.spriteDirection = NPC.direction;
+                        NPC.netUpdate = true;
                         break;
                     }
                 }

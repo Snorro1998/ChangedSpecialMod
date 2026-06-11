@@ -1125,7 +1125,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public void CheckForEvolution(NPC npc)
         {
-            if (npc == null)
+            if (npc == null || Main.netMode == NetmodeID.MultiplayerClient)
                 return;
 
             var changedNPC = npc.Changed();
@@ -1140,9 +1140,14 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 if (npc.Distance(tmpNpc.Center) < 16)
                 {
-                    tmpNpc.active = false;
-                    npc.Transform(changedNPC.EvolveType);
                     ChangedUtils.TransfurEffect(npc);
+                    var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)npc.Center.X, (int)npc.Bottom.Y, changedNPC.EvolveType, 0, 0);
+
+                    if (Main.netMode == NetmodeID.Server && npcIndex != -1)
+                        NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
+
+                    ChangedUtils.DespawnNPC(tmpNpc);
+                    ChangedUtils.DespawnNPC(npc);
                 }
             }
         }

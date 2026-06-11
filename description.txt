@@ -50,6 +50,7 @@ Other
 
 --------- Changelog ---------
 
+This version fixes a lot of issues in multiplayer.
 For information about previous versions, please check out the change notes in the steam workshop.
 
 0.5.2
@@ -61,9 +62,15 @@ General
 - Black Puppies will now sit down when close to the player and slow them down
 - Reduced the chance of the Puro cloud appearing
 
-Fix
+Multiplier fixes
+- White Tail jittering
+- Wolf King fight not working at all
+- Behemoth sliding around after teleporting
+- Generators not playing a chime sound when turned on or off
+- Players not teleporting until they walked after using an elevator
+
+Other fixes
 - Improved some English texts
 - Fixed some corrupted Spanish translations
 - Game crashed completely when taking a snapshot in any of the Changed biomes
-- Wolf King and Behemoth causing error message "Index was outside the bounds of the array" in the chat
-- Might have fixed the Wolf King not working in multiplayer, but it needs more testing
+- "Index was outside the bounds of the array" sometimes appearing in the chat before the Wolf King or Behemoth fight started

@@ -56,8 +56,9 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 if (Main.tile[i, yPos].TileType == ModContent.TileType<Elevator>() && topLeft != Point16.NegativeOne && topLeft.X == coords.X && topLeft.Y != coords.Y)
                 {
                     SoundEngine.PlaySound(Assets.Sounds.SoundElevator);
+                    // Need something for this probably
                     player.RemoveAllGrapplingHooks();
-                    player.position = new Vector2((topLeft.X + 1) * 16, topLeft.Y * 16);
+                    ChangedUtils.TeleportPlayer(player.whoAmI, topLeft.X + 1, topLeft.Y);
                     return true;
                 }
             }

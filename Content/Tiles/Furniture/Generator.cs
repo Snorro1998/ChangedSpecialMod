@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Sockets;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -6,6 +7,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using static ChangedSpecialMod.ChangedSpecialMod;
 
 namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
@@ -67,12 +69,20 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             var topLeftTile = Main.tile[coords.X, coords.Y];
             var tileFrameX = topLeftTile.TileFrameX == 0 ? 72 : 0;
 
-            // Toggled off
-            if (tileFrameX == 0)
-                SoundEngine.PlaySound(Assets.Sounds.SoundBuzzer2);
-            // Toggled on
-            else
-                SoundEngine.PlaySound(Assets.Sounds.SoundChime2);
+            bool toggledOn = tileFrameX != 0;
+
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                SoundEngine.PlaySound(toggledOn ? Assets.Sounds.SoundChime2 : Assets.Sounds.SoundBuzzer2);
+
+            else if (Main.netMode == NetmodeID.Server)
+            {
+                ModPacket packet = Mod.GetPacket();
+                packet.Write((byte)MessageType.PlaySwitchSound);
+                packet.Write((short)i);
+                packet.Write((short)j);
+                packet.Write(toggledOn);
+                packet.Send();
+            }
 
             bool wireSkip = Wiring.running;
 
