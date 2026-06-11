@@ -20,7 +20,7 @@ namespace ChangedSpecialMod.Content.Items.Summons
 
         public override bool? UseItem(Player player)
         {
-            var result = ChangedUtils.WolfKingSpawnCheck(true);
+            var result = ChangedUtils.WolfKingSpawnCheck(true, player.whoAmI);
             return true;
         }
 

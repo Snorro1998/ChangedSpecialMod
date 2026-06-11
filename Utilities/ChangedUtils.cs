@@ -117,16 +117,57 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
+        public static void DestroyTile(int xPos, int yPos)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
+            WorldGen.KillTile(xPos, yPos);
+
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, xPos, yPos, 0);
+        }
+
+        public static void PlaceTile(int xPos, int yPos, int tileType)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
+            WorldGen.PlaceTile(xPos, yPos, tileType);
+
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, xPos, yPos, tileType);
+        }
+
         public static void SwitchAllNPCState(int npcType, int state)
         {
-            foreach (var obj in Main.ActiveNPCs)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
+            for (int i = 0; i < Main.maxNPCs; i++)
             {
-                if (obj.type == npcType)
+                var npc = Main.npc[i];
+                if (npc.type == npcType)
                 {
-                    obj.ai[0] = state; //State
-                    obj.ai[1] = 0;     //Timer
+                    npc.ai[0] = state; //State
+                    npc.ai[1] = 0;     //Timer
+
+                    if (Main.netMode == NetmodeID.Server)
+                        NetMessage.SendData(MessageID.SyncNPC, number: i);
                 }
             }
+        }
+
+        public static int GetNumberOfNPCType(int npcType)
+        {
+            return Main.npc.Where(x => x.type == npcType && x.active).Count();
+        }
+
+        public override void PreUpdateWorld()
+        {
+            base.PreUpdateWorld();
+            WolfKingSpawnCheck();
+            BehemothSpawnCheck();
         }
 
         public static void CreateFlyingGasTank(int projectileType, int i, int j)
@@ -1449,6 +1490,9 @@ namespace ChangedSpecialMod.Utilities
 
         public static void SpawnWolfKing(int tmpX, int tmpY, Player player)
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             var leftPos = -1;
             for (int iL = 0; iL < 50; iL++)
             {
@@ -1493,25 +1537,15 @@ namespace ChangedSpecialMod.Utilities
                 }
             }
 
-            // he is about 4 blocks wide
-            tmpX = (int)(leftPos + 0.5f * (rightPos - leftPos) - 2);
-            tmpY = topPos;//(int)(topPos + 0.5f * (bottomPos - topPos));
+            tmpX = (int)(leftPos + 0.5f * (rightPos - leftPos) - 2) + 3;
+            tmpY = topPos + 3;
 
             int type = ModContent.NPCType<WolfKingSpawn>();
-            // Idk why, this works but spawning at a specified position doesn't
-            // Also when he just spawned, he is not active yet so we can't use Main.ActiveNPCs
-            //NPC.SpawnOnPlayer(player.whoAmI, type);
 
-            NPC.NewNPC(player.GetSource_FromAI(), 0, 0, type);
+            var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), tmpX * 16, tmpY * 16, type);
 
-            foreach (var npc in Main.npc)
-            {
-                if (npc.type == type)
-                {
-                    npc.position = new Vector2(tmpX * 16, tmpY * 16);
-                    break;
-                }
-            }
+            if (Main.netMode == NetmodeID.Server && npcIndex != -1)
+                NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
         }
 
         public static void SpawnBehemoth(int tmpX, int tmpY, Player player)
@@ -1569,20 +1603,80 @@ namespace ChangedSpecialMod.Utilities
             // Also when he just spawned, he is not active yet so we can't use Main.ActiveNPCs
             //NPC.SpawnOnPlayer(player.whoAmI, type);
 
-            NPC.NewNPC(player.GetSource_FromAI(), 0, 0, type);
+            var npcIndex = NPC.NewNPC(player.GetSource_FromAI(), 0, 0, type);
 
+            // Server sync
+            if (Main.netMode == NetmodeID.Server && npcIndex != -1)
+            {
+                NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
+            }
+
+            // Move hands closer to him
             foreach (var npc in Main.npc)
             {
                 if (npc.type == type || npc.type == ModContent.NPCType<BehemothHand>())
                 {
                     npc.position = new Vector2(tmpX * 16, tmpY * 16);
-                    //break;
+                    if (Main.netMode == NetmodeID.Server)
+                        NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
                 }
             }
         }
 
-        public static bool WolfKingSpawnCheck(bool summon = false)
+        public static void BehemothSpawnCheck()
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
+            // Don't spawn if already killed or the previous bosses haven't been killed yet
+            if (DownedBossSystem.DownedBehemoth || !DownedBossSystem.DownedWhiteTail || !DownedBossSystem.DownedWolfKing)
+                return;
+
+            // Don't spawn if he is already present
+            if (NPC.AnyNPCs(ModContent.NPCType<Behemoth>()) || NPC.AnyNPCs(ModContent.NPCType<BehemothSpawn>()))
+                return;
+
+            foreach (var player in Main.ActivePlayers)
+            {
+                int minRangeFromPlayer = 80;
+                int maxRange = 120;                         // Same range as the clentaminator, so probably enough to be off-screen
+                int blockCheckSpacing = 8;                  // Only check every 8 blocks for performance
+                var xPos = (int)(player.position.X / 16);
+                var yPos = (int)(player.position.Y / 16);
+
+                for (int y = -maxRange; y <= maxRange; y += blockCheckSpacing)
+                {
+                    for (int x = -maxRange; x <= maxRange; x += blockCheckSpacing)
+                    {
+                        if (Math.Abs(x) <= minRangeFromPlayer)
+                            continue;
+
+                        var tmpX = xPos + x;
+                        var tmpY = yPos + y;
+
+                        if (tmpX < 0 || tmpX >= Main.maxTilesX)
+                            continue;
+
+                        if (tmpY < 0 || tmpY >= Main.maxTilesY)
+                            continue;
+
+                        var tile = Main.tile[tmpX, tmpY];
+
+                        if (ChangedUtils.IsWhiteLatexWall(tile))
+                        {
+                            ChangedUtils.SpawnBehemoth(tmpX, tmpY, player);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        public static bool WolfKingSpawnCheck(bool summon = false, int playerIndex = -1)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return false;
+
             // Don't spawn if already killed or the previous bosses haven't been killed yet
             if (!summon && (!DownedBossSystem.DownedWhiteTail || DownedBossSystem.DownedWolfKing))
                 return false;
@@ -1591,15 +1685,8 @@ namespace ChangedSpecialMod.Utilities
             if (NPC.AnyNPCs(ModContent.NPCType<WolfKing>()) || NPC.AnyNPCs(ModContent.NPCType<WolfKingSpawn>()))
                 return false;
 
-            // Remove existing cheerleaders
-            foreach (var npc in Main.npc)
-            {
-                if (npc.type == ModContent.NPCType<Cheerleader>())
-                    npc.active = false;
-            }
-
             int blockCheckSpacing = 8;
-            if (summon)
+            if (summon && playerIndex != -1)
             {
                 for (int y = 0; y < Main.worldSurface; y += blockCheckSpacing)
                 {
@@ -1610,8 +1697,12 @@ namespace ChangedSpecialMod.Utilities
                             var tile = Main.tile[x, y];
                             if (ChangedUtils.IsBlackLatexWall(tile))
                             {
-                                var player = GetClosestPlayer(x, y);
+                                var player = Main.player[playerIndex];//GetClosestPlayer(x, y);
                                 player.position = new Vector2(x * 16, y * 16);
+
+                                if (Main.netMode == NetmodeID.Server)
+                                    NetMessage.SendData(MessageID.SyncPlayer, number: playerIndex);
+
                                 SoundEngine.PlaySound(SoundID.NPCDeath64, player.Center);
                                 ChangedUtils.SpawnWolfKing(x, y, player);
                                 return true;
@@ -1663,22 +1754,19 @@ namespace ChangedSpecialMod.Utilities
 
         public static void SpawnCheerleaders(NPC boss, bool removeActive = false)
         {
-            if (Main.netMode == NetmodeID.MultiplayerClient) return;
-            var entitySource = boss.GetSource_FromAI();
+            if (Main.netMode == NetmodeID.MultiplayerClient) 
+                return;
+
             int count = 4;
             int distFromBoss = 6;
             int distBetween = 4;
 
             var npcType = ModContent.NPCType<Cheerleader>();
-            if (NPC.AnyNPCs(npcType) && !removeActive)
-                return;
 
             foreach (var npc in Main.ActiveNPCs)
             {
                 if (npc.type == npcType)
-                {
-                    npc.active = false;
-                }
+                    DespawnNPC(npc);
             }
 
             for (int i = 0; i < count; i++)
@@ -1705,24 +1793,24 @@ namespace ChangedSpecialMod.Utilities
                 }
 
                 int yPos = (int)boss.Center.Y;
-                NPC minionNPC = NPC.NewNPCDirect(entitySource, xPos, yPos, npcType, boss.whoAmI);
+                var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), xPos, yPos, npcType);
 
-                // Minions left of him
-                if (i < count / 2)
+                if (npcIndex != -1)
                 {
-                    minionNPC.direction = 1;
-                }
-                // Minions right of him
-                else
-                {
-                    minionNPC.direction = -1;
-                }
+                    var npc = Main.npc[npcIndex];
 
-                minionNPC.spriteDirection = minionNPC.direction;
+                    // npcs left of him
+                    if (i < count / 2)
+                        npc.direction = 1;
+                    // npcs right of him
+                    else
+                        npc.direction = -1;
 
-                // Return if we reached the spawn cap
-                if (minionNPC.whoAmI == Main.maxNPCs)
-                    return;
+                    npc.spriteDirection = npc.direction;
+
+                    if (Main.netMode == NetmodeID.Server)
+                        NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
+                }
             }
         }
 
@@ -1797,6 +1885,37 @@ namespace ChangedSpecialMod.Utilities
             }
             if (player.chest >= 0)
                 player.chest = -1;
+        }
+
+        public static void TransformNPC(NPC npc, int newType)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
+            var lifeMax = npc.lifeMax;
+            var life = npc.life;
+            npc.Transform(newType);
+            npc.ai[0] = 0;
+            npc.ai[1] = 0;
+            npc.ai[2] = 0;
+            npc.ai[3] = 0;
+            // lifeMax changes without this and I don't know why
+            npc.lifeMax = lifeMax;
+            npc.life = life;
+
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
+        }
+
+        public static void DespawnNPC(NPC npc)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
+            npc.active = false;
+
+            if (Main.netMode == NetmodeID.Server)
+                NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
         }
     }
 }

@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -22,8 +21,6 @@ namespace ChangedSpecialMod.Content.NPCs
 	{
         private enum ActionState
         {
-            // 0, means he was spawned directly which is not intended
-            Invalid,
             Awake,
             Idle,
             Snap,
@@ -33,7 +30,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public double imageSpeed = 5D;
         public int imageIndex = 0;
 
-        public int[] animation = new int[] { 0, 1, 2, 3};
+        public int[] animation = new int[] { 4 };
         public int[] animIdle = new int[] { 4 };
         public int[] animSnap = new int[] { 5, 6, 7 };
         public int[] animShock = new int[] { 8 };
@@ -87,69 +84,11 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.GooType = GooType.Black;
         }
 
-        public override void OnSpawn(IEntitySource source)
-        {
-            // He was spawned directly instead of WolfKingSpawn. This breaks the fight so we remove him,
-            // check if there is a black latex room in the world and restart the fight
-            NPC.active = false;
-            ChangedUtils.WolfKingSpawnCheck(true);
-
-            /*
-            if (NPC.AnyNPCs(ModContent.NPCType<WolfKingSpawn>()))
-            {
-                NPC.active = false;
-                return;
-            }
-            
-            NPC otherWolfKing = null;
-            foreach (var npc in Main.npc)
-            {
-                if (npc.type == ModContent.NPCType<WolfKing>() && npc.active && npc.whoAmI != NPC.whoAmI)
-                {
-                    otherWolfKing = npc;
-                    break;
-                }
-            }
-            if (otherWolfKing != null)
-            {
-                NPC.active = false;
-                return;
-            }
-
-            // He was spawned directly instead of WolfKingSpawn. This breaks the fight so we remove him,
-            // check if there is a black latex room in the world and restart the fight
-            if (!NPC.AnyNPCs(ModContent.NPCType<Cheerleader>()))
-            {
-                NPC.active = false;
-                ChangedUtils.WolfKingSpawnCheck(true);
-                return;
-            }
-            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
-            */
-        }
-
-        private void AfterTransform()
-        {
-            NPC otherWolfKing = null;
-            foreach (var npc in Main.npc)
-            {
-                if (npc.type == ModContent.NPCType<WolfKing>() && npc.active && npc.whoAmI != NPC.whoAmI)
-                {
-                    otherWolfKing = npc;
-                    break;
-                }
-            }
-            if (otherWolfKing != null)
-            {
-                NPC.active = false;
-                return;
-            }
-
-            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
-        }
-
         #region SetCheerleaderState
-        private void MakeCheerleadersDance() => ChangedUtils.SwitchAllNPCState(ModContent.NPCType<Cheerleader>(), (int)Cheerleader.ActionState.Cheer);
+        private void MakeCheerleadersDance()
+        {
+            ChangedUtils.SwitchAllNPCState(ModContent.NPCType<Cheerleader>(), (int)Cheerleader.ActionState.Cheer);
+        }
         private void MakeCheerleadersHowl() => ChangedUtils.SwitchAllNPCState(ModContent.NPCType<Cheerleader>(), (int)Cheerleader.ActionState.Howl);
         private void MakeCheerLeadersShocked() => ChangedUtils.SwitchAllNPCState(ModContent.NPCType<Cheerleader>(), (int)Cheerleader.ActionState.Shocked);
         #endregion
@@ -161,14 +100,14 @@ namespace ChangedSpecialMod.Content.NPCs
             var floorPos = RoomBounds.Bottom;
 
             // Open left wall
-            WorldGen.KillTile(leftPos, floorPos - 1);
-            WorldGen.KillTile(leftPos, floorPos - 2);
-            WorldGen.KillTile(leftPos, floorPos - 3);
+            ChangedUtils.DestroyTile(leftPos, floorPos - 1);
+            ChangedUtils.DestroyTile(leftPos, floorPos - 2);
+            ChangedUtils.DestroyTile(leftPos, floorPos - 3);
 
             // Open right wall
-            WorldGen.KillTile(rightPos, floorPos - 1);
-            WorldGen.KillTile(rightPos, floorPos - 2);
-            WorldGen.KillTile(rightPos, floorPos - 3);
+            ChangedUtils.DestroyTile(rightPos, floorPos - 1);
+            ChangedUtils.DestroyTile(rightPos, floorPos - 2);
+            ChangedUtils.DestroyTile(rightPos, floorPos - 3);
         }
 
         public override void OnKill()
@@ -252,6 +191,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AIState = (float)newState;
             AITimer = 0;
+            NPC.netUpdate = true;
         }
 
         private void StateAwake()
@@ -260,10 +200,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
-                AfterTransform();
-                RoomBounds = FindRoomBounds();
+                //RoomBounds = FindRoomBounds();
                 SwitchAnimation(animIdle);
                 SwitchState(ActionState.Idle);
+
+                if (Main.netMode == NetmodeID.Server)
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
             }
         }
 
@@ -273,26 +215,30 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 if (npc.type == ModContent.NPCType<Cheerleader>())
                 {
-                    npc.active = false;
+                    ChangedUtils.DespawnNPC(npc);
                 }
             }
             OpenDoors();
-            NPC.active = false;
+            ChangedUtils.DespawnNPC(NPC);
         }
 
         private void DespawnCheck()
         {
-            var dist = Vector2.DistanceSquared(NPC.Center, Main.player[NPC.target].Center);
-            // Despawn if target is too far away
-            if (dist > maxFollowDistance * maxFollowDistance)
+            var player = ChangedUtils.GetClosestPlayer((int)NPC.Center.X, (int)NPC.Center.Y, true);
+            if (player != null)
             {
-                NPC.TargetClosest(false);
-                dist = Vector2.DistanceSquared(NPC.Center, Main.player[NPC.target].Center);
-                // Don't do activeplayer check, because a player can have him on the screen while he is dead
+                var dist = Vector2.DistanceSquared(NPC.Center, Main.player[NPC.target].Center);
+                // Despawn if target is too far away
                 if (dist > maxFollowDistance * maxFollowDistance)
                 {
-                    DoDespawn();
-                    return;
+                    NPC.TargetClosest(false);
+                    dist = Vector2.DistanceSquared(NPC.Center, Main.player[NPC.target].Center);
+                    // Don't do activeplayer check, because a player can have him on the screen while he is dead
+                    if (dist > maxFollowDistance * maxFollowDistance)
+                    {
+                        DoDespawn();
+                        return;
+                    }
                 }
             }
         }
@@ -311,9 +257,12 @@ namespace ChangedSpecialMod.Content.NPCs
                 SwitchAnimation(animIdle);
                 MakeCheerleadersDance();
             }
-
+            
             if (AITimer >= idleTime)
             {
+                if (RoomBounds == Rectangle.Empty)
+                    RoomBounds = FindRoomBounds();
+
                 // Stand up after snapping fingers 3 times
                 if (AINSnaps > 3)
                 {
@@ -387,7 +336,12 @@ namespace ChangedSpecialMod.Content.NPCs
             var nSpikesMax = 4;
             var nSpikesMin = 1;
             var nSpikes = nSpikesMax - (int)(((float)NPC.life / (float)NPC.lifeMax) * (nSpikesMax - nSpikesMin));
-            var player = Main.LocalPlayer;
+
+            Player player = null;
+            if (!NPC.HasValidTarget)
+                NPC.TargetClosest(false);
+            if (NPC.HasValidTarget)
+                player = Main.player[NPC.target];
 
             // Start the snapping animation
             if (AITimer == 1)
@@ -400,14 +354,14 @@ namespace ChangedSpecialMod.Content.NPCs
             else if (AITimer == 20)
             {
                 SoundEngine.PlaySound(Sounds.SoundSword1, NPC.Center);
-              
-                // Knock the player down if he is using a grappling hook to evade the spikes
-                if (IsPlayerGrappling(player))
-                {
-                    KnockPlayerDown(player);   
-                }
 
-                SpikeCrissCross(player, nSpikes, idleTimeSpikes);
+                if (player != null)
+                {
+                    // Knock the player down if he is using a grappling hook to evade the spikes
+                    if (IsPlayerGrappling(player))
+                        KnockPlayerDown(player);
+                    SpikeCrissCross(player, nSpikes, idleTimeSpikes);
+                }
             }
 
             // Switch his animation back earlier so he wont hold his paw up until the spikes are gone
@@ -419,9 +373,11 @@ namespace ChangedSpecialMod.Content.NPCs
             // Check again if the player is grappling and if so knock him down
             if (AITimer == 20 + idleTimeSpikes)
             {
-                if (IsPlayerGrappling(player))
+                if (player != null)
                 {
-                    KnockPlayerDown(player);
+                    // Knock the player down if he is using a grappling hook to evade the spikes
+                    if (IsPlayerGrappling(player))
+                        KnockPlayerDown(player);
                 }
             }
 
@@ -434,14 +390,19 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private void SpawnSpike(int xPos, int yPos, int idleTime)
         {
-            if (xPos < RoomBounds.Left * 16 || xPos > RoomBounds.Right * 16)
+            if (xPos < RoomBounds.Left * 16 || xPos > RoomBounds.Right * 16 || Main.netMode == NetmodeID.MultiplayerClient)
             {
                 return;
             }
 
             var entitySource = NPC.GetSource_FromAI();
             var projectileType = ModContent.ProjectileType<SpikeProjectile>();
-            Projectile.NewProjectile(entitySource, new Vector2(xPos, yPos - 24), Vector2.Zero, projectileType, 0, 0f, -1, 0f, 0f, idleTime);
+            var projectileID = Projectile.NewProjectile(entitySource, new Vector2(xPos, yPos - 24), Vector2.Zero, projectileType, 0, 0f, -1, 0f, 0f, idleTime);
+
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.SyncProjectile, number: projectileID);
+            }
         }
 
         private void SpikeCrissCross(Player player, int nSpikes, int idleTimeSpikes)
@@ -505,7 +466,6 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AITimer++;
 
-            var player = Main.LocalPlayer;
             // Divide by 2 because spikes take up 2 tiles and then divide again by 2 to get half of it
             var nSpikesInRoom = RoomBounds.Width / 4;
             var framesPerSpike = 11;
@@ -515,21 +475,28 @@ namespace ChangedSpecialMod.Content.NPCs
                 SwitchAnimation(animStand);
                 MakeCheerleadersHowl();
 
-                var playerXPos = (int)player.Center.X;
-                // Round it down to a tile position
-                playerXPos = ((playerXPos - (playerXPos % 16)) / 16);
-                var roomWidth = RoomBounds.Width;
-                var roomThird = roomWidth / 3;
+                if (!NPC.HasValidTarget)
+                    NPC.TargetClosest(false);
 
-                // Player is standing near the center of the room
-                if (playerXPos <= RoomBounds.Left + roomThird || playerXPos >= RoomBounds.Right - roomThird)
+                if (NPC.HasValidTarget)
                 {
-                    AISpikeWaveDirection = 0;
-                }
-                // Player is standing near the walls
-                else
-                {
-                    AISpikeWaveDirection = 1;
+                    var player = Main.player[NPC.target];
+                    var playerXPos = (int)player.Center.X;
+                    // Round it down to a tile position
+                    playerXPos = ((playerXPos - (playerXPos % 16)) / 16);
+                    var roomWidth = RoomBounds.Width;
+                    var roomThird = roomWidth / 3;
+
+                    // Player is standing near the center of the room
+                    if (playerXPos <= RoomBounds.Left + roomThird || playerXPos >= RoomBounds.Right - roomThird)
+                    {
+                        AISpikeWaveDirection = 0;
+                    }
+                    // Player is standing near the walls
+                    else
+                    {
+                        AISpikeWaveDirection = 1;
+                    }
                 }
             }
 

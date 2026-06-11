@@ -19,13 +19,39 @@ namespace ChangedSpecialMod.Content.NPCs
             // We make him shoot out lasers like eyezor
             var isEyezor = npc.type == NPCID.Eyezor || npc.type == ModContent.NPCType<ExoSuitRobot>();
             var isBlackCub = npc.type == ModContent.NPCType<DarkLatexCub>();
+            var isWhiteCub = npc.type == ModContent.NPCType<WhiteLatexCub>();
 
-            if (isBlackCub && npc.HasValidTarget && npc.velocity.Y == 0 && npc.Distance(Main.player[npc.target].Center) < 2 * 16)
+            if (Main.netMode != NetmodeID.MultiplayerClient && isBlackCub && npc.HasValidTarget && npc.velocity.Y == 0 && npc.Distance(Main.player[npc.target].Center) < 2 * 16)
             {
                 var player = Main.player[npc.target];
                 player.velocity.X /= 2;
                 player.AddBuff(BuffID.Slow, 3 * 60);
+                var changedNPC = npc.Changed();
+                var currentHat = changedNPC?.CurrentHat;
                 npc.Transform(ModContent.NPCType<DarkLatexCubSitting>());
+                if (currentHat != null)
+                {
+                    changedNPC = npc.Changed();
+                    if (changedNPC != null)
+                        changedNPC.SetHat(currentHat);
+                }
+                return;
+            }
+
+            if (Main.netMode != NetmodeID.MultiplayerClient && isWhiteCub && npc.HasValidTarget && npc.velocity.Y == 0 && npc.Distance(Main.player[npc.target].Center) < 2 * 16)
+            {
+                var player = Main.player[npc.target];
+                player.velocity.X /= 2;
+                player.AddBuff(BuffID.Slow, 3 * 60);
+                var changedNPC = npc.Changed();
+                var currentHat = changedNPC?.CurrentHat;
+                npc.Transform(ModContent.NPCType<WhiteLatexCubSitting>());
+                if (currentHat != null)
+                {
+                    changedNPC = npc.Changed();
+                    if (changedNPC != null)
+                        changedNPC.SetHat(currentHat);
+                }
                 return;
             }
 

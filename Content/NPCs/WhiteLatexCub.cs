@@ -38,9 +38,9 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
-            NPC.aiStyle = NPCAIStyleID.Fighter;
-			AIType = NPCID.GoblinScout;
-			AnimationType = NPCID.Zombie;
+            NPC.aiStyle = -1;// NPCAIStyleID.Fighter;
+            AIType = 0;// NPCID.GoblinScout;
+            AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
@@ -104,6 +104,11 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
+        }
+
+        public override void AI()
+        {
+            AI_Fighter.AI_003_Fighter(NPC);
         }
     }
 }

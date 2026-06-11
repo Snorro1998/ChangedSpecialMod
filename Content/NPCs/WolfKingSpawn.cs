@@ -5,6 +5,7 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,7 +24,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public double imageSpeed = 5D;
         public int imageIndex = 0;
 
-        public int[] animation = new int[] { 0, 1, 2, 3};
+        public int[] animation = new int[] { 0 };
         public int[] animIdle = new int[] { 0 };
         public int[] animTurn = new int[] { 1, 2 };
         public int[] animLightEyes = new int[] { 3 };
@@ -101,6 +102,13 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AIState = (float)newState;
             AITimer = 0;
+            NPC.netUpdate = true;
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            SwitchAnimation(animIdle);
+            ChangedUtils.SpawnCheerleaders(NPC, true);
         }
 
         // TODO: implement the same for tall gates
@@ -170,7 +178,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     WorldGen.KillActuator(leftPos, i);
 
                 if (!tTile.HasTile)
-                    WorldGen.PlaceTile(leftPos, i, ModContent.TileType<BlackLatexTile>(), false, true);
+                    ChangedUtils.PlaceTile(leftPos, i, ModContent.TileType<BlackLatexTile>());
                 else
                 {
                     if (tTile.IsActuated)
@@ -179,10 +187,10 @@ namespace ChangedSpecialMod.Content.NPCs
                     //1X3 scenery tile
                     if (ChangedUtils.IsOpenDoorAtTile(leftPos, i) || ChangedUtils.IsDoorAtTile(leftPos, i) || ChangedUtils.IsCrystalAtTile(leftPos, i))
                     {
-                        WorldGen.KillTile(leftPos, i, false, false, true);
-                        WorldGen.PlaceTile(leftPos, i, ModContent.TileType<BlackLatexTile>());
-                        WorldGen.PlaceTile(leftPos, i + 1, ModContent.TileType<BlackLatexTile>());
-                        WorldGen.PlaceTile(leftPos, i + 2, ModContent.TileType<BlackLatexTile>());
+                        ChangedUtils.DestroyTile(leftPos, i);
+                        ChangedUtils.PlaceTile(leftPos, i, ModContent.TileType<BlackLatexTile>());
+                        ChangedUtils.PlaceTile(leftPos, i + 1, ModContent.TileType<BlackLatexTile>());
+                        ChangedUtils.PlaceTile(leftPos, i + 2, ModContent.TileType<BlackLatexTile>());
                     }
                 }
             }
@@ -198,7 +206,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     WorldGen.KillActuator(rightPos, i);
 
                 if (!tTile.HasTile)
-                    WorldGen.PlaceTile(rightPos, i, ModContent.TileType<BlackLatexTile>(), false, true);
+                    ChangedUtils.PlaceTile(rightPos, i, ModContent.TileType<BlackLatexTile>());
                 else
                 {
                     if (tTile.IsActuated)
@@ -207,10 +215,10 @@ namespace ChangedSpecialMod.Content.NPCs
                     //1X3 scenery tile
                     if (ChangedUtils.IsOpenDoorAtTile(rightPos, i) || ChangedUtils.IsDoorAtTile(rightPos, i) || ChangedUtils.IsCrystalAtTile(rightPos, i))
                     {
-                        WorldGen.KillTile(rightPos, i, false, false, true);
-                        WorldGen.PlaceTile(rightPos, i, ModContent.TileType<BlackLatexTile>());
-                        WorldGen.PlaceTile(rightPos, i + 1, ModContent.TileType<BlackLatexTile>());
-                        WorldGen.PlaceTile(rightPos, i + 2, ModContent.TileType<BlackLatexTile>());
+                        ChangedUtils.DestroyTile(rightPos, i);
+                        ChangedUtils.PlaceTile(rightPos, i, ModContent.TileType<BlackLatexTile>());
+                        ChangedUtils.PlaceTile(rightPos, i + 1, ModContent.TileType<BlackLatexTile>());
+                        ChangedUtils.PlaceTile(rightPos, i + 2, ModContent.TileType<BlackLatexTile>());
                     }
                 }
             }
@@ -220,9 +228,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 var tTile = Main.tile[i, topPos];
                 if (!tTile.HasTile)
-                {
-                    WorldGen.PlaceTile(i, topPos, ModContent.TileType<BlackLatexTile>(), false, true);
-                }
+                    ChangedUtils.PlaceTile(i, topPos, ModContent.TileType<BlackLatexTile>());
             }
 
             // Fill holes in floor
@@ -230,9 +236,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 var tTile = Main.tile[i, bottomPos];
                 if (!tTile.HasTile)
-                {
-                    WorldGen.PlaceTile(i, bottomPos, ModContent.TileType<BlackLatexTile>(), false, true);
-                }
+                    ChangedUtils.PlaceTile(i, bottomPos, ModContent.TileType<BlackLatexTile>());
             }
         }
 
@@ -243,16 +247,20 @@ namespace ChangedSpecialMod.Content.NPCs
             if (AITimer == 1)
             {
                 SwitchAnimation(animIdle);
-                ChangedUtils.SpawnCheerleaders(NPC, true);
-                //SpawnCheerleaders();
+                //ChangedUtils.SpawnCheerleaders(NPC, true);
             }
 
-            var player = Main.LocalPlayer;
-            var pos = NPC.Center;
+            NPC.TargetClosest(false);
 
-            if (Vector2.Distance(pos, player.Center) < 48)
+            if (NPC.HasValidTarget)
             {
-                SwitchState(ActionState.Turn);
+                var player = Main.player[NPC.target];
+                var pos = NPC.Center;
+
+                if (Vector2.Distance(pos, player.Center) < 48)
+                {
+                    SwitchState(ActionState.Turn);
+                }
             }
         }
 
@@ -277,6 +285,7 @@ namespace ChangedSpecialMod.Content.NPCs
             // Start the bossfight after n seconds
             if (AITimer == 4 * 60)
             {
+                //ChangedUtils.DespawnNPC(NPC);
                 SwitchState(ActionState.StartBossFight);
             }
         }
@@ -287,28 +296,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AIState = 1;
-                AITimer = 0;
-                NPC.netUpdate = true;
-                NPC.Transform(ModContent.NPCType<WolfKing>());
-                AIState = 1;
-                AITimer = 0;
-                NPC.netUpdate = true;
-                /*
-                NPC.active = false;
-                NPC.netUpdate = true;
-                int type = ModContent.NPCType<WolfKing>();
-                NPC.NewNPC(NPC.GetSource_FromAI(), 0, 0, type);
+                var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)NPC.Center.X, (int)NPC.Bottom.Y, ModContent.NPCType<WolfKing>(), 0, 0);
 
-                foreach (var npc in Main.npc)
-                {
-                    if (npc.type == type)
-                    {
-                        npc.position = NPC.position;
-                        break;
-                    }
-                }
-                */
+                if (Main.netMode == NetmodeID.Server && npcIndex != -1)
+                    NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
+
+                ChangedUtils.DespawnNPC(NPC);
             }
         }
 
@@ -316,7 +309,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             // Players cannot build or break blocks when he is not in his idle state.
             // The code for this is in ChangedSpecialModPlayer, because doing it here instead does not work
-
+            
             switch (AIState)
             {
                 case (float)ActionState.Idle:

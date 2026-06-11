@@ -625,6 +625,7 @@ Mods: {
 			}
 
 			DarkLatexCubSitting.DisplayName: 黑色粘液小狗
+			// WhiteLatexCubSitting.DisplayName: White Latex Cub Sitting
 		}
 
 		Emotes: {

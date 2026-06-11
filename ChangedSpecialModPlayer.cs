@@ -586,6 +586,9 @@ namespace ChangedSpecialMod
 
         public void BehemothSpawnCheck()
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             // Don't spawn if already killed or the previous bosses haven't been killed yet
             if (DownedBossSystem.DownedBehemoth || !DownedBossSystem.DownedWhiteTail || !DownedBossSystem.DownedWolfKing)
                 return;
@@ -659,13 +662,6 @@ namespace ChangedSpecialMod
         {
             base.Kill(damage, hitDirection, pvp, damageSource);
             SetTransfur(null);
-        }
-
-        public override void PreUpdate()
-        {
-            base.PreUpdate();
-            ChangedUtils.WolfKingSpawnCheck();
-            BehemothSpawnCheck();
         }
 
         public void MakeCrystalsShinier()

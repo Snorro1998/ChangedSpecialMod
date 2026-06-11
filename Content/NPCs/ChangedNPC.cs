@@ -952,6 +952,12 @@ namespace ChangedSpecialMod.Content.NPCs
             CurrentHat = null;
         }
 
+        public void SetHat(HatStruct hat)
+        {
+            CurrentHat = hat;
+        }
+
+
         public void SetHat(int hatId)
         {
             var hat = NewHats.FirstOrDefault(x => x.HatId == hatId);

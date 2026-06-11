@@ -625,6 +625,7 @@ Mods: {
 			}
 
 			DarkLatexCubSitting.DisplayName: Cachorro de Látex Negro
+			// WhiteLatexCubSitting.DisplayName: White Latex Cub Sitting
 		}
 
 		Emotes: {

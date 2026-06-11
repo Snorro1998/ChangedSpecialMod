@@ -308,12 +308,17 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private void DoDespawn()
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             foreach (var npc in Main.npc)
             {
                 if (npc.type == ModContent.NPCType<BehemothHand>())
-                    npc.active = false;
+                {
+                    ChangedUtils.DespawnNPC(npc);
+                }
             }
-            NPC.active = false;
+            ChangedUtils.DespawnNPC(NPC);
         }
 
         private void StateShrinkDeath()
@@ -327,7 +332,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 AudioSystem.PlayTransfurSound(NPC.Center);
             }
 
-            if (AITimer >= 90)
+            if (AITimer >= 90 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 NPC.StrikeInstantKill();
             }

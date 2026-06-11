@@ -183,6 +183,7 @@ namespace ChangedSpecialMod.Content.NPCs
             AITimer = 0;
             AIDoorKnockValue = 0;
             AIImpatienceTimer = 0;
+            NPC.netUpdate = true;
         }
 
         public void StateDoor()

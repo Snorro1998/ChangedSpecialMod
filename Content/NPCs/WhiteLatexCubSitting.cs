@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class DarkLatexCubSitting : ModNPC
+	public class WhiteLatexCubSitting : ModNPC
 	{
         private enum ActionState
         {
@@ -49,33 +49,33 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override void SetDefaults() 
         {
-			NPC.width = 18;
-			NPC.height = 18;
-			NPC.damage = 0;
-			NPC.defense = 6;
-			NPC.lifeMax = 40;
+            NPC.width = 18;
+            NPC.height = 18;
+            NPC.damage = 0;
+            NPC.defense = 6;
+            NPC.lifeMax = 50;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.value = 60f;
-			NPC.knockBackResist = 0.5f;
+            NPC.value = 60f;
+            NPC.knockBackResist = 0.5f;
             NPC.aiStyle = -1;
 			AIType = 0;
 			AnimationType = NPCID.None;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
+            SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.HatXOffset = -2;
             changedNPC.HatYOffset = -15;
-            changedNPC.GooType = GooType.Black;
+            changedNPC.GooType = GooType.White;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.DoOnSpawnExtra = true;
             changedNPC.CanEvolve = true;
-            changedNPC.EvolveType = ModContent.NPCType<MaleDarkLatex>();
+            changedNPC.EvolveType = ModContent.NPCType<WhiteKnight>();
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -193,7 +193,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 var changedNPC = NPC.Changed();
                 var currentHat = changedNPC?.CurrentHat;
-                NPC.Transform(ModContent.NPCType<DarkLatexCub>());
+                NPC.Transform(ModContent.NPCType<WhiteLatexCub>());
                 if (currentHat != null)
                 {
                     changedNPC = NPC.Changed();

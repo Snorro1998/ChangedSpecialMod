@@ -134,24 +134,24 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private void StateStartBossFight()
         {
-            AITimer++;
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
 
-            if (AITimer == 1 && Main.netMode != NetmodeID.MultiplayerClient)
+            ChangedUtils.TransformNPC(NPC, ModContent.NPCType<Behemoth>());
+            /*
+            var lifeMax = NPC.lifeMax;
+            var life = NPC.life;
+            NPC.Transform(ModContent.NPCType<Behemoth>());
+            AIState = 0;
+            AITimer = 0;
+            NPC.lifeMax = lifeMax;
+            NPC.life = life;
+
+            if (Main.netMode == NetmodeID.Server)
             {
-                int type = ModContent.NPCType<Behemoth>();
-                NPC.NewNPC(NPC.GetSource_FromAI(), 0, 0, type);
-
-                foreach (var npc in Main.npc)
-                {
-                    if (npc.type == type)
-                    {
-                        npc.position = NPC.position;
-                        break;
-                    }
-                }
-                NPC.active = false;
-                NPC.netUpdate = true;
+                NetMessage.SendData(MessageID.SyncNPC, number: NPC.whoAmI);
             }
+            */
         }
 
         public override void AI()
