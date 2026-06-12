@@ -68,6 +68,8 @@ Multiplier fixes
 - Behemoth sliding around after teleporting
 - Generators not playing a chime sound when turned on or off
 - Players not teleporting until they walked after using an elevator
+- Transfur UI appearing for all players when a syringe is used
+- Other player's transfur not visible
 
 Other fixes
 - Improved some English texts

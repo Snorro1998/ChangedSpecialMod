@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -114,8 +115,15 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (!DownedBossSystem.DownedWolfKing)
             {
-                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.Messages.BehemothCanSpawn");
-                Main.NewText(msg, byte.MaxValue, 240, 20);
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    var msg = Language.GetTextValue("Mods.ChangedSpecialMod.Messages.BehemothCanSpawn");
+                    Main.NewText(msg, byte.MaxValue, 240, 20);
+                }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.ChangedSpecialMod.Messages.BehemothCanSpawn", NPC.FullName), new Color(175, 75, 255));
+                }
             }
 
             DownedBossSystem.DownedWolfKing = true;
@@ -181,6 +189,14 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.frame.Y = imageIndex * frameHeight;
         }
 
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                Main.NewText(Language.GetTextValue("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            if (Main.netMode == NetmodeID.Server)
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+        }
+
         private void SwitchAnimation(int[] newAnimation)
         {
             imageCounter = 0;
@@ -203,9 +219,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 //RoomBounds = FindRoomBounds();
                 SwitchAnimation(animIdle);
                 SwitchState(ActionState.Idle);
-
-                if (Main.netMode == NetmodeID.Server)
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
             }
         }
 

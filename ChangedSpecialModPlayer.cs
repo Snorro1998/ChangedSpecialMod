@@ -1,17 +1,14 @@
-﻿using ChangedSpecialMod.Assets;
-using ChangedSpecialMod.Common.Configs;
+﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.GameInput;
@@ -20,27 +17,6 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod
 {
-    public enum TransfurType
-    {
-        None = 0,
-        BlackGoop,
-        BlackCub,
-        BlackAdult,
-        BlackFast,
-        BlackStrong,
-
-        WhiteGoop,
-        WhiteCub,
-        WhiteAdult,
-        WhiteFast,
-        WhiteStrong,
-
-        SquidCub,
-        SquidAdult,
-
-        GermanShepherd,
-    }
-
     public class Transfur
     {
         public int npcType = -1;
@@ -61,6 +37,15 @@ namespace ChangedSpecialMod
         public bool waterBreathing = false;
 
         public bool tentacleAbility = false;
+
+        // This is not needed for vanilla, but it is needed if you don't  
+        // want the damaging effects of the Abyss from Calamity
+        // Set breath to 10X the max value so the meter won't flicker rapidly
+        private void CalamityAbyssBreathing(ref Player player)
+        {
+            player.breath = 2000;
+            player.breathCD = 0;
+        }
 
         public void UpdatePlayerStats(Player player)
         {
@@ -95,134 +80,20 @@ namespace ChangedSpecialMod
             if (player.wet && waterBreathing)
             {
                 player.AddBuff(BuffID.Gills, 1);
-
-                // This is not needed for vanilla, but it is needed if you don't  
-                // want the damaging effects of the Abyss from Calamity
-                // Set breath to 10X the max value so the meter won't flicker rapidly
-                player.breath = 2000;
-                player.breathCD = 0;
+                CalamityAbyssBreathing(ref player);
             }
-        }
-    }
-
-    public class CustomPlayerLayer : PlayerDrawLayer
-    {
-        public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.LastVanillaLayer);
-
-        private int PlayerAnimationWhiteTaur(int legFrame)
-        {
-            int frameIndex = 0;
-            if (legFrame > 5)
-            {
-                if (legFrame == 6 || legFrame == 7)
-                    frameIndex = 3;
-                else if (legFrame == 8 || legFrame == 9)
-                    frameIndex = 4;
-                else if (legFrame == 10 || legFrame == 11)
-                    frameIndex = 5;
-                else if (legFrame == 12 || legFrame == 13)
-                    frameIndex = 6;
-                else if (legFrame == 14 || legFrame == 15)
-                    frameIndex = 7;
-                else if (legFrame == 16 || legFrame == 17)
-                    frameIndex = 8;
-                else
-                    frameIndex = 9;
-            }
-
-            else if (legFrame == 5)
-                frameIndex = 10;
-            else
-                frameIndex = 0;
-
-            return frameIndex;
-        }
-
-        protected override void Draw(ref PlayerDrawSet drawInfo)
-        {
-            Player player = drawInfo.drawPlayer;
-            var changedPlayer = player.ChangedPlayer();
-            var baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
-            var texturePath = $"{baseTexturePath}Transparent";
-            var nFrames = 3;
-
-            var transfurCurrent = changedPlayer?.TransfurTypeCurrent;
-            if (transfurCurrent != null)
-            {
-                texturePath = transfurCurrent.texturePath;
-                nFrames = transfurCurrent.nFrames;
-            }
-
-            Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
-            Vector2 playerPos = player.Center;
-            playerPos.Y += player.gfxOffY;
-            Vector2 position = playerPos - Main.screenPosition;
-            position = new Vector2((int)position.X, (int)position.Y);
-            var effects = player.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-
-            var frameWidth = texture.Width;
-            var legFrame = player.legFrame.Y / 56;
-            var frameIndex = (player.legFrame.Y / (4 * 32)) % nFrames;// 0;
-
-            if (transfurCurrent != null && transfurCurrent.npcType == ModContent.NPCType<WhiteLatexTaur>())
-                frameIndex = PlayerAnimationWhiteTaur(legFrame);
-            else
-            {
-                //6..19 walk
-                if (legFrame > 5)
-                {
-                    if (legFrame == 6 || legFrame == 7 || legFrame == 13 || legFrame == 14)
-                        frameIndex = 0;
-                    else if (legFrame == 8 || legFrame == 11 || legFrame == 12 || legFrame == 15 || legFrame == 18 || legFrame == 19)
-                        frameIndex = 1;
-                    else
-                        frameIndex = 2;
-                }
-
-                else if (legFrame == 5)
-                    frameIndex = 2;
-                else
-                    frameIndex = 0;
-            }
-
-            var frameHeight = texture.Height / nFrames;
-            var sourceRect = new Rectangle(0, frameIndex * frameHeight, frameWidth, frameHeight);
-
-            var yOff = (48 - frameHeight) / 2;
-            position.Y += yOff;
-
-            Vector2 drawCenter = player.Center;
-            Vector2 drawPositionInWorld = drawCenter;
-            Color tmpColor = Lighting.GetColor((int)drawCenter.X / 16, (int)(drawCenter.Y / 16f));
-
-            // Body
-            drawInfo.DrawDataCache.Add(new DrawData(
-                texture,
-                position,
-                sourceRect,
-                tmpColor,
-                0f,
-                new Vector2(frameWidth / 2, frameHeight / 2),
-                1f,
-                effects,
-                0f
-            ));
         }
     }
 
     public class ChangedSpecialModPlayer : ModPlayer
     {
-        public Dictionary<GooType, List<Transfur>> EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
+        //public Dictionary<GooType, List<Transfur>> EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
         public Transfur TransfurTypeCurrent = null;
 
         public bool pictureViewerOpen = false;
         public int pictureIndex = -1;
         public bool hidePlayer = false;
-        public TransfurType transfurIndex = TransfurType.None;
-        public GooType transfurGooType = GooType.None;
-        //0 black
-        //1 white
-
+        /*
         private void InitTransfurTypes()
         {
             var baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
@@ -351,7 +222,8 @@ namespace ChangedSpecialMod
 
             EvolutionsLines.Add(GooType.None, evolutionLine);
         }
-
+        */
+        /*
         private List<Transfur> GetEvolutionLine(GooType gooType)
         {
             if (EvolutionsLines == null || EvolutionsLines.Count == 0)
@@ -361,6 +233,7 @@ namespace ChangedSpecialMod
                 return null;
             return EvolutionsLines[gooType];
         }
+        */
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -398,42 +271,30 @@ namespace ChangedSpecialMod
                 Player.direction
             );
         }
-
-        public void SetTransfurFromNumber(GooType gooType, int number)
+        /*
+        public void SetTransfurFromNPCType(int playerIndex, int npcType)
         {
-            List<Transfur> targetList = GetEvolutionLine(gooType);
-
-            if (targetList == null)
-                return;
-
-            if (number < 0 || number >= targetList.Count) 
-                return;
-
-            var tf = targetList[number];
-            SetTransfur(tf);
-        }
-
-        public void SetTransfurType(GooType gooType)
-        {
-            //if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-            //    InitTransfurTypes();
-
-            if (TransfurTypeCurrent != null)
+            Transfur transfur = null;
+            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
+                InitTransfurTypes();
+            var keys = EvolutionsLines.Keys.ToList();
+            foreach (var key in keys)
             {
-                SetTransfur(null);
-                return;
+                var evolutionLine = EvolutionsLines[key];
+                var tmpTransfur = evolutionLine.FirstOrDefault(x => x.npcType == npcType);
+                if (tmpTransfur != null)
+                {
+                    transfur = tmpTransfur;
+                    break;
+                }
             }
-
-            List<Transfur> targetList = GetEvolutionLine(gooType);
-
-            if (targetList == null)
-                return;
-
-            SetTransfur(targetList.FirstOrDefault());
+            SetTransfur(transfur);
         }
+        */
 
-        private void SetTransfur(Transfur transfur)
+        public void SetTransfur(Transfur transfur)
         {
+            // Only spawn dust particles on the client
             if (Main.netMode != NetmodeID.Server)
             {
                 var dustTransfur = TransfurTypeCurrent;
@@ -532,76 +393,24 @@ namespace ChangedSpecialMod
             AddDebuff();
         }
 
-        public void BehemothSpawnCheck()
-        {
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-                return;
-
-            // Don't spawn if already killed or the previous bosses haven't been killed yet
-            if (DownedBossSystem.DownedBehemoth || !DownedBossSystem.DownedWhiteTail || !DownedBossSystem.DownedWolfKing)
-                return;
-
-            // Don't spawn if he is already present
-            if (NPC.AnyNPCs(ModContent.NPCType<Behemoth>()) || NPC.AnyNPCs(ModContent.NPCType<BehemothSpawn>()))
-                return;
-
-            foreach (var player in Main.ActivePlayers)
-            {
-                int minRangeFromPlayer = 80;
-                int maxRange = 120;                         // Same range as the clentaminator, so probably enough to be off-screen
-                int blockCheckSpacing = 8;                  // Only check every 8 blocks for performance
-                var xPos = (int)(player.position.X / 16);
-                var yPos = (int)(player.position.Y / 16);
-
-                for (int y = -maxRange; y <= maxRange; y += blockCheckSpacing)
-                {
-                    for (int x = -maxRange; x <= maxRange; x += blockCheckSpacing)
-                    {
-                        if (Math.Abs(x) <= minRangeFromPlayer)
-                            continue;
-
-                        var tmpX = xPos + x;
-                        var tmpY = yPos + y;
-
-                        if (tmpX < 0 || tmpX >= Main.maxTilesX)
-                            continue;
-
-                        if (tmpY < 0 || tmpY >= Main.maxTilesY)
-                            continue;
-
-                        var tile = Main.tile[tmpX, tmpY];
-
-                        if (ChangedUtils.IsWhiteLatexWall(tile))
-                        {
-                            ChangedUtils.SpawnBehemoth(tmpX, tmpY, player);
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
             var changedNPC = npc?.Changed();
-            if (changedNPC != null && changedNPC.GooType != GooType.Invalid && ChangedSpecialModClientConfig.Instance.NPCsCanTransfurPlayer)
+            var changedPlayer = Player.ChangedPlayer();
+            if (changedNPC != null && changedPlayer != null && changedNPC.GooType != GooType.Invalid && ChangedSpecialModClientConfig.Instance.NPCsCanTransfurPlayer)
             {
                 var damage = hurtInfo.Damage;
                 // Damage would kill player
                 if (damage > Player.statLife && TransfurTypeCurrent == null)
                 {
-                    List<Transfur> targetList = GetEvolutionLine(changedNPC.GooType);
-                    var targetTransfur = targetList.FirstOrDefault(x => x.npcType == npc.type);
-                    if (targetTransfur != null)
+                    ChangedUtils.SetTransfurFromNPCType(Player.whoAmI, npc.type);
+                    if (changedPlayer.TransfurTypeCurrent != null)
                     {
-                        // Nullify damage and transfur player
                         Player.statLife += damage;
                         Player.statLife += 50;
-                        SetTransfur(targetTransfur);
                     }
                 }
             }
-
 
             base.OnHitByNPC(npc, hurtInfo);
         }
@@ -609,7 +418,7 @@ namespace ChangedSpecialMod
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
         {
             base.Kill(damage, hitDirection, pvp, damageSource);
-            SetTransfur(null);
+            ChangedUtils.UntransfurPlayer(Player.whoAmI);
         }
 
         public void MakeCrystalsShinier()
@@ -663,7 +472,7 @@ namespace ChangedSpecialMod
             {
                 TransfurTypeCurrent.UpdatePlayerStats(Player);
                 if (Player.mount.Active)
-                    SetTransfur(null);
+                    ChangedUtils.UntransfurPlayer(Player.whoAmI);
             }   
         }
 

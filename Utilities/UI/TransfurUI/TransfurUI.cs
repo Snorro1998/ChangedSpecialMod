@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -37,20 +39,20 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             MainPanel.BackgroundColor = new Color(63, 82, 151) * 0.7f;//new Color(73, 94, 171); 
 
             // Black
-            buttonsBlackLatex.Add(AddButton(0, 0, GooType.Black, 0, TexturePath("BlackGoop"), NamePath("BlackGoop")));
-            buttonsBlackLatex.Add(AddButton(1, 0, GooType.Black, 1, TexturePath("DarkLatexCub"), NamePath("DarkLatexCub")));
-            buttonsBlackLatex.Add(AddButton(2, 0, GooType.Black, 2, TexturePath("MaleDarkLatex"), NamePath("MaleDarkLatex")));
-            buttonsBlackLatex.Add(AddButton(3, 0, GooType.Black, 3, TexturePath("WingedDarkLatex"), NamePath("WingedDarkLatex")));
-            buttonsBlackLatex.Add(AddButton(4, 0, GooType.Black, 4, TexturePath("Wendigo"), NamePath("Wendigo")));
+            buttonsBlackLatex.Add(AddButton(0, 0, ModContent.NPCType<BlackGoop>(), TexturePath("BlackGoop"), NamePath("BlackGoop")));
+            buttonsBlackLatex.Add(AddButton(1, 0, ModContent.NPCType<DarkLatexCub>(), TexturePath("DarkLatexCub"), NamePath("DarkLatexCub")));
+            buttonsBlackLatex.Add(AddButton(2, 0, ModContent.NPCType<MaleDarkLatex>(), TexturePath("MaleDarkLatex"), NamePath("MaleDarkLatex")));
+            buttonsBlackLatex.Add(AddButton(3, 0, ModContent.NPCType<WingedDarkLatex>(), TexturePath("WingedDarkLatex"), NamePath("WingedDarkLatex")));
+            buttonsBlackLatex.Add(AddButton(4, 0, ModContent.NPCType<Wendigo>(), TexturePath("Wendigo"), NamePath("Wendigo")));
 
             // White
-            buttonsWhiteLatex.Add(AddButton(0, 1, GooType.White, 0, TexturePath("WhiteGoop"), NamePath("WhiteGoop")));
-            buttonsWhiteLatex.Add(AddButton(1, 1, GooType.White, 1, TexturePath("WhiteLatexCub"), NamePath("WhiteLatexCub")));
-            buttonsWhiteLatex.Add(AddButton(2, 1, GooType.White, 2, TexturePath("WhiteKnight"), NamePath("WhiteKnight")));
-            buttonsWhiteLatex.Add(AddButton(3, 1, GooType.White, 3, TexturePath("WhiteLatexTaur"), NamePath("WhiteLatexTaur")));
+            buttonsWhiteLatex.Add(AddButton(0, 1, ModContent.NPCType<WhiteGoop>(), TexturePath("WhiteGoop"), NamePath("WhiteGoop")));
+            buttonsWhiteLatex.Add(AddButton(1, 1, ModContent.NPCType<WhiteLatexCub>(), TexturePath("WhiteLatexCub"), NamePath("WhiteLatexCub")));
+            buttonsWhiteLatex.Add(AddButton(2, 1, ModContent.NPCType<WhiteKnight>(), TexturePath("WhiteKnight"), NamePath("WhiteKnight")));
+            buttonsWhiteLatex.Add(AddButton(3, 1, ModContent.NPCType<WhiteLatexTaur>(), TexturePath("WhiteLatexTaur"), NamePath("WhiteLatexTaur")));
 
             // Squid Dog
-            buttonsSquidDog.Add(AddButton(0, 2, GooType.None, 0, TexturePath("SquidDog"), NamePath("SquidDog")));
+            buttonsSquidDog.Add(AddButton(0, 2, ModContent.NPCType<SquidDog>(), TexturePath("SquidDog"), NamePath("SquidDog")));
 
             allCategories.Add(buttonsBlackLatex);
             allCategories.Add(buttonsWhiteLatex);
@@ -59,21 +61,37 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             Append(MainPanel);
         }
 
-        private UIHoverImageButton AddButton(int buttonXIndex, int buttonYIndex, GooType gooType, int transformationIndex, string iconPath, string description)
+        private UIHoverImageButton AddButton(int buttonXIndex, int buttonYIndex, int npcType, string iconPath, string description)
         {
             Asset<Texture2D> buttonTexture = ModContent.Request<Texture2D>(iconPath);
             UIHoverImageButton button = new UIHoverImageButton(buttonTexture, description);
-            //SetRectangle(button, left: padding + buttonXIndex * (btnWith + spacing), top: padding + buttonYIndex * (btnHeight + spacing), width: btnWith, height: btnHeight);
+
             button.OnLeftClick += (evt, element) =>
             {
                 ModContent.GetInstance<TransfurUISystem>().HideMyUI();
-                TransformPlayer(gooType, transformationIndex);
+                OnButtonClicked(npcType);//TransformPlayer(npcType);
             };
 
             MainPanel.Append(button);
             SetButtonPosition(button, buttonXIndex, buttonYIndex);
 
             return button;
+        }
+
+        public void OnButtonClicked(int npcType)
+        {
+            if (Main.netMode == NetmodeID.SinglePlayer)
+            {
+                ChangedUtils.SetTransfurFromNPCType(Main.myPlayer, npcType);
+            }
+            else if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
+                packet.Write((byte)ChangedSpecialMod.MessageType.TransfurPlayer);
+                packet.Write((byte)Main.myPlayer);
+                packet.Write(npcType);
+                packet.Send();
+            }
         }
 
         public void SetVisibleCategories(int categories)
@@ -144,15 +162,12 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             uiElement.Height.Set(height, 0f);
         }
 
-        private void TransformPlayer(GooType gooType, int transformationIndex)
+        private void TransformPlayer(int npcType)
         {
             var player = Main.LocalPlayer;
             if (player == null)
                 return;
-            var changedPlayer = player.ChangedPlayer();
-            if (changedPlayer == null)
-                return;
-            changedPlayer.SetTransfurFromNumber(gooType, transformationIndex);
+            ChangedUtils.SetTransfurFromNPCType(player.whoAmI, npcType);
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -86,6 +87,12 @@ namespace ChangedSpecialMod.Content.NPCs
         
         public override void OnSpawn(IEntitySource source)
         {
+            /*
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                Main.NewText(Language.GetTextValue("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            if (Main.netMode == NetmodeID.Server)
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            
             if (ChangedUtils.AnnounceBoss)
             {
                 var npcName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteTail.DisplayName");
@@ -93,18 +100,26 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             ChangedUtils.AnnounceBoss = true;
+            */
             NPC.TargetClosest();
         }
 
         public override void OnKill()
         {
+            base.OnKill();
             if (!DownedBossSystem.DownedWhiteTail)
             {
-                var msg = Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WolfKingCanSpawn");
-                Main.NewText(msg, byte.MaxValue, 240, 20);
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    var msg = Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WolfKingCanSpawn");
+                    Main.NewText(msg, byte.MaxValue, 240, 20);
+                }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.ChangedSpecialMod.Messages.WolfKingCanSpawn", NPC.FullName), new Color(175, 75, 255));
+                }
             }
 
-            base.OnKill();
             DownedBossSystem.DownedWhiteTail = true;
         }
 
@@ -123,6 +138,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            return 0;
+            /*
             if (DownedBossSystem.DownedWhiteTail || NPC.AnyNPCs(ModContent.NPCType<WhiteTail>()))
                 return 0;
 
@@ -175,6 +192,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var chance = 0.5f + (nKills - nMinKills) * (2.5f / (nMaxKills - nMinKills));
             var changedNPC = NPC.Changed();
             return chance * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            */
         }
 
         public void SwitchState(ActionState newState)

@@ -167,8 +167,100 @@ namespace ChangedSpecialMod.Utilities
         public override void PreUpdateWorld()
         {
             base.PreUpdateWorld();
+            WhiteTailSpawnCheck();
             WolfKingSpawnCheck();
             BehemothSpawnCheck();
+        }
+
+        private void WhiteTailSpawnCheck()
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient || DownedBossSystem.DownedWhiteTail)
+                return;
+
+            if (Main.npc.Any(x => x.active && x.type == ModContent.NPCType<WhiteTail>()))
+                return;
+
+            List<float> playerChanges = new List<float>();
+
+            for (int i = 0; i < 255; i++)
+            {
+                var player = Main.player[i];
+                if (!player.active || !ChangedUtils.InChangedBiome(player))
+                {
+                    playerChanges.Add(0);
+                    continue;
+                }
+
+                var nMinKills = 20;     // Minimum monster kills needed to spawn
+                var nMaxKills = 40;     // Guaranteed to spawn
+
+                // Black
+                var nGoop = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<BlackGoop>());
+                var nCub = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<DarkLatexCub>());
+                var nAdult = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<MaleDarkLatex>());
+                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FemaleDarkLatex>());
+                var nFlying = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FlyingDarkLatex>());
+
+                // White
+                nGoop += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteGoop>());
+                nCub += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteLatexCub>());
+                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteKnight>());
+
+                // Drunk
+                if (ChangedUtils.IsDrunk(player))
+                {
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<BackLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<DarkLatexCubOfDoom>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<PuroWormHead>());
+                    nCub += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<QuackLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<SnackLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<StackLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WackLatex>());
+
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<BrightLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FightLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FlightLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<HideLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<MightLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<SideLatex>());
+                    nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WideLatex>());
+                }
+
+                // Increase the change even further if the player has more then 200 hp
+                var playerHP = player.statLifeMax2;
+                var playerHPMultiplier = Math.Max(0, playerHP - 200) / 200 * nMinKills;
+
+                var nKills = 0.3f * nGoop + 0.5f * nCub + nAdult + 1.5f * nFlying + playerHPMultiplier;
+                var chance = 0.0f;
+
+                if (nKills < nMinKills)
+                {
+                    chance = 0;
+                }
+
+                chance = 0.5f + (nKills - nMinKills) * (2.5f / (nMaxKills - nMinKills));
+                playerChanges.Add(chance);
+            }
+
+            int highestIndex = -1;
+            float highestValue = 0;
+            for (int i = 0; i < playerChanges.Count; i++)
+            {
+                var playerChance = playerChanges[i];
+                if (playerChance > highestValue)
+                {
+                    highestValue = playerChance;
+                    highestIndex = i;
+                }
+            }
+
+            if (highestIndex == -1)
+                return;
+
+            var irandom = Math.Max(1, (int)(2000 / highestValue));
+
+            if (Main.rand.NextBool(irandom))
+                NPC.SpawnOnPlayer(highestIndex, ModContent.NPCType<WhiteTail>());
         }
 
         public static void CreateFlyingGasTank(int projectileType, int i, int j)
@@ -529,40 +621,11 @@ namespace ChangedSpecialMod.Utilities
             return Main.tile[info.SpawnTileX, info.SpawnTileY];
         }
 
-        public static float PlayerTransfurTypeMultiplier(NPCSpawnInfo spawnInfo, ChangedNPC npc, int NPCID)
-        {
-            var multiplier = 1.0f;
-            var multiplierHigh = 3.0f;
-            var changedPlayer = spawnInfo.Player.ChangedPlayer();
-            if (changedPlayer != null)
-            {
-                var playerTransfur = changedPlayer.transfurIndex;
-                if (playerTransfur != TransfurType.None)
-                {
-                    var isGoop = playerTransfur == TransfurType.BlackGoop || playerTransfur == TransfurType.WhiteGoop;
-                    var isCub = playerTransfur == TransfurType.BlackCub || playerTransfur == TransfurType.WhiteCub;
-                    var isAdult = playerTransfur == TransfurType.BlackAdult || playerTransfur == TransfurType.WhiteAdult;
-
-                    if (isGoop && (NPCID == ModContent.NPCType<BlackGoop>() || NPCID == ModContent.NPCType<WhiteGoop>()))
-                        multiplier = multiplierHigh;
-
-                    else if (isCub && (NPCID == ModContent.NPCType<DarkLatexCub>() || NPCID == ModContent.NPCType<WhiteLatexCub>()))
-                        multiplier = multiplierHigh;
-
-                    else if (isAdult && (NPCID == ModContent.NPCType<MaleDarkLatex>() || NPCID == ModContent.NPCType<FemaleDarkLatex>() || NPCID == ModContent.NPCType<WhiteKnight>()))
-                        multiplier = multiplierHigh;
-                }
-            }
-
-            return multiplier;
-        }
-
         public static float GetSurfaceSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc, int NPCID)
         {
-            var playerTransfurTypeMultiplier = PlayerTransfurTypeMultiplier(spawnInfo, npc, NPCID);
             var environmentSpawnChance = NewSpawnLogic(spawnInfo, npc);
             var weatherSpawnChance = GetWeatherSpawnChance(npc.ElementType);
-            return playerTransfurTypeMultiplier * environmentSpawnChance * weatherSpawnChance;
+            return environmentSpawnChance * weatherSpawnChance;
         }
 
         public static float NewSpawnLogic(NPCSpawnInfo spawnInfo, ChangedNPC npc)
@@ -628,6 +691,174 @@ namespace ChangedSpecialMod.Utilities
                 return 0.8f;
 
             return 0.0f;
+        }
+
+        public static void UntransfurPlayer(int playerIndex)
+        {
+            if (playerIndex < 0 || playerIndex > 255)
+                return;
+            var player = Main.player[playerIndex];
+            var changedPlayer = player.ChangedPlayer();
+            if (changedPlayer == null)
+                return;
+            changedPlayer.SetTransfur(null);
+        }
+
+        public static Dictionary<GooType, List<Transfur>> EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
+
+        private static void InitTransfurTypes()
+        {
+            var baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
+            EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
+
+            // Black
+            var evolutionLine = new List<Transfur>();
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<BlackGoop>(),
+                texturePath = $"{baseTexturePath}BlackGoop",
+                nFrames = 4,
+                gooType = GooType.Black,
+                lifeMultiplier = 0.6f,
+                speedMultiplier = 0.75f,
+                speedMultiplierAirborn = 2f,
+                jumpSpeedMultiplier = 1.75f,
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<DarkLatexCub>(),
+                texturePath = $"{baseTexturePath}DarkLatexCub",
+                nFrames = 4,
+                gooType = GooType.Black,
+                lifeMultiplier = 0.8f,
+                speedMultiplier = 1.2f,
+                jumpHeightMultiplier = 1.5f
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<MaleDarkLatex>(),
+                texturePath = $"{baseTexturePath}MaleDarkLatex",
+                gooType = GooType.Black,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<WingedDarkLatex>(),
+                texturePath = $"{baseTexturePath}WingedDarkLatex",
+                nFrames = 4,
+                gooType = GooType.Black,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+                speedMultiplier = 2f
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<Wendigo>(),
+                texturePath = $"{baseTexturePath}Wendigo",
+                nFrames = 4,
+                gooType = GooType.Black,
+                lifeMultiplier = 2f,
+                extraDefense = 10,
+                speedMultiplier = 0.75f,
+                damageBonus = 0.3f
+            });
+
+            EvolutionsLines.Add(GooType.Black, evolutionLine);
+
+            // White
+            evolutionLine = new List<Transfur>();
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<WhiteGoop>(),
+                texturePath = $"{baseTexturePath}WhiteGoop",
+                nFrames = 4,
+                gooType = GooType.White,
+                lifeMultiplier = 0.6f,
+                speedMultiplier = 0.75f,
+                speedMultiplierAirborn = 2f,
+                jumpSpeedMultiplier = 1.75f,
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<WhiteLatexCub>(),
+                texturePath = $"{baseTexturePath}WhiteLatexCub",
+                nFrames = 3,
+                gooType = GooType.White,
+                lifeMultiplier = 0.8f,
+                speedMultiplier = 1.2f,
+                jumpHeightMultiplier = 1.5f
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<WhiteKnight>(),
+                texturePath = $"{baseTexturePath}WhiteKnight",
+                gooType = GooType.White,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<WhiteLatexTaur>(),
+                texturePath = $"{baseTexturePath}WhiteLatexTaur",
+                nFrames = 13,
+                gooType = GooType.White,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+                speedMultiplier = 2f
+            });
+
+            EvolutionsLines.Add(GooType.White, evolutionLine);
+
+            // Squid Dog
+            evolutionLine = new List<Transfur>();
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<SquidDog>(),
+                texturePath = $"{baseTexturePath}SquidDog",
+                nFrames = 4,
+                gooType = GooType.None,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+                ignoreWater = true,
+                waterBreathing = true,
+                tentacleAbility = true
+            });
+
+            EvolutionsLines.Add(GooType.None, evolutionLine);
+        }
+
+        public static void SetTransfurFromNPCType(int playerIndex, int npcType)
+        {
+            if (playerIndex < 0 || playerIndex > 255)
+                return;
+            var player = Main.player[playerIndex];
+            var changedPlayer = player.ChangedPlayer();
+            if (changedPlayer == null)
+                return;
+
+            Transfur transfur = null;
+            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
+                InitTransfurTypes();
+            var keys = EvolutionsLines.Keys.ToList();
+            foreach (var key in keys)
+            {
+                var evolutionLine = EvolutionsLines[key];
+                var tmpTransfur = evolutionLine.FirstOrDefault(x => x.npcType == npcType);
+                if (tmpTransfur != null)
+                {
+                    transfur = tmpTransfur;
+                    break;
+                }
+            }
+            changedPlayer.SetTransfur(transfur);
         }
 
         public static int GetBestiaryKillCount(int NPCID)
@@ -1690,9 +1921,9 @@ namespace ChangedSpecialMod.Utilities
 
             var player = Main.player[playerIndex];
             player.position = new Vector2(xPos * 16, yPos * 16);
-
+            
             if (Main.netMode == NetmodeID.Server)
-                NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, xPos * 16, yPos * 16, 1, 0, 0);
+                NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, xPos * 16, yPos * 16, TeleportationStyleID.DebugTeleport, 0, 0);
         }
 
         public static void PlayerSpawnsWolfKing(int playerIndex)

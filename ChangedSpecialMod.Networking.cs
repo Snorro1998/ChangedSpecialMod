@@ -4,8 +4,10 @@ using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System.IO;
+using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -15,15 +17,17 @@ namespace ChangedSpecialMod
     {
         internal enum MessageType : byte
         {
-            BlackLatexCubTownPetUnlock,
-            WhiteLatexCubTownPetUnlock,
-            PlaySwitchSound,
-            SetPlayerTransfur,
-            PlayerSpawnsWolfKing,
-            TeleportPlayer
+            BlackLatexCubTownPetUnlock,     // client -> server
+            WhiteLatexCubTownPetUnlock,     // client -> server
+            PlaySwitchSound,                // server -> clients
+            PlayerSpawnsWolfKing,           // client -> server
+            TeleportPlayer,                 // client -> server
+            TransfurPlayer,                 // client -> server
+            SyncTransfurPlayer,             // server -> clients
+            UntransfurPlayer                // client -> server
         }
 
-        private void PlaySwitchSound(BinaryReader reader, int whoAmI)
+        private void PlaySwitchSound(BinaryReader reader)
         {
             int i = reader.ReadInt16();
             int j = reader.ReadInt16();
@@ -37,12 +41,7 @@ namespace ChangedSpecialMod
             );
         }
 
-        private void SetPlayerTransfur(BinaryReader reader, int whoAmI)
-        {
-
-        }
-
-        private void TeleportPlayer(BinaryReader reader, int whoAmI)
+        private void TeleportPlayer(BinaryReader reader)
         {
             int playerIndex = reader.ReadInt16();
             int xPos = reader.ReadInt16();
@@ -63,21 +62,49 @@ namespace ChangedSpecialMod
                     WhiteLatexCubLicense.UnlockPet(ref TownPetSystem.boughtWhiteLatexCubPet, ModContent.NPCType<Content.NPCs.TownPets.WhiteLatexCubTownPet>(), ModContent.GetInstance<WhiteLatexCubLicense>().GetLocalizationKey("UseLicense"));
                     break;
                 case MessageType.PlaySwitchSound:
-                    PlaySwitchSound(reader, whoAmI);
-                    break;
-                case MessageType.SetPlayerTransfur:
-                    SetPlayerTransfur(reader, whoAmI);
+                    PlaySwitchSound(reader);
                     break;
                 case MessageType.PlayerSpawnsWolfKing:
+                {
                     int playerIndex = reader.ReadInt16();
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral($"Server, playerspawnswolf {playerIndex.ToString()}"), Color.Red);
                     ChangedUtils.WolfKingSpawnCheck(true, playerIndex);
                     break;
+                }
                 case MessageType.TeleportPlayer:
-                    TeleportPlayer(reader, whoAmI);
+                    TeleportPlayer(reader);
                     break;
+                case MessageType.TransfurPlayer:
+                {
+                    if (Main.netMode != NetmodeID.Server)
+                        return;
+
+                    byte playerIndex = reader.ReadByte();
+                    int npcType = reader.ReadInt32();
+
+                    ChangedUtils.SetTransfurFromNPCType(playerIndex, npcType);
+
+                    // Broadcast result to all clients
+                    ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
+                    packet.Write((byte)MessageType.SyncTransfurPlayer);
+                    packet.Write(playerIndex);
+                    packet.Write(npcType);
+                    packet.Send();
+                    break;
+                }
+                case MessageType.SyncTransfurPlayer:
+                {
+                    byte playerIndex = reader.ReadByte();
+                    int npcType = reader.ReadInt32();
+
+                    if (npcType == -1)
+                        ChangedUtils.UntransfurPlayer(playerIndex);
+                    else
+                        ChangedUtils.SetTransfurFromNPCType(playerIndex, npcType);
+
+                    break;
+                }
                 default:
-                    Logger.WarnFormat("ExampleMod: Unknown Message type: {0}", msgType);
+                    Logger.WarnFormat("ChangedSpecialMod: Unknown Message type: {0}", msgType);
                     break;
             }
         }

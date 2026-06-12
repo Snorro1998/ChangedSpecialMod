@@ -28,13 +28,9 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
         {
             var state = transfurUserInterface?.CurrentState;
             if (state != null)
-            {
                 HideMyUI();
-            }
             else
-            {
                 ShowMyUI(categories);
-            }
         }
 
         public override void PostSetupContent()

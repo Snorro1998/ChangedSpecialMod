@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -118,8 +119,17 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void OnSpawn(IEntitySource source)
         {
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                Main.NewText(Language.GetTextValue("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            if (Main.netMode == NetmodeID.Server)
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            /*
             var npcName = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Behemoth.DisplayName");
-            Main.NewText(Language.GetTextValue("Announcement.HasAwoken", npcName), new Color(175, 75, 255));
+
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                Main.NewText(Language.GetTextValue("Announcement.HasAwoken", npcName), new Color(175, 75, 255));
+            */
+
             SpawnHand();
         }
 

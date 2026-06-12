@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using ChangedSpecialMod.Utilities.UI.TransfurUI;
 using Terraria;
@@ -21,10 +22,12 @@ namespace ChangedSpecialMod.Content.Items.Syringes
         public override bool? UseItem(Player player)
         {
             var changedPlayer = player.ChangedPlayer();
+
             if (changedPlayer.TransfurTypeCurrent != null)
-                changedPlayer.SetTransfurType(NPCs.GooType.Invalid);
-            else
+                ChangedUtils.UntransfurPlayer(player.whoAmI);
+            else if (player.whoAmI == Main.myPlayer)
                 ModContent.GetInstance<TransfurUISystem>().ToggleUI(2);
+
             return true;
         }
     }
