@@ -96,6 +96,8 @@ Mods: {
 					Orange4: Anoche soñé que estaba en una piscina de bolas llena de naranjas.
 					Orange5: Si quieres hacerme feliz, solo dame una naranja perfectamente madura.
 					Orange6: ¡Sé todo sobre las naranjas, así que se podría decir que soy un experto en cítricos!
+					# TF2
+					Orange7: No he hecho más que teletransportar naranjas durante 3 días.
 					Crimson1: "{Crimson}¿Sabías que en algunos árboles de Crimson dan naranjas sanguinas? ¿Crees que podrías conseguirme una?"
 					Crimson2: "{Crimson}Ten cuidado cerca del laboratorio que está junto al Crimson. Vi un tigre enorme y corpulento allí."
 					Corruption1: "{Corruption}Ten cuidado cerca del laboratorio, cerca de la Corrupción. Vi un gato enorme y morado allí."
@@ -228,6 +230,7 @@ Mods: {
 
 					BloodMoon: {
 						BloodMoon1: ¡Ven aquí, sujeto de prueba! ¡Tengo que hacerte algunas pruebas!
+						# Dr Nefario
 						BloodMoon2: ¿Quieres explotar?
 						BloodMoon3: ¡Muajajaja! ¡Te voy a atrapar y te voy a convertir en uno de nosotros!
 					}
@@ -623,9 +626,6 @@ Mods: {
 				// DisplayName: Maintenance Robot
 				// Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
 			}
-
-			DarkLatexCubSitting.DisplayName: Cachorro de Látex Negro
-			// WhiteLatexCubSitting.DisplayName: White Latex Cub Sitting
 		}
 
 		Emotes: {
@@ -685,11 +685,7 @@ Mods: {
 			}
 		}
 
-		Keybinds: {
-			// TransfurDevolve.DisplayName: Transfur Devolve
-			// TransfurEvolve.DisplayName: Transfur Evolve
-			TransfurAttack.DisplayName: Habilidad
-		}
+		Keybinds.TransfurAttack.DisplayName: Habilidad
 	}
 }
 

@@ -21,11 +21,17 @@ namespace ChangedSpecialMod.Content.NPCs
             var isBlackCub = npc.type == ModContent.NPCType<DarkLatexCub>();
             var isWhiteCub = npc.type == ModContent.NPCType<WhiteLatexCub>();
 
+            // TODO implement the commented part again without NPC.transform, because that shit doesnt work properly
+
+            /*
             if (Main.netMode != NetmodeID.MultiplayerClient && isBlackCub && npc.HasValidTarget && npc.velocity.Y == 0 && npc.Distance(Main.player[npc.target].Center) < 2 * 16)
             {
                 var player = Main.player[npc.target];
-                player.velocity.X /= 2;
-                player.AddBuff(BuffID.Slow, 3 * 60);
+                if (!player.buffImmune[BuffID.Slow])
+                {
+                    player.velocity.X /= 2;
+                    player.AddBuff(BuffID.Slow, 4 * 60);
+                }
                 var changedNPC = npc.Changed();
                 var currentHat = changedNPC?.CurrentHat;
                 npc.Transform(ModContent.NPCType<DarkLatexCubSitting>());
@@ -41,8 +47,11 @@ namespace ChangedSpecialMod.Content.NPCs
             if (Main.netMode != NetmodeID.MultiplayerClient && isWhiteCub && npc.HasValidTarget && npc.velocity.Y == 0 && npc.Distance(Main.player[npc.target].Center) < 2 * 16)
             {
                 var player = Main.player[npc.target];
-                player.velocity.X /= 2;
-                player.AddBuff(BuffID.Slow, 3 * 60);
+                if (!player.buffImmune[BuffID.Slow])
+                {
+                    player.velocity.X /= 2;
+                    player.AddBuff(BuffID.Slow, 4 * 60);
+                }
                 var changedNPC = npc.Changed();
                 var currentHat = changedNPC?.CurrentHat;
                 npc.Transform(ModContent.NPCType<WhiteLatexCubSitting>());
@@ -54,6 +63,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
                 return;
             }
+            */
 
             if (Main.player[npc.target].position.Y + (float)Main.player[npc.target].height == npc.position.Y + (float)npc.height)
             {
@@ -1727,7 +1737,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            else if (npc.type == 21 || npc.type == 26 || npc.type == 31 || npc.type == 294 || npc.type == 295 || npc.type == 296 || npc.type == 47 || npc.type == NPCID.GoblinScout || npc.type == 140 || npc.type == 164 || npc.type == 239 || npc.type == 167 || npc.type == 168 || npc.type == 185 || npc.type == 198 || npc.type == 201 || npc.type == 202 || npc.type == 203 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 226 || npc.type == 181 || npc.type == 254 || npc.type == 338 || npc.type == 339 || npc.type == 340 || npc.type == 342 || npc.type == 385 || npc.type == 389 || npc.type == 462 || npc.type == 463 || npc.type == 466 || npc.type == 464 || npc.type == 469 || npc.type == 470 || npc.type == 480 || npc.type == 482 || npc.type == 425 || npc.type == 429 || npc.type == 586 || npc.type == 631 || npc.type == 635 || isBlackCub)
+            else if (npc.type == NPCID.Skeleton || npc.type == 26 || npc.type == 31 || npc.type == 294 || npc.type == 295 || npc.type == 296 || npc.type == 47 || npc.type == NPCID.GoblinScout || npc.type == 140 || npc.type == 164 || npc.type == 239 || npc.type == 167 || npc.type == 168 || npc.type == 185 || npc.type == 198 || npc.type == 201 || npc.type == 202 || npc.type == 203 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 226 || npc.type == 181 || npc.type == 254 || npc.type == 338 || npc.type == 339 || npc.type == 340 || npc.type == 342 || npc.type == 385 || npc.type == 389 || npc.type == 462 || npc.type == 463 || npc.type == 466 || npc.type == 464 || npc.type == 469 || npc.type == 470 || npc.type == 480 || npc.type == 482 || npc.type == 425 || npc.type == 429 || npc.type == 586 || npc.type == 631 || npc.type == 635 || isBlackCub || isWhiteCub)
             {
                 float num80 = 1.5f;
                 if (npc.type == 181 && Main.remixWorld)
@@ -2957,14 +2967,14 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.rotation += npc.velocity.X * 0.08f;
                 }
             }
-            if (npc.type == 159 && Main.netMode != 1)
+            if (npc.type == NPCID.Vampire && Main.netMode != 1)
             {
                 Vector2 vector31 = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
                 float num129 = Main.player[npc.target].position.X + (float)Main.player[npc.target].width * 0.5f - vector31.X;
                 float num130 = Main.player[npc.target].position.Y + (float)Main.player[npc.target].height * 0.5f - vector31.Y;
                 if ((float)Math.Sqrt(num129 * num129 + num130 * num130) > 300f)
                 {
-                    npc.Transform(158);
+                    npc.Transform(NPCID.VampireBat);
                 }
             }
             if (Main.netMode != 1)
@@ -2995,8 +3005,8 @@ namespace ChangedSpecialMod.Content.NPCs
                     int num131 = -1;
                     switch (npc.type)
                     {
-                        case 164:
-                            num131 = 165;
+                        case NPCID.WallCreeper:
+                            num131 = NPCID.WallCreeperWall;
                             break;
                         case 236:
                             num131 = 237;

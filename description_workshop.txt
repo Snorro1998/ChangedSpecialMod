@@ -35,6 +35,10 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
+[h2]Multiplayer[h2]
+There was no logic for multiplayer in previous versions, which caused a lot of issues. Most of these problems are now fixed, except desyncing of other players' transfurs. This means that they are transfurred, but you can't see it. It can happen when a player is transfurred and another player enters the world. An indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any syringe, except the squid dog syringe (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+
+
 [h2]Credits[/h2]
 [b]Art[/b]
 [list]
@@ -52,17 +56,45 @@ It should also work fine with most other mods. The only issue that can occur is 
 [list]
 	[*]ShiZi
 [/list]
+[b]Translations[/b]
+[list]
+	[*]The translations were mostly made with Google Translate, so they may contains errors. If you find anything wrong or want to contribute to improve them, feel free to let me know.
+[/list]
+[b]Other[b]
+[list]
+	[*]Some things were inspired by the Changed Minecraft mods
+[/list]
 
 
 [h2]Changelog[/h2]
-For information about previous versions, please check out the change notes.
+This version fixes a lot of issues in multiplayer.
+For information about previous versions, please check out the change notes in the steam workshop.
 
 [h3]0.5.2[/h3]
 
-Nothing added, just bug fixes
-
-[b]Fix[/b]
+[b]General[/b]
 [list]
-	[*]Game crashed completely when taking a snapshot in any of the Changed biomes
-	[*]Wolf King and Behemoth causing error message "Index was outside the bounds of the array" in the chat
+	[*]Added Chinese and German translations
+	[*]Added Citrus Stonks and Paradise paintings
+	[*]Added maintenance robot. He is quite rare and behaves like eyezor, shooting lasers at the player.
+	[*]Reduced the chance of the Puro cloud appearing
+[/list]
+
+Multiplier fixes
+[list]
+	[*]White Tail jittering
+	[*]Wolf King fight not working at all
+	[*]Behemoth sliding around after teleporting
+	[*]Generators not playing a chime sound when turned on or off
+	[*]Players not teleporting until they walked after using an elevator
+	[*]Transfur UI appearing for all players when a syringe is used
+	[*]Other player's transfur not visible
+[/list]
+
+Other fixes
+[list]
+	[*]Improved some English texts
+	[*]Fixed some corrupted Spanish translations
+	[*]Game crashed completely when taking pictures in any of the Changed biomes in camera mode
+	[*]"Index was outside the bounds of the array" sometimes appearing in the chat before the Wolf King or Behemoth fight started
 [/list]

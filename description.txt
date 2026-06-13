@@ -29,6 +29,11 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
+------- Multiplayer -------
+
+There was no logic for multiplayer in previous versions, which caused a lot of issues. Most of these problems are now fixed, except desyncing of other players' transfurs. This means that they are transfurred, but you can't see it. It can happen when a player is transfurred and another player enters the world. An indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any syringe, except the squid dog syringe (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+
+
 --------- Credits ---------
 
 Art
@@ -44,6 +49,9 @@ Programming
 Music
 - ShiZi
 
+Translations
+- The translations were mostly made with Google Translate, so they may contains errors. If you find anything wrong or want to contribute to improve them, feel free to let me know.
+
 Other
 - Some things were inspired by the Changed Minecraft mods
 
@@ -56,10 +64,9 @@ For information about previous versions, please check out the change notes in th
 0.5.2
 
 General
-- Added Chinese translations
+- Added Chinese and German translations
 - Added Citrus Stonks and Paradise paintings
 - Added maintenance robot. He is quite rare and behaves like eyezor, shooting lasers at the player.
-- Black Puppies will now sit down when close to the player and slow them down
 - Reduced the chance of the Puro cloud appearing
 
 Multiplier fixes
@@ -75,4 +82,5 @@ Other fixes
 - Improved some English texts
 - Fixed some corrupted Spanish translations
 - Game crashed completely when taking a snapshot in any of the Changed biomes
+- Labs in the drunk world were often missing paintings
 - "Index was outside the bounds of the array" sometimes appearing in the chat before the Wolf King or Behemoth fight started

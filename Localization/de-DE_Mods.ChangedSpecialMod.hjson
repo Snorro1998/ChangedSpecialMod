@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Weißschwanz
+		SpawnInfo: Kann in jeder Schleimzone erscheinen, nachdem man mindestens 20 Schleimbestien besiegt hat.
+		DespawnMessage: Der Weißschwanz jagt dich nicht mehr
+	}
+
+	WolfKing: {
+		EntryName: Wolfskönig
+		SpawnInfo: Kann in einem mit schwarzem Schleim bedeckten Raum gefunden werden.
+		DespawnMessage: Der Wolfskönig jagt dich nicht mehr
+	}
+
+	Behemoth: {
+		EntryName: Gigant
+		SpawnInfo: Kann in einem mit weißem Schleim bedeckten Raum gefunden werden.
+		DespawnMessage: Der Gigant jagt dich nicht mehr
+	}
+}

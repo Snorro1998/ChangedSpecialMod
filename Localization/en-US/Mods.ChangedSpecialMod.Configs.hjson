@@ -77,7 +77,7 @@ ChangedSpecialModClientConfig: {
 
 	Evolution: {
 		Label: Evolution
-		Tooltip: Latex beast will grow bigger and stronger with every boss defeated
+		Tooltip: Latex beasts will grow bigger and stronger with every boss defeated
 	}
 
 	DialoguePortraits: {

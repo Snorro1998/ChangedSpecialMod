@@ -96,6 +96,8 @@ Mods: {
 					Orange4: Last night I dreamt I was in a ball pit filled with oranges.
 					Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
 					Orange6: I know everything about oranges, so you could say I am a citrus connoisseur!
+					# TF2
+					Orange7: I have done nothing but teleport oranges for 3 days.
 					Crimson1: "{Crimson}Did you know that some trees in the Crimson grow blood oranges? Do you think you could get me one?"
 					Crimson2: "{Crimson}Be careful around the lab near the Crimson. I saw a huge, hulking tiger there."
 					Corruption1: "{Corruption}Be careful around the lab near the Corruption. I saw a massive, purple cat there."
@@ -118,8 +120,8 @@ Mods: {
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oooh you brought me another book? Eh, why is it called 'Golden Shower'?"
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oooh a shiny balloon! Can I hold it please?"
 					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress human. You look kinda cute in it hehehe."
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr} Woah human, who is that cat? She is huge!"
-					Valentine1: "{Valentine}What do you think human. Do I look cute with this Valentine hair pin?"
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah human, who is that cat? She is huge!"
+					Valentine1: "{Valentine}What do you think, human? Do I look cute with this Valentine hair pin?"
 					Valentine2: "{Valentine}A bouquet is nice, but if you want to win my heart then you have to bring me a booklet!"
 					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
@@ -218,7 +220,7 @@ Mods: {
 					Oktoberfest4: "{Oktoberfest}In the Bratwurst-case scenario, I have to do this experiment all over again."
 					# Spooky Scary Skeletons
 					Halloween1: "{Halloween}Spooky scary scientists will haunt you in your dreams!"
-					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp, and my eyes gleam red."
+					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp, and my eyes glow red."
 					Halloween3: "{Halloween}If you inhale the fumes from this beaker, you'll look more terrifying than in any Halloween costume."
 					Halloween4: "{Halloween}To be a successful doctor like me you need to have... Brainz! BRAINZZZ!"
 					Xmas1: "{Xmas}A wishlist for Santa? No, I don't believe in him. I believe in science."
@@ -228,6 +230,7 @@ Mods: {
 
 					BloodMoon: {
 						BloodMoon1: Get here test subject! I have to run a few tests on you!
+						# Dr Nefario
 						BloodMoon2: Do you want to explode?
 						BloodMoon3: Muahaha! I am going to get you and turn you into one of us!
 					}
@@ -623,9 +626,6 @@ Mods: {
 				DisplayName: Maintenance Robot
 				Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
 			}
-
-			DarkLatexCubSitting.DisplayName: Dark Latex Cub
-			WhiteLatexCubSitting.DisplayName: White Latex Cub Sitting
 		}
 
 		Emotes: {
@@ -685,11 +685,7 @@ Mods: {
 			}
 		}
 
-		Keybinds: {
-			TransfurDevolve.DisplayName: Transfur Devolve
-			TransfurEvolve.DisplayName: Transfur Evolve
-			TransfurAttack.DisplayName: Ability
-		}
+		Keybinds.TransfurAttack.DisplayName: Ability
 	}
 }
 

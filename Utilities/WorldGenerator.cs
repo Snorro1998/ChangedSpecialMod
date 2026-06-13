@@ -64,7 +64,7 @@ namespace ChangedSpecialMod.Utilities
             ModContent.TileType<DrunkPainting6>(),  // Citrus Stonks
 
             // Pictures
-            ModContent.TileType<Pictures1>()
+            ModContent.TileType<Pictures1>(),
         };
 
         private static Room[] globalRooms = new Room[]
@@ -352,14 +352,11 @@ namespace ChangedSpecialMod.Utilities
             }
             
             var xPositions = tmp.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToArray();
+            var decorList = !Main.drunkWorld ? wallDecorations : wallDecorationsDrunk;
 
             for (var x = 0; x < xPositions.Length; x++)
             {
                 var xPos = xPositions[x];
-
-                var decorList = wallDecorations;
-                if (Main.drunkWorld)
-                    decorList = wallDecorationsDrunk;
 
                 var decor = decorList[WallDecorationIndex % decorList.Length];
                 WorldGen.PlaceTile(xPos, yCur + h - 5, decor, true, true, -1, 0);

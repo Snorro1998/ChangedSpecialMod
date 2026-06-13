@@ -1,0 +1,92 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Clientkonfiguration
+
+	TransfurSound: {
+		Label: Verwandlungsklang
+		Tooltip: Wenn der Verwandlungsklang abgespielt werden soll.
+	}
+
+	WhipCrackSound: {
+		Tooltip: Wenn die Peitschenwaffen ein Peitschenknallgeräusch erzeugen sollten.
+		Label: Peitschenknallgeräusch
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Wenn die Charaktere sprechen, können sie Emotes zum Thema "Changed" verwenden.
+		Label: Charaktere können "Changed"-Emotes verwenden.
+	}
+
+	ExtraDialogue: {
+		Tooltip: Sollte den regulären Terraria-Charakteren mehr Dialog hinzugefügt werden?
+		Label: Zusätzlicher Dialog
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Verschiedenes]"
+		WorldGeneration: "[c/ffeb6e:Weltgeneration]"
+		Transfur: "[c/ffeb6e:Verwandlung]"
+		Npc: "[c/ffeb6e:Charaktere]"
+	}
+
+	NumberOfLabs: {
+		Label: Anzahl der Labore
+		Tooltip:
+			'''
+			Die Anzahl der Labore pro Erdhälfte.
+			Der Standardwert 1 erzeugt 1 Labor auf kleinen 
+			und mittleren Welten und 2 Labore auf großen Welten.
+			WARNUNG Große Werte in kleinen Welten können zum Absturz des Spiels führen.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Maximale Stockwerkenanzahl
+		Tooltip: Die maximale Anzahl an Stockwerken, die ein Labor haben darf.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Maximale Anzahl horizontaler Räume
+		Tooltip: Die maximale Anzahl an Räumen, die ein Labor in horizontaler Richtung haben darf.
+	}
+
+	LatexSpread: {
+		Label: Schleimausbreitung
+		Tooltip: Wenn sich Schleim im Hardmode auf andere Blöcke ausbreiten kann.
+	}
+
+	LatexSpreadChance: {
+		Label: Schleimverbreitungswahrscheinlichkeit
+		Tooltip: Die Wahrscheinlichkeit von 1 zu X, dass sich Schleim im Hardmode auf andere Blöcke ausbreitet.
+	}
+
+	DebugItems: {
+		Label: Debugging-Artikel
+		Tooltip: Falls diese Option aktiviert ist, wird Dr. K. Debugging-Artikel verkaufen.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: Charaktere können den Spieler verändern
+		Tooltip: Wenn man von einem Schleimmonster getötet wird, verwandelt man sich in den meisten Fällen selbst in eines.
+	}
+
+	CustomHealthBar: {
+		Label: Farbige Gesundheitsanzeige
+		Tooltip: Wenn der Spieler verwandelt wird, wird die Gesundheitsanzeige in einer anderen Farbe angezeigt.
+	}
+
+	Evolution: {
+		Label: Entwicklung
+		Tooltip: Die Schleimmonster werden mit jedem besiegten Boss größer und stärker.
+	}
+
+	DialoguePortraits: {
+		Label: Dialogporträts
+		Tooltip:
+			'''
+			Wenn die Charaktere in dieser Mod Porträts haben, wenn man mit ihnen spricht.
+			Wenn "Boulder Backport" installiert ist, wird diese Einstellung ignoriert 
+			und stattdessen die Option "Modded Town NPC Portraits" verwendet.
+			'''
+	}
+}

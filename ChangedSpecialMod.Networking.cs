@@ -6,9 +6,7 @@ using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Chat;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod
@@ -77,18 +75,20 @@ namespace ChangedSpecialMod
                 {
                     if (Main.netMode != NetmodeID.Server)
                         return;
-
-                    byte playerIndex = reader.ReadByte();
+                    
                     int npcType = reader.ReadInt32();
 
-                    ChangedUtils.SetTransfurFromNPCType(playerIndex, npcType);
+                    ChangedUtils.SetTransfurFromNPCType(whoAmI, npcType);
 
+                    ChangedUtils.SyncTransfur(whoAmI);
+                        /*
                     // Broadcast result to all clients
                     ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
                     packet.Write((byte)MessageType.SyncTransfurPlayer);
-                    packet.Write(playerIndex);
+                    packet.Write((byte)whoAmI);
                     packet.Write(npcType);
                     packet.Send();
+                        */
                     break;
                 }
                 case MessageType.SyncTransfurPlayer:
@@ -96,10 +96,9 @@ namespace ChangedSpecialMod
                     byte playerIndex = reader.ReadByte();
                     int npcType = reader.ReadInt32();
 
-                    if (npcType == -1)
-                        ChangedUtils.UntransfurPlayer(playerIndex);
-                    else
-                        ChangedUtils.SetTransfurFromNPCType(playerIndex, npcType);
+                    Main.player[playerIndex]
+                        .GetModPlayer<ChangedSpecialModPlayer>()
+                        .NpcType = npcType;
 
                     break;
                 }

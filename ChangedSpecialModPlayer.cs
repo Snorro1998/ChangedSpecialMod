@@ -14,6 +14,8 @@ using Terraria.GameContent.Events;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
+using static ChangedSpecialMod.ChangedSpecialMod;
 
 namespace ChangedSpecialMod
 {
@@ -87,153 +89,11 @@ namespace ChangedSpecialMod
 
     public class ChangedSpecialModPlayer : ModPlayer
     {
-        //public Dictionary<GooType, List<Transfur>> EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
         public Transfur TransfurTypeCurrent = null;
 
         public bool pictureViewerOpen = false;
         public int pictureIndex = -1;
         public bool hidePlayer = false;
-        /*
-        private void InitTransfurTypes()
-        {
-            var baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
-            EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
-
-            // Black
-            var evolutionLine = new List<Transfur>();
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<BlackGoop>(),
-                texturePath = $"{baseTexturePath}BlackGoop",
-                nFrames = 4,
-                gooType = GooType.Black,
-                lifeMultiplier = 0.6f,
-                speedMultiplier = 0.75f,
-                speedMultiplierAirborn = 2f,
-                jumpSpeedMultiplier = 1.75f,
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<DarkLatexCub>(),
-                texturePath = $"{baseTexturePath}DarkLatexCub",
-                nFrames = 4,
-                gooType = GooType.Black,
-                lifeMultiplier = 0.8f,
-                speedMultiplier = 1.2f,
-                jumpHeightMultiplier = 1.5f
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<MaleDarkLatex>(),
-                texturePath = $"{baseTexturePath}MaleDarkLatex",
-                gooType = GooType.Black,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<WingedDarkLatex>(),
-                texturePath = $"{baseTexturePath}WingedDarkLatex",
-                nFrames = 4,
-                gooType = GooType.Black,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-                speedMultiplier = 2f
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<Wendigo>(),
-                texturePath = $"{baseTexturePath}Wendigo",
-                nFrames = 4,
-                gooType = GooType.Black,
-                lifeMultiplier = 2f,
-                extraDefense = 10,
-                speedMultiplier = 0.75f,
-                damageBonus = 0.3f
-            });
-
-            EvolutionsLines.Add(GooType.Black, evolutionLine);
-
-            // White
-            evolutionLine = new List<Transfur>();
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<WhiteGoop>(),
-                texturePath = $"{baseTexturePath}WhiteGoop",
-                nFrames = 4,
-                gooType = GooType.White,
-                lifeMultiplier = 0.6f,
-                speedMultiplier = 0.75f,
-                speedMultiplierAirborn = 2f,
-                jumpSpeedMultiplier = 1.75f,
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<WhiteLatexCub>(),
-                texturePath = $"{baseTexturePath}WhiteLatexCub",
-                nFrames = 3,
-                gooType = GooType.White,
-                lifeMultiplier = 0.8f,
-                speedMultiplier = 1.2f,
-                jumpHeightMultiplier = 1.5f
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<WhiteKnight>(),
-                texturePath = $"{baseTexturePath}WhiteKnight",
-                gooType = GooType.White,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<WhiteLatexTaur>(),
-                texturePath = $"{baseTexturePath}WhiteLatexTaur",
-                nFrames = 13,
-                gooType = GooType.White,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-                speedMultiplier = 2f
-            });
-
-            EvolutionsLines.Add(GooType.White, evolutionLine);
-
-            // Squid Dog
-            evolutionLine = new List<Transfur>();
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<SquidDog>(),
-                texturePath = $"{baseTexturePath}SquidDog",
-                nFrames = 4,
-                gooType = GooType.None,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-                ignoreWater = true,
-                waterBreathing = true,
-                tentacleAbility = true
-            });
-
-            EvolutionsLines.Add(GooType.None, evolutionLine);
-        }
-        */
-        /*
-        private List<Transfur> GetEvolutionLine(GooType gooType)
-        {
-            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-                InitTransfurTypes();
-
-            if (EvolutionsLines == null || !EvolutionsLines.ContainsKey(gooType))
-                return null;
-            return EvolutionsLines[gooType];
-        }
-        */
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -271,27 +131,8 @@ namespace ChangedSpecialMod
                 Player.direction
             );
         }
-        /*
-        public void SetTransfurFromNPCType(int playerIndex, int npcType)
-        {
-            Transfur transfur = null;
-            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-                InitTransfurTypes();
-            var keys = EvolutionsLines.Keys.ToList();
-            foreach (var key in keys)
-            {
-                var evolutionLine = EvolutionsLines[key];
-                var tmpTransfur = evolutionLine.FirstOrDefault(x => x.npcType == npcType);
-                if (tmpTransfur != null)
-                {
-                    transfur = tmpTransfur;
-                    break;
-                }
-            }
-            SetTransfur(transfur);
-        }
-        */
 
+        /*
         public void SetTransfur(Transfur transfur)
         {
             // Only spawn dust particles on the client
@@ -319,6 +160,7 @@ namespace ChangedSpecialMod
 
             TransfurTypeCurrent = transfur;
         }
+        */
 
         public override void ModifyDrawInfo(ref PlayerDrawSet drawInfo)
         {
@@ -474,6 +316,133 @@ namespace ChangedSpecialMod
                 if (Player.mount.Active)
                     ChangedUtils.UntransfurPlayer(Player.whoAmI);
             }   
+        }
+
+        public override void Initialize()
+        {
+            TransfurTypeCurrent = null;
+            _npcType = -1;
+        }
+        /*
+        public override void CopyClientState(ModPlayer targetCopy)
+        {
+            var clone = (ChangedSpecialModPlayer)targetCopy;
+            clone._npcType = _npcType;
+        }
+
+        public override void SendClientChanges(ModPlayer clientPlayer)
+        {
+            var oldPlayer = (ChangedSpecialModPlayer)clientPlayer;
+
+            if (oldPlayer._npcType == _npcType)
+                return;
+
+            ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
+
+            packet.Write((byte)MessageType.SyncTransfurPlayer);
+            packet.Write((byte)Player.whoAmI);
+            packet.Write(_npcType);
+
+            packet.Send();
+        }
+        */
+        public void SetTransfur(Transfur transfur)
+        {
+            if (transfur == null)
+            {
+                NpcType = -1;
+                return;
+            }
+
+            NpcType = transfur.npcType;
+        }
+
+        private void ApplyUntransfur()
+        {
+            TransfurVisuals();
+            TransfurTypeCurrent = null;
+
+            // Undo any persistent effects here.
+            // Reset visuals, body parts, animation state, etc.
+        }
+
+        private int _npcType = -1;
+
+        /// <summary>
+        /// Network-authoritative transfur identifier.
+        /// -1 means not transformed.
+        /// </summary>
+        public int NpcType
+        {
+            get => _npcType;
+            set
+            {
+                if (_npcType == value)
+                    return;
+
+                _npcType = value;
+
+                if (_npcType == -1)
+                    ApplyUntransfur();
+                else
+                    ApplyTransfur(_npcType);
+            }
+        }
+
+        public bool IsTransfurred => NpcType != -1;
+
+        private void ApplyTransfur(int npcType)
+        {
+            if (ChangedUtils.EvolutionsLines == null ||
+                ChangedUtils.EvolutionsLines.Count == 0)
+            {
+                ChangedUtils.InitTransfurTypes();
+            }
+
+            Transfur transfur = null;
+
+            foreach (var evolutionLine in ChangedUtils.EvolutionsLines.Values)
+            {
+                transfur = evolutionLine.FirstOrDefault(x => x.npcType == npcType);
+
+                if (transfur != null)
+                    break;
+            }
+
+            TransfurTypeCurrent = transfur;
+            TransfurVisuals();
+        }
+
+        private void TransfurVisuals()
+        {
+            // Only spawn dust particles on the client
+            if (Main.netMode != NetmodeID.Server)
+            {
+                if (TransfurTypeCurrent != null)
+                {
+                    var dustType = TransfurTypeCurrent.gooType == GooType.Black ? DustID.Asphalt : DustID.SnowSpray;
+                    var nParticles = 40;
+                    for (int i = 0; i < nParticles; i++)
+                    {
+                        var dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, 0, 0, 1);
+                        dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
+                        dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
+                    }
+                }
+            }
+
+            if (TransfurTypeCurrent != null)
+                AudioSystem.PlayTransfurSound(Player.Center);
+        }
+
+        public override void SaveData(TagCompound tag)
+        {
+            tag["TransfurNpcType"] = _npcType;
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            NpcType = tag.GetInt("TransfurNpcType");
         }
 
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)

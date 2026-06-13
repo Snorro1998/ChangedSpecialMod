@@ -35,6 +35,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("Orange4", "Neutral"),
                 new DialogueElement("Orange5"),
                 new DialogueElement("Orange6"),
+                new DialogueElement("Orange7", "Derp"),
 
 				// Normal
 				new DialogueElement("Normal1", "Happy"),

@@ -96,6 +96,8 @@ Mods: {
 					Orange4: 昨晚我梦见自己在一个装满橘子的球池里。
 					Orange5: 如果你想让我开心，就给我一个完全成熟的橙子。
 					Orange6: 我对橙子了如指掌，所以你可以说我是柑橘鉴赏家！
+					# TF2
+					Orange7: 我这三天除了传送橙子什么都没做。
 					Crimson1: "{Crimson}你知道克里姆森山脉里有些树上结血橙吗？你能帮我摘一个吗？"
 					Crimson2: "{Crimson}在克里姆森附近的实验室附近要小心。我在那里看到一只体型巨大、非常凶猛的老虎。"
 					Corruption1: "{Corruption}在腐化之地附近的实验室要小心。我在那里看到一只巨大的紫色猫。"
@@ -228,6 +230,7 @@ Mods: {
 
 					BloodMoon: {
 						BloodMoon1: 实验对象，过来！我要对你做几个测试！
+						# Dr Nefario
 						BloodMoon2: 你想爆炸吗？
 						BloodMoon3: 哈哈哈哈！我要抓住你，把你变成我们的一员！
 					}
@@ -623,9 +626,6 @@ Mods: {
 				DisplayName: 维护机器人
 				Description: 一台被编程为自动哨兵的机器人，用来阻止任何试图突破封锁线的人。
 			}
-
-			DarkLatexCubSitting.DisplayName: 黑色粘液小狗
-			// WhiteLatexCubSitting.DisplayName: White Latex Cub Sitting
 		}
 
 		Emotes: {
@@ -685,11 +685,7 @@ Mods: {
 			}
 		}
 
-		Keybinds: {
-			TransfurDevolve.DisplayName: Transfur Devolve
-			TransfurEvolve.DisplayName: Transfur Evolve
-			TransfurAttack.DisplayName: 能力
-		}
+		Keybinds.TransfurAttack.DisplayName: 能力
 	}
 }
 

@@ -161,7 +161,7 @@ Mechanic: {
 Nurse: {
 	NPC: {
 		Puro: I told Puro that he had to eat two oranges a day to stay healthy. He said that he eats at least ten a day.
-		Prototype: Once, I asked {NamePrototype} to help me with an examination, but he just sprayed water in the patient's face.
+		Prototype: Once, I asked {NamePrototype} for help with an examination, but he just sprayed water in the patient's face.
 		Scientist: None
 	}
 

@@ -365,6 +365,9 @@ namespace ChangedSpecialMod.Utilities
                         if (room.HasChest)
                             WorldGenerator.AddChest(xCurrent, width, yCurrent, height);
 
+                        if (Main.drunkWorld && room.HasPainting && !flooded)
+                            WorldGenerator.AddPainting(xCurrent, width, yCurrent, height);
+
                         // Try to place furniture 3 times
                         room.PlacedSingleDecor = false;
                         for (int i = 0; i < 3; i++)
@@ -377,7 +380,7 @@ namespace ChangedSpecialMod.Utilities
                             WorldGenerator.AddFans(xCurrent, width, yCurrent, height);
 
                         // Flooded rooms don't have paintings on the wall
-                        if (room.HasPainting && !flooded)
+                        if (!Main.drunkWorld && room.HasPainting && !flooded)
                             WorldGenerator.AddPainting(xCurrent, width, yCurrent, height);
                     }
 

@@ -45,24 +45,35 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             if (npc == null)
                 return;
 
-            var nParticles = 40;
-            var dustType = DustID.SnowSpray;
-            var anglePerParticle = Math.PI * 2 / nParticles;
-            for (int k = 0; k < nParticles; k++)
+            if (Main.netMode != NetmodeID.Server)
             {
-                Vector2 position = npc.Center;
-                position += Main.rand.NextVector2Square(-20, 21);
-                var currentAngle = Main.rand.NextFloat(0, (float)(2f * Math.PI));
-                Dust.NewDustPerfect(position, dustType, Vector2.Zero).noGravity = true;
+                var nParticles = 40;
+                var dustType = DustID.SnowSpray;
+                var anglePerParticle = Math.PI * 2 / nParticles;
+                for (int k = 0; k < nParticles; k++)
+                {
+                    Vector2 position = npc.Center;
+                    position += Main.rand.NextVector2Square(-20, 21);
+                    var currentAngle = Main.rand.NextFloat(0, (float)(2f * Math.PI));
+                    Dust.NewDustPerfect(position, dustType, Vector2.Zero).noGravity = true;
+                }
             }
         }
 
         public override void RandomUpdate(int i, int j)
         {
+            // Disable for now in multiplayer
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                return;
+
             var spawnChance = defaultSpawnChance;
             var maxNPCs = defaultMaxNPCs;
 
             var player = ChangedUtils.GetClosestPlayer(i, j);
+
+            if (player == null) 
+                return;
+
             var power = CreativePowerManager.Instance.GetPower<CreativePowers.SpawnRateSliderPerPlayerPower>();
             if (power != null && power.GetIsUnlocked())
             {

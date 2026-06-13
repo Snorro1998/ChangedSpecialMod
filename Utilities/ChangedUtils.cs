@@ -235,7 +235,8 @@ namespace ChangedSpecialMod.Utilities
 
                 if (nKills < nMinKills)
                 {
-                    chance = 0;
+                    playerChanges.Add(0);
+                    continue;
                 }
 
                 chance = 0.5f + (nKills - nMinKills) * (2.5f / (nMaxKills - nMinKills));
@@ -693,20 +694,9 @@ namespace ChangedSpecialMod.Utilities
             return 0.0f;
         }
 
-        public static void UntransfurPlayer(int playerIndex)
-        {
-            if (playerIndex < 0 || playerIndex > 255)
-                return;
-            var player = Main.player[playerIndex];
-            var changedPlayer = player.ChangedPlayer();
-            if (changedPlayer == null)
-                return;
-            changedPlayer.SetTransfur(null);
-        }
-
         public static Dictionary<GooType, List<Transfur>> EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
 
-        private static void InitTransfurTypes()
+        public static void InitTransfurTypes()
         {
             var baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
             EvolutionsLines = new Dictionary<GooType, List<Transfur>>();
@@ -835,30 +825,31 @@ namespace ChangedSpecialMod.Utilities
             EvolutionsLines.Add(GooType.None, evolutionLine);
         }
 
+        public static void UntransfurPlayer(int playerIndex)
+        {
+            Main.player[playerIndex]
+                .GetModPlayer<ChangedSpecialModPlayer>()
+                .NpcType = -1;
+        }
+
         public static void SetTransfurFromNPCType(int playerIndex, int npcType)
         {
-            if (playerIndex < 0 || playerIndex > 255)
-                return;
-            var player = Main.player[playerIndex];
-            var changedPlayer = player.ChangedPlayer();
-            if (changedPlayer == null)
-                return;
+            Main.player[playerIndex]
+                .GetModPlayer<ChangedSpecialModPlayer>()
+                .NpcType = npcType;
+        }
 
-            Transfur transfur = null;
-            if (EvolutionsLines == null || EvolutionsLines.Count == 0)
-                InitTransfurTypes();
-            var keys = EvolutionsLines.Keys.ToList();
-            foreach (var key in keys)
-            {
-                var evolutionLine = EvolutionsLines[key];
-                var tmpTransfur = evolutionLine.FirstOrDefault(x => x.npcType == npcType);
-                if (tmpTransfur != null)
-                {
-                    transfur = tmpTransfur;
-                    break;
-                }
-            }
-            changedPlayer.SetTransfur(transfur);
+        public static void SyncTransfur(int playerIndex, int toClient = -1)
+        {
+            var changedPlayer = Main.player[playerIndex].ChangedPlayer();
+
+            ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
+
+            packet.Write((byte)ChangedSpecialMod.MessageType.SyncTransfurPlayer);
+            packet.Write((byte)playerIndex);
+            packet.Write(changedPlayer.NpcType);
+
+            packet.Send(toClient);
         }
 
         public static int GetBestiaryKillCount(int NPCID)

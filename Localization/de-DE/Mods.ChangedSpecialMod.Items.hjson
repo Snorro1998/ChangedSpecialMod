@@ -1,0 +1,729 @@
+Painting1: {
+	DisplayName: Der alberne Flauschball
+	Tooltip: Niedlich, bis er älter wird.
+}
+
+Painting2: {
+	DisplayName: Wolfskönig
+	Tooltip: Ein gewaltiges Tier
+}
+
+Painting3: {
+	DisplayName: Die Wirkung von Orangen
+	Tooltip: Gesund
+}
+
+Painting4: {
+	DisplayName: Shhhhhh
+	Tooltip: Sei still, sonst finden sie dich.
+}
+
+Painting5: {
+	DisplayName: Komödie
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: Der dunkle Ninja
+	Tooltip: Episch
+}
+
+Painting7: {
+	DisplayName: Beste Freunde
+	Tooltip: Knuddelig
+}
+
+Painting8: {
+	DisplayName: Snackzeit
+	Tooltip: Lecker
+}
+
+Painting9: {
+	DisplayName: Puro, der schwarze Schleim
+	Tooltip: Süß
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: Der Tintenfischhund
+	Tooltip: Ein bedrohliches Weichtier
+}
+
+Painting12: {
+	DisplayName: Schneeleopard
+	Tooltip: Ruhig
+}
+
+Painting13: {
+	DisplayName: Gefangen
+	Tooltip: Oh nein
+}
+
+DrunkPainting1: {
+	DisplayName: Orang
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Haia
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: Tintenhundfisch
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: Puroooo
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: Spieluhr (Laboratorium)
+	Tooltip: Von ShiZi
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Schwarzer Schleimbanner
+}
+
+SquidDogBanner: {
+	DisplayName: Tintenfischhundbanner
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Aufzug
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Puro-Plüschtier
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Basketball (Platzierbar)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Hai-Plüschtier
+}
+
+Orange: {
+	DisplayName: Orange
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Schwarzer Schleimblock
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Gefahrenblock
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Trockener Schmutzblock
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Blaue Gasflasche
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Blauer Bürostuhl
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Dokumentenpapier
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Generator
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Grüner Bürostuhl
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Iris-Scanner
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Labortür
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Labortisch
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Bücherberg
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Spieluhr (Kristallzone)
+	Tooltip: Von ShiZi
+}
+
+PackingBox: {
+	DisplayName: Verpackungskarton
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Schlüssel für den Packkarton
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Rote Gasflasche
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Roter Bürostuhl
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Stapel von Kisten
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Aufbewahrungsbox
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Schlüssel für Aufbewahrungsbox
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Weiße Schleim-Bücherregale
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Laborfliesen
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: Weißer Schleimblock
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Faule Orange
+	Tooltip: Allein schon das Halten dieses Gegenstands genügt, um seltsame Dinge zu sehen.
+}
+
+TigerPaw: {
+	DisplayName: Tigerkralle
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Enzyklopädie
+	Tooltip: Spüre die Schwere des Wissens
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Schreckenshorn
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Weichtieregeißel
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Wendigobanner
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Blutstreifenbanner
+}
+
+BlackGoopBanner: {
+	DisplayName: Schwarze Pfützebanner
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Weiße Pfützebanner
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Deutscher Schäferhundbanner
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Schleimiges Hufeisen
+	Tooltip: Beschwört ein weißes Schleim-Reittier.
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Schwarzer Flügel
+	Tooltip: Beschwört ein Yufeng-Reittier.
+}
+
+Literature: {
+	DisplayName: Literatur
+	Tooltip: Voller Trendthemen
+}
+
+WhiskerStaff: {
+	DisplayName: Schnurrbartstab
+	Tooltip: Beschwört eine Katze, die für dich kämpft
+}
+
+PurrpurrBanner: {
+	DisplayName: Schnurrlilabanner
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Buchregen
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Gießkanne
+}
+
+MusicBoxPuro: {
+	DisplayName: Spieluhr (Puro der schwarze Schleim)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Spieluhr (Puros Tanz)
+	Tooltip: Von ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Beschwört eine riesige lila Katze, die für dich kämpft
+	DisplayName: Schnurrlilastab
+}
+
+TabbyStaff: {
+	Tooltip: Beschwört eine große getigerte Katze, die für dich kämpft
+	DisplayName: Getigerte Katzestab
+}
+
+FennecPlush: {
+	DisplayName: Fennek-Plüschtier
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Doppeltentabel
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Megaklaue
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Shredder
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Tentatrio
+}
+
+Bashskewer: {
+	DisplayName: Schlagenspieß
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Dämonenstachel
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Alpenhut
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: Dieser Gegenstand hat keine Funktion und wird nur verwendet, wenn sich der Cursor über einem Aufzug befindet.
+	DisplayName: Symbol Aufzug nach oben
+}
+
+ElevatorDown: {
+	Tooltip: Dieser Gegenstand hat keine Funktion und wird nur verwendet, wenn sich der Cursor über einem Aufzug befindet.
+	DisplayName: Symbol Aufzug nach unten
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Spieluhr (Geburtstag)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Spieluhr (Bibliothek)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Spieluhr (Weißer Schleimdschungel)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Spieluhr (Scharlachrote Kristallmine)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Spieluhr (Schwarze Schleimzone)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Spieluhr (Wolfskönig)
+	Tooltip: Von ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Yufengwelpebanner
+}
+
+SummonWolfKing: {
+	Tooltip: Beschwört den Wolfskönig
+	DisplayName: Seltsamer Drehstuhl
+}
+
+SummonBehemoth: {
+	Tooltip: Beschwört den Gigant
+	DisplayName: Riesige Hand
+}
+
+DebugResetBosses: {
+	DisplayName: Bosskampf-Fortschritt zurücksetzen
+	Tooltip: Setzt den Spielfortschritt aller Changed-Bosse zurück.
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Ventilator
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Wolfshöhle
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Spieluhr (Gewächshaus)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Spieluhr (Laboratorium, langsam)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: Von ShiZi
+	DisplayName: Spieluhr (Entlüftungsrohr)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: Weißer Schleimbanner
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Schließfach
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Spielzeugbausteine
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Von ShiZi
+	DisplayName: Spieluhr (Gigant)
+}
+
+SummonWhiteTail: {
+	Tooltip: Beschwört den Weißschwanz
+	DisplayName: Verdächtiger Schleimball
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Ja
+	DisplayName: Alle Charaktere erscheinen lassen
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Weißer Kristall
+}
+
+CrystalGreen: {
+	DisplayName: Grüner Kristall
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Roter Kristall
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Weiße Säule
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Awuu
+	DisplayName: Kreatur der Nacht
+}
+
+Painting16: {
+	DisplayName: Der Wissenschaftler
+	Tooltip: Gruselig
+}
+
+Painting17: {
+	DisplayName: Schlafender Fuchs
+	Tooltip: Weck ihn nicht auf
+}
+
+Painting18: {
+	DisplayName: Welt des Schleims
+	Tooltip: Eine Brücke bauen
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Spieluhr (Weißschwanz)
+	Tooltip: Von ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Kryopod
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Bilder (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Bilder (Schwarzer Schleim)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Bilder (Draußen)
+}
+
+Pictures4: {
+	DisplayName: Bilder (Gang)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Bilder (Bakterien)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Bilder (Freunde)
+}
+
+BlackSyringe: {
+	DisplayName: Schwarze Spritze
+	Tooltip:
+		'''
+		- Verwandelt dich in einen schwarzen Schleim
+		- Bietet Immunität gegen schwarze Schleime
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: Weiße Spritze
+	Tooltip:
+		'''
+		- Verwandelt dich in einen weißen Schleim
+		- Bietet Immunität gegen weiße Schleime
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Basketball
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Disco-Kristall
+	Tooltip: Wenn man das bei sich trägt, verhalten sich Kristalle wie Discolichter.
+}
+
+BlackLatexSolution: {
+	DisplayName: Schwarze Schleimlösung
+	Tooltip: Breitet den schwarzen Schleimgebiet aus
+}
+
+WhiteLatexSolution: {
+	DisplayName: Weiße Schleimlösung
+	Tooltip: Breitet den weißen Schleimgebiet aus
+}
+
+DryDirtSolution: {
+	DisplayName: Trockene Schmutzlösung
+	Tooltip: Breitet die Stadtruinen aus
+}
+
+OrangeStatue: {
+	DisplayName: Orangestandbild
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Sonnenbrille
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: TintenfischHundespritze
+	Tooltip:
+		'''
+		- Verwandelt dich in einen Tintenfischhund
+		- Kann mit der „Fähigkeits“-Taste Tentakel ausfahren
+		- Ermöglicht das Atmen unter Wasser
+		'''
+}
+
+BlackLatexSand: {
+	DisplayName: Schwarzer schleimiger Sand
+	Tooltip:
+		'''
+		Kann mit der Sandpistole verwendet werden.
+		- Verwandelt Krabbeltiere und Schleime in Pfützen
+		- Lässt schwarze Schleimbestien sich weiterentwickeln
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: Weißer schleimiger Sand
+	Tooltip:
+		'''
+		Kann mit der Sandpistole verwendet werden.
+		- Verwandelt Krabbeltiere und Schleime in Pfützen
+		- Lässt weiße Schleimmonster sich weiterentwickeln
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: Superspritze
+	Tooltip: Verwandelt dich in ein beliebiges Schleimmonster
+}
+
+SummonExperiment009: {
+	DisplayName: Experiment 009 boss beschwören
+	Tooltip: Unfertig. Aus der Minecraft „Changed Addon Plus“-Mod.
+}
+
+SummonShark: {
+	DisplayName: Hai-Boss beschwören
+	Tooltip: Unfertig.
+}
+
+SweeperItem: {
+	DisplayName: Sweeper
+	Tooltip: Scrubber specialist
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: Geschwindigkeitsdämon
+}
+
+Paper: {
+	DisplayName: Papier
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: Geschwindigkeitsdämon
+}
+
+BlackLatexCubLicense: {
+	DisplayName: Schwarzer Schleimwelpe Lizenz
+	UseLicense: Die Lizenz wird zum Hundelieferdienst teleportiert...
+	Tooltip: Nutze dies, um einen schwarzen Schleimwelpen für deine Stadt zu adoptieren.
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: Weißer Schleimwelpe Lizenz
+	UseLicense: Die Lizenz wird zum Hundelieferdienst teleportiert...
+	Tooltip: Nutze dies, um einen Weißen Schleimwelpen für deine Stadt zu adoptieren.
+}
+
+Calendar: {
+	DisplayName: Kalender
+	Tooltip: Ermöglicht es Ihnen, die aktuelle Jahreszeit zu ändern.
+}
+
+SombreroHat: {
+	DisplayName: Sombrero
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Paradies
+	Tooltip: Er lebt seinen Traum
+}
+
+DrunkPainting6: {
+	DisplayName: Zitrusanteile
+	Tooltip: Hohe Gewinne
+}

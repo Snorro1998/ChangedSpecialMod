@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Schwarze Schleimzone
+	MusicBlackLatexZone2: Scharlachrote Kristallmine
+	MusicCrystalZone: Kristallzone
+	MusicWhiteLatexZone: Weißer Schleimdschungel
+	MusicLibrary: Bibliothek
+	MusicLabSlow: Laboratorium (langsam)
+	MusicLab: Laboratorium
+	MusicVents: Entlüftungsrohr
+	MusicPuro: Puro der schwarze Schleim
+	MusicGreenhouse: Gewächshaus
+	MusicHappyBirthday: Geburtstagslied
+	MusicPuroDance: Puros Tanz
+	MusicRun: FLIEH
+	MusicWhiteTailChase2: Jagender Weißschwanz, Teil 2
+	# Not 100% sure, because they have no names
+	MusicWolfKing: Der Wolfskönig
+	MusicBehemoth: Der Gigant
+	MusicShark: Der Hai
+	MusicSquidDog: Tintenfischhund
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

@@ -88,7 +88,6 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             {
                 ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
                 packet.Write((byte)ChangedSpecialMod.MessageType.TransfurPlayer);
-                packet.Write((byte)Main.myPlayer);
                 packet.Write(npcType);
                 packet.Send();
             }

@@ -1,0 +1,289 @@
+Angler: {
+	NPC: {
+		Puro: Puro meinte, ich solle aufh�ren, einen Tintenfischhund zu fangen. Wenn es wirklich zu gef�hrlich f�r ein Kind ist, darfst DU einen fangen!
+		Prototype: Wenn ich {NamePrototype} ins Wasser werfen w�rde, w�rde er dann alle Fische wie ein elektrischer Aal durch Stromschlag t�ten?
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Unm�glich! Ein Tintenfischhund! Ja, bitte bleiben Sie eine Weile hier.
+	}
+}
+
+BestiaryGirl: {
+	NPC: {
+		Puro: Ich habe noch nie einen Wolf gesehen, der so weich und flauschig ist wie Puro!
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Oh mein Gott! Ein Welpe! Du bist ja so s��!
+		WhiteCub: Oh mein Gott! Ein Welpe! Du bist ja so s��!
+		SquidDog: None
+	}
+}
+
+Clothier: {
+	NPC: {
+		Puro: Diese Kristallmaske von Puro jagt mir einen Schauer �ber den R�cken. Sie erinnert mich an etwas, das ich schon einmal gesehen habe.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Cyborg: {
+	NPC: {
+		Puro: Unbekannte Lebensform entdeckt! Riecht schwach nach Orangen.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Seltsame Pf�tze entdeckt
+		WhiteGoop: Seltsame Pf�tze entdeckt
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Analyse einer Mollusken-Hundezahn-Verschmelzung...
+	}
+}
+
+DD2Bartender: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Was ist denn mit Doktor K los? Gestern hat er mich gefragt, ob ich seinen selbstgebrannten Schnaps aus Toilettenpapier verkaufen will.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Hast du wirklich so viele Arme? Oder sehe ich doppelt wegen des vielen Biers?
+	}
+}
+
+Demolitionist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Hast du schon mal von explosiven Kaninchen geh�rt? M�chtest du, dass ich dir Dynamit umbinde, damit du ein explosiver Welpe wirst?
+		WhiteCub: Hast du schon mal von explosiven Kaninchen geh�rt? M�chtest du, dass ich dir Dynamit umbinde, damit du ein explosiver Welpe wirst?
+		SquidDog: Verschwinde, Monster! Sonst hole ich die Wasserbomben!
+	}
+}
+
+DyeTrader: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Doktor K mag zwar ein Experte f�r Bioingenieurwesen sein, aber von Mode hat er keine Ahnung.
+	}
+
+	Transfur: {
+		BlackGoop: Ah! Warum l�uft der schwarze Farbstoff?
+		WhiteGoop: Ah! Warum l�uft der wei�e Farbstoff?
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Lass deine nassen Pfoten von meinem Bademantel fern! Ich will nicht, dass die Farben verblassen!
+	}
+}
+
+Golfer: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Kannst du ein Geheimnis bewahren? Ich habe versehentlich ein paar Sachen von Doktor K kaputt gemacht, als ich in seinem Zimmer Golf gespielt habe.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Hey, falls du jemals Golfb�lle im Wasser findest, k�nntest du sie mir bitte zur�ckbringen?
+	}
+}
+
+Guide: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Wenn Sie mehr �ber die Schleimmonster erfahren m�chten, ist Doktor K die beste Wahl.
+	}
+
+	Transfur: {
+		BlackGoop: Pass auf, du kleiner Schleimklumpen. Jemand k�nnte dich versehentlich zertreten.
+		WhiteGoop: Pass auf, du kleiner Schleimklumpen. Jemand k�nnte dich versehentlich zertreten.
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Ich bin hier, um Ihnen einen Rat zu geben. Ich empfehle Ihnen, wieder ins Wasser zu gehen, bevor Sie austrocknen.
+	}
+}
+
+Mechanic: {
+	NPC: {
+		Puro: None
+		Prototype: Was? {NamePrototype} verh�lt sich schon wieder komisch? Hast du versucht, ihn aus- und wieder einzuschalten?
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Eine Pf�tze? Sag blo� nicht, dass schon wieder eine der Pumpen kaputt ist.
+		WhiteGoop: Eine Pf�tze? Sag blo� nicht, dass schon wieder eine der Pumpen kaputt ist.
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Nurse: {
+	NPC: {
+		Puro: Ich sagte Puro, er m�sse zwei Orangen am Tag essen, um gesund zu bleiben. Er meinte, er esse mindestens zehn am Tag.
+		Prototype: Einmal bat ich {NamePrototype} um Hilfe bei einer Untersuchung, aber er spr�hte dem Patienten einfach nur Wasser ins Gesicht.
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Sag mir bitte nicht, dass du dir alle Arme gebrochen hast.
+	}
+}
+
+Painter: {
+	NPC: {
+		Puro: K�nntest du mir noch mehr orange Farbe bringen? Puro hat mich gefragt, ob ich sein ganzes Zimmer damit streichen k�nnte.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: H�ttest du zuf�llig noch Tinte f�r mich? Mir ist die Kohle-Schwarze Farbe ausgegangen.
+	}
+}
+
+PartyGirl: {
+	NPC: {
+		Puro: Ich liebe es, mit Puro zu feiern! Er ist ein echter Partyl�we!
+		Prototype: "{NamePrototype} ist eine echte Partymaschine. Er kann Musik abspielen und gleichzeitig als Discokugel fungieren."
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Wow, der Schokoladenkuchen bewegt sich! Das ist ja ein cooler Partytrick!
+		WhiteGoop: Wow, der Kuchen bewegt sich! Das ist ja ein cooler Partytrick!
+		BlackCub: Hallo! Bist du wegen der Haustierparty hier?
+		WhiteCub: Hallo! Bist du wegen der Haustierparty hier?
+		SquidDog: Lass uns tanzen! Gib mir deine Hand! Oder beide H�nde. �h, oder... vier H�nde?
+	}
+}
+
+Pirate: {
+	NPC: {
+		Puro: Ahoi! Ich k�mmere mich um den schwarzb�rtigen Wolf, du Landratte. Ich liebe es, Seeb�ren aufzuziehen!
+		Prototype: None
+		Scientist: Arrr, that scientist be looking as pale as a ghost. Me thinks he be cursed.
+	}
+
+	Transfur: {
+		BlackGoop: Steh still, du Teerklumpen! Ich brauche dich, um das Loch in meinem Schiff zu flicken!
+		WhiteGoop: Steh still, du Teerklumpen! Ich brauche dich, um das Loch in meinem Schiff zu flicken!
+		BlackCub: Yar, du bist der entz�ckendste Seewelpe, den ich je gesehen habe!
+		WhiteCub: Yar, du bist der entz�ckendste Seewelpe, den ich je gesehen habe!
+		SquidDog: Arrr, was f�r ein Seeungeheuer bist du denn? Ein Krakenhund?
+	}
+}
+
+SantaClaus: {
+	NPC: {
+		Puro: Ich kann fast alles verschenken, und dann gibt es da diese eine Person, die nichts anderes als Orangen auf ihrer Wunschliste hat.
+		Prototype: Meine Elfen sollten eine Spielzeugversion von {NamePrototype} herstellen. Ich bin sicher, die Kinder w�rden sie lieben.
+		Scientist: Ich werde Doktor K. auf die Liste der Unartigen setzen, weil er nicht an mich glaubt.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Vielleicht sollte ich dich in eine Geschenkbox packen und dich jemandem schenken, der sich zu Weihnachten einen Welpen w�nscht.
+		WhiteCub: Vielleicht sollte ich dich in eine Geschenkbox packen und dich jemandem schenken, der sich zu Weihnachten einen Welpen w�nscht.
+		SquidDog: Ich wei� nicht, wer du bist, aber du stehst definitiv auf der Liste der Unartigen!
+	}
+}
+
+Stylist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Ist das ein wandelnder Haarb�schel? Ekelhaft.
+		WhiteGoop: Ist das ein wandelnder Haarb�schel? Ekelhaft.
+		BlackCub: Tut mir leid, ich kann Ihnen nicht helfen. Dies ist kein Hundesalon.
+		WhiteCub: Tut mir leid, ich kann Ihnen nicht helfen. Dies ist kein Hundesalon.
+		SquidDog: Tut mir leid, ich kann Ihnen nicht helfen. Dies ist kein Hundesalon.
+	}
+}
+
+TaxCollector: {
+	NPC: {
+		Puro: Wenn dieser schwarze Gelee-Wolf nicht bald seine Miete zahlt, werde ich ihm auch noch Tiersteuer auferlegen!
+		Prototype: Dank der �berdimensionierten Mikrowelle namens {NamePrototype} hat sich die Energierechnung mehr als verdoppelt!
+		Scientist: Doktor K. behauptete, die Miete bezahlt zu haben, aber die Zahlen stimmen nicht. Ich wette, er hat einen Doktortitel in Steuerhinterziehung!
+	}
+
+	Transfur: {
+		BlackGoop: Bah! Wer hat denn vergessen, sich die Schuhe abzuputzen? Jetzt ist �berall Schlamm!
+		WhiteGoop: Bah! Wer hat denn vergessen, sich die Schuhe abzuputzen? Jetzt ist �berall Schlamm!
+		BlackCub: Hau ab, K�ter! {NamePlayer} hat nur eine Lizenz f�r einen Hund!
+		WhiteCub: Hau ab, K�ter! {NamePlayer} hat nur eine Lizenz f�r einen Hund!
+		BlackCubNoLicense: Hau ab, K�ter! Und komm erst wieder, wenn {NamePlayer} eine Hundemarke gekauft hat!
+		WhiteCubNoLicense: Hau ab, K�ter! Und komm erst wieder, wenn {NamePlayer} eine Hundemarke gekauft hat!
+		SquidDog: Hau ab! Bel�stige jemand anderen, du bl�des Seeungeheuer!
+	}
+}
+
+Wizard: {
+	NPC: {
+		Puro: Ich kann Puro nicht meine Zauberb�cher lesen lassen. Er ist schon ein m�chtiges Biest und braucht nicht auch noch Feuer zu speien.
+		Prototype: None
+		Scientist: Warum versucht Doktor K, meine Aktivit�ten wissenschaftlich zu analysieren? Das ist doch... Magie.
+	}
+
+	Transfur: {
+		BlackGoop: Ein wandelnder Schokoladenpudding! Der magische S��igkeitenzauber hat funktioniert!
+		WhiteGoop: Ein wandelnder Milchpudding! Der magische S��igkeitenzauber hat funktioniert!
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
