@@ -81,6 +81,7 @@ namespace ChangedSpecialMod.Common.Systems
             modCoralite = null;
 
             modBoulderBackport = null;
+            RemoveExtraTitles();
         }
 
         public override void PostAddRecipes()
@@ -94,6 +95,31 @@ namespace ChangedSpecialMod.Common.Systems
             SetupFargosMutant();
             SetupMusicDisplay();
             SetupCensus();
+            SetupExtraTitles();
+        }
+
+        private void SetupExtraTitles()
+        {
+            int startIndex = 1;
+            int endIndex = 6;
+
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                if (!LanguageManager.Instance.GetKeysInCategory("GameTitle").Contains($"Changed{i.ToString()}"))
+                    LanguageManager.Instance.GetKeysInCategory("GameTitle").Add($"Changed{i.ToString()}");
+            }
+        }
+
+        private void RemoveExtraTitles()
+        {
+            int startIndex = 1;
+            int endIndex = 6;
+
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                if (LanguageManager.Instance.GetKeysInCategory("GameTitle").Contains($"Changed{i.ToString()}"))
+                    LanguageManager.Instance.GetKeysInCategory("GameTitle").Remove($"Changed{i.ToString()}");
+            }
         }
 
         private void SetupCensus()

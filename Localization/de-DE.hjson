@@ -707,6 +707,16 @@ SpecialWorldName.TheConstant: Mmmmm Orange
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-	PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
-	PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+	PlayerIsCreativeAndWorldIsNotCreative: Mensch! Nur Nicht-Reisecharaktere können eine Nicht-Reisewelt betreten.
+	PlayerIsNotCreativeAndWorldIsCreative: Mensch! Nur Reisecharaktere können eine Reisewelt betreten.
+}
+
+GameTitle: {
+	Changed1: Terraria: Jetzt mit mehr Orangen!
+	Changed2: Terraria: Probier auch mal Changed aus!
+	Changed3: Terraria: Sonderausgabe
+	Changed4: Terraria: Dr. K und das Labor des Verderbens
+	Changed5: Mmmm Orange
+	Changed6: Terraria: Ein Wolf, ein Wissenschaftler und ein Roboter betreten eine Bar
+	Changed7: Terraria: Kapitän Puro und das Meer aus Orangensaft
 }

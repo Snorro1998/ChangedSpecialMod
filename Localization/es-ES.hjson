@@ -707,6 +707,16 @@ SpecialWorldName.TheConstant: Mmmmm Naranja
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-	// PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
-	// PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+	PlayerIsCreativeAndWorldIsNotCreative: ¡Humano! Solo los personajes que no sean de viaje pueden unirse a un mundo que no sea de viaje.
+	PlayerIsNotCreativeAndWorldIsCreative: ¡Humano! Solo los personajes de viaje pueden unirse a un mundo que sea de viaje.
+}
+
+GameTitle: {
+	Changed1: Terraria: ¡Ahora con más naranjas!
+	Changed2: Terraria: ¡Prueba también Changed!
+	Changed3: Terraria: Edición Especial
+	Changed4: Terraria: El Dr. K y el Laboratorio de la Perdición
+	Changed5: Mmmm Orange
+	Changed6: Terraria: Un lobo, un científico y un robot entran en un bar.
+	Changed7: Terraria: El capitán Puro y el mar de zumo de naranja
 }

@@ -710,3 +710,13 @@ UI: {
 	PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
 	PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
 }
+
+GameTitle: {
+	Changed1: Terraria: Now with more Oranges!
+	Changed2: Terraria: Also try Changed!
+	Changed3: Terraria: Special Edition
+	Changed4: Terraria: Dr. K and the Laboratory of Doom
+	Changed5: Mmmm Orange
+	Changed6: Terraria: A Wolf, a Scientist and a Robot walk into a bar
+	Changed7: Terraria: Captain Puro and the Sea of Orange Juice
+}

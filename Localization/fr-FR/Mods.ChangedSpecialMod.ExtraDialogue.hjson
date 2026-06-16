@@ -145,7 +145,7 @@ Guide: {
 Mechanic: {
 	NPC: {
 		Puro: None
-		Prototype: Quoi? {NamePrototype} se comporte encore bizarrement? Avez-vous essayé de l’éteindre et de le rallumer? 
+		Prototype: Quoi? {NamePrototype} se comporte encore bizarrement? Avez-vous essayé de l’éteindre et de le rallumer?
 		Scientist: None
 	}
 
@@ -161,7 +161,7 @@ Mechanic: {
 Nurse: {
 	NPC: {
 		Puro: J'ai dit à Puro qu'il devait manger deux oranges par jour pour rester en bonne santé. Il m'a répondu qu'il en mangeait au moins dix par jour.
-		Prototype: Une fois, j'ai demandé à {NamePrototype} de m'aider pour un examen, mais il s'est contenté de vaporiser de l'eau au visage du patient. 
+		Prototype: Une fois, j'ai demandé à {NamePrototype} de m'aider pour un examen, mais il s'est contenté de vaporiser de l'eau au visage du patient.
 		Scientist: None
 	}
 
@@ -280,8 +280,8 @@ Wizard: {
 	}
 
 	Transfur: {
-		BlackGoop: Un pudding au chocolat ambulant! La sortilège magique de bonbons a fonctionné!  
-		WhiteGoop: Un pudding au lait ambulant! La sortilège magique de bonbons a fonctionné!  
+		BlackGoop: Un pudding au chocolat ambulant! La sortilège magique de bonbons a fonctionné!
+		WhiteGoop: Un pudding au lait ambulant! La sortilège magique de bonbons a fonctionné!
 		BlackCub: None
 		WhiteCub: None
 		SquidDog: None

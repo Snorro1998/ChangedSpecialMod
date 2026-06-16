@@ -707,6 +707,16 @@ SpecialWorldName.TheConstant: Mmmmm Orange
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-	PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
-	PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+	PlayerIsCreativeAndWorldIsNotCreative: 人类！只有非旅行角色可以进入非旅行世界。
+	PlayerIsNotCreativeAndWorldIsCreative: 人类！只有旅行角色可以进入旅行世界。
+}
+
+GameTitle: {
+	Changed1: 泰拉瑞亚：现在橙子更多啦！
+	Changed2: 泰拉瑞亚：也试试《Changed》！
+	Changed3: 泰拉瑞亚：特别版
+	Changed4: 泰拉瑞亚：K博士和末日实验室
+	Changed5: 嗯，橙子
+	Changed6: 泰拉瑞亚：一只狼、一位科学家和一个机器人走进一家酒吧
+	Changed7: 泰拉瑞亚：普罗船长和橙汁之海
 }
