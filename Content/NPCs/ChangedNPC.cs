@@ -607,6 +607,14 @@ namespace ChangedSpecialMod.Content.NPCs
                 var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
                     hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
 
+                var orangeItem = player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<Orange>());
+                if (orangeItem != null)
+                {
+                    keyWords.Add("PlayerHasOrange", string.Empty);
+                    if (orangeItem.stack >= 20)
+                        keyWords.Add("PlayerHasManyOranges", string.Empty);
+                }
+
                 AddIf(player.HasItem(ModContent.ItemType<Orange>()), "PlayerHasOrange");
                 AddIf(hasAnyBook, "PlayerHasBook");
                 AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");

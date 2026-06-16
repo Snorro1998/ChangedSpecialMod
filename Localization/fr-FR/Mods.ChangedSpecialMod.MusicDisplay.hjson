@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Zone de Gelée Noire
+	MusicBlackLatexZone2: Mine de Cristal écarlate
+	MusicCrystalZone: Zone cristalline
+	MusicWhiteLatexZone: Jungle de Gelée Blanche
+	MusicLibrary: Bibliothèque
+	MusicLabSlow: Laboratoire (lente)
+	MusicLab: Laboratoire
+	MusicVents: Tuyau de ventilation
+	MusicPuro: Puro la Gelée Noire
+	MusicGreenhouse: Serre
+	MusicHappyBirthday: Chanson d'anniversaire
+	MusicPuroDance: La danse de Puro
+	MusicRun: FUYEZ
+	MusicWhiteTailChase2: La Queue Blanche de Chasse, partie 2
+	# Not 100% sure, because they have no names
+	MusicWolfKing: Le Roi des Loups
+	MusicBehemoth: Le Béhémoth
+	MusicShark: Le Requin
+	MusicSquidDog: Chien-calamar
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

@@ -510,7 +510,7 @@ Mods: {
 				TownNPCMood: {
 					HateBiome: I hate {BiomeName}, because it's too humid and there are way too many things trying to hurt you!
 					DislikeBiome: I don't like {BiomeName}.
-					LikeBiome: There is something soothing about the sound of the waves.
+					LikeBiome: I like {BiomeName}. There is something soothing about the sound of the waves.
 					LoveBiome: My body is made of white goo, so I fit in perfectly in {BiomeName}.
 					HateCrowded: I can't get anything done with so much noise around me.
 					DislikeCrowded: It's hard to concentrate with all those people around me.

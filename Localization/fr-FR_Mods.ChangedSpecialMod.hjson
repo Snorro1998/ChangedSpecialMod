@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Queue Blanche
+		SpawnInfo: Peut apparaître dans n'importe quelle zone de gelée après avoir vaincu au moins 20 bêtes de gelée.
+		DespawnMessage: Queue Blanche ne te poursuit plus
+	}
+
+	WolfKing: {
+		EntryName: Roi des Loups
+		SpawnInfo: On peut la trouver dans une pièce recouverte de gelée noire.
+		DespawnMessage: Roi des Loups ne te poursuit plus
+	}
+
+	Behemoth: {
+		EntryName: Béhémoth
+		SpawnInfo: On peut la trouver dans une pièce recouverte de gelée blanche.
+		DespawnMessage: Béhémoth ne te poursuit plus
+	}
+}

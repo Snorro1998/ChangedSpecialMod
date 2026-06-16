@@ -58,29 +58,12 @@ Other
 
 --------- Changelog ---------
 
-This version fixes a lot of issues in multiplayer.
 For information about previous versions, please check out the change notes in the steam workshop.
 
-0.5.2
+0.5.3
 
 General
-- Added Chinese and German translations
-- Added Citrus Stonks and Paradise paintings
-- Added maintenance robot. He is quite rare and behaves like eyezor, shooting lasers at the player.
-- Reduced the chance of the Puro cloud appearing
+- Added French translations
 
-Multiplier fixes
-- White Tail jittering
-- Wolf King fight not working at all
-- Behemoth sliding around after teleporting
-- Generators not playing a chime sound when turned on or off
-- Players not teleporting until they walked after using an elevator
-- Transfur UI appearing for all players when a syringe is used
-- Other player's transfur not visible
-
-Other fixes
-- Improved some English texts
-- Fixed some corrupted Spanish translations
-- Game crashed completely when taking a snapshot in any of the Changed biomes
-- Labs in the drunk world were often missing paintings
-- "Index was outside the bounds of the array" sometimes appearing in the chat before the Wolf King or Behemoth fight started
+Fixes
+- Active transfurs not displayed after joining a multiplayer world

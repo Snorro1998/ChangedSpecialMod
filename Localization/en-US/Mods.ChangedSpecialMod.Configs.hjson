@@ -34,8 +34,8 @@ ChangedSpecialModClientConfig: {
 		Tooltip:
 			'''
 			The number of labs per side of the world. 
-			The default value 1 will generate 1 lab on small 
-			and medium worlds and 2 labs on large worlds.
+			The default value of 1 will generate 1 laboratory on small 
+			and medium-sized worlds and 2 laboratories on large worlds.
 			WARNING Large values on small worlds can crash your game.
 			'''
 	}

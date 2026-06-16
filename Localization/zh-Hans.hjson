@@ -509,8 +509,8 @@ Mods: {
 			Scientist: {
 				TownNPCMood: {
 					HateBiome: 我讨厌{BiomeName}，因为那里太潮湿了，而且有太多东西会伤害你！
-					DislikeBiome: 我不喜欢{BiomeName}.
-					LikeBiome: 海浪的声音令人感到舒缓。
+					DislikeBiome: 我不喜欢{BiomeName}。
+					LikeBiome: 我喜欢{BiomeName}。海浪的声音令人感到舒缓。
 					LoveBiome: 我的身体由白色粘液构成，所以我完美地融入了{BiomeName}。
 					HateCrowded: 周围这么吵，我什么都做不了。
 					DislikeCrowded: 周围那么多人，很难集中注意力。

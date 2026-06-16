@@ -22,7 +22,7 @@ namespace ChangedSpecialMod
             TeleportPlayer,                 // client -> server
             TransfurPlayer,                 // client -> server
             SyncTransfurPlayer,             // server -> clients
-            UntransfurPlayer                // client -> server
+            RequestAllActiveTransfurs       // client -> server
         }
 
         private void PlaySwitchSound(BinaryReader reader)
@@ -79,7 +79,6 @@ namespace ChangedSpecialMod
                     int npcType = reader.ReadInt32();
 
                     ChangedUtils.SetTransfurFromNPCType(whoAmI, npcType);
-
                     ChangedUtils.SyncTransfur(whoAmI);
                         /*
                     // Broadcast result to all clients
@@ -99,6 +98,26 @@ namespace ChangedSpecialMod
                     Main.player[playerIndex]
                         .GetModPlayer<ChangedSpecialModPlayer>()
                         .NpcType = npcType;
+
+                    break;
+                }
+                case MessageType.RequestAllActiveTransfurs:
+                {
+                    if (Main.netMode != NetmodeID.Server)
+                        return;
+
+                    for (int i = 0; i < Main.player.Length; i++)
+                    {
+                        var player = Main.player[i];
+                        if (player == null || !player.active)
+                            continue;
+
+                        var changedPlayer = player.ChangedPlayer();
+                        if (changedPlayer == null || !changedPlayer.IsTransfurred)
+                            continue;
+
+                        ChangedUtils.SyncTransfur(i, whoAmI);
+                    }
 
                     break;
                 }

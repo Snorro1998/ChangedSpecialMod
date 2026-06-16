@@ -24,6 +24,16 @@ using static ChangedSpecialMod.ChangedSpecialMod;
 // This thing is a mess and contains all kinds of functions that probably should be in their own class
 namespace ChangedSpecialMod.Utilities
 {
+    public enum EvolutionLines
+    {
+        Black,
+        White,
+        SquidDog,
+        Shark,
+        Purrpurr,
+        Bloodstripe
+    }
+
     public static partial class Things
     {
         public static ChangedNPC Changed(this NPC npc) => npc.GetGlobalNPC<ChangedNPC>();

@@ -1,0 +1,729 @@
+Painting1: {
+	DisplayName: La petite boule de poils idiote
+	Tooltip: Adorable jusqu'à ce qu'il grandisse
+}
+
+Painting2: {
+	DisplayName: Roi des Loups
+	Tooltip: Une bête puissante
+}
+
+Painting3: {
+	DisplayName: Les Effets des Oranges
+	Tooltip: En bonne santé
+}
+
+Painting4: {
+	DisplayName: Shhhhhh
+	Tooltip: Silence, sinon ils vous trouveront.
+}
+
+Painting5: {
+	DisplayName: Comédie
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: Le Ninja des Ténèbres
+	Tooltip: Épique
+}
+
+Painting7: {
+	DisplayName: Meilleurs Amis
+	Tooltip: Câlin
+}
+
+Painting8: {
+	DisplayName: L'heure du Goûter
+	Tooltip: Savoureux
+}
+
+Painting9: {
+	DisplayName: Puro la Gelée Noire
+	Tooltip: Mignon
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: Le Chien-Calamar
+	Tooltip: Un mollusque menaçant
+}
+
+Painting12: {
+	DisplayName: Léopard des Neiges
+	Tooltip: Calme
+}
+
+Painting13: {
+	DisplayName: Attrapé
+	Tooltip: Oh non
+}
+
+DrunkPainting1: {
+	DisplayName: Orang
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Requinini
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: Chincala
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: Purouou
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: Boîte à Musique (Laboratoire)
+	Tooltip: Par ShiZi
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Bannière de Gelée Noire
+}
+
+SquidDogBanner: {
+	DisplayName: Bannière de Chien-Calamar
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Ascenseur
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Peluche Puro
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Basket-ball (déplaçable)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Peluche Requin
+}
+
+Orange: {
+	DisplayName: Orange
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Bloc de Gelée Noire
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Bloc d'Avertissement
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Bloc de Terre Sèche
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Bouteille de Gaz Bleue
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Chaise de Bureau Bleue
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Document Papier
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Générateur
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Chaise de Bureau Verte
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Scanner d'Iris
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Porte du Laboratoire
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Table de Laboratoire
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Montagne de Livres
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Boîte à Musique (Zone cristalline)
+	Tooltip: Par ShiZi
+}
+
+PackingBox: {
+	DisplayName: Boîte d'emballage
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Clé de la boîte d'emballage
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Bouteille de Gaz Rouge
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Chaise de Bureau Rouge
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Pile de Boîtes
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Boîte de Rangement
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Clé de la boîte de rangement
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Bibliothèque recouverte de Gelée Blanche
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Bloc de Carreaux de Laboratoire
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: Bloc de Gelée Blanche
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Orange Pourrie
+	Tooltip: Le simple fait de tenir ceci suffit à voir des choses étranges.
+}
+
+TigerPaw: {
+	DisplayName: Grifcarmin
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Encyclopédie
+	Tooltip: Ressentez le poids du savoir
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Corne de l'effroi
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Fouet de Mollusques
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Bannière de Wendigo
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Bannière de Sangrayure
+}
+
+BlackGoopBanner: {
+	DisplayName: Bannière de Goutte Noire
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Bannière de Goutte Blanche
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Bannière de Berger Allemand
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Fer à cheval visqueux
+	Tooltip: Invoque une monture Gelée Blanche
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Aile noire
+	Tooltip: Invoque une monture Yufeng
+}
+
+Literature: {
+	DisplayName: Littérature
+	Tooltip: Plein de sujets d'actualité
+}
+
+WhiskerStaff: {
+	DisplayName: Baguette à Moustaches
+	Tooltip: Invoque un chat pour se battre à vos côtés
+}
+
+PurrpurrBanner: {
+	DisplayName: Bannière de Vioronron
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Plulivres
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Arrosoir
+}
+
+MusicBoxPuro: {
+	DisplayName: Boîte à Musique (Puro la Gelée Noire)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Boîte à Musique (La danse de Puro)
+	Tooltip: Par ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Invoque un énorme chat violet pour combattre à vos côtés.
+	DisplayName: Baguette à Vioronron
+}
+
+TabbyStaff: {
+	Tooltip: Invoque un gros chat tigré pour combattre à vos côtés.
+	DisplayName: Baguette à Chat-Tigre
+}
+
+FennecPlush: {
+	DisplayName: Peluche Fennec
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Tentaculouble
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Méga Broyeur
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Patte Déchirante
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Triotenta
+}
+
+Bashskewer: {
+	DisplayName: Brochette à Frapper
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Pointe Démoniaque
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Chapeau alpin
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: Cet élément est inactif et ne s'affiche que lorsque le curseur survole un ascenseur.
+	DisplayName: Icône Ascenseur Monter
+}
+
+ElevatorDown: {
+	Tooltip: Cet élément est inactif et ne s'affiche que lorsque le curseur survole un ascenseur.
+	DisplayName: Icône Ascenseur Descendre
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Boîte à Musique (Joyeux anniversaire)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Boîte à Musique (Bibliothèque)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Boîte à Musique (Jungle de Gelée Blanche)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Boîte à Musique (Mine de cristal écarlate)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Boîte à Musique (Zone de Gelée Noire)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Boîte à Musique (Roi des Loups)
+	Tooltip: Par ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Bannière de petit Yufeng
+}
+
+SummonWolfKing: {
+	Tooltip: Invoque le Roi des Loups
+	DisplayName: Étrange chaise pivotante
+}
+
+SummonBehemoth: {
+	Tooltip: Invoque le Béhémoth
+	DisplayName: Main gigantesque
+}
+
+DebugResetBosses: {
+	DisplayName: Réinitialise la progression de Changed
+	Tooltip: Réinitialise la progression de tous les boss de Changed
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Ventilateur
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Tanière de Loup
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Boîte à Musique (Serre)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Boîte à Musique (Laboratoire, Lente)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: Par ShiZi
+	DisplayName: Boîte à Musique (Tuyau de Ventilation)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: Bannière de Gelée Blanche
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Casier
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Blocs de Jeu
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Par ShiZi
+	DisplayName: Boîte à Musique (Behemoth)
+}
+
+SummonWhiteTail: {
+	Tooltip: Invoque la Queue Blanche
+	DisplayName: Boule de Gelée Suspecte
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Oui
+	DisplayName: Faire apparaître tous les PNJ
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Cristal Blanc
+}
+
+CrystalGreen: {
+	DisplayName: Cristal Vert
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Cristal Rouge
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Pilier Blanc
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Awou
+	DisplayName: Créature de la Nuit
+}
+
+Painting16: {
+	DisplayName: Le Scientifique
+	Tooltip: Effrayant
+}
+
+Painting17: {
+	DisplayName: Renard Endormi
+	Tooltip: Ne le réveillez pas
+}
+
+Painting18: {
+	DisplayName: Le monde de la Gelée
+	Tooltip: Construire un Pont
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Boîte à Musique (Queue Blanche)
+	Tooltip: Par ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Cryopode
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Photos (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Photos (Gelée Noire)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Photos (Dehors)
+}
+
+Pictures4: {
+	DisplayName: Photos (Couloir)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Photos (Bactéries)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Photos (Amis)
+}
+
+BlackSyringe: {
+	DisplayName: Seringue Noire
+	Tooltip:
+		'''
+		- Vous transforme en Gelée Noire
+		- Confère une immunité aux Gelées Noires
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: Seringue Blanche
+	Tooltip:
+		'''
+		- Vous transforme en Gelée Blanche
+		- Confère une immunité aux Gelées Blanches
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Basket-ball
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Cristal la Discothèque
+	Tooltip: Porter cet objet donnera aux cristaux le comportement de lumières disco.
+}
+
+BlackLatexSolution: {
+	DisplayName: Solution de Gelée Noire
+	Tooltip: étend la Zone de Gelée Noire
+}
+
+WhiteLatexSolution: {
+	DisplayName: Solution de Gelée Blanche
+	Tooltip: étend la Zone de Gelée Blanche
+}
+
+DryDirtSolution: {
+	DisplayName: Solution de Terre Sèche
+	Tooltip: étend les Ruines de la Ville
+}
+
+OrangeStatue: {
+	DisplayName: Statue Orange
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Lunettes de soleil
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: Seringue de Chien-calamar
+	Tooltip:
+		'''
+		- Vous transforme en Chien-calamar
+		- Peut déployer des tentacules grâce à la touche « capacité ».
+		- Permet de respirer sous l'eau
+		'''
+}
+
+BlackLatexSand: {
+	DisplayName: Sable noir et visqueux
+	Tooltip:
+		'''
+		Peut être utilisé avec le pistolet à sable.
+		- Transforme les créatures et les gelées en blobs.
+		- Permet aux bêtes de gelée noir d'évoluer
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: Sable blanc et visqueux
+	Tooltip:
+		'''
+		Peut être utilisé avec le pistolet à sable.
+		- Transforme les créatures et les gelées en blobs.
+		- Permet aux bêtes de gelée blanc d'évoluer
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: Super Seringue
+	Tooltip: Vous transforme en n'importe quelle gelées.
+}
+
+SummonExperiment009: {
+	DisplayName: Invoquer le boss Expérience 009
+	Tooltip: Inachevé. Du mod Minecraft « Changed Addon Plus ».
+}
+
+SummonShark: {
+	DisplayName: Invoquer le boss requin
+	Tooltip: Inachevé.
+}
+
+SweeperItem: {
+	DisplayName: Robot Balayeur
+	Tooltip: Expert en nettoyage
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: c'est un fou de vitesse
+}
+
+Paper: {
+	DisplayName: Papier
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: c'est un fou de vitesse
+}
+
+BlackLatexCubLicense: {
+	DisplayName: Permis pour Petit Gelée Noire
+	UseLicense: Le permis se téléporte chez le service de livraison de chiens...
+	Tooltip: Utilisé pour adopter une Petit Gelée Noire pour votre ville
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: Permis pour Petit Gelée Blanche
+	UseLicense: Le permis se téléporte chez le service de livraison de chiens...
+	Tooltip: Utilisé pour adopter une Petit Gelée Blanche pour votre ville
+}
+
+Calendar: {
+	DisplayName: Calendrier
+	Tooltip: Permet de changer la saison en cours
+}
+
+SombreroHat: {
+	DisplayName: Chapeau Sombrero
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Paradis
+	Tooltip: Vivre le rêve
+}
+
+DrunkPainting6: {
+	DisplayName: Actions du Citrus
+	Tooltip: Gros bénéfices
+}

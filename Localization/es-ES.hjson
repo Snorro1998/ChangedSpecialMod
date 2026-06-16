@@ -98,9 +98,9 @@ Mods: {
 					Orange6: ¡Sé todo sobre las naranjas, así que se podría decir que soy un experto en cítricos!
 					# TF2
 					Orange7: No he hecho más que teletransportar naranjas durante 3 días.
-					Crimson1: "{Crimson}¿Sabías que en algunos árboles de Crimson dan naranjas sanguinas? ¿Crees que podrías conseguirme una?"
-					Crimson2: "{Crimson}Ten cuidado cerca del laboratorio que está junto al Crimson. Vi un tigre enorme y corpulento allí."
-					Corruption1: "{Corruption}Ten cuidado cerca del laboratorio, cerca de la Corrupción. Vi un gato enorme y morado allí."
+					Crimson1: "{Crimson}¿Sabías que en algunos árboles de Carmesí dan naranjas sanguinas? ¿Crees que podrías conseguirme una?"
+					Crimson2: "{Crimson}Ten cuidado cerca del laboratorio que está junto el Carmesí. Vi un tigre enorme y corpulento allí."
+					Corruption1: "{Corruption}Ten cuidado cerca del laboratorio, cerca de la corrupción. Vi un gato enorme y morado allí."
 					Changed1: ¿Has visto mis dibujos en el laboratorio? ¿Te gustaría que te hiciera un dibujo?
 					Changed2: "{Behemoth}Quiero llegar a ser tan grande como el Behemot, para poder sostenerte entre mis patas como a una muñeca y mantenerte a salvo."
 					Normal1: ¡No necesito equipo para protegerme, porque tengo grandes garras, patas y una gran boca!
@@ -510,7 +510,7 @@ Mods: {
 				TownNPCMood: {
 					HateBiome: Odio {BiomeName}, porque es demasiado húmedo y hay demasiadas cosas que intentan hacerte daño.
 					DislikeBiome: No me gusta {BiomeName}.
-					LikeBiome: Hay algo relajante en el sonido de las olas.
+					LikeBiome: Me gusta {BiomeName}. Hay algo relajante en el sonido de las olas.
 					LoveBiome: Mi cuerpo está hecho de látex blanco, así que encajo perfectamente en {BiomeName}.
 					HateCrowded: No puedo hacer nada con tanto ruido a mi alrededor.
 					DislikeCrowded: Me resulta difícil concentrarme con toda esa gente a mi alrededor.

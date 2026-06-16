@@ -1,0 +1,289 @@
+Angler: {
+	NPC: {
+		Puro: Puro m'a dit d'arrêter d'essayer d'attraper un chien-calamar. Si c'est vraiment trop dangereux pour un enfant, je te laisserai en attraper un!
+		Prototype: Si je jetais {NamePrototype} dans l'eau, électrocuterait-il tous les poissons comme une anguille électrique ?
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Impossible! Un chien-calamar! Oui, restez ici un moment, s'il vous plaît.
+	}
+}
+
+BestiaryGirl: {
+	NPC: {
+		Puro: Je n'avais jamais vu un loup aussi doux et duveteux que Puro auparavant!
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Oh mon Dieu! Un chiot! Tu es trop mignon!
+		WhiteCub: Oh mon Dieu! Un chiot! Tu es trop mignon!
+		SquidDog: None
+	}
+}
+
+Clothier: {
+	NPC: {
+		Puro: Ce masque de cristal de Puro me donne la chair de poule. Il me rappelle quelque chose que j'ai déjà vu.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Cyborg: {
+	NPC: {
+		Puro: Forme de vie inconnue détectée! Dégage une légère odeur d'orange.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Étrange flaque détectée
+		WhiteGoop: Étrange flaque détectée
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Analyse de l'amalgame mollusque-canidé...
+	}
+}
+
+DD2Bartender: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Qu'est-ce qui ne va pas avec le docteur K? Hier, il m'a demandé si je voulais vendre son alcool de contrebande fabriqué à partir de papier toilette.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Tu as vraiment autant de bras? Ou alors je vois double à cause de toute cette bière?
+	}
+}
+
+Demolitionist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: As-tu déjà entendu parler de lapins explosifs? Veux-tu que je t’attache de la dynamite pour que tu deviennes un chiot explosif?
+		WhiteCub: As-tu déjà entendu parler de lapins explosifs? Veux-tu que je t’attache de la dynamite pour que tu deviennes un chiot explosif?
+		SquidDog: Disparais, monstre! Ou je sors les grenades sous-marines!
+	}
+}
+
+DyeTrader: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Le docteur K est peut-être un expert en bio-ingénierie, mais il ne connaît rien à la mode.
+	}
+
+	Transfur: {
+		BlackGoop: AH! Pourquoi la teinture noire se met-elle à marcher?
+		WhiteGoop: AH! Pourquoi la teinture blanche se met-elle à marcher?
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Éloignez vos pattes mouillées de ma robe! Je ne veux pas que les couleurs déteignent!
+	}
+}
+
+Golfer: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Sais-tu garder un secret? J'ai cassé par inadvertance des affaires du docteur K pendant que je jouais au golf dans sa chambre.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Hé, si jamais tu trouves des balles de golf dans l'eau, pourrais-tu me les rapporter, s'il te plaît?
+	}
+}
+
+Guide: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: Si vous souhaitez en savoir plus sur les monstres des gelée, le docteur K est la personne qu'il vous faut.
+	}
+
+	Transfur: {
+		BlackGoop: Fais attention, petite gluante. Quelqu'un pourrait te marcher dessus par inadvertance.
+		WhiteGoop: Fais attention, petite gluante. Quelqu'un pourrait te marcher dessus par inadvertance.
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Je suis là pour vous donner un conseil. Je vous recommande de retourner à l'eau avant d'être déshydraté.
+	}
+}
+
+Mechanic: {
+	NPC: {
+		Puro: None
+		Prototype: Quoi? {NamePrototype} se comporte encore bizarrement? Avez-vous essayé de l’éteindre et de le rallumer? 
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Une flaque? Ne me dites pas qu'une des pompes est encore tombée en panne.
+		WhiteGoop: Une flaque? Ne me dites pas qu'une des pompes est encore tombée en panne.
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}
+
+Nurse: {
+	NPC: {
+		Puro: J'ai dit à Puro qu'il devait manger deux oranges par jour pour rester en bonne santé. Il m'a répondu qu'il en mangeait au moins dix par jour.
+		Prototype: Une fois, j'ai demandé à {NamePrototype} de m'aider pour un examen, mais il s'est contenté de vaporiser de l'eau au visage du patient. 
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Ne me dites pas que vous vous êtes cassé tous les bras.
+	}
+}
+
+Painter: {
+	NPC: {
+		Puro: Peux-tu m'apporter plus de peinture orange? Puro m'a demandé si je pouvais peindre toute sa chambre avec.
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: Auriez-vous de l'encre pour moi par hasard? Je n'ai plus de noir de carbone.
+	}
+}
+
+PartyGirl: {
+	NPC: {
+		Puro: J'adore faire la fête avec Puro! C'est un vrai fêtard!
+		Prototype: "{NamePrototype} est une véritable machine à faire la fête. Il peut jouer de la musique et servir de boule à facettes en même temps."
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: Waouh, le gâteau au chocolat bouge! Voilà un tour de magie impressionnant!
+		WhiteGoop: Waouh, le gâteau bouge! Voilà un tour de magie impressionnant!
+		BlackCub: Bonjour ! Vous êtes là pour la fête des animaux?
+		WhiteCub: Bonjour ! Vous êtes là pour la fête des animaux?
+		SquidDog: Dansons! Donne-moi ta main! Ou les deux mains. Euh, ou... les quatre mains?
+	}
+}
+
+Pirate: {
+	NPC: {
+		Puro: Ahoy! Je vais m'occuper de ce loup à barbe noire, terrien! J'adore élever des chiens de mer!
+		Prototype: None
+		Scientist: Arrr, ce scientifique a l'air aussi pâle qu'un fantôme. Je crois qu'il est maudit.
+	}
+
+	Transfur: {
+		BlackGoop: Restez immobile, espèce de tas de goudron! J'ai besoin que tu répares le trou dans mon navire!
+		WhiteGoop: Restez immobile, espèce de tas de goudron! J'ai besoin que tu répares le trou dans mon navire!
+		BlackCub: Yar, tu es le plus adorable chiot de mer que j'aie jamais vu!
+		WhiteCub: Yar, tu es le plus adorable chiot de mer que j'aie jamais vu!
+		SquidDog: Arr, quel monstre marin es-tu donc? Un kraken canin?
+	}
+}
+
+SantaClaus: {
+	NPC: {
+		Puro: Je peux offrir presque n'importe quoi en cadeau, et puis il y a toujours cette personne qui n'a mis que des oranges sur sa liste de souhaits.
+		Prototype: Mes lutins devraient fabriquer une version jouet de {NamePrototype}. Je suis sûr que les enfants l'adoreraient.
+		Scientist: J'ajouterai le docteur K à la liste des vilains, car il ne croit pas en moi.
+	}
+
+	Transfur: {
+		BlackGoop: None
+		WhiteGoop: None
+		BlackCub: Peut-être devrais-je te mettre dans une boîte cadeau et t'offrir à quelqu'un qui veut un chiot pour Noël.
+		WhiteCub: Peut-être devrais-je te mettre dans une boîte cadeau et t'offrir à quelqu'un qui veut un chiot pour Noël.
+		SquidDog: Je ne sais pas qui vous êtes, mais vous êtes assurément sur la liste des vilains!
+	}
+}
+
+Stylist: {
+	NPC: {
+		Puro: None
+		Prototype: None
+		Scientist: None
+	}
+
+	Transfur: {
+		BlackGoop: C'est une touffe de cheveux qui marche? Beurk!
+		WhiteGoop: C'est une touffe de cheveux qui marche? Beurk!
+		BlackCub: Désolé, je ne peux pas vous aider. Ce n'est pas un salon de coiffure pour chiens.
+		WhiteCub: Désolé, je ne peux pas vous aider. Ce n'est pas un salon de coiffure pour chiens.
+		SquidDog: Désolé, je ne peux pas vous aider. Ce n'est pas un salon de coiffure pour chiens.
+	}
+}
+
+TaxCollector: {
+	NPC: {
+		Puro: Si ce loup en gelée noire ne paie pas son loyer bientôt, je lui ferai payer la taxe animale aussi!
+		Prototype: Grâce à ce micro-ondes surdimensionné appelé {NamePrototype}, la facture d'énergie a plus que doublé!
+		Scientist: Le docteur K. affirme avoir payé le loyer, mais les chiffres ne correspondent pas. Je parie qu'il est docteur en fraude fiscale!
+	}
+
+	Transfur: {
+		BlackGoop: Beurk! Qui a oublié d'essuyer ses chaussures? Maintenant, il y a de la boue partout!
+		WhiteGoop: Beurk! Qui a oublié d'essuyer ses chaussures? Maintenant, il y a de la boue partout!
+		BlackCub: Va-t'en, cabot! {NamePlayer} n'a de permis que pour un seul chien!
+		WhiteCub: Va-t'en, cabot! {NamePlayer} n'a de permis que pour un seul chien!
+		BlackCubNoLicense: Va-t'en, cabot! Et ne reviens pas tant que {NamePlayer} n'aura pas acheté de permis pour chien!
+		WhiteCubNoLicense: Va-t'en, cabot! Et ne reviens pas tant que {NamePlayer} n'aura pas acheté de permis pour chien!
+		SquidDog: Dégage! Va embêter quelqu'un d'autre, espèce de monstre marin stupide!
+	}
+}
+
+Wizard: {
+	NPC: {
+		Puro: Je ne peux pas laisser Puro lire mes grimoires. C'est déjà une bête redoutable et il n'a pas besoin de cracher du feu en plus.
+		Prototype: None
+		Scientist: Pourquoi le docteur K essaie-t-il d'analyser ce que je fais avec la science? C'est tout simplement... magique.
+	}
+
+	Transfur: {
+		BlackGoop: Un pudding au chocolat ambulant! La sortilège magique de bonbons a fonctionné!  
+		WhiteGoop: Un pudding au lait ambulant! La sortilège magique de bonbons a fonctionné!  
+		BlackCub: None
+		WhiteCub: None
+		SquidDog: None
+	}
+}

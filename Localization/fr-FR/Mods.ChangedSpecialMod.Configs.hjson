@@ -1,0 +1,92 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Configuration du client
+
+	TransfurSound: {
+		Label: Son de transformation
+		Tooltip: Si le son de transformation doit être joué.
+	}
+
+	WhipCrackSound: {
+		Tooltip: Si les armes de type fouet devaient émettre un bruit de fouet.
+		Label: Bruit de fouet
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Les personnages peuvent utiliser des émoticônes liées à « Changed ».
+		Label: Personnages utiliser des émoticônes « Changed »
+	}
+
+	ExtraDialogue: {
+		Tooltip: Si les personnages normaux de Terraria ont plus de dialogues.
+		Label: Dialogue supplémentaire
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Divers]"
+		WorldGeneration: "[c/ffeb6e:Génération mondiale]"
+		Transfur: "[c/ffeb6e:Transformation]"
+		Npc: "[c/ffeb6e:Personnages]"
+	}
+
+	NumberOfLabs: {
+		Label: Nombre de laboratoires
+		Tooltip:
+			'''
+			Le nombre de laboratoires par côté du monde.
+			La valeur par défaut 1 générera 1 laboratoire sur les mondes de 
+			petite et moyenne taille et 2 laboratoires sur les grands mondes.
+			ATTENTION: Des valeurs élevées sur des mondes de petite taille peuvent faire planter votre jeu.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Nombre maximal d'étages
+		Tooltip: Le nombre maximal d'étages qu'un laboratoire peut comporter.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Nombre maximal de chambres horizontales
+		Tooltip: Le nombre maximal de pièces qu'un laboratoire peut comporter dans le sens horizontal.
+	}
+
+	LatexSpread: {
+		Label: l'expansion de la Gelée
+		Tooltip: Si la gelée peut se propager à d'autres blocs en mode difficile.
+	}
+
+	LatexSpreadChance: {
+		Label: Chance de l'expansion de la Gelée
+		Tooltip: La probabilité de 1 sur X que la gelée se propage à d'autres blocs en mode difficile.
+	}
+
+	DebugItems: {
+		Label: Articles de débogage
+		Tooltip: Si cette option est activée, le Dr K. vendra des articles de débogage.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: Personnages peuvent assimiler le joueur
+		Tooltip: Se faire tuer par une bête de gelée vous transformera en l'une d'elles dans la plupart des cas.
+	}
+
+	CustomHealthBar: {
+		Label: Barre de santé colorée
+		Tooltip: Affiche la barre de santé de différentes couleurs lorsque le joueur est transformé.
+	}
+
+	Evolution: {
+		Label: Évolution
+		Tooltip: Les monstres de gelée deviendront plus grands et plus forts à chaque boss vaincu.
+	}
+
+	DialoguePortraits: {
+		Label: Portraits de personnages
+		Tooltip:
+			'''
+			Si les habitants de la ville dans ce mod ont des portraits lorsque vous leur parlez.
+			Si vous utilisez « Boulder » Backport, ce paramètre est ignoré et son option 
+			« Modded Town NPC Portraits » est utilisée à la place.
+			'''
+	}
+}

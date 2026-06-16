@@ -132,6 +132,17 @@ namespace ChangedSpecialMod
             );
         }
 
+        public override void OnEnterWorld()
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                // Make it request all transfurs from the server
+                ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
+                packet.Write((byte)ChangedSpecialMod.MessageType.RequestAllActiveTransfurs);
+                packet.Send();
+            }
+        }
+
         /*
         public void SetTransfur(Transfur transfur)
         {
