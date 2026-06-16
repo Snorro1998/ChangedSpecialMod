@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Cauda Branca
+		SpawnInfo: Pode aparecer em qualquer zona de gosma após derrotar pelo menos 20 bestas de gosma.
+		DespawnMessage: Cauda Branca não está mais atrás de você.
+	}
+
+	WolfKing: {
+		EntryName: Rei Lobo
+		SpawnInfo: Pode ser encontrado em uma sala coberta de gosma preta.
+		DespawnMessage: Rei Lobo não está mais atrás de você.
+	}
+
+	Behemoth: {
+		EntryName: Gigante
+		SpawnInfo: Pode ser encontrado em uma sala coberta de gosma branca.
+		DespawnMessage: Gigante não está mais atrás de você.
+	}
+}

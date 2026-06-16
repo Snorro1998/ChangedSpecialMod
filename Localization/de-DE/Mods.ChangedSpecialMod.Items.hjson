@@ -698,13 +698,13 @@ Painting19: {
 
 BlackLatexCubLicense: {
 	DisplayName: Schwarzer Schleimwelpe Lizenz
-	UseLicense: Die Lizenz wird zum Hundelieferdienst teleportiert...
+	UseLicense: Die Lizenz teleportiert sich selbst zurück zum Hundelieferdienst ...
 	Tooltip: Nutze dies, um einen schwarzen Schleimwelpen für deine Stadt zu adoptieren.
 }
 
 WhiteLatexCubLicense: {
 	DisplayName: Weißer Schleimwelpe Lizenz
-	UseLicense: Die Lizenz wird zum Hundelieferdienst teleportiert...
+	UseLicense: Die Lizenz teleportiert sich selbst zurück zum Hundelieferdienst ...
 	Tooltip: Nutze dies, um einen Weißen Schleimwelpen für deine Stadt zu adoptieren.
 }
 

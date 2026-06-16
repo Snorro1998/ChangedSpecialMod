@@ -1,0 +1,729 @@
+Painting1: {
+	DisplayName: A Bolinha de Pelo Boba
+	Tooltip: Adorável até crescer.
+}
+
+Painting2: {
+	DisplayName: Rei Lobo
+	Tooltip: Uma besta poderosa
+}
+
+Painting3: {
+	DisplayName: Os efeitos das laranjas
+	Tooltip: Saudável
+}
+
+Painting4: {
+	DisplayName: Shhhhhh
+	Tooltip: Silêncio, ou eles vão te encontrar.
+}
+
+Painting5: {
+	DisplayName: Comédia
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: O Ninja das Trevas
+	Tooltip: Épico
+}
+
+Painting7: {
+	DisplayName: Melhores Amigos
+	Tooltip: Abraço
+}
+
+Painting8: {
+	DisplayName: Hora do lanche
+	Tooltip: Saboroso
+}
+
+Painting9: {
+	DisplayName: Puro a Gosma Negra
+	Tooltip: Fofo
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: O Cachorro-Lula
+	Tooltip: Um Molusco Ameaçador
+}
+
+Painting12: {
+	DisplayName: Leopardo-das-Neves
+	Tooltip: Calmo
+}
+
+Painting13: {
+	DisplayName: Capturado
+	Tooltip: Oh não
+}
+
+DrunkPainting1: {
+	DisplayName: Laran
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Tubarão
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: Cacholu
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: Purãoã
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: Caixinha de Música (Laboratório)
+	Tooltip: Por ShiZi
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Bandeira da Gosma Negra
+}
+
+SquidDogBanner: {
+	DisplayName: Bandeira do Cachorro-Lula
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Elevador
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Pelúcia de Puro
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Basquetebol (Posicionável)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Pelúcia de Tubarão 
+}
+
+Orange: {
+	DisplayName: Laranja
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Bloco de Gosma Preta
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Bloco de Advertência
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Bloco de Terra Seca
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Cilindro de Gás Azul
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Cadeira de Escritório Azul
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Documento em papel
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Gerador
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Cadeira de Escritório Verde
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Scanner de íris
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Porta do Laboratório
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Mesa de laboratório
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Monte de Livros
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Caixinha de Música (Zona de Cristal)
+	Tooltip: Por ShiZi
+}
+
+PackingBox: {
+	DisplayName: Caixa de embalagem
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Chave da caixa de embalagem
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Cilindro de Gás Vermelho
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Cadeira de Escritório Vermelha
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Pilha de caixas
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Caixa de Armazenamento
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Chave da caixa de armazenamento
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Estante Coberta de Gosma Branca
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Bloco de Azulejo de Laboratório
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: Bloco de Gosma Branca
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Laranja Podre
+	Tooltip: Só de segurar isso já é suficiente para ver coisas estranhas.
+}
+
+TigerPaw: {
+	DisplayName: Garrarmesim
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Enciclopédia
+	Tooltip: Sinta o peso do conhecimento
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Chifre do terror
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Chicote de Molusco
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Bandeira do Wendigo
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Bandeira do Sanglistra
+}
+
+BlackGoopBanner: {
+	DisplayName: Bandeira da Mancha Preta
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Bandeira da Mancha Branca
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Bandeira do Cão Pastor Alemão
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Ferradura Viscosa
+	Tooltip: Invoca uma montaria de Gosma Branca.
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Asa Negra
+	Tooltip: Invoca uma montaria Yufeng.
+}
+
+Literature: {
+	DisplayName: Literatura
+	Tooltip: Repleto de tópicos em alta
+}
+
+WhiskerStaff: {
+	DisplayName: Varinha de Bigode
+	Tooltip: Invoca um gato para lutar por você.
+}
+
+PurrpurrBanner: {
+	DisplayName: Bandeira do Roxoronando
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Chuva de Livros
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Regador
+}
+
+MusicBoxPuro: {
+	DisplayName: Caixinha de Música (Puro a Gosma Negra)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Caixinha de Música (Dança Puros)
+	Tooltip: Por ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Invoca um enorme gato roxo para lutar por você.
+	DisplayName: Varinha de Roxoronando
+}
+
+TabbyStaff: {
+	Tooltip: Invoca um grande gato malhado para lutar por você.
+	DisplayName: Varinha de Gato Malhado
+}
+
+FennecPlush: {
+	DisplayName: Pelúcia de Fennec
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Tentácuplo
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Mega Destruidor
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Triturador
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Tentátrio
+}
+
+Bashskewer: {
+	DisplayName: Espeto de Bater
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Espinho Demoníaco
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Chapéu Alpino
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: Este item não faz nada e só é usado quando o cursor está sobre um elevador.
+	DisplayName: Ícone de elevador para cima
+}
+
+ElevatorDown: {
+	Tooltip: Este item não faz nada e só é usado quando o cursor está sobre um elevador.
+	DisplayName: Ícone de elevador para baixo
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Caixinha de Música (Feliz Aniversário)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Caixinha de Música (Biblioteca)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Caixinha de Música (Selva da Gosma Branca)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Caixinha de Música (Mina de Cristal Escarlate)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Caixinha de Música (Zona da Gosma Negra)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Caixinha de Música (Rei Lobo)
+	Tooltip: Por ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Bandeira do Filhote de Yufeng
+}
+
+SummonWolfKing: {
+	Tooltip: Invoca o Rei Lobo
+	DisplayName: Cadeira giratória estranha
+}
+
+SummonBehemoth: {
+	Tooltip: Invoca o Gigante
+	DisplayName: Mão enorme
+}
+
+DebugResetBosses: {
+	DisplayName: Reinicia a progressão de todos os chefes
+	Tooltip: Reinicia a progressão de todos os chefes do Changed
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Ventilador
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Toca de Lobo
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Caixinha de Música (Greenhouse)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Caixinha de Música (Laboratory Slow)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: Por ShiZi
+	DisplayName: Caixinha de Música (Vents)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: Bandeira da Gosma Branca
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Armário
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Blocos de brinquedo
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Por ShiZi
+	DisplayName: Caixinha de Música (Gigante)
+}
+
+SummonWhiteTail: {
+	Tooltip: Invoca a Cauda Branca
+	DisplayName: Bola da Gosma Suspeita
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Sim
+	DisplayName: Gerar Todos os Personagens
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Cristal Branco
+}
+
+CrystalGreen: {
+	DisplayName: Cristal Verde
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Cristal Vermelho
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Pilar Branco
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Auuu!
+	DisplayName: Criatura da Noite
+}
+
+Painting16: {
+	DisplayName: O Cientista
+	Tooltip: Assustador
+}
+
+Painting17: {
+	DisplayName: Raposa Adormecida
+	Tooltip: Não o acorde.
+}
+
+Painting18: {
+	DisplayName: Mundo de Gosma
+	Tooltip: Construindo uma ponte
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Caixinha de Música (Cauda Branca)
+	Tooltip: Por ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Criopod
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Fotos (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Fotos (Gosma Negra)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Fotos (Fora)
+}
+
+Pictures4: {
+	DisplayName: Fotos (Corredor)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Fotos (Bactérias)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Fotos (Amigos)
+}
+
+BlackSyringe: {
+	DisplayName: Seringa Preta
+	Tooltip:
+		'''
+		- Transforma você em uma gosma preta
+		- Confere imunidade a gosmas negras
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: Seringa Branca
+	Tooltip:
+		'''
+		- Transforma você em uma gosma branca
+		- Confere imunidade a gosmas brancas
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Basquetebol
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Cristal da Discoteca
+	Tooltip: Carregar isso fará com que os cristais se comportem como luzes de discoteca.
+}
+
+BlackLatexSolution: {
+	DisplayName: Solução da gosma preta
+	Tooltip: Espalha a área de gosma preta
+}
+
+WhiteLatexSolution: {
+	DisplayName: Solução da gosma branca
+	Tooltip: Espalha a área de gosma branca
+}
+
+DryDirtSolution: {
+	DisplayName: Solução da terra seca
+	Tooltip: Espalha as ruínas da cidade
+}
+
+OrangeStatue: {
+	DisplayName: Estátua Laranja
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Óculos de sol
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: Seringa Cachorro-Lula
+	Tooltip:
+		'''
+		- Transforma você em um cachorro-lula
+		- Pode lançar tentáculos com a tecla de 'habilidade'
+		- Permite respirar debaixo d'água
+		'''
+}
+
+BlackLatexSand: {
+	DisplayName: Areia preta e viscosa
+	Tooltip:
+		'''
+		Pode ser usado com a pistola de areia.
+		- Transforma criaturas e gosmas em bolhas
+		- Faz com que as gosmas negras evoluam
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: Areia branca e viscosa
+	Tooltip:
+		'''
+		Pode ser usado com a pistola de areia.
+		- Transforma criaturas e gosmas em bolhas
+		- Faz com que as gosmas brancas evoluam
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: Super Seringa
+	Tooltip: Transforma você em qualquer criatura de gosma.
+}
+
+SummonExperiment009: {
+	DisplayName: Invocar Experimento 009 Chefe
+	Tooltip: Inacabado. Do mod 'Changed Addon Plus' para Minecraft.
+}
+
+SummonShark: {
+	DisplayName: Invocar Chefe Tubarão
+	Tooltip: Inacabado.
+}
+
+SweeperItem: {
+	DisplayName: Robô de varredura
+	Tooltip: Especialista em limpeza
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: Ele é um demônio da velocidade
+}
+
+Paper: {
+	DisplayName: Papel
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: Ele é um demônio da velocidade
+}
+
+BlackLatexCubLicense: {
+	DisplayName: licença para cachorrinho de gosma preta
+	UseLicense: A autorização é teleportada para o serviço de entregas de cães...
+	Tooltip: Use este formulário para adotar um cachorrinho de gosma preta na sua cidade.
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: licença para cachorrinho de gosma branca
+	UseLicense: A autorização é teleportada para o serviço de entregas de cães...
+	Tooltip: Use este formulário para adotar um cachorrinho de gosma branca na sua cidade.
+}
+
+Calendar: {
+	DisplayName: Calendário
+	Tooltip: Permite alterar a estação atual.
+}
+
+SombreroHat: {
+	DisplayName: Chapéu Sombrero
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Paraíso
+	Tooltip: Vivendo o sonho
+}
+
+DrunkPainting6: {
+	DisplayName: Ações de citrinos
+	Tooltip: Grandes negócios
+}

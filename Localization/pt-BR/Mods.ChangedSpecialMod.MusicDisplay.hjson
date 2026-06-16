@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Zona da Gosma Negra
+	MusicBlackLatexZone2: Mina de Cristal Escarlate
+	MusicCrystalZone: Zona de Cristal
+	MusicWhiteLatexZone: Selva da Gosma Branca
+	MusicLibrary: Biblioteca
+	MusicLabSlow: Laboratório (lento)
+	MusicLab: Laboratório
+	MusicVents: Tubo de Ventilação
+	MusicPuro: Puro a Gosma Negra
+	MusicGreenhouse: Estufa
+	MusicHappyBirthday: Música de Aniversário
+	MusicPuroDance: Dança Puros
+	MusicRun: FUGIR
+	MusicWhiteTailChase2: A Cauda Branca Caçador parte 2
+	# Not 100% sure, because they have no names
+	MusicWolfKing: O Rei Lobo
+	MusicBehemoth: O Gigante
+	MusicShark: O Tubarão
+	MusicSquidDog: Cachorro-Lula
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

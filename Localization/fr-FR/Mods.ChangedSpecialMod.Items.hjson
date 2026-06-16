@@ -698,13 +698,13 @@ Painting19: {
 
 BlackLatexCubLicense: {
 	DisplayName: Permis pour Petit Gelée Noire
-	UseLicense: Le permis se téléporte chez le service de livraison de chiens...
+	UseLicense: La licence se téléporte au service de livraison du chien...
 	Tooltip: Utilisé pour adopter une Petit Gelée Noire pour votre ville
 }
 
 WhiteLatexCubLicense: {
 	DisplayName: Permis pour Petit Gelée Blanche
-	UseLicense: Le permis se téléporte chez le service de livraison de chiens...
+	UseLicense: La licence se téléporte au service de livraison du chien...
 	Tooltip: Utilisé pour adopter une Petit Gelée Blanche pour votre ville
 }
 

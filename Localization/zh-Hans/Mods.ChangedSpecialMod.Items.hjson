@@ -698,13 +698,13 @@ Painting19: {
 
 BlackLatexCubLicense: {
 	DisplayName: 黑色粘液小狗证
-	UseLicense: 驾照瞬间被传送到了送狗服务公司……
+	UseLicense: 许可证传送到狗狗运送服务站…
 	Tooltip: 用它来领养一只黑色粘液小狗到你的城镇
 }
 
 WhiteLatexCubLicense: {
 	DisplayName: 白色粘液小狗证
-	UseLicense: 驾照瞬间被传送到了送狗服务公司……
+	UseLicense: 许可证传送到狗狗运送服务站…
 	Tooltip: 用它来领养一只白色粘液小狗到你的城镇
 }
 

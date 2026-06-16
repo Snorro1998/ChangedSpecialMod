@@ -1,0 +1,24 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: Ruínas da Cidade
+	TownNPCDialogueName: as Ruínas da Cidade
+}
+
+CityRuinsUndergroundBiome: {
+	DisplayName: City Ruins Underground Biome
+	TownNPCDialogueName: the City Ruins Underground Biome
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: Zona de Gosma Branca
+	TownNPCDialogueName: a Zona de Gosma Branca
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: Zona da Gosma Preta
+	TownNPCDialogueName: a Zona da Gosma Preta
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: o Bioma Bêbado
+	DisplayName: Bêbado
+}

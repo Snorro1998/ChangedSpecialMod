@@ -63,7 +63,7 @@ For information about previous versions, please check out the change notes in th
 0.5.3
 
 General
-- Added French translations
+- Added French and Portuguese translations
 
 Fixes
 - Active transfurs not displayed after joining a multiplayer world

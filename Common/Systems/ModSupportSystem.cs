@@ -14,6 +14,15 @@ namespace ChangedSpecialMod.Common.Systems
 {
     public class ModSupportSystem : ModSystem
     {
+        // TODO Coralite
+        // Add logic so the white latex lab won't override its ice dragon thing
+        // The lab generates before it, but Coralite only replaces snow and ice blocks
+        // Might check the other structures as wel
+
+        // TODO Calamity
+        // If the lab is very close to the sulphuric sea, Calamity can override its walls.
+        // Due to this, you can end up with a lab without the slime walls required for the wolf king and behemoth fights
+
         public static ChangedSpecialMod changedMod = null;
 
         // Informational
@@ -31,7 +40,13 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modSpiritReforged = null;
         public static Mod modCoralite = null;
 
+        // Other
         public static Mod modBoulderBackport = null;
+        //public static Mod modDialogueTweak = null;
+
+        // The min and max indecis for the extra title message added in the hjson
+        private static int indexTitleMessageMin = 1;
+        private static int indexTitleMessageMax = 5;
 
         public override void Load()
         {
@@ -52,7 +67,9 @@ namespace ChangedSpecialMod.Common.Systems
             modSpiritReforged = GetMod("SpiritReforged");
             modCoralite = GetMod("Coralite");
 
+            // Other
             modBoulderBackport = GetMod("BoulderBackport");
+            //modDialogueTweak = GetMod("DialogueTweak");
         }
 
         private static Mod GetMod(string name)
@@ -80,7 +97,10 @@ namespace ChangedSpecialMod.Common.Systems
             modSpiritReforged = null;
             modCoralite = null;
 
+            // Other
             modBoulderBackport = null;
+            //modDialogueTweak = null;
+
             RemoveExtraTitles();
         }
 
@@ -100,10 +120,7 @@ namespace ChangedSpecialMod.Common.Systems
 
         private void SetupExtraTitles()
         {
-            int startIndex = 1;
-            int endIndex = 6;
-
-            for (int i = startIndex; i < endIndex; i++)
+            for (int i = indexTitleMessageMin; i <= indexTitleMessageMax; i++)
             {
                 if (!LanguageManager.Instance.GetKeysInCategory("GameTitle").Contains($"Changed{i.ToString()}"))
                     LanguageManager.Instance.GetKeysInCategory("GameTitle").Add($"Changed{i.ToString()}");
@@ -112,10 +129,7 @@ namespace ChangedSpecialMod.Common.Systems
 
         private void RemoveExtraTitles()
         {
-            int startIndex = 1;
-            int endIndex = 6;
-
-            for (int i = startIndex; i < endIndex; i++)
+            for (int i = indexTitleMessageMin; i <= indexTitleMessageMax; i++)
             {
                 if (LanguageManager.Instance.GetKeysInCategory("GameTitle").Contains($"Changed{i.ToString()}"))
                     LanguageManager.Instance.GetKeysInCategory("GameTitle").Remove($"Changed{i.ToString()}");

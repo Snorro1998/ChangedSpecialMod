@@ -9,61 +9,61 @@
 Mods: {
 	ChangedSpecialMod: {
 		SizeDescription: {
-			Big: Big
-			Huge: Huge
-			Giant: Giant
-			Behemoth: Behemoth
+			Big: Grande
+			Huge: Enorme
+			Giant: Gigante
+			Behemoth: Colosso
 		}
 
 		Seasons: {
 			None: None
-			Valentine: Valentine
+			Valentine: Dia dos Namorados
 			Fiesta: Fiesta
 			Oktoberfest: Oktoberfest
 			Halloween: Halloween
-			Xmas: Christmas
+			Xmas: Natal
 		}
 
 		EventAnnouncement: {
-			None: Everything returns to normal
-			Valentine: Love is in the air!
+			None: Tudo volta ao normal.
+			Valentine: O amor está no ar!
 			Fiesta: Suavemente!
-			Oktoberfest: The Oktoberfest has begun!
-			Halloween: It's starting to get spooky!
-			Xmas: It's beginning to look a lot like Christmas!
+			Oktoberfest: A Oktoberfest começou!
+			Halloween: Está começando a ficar assustador!
+			Xmas: O clima natalino já está no ar!
 		}
 
 		Messages: {
-			TogglePower: Use the switch to turn the power on and off.
-			BossProgressionReset: Changed boss progression reset!
-			WolfKingCanSpawn: You hear distant howls coming from the laboratory...
-			BehemothCanSpawn: Something stirs in the White Goo zone...
-			WIPBossFight: This boss fight is still being developed, so don't expect much for now.
+			TogglePower: Use o interruptor para ligar e desligar a energia.
+			BossProgressionReset: Reinicialização da progressão do chefe no Changed!
+			WolfKingCanSpawn: Você ouve uivos distantes vindos do laboratório...
+			BehemothCanSpawn: Algo se agita na Zona de Gosma Branca...
+			WIPBossFight: Essa luta contra o chefe ainda está em desenvolvimento, então não espere muita coisa por enquanto.
 		}
 
 		NPCs: {
 			Puro: {
-				DisplayName: Black Goo
-				Description: This friendly latex beast likes books, oranges and you!
+				DisplayName: Gosma Negra
+				Description: Essa gosma amigável gosta de livros, laranjas e de você!
 
 				# This is what displays during all of an NPC's happiness levels.
 				TownNPCMood: {
-					Content: I feel pretty good right now. Especially now that you are here!
-					NoHome: I'm used to having no home but I'd prefer having one.
-					FarFromHome: Where am I?
-					LoveSpace: I love how spacious this place is!
-					DislikeCrowded: It feels a bit cramped in here. I would love to have more space for myself.
-					HateCrowded: AH! It's too crowded! Human, please find a better place.
-					LoveBiome: I grew up in this place, so of course I love it here.
-					LikeBiome: "{BiomeName} is so nice and peaceful, just the way I like it."
-					DislikeBiome: I don't like {BiomeName}.
-					HateBiome: "{BiomeName} is way too hot when you have a thick coat of fur!"
-					LoveNPC: "{NPCName} is so cute with her big ears and fluffy tail. But not as cute as you hehehe..."
-					LikeNPC: With {NPCName} around, I always feel like a party animal.
-					DislikeNPC: I don't like {NPCName}, because he is always grumpy.
-					HateNPC: I hate how reckless {NPCName} is! He doesn't listen to me and keeps trying to catch a Squid Dog.
-					LikeNPC_Princess: "{NPCName} is so sweet, she even offered to brush my fur!"
-					Princess_LovesNPC: I just can't get enough of the delicious cupcakes {NPCName} makes!
+					Content: Estou me sentindo muito bem agora. Principalmente agora que você está aqui!
+					NoHome: Estou acostumado a não ter um lar, mas preferiria ter um.
+					FarFromHome: Onde estou?
+					LoveSpace: Adoro o quão espaçoso é este lugar!
+					DislikeCrowded: O espaço aqui parece um pouco apertado. Eu adoraria ter mais espaço para mim.
+					HateCrowded: Ah! Está muito cheio! Humano, por favor, encontre um lugar melhor.
+					LoveBiome: Eu cresci neste lugar, então é claro que eu adoro este lugar.
+					LikeBiome: "{BiomeName} é tão bonita e tranquila, exatamente do jeito que eu gosto."
+					DislikeBiome: Eu não gosto {BiomeName}.
+					HateBiome: "{BiomeName} é quente demais para quem tem uma pelagem tão espessa!"
+					LoveNPC: "{NPCName} é tão fofa com suas orelhas grandes e rabo peludo. Mas não tão fofa quanto você, hehehe..."
+					LikeNPC: Com a {NPCName} por perto, eu sempre me sinto como uma pessoa festeira.
+					DislikeNPC: Eu não gosto do {NPCName}, porque ele está sempre mal-humorado.
+					HateNPC: Eu detesto a imprudência do {NPCName}! Ele não me ouve e fica tentando pegar um Cachorro-Lula.
+					LikeNPC_Princess: "{NPCName} é tão querida, ela até se ofereceu para escovar meu pelo!"
+					Princess_LovesNPC: Eu simplesmente não me canso dos deliciosos cupcakes que a {NPCName} faz!
 				}
 
 				Census.SpawnCondition: White Tail defeated
@@ -83,21 +83,21 @@ Mods: {
 					NPCTaxCollector: Human what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them.
 					NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
 					Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
-					Book2: Hello human! Have you seen my book?
-					Book3: Will you help me make the biggest book tower?
-					Book4: Human! Look at this amazing book I just found!
+					Book2: Olá, humano! Você já viu meu livro?
+					Book3: Você me ajudaria a construir a maior torre de livros?
+					Book4: Humano! Olha só esse livro incrível que eu acabei de encontrar!
 					Book5: One day I will write a book about the amazing adventures of {NamePlayer}!
 					Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together human?
 					# Globglobgabgalab
-					Book7: I am the gooey glabgalab, and I love books.
-					Orange1: What's your favorite color? My favorite color is orange.
+					Book7: Eu sou o glabgalab gosmento e adoro livros.
+					Orange1: Qual é a sua cor favorita? Minha cor favorita é laranja.
 					Orange2: Mmmm *munch* orange *munch* Oh, hello human.
 					Orange3: I don't have a favorite child but if I did, it would be this orange.
 					Orange4: Last night I dreamt I was in a ball pit filled with oranges.
 					Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
 					Orange6: I know everything about oranges, so you could say I am a citrus connoisseur!
 					# TF2
-					Orange7: I have done nothing but teleport oranges for 3 days.
+					Orange7: Não fiz nada além de teletransportar laranjas durante 3 dias.
 					Crimson1: "{Crimson}Did you know that some trees in the Crimson grow blood oranges? Do you think you could get me one?"
 					Crimson2: "{Crimson}Be careful around the lab near the Crimson. I saw a huge, hulking tiger there."
 					Corruption1: "{Corruption}Be careful around the lab near the Corruption. I saw a massive, purple cat there."
@@ -685,7 +685,7 @@ Mods: {
 			}
 		}
 
-		Keybinds.TransfurAttack.DisplayName: Ability
+		Keybinds.TransfurAttack.DisplayName: Habilidade
 	}
 }
 
@@ -698,25 +698,25 @@ RandomWorldName_Noun: {
 	Hayden: Hayden
 	Shizi: ShiZi
 	Snorro: Snorro
-	WhiteTail: White Tail
-	WolfKing: Wolf King
+	WhiteTail: Cauda Branca
+	WolfKing: Rei Lobo
 }
 
 # You better make a screenshot if you see this one
-SpecialWorldName.TheConstant: Mmmmm Orange
+SpecialWorldName.TheConstant: Mmmmm Laranja
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-	PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
-	PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+	PlayerIsCreativeAndWorldIsNotCreative: Humano! Apenas personagens que não sejam do modo Jornada podem entrar em um Mundo que não seja do modo Jornada.
+	PlayerIsNotCreativeAndWorldIsCreative: Humano! Apenas personagens do modo Jornada podem entrar em um Mundo do modo Jornada.
 }
 
 GameTitle: {
-	Changed1: Terraria: Now with more Oranges!
-	Changed2: Terraria: Also try Changed!
-	Changed3: Terraria: Special Edition
-	Changed4: Terraria: Dr. K and the Laboratory of Doom
-	Changed5: Mmmm Orange
-	Changed6: Terraria: A Wolf, a Scientist and a Robot walk into a bar
-	Changed7: Terraria: Captain Puro and the Sea of Orange Juice
+	Changed1: Terraria: Agora com mais laranjas!
+	Changed2: Terraria: também experimente o Changed!
+	Changed3: Terraria: Edição Especial
+	Changed4: Terraria: Dr. K e o Laboratório da Perdição
+	Changed5: Mmmm Laranja
+	Changed6: Terraria: Um lobo, um cientista e um robô entram num bar
+	Changed7: Terraria: Capitão Puro e o Mar de Suco de Laranja
 }

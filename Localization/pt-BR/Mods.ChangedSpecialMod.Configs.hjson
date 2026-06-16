@@ -1,0 +1,92 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Configuração do Cliente
+
+	TransfurSound: {
+		Label: Som da transformação
+		Tooltip: Se o som de transformação deve ser reproduzido.
+	}
+
+	WhipCrackSound: {
+		Tooltip: Se os chicotes deveriam fazer um som de estalo de chicote.
+		Label: Som de estalo de chicote
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Quando os personagens conversam, eles podem usar emotes relacionados ao Changed.
+		Label: Personagens podem usar emotes do Changed.
+	}
+
+	ExtraDialogue: {
+		Tooltip: Se mais diálogos devem ser adicionados aos personagens regulares de Terraria.
+		Label: Diálogo adicional
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Áudio]"
+		Misc: "[c/ffeb6e:Variado]"
+		WorldGeneration: "[c/ffeb6e:Geração Mundial]"
+		Transfur: "[c/ffeb6e:Transformação]"
+		Npc: "[c/ffeb6e:Personagens]"
+	}
+
+	NumberOfLabs: {
+		Label: Número de laboratórios
+		Tooltip:
+			'''
+			O número de laboratórios em cada lado do mundo.
+			O valor padrão de 1 irá gerar 1 laboratório em mundos de 
+			pequeno e médio porte e 2 laboratórios em mundos grandes.
+			AVISO: Valores altos em mundos pequenos podem causar o travamento do seu jogo.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Número máximo de andares
+		Tooltip: O número máximo de andares que um laboratório pode ter.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Número máximo de quartos na horizontal
+		Tooltip: O número máximo de salas que um laboratório pode ter na direção horizontal.
+	}
+
+	LatexSpread: {
+		Label: Propagação de gosma
+		Tooltip: Se a gosma puder se espalhar para outros blocos no modo difícil.
+	}
+
+	LatexSpreadChance: {
+		Label: Chance de propagação de gosma
+		Tooltip: A probabilidade de a gosma se espalhar para outros blocos no modo difícil é de 1 em X.
+	}
+
+	DebugItems: {
+		Label: Itens de depuração
+		Tooltip: Se ativado, o Dr. K. venderá itens de depuração.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: Personagens podem transformar o jogador.
+		Tooltip: Na maioria dos casos, ser morto por uma besta de gosma fará com que você se transforme em uma delas.
+	}
+
+	CustomHealthBar: {
+		Label: Barra de saúde colorida
+		Tooltip: Ao se transformar, a barra de saúde é exibida em cores diferentes.
+	}
+
+	Evolution: {
+		Label: Evolução
+		Tooltip: As criaturas de gosma ficarão maiores e mais fortes a cada chefe derrotado.
+	}
+
+	DialoguePortraits: {
+		Label: Retratos de Personagens
+		Tooltip:
+			'''
+			Se os habitantes da cidade neste mod tiverem retratos quando você conversar com eles.
+			Se estiver jogando com o "Boulder Backport" instalado, essa configuração será ignorada 
+			e a opção "Modded Town NPC Portraits" será usada em seu lugar.
+			'''
+	}
+}
