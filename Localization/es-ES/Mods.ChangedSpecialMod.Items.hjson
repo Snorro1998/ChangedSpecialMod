@@ -645,7 +645,7 @@ BlackLatexSand: {
 	DisplayName: Arena negra babosa
 	Tooltip:
 		'''
-		Se puede utilizar con la pistola de arena.
+		Se puede utilizar con la Pistola de arena.
 		- Convierte a las criaturas y los limos en masas gelatinosas.
 		- hace que los látex negros evolucionen
 		'''
@@ -655,7 +655,7 @@ WhiteLatexSand: {
 	DisplayName: Arena blanca babosa
 	Tooltip:
 		'''
-		Se puede utilizar con la pistola de arena.
+		Se puede utilizar con la Pistola de arena.
 		- Convierte a las criaturas y los limos en masas gelatinosas.
 		- hace que los látex blancos evolucionen
 		'''

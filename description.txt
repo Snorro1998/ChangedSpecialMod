@@ -67,4 +67,5 @@ General
 
 Fixes
 - Active transfurs not displayed after joining a multiplayer world
-- Added some missing translations in multiple languages
+- Improved mod translations by reading through vanilla translations
+- Added some missing translations

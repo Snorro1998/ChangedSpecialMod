@@ -642,20 +642,20 @@ SquidDogSyringe: {
 }
 
 BlackLatexSand: {
-	DisplayName: Schwarzer schleimiger Sand
+	DisplayName: Schwarzer Schleimiger Sand
 	Tooltip:
 		'''
-		Kann mit der Sandpistole verwendet werden.
+		Kann mit der Sandgewehr verwendet werden.
 		- Verwandelt Krabbeltiere und Schleime in Pfützen
 		- Lässt schwarze Schleimbestien sich weiterentwickeln
 		'''
 }
 
 WhiteLatexSand: {
-	DisplayName: Weißer schleimiger Sand
+	DisplayName: Weißer Schleimiger Sand
 	Tooltip:
 		'''
-		Kann mit der Sandpistole verwendet werden.
+		Kann mit der Sandgewehr verwendet werden.
 		- Verwandelt Krabbeltiere und Schleime in Pfützen
 		- Lässt weiße Schleimmonster sich weiterentwickeln
 		'''
@@ -667,7 +667,7 @@ SuperSyringe: {
 }
 
 SummonExperiment009: {
-	DisplayName: Experiment 009 boss beschwören
+	DisplayName: Experiment 009 Boss beschwören
 	Tooltip: Unfertig. Aus der Minecraft „Changed Addon Plus“-Mod.
 }
 

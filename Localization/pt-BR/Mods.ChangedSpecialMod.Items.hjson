@@ -115,7 +115,7 @@ Basketball: {
 
 SharkPlush: {
 	Tooltip: ""
-	DisplayName: Pelúcia de Tubarão 
+	DisplayName: Pelúcia de Tubarão
 }
 
 Orange: {
@@ -645,7 +645,7 @@ BlackLatexSand: {
 	DisplayName: Areia preta e viscosa
 	Tooltip:
 		'''
-		Pode ser usado com a pistola de areia.
+		Pode ser usado com a Arma de Areia.
 		- Transforma criaturas e gosmas em bolhas
 		- Faz com que as gosmas negras evoluam
 		'''
@@ -655,7 +655,7 @@ WhiteLatexSand: {
 	DisplayName: Areia branca e viscosa
 	Tooltip:
 		'''
-		Pode ser usado com a pistola de areia.
+		Pode ser usado com a Arma de Areia.
 		- Transforma criaturas e gosmas em bolhas
 		- Faz com que as gosmas brancas evoluam
 		'''

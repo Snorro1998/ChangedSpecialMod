@@ -84,7 +84,7 @@ DrunkPainting4: {
 }
 
 MusicBoxLab: {
-	DisplayName: 音乐盒 (实验室)
+	DisplayName: 八音盒 (实验室)
 	Tooltip: 噬子
 }
 
@@ -184,7 +184,7 @@ MountBookest: {
 }
 
 MusicBoxCrystalZone: {
-	DisplayName: 音乐盒 (水晶区)
+	DisplayName: 八音盒 (水晶区)
 	Tooltip: 噬子
 }
 
@@ -324,12 +324,12 @@ WateringCan: {
 }
 
 MusicBoxPuro: {
-	DisplayName: 音乐盒 (普羅黑色粘液)
+	DisplayName: 八音盒 (普羅黑色粘液)
 	Tooltip: 噬子
 }
 
 MusicBoxPuroDance: {
-	DisplayName: 音乐盒 (普羅之舞)
+	DisplayName: 八音盒 (普羅之舞)
 	Tooltip: 噬子
 }
 
@@ -394,32 +394,32 @@ ElevatorDown: {
 }
 
 MusicBoxHappyBirthday: {
-	DisplayName: 音乐盒 (生日歌)
+	DisplayName: 八音盒 (生日歌)
 	Tooltip: 噬子
 }
 
 MusicBoxLibrary: {
-	DisplayName: 音乐盒 (图书馆)
+	DisplayName: 八音盒 (图书馆)
 	Tooltip: 噬子
 }
 
 MusicBoxWhiteLatexZone: {
-	DisplayName: 音乐盒 (白色粘液丛林)
+	DisplayName: 八音盒 (白色粘液丛林)
 	Tooltip: 噬子
 }
 
 MusicBoxBlackLatexZone2: {
-	DisplayName: 音乐盒 (猩红水晶矿)
+	DisplayName: 八音盒 (猩红水晶矿)
 	Tooltip: 噬子
 }
 
 MusicBoxBlackLatexZone1: {
-	DisplayName: 音乐盒 (黑色粘液丛林)
+	DisplayName: 八音盒 (黑色粘液丛林)
 	Tooltip: 噬子
 }
 
 MusicBoxWolfKing: {
-	DisplayName: 音乐盒 (狼王)
+	DisplayName: 八音盒 (狼王)
 	Tooltip: 噬子
 }
 
@@ -454,18 +454,18 @@ Painting14: {
 }
 
 MusicBoxGreenhouse: {
-	DisplayName: 音乐盒 (温室)
+	DisplayName: 八音盒 (温室)
 	Tooltip: 噬子
 }
 
 MusicBoxLabSlow: {
-	DisplayName: 音乐盒 (慢的)
+	DisplayName: 八音盒 (慢的)
 	Tooltip: 噬子
 }
 
 MusicBoxVents: {
 	Tooltip: 噬子
-	DisplayName: 音乐盒 (通风管)
+	DisplayName: 八音盒 (通风管)
 }
 
 WhiteLatexBanner: {
@@ -485,7 +485,7 @@ Blocks: {
 
 MusicBoxBehemoth: {
 	Tooltip: 噬子
-	DisplayName: 音乐盒 (巨人)
+	DisplayName: 八音盒 (巨人)
 }
 
 SummonWhiteTail: {
@@ -539,7 +539,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: 音乐盒 (白尾)
+	DisplayName: 八音盒 (白尾)
 	Tooltip: 噬子
 }
 

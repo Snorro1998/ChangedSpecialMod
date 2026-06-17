@@ -645,7 +645,7 @@ BlackLatexSand: {
 	DisplayName: Sable noir et visqueux
 	Tooltip:
 		'''
-		Peut être utilisé avec le pistolet à sable.
+		Peut être utilisé avec la Sableuse.
 		- Transforme les créatures et les gelées en blobs.
 		- Permet aux bêtes de gelée noir d'évoluer
 		'''
@@ -655,7 +655,7 @@ WhiteLatexSand: {
 	DisplayName: Sable blanc et visqueux
 	Tooltip:
 		'''
-		Peut être utilisé avec le pistolet à sable.
+		Peut être utilisé avec la Sableuse.
 		- Transforme les créatures et les gelées en blobs.
 		- Permet aux bêtes de gelée blanc d'évoluer
 		'''

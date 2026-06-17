@@ -209,7 +209,7 @@ Mods: {
 					Thunder1: "{Thunder}O tempo está perfeito para um cientista maluco como eu!"
 					Thunder2: "{Thunder}Que coincidência, o raio acabou de atingir o prédio do Departamento de Ciências do Trovão."
 					Windy1: "{Windy}Quem deixou a janela aberta? Agora todas as minhas anotações estão espalhadas pelo chão!"
-					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Por favor, não abra esse seu livro "Chuva Dourada" por aqui."
+					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Por favor, não abra esse seu livro 'Chuva Dourada' por aqui."
 					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Por que você está usando um vestido de noiva? Vai se casar com seu amigo lobo de gelatina preta?"
 					PlayerHasPurrpurr: "{PlayerHasPurrpurr} O quê? Você fez amizade com aquele gato gigante? Ok, tenho que admitir que isso é impressionante."
 					Valentine1: "{Valentine}O amor é como a química. Tem resultados inesperados e as coisas podem ficar muito quentes."
@@ -447,7 +447,7 @@ Mods: {
 			}
 
 			WhiteLatexCub: {
-				DisplayName: White Latex Cub
+				DisplayName: Filhote de Gosma Branca
 				Description: Pequeno e fofo, mas ainda assim perigoso.
 			}
 
