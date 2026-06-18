@@ -53,7 +53,7 @@ namespace ChangedSpecialMod.Content.NPCs
             new ShopData("Sixth Shop", "DebugItems"),
         };
 
-        private static int ShimmerHeadIndex;
+        //private static int ShimmerHeadIndex;
         private static Profiles.StackedNPCProfile NPCProfile;
         private DialogueObject dialogueCurrent = null;
 
@@ -505,21 +505,6 @@ namespace ChangedSpecialMod.Content.NPCs
             multiplier = 12f;
             randomOffset = 2f;
         }
-
-        /*
-        // Immune to white latecis except White tail and squid dog.
-        // Even though they are white, they have the gootype none so they can spawn anywhere
-        public override bool CanBeHitByNPC(NPC attacker)
-        {
-            //var b = Mod.TryFind<ModNPC>("qa", out ModNPC result);
-
-            var changedNPC = NPC.Changed();
-            var attackerChangedNPC = attacker.Changed();
-            if (changedNPC != null && attackerChangedNPC != null && changedNPC.GooType == attackerChangedNPC.GooType)
-                return false;
-            return true;
-        }
-        */
 
         private void UpdateHatPosition(int frameHeight)
         {

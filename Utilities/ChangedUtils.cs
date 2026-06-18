@@ -42,11 +42,6 @@ namespace ChangedSpecialMod.Utilities
 
     public class ChangedUtils : ModSystem
     {
-        // Set to false by the White Tail summon to prevent message appearing twice
-        public static bool AnnounceBoss = true;
-
-        public static Texture2D _dummyTexture;
-
         public static bool InBlackLatexBiome(Player player) => player.InModBiome<BlackLatexSurfaceBiome>();
         public static bool InWhiteLatexBiome(Player player) => player.InModBiome<WhiteLatexSurfaceBiome>();
         public static bool InCityRuinsBiome(Player player) => player.InModBiome<CityRuinsSurfaceBiome>();

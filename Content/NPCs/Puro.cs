@@ -19,7 +19,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
 	[AutoloadHead]
@@ -42,17 +41,12 @@ namespace ChangedSpecialMod.Content.NPCs
             new ShopData("Third Shop", "Pictures"),
         };
 
-		private static int ShimmerHeadIndex;
+		//private static int ShimmerHeadIndex;
 		private static Profiles.StackedNPCProfile NPCProfile;
         private DialogueObject dialogueCurrent = null;
 
         // This should add up to 1 or it will break (so don't use something like 0.3)
         public float animationSpeed = 1.0f;
-
-        public override void Load() 
-		{
-			ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
-		}
 
 		public override void SetStaticDefaults() 
 		{
@@ -63,7 +57,7 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPCID.Sets.AttackType[Type] = 0;
 			NPCID.Sets.AttackTime[Type] = 90;
 			NPCID.Sets.AttackAverageChance[Type] = 30;
-			NPCID.Sets.ShimmerTownTransform[Type] = true; 
+
 			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers() 
 			{
 				Velocity = 1f
@@ -81,11 +75,6 @@ namespace ChangedSpecialMod.Content.NPCs
 				.SetNPCAffection(likeNPC, AffectionLevel.Like) 
 				.SetNPCAffection(dislikeNPC, AffectionLevel.Dislike)
 				.SetNPCAffection(hateNPC, AffectionLevel.Hate); 
-
-			NPCProfile = new Profiles.StackedNPCProfile(
-				new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture + "_Party"),
-				new Profiles.DefaultNPCProfile(Texture + "_Shimmer", ShimmerHeadIndex, Texture + "_Shimmer_Party")
-			);
 		}
 
         public override int? PickEmote(Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
@@ -206,7 +195,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     happinessOld = happiness;
                     var emotion = happiness.GetEmotion();
                     NPCPortraitSystem.UpdatePortrait(ModContent.NPCType<Puro>(), emotion);
-                    //UpdatePortrait(emotion);
                 }
             }
             else
@@ -464,16 +452,5 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             return NPC.ai[0] == 5f;
         }
-
-        /*
-        public override bool CanBeHitByNPC(NPC attacker)
-        {
-            var changedNPC = NPC.Changed();
-            var attackerChangedNPC = attacker.Changed();
-            if (changedNPC != null && attackerChangedNPC != null && changedNPC.GooType == attackerChangedNPC.GooType)
-                return false;
-            return true;
-        }
-        */
     }
 }

@@ -26,7 +26,6 @@ namespace ChangedSpecialMod.Content.Items.Summons
             if (NPC.AnyNPCs(bossType))
                 return true;
 
-            ChangedUtils.AnnounceBoss = false;
             NPC.SpawnOnPlayer(player.whoAmI, bossType);
             return true;
         }

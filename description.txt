@@ -64,6 +64,7 @@ For information about previous versions, please check out the change notes in th
 
 General
 - Added French and Portuguese translations
+- Removed Puro's shimmer variant, because it looked the same
 
 Fixes
 - Active transfurs not displayed after joining a multiplayer world
