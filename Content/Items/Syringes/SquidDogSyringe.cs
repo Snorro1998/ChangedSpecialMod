@@ -1,6 +1,6 @@
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
-using ChangedSpecialMod.Utilities.UI.TransfurUI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,9 +23,9 @@ namespace ChangedSpecialMod.Content.Items.Syringes
         {
             var changedPlayer = player.ChangedPlayer();
             if (changedPlayer.TransfurTypeCurrent != null)
-                ChangedUtils.UntransfurPlayer(player.whoAmI);
+                TransfurSystem.UntransfurPlayer(player.whoAmI);
             else
-                ChangedUtils.SetTransfurFromNPCType(player.whoAmI, ModContent.NPCType<SquidDog>());
+                TransfurSystem.SetTransfurFromNPCType(player.whoAmI, ModContent.NPCType<SquidDog>());
             return true;
         }
     }

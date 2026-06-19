@@ -65,7 +65,7 @@ namespace ChangedSpecialMod
                 case MessageType.PlayerSpawnsWolfKing:
                 {
                     int playerIndex = reader.ReadInt16();
-                    ChangedUtils.WolfKingSpawnCheck(true, playerIndex);
+                    NPCSpawnCheckSystem.WolfKingSpawnCheck(true, playerIndex);
                     break;
                 }
                 case MessageType.TeleportPlayer:
@@ -78,8 +78,8 @@ namespace ChangedSpecialMod
                     
                     int npcType = reader.ReadInt32();
 
-                    ChangedUtils.SetTransfurFromNPCType(whoAmI, npcType);
-                    ChangedUtils.SyncTransfur(whoAmI);
+                    TransfurSystem.SetTransfurFromNPCType(whoAmI, npcType);
+                    TransfurSystem.SyncTransfur(whoAmI);
                         /*
                     // Broadcast result to all clients
                     ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
@@ -116,7 +116,7 @@ namespace ChangedSpecialMod
                         if (changedPlayer == null || !changedPlayer.IsTransfurred)
                             continue;
 
-                        ChangedUtils.SyncTransfur(i, whoAmI);
+                        TransfurSystem.SyncTransfur(i, whoAmI);
                     }
 
                     break;

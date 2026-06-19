@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Content.Items.Weapons;
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using System;
@@ -21,6 +22,8 @@ namespace ChangedSpecialMod.Content.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
+            // var changedPlayer = player.ChangedPlayer();
+            // || (changedPlayer.IsTransfurred && changedPlayer.TransfurTypeCurrent.npcType == ModContent.NPCType<Purrpurr>()
             if (player.ownedProjectileCounts[ModContent.ProjectileType<WhiskerStaffProjectile>()] > 0)
             {
                 player.buffTime[buffIndex] = 18000;

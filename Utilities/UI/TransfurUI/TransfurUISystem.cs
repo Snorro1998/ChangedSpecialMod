@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ChangedSpecialMod.Common.Systems;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
@@ -13,9 +14,9 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
         private UserInterface transfurUserInterface;
         internal TransfurUI transfurUI;
 
-        public void ShowMyUI(int categories)
+        public void ShowMyUI(EvolutionLines evolutionLine)
         {
-            transfurUI.SetVisibleCategories(categories);
+            transfurUI.SetVisibleCategories(evolutionLine);
             transfurUserInterface?.SetState(transfurUI);
         }
 
@@ -24,13 +25,13 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             transfurUserInterface?.SetState(null);
         }
 
-        public void ToggleUI(int categories)
+        public void ToggleUI(EvolutionLines evolutionLine)
         {
             var state = transfurUserInterface?.CurrentState;
             if (state != null)
                 HideMyUI();
             else
-                ShowMyUI(categories);
+                ShowMyUI(evolutionLine);
         }
 
         public override void PostSetupContent()

@@ -1148,7 +1148,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 if (npc.Distance(tmpNpc.Center) < 16)
                 {
-                    ChangedUtils.TransfurEffect(npc);
+                    TransfurSystem.TransfurEffect(npc);
                     var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)npc.Center.X, (int)npc.Bottom.Y, changedNPC.EvolveType, 0, 0);
 
                     if (Main.netMode == NetmodeID.Server && npcIndex != -1)

@@ -52,7 +52,7 @@ namespace ChangedSpecialMod
             var transfurCurrent = changedPlayer?.TransfurTypeCurrent;
             if (transfurCurrent != null)
             {
-                texturePath = transfurCurrent.texturePath;
+                texturePath = transfurCurrent.GetTexturePath();
                 nFrames = transfurCurrent.nFrames;
             }
 

@@ -1,4 +1,4 @@
-﻿using ChangedSpecialMod.Content.NPCs;
+﻿using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Utilities;
 using ChangedSpecialMod.Utilities.UI.TransfurUI;
 using Terraria;
@@ -24,9 +24,9 @@ namespace ChangedSpecialMod.Content.Items.Syringes
             var changedPlayer = player.ChangedPlayer();
 
             if (changedPlayer.TransfurTypeCurrent != null)
-                ChangedUtils.UntransfurPlayer(player.whoAmI);
+                TransfurSystem.UntransfurPlayer(player.whoAmI);
             else if (player.whoAmI == Main.myPlayer)
-                ModContent.GetInstance<TransfurUISystem>().ToggleUI(0);
+                ModContent.GetInstance<TransfurUISystem>().ToggleUI(EvolutionLines.None);
 
             return true;
         }

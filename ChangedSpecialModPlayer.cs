@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Buffs;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
@@ -22,7 +23,8 @@ namespace ChangedSpecialMod
     public class Transfur
     {
         public int npcType = -1;
-        public string texturePath = "ChangedSpecialMod/Content/NPCs/WhiteGoop";
+        private string baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
+        public string npcName = "WhiteGoop";
         public int nFrames = 3;
         public GooType gooType = GooType.Invalid;
 
@@ -39,6 +41,11 @@ namespace ChangedSpecialMod
         public bool waterBreathing = false;
 
         public bool tentacleAbility = false;
+
+        public string GetTexturePath()
+        {
+            return baseTexturePath + npcName;
+        }
 
         // This is not needed for vanilla, but it is needed if you don't  
         // want the damaging effects of the Abyss from Calamity
@@ -99,6 +106,15 @@ namespace ChangedSpecialMod
         {
             if (KeybindSystem.TransfurAttackKeybind.Current)
                 TransfurAttack();
+        }
+
+        public override void ResetEffects()
+        {
+            var changedPlayer = Player.ChangedPlayer();
+            if (changedPlayer.IsTransfurred && changedPlayer.TransfurTypeCurrent.npcType == ModContent.NPCType<Purrpurr>())
+            {
+                Player.maxMinions += 2;
+            }
         }
 
         private void TransfurAttack()
@@ -256,7 +272,7 @@ namespace ChangedSpecialMod
                 // Damage would kill player
                 if (damage > Player.statLife && TransfurTypeCurrent == null)
                 {
-                    ChangedUtils.SetTransfurFromNPCType(Player.whoAmI, npc.type);
+                    TransfurSystem.SetTransfurFromNPCType(Player.whoAmI, npc.type);
                     if (changedPlayer.TransfurTypeCurrent != null)
                     {
                         Player.statLife += damage;
@@ -271,7 +287,7 @@ namespace ChangedSpecialMod
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
         {
             base.Kill(damage, hitDirection, pvp, damageSource);
-            ChangedUtils.UntransfurPlayer(Player.whoAmI);
+            TransfurSystem.UntransfurPlayer(Player.whoAmI);
         }
 
         public void MakeCrystalsShinier()
@@ -325,7 +341,7 @@ namespace ChangedSpecialMod
             {
                 TransfurTypeCurrent.UpdatePlayerStats(Player);
                 if (Player.mount.Active)
-                    ChangedUtils.UntransfurPlayer(Player.whoAmI);
+                    TransfurSystem.UntransfurPlayer(Player.whoAmI);
             }   
         }
 
@@ -404,15 +420,10 @@ namespace ChangedSpecialMod
 
         private void ApplyTransfur(int npcType)
         {
-            if (ChangedUtils.EvolutionsLines == null ||
-                ChangedUtils.EvolutionsLines.Count == 0)
-            {
-                ChangedUtils.InitTransfurTypes();
-            }
-
+            TransfurSystem.InitTransfurTypes();
             Transfur transfur = null;
 
-            foreach (var evolutionLine in ChangedUtils.EvolutionsLines.Values)
+            foreach (var evolutionLine in TransfurSystem.EvolutionsLines.Values)
             {
                 transfur = evolutionLine.FirstOrDefault(x => x.npcType == npcType);
 
@@ -421,6 +432,25 @@ namespace ChangedSpecialMod
             }
 
             TransfurTypeCurrent = transfur;
+            if (transfur != null && transfur.npcType == ModContent.NPCType<Purrpurr>())
+            {
+                Player.AddBuff(ModContent.BuffType<WhiskerStaffBuff>(), 60);
+                int nCats = 3;
+                for (int i = 0; i < nCats; i++)
+                {
+                    Projectile.NewProjectile(
+                        Player.GetSource_FromAI(),
+                        Player.Center,
+                        Vector2.Zero,
+                        ModContent.ProjectileType<WhiskerStaffProjectile>(),
+                        10,
+                        2f,
+                        -1,
+                        Player.whoAmI
+                    );
+                }
+            }
+
             TransfurVisuals();
         }
 

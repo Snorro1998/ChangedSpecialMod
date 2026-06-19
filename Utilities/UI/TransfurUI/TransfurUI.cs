@@ -1,8 +1,9 @@
-﻿using ChangedSpecialMod.Content.NPCs;
+﻿using ChangedSpecialMod.Common.Systems;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -18,11 +19,12 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
 
         public DraggableUIPanel MainPanel;
 
-        private List<List<UIHoverImageButton>> allCategories = new List<List<UIHoverImageButton>>();
-        private List<List<UIHoverImageButton>> visibleCategories = new List<List<UIHoverImageButton>>();
-        private List<UIHoverImageButton> buttonsBlackLatex = new List<UIHoverImageButton>();
-        private List<UIHoverImageButton> buttonsWhiteLatex = new List<UIHoverImageButton>();
-        private List<UIHoverImageButton> buttonsSquidDog = new List<UIHoverImageButton>();
+        private Dictionary<EvolutionLines, List<UIHoverImageButton>> allCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
+        private Dictionary<EvolutionLines, List<UIHoverImageButton>> visibleCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
+        //private List<UIHoverImageButton> buttonsBlackLatex = new List<UIHoverImageButton>();
+        //private List<UIHoverImageButton> buttonsWhiteLatex = new List<UIHoverImageButton>();
+        //private List<UIHoverImageButton> buttonsSquidDog = new List<UIHoverImageButton>();
+        //private List<UIHoverImageButton> buttonsWorldEvil = new List<UIHoverImageButton>();
 
         public override void OnInitialize()
         {
@@ -37,6 +39,25 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             SetRectangle(MainPanel, left: halfScreenWidth - halfPanelWidth, top: 100f, width: panelWidth, height: 200f);
             MainPanel.BackgroundColor = new Color(63, 82, 151) * 0.7f;//new Color(73, 94, 171); 
 
+            allCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
+            TransfurSystem.InitTransfurTypes();
+            var keys = TransfurSystem.EvolutionsLines.Keys;
+
+            int y = 0;
+            foreach (var key in keys)
+            {
+                var evoline = TransfurSystem.EvolutionsLines[key];
+                List<UIHoverImageButton> btns = new List<UIHoverImageButton>();
+                int x = 0;
+                foreach (var transfur in evoline)
+                {
+                    btns.Add(AddButton(x, y, transfur.npcType, TexturePath(transfur.npcName), NamePath(transfur.npcName)));
+                }
+                allCategories.Add(key, btns);
+                y++;
+            }
+
+            /*
             // Black
             buttonsBlackLatex.Add(AddButton(0, 0, ModContent.NPCType<BlackGoop>(), TexturePath("BlackGoop"), NamePath("BlackGoop")));
             buttonsBlackLatex.Add(AddButton(1, 0, ModContent.NPCType<DarkLatexCub>(), TexturePath("DarkLatexCub"), NamePath("DarkLatexCub")));
@@ -53,9 +74,15 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             // Squid Dog
             buttonsSquidDog.Add(AddButton(0, 2, ModContent.NPCType<SquidDog>(), TexturePath("SquidDog"), NamePath("SquidDog")));
 
+            // World Evil
+            buttonsWorldEvil.Add(AddButton(0, 3, ModContent.NPCType<Bloodstripe>(), TexturePath("Bloodstripe"), NamePath("Bloodstripe")));
+            buttonsWorldEvil.Add(AddButton(1, 3, ModContent.NPCType<Purrpurr>(), TexturePath("Purrpurr"), NamePath("Purrpurr")));
+
             allCategories.Add(buttonsBlackLatex);
             allCategories.Add(buttonsWhiteLatex);
             allCategories.Add(buttonsSquidDog);
+            allCategories.Add(buttonsWorldEvil);
+            */
 
             Append(MainPanel);
         }
@@ -81,7 +108,7 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
         {
             if (Main.netMode == NetmodeID.SinglePlayer)
             {
-                ChangedUtils.SetTransfurFromNPCType(Main.myPlayer, npcType);
+                TransfurSystem.SetTransfurFromNPCType(Main.myPlayer, npcType);
             }
             else if (Main.netMode == NetmodeID.MultiplayerClient)
             {
@@ -92,10 +119,51 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             }
         }
 
-        public void SetVisibleCategories(int categories)
+        public void SetVisibleCategories(EvolutionLines evolutionLine)
         {
-            visibleCategories = new List<List<UIHoverImageButton>>();
+            visibleCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
 
+            if (evolutionLine == EvolutionLines.None)
+                visibleCategories = allCategories;
+            else
+            {
+                var keys = allCategories.Keys.ToList();
+                foreach ( var key in keys)
+                {
+                    if (evolutionLine == key)
+                        visibleCategories.Add(key, allCategories[key]);
+                }
+            }
+
+            MainPanel.Height.Set(visibleCategories.Count * 70, 0f);
+
+            // This is such a stupid fix, we just move the buttons far outside the screen
+            for (int i = 0; i < allCategories.Count; i++)
+            {
+                var key = allCategories.Keys.ToList()[i];
+                var category = allCategories[key];
+
+                for (int j = 0; j < category.Count; j++)
+                {
+                    var button = category[j];
+                    SetButtonPosition(button, j, 100);
+                }
+            }
+
+            // And here we move the visible buttons back
+            for (int i = 0; i < visibleCategories.Count; i++)
+            {
+                var key = visibleCategories.Keys.ToList()[i];
+                var category = visibleCategories[key];
+
+                for (int j = 0; j < category.Count; j++)
+                {
+                    var button = category[j];
+                    SetButtonPosition(button, j, i);
+                }
+            }
+
+            /*
             if (categories == 1)
             {
                 visibleCategories.Add(buttonsBlackLatex);
@@ -113,33 +181,11 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
                 visibleCategories.Add(buttonsBlackLatex);
                 visibleCategories.Add(buttonsWhiteLatex);
                 visibleCategories.Add(buttonsSquidDog);
+                visibleCategories.Add(buttonsWorldEvil);
             }
 
-            MainPanel.Height.Set(visibleCategories.Count * 70, 0f);
 
-            // This is such a stupid fix, we just move the buttons far outside the screen
-            for (int i = 0; i < allCategories.Count; i++)
-            {
-                var category = allCategories[i];
-
-                for (int j = 0; j < category.Count; j++)
-                {
-                    var button = category[j];
-                    SetButtonPosition(button, j, 100);
-                }
-            }
-
-            // And here we move the visible buttons back
-            for (int i = 0; i < visibleCategories.Count; i++)
-            {
-                var category = visibleCategories[i];
-
-                for (int j = 0; j < category.Count; j++)
-                {
-                    var button = category[j];
-                    SetButtonPosition(button, j, i);
-                }
-            }
+            */
         }
 
         private void SetButtonPosition(UIHoverImageButton button, int xIndex, int yIndex)
@@ -165,7 +211,7 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             var player = Main.LocalPlayer;
             if (player == null)
                 return;
-            ChangedUtils.SetTransfurFromNPCType(player.whoAmI, npcType);
+            TransfurSystem.SetTransfurFromNPCType(player.whoAmI, npcType);
         }
     }
 }
