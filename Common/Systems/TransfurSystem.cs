@@ -1,9 +1,13 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
+
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -22,6 +26,84 @@ namespace ChangedSpecialMod.Common.Systems
     {
         public static Dictionary<EvolutionLines, List<Transfur>> EvolutionsLines = new Dictionary<EvolutionLines, List<Transfur>>();
 
+
+        public static Transfur GetTransfurByNPCType(int npcType)
+        {
+            InitTransfurTypes();
+            var keys = EvolutionsLines.Keys.ToList();
+            foreach (var key in keys)
+            {
+                var transfurs = EvolutionsLines[key];
+                foreach (var transfur in transfurs)
+                {
+                    if (transfur.npcType == npcType)
+                        return transfur;
+                }
+            }
+            return null;
+        }
+
+        private static string GetNumberString(float number, bool multiplier)
+        {
+            var colorString = "ffffff";
+
+            if (number < 1)
+                colorString = "ff0000";
+            else
+                colorString = "00ff00";
+            if (multiplier)
+                return $"[c/{colorString}:{number.ToString()} X]";
+            return $"[c/{colorString}:+{number.ToString()}]";
+        }
+
+        public static string GetDescription(int npcType)
+        {
+            var transfur = GetTransfurByNPCType(npcType);
+            if (transfur != null)
+            {
+                var strAbiBase = "Mods.ChangedSpecialMod.Abilities.";
+                var npcName = Language.GetTextValue($"Mods.ChangedSpecialMod.NPCs.{transfur.npcName}.DisplayName");
+
+                var description = $"[c/ffeb6e:{npcName}]\n";
+                if (transfur.lifeMultiplier != 1)
+                    description += $"[i:{ItemID.LifeCrystal}]: {GetNumberString(transfur.lifeMultiplier, true)}\n";
+                if (transfur.extraDefense != 0)
+                    description += $"[i:{ItemID.CobaltShield}]: {GetNumberString(transfur.extraDefense, false)}\n";
+                if (transfur.speedMultiplier != 1)
+                    description += $"[i:{ItemID.HermesBoots}]: {GetNumberString(transfur.speedMultiplier, true)}\n";
+                if (transfur.extraMinions != 0)
+                    description += $"[i:{ItemID.SlimeStaff}]: {GetNumberString(transfur.extraMinions, false)}\n";
+
+                // Ability
+                var strAbilty = Language.GetTextValue("Mods.ChangedSpecialMod.Keybinds.TransfurAttack.DisplayName");
+                if (transfur.npcType == ModContent.NPCType<SquidDog>())
+                    description += $"{strAbilty}: {Language.GetTextValue(strAbiBase + "TentacleWhip")}\n";
+                if (transfur.npcType == ModContent.NPCType<Purrpurr>())
+                    description += $"{strAbilty}: {Language.GetTextValue(strAbiBase + "MingCat")}\n";
+
+                // Biome bonus
+                if (transfur.bonusDesert || transfur.bonusSnow)
+                {
+                    description += $"{Language.GetTextValue(strAbiBase + "IncreasedLifeRegen")}\n";
+                    var biomeName = "Forest";
+                    if (transfur.bonusDesert)
+                        biomeName = ShopHelper.BiomeNameByKey("Desert");
+                    else if (transfur.bonusSnow)
+                        biomeName = ShopHelper.BiomeNameByKey("Snow");
+
+                    description += string.Format($"{Language.GetTextValue(strAbiBase + "WhileInBiome")}\n", biomeName);
+                }
+                if (transfur.waterBreathing)
+                {
+                    description += $"{Language.GetTextValue(strAbiBase + "WaterBreathing")}\n";
+                    if (ModSupportSystem.modCalamity != null)
+                        description += $"{Language.GetTextValue(strAbiBase + "WaterBreathingCalamity")}\n";
+                }
+
+                return description;
+            }
+            return "";
+        }
 
         public static void InitTransfurTypes()
         {
@@ -83,7 +165,7 @@ namespace ChangedSpecialMod.Common.Systems
                 gooType = GooType.Black,
                 lifeMultiplier = 2f,
                 extraDefense = 10,
-                speedMultiplier = 0.75f,
+                speedMultiplier = 0.8f,
                 damageBonus = 0.3f
             });
 
@@ -136,23 +218,6 @@ namespace ChangedSpecialMod.Common.Systems
 
             EvolutionsLines.Add(EvolutionLines.White, evolutionLine);
 
-            // Squid Dog
-            evolutionLine = new List<Transfur>();
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<SquidDog>(),
-                npcName = "SquidDog",
-                nFrames = 4,
-                gooType = GooType.None,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-                ignoreWater = true,
-                waterBreathing = true,
-                tentacleAbility = true
-            });
-
-            EvolutionsLines.Add(EvolutionLines.SquidDog, evolutionLine);
-
             // Others
             evolutionLine = new List<Transfur>();
             evolutionLine.Add(new Transfur()
@@ -173,7 +238,8 @@ namespace ChangedSpecialMod.Common.Systems
                 gooType = GooType.None,
                 lifeMultiplier = 1.25f,
                 extraDefense = 5,
-                speedMultiplier = 2f
+                speedMultiplier = 2f,
+                bonusDesert = true
             });
 
             evolutionLine.Add(new Transfur()
@@ -184,7 +250,8 @@ namespace ChangedSpecialMod.Common.Systems
                 gooType = GooType.None,
                 lifeMultiplier = 1.25f,
                 extraDefense = 5,
-                speedMultiplier = 2f
+                speedMultiplier = 2f,
+                bonusSnow = true
             });
 
             evolutionLine.Add(new Transfur()
@@ -195,7 +262,7 @@ namespace ChangedSpecialMod.Common.Systems
                 gooType = GooType.None,
                 lifeMultiplier = 2f,
                 extraDefense = 10,
-                speedMultiplier = 0.75f,
+                speedMultiplier = 0.8f,
                 damageBonus = 0.3f
             });
 
@@ -207,11 +274,29 @@ namespace ChangedSpecialMod.Common.Systems
                 gooType = GooType.None,
                 lifeMultiplier = 2f,
                 extraDefense = 10,
-                speedMultiplier = 0.75f,
+                extraMinions = 1,
+                speedMultiplier = 0.8f,
                 damageBonus = 0.3f
             });
 
             EvolutionsLines.Add(EvolutionLines.Misc, evolutionLine);
+
+            // Squid Dog
+            evolutionLine = new List<Transfur>();
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<SquidDog>(),
+                npcName = "SquidDog",
+                nFrames = 4,
+                gooType = GooType.None,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+                ignoreWater = true,
+                waterBreathing = true,
+                tentacleAbility = true
+            });
+
+            EvolutionsLines.Add(EvolutionLines.SquidDog, evolutionLine);
             /*
             // Town NPCs
             evolutionLine = new List<Transfur>();

@@ -5,6 +5,7 @@ using ReLogic.Content;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.GameContent.UI.Elements;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -18,18 +19,17 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
         private static string NamePath(string name) => Language.GetTextValue($"Mods.ChangedSpecialMod.NPCs.{name}.DisplayName");
 
         public DraggableUIPanel MainPanel;
+        public UIPanel InfoPanel;
 
         private Dictionary<EvolutionLines, List<UIHoverImageButton>> allCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
         private Dictionary<EvolutionLines, List<UIHoverImageButton>> visibleCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
-        //private List<UIHoverImageButton> buttonsBlackLatex = new List<UIHoverImageButton>();
-        //private List<UIHoverImageButton> buttonsWhiteLatex = new List<UIHoverImageButton>();
-        //private List<UIHoverImageButton> buttonsSquidDog = new List<UIHoverImageButton>();
-        //private List<UIHoverImageButton> buttonsWorldEvil = new List<UIHoverImageButton>();
+
+        private UIText descriptionText;
 
         public override void OnInitialize()
         {
             var screenWidth = Main.screenWidth;
-            var panelWidth = 300;
+            var panelWidth = 500;
 
             var halfScreenWidth = screenWidth / 2;
             var halfPanelWidth = panelWidth / 2;
@@ -57,32 +57,15 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
                 y++;
             }
 
-            /*
-            // Black
-            buttonsBlackLatex.Add(AddButton(0, 0, ModContent.NPCType<BlackGoop>(), TexturePath("BlackGoop"), NamePath("BlackGoop")));
-            buttonsBlackLatex.Add(AddButton(1, 0, ModContent.NPCType<DarkLatexCub>(), TexturePath("DarkLatexCub"), NamePath("DarkLatexCub")));
-            buttonsBlackLatex.Add(AddButton(2, 0, ModContent.NPCType<MaleDarkLatex>(), TexturePath("MaleDarkLatex"), NamePath("MaleDarkLatex")));
-            buttonsBlackLatex.Add(AddButton(3, 0, ModContent.NPCType<WingedDarkLatex>(), TexturePath("WingedDarkLatex"), NamePath("WingedDarkLatex")));
-            buttonsBlackLatex.Add(AddButton(4, 0, ModContent.NPCType<Wendigo>(), TexturePath("Wendigo"), NamePath("Wendigo")));
+            InfoPanel = new UIPanel();
+            SetRectangle(InfoPanel, left: 300, top: 0, width: 200, height: 200f);
 
-            // White
-            buttonsWhiteLatex.Add(AddButton(0, 1, ModContent.NPCType<WhiteGoop>(), TexturePath("WhiteGoop"), NamePath("WhiteGoop")));
-            buttonsWhiteLatex.Add(AddButton(1, 1, ModContent.NPCType<WhiteLatexCub>(), TexturePath("WhiteLatexCub"), NamePath("WhiteLatexCub")));
-            buttonsWhiteLatex.Add(AddButton(2, 1, ModContent.NPCType<WhiteKnight>(), TexturePath("WhiteKnight"), NamePath("WhiteKnight")));
-            buttonsWhiteLatex.Add(AddButton(3, 1, ModContent.NPCType<WhiteLatexTaur>(), TexturePath("WhiteLatexTaur"), NamePath("WhiteLatexTaur")));
-
-            // Squid Dog
-            buttonsSquidDog.Add(AddButton(0, 2, ModContent.NPCType<SquidDog>(), TexturePath("SquidDog"), NamePath("SquidDog")));
-
-            // World Evil
-            buttonsWorldEvil.Add(AddButton(0, 3, ModContent.NPCType<Bloodstripe>(), TexturePath("Bloodstripe"), NamePath("Bloodstripe")));
-            buttonsWorldEvil.Add(AddButton(1, 3, ModContent.NPCType<Purrpurr>(), TexturePath("Purrpurr"), NamePath("Purrpurr")));
-
-            allCategories.Add(buttonsBlackLatex);
-            allCategories.Add(buttonsWhiteLatex);
-            allCategories.Add(buttonsSquidDog);
-            allCategories.Add(buttonsWorldEvil);
-            */
+            // Info part
+            descriptionText = new UIText("");
+            descriptionText.Left.Set(0, 0);
+            descriptionText.Top.Set(0, 0);
+            InfoPanel.Append(descriptionText);
+            MainPanel.Append(InfoPanel);
 
             Append(MainPanel);
         }
@@ -96,6 +79,11 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             {
                 ModContent.GetInstance<TransfurUISystem>().HideMyUI();
                 OnButtonClicked(npcType);//TransformPlayer(npcType);
+            };
+
+            button.OnMouseOver += (evt, elemt) =>
+            {
+                descriptionText.SetText(TransfurSystem.GetDescription(npcType));
             };
 
             MainPanel.Append(button);
@@ -122,6 +110,7 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
         public void SetVisibleCategories(EvolutionLines evolutionLine)
         {
             visibleCategories = new Dictionary<EvolutionLines, List<UIHoverImageButton>>();
+            descriptionText.SetText("");
 
             if (evolutionLine == EvolutionLines.None)
                 visibleCategories = allCategories;
@@ -135,7 +124,8 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
                 }
             }
 
-            MainPanel.Height.Set(visibleCategories.Count * 70, 0f);
+            InfoPanel.Height.Set((visibleCategories.Count + 1) * 60, 0f);
+            MainPanel.Height.Set((visibleCategories.Count + 1) * 60, 0f);
 
             // This is such a stupid fix, we just move the buttons far outside the screen
             for (int i = 0; i < allCategories.Count; i++)

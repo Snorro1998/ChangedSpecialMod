@@ -727,3 +727,13 @@ DrunkPainting6: {
 	DisplayName: Ações de citrinos
 	Tooltip: Grandes negócios
 }
+
+SkinLion: {
+	// DisplayName: Skin Lion
+	// Tooltip: ""
+}
+
+SkinSnep: {
+	// DisplayName: Skin Snep
+	// Tooltip: ""
+}

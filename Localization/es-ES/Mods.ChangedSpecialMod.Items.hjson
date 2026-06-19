@@ -727,3 +727,13 @@ DrunkPainting6: {
 	DisplayName: Acciones de Cítricos
 	Tooltip: Grandes ganancias
 }
+
+SkinLion: {
+	// DisplayName: Skin Lion
+	// Tooltip: ""
+}
+
+SkinSnep: {
+	// DisplayName: Skin Snep
+	// Tooltip: ""
+}

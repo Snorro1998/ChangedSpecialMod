@@ -686,6 +686,15 @@ Mods: {
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidade
+
+		Abilities: {
+			MingCat: Gato Ming
+			TentacleWhip: Chicote de tentáculo
+			WaterBreathing: Consegue respirar debaixo d'água
+			WaterBreathingCalamity: e suportar o Abismo
+			IncreasedLifeRegen: aumento da regeneração da vida
+			WhileInBiome: enquanto estava {0}
+		}
 	}
 }
 

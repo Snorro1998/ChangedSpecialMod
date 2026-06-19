@@ -727,3 +727,13 @@ DrunkPainting6: {
 	DisplayName: Actions du Citrus
 	Tooltip: Gros bénéfices
 }
+
+SkinLion: {
+	// DisplayName: Skin Lion
+	// Tooltip: ""
+}
+
+SkinSnep: {
+	// DisplayName: Skin Snep
+	// Tooltip: ""
+}

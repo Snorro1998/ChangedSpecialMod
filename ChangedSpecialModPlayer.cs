@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Buffs;
+using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
@@ -30,6 +31,7 @@ namespace ChangedSpecialMod
 
         public float lifeMultiplier = 1f;
         public int extraDefense = 0;
+        public int extraMinions = 0;
         public float speedMultiplier = 1f;
         // Used by goops
         public float speedMultiplierAirborn = -1f;
@@ -41,6 +43,10 @@ namespace ChangedSpecialMod
         public bool waterBreathing = false;
 
         public bool tentacleAbility = false;
+
+        // Biome bonus
+        public bool bonusDesert = false;
+        public bool bonusSnow = false;
 
         public string GetTexturePath()
         {
@@ -54,6 +60,18 @@ namespace ChangedSpecialMod
         {
             player.breath = 2000;
             player.breathCD = 0;
+        }
+
+        public void UpdatePlayerLifeRegen(Player player)
+        {
+            if (bonusDesert && (player.ZoneDesert || player.ZoneUndergroundDesert))
+            {
+                player.lifeRegen += 10;
+            }
+            else if (bonusSnow && player.ZoneSnow)
+            {
+                player.lifeRegen += 10;
+            }
         }
 
         public void UpdatePlayerStats(Player player)
@@ -113,7 +131,7 @@ namespace ChangedSpecialMod
             var changedPlayer = Player.ChangedPlayer();
             if (changedPlayer.IsTransfurred && changedPlayer.TransfurTypeCurrent.npcType == ModContent.NPCType<Purrpurr>())
             {
-                Player.maxMinions += 2;
+                Player.maxMinions += changedPlayer.TransfurTypeCurrent.extraMinions;
             }
         }
 
@@ -334,6 +352,15 @@ namespace ChangedSpecialMod
             }
         }
 
+        public override void UpdateLifeRegen()
+        {
+            var changedPlayer = Player.ChangedPlayer();
+            if (TransfurTypeCurrent != null)
+            {
+                TransfurTypeCurrent.UpdatePlayerLifeRegen(Player);
+            }
+        }
+
         public override void PostUpdateEquips()
         {
             var changedPlayer = Player.ChangedPlayer();
@@ -386,6 +413,9 @@ namespace ChangedSpecialMod
 
         private void ApplyUntransfur()
         {
+            //if (TransfurTypeCurrent != null && TransfurTypeCurrent.npcType == ModContent.NPCType<Purrpurr>() && Player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<WhiskerStaff>()) != null)
+            //    Player.DelBuff(ModContent.BuffType<WhiskerStaffBuff>());
+
             TransfurVisuals();
             TransfurTypeCurrent = null;
 
@@ -435,7 +465,7 @@ namespace ChangedSpecialMod
             if (transfur != null && transfur.npcType == ModContent.NPCType<Purrpurr>())
             {
                 Player.AddBuff(ModContent.BuffType<WhiskerStaffBuff>(), 60);
-                int nCats = 3;
+                int nCats = transfur.extraMinions + 1;
                 for (int i = 0; i < nCats; i++)
                 {
                     Projectile.NewProjectile(

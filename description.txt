@@ -64,6 +64,7 @@ For information about previous versions, please check out the change notes in th
 
 General
 - Added French and Portuguese translations
+- Added new transfurs: German Shepherd, Feng Yu, Snow Leopard, Bloodstripe, and Purrpurr
 - Removed Puro's shimmer variant, because it looked the same
 
 Fixes

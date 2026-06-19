@@ -686,6 +686,15 @@ Mods: {
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Ability
+
+		Abilities: {
+			MingCat: Ming Cat
+			TentacleWhip: Tentacle whip
+			WaterBreathing: Can breathe underwater
+			WaterBreathingCalamity: and endure the Abyss
+			IncreasedLifeRegen: Increased life regen
+			WhileInBiome: while in {0}
+		}
 	}
 }
 

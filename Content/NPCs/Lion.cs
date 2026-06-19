@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -69,7 +70,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.CatEars, 10));
             npcLoot.Add(ItemDropRule.Common(ItemID.CatMask, 10));
-            npcLoot.Add(ItemDropRule.Common(ItemID.TigerSkin, 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SkinLion>(), 10));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
