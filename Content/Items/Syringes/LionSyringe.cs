@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Syringes
 {
-    public class SquidDogSyringe : ModItem
+    public class LionSyringe : ModItem
     {
         public override void SetDefaults()
         {
@@ -28,7 +28,7 @@ namespace ChangedSpecialMod.Content.Items.Syringes
             // Tooltip0, the actual description
             var descriptionTip = tooltips.FirstOrDefault(x => x.Name == "Tooltip0");
             if (descriptionTip != null)
-                descriptionTip.Text = TransfurSystem.GetDescription(ModContent.NPCType<SquidDog>(), true);
+                descriptionTip.Text = TransfurSystem.GetDescription(ModContent.NPCType<Lion>(), true);
         }
 
         public override bool? UseItem(Player player)
@@ -37,7 +37,7 @@ namespace ChangedSpecialMod.Content.Items.Syringes
             if (changedPlayer.TransfurTypeCurrent != null)
                 TransfurSystem.UntransfurPlayer(player.whoAmI);
             else
-                TransfurSystem.SetTransfurFromNPCType(player.whoAmI, ModContent.NPCType<SquidDog>());
+                TransfurSystem.SetTransfurFromNPCType(player.whoAmI, ModContent.NPCType<Lion>());
             return true;
         }
 
@@ -45,7 +45,8 @@ namespace ChangedSpecialMod.Content.Items.Syringes
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<Syringe>())
-                .AddIngredient(ItemID.BlackInk)
+                .AddIngredient(ItemID.SandBlock, 5)
+                .AddIngredient(ItemID.Waterleaf, 1)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }

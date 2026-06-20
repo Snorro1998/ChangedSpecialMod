@@ -691,9 +691,10 @@ Mods: {
 			MingCat: Ming Cat
 			TentacleWhip: Tentacle whip
 			WaterBreathing: Can breathe underwater
-			WaterBreathingCalamity: and endure the Abyss
+			WaterBreathingCalamity: Can endure the Abyss
 			IncreasedLifeRegen: Increased life regen
 			WhileInBiome: while in {0}
+			TransformsYouInto: Transforms you into a {0}
 		}
 	}
 }

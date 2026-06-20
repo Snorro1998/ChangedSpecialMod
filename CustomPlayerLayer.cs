@@ -2,6 +2,7 @@
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -50,10 +51,19 @@ namespace ChangedSpecialMod
             var nFrames = 3;
 
             var transfurCurrent = changedPlayer?.TransfurTypeCurrent;
+            var rotation = 0f;
+            var scale = 1f;
             if (transfurCurrent != null)
             {
+                scale = transfurCurrent.baseScaleMultiplier;
                 texturePath = transfurCurrent.GetTexturePath();
                 nFrames = transfurCurrent.nFrames;
+
+                if (transfurCurrent.rotateInWater && player.wet && player.velocity.LengthSquared() > 0.01f)
+                {
+                    //rotation = player.velocity.ToRotation();
+                    rotation = player.velocity.ToRotation() + (0.5f * (float)Math.PI);
+                }
             }
 
             Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
@@ -91,7 +101,7 @@ namespace ChangedSpecialMod
             var frameHeight = texture.Height / nFrames;
             var sourceRect = new Rectangle(0, frameIndex * frameHeight, frameWidth, frameHeight);
 
-            var yOff = (48 - frameHeight) / 2;
+            var yOff = (48 - (frameHeight * scale)) / 2;
             position.Y += yOff;
 
             Vector2 drawCenter = player.Center;
@@ -104,9 +114,9 @@ namespace ChangedSpecialMod
                 position,
                 sourceRect,
                 tmpColor,
-                0f,
+                rotation,
                 new Vector2(frameWidth / 2, frameHeight / 2),
-                1f,
+                scale,
                 effects,
                 0f
             ));

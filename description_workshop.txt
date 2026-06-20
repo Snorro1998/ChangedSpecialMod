@@ -67,34 +67,29 @@ There was no logic for multiplayer in previous versions, which caused a lot of i
 
 
 [h2]Changelog[/h2]
-This version fixes a lot of issues in multiplayer.
+This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
 [h3]0.5.2[/h3]
 
 [b]General[/b]
 [list]
-	[*]Added Chinese and German translations
-	[*]Added Citrus Stonks and Paradise paintings
-	[*]Added maintenance robot. He is quite rare and behaves like eyezor, shooting lasers at the player.
-	[*]Reduced the chance of the Puro cloud appearing
+	[*]Added French and Portuguese translations
+	[*]Removed Puro's shimmer variant, because it looked the same
+	[*]Transfurs are no longer saved for now when exiting a world, because it was causing issues
 [/list]
 
-Multiplier fixes
+Transfur
 [list]
-	[*]White Tail jittering
-	[*]Wolf King fight not working at all
-	[*]Behemoth sliding around after teleporting
-	[*]Generators not playing a chime sound when turned on or off
-	[*]Players not teleporting until they walked after using an elevator
-	[*]Transfur UI appearing for all players when a syringe is used
-	[*]Other player's transfur not visible
+	[*]Added German Shepherd, Feng Yu, Snow Leopard, Bloodstripe and Purrpurr
+	[*]Dr K sells empty syringes. You need them to create the new transfur syringes
+	[*]Both the item tooltip and the transfur option menu show the stats of each transfur
+	[*]The sprites of the combined syringes are now diagonal to see the difference easier
 [/list]
 
-Other fixes
+Fixes
 [list]
-	[*]Improved some English texts
-	[*]Fixed some corrupted Spanish translations
-	[*]Game crashed completely when taking pictures in any of the Changed biomes in camera mode
-	[*]"Index was outside the bounds of the array" sometimes appearing in the chat before the Wolf King or Behemoth fight started
+	[*]Active transfurs not displayed after joining a multiplayer world
+	[*]Improved mod translations by reading through vanilla translations
+	[*]Added some missing translations
 [/list]

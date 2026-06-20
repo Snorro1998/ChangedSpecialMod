@@ -691,9 +691,10 @@ Mods: {
 			MingCat: Gato Ming
 			TentacleWhip: Látigo de tentáculos
 			WaterBreathing: Puede respirar bajo el agua
-			WaterBreathingCalamity: y soportar el Abismo
+			WaterBreathingCalamity: Puede soportar el Abismo
 			IncreasedLifeRegen: Mayor regeneración de la vida
 			WhileInBiome: mientras estaba en {0}
+			TransformsYouInto: Te transforma en un {0}
 		}
 	}
 }

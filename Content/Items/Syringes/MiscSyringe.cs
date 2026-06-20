@@ -1,4 +1,4 @@
-﻿using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Utilities;
 using ChangedSpecialMod.Utilities.UI.TransfurUI;
 using Terraria;
@@ -7,11 +7,11 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Syringes
 {
-    public class SuperSyringe : ModItem
+    public class MiscSyringe : ModItem
     {
         public override void SetDefaults()
         {
-            Item.value = Item.buyPrice(0, 20, 0, 0);
+            Item.value = Item.buyPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.useAnimation = 10;
             Item.useTime = 10;
@@ -26,7 +26,7 @@ namespace ChangedSpecialMod.Content.Items.Syringes
             if (changedPlayer.TransfurTypeCurrent != null)
                 TransfurSystem.UntransfurPlayer(player.whoAmI);
             else if (player.whoAmI == Main.myPlayer)
-                ModContent.GetInstance<TransfurUISystem>().ToggleUI(EvolutionLines.None);
+                ModContent.GetInstance<TransfurUISystem>().ToggleUI(EvolutionLines.Misc);
 
             return true;
         }
@@ -34,10 +34,11 @@ namespace ChangedSpecialMod.Content.Items.Syringes
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<BlackSyringe>())
-                .AddIngredient(ModContent.ItemType<WhiteSyringe>())
-                .AddIngredient(ModContent.ItemType<AquaticSyringe>())
-                .AddIngredient(ModContent.ItemType<MiscSyringe>())
+                .AddIngredient(ModContent.ItemType<BloodstripeSyringe>())
+                .AddIngredient(ModContent.ItemType<PurrpurrSyringe>())
+                .AddIngredient(ModContent.ItemType<SnepSyringe>())
+                .AddIngredient(ModContent.ItemType<LionSyringe>())
+                .AddIngredient(ModContent.ItemType<GermanShepherdSyringe>())
                 .AddTile(TileID.TinkerersWorkbench)
                 .Register();
         }

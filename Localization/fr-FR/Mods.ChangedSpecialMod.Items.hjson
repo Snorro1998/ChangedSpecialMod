@@ -633,12 +633,7 @@ Sunglasses: {
 
 SquidDogSyringe: {
 	DisplayName: Seringue de Chien-calamar
-	Tooltip:
-		'''
-		- Vous transforme en Chien-calamar
-		- Peut déployer des tentacules grâce à la touche « capacité ».
-		- Permet de respirer sous l'eau
-		'''
+	Tooltip: ""
 }
 
 BlackLatexSand: {
@@ -729,11 +724,56 @@ DrunkPainting6: {
 }
 
 SkinLion: {
-	// DisplayName: Skin Lion
-	// Tooltip: ""
+	DisplayName: Peau de lion
+	Tooltip: ""
 }
 
 SkinSnep: {
-	// DisplayName: Skin Snep
-	// Tooltip: ""
+	DisplayName: Peau de léopard des neiges
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: Divers Seringue
+	Tooltip: vous permet de vous transformer en diverses créatures visqueuses
+}
+
+TigerSharkSyringe: {
+	DisplayName: Seringue de Requin-Tigre
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: Seringue Aquatique
+	Tooltip: vous permet de vous transformer en diverses créatures aquatiques visqueuses
+}
+
+Syringe: {
+	DisplayName: Seringue
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: Seringue de Sangrayure
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: Seringue de Berger Allemand
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: Seringue de Lion
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: Seringue de Vioronron
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: Seringue de Léopard des Neiges
+	Tooltip: ""
 }

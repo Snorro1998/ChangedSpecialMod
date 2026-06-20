@@ -372,9 +372,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Register();
 
             new NPCShop(Type, Shops[4].InternalName)
+                .Add<Syringe>()
                 .Add<BlackSyringe>()
                 .Add<WhiteSyringe>()
-                .Add<SquidDogSyringe>()
                 .Register();
 
             new NPCShop(Type, Shops[5].InternalName)

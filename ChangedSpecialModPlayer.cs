@@ -1,14 +1,12 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Buffs;
-using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
@@ -17,7 +15,6 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using static ChangedSpecialMod.ChangedSpecialMod;
 
 namespace ChangedSpecialMod
 {
@@ -39,14 +36,22 @@ namespace ChangedSpecialMod
         public float jumpHeightMultiplier = 1;
         public float jumpSpeedMultiplier = 1;
 
+        // Water
         public bool ignoreWater = false;
+        public bool rotateInWater = false;
+        public float waterSpeedMultiplier = 1f;
         public bool waterBreathing = false;
+        public bool waterBreathingCalamity = false;
 
+        // Abilities
         public bool tentacleAbility = false;
 
         // Biome bonus
         public bool bonusDesert = false;
         public bool bonusSnow = false;
+        public bool bonusOcean = false;
+
+        public float baseScaleMultiplier = 1;
 
         public string GetTexturePath()
         {
@@ -65,13 +70,11 @@ namespace ChangedSpecialMod
         public void UpdatePlayerLifeRegen(Player player)
         {
             if (bonusDesert && (player.ZoneDesert || player.ZoneUndergroundDesert))
-            {
                 player.lifeRegen += 10;
-            }
             else if (bonusSnow && player.ZoneSnow)
-            {
                 player.lifeRegen += 10;
-            }
+            else if (bonusOcean && player.wet && (player.Center.X / 16 <= WorldGen.beachDistance || player.Center.X / 16 >= Main.maxTilesX - WorldGen.beachDistance))
+                player.lifeRegen += 10;
         }
 
         public void UpdatePlayerStats(Player player)
@@ -88,12 +91,16 @@ namespace ChangedSpecialMod
             else
                 speedMulti = speedMultiplier;
 
+            if (player.wet)
+                speedMulti *= waterSpeedMultiplier;
+
             Player.jumpSpeed *= jumpSpeedMultiplier;
             Player.jumpHeight = (int)(Player.jumpHeight * jumpHeightMultiplier);
             player.statDefense += extraDefense;
             player.statLifeMax2 = (int)(player.statLifeMax2 * lifeMultiplier);
             player.moveSpeed *= speedMulti;
             player.accRunSpeed = (int)(player.accRunSpeed * speedMulti);
+            player.maxMinions += extraMinions;
             //player.maxRunSpeed = (int)(player.maxRunSpeed * speedMulti);
             player.GetDamage<MeleeDamageClass>() += damageBonus;
 
@@ -104,10 +111,12 @@ namespace ChangedSpecialMod
                 player.ignoreWater = true;
                 player.accFlipper = true;
             }
-            if (player.wet && waterBreathing)
+            if (player.wet)
             {
-                player.AddBuff(BuffID.Gills, 1);
-                CalamityAbyssBreathing(ref player);
+                if (waterBreathing)
+                    player.AddBuff(BuffID.Gills, 1);
+                if (waterBreathingCalamity)
+                    CalamityAbyssBreathing(ref player);
             }
         }
     }
@@ -129,10 +138,6 @@ namespace ChangedSpecialMod
         public override void ResetEffects()
         {
             var changedPlayer = Player.ChangedPlayer();
-            if (changedPlayer.IsTransfurred && changedPlayer.TransfurTypeCurrent.npcType == ModContent.NPCType<Purrpurr>())
-            {
-                Player.maxMinions += changedPlayer.TransfurTypeCurrent.extraMinions;
-            }
         }
 
         private void TransfurAttack()
@@ -506,6 +511,7 @@ namespace ChangedSpecialMod
                 AudioSystem.PlayTransfurSound(Player.Center);
         }
 
+        /*
         public override void SaveData(TagCompound tag)
         {
             tag["TransfurNpcType"] = _npcType;
@@ -515,6 +521,7 @@ namespace ChangedSpecialMod
         {
             NpcType = tag.GetInt("TransfurNpcType");
         }
+        */
 
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
         {

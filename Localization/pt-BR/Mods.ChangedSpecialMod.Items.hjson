@@ -633,12 +633,7 @@ Sunglasses: {
 
 SquidDogSyringe: {
 	DisplayName: Seringa Cachorro-Lula
-	Tooltip:
-		'''
-		- Transforma você em um cachorro-lula
-		- Pode lançar tentáculos com a tecla de 'habilidade'
-		- Permite respirar debaixo d'água
-		'''
+	Tooltip: ""
 }
 
 BlackLatexSand: {
@@ -729,11 +724,56 @@ DrunkPainting6: {
 }
 
 SkinLion: {
-	// DisplayName: Skin Lion
-	// Tooltip: ""
+	DisplayName: Pele de Leão
+	Tooltip: ""
 }
 
 SkinSnep: {
-	// DisplayName: Skin Snep
-	// Tooltip: ""
+	DisplayName: Pele de Leopardo-das-Neves
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: Diversas Seringa
+	Tooltip: Permite que você se transforme em várias criaturas viscosas
+}
+
+TigerSharkSyringe: {
+	DisplayName: Seringa de Tiger Shark
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: Seringa Aquática
+	Tooltip: Permite que você se transforme em várias criaturas aquáticas viscosas
+}
+
+Syringe: {
+	DisplayName: Seringa
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: Seringa de Sanglistra
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: Seringa de Cão Pastor Alemão
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: Seringa de Feng Yu
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: Seringa de Roxoronando
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: Seringa de Leopardo-das-Neves
+	Tooltip: ""
 }

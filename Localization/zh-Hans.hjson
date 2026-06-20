@@ -691,9 +691,10 @@ Mods: {
 			MingCat: 明猫
 			TentacleWhip: 触手鞭
 			WaterBreathing: 可以在水下呼吸
-			WaterBreathingCalamity: 并忍受深渊
+			WaterBreathingCalamity: 能够承受深渊
 			IncreasedLifeRegen: 生命再生能力增强
 			WhileInBiome: 在{0}里
+			TransformsYouInto: 把你变成一只{0}
 		}
 	}
 }

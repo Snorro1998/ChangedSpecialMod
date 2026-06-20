@@ -2,14 +2,14 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.Linq;
 
 namespace ChangedSpecialMod.Content.Items.Syringes
 {
-    public class SquidDogSyringe : ModItem
+    public class BloodstripeSyringe : ModItem
     {
         public override void SetDefaults()
         {
@@ -23,12 +23,9 @@ namespace ChangedSpecialMod.Content.Items.Syringes
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            // ItemName
-            // Material
-            // Tooltip0, the actual description
             var descriptionTip = tooltips.FirstOrDefault(x => x.Name == "Tooltip0");
             if (descriptionTip != null)
-                descriptionTip.Text = TransfurSystem.GetDescription(ModContent.NPCType<SquidDog>(), true);
+                descriptionTip.Text = TransfurSystem.GetDescription(ModContent.NPCType<Bloodstripe>(), true);
         }
 
         public override bool? UseItem(Player player)
@@ -37,7 +34,7 @@ namespace ChangedSpecialMod.Content.Items.Syringes
             if (changedPlayer.TransfurTypeCurrent != null)
                 TransfurSystem.UntransfurPlayer(player.whoAmI);
             else
-                TransfurSystem.SetTransfurFromNPCType(player.whoAmI, ModContent.NPCType<SquidDog>());
+                TransfurSystem.SetTransfurFromNPCType(player.whoAmI, ModContent.NPCType<Bloodstripe>());
             return true;
         }
 
@@ -45,7 +42,15 @@ namespace ChangedSpecialMod.Content.Items.Syringes
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<Syringe>())
-                .AddIngredient(ItemID.BlackInk)
+                .AddIngredient(ItemID.CrimstoneBlock, 5)
+                .AddIngredient(ItemID.Deathweed, 1)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<Syringe>())
+                .AddIngredient(ItemID.EbonstoneBlock, 5)
+                .AddIngredient(ItemID.Deathweed, 1)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }

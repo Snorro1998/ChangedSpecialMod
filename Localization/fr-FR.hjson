@@ -691,9 +691,10 @@ Mods: {
 			MingCat: Chat Ming
 			TentacleWhip: Fouet tentaculaire
 			WaterBreathing: Peut respirer sous l'eau
-			WaterBreathingCalamity: et endurer l'Abîme
+			WaterBreathingCalamity: Peut endurer l'Abîme
 			IncreasedLifeRegen: régénération de la vie accrue
 			WhileInBiome: pendant que dans {0}
+			TransformsYouInto: Vous transforme en {0}
 		}
 	}
 }

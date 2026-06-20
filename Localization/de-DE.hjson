@@ -691,9 +691,10 @@ Mods: {
 			MingCat: Ming-Katze
 			TentacleWhip: Tentakelpeitsche
 			WaterBreathing: Kann unter Wasser atmen
-			WaterBreathingCalamity: und den Abgrund ertragen
+			WaterBreathingCalamity: Kann den Abgrund ertragen
 			IncreasedLifeRegen: erhöhte Lebensregeneration
 			WhileInBiome: während {0}
+			TransformsYouInto: Verwandelt dich in einen {0}
 		}
 	}
 }

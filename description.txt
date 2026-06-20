@@ -58,14 +58,21 @@ Other
 
 --------- Changelog ---------
 
+This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
 0.5.3
 
 General
 - Added French and Portuguese translations
-- Added new transfurs: German Shepherd, Feng Yu, Snow Leopard, Bloodstripe, and Purrpurr
 - Removed Puro's shimmer variant, because it looked the same
+- Transfurs are no longer saved for now when exiting a world, because it was causing issues
+
+Transfur
+- Added German Shepherd, Feng Yu, Snow Leopard, Bloodstripe and Purrpurr
+- Dr K sells empty syringes. You need them to create the new transfur syringes
+- Both the item tooltip and the transfur option menu show the stats of each transfur
+- The sprites of the combined syringes are now diagonal to see the difference easier
 
 Fixes
 - Active transfurs not displayed after joining a multiplayer world

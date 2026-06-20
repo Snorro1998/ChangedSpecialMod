@@ -7,6 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace ChangedSpecialMod.Common.Systems
@@ -16,10 +17,8 @@ namespace ChangedSpecialMod.Common.Systems
         None,
         Black,
         White,
-        SquidDog,
-        Shark,
         Misc,
-        TownNPC
+        Aquatic
     }
 
     public class TransfurSystem
@@ -56,7 +55,7 @@ namespace ChangedSpecialMod.Common.Systems
             return $"[c/{colorString}:+{number.ToString()}]";
         }
 
-        public static string GetDescription(int npcType)
+        public static string GetDescription(int npcType, bool isItemDescription = false)
         {
             var transfur = GetTransfurByNPCType(npcType);
             if (transfur != null)
@@ -64,13 +63,16 @@ namespace ChangedSpecialMod.Common.Systems
                 var strAbiBase = "Mods.ChangedSpecialMod.Abilities.";
                 var npcName = Language.GetTextValue($"Mods.ChangedSpecialMod.NPCs.{transfur.npcName}.DisplayName");
 
-                var description = $"[c/ffeb6e:{npcName}]\n";
+                var description = isItemDescription ? string.Format($"{Language.GetTextValue(strAbiBase + "TransformsYouInto")}\n", npcName) : $"[c/ffeb6e:{npcName}]\n";
                 if (transfur.lifeMultiplier != 1)
                     description += $"[i:{ItemID.LifeCrystal}]: {GetNumberString(transfur.lifeMultiplier, true)}\n";
                 if (transfur.extraDefense != 0)
                     description += $"[i:{ItemID.CobaltShield}]: {GetNumberString(transfur.extraDefense, false)}\n";
                 if (transfur.speedMultiplier != 1)
                     description += $"[i:{ItemID.HermesBoots}]: {GetNumberString(transfur.speedMultiplier, true)}\n";
+                if (transfur.waterSpeedMultiplier != 1)
+                    //SailfishBoots
+                    description += $"[i:{ItemID.Flipper}]: {GetNumberString(transfur.waterSpeedMultiplier, true)}\n";
                 if (transfur.extraMinions != 0)
                     description += $"[i:{ItemID.SlimeStaff}]: {GetNumberString(transfur.extraMinions, false)}\n";
 
@@ -82,37 +84,36 @@ namespace ChangedSpecialMod.Common.Systems
                     description += $"{strAbilty}: {Language.GetTextValue(strAbiBase + "MingCat")}\n";
 
                 // Biome bonus
-                if (transfur.bonusDesert || transfur.bonusSnow)
+                if (transfur.bonusDesert || transfur.bonusSnow || transfur.bonusOcean)
                 {
-                    description += $"{Language.GetTextValue(strAbiBase + "IncreasedLifeRegen")}\n";
+                    description += $"{Language.GetTextValue(strAbiBase + "IncreasedLifeRegen")} ";
+                    if (!isItemDescription)
+                        description += "\n";
                     var biomeName = "Forest";
                     if (transfur.bonusDesert)
                         biomeName = ShopHelper.BiomeNameByKey("Desert");
                     else if (transfur.bonusSnow)
                         biomeName = ShopHelper.BiomeNameByKey("Snow");
+                    else if (transfur.bonusOcean)
+                        biomeName = ShopHelper.BiomeNameByKey("Ocean");
 
                     description += string.Format($"{Language.GetTextValue(strAbiBase + "WhileInBiome")}\n", biomeName);
                 }
                 if (transfur.waterBreathing)
-                {
                     description += $"{Language.GetTextValue(strAbiBase + "WaterBreathing")}\n";
-                    if (ModSupportSystem.modCalamity != null)
-                        description += $"{Language.GetTextValue(strAbiBase + "WaterBreathingCalamity")}\n";
-                }
+                if (transfur.waterBreathingCalamity && ModSupportSystem.modCalamity == null)
+                    description += $"{Language.GetTextValue(strAbiBase + "WaterBreathingCalamity")}\n";
+
+                if (isItemDescription)
+                    description = description.TrimEnd('\r', '\n');
 
                 return description;
             }
             return "";
         }
 
-        public static void InitTransfurTypes()
+        private static void AddEvoLineBlack()
         {
-            if (EvolutionsLines != null && EvolutionsLines.Count > 0)
-                return;
-
-            EvolutionsLines = new Dictionary<EvolutionLines, List<Transfur>>();
-
-            // Black
             var evolutionLine = new List<Transfur>();
             evolutionLine.Add(new Transfur()
             {
@@ -166,13 +167,16 @@ namespace ChangedSpecialMod.Common.Systems
                 lifeMultiplier = 2f,
                 extraDefense = 10,
                 speedMultiplier = 0.8f,
-                damageBonus = 0.3f
+                damageBonus = 0.3f,
+                baseScaleMultiplier = 0.7f
             });
 
             EvolutionsLines.Add(EvolutionLines.Black, evolutionLine);
+        }
 
-            // White
-            evolutionLine = new List<Transfur>();
+        private static void AddEvoLineWhite()
+        {
+            var evolutionLine = new List<Transfur>();
             evolutionLine.Add(new Transfur()
             {
                 npcType = ModContent.NPCType<WhiteGoop>(),
@@ -217,9 +221,47 @@ namespace ChangedSpecialMod.Common.Systems
             });
 
             EvolutionsLines.Add(EvolutionLines.White, evolutionLine);
+        }
 
-            // Others
-            evolutionLine = new List<Transfur>();
+        private static void AddEvoLineAquatic()
+        {
+            var evolutionLine = new List<Transfur>();
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<SquidDog>(),
+                npcName = "SquidDog",
+                nFrames = 4,
+                gooType = GooType.None,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+                ignoreWater = true,
+                waterBreathing = true,
+                waterBreathingCalamity = true,
+                tentacleAbility = true
+            });
+
+            evolutionLine.Add(new Transfur()
+            {
+                npcType = ModContent.NPCType<TigerShark>(),
+                npcName = "TigerShark",
+                nFrames = 4,
+                gooType = GooType.None,
+                lifeMultiplier = 1.25f,
+                extraDefense = 5,
+                ignoreWater = true,
+                waterBreathing = true,
+                bonusOcean = true,
+                rotateInWater = true,
+                waterSpeedMultiplier = 2,
+                baseScaleMultiplier = 0.7f
+            });
+
+            EvolutionsLines.Add(EvolutionLines.Aquatic, evolutionLine);
+        }
+
+        private static void AddEvoLineMisc()
+        {
+            var evolutionLine = new List<Transfur>();
             evolutionLine.Add(new Transfur()
             {
                 npcType = ModContent.NPCType<GermanShepherd>(),
@@ -263,7 +305,8 @@ namespace ChangedSpecialMod.Common.Systems
                 lifeMultiplier = 2f,
                 extraDefense = 10,
                 speedMultiplier = 0.8f,
-                damageBonus = 0.3f
+                damageBonus = 0.3f,
+                baseScaleMultiplier = 0.7f
             });
 
             evolutionLine.Add(new Transfur()
@@ -276,27 +319,29 @@ namespace ChangedSpecialMod.Common.Systems
                 extraDefense = 10,
                 extraMinions = 1,
                 speedMultiplier = 0.8f,
-                damageBonus = 0.3f
+                damageBonus = 0.3f,
+                baseScaleMultiplier = 0.9f
             });
 
             EvolutionsLines.Add(EvolutionLines.Misc, evolutionLine);
+        }
 
-            // Squid Dog
-            evolutionLine = new List<Transfur>();
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<SquidDog>(),
-                npcName = "SquidDog",
-                nFrames = 4,
-                gooType = GooType.None,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-                ignoreWater = true,
-                waterBreathing = true,
-                tentacleAbility = true
-            });
+        public static void InitTransfurTypes()
+        {
+            if (EvolutionsLines != null && EvolutionsLines.Count > 0)
+                return;
 
-            EvolutionsLines.Add(EvolutionLines.SquidDog, evolutionLine);
+            EvolutionsLines = new Dictionary<EvolutionLines, List<Transfur>>();
+
+            AddEvoLineBlack();
+            AddEvoLineWhite();
+            AddEvoLineMisc();
+            AddEvoLineAquatic();
+
+
+
+
+
             /*
             // Town NPCs
             evolutionLine = new List<Transfur>();

@@ -78,7 +78,7 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             button.OnLeftClick += (evt, element) =>
             {
                 ModContent.GetInstance<TransfurUISystem>().HideMyUI();
-                OnButtonClicked(npcType);//TransformPlayer(npcType);
+                OnButtonClicked(npcType);
             };
 
             button.OnMouseOver += (evt, elemt) =>
@@ -124,8 +124,8 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
                 }
             }
 
-            InfoPanel.Height.Set((visibleCategories.Count + 1) * 60, 0f);
-            MainPanel.Height.Set((visibleCategories.Count + 1) * 60, 0f);
+            InfoPanel.Height.Set((visibleCategories.Count + 2) * 60, 0f);
+            MainPanel.Height.Set((visibleCategories.Count + 2) * 60, 0f);
 
             // This is such a stupid fix, we just move the buttons far outside the screen
             for (int i = 0; i < allCategories.Count; i++)
@@ -152,30 +152,6 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
                     SetButtonPosition(button, j, i);
                 }
             }
-
-            /*
-            if (categories == 1)
-            {
-                visibleCategories.Add(buttonsBlackLatex);
-            }
-            else if (categories == 2)
-            {
-                visibleCategories.Add(buttonsWhiteLatex);
-            }
-            else if (categories == 3)
-            {
-                visibleCategories.Add(buttonsSquidDog);
-            }
-            else
-            {
-                visibleCategories.Add(buttonsBlackLatex);
-                visibleCategories.Add(buttonsWhiteLatex);
-                visibleCategories.Add(buttonsSquidDog);
-                visibleCategories.Add(buttonsWorldEvil);
-            }
-
-
-            */
         }
 
         private void SetButtonPosition(UIHoverImageButton button, int xIndex, int yIndex)
@@ -194,14 +170,6 @@ namespace ChangedSpecialMod.Utilities.UI.TransfurUI
             uiElement.Top.Set(top, 0f);
             uiElement.Width.Set(width, 0f);
             uiElement.Height.Set(height, 0f);
-        }
-
-        private void TransformPlayer(int npcType)
-        {
-            var player = Main.LocalPlayer;
-            if (player == null)
-                return;
-            TransfurSystem.SetTransfurFromNPCType(player.whoAmI, npcType);
         }
     }
 }

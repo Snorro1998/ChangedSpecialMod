@@ -633,12 +633,7 @@ Sunglasses: {
 
 SquidDogSyringe: {
 	DisplayName: Squid Dog Syringe
-	Tooltip:
-		'''
-		- Transforms you into a Squid Dog
-		- Can lash out tentacles with the 'ability' key
-		- Allows you to breathe underwater
-		'''
+	Tooltip: ""
 }
 
 BlackLatexSand: {
@@ -729,11 +724,56 @@ DrunkPainting6: {
 }
 
 SkinLion: {
-	DisplayName: Skin Lion
+	DisplayName: Lion Skin
 	Tooltip: ""
 }
 
 SkinSnep: {
-	DisplayName: Skin Snep
+	DisplayName: Snow Leopard Skin
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: Miscellaneous Syringe
+	Tooltip: Transforms you into a variety of latex beasts
+}
+
+TigerSharkSyringe: {
+	DisplayName: Tiger Shark Syringe
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: Aquatic Syringe
+	Tooltip: Transforms you into aquatic latex beasts
+}
+
+Syringe: {
+	DisplayName: Syringe
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: Bloodstripe Syringe
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: German Shepherd Syringe
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: Feng Yu Syringe
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: Purrpurr Syringe
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: Snow Leopard Syringe
 	Tooltip: ""
 }
