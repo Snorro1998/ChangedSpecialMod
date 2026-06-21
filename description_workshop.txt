@@ -70,13 +70,15 @@ There was no logic for multiplayer in previous versions, which caused a lot of i
 This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
-[h3]0.5.2[/h3]
+[h3]0.5.3[/h3]
 
 [b]General[/b]
 [list]
-	[*]Added French and Portuguese translations
+	[*]Added French, Portuguese and Russian translations
 	[*]Removed Puro's shimmer variant, because it looked the same
 	[*]Transfurs are no longer saved for now when exiting a world, because it was causing issues
+	[*]Added some custom window titles (the bar at the top of the screen if you are not playing in fullscreen)
+	[*]Added animal skins for the Feng Yu (lion) and Snow Leopard, so they don't drop tiger and normal leopard skins anymore
 [/list]
 
 Transfur

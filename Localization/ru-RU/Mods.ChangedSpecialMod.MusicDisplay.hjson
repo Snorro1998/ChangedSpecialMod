@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: Шизи
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Зона Черной Слизи
+	MusicBlackLatexZone2: Алая Кристаллическая Шахта
+	MusicCrystalZone: Кристаллическая зона
+	MusicWhiteLatexZone: Джунгли белой слизи
+	MusicLibrary: Библиотека
+	MusicLabSlow: Лаборатория (медленный)
+	MusicLab: Лаборатория
+	MusicVents: вентиляционная труба
+	MusicPuro: Пуро, Чёрная Слизь
+	MusicGreenhouse: Теплица
+	MusicHappyBirthday: Песня ко дню рождения
+	MusicPuroDance: Танец Пуро
+	MusicRun: БЕЖАТЬ
+	MusicWhiteTailChase2: охотничий белый хвост, часть 2
+	# Not 100% sure, because they have no names
+	MusicWolfKing: Король Волков
+	MusicBehemoth: Бегемот
+	MusicShark: Акула
+	MusicSquidDog: Собака-кальмар
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

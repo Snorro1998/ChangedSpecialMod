@@ -525,7 +525,7 @@ Mods: {
 					# Wizard
 					DislikeNPC: As a scientist I try to understand things, but I don't get what {NPCName} does and I don't like it.
 					# Arms Dealer
-					HateNPC: I really hate {NPCName} for selling the same weapons that were used in the riots.
+					HateNPC: I really hate {NPCName} for selling the same weapons that were used during the riots.
 					LikeNPC_Princess: "{NPCName} is always so cheerful, it's contagious."
 					Princess_LovesNPC: "{NPCName} is always so cheerful, it's contagious."
 				}

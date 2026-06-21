@@ -116,6 +116,14 @@ namespace ChangedSpecialMod.Common.Systems
             SetupMusicDisplay();
             SetupCensus();
             SetupExtraTitles();
+            TryUpdateTitle();
+        }
+
+        private void TryUpdateTitle()
+        {
+            MethodInfo setTitleMethod = typeof(Main).GetMethod("SetTitle", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (setTitleMethod != null)
+                setTitleMethod.Invoke(Main.instance, null);
         }
 
         private void SetupExtraTitles()

@@ -1,0 +1,779 @@
+Painting1: {
+	DisplayName: Глупый Пушистый Шарик
+	Tooltip: Он очаровательный, пока не вырастет.
+}
+
+Painting2: {
+	DisplayName: Король Волков
+	Tooltip: Могучий зверь
+}
+
+Painting3: {
+	DisplayName: Влияние апельсинов
+	Tooltip: Здоровый
+}
+
+Painting4: {
+	DisplayName: Шшшшш
+	Tooltip: Тихо, иначе они тебя найдут.
+}
+
+Painting5: {
+	DisplayName: Комедия
+	Tooltip: ХАХАХАХА!
+}
+
+Painting6: {
+	DisplayName: Тёмный ниндзя
+	Tooltip: Эпический
+}
+
+Painting7: {
+	DisplayName: Лучшие друзья
+	Tooltip: Милый
+}
+
+Painting8: {
+	DisplayName: Время перекуса
+	Tooltip: Вкусный
+}
+
+Painting9: {
+	DisplayName: Пуро, Чёрная Слизь
+	Tooltip: Милый
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: Собака-кальмар
+	Tooltip: Угрожающий моллюск
+}
+
+Painting12: {
+	DisplayName: Снежный барс
+	Tooltip: Спокойствие
+}
+
+Painting13: {
+	DisplayName: захвачен
+	Tooltip: О, нет
+}
+
+DrunkPainting1: {
+	DisplayName: Апельсин
+	Tooltip: Мммм
+}
+
+DrunkPainting2: {
+	DisplayName: Акла
+	Tooltip: Дерп
+}
+
+DrunkPainting3: {
+	DisplayName: собкальм
+	Tooltip: Дерп
+}
+
+DrunkPainting4: {
+	DisplayName: Пурблз
+	Tooltip: Дерп
+}
+
+MusicBoxLab: {
+	DisplayName: Музыкальная шкатулка (Лаборатория)
+	Tooltip: Шизи
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Знамя черная слизь
+}
+
+SquidDogBanner: {
+	DisplayName: Знамя собака-кальмар
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Лифт
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: плюшевый Пуро
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Баскетбол (Размещаемый)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: плюшевая акула
+}
+
+Orange: {
+	DisplayName: Апельсин
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: черный слизистый блок
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: предупреждающий плиточный блок
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: сухой земляной блок
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Синий газовый баллон
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Синее офисное кресло
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Документ Бумага
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Генератор
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Зеленое офисное кресло
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Сканер радужной оболочки глаза
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Дверь лаборатории
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Лабораторный стол
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: стопка книг
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Музыкальная шкатулка (кристаллическая зона)
+	Tooltip: Шизи
+}
+
+PackingBox: {
+	DisplayName: Упаковочная коробка
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Ключ от упаковочной коробки
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Красный газовый баллон
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Красное офисное кресло
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Стопка коробок
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Ящик для хранения
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: ключ от ящика для хранения
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Книжный шкаф, покрытый белой слизью
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: лабораторный плиточный блок
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: белый слизистый блок
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Гнилой апельсин
+	Tooltip: Достаточно просто подержать это в руках, чтобы увидеть странные вещи.
+}
+
+TigerPaw: {
+	DisplayName: багровый коготь
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Энциклопедия
+	Tooltip: Почувствуйте тяжесть знаний.
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Ужасный рог
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: кнут моллюска
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Знамя вендиго
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Знамя кровьполоса
+}
+
+BlackGoopBanner: {
+	DisplayName: Знамя черная лужа
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Знамя белая лужа
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Знамя немецкая овчарка
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Скользкая Подкова
+	Tooltip: Призывает ездового белого слизня.
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Чёрное Крыло
+	Tooltip: Призывает ездового питомца Юфэна.
+}
+
+Literature: {
+	DisplayName: Литература
+	Tooltip: В нем содержится много популярных тем.
+}
+
+WhiskerStaff: {
+	DisplayName: палочка для усов
+	Tooltip: Призывает кошку сражаться за тебя.
+}
+
+PurrpurrBanner: {
+	DisplayName: Знамя фиолетомурлыка
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: книжный дождь
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Лейка
+}
+
+MusicBoxPuro: {
+	DisplayName: Музыкальная шкатулка (Пуро, Чёрная Слизь)
+	Tooltip: Шизи
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Музыкальная шкатулка (Танец Пуро)
+	Tooltip: Шизи
+}
+
+PurrpurrStaff: {
+	Tooltip: Призывает огромного фиолетового кота, который будет сражаться за вас.
+	DisplayName: палочка в фиолетомурлыка
+}
+
+TabbyStaff: {
+	Tooltip: Призывает большого полосатого кота, чтобы тот сражался за вас.
+	DisplayName: палочка в полосатая кошка
+}
+
+FennecPlush: {
+	DisplayName: плюшевая фенек
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Двойное щупальце
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Мега-убийца
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: измельчитель
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Трио Щупальцев
+}
+
+Bashskewer: {
+	DisplayName: шампур для ударов
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: демонический шип
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: альпийская шляпа
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: Этот предмет бесполезен и используется только при наведении курсора на лифт.
+	DisplayName: Иконка Лифт Вверх
+}
+
+ElevatorDown: {
+	Tooltip: Этот предмет бесполезен и используется только при наведении курсора на лифт.
+	DisplayName: Иконка Лифт Вниз
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Музыкальная шкатулка (С днем ​​рождения)
+	Tooltip: Шизи
+}
+
+MusicBoxLibrary: {
+	DisplayName: Музыкальная шкатулка (Библиотека)
+	Tooltip: Шизи
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Музыкальная шкатулка (Джунгли белой слизи)
+	Tooltip: Шизи
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Музыкальная шкатулка (Алая Кристаллическая Шахта)
+	Tooltip: Шизи
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Музыкальная шкатулка (Зона Черной Слизи)
+	Tooltip: Шизи
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Музыкальная шкатулка (Король Волков)
+	Tooltip: Шизи
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Знамя Юфэнанок
+}
+
+SummonWolfKing: {
+	Tooltip: Призывает Короля Волков
+	DisplayName: Странное вращающееся кресло
+}
+
+SummonBehemoth: {
+	Tooltip: Призывает Бегемота
+	DisplayName: Огромная рука
+}
+
+DebugResetBosses: {
+	DisplayName: Сбросить прогресс битвы с боссом
+	Tooltip: Сбрасывает прогресс для всех боссов Changed
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: вентилятор
+}
+
+Painting14: {
+	Tooltip: Зззз
+	DisplayName: волчье логово
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Музыкальная шкатулка (Теплица)
+	Tooltip: Шизи
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Музыкальная шкатулка (Лаборатория, медленный)
+	Tooltip: Шизи
+}
+
+MusicBoxVents: {
+	Tooltip: Шизи
+	DisplayName: Музыкальная шкатулка (Вентиляционная труба)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: Знамя белая слизь
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Шкафчик
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Кубики
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Шизи
+	DisplayName: Музыкальная шкатулка (Бегемот)
+}
+
+SummonWhiteTail: {
+	Tooltip: Призывает Белохвостого
+	DisplayName: Подозрительный слизистый шарик
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Да
+	DisplayName: создать всех персонажей
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Белый кристалл
+}
+
+CrystalGreen: {
+	DisplayName: Зеленый кристалл
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Красный кристалл
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Белый столб
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Авууу
+	DisplayName: Ночное существо
+}
+
+Painting16: {
+	DisplayName: Ученый
+	Tooltip: Жуткий
+}
+
+Painting17: {
+	DisplayName: Спящая Лиса
+	Tooltip: Не будите его.
+}
+
+Painting18: {
+	DisplayName: Мир слизи
+	Tooltip: Строительство моста
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Музыкальная шкатулка (Белый хвост)
+	Tooltip: Шизи
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Криокапсула
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Фотографии (Пуро)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Фотографии (Черная слизь)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Фотографии (снаружи)
+}
+
+Pictures4: {
+	DisplayName: Фотографии (коридор)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Фотографии (бактерии)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Фотографии (друзья)
+}
+
+BlackSyringe: {
+	DisplayName: черный шприц
+	Tooltip:
+		'''
+		- Превращает вас в черную слизь
+		- Обеспечивает иммунитет к черной слизи
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: белый шприц
+	Tooltip:
+		'''
+		- Превращает вас в белую слизь
+		- Обеспечивает иммунитет к белой слизи
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Баскетбол
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Диско Кристалл
+	Tooltip: Если носить это с собой, кристаллы будут вести себя как диско-лампы
+}
+
+BlackLatexSolution: {
+	DisplayName: Раствор черной слизи
+	Tooltip: Распространяет черную слизь
+}
+
+WhiteLatexSolution: {
+	DisplayName: Раствор белой слизи
+	Tooltip: Распространяет белую слизь
+}
+
+DryDirtSolution: {
+	DisplayName: Раствор сухой земли
+	Tooltip: расширяет руины города
+}
+
+OrangeStatue: {
+	DisplayName: Апельсин статуя
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Солнцезащитные очки
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: шприц для собаки-кальмара
+	Tooltip: ""
+}
+
+BlackLatexSand: {
+	DisplayName: черный слизистый песок
+	Tooltip:
+		'''
+		может использоваться с Песчаная пушка
+		- Превращает мелких животных и слизь в лужи.
+		- Способствует эволюции черных слизистых чудовищ
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: белый слизистый песок
+	Tooltip:
+		'''
+		может использоваться с Песчаная пушка
+		- Превращает мелких животных и слизь в лужи.
+		- Способствует эволюции белых слизистых чудовищ
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: супершприц
+	Tooltip: Превращает тебя в любое слизистое чудовище.
+}
+
+SummonExperiment009: {
+	DisplayName: Призыв босса Эксперимента 009
+	Tooltip: Незакончено. Из мода Minecraft "Changed Addon Plus".
+}
+
+SummonShark: {
+	DisplayName: Призвать босса-акулу
+	Tooltip: Незакончено.
+}
+
+SweeperItem: {
+	DisplayName: робот-уборщик
+	Tooltip: Он — эксперт по уборке.
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: Он — настоящий скоростной дьявол.
+}
+
+Paper: {
+	DisplayName: Бумага
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: Он — настоящий скоростной дьявол.
+}
+
+BlackLatexCubLicense: {
+	DisplayName: лицензия на черная слизьнок
+	UseLicense: Разрешение телепортирует к службе доставки собаки...
+	Tooltip: Используйте это, чтобы взять щенка черной слизи в свой город.
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: лицензия на белая слизьнок
+	UseLicense: Разрешение телепортирует к службе доставки собаки...
+	Tooltip: Используйте это, чтобы взять белого щенка-слизняка в свой город.
+}
+
+Calendar: {
+	DisplayName: Календарь
+	Tooltip: Позволяет изменить текущий сезон
+}
+
+SombreroHat: {
+	DisplayName: Шляпа-сомбреро
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Рай
+	Tooltip: Живу мечтой
+}
+
+DrunkPainting6: {
+	DisplayName: апельсины фондовый рынок
+	Tooltip: большие прибыли
+}
+
+SkinLion: {
+	DisplayName: Шкура шкура
+	Tooltip: ""
+}
+
+SkinSnep: {
+	DisplayName: Шкура снежного барса
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: Разные шприцы
+	Tooltip: Превращает вас в самых разных слизистых тварей.
+}
+
+TigerSharkSyringe: {
+	DisplayName: Шприц Тигровая акула
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: Водный шприц
+	Tooltip: Превращает вас в водных слизистых чудовищ.
+}
+
+Syringe: {
+	DisplayName: Шприц
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: Шприц кровьполоса
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: Шприц немецкая овчарка
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: Шприц фэнаю
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: Шприц фиолетомурлыка
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: шприц снежного барса
+	Tooltip: ""
+}
