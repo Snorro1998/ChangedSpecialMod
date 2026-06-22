@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Coda Bianca
+		SpawnInfo: Può apparire in qualsiasi zona di melma dopo aver sconfitto almeno 20 bestie di melma.
+		DespawnMessage: Coda Bianca non ti sta più inseguendo
+	}
+
+	WolfKing: {
+		EntryName: Re Lupo
+		SpawnInfo: Si può trovare in una stanza ricoperta di melma nera.
+		DespawnMessage: Re Lupo non ti sta più inseguendo
+	}
+
+	Behemoth: {
+		EntryName: Colosso
+		SpawnInfo: Si può trovare in una stanza ricoperta di melma bianca.
+		DespawnMessage: Colosso non ti sta più inseguendo
+	}
+}

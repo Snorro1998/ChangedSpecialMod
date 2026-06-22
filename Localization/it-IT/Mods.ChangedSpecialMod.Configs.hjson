@@ -1,0 +1,93 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: configurazione client
+
+	TransfurSound: {
+		Label: Suono della trasformazione
+		Tooltip: Se il suono della trasformazione dovesse essere riprodotto.
+	}
+
+	WhipCrackSound: {
+		Tooltip: If whip-like weapons should play a whip crack sound.
+		Label: Whip Crack Sound
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Quando i personaggi parlano, possono usare delle emoticon relative a Changed.
+		Label: Personaggi possono usare le emoticon di Changed
+	}
+
+	ExtraDialogue: {
+		Tooltip: Se si dovesse aggiungere più dialogo ai personaggi standard di Terraria.
+		Label: Dialoghi aggiuntivi
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Varie]"
+		WorldGeneration: "[c/ffeb6e:Generazione mondiale]"
+		Transfur: "[c/ffeb6e:Trasformazione]"
+		Npc: "[c/ffeb6e:Caratteri]"
+	}
+
+	NumberOfLabs: {
+		Label: Numero di laboratori
+		Tooltip:
+			'''
+			Il numero di laboratori per lato del mondo.
+			Il valore predefinito di 1 genererà 1 laboratorio sui mondi di 
+			piccole e medie dimensioni e 2 laboratori sui mondi di grandi dimensioni.
+			ATTENZIONE: Valori elevati su mondi di piccole dimensioni possono 
+			causare il crash del gioco.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Numero massimo di piani
+		Tooltip: Il numero massimo di piani che un laboratorio può avere.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Numero massimo di stanze in orizzontale
+		Tooltip: Il numero massimo di stanze che un laboratorio può avere in direzione orizzontale.
+	}
+
+	LatexSpread: {
+		Label: Espansione della melma
+		Tooltip: Se la melma può diffondersi ad altri blocchi in modalità difficile.
+	}
+
+	LatexSpreadChance: {
+		Label: Possibilità di espansione dello slime
+		Tooltip: La probabilità che la melma si diffonda ad altri blocchi in modalità difficile è di 1 su X.
+	}
+
+	DebugItems: {
+		Label: Elementi di debug
+		Tooltip: Se abilitata, la Dott.ssa K. venderà elementi di debug.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: I personaggi possono trasformare il giocatore
+		Tooltip: Nella maggior parte dei casi, essere uccisi da una bestia melmosa ti trasformerà in una di esse.
+	}
+
+	CustomHealthBar: {
+		Label: Barra della salute colorata
+		Tooltip: Disegna la barra della salute con colori diversi quando viene trasformato.
+	}
+
+	Evolution: {
+		Label: Evoluzione
+		Tooltip: Le bestie di melma diventeranno più grandi e più forti con ogni boss sconfitto.
+	}
+
+	DialoguePortraits: {
+		Label: Ritratti dei personaggi
+		Tooltip:
+			'''
+			Se i personaggi di questa mod hanno un ritratto quando parli con loro.
+			Se si gioca con 'Boulder Backport' installato, questa impostazione viene 
+			ignorata e viene utilizzata invece l'opzione 'Modded Town NPC Portraits'.
+			'''
+	}
+}

@@ -1,0 +1,24 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: rovine della città
+	TownNPCDialogueName: le rovine della città
+}
+
+CityRuinsUndergroundBiome: {
+	DisplayName: City Ruins Underground Biome
+	TownNPCDialogueName: the City Ruins Underground Biome
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: Area di melma bianca
+	TownNPCDialogueName: la area di melma bianca
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: zona di melma nera
+	TownNPCDialogueName: la zona di melma nera
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: il bioma degli ubriachi
+	DisplayName: Ubriaco
+}

@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Zona di melma nera
+	MusicBlackLatexZone2: Miniera di cristallo scarlatto
+	MusicCrystalZone: Zona cristallina
+	MusicWhiteLatexZone: Giungla di melma bianca
+	MusicLibrary: Biblioteca
+	MusicLabSlow: Laboratorio (lento)
+	MusicLab: Laboratorio
+	MusicVents: Tubo di sfiato
+	MusicPuro: Puro, la melma nera
+	MusicGreenhouse: Serra
+	MusicHappyBirthday: Canzone di compleanno
+	MusicPuroDance: La danza di Puro
+	MusicRun: FUGGIRE
+	MusicWhiteTailChase2: Coda Bianca da Caccia, parte seconda
+	# Not 100% sure, because they have no names
+	MusicWolfKing: Il Re Lupo
+	MusicBehemoth: Il Colosso
+	MusicShark: Lo Squalo
+	MusicSquidDog: Cane-calamaro
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}
