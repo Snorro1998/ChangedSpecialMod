@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Biały Ogon
+		SpawnInfo: Może pojawić się w dowolnej strefie śluzu po pokonaniu co najmniej 20 śluzowatych bestii.
+		DespawnMessage: Biały Ogon już cię nie goni
+	}
+
+	WolfKing: {
+		EntryName: Król Wilków
+		SpawnInfo: Można go znaleźć w pomieszczeniu pokrytym czarnym szlamem.
+		DespawnMessage: Król Wilków już cię nie goni
+	}
+
+	Behemoth: {
+		EntryName: Gigant
+		SpawnInfo: Można go znaleźć w pomieszczeniu pokrytym białym szlamem.
+		DespawnMessage: Gigant już cię nie goni
+	}
+}

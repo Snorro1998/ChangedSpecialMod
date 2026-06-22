@@ -1,0 +1,92 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Konfiguracja klienta
+
+	TransfurSound: {
+		Label: Dźwięk transformacji
+		Tooltip: Czy dźwięk transformacji ma zostać odtworzony.
+	}
+
+	WhipCrackSound: {
+		Tooltip: Czy broń przypominająca bicz powinna wydawać dźwięk trzasku bicza?
+		Label: Dźwięk trzasku bicza
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Kiedy postacie rozmawiają, mogą używać emotikonów dotyczących gry Changed.
+		Label: Postacie mogą używać emotikonów Changed
+	}
+
+	ExtraDialogue: {
+		Tooltip: Czy powinno się dodać więcej dialogów do standardowych postaci Terraria?
+		Label: Dodatkowy dialog
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Różnorodny]"
+		WorldGeneration: "[c/ffeb6e:Generacja świata]"
+		Transfur: "[c/ffeb6e:Transformacja]"
+		Npc: "[c/ffeb6e:Postacie]"
+	}
+
+	NumberOfLabs: {
+		Label: Liczba laboratoriów
+		Tooltip:
+			'''
+			Liczba laboratoriów po każdej stronie świata.
+			Domyślna wartość 1 spowoduje wygenerowanie 1 laboratorium w 
+			małych i średnich światach oraz 2 laboratoriów w dużych światach.
+			OSTRZEŻENIE Duże wartości w małych światach mogą spowodować zawieszenie gry.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Maksymalna liczba pięter
+		Tooltip: Maksymalna liczba pięter, jaką może mieć laboratorium.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Maksymalna liczba pomieszczeń poziomych
+		Tooltip: Maksymalna liczba pomieszczeń, jakie laboratorium może mieć w kierunku poziomym.
+	}
+
+	LatexSpread: {
+		Label: Rozprzestrzenianie się szlamu
+		Tooltip: Czy szlam może rozprzestrzeniać się na inne bloki w trybie hardmode?
+	}
+
+	LatexSpreadChance: {
+		Label: Szansa na rozprzestrzenianie się śluzu
+		Tooltip: Prawdopodobieństwo 1 do X, że szlam rozprzestrzeni się na inne bloki w trybie hardmode.
+	}
+
+	DebugItems: {
+		Label: Elementy debugowania
+		Tooltip: Jeśli włączone, Dr K. będzie sprzedawać przedmioty debugowe.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: Postacie mogą transformować gracza
+		Tooltip: W większości przypadków, jeśli zostaniesz zabity przez śluzowatą bestię, staniesz się jednym z nich.
+	}
+
+	CustomHealthBar: {
+		Label: Kolorowy pasek zdrowia
+		Tooltip: Jeśli gracz ulegnie transformacji, pasek zdrowia będzie miał różne kolory.
+	}
+
+	Evolution: {
+		Label: Ewolucja
+		Tooltip: Bestie śluzowate będą stawać się większe i silniejsze po pokonaniu każdego bossa.
+	}
+
+	DialoguePortraits: {
+		Label: Portrety postaci
+		Tooltip:
+			'''
+			Czy postacie w tym modzie mają portrety, gdy z nimi rozmawiasz.
+			Jeśli grasz z zainstalowanym „Boulder Backport”, to ustawienie jest ignorowane 
+			i zamiast niego używana jest opcja „Modded Town NPC Portraits”.
+			'''
+	}
+}

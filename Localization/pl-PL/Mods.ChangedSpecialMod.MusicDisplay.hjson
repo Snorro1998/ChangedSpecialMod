@@ -1,0 +1,30 @@
+ModName: Changed
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Strefa czarnego szlamu
+	MusicBlackLatexZone2: Kopalnia szkarłatnego kryształu
+	MusicCrystalZone: Strefa kryształowa
+	MusicWhiteLatexZone: Dżungla białego szlamu
+	MusicLibrary: Biblioteka
+	MusicLabSlow: Laboratorium (powolny)
+	MusicLab: Laboratorium
+	MusicVents: Rura odpowietrzająca
+	MusicPuro: Puro, czarny szlam
+	MusicGreenhouse: Szklarnia
+	MusicHappyBirthday: Piosenka urodzinowa
+	MusicPuroDance: Taniec Puro
+	MusicRun: UCIEC
+	MusicWhiteTailChase2: biały ogon polujący cz. 2
+	# Not 100% sure, because they have no names
+	MusicWolfKing: Król Wilków
+	MusicBehemoth: Gigant
+	MusicShark: Rekin
+	MusicSquidDog: Pies-kałamarnica
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

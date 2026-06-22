@@ -1,0 +1,24 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: Ruiny miasta
+	TownNPCDialogueName: Ruiny miasta
+}
+
+CityRuinsUndergroundBiome: {
+	DisplayName: City Ruins Underground Biome
+	TownNPCDialogueName: the City Ruins Underground Biome
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: Obszar białego szlamu
+	TownNPCDialogueName: Obszar białego szlamu
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: Obszar czarnego szlamu
+	TownNPCDialogueName: Obszar czarnego szlamu
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: Pijany biom
+	DisplayName: Pijany
+}

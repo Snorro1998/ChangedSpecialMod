@@ -1,0 +1,779 @@
+Painting1: {
+	DisplayName: Zabawna kulka futra
+	Tooltip: Uroczy, dopóki nie dorośnie
+}
+
+Painting2: {
+	DisplayName: Król Wilków
+	Tooltip: Potężna bestia
+}
+
+Painting3: {
+	DisplayName: Efekty pomarańczy
+	Tooltip: Zdrowy
+}
+
+Painting4: {
+	DisplayName: Ciiiiiii
+	Tooltip: Cicho, bo cię znajdą
+}
+
+Painting5: {
+	DisplayName: Komedia
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: Ciemny Ninja
+	Tooltip: Epicki
+}
+
+Painting7: {
+	DisplayName: Najlepsi przyjaciele
+	Tooltip: Przytulny
+}
+
+Painting8: {
+	DisplayName: Czas na przekąskę
+	Tooltip: Smaczny
+}
+
+Painting9: {
+	DisplayName: Puro, czarny szlam
+	Tooltip: Uroczy
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: Pies-kałamarnica
+	Tooltip: Groźny mięczak
+}
+
+Painting12: {
+	DisplayName: Irbis
+	Tooltip: Spokojny
+}
+
+Painting13: {
+	DisplayName: Złapany
+	Tooltip: O nie
+}
+
+DrunkPainting1: {
+	DisplayName: Pomarań
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Rekini
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: Pieskałama
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: Purbles
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: Pozytywka (Laboratorium)
+	Tooltip: Przez ShiZi
+}
+
+DarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Sztandar czarny szlam
+}
+
+SquidDogBanner: {
+	DisplayName: Sztandar pies-kałamarnica
+	Tooltip: ""
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Winda
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Pluszowy Puro
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Piłka do koszykówki (można umieścić)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Pluszowy Rekin
+}
+
+Orange: {
+	DisplayName: Pomarańcza
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Czarny blok szlamu
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Blok ostrzegawczy
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Blok suchego brudu
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Niebieska butla gazowa
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Niebieskie krzesło biurowe
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Dokument Papierowy
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Generator
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Zielony fotel biurowy
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Skaner tęczówki
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Drzwi laboratoryjne
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Stół laboratoryjny
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Stos książek
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Pozytywka (Strefa Kryształowa)
+	Tooltip: Przez ShiZi
+}
+
+PackingBox: {
+	DisplayName: Pudełko do pakowania
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Klucz do opakowania
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Czerwony butla gazowa
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Czerwony fotel biurowy
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Stos pudełek
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Pudełko do przechowywania
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Klucz do schowka
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Biała śliska biblioteczka
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Płytka laboratoryjna
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: Biały blok szlamu
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Zgniła pomarańcza
+	Tooltip: Wystarczy trzymać to w dłoni, żeby zobaczyć dziwne rzeczy
+}
+
+TigerPaw: {
+	DisplayName: szkarłatny pazur
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Encyklopedia
+	Tooltip: Poczuj ciężar wiedzy
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Róg grozy
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Bicz mięczakowy
+}
+
+WendigoBanner: {
+	Tooltip: ""
+	DisplayName: Sztandar Wendigo
+}
+
+BloodstripeBanner: {
+	Tooltip: ""
+	DisplayName: Sztandar Krewpaski
+}
+
+BlackGoopBanner: {
+	DisplayName: Sztandar czarna kałuża
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Sztandar biała kałuża
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Sztandar owczarek niemiecki
+	Tooltip: ""
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Śliska podkowa
+	Tooltip: Przywołuje wierzchowca w postaci białego szlamu, na którym można jeździć
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Czarne skrzydło
+	Tooltip: Przywołuje wierzchowca Yufeng, na którym można jeździć
+}
+
+Literature: {
+	DisplayName: Literatura
+	Tooltip: Pełen popularnych tematów
+}
+
+WhiskerStaff: {
+	DisplayName: Różdżka wąsata
+	Tooltip: Przywołuje kota, który będzie walczył za ciebie
+}
+
+PurrpurrBanner: {
+	DisplayName: Sztandar fioletomruc
+	Tooltip: ""
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Deszcz książek
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Konewka
+}
+
+MusicBoxPuro: {
+	DisplayName: Pozytywka (Puro, czarny szlam)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Pozytywka (Taniec Puro)
+	Tooltip: Przez ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Przywołuje ogromnego fioletowego kota, który będzie walczył dla ciebie
+	DisplayName: Różdżka fioletomruc
+}
+
+TabbyStaff: {
+	Tooltip: Przywołuje dużego, pręgowanego kota, który będzie walczył dla ciebie
+	DisplayName: Różdżka dla kota pręgowanego
+}
+
+FennecPlush: {
+	DisplayName: Pluszowy Fenek
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Podwójne macki
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Mega pazur
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Niszczarka
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Potrójny macek
+}
+
+Bashskewer: {
+	DisplayName: Szpikulec do tłuczenia
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Kolczasty demon
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Kapelusz alpejski
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: Ten element nie robi nic i jest używany tylko po najechaniu kursorem na windę
+	DisplayName: Ikona windy w górę
+}
+
+ElevatorDown: {
+	Tooltip: Ten element nie robi nic i jest używany tylko po najechaniu kursorem na windę
+	DisplayName: Ikona windy w dół
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Pozytywka (Wszystkiego najlepszego z okazji urodzin)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Pozytywka (Biblioteka)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Pozytywka (Biała dżungla szlamowa)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Pozytywka (Kopalnia Kryształu Szkarłatnego)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Pozytywka (Strefa czarnego szlamu)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Pozytywka (Król Wilków)
+	Tooltip: Przez ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: ""
+	DisplayName: Sztandar Szczeniak Yufeng
+}
+
+SummonWolfKing: {
+	Tooltip: Przywołuje Króla Wilków
+	DisplayName: Dziwny obrotowy fotel
+}
+
+SummonBehemoth: {
+	Tooltip: Przywołuje Gigant
+	DisplayName: Ogromna ręka
+}
+
+DebugResetBosses: {
+	DisplayName: Zresetuj postęp walki z bossem
+	Tooltip: Resetuje postęp dla wszystkich bossów Changed
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Wentylator
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Wilcza Jama
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Pozytywka (Szklarnia)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Pozytywka (Laboratorium, powolny)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: Przez ShiZi
+	DisplayName: Pozytywka (Rura odpowietrzająca)
+}
+
+WhiteLatexBanner: {
+	Tooltip: ""
+	DisplayName: Sztandar biały szlam
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Szafka
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Klocki zabawkowe
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Przez ShiZi
+	DisplayName: Pozytywka (Gigant)
+}
+
+SummonWhiteTail: {
+	Tooltip: Przywołuje Białego Ogona
+	DisplayName: Podejrzana kula śluzu
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Tak
+	DisplayName: Stwórz wszystkie postacie
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Biały kryształ
+}
+
+CrystalGreen: {
+	DisplayName: Zielony kryształ
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Czerwony kryształ
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Biały filar
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Awuu
+	DisplayName: Potwór nocy
+}
+
+Painting16: {
+	DisplayName: Naukowiec
+	Tooltip: Upiorny
+}
+
+Painting17: {
+	DisplayName: Śpiący lis
+	Tooltip: Nie budź go
+}
+
+Painting18: {
+	DisplayName: Świat szlamu
+	Tooltip: Budowanie mostu
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Pozytywka (Biały ogon)
+	Tooltip: Przez ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Kriopod
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Kino (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Kino (Czarny szlam)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Kino (Poza)
+}
+
+Pictures4: {
+	DisplayName: Kino (Korytarz)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Kino (Bakteria)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Kino (Przyjaciele)
+}
+
+BlackSyringe: {
+	DisplayName: Czarna strzykawka
+	Tooltip:
+		'''
+		- Zamienia cię w czarny szlam
+		- Zapewnia odporność na czarne szlamy
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: White Syringe
+	Tooltip:
+		'''
+		- Zamienia cię w biały szlam
+		- Zapewnia odporność na biały śluz
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Piłka do koszykówki
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Kryształ dyskotekowy
+	Tooltip: Noszenie tego sprawi, że kryształy będą zachowywać się jak światła dyskotekowe
+}
+
+BlackLatexSolution: {
+	DisplayName: Czarny roztwór szlamu
+	Tooltip: Rozszerza obszar czarnego śluzu
+}
+
+WhiteLatexSolution: {
+	DisplayName: Roztwór białego szlamu
+	Tooltip: Rozszerza obszar białego śluzu
+}
+
+DryDirtSolution: {
+	DisplayName: Suchy roztwór brudu
+	Tooltip: Rozszerza ruiny miasta
+}
+
+OrangeStatue: {
+	DisplayName: Pomarańczowa statua
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Okulary przeciwsłoneczne
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: Strzykawka dla pies-kałamarnica
+	Tooltip: ""
+}
+
+BlackLatexSand: {
+	DisplayName: Czarny śliski piasek
+	Tooltip:
+		'''
+		Można używać z Piaskowy pistolet
+		- Zamienia stworzenia i szlamy w kałuże
+		- Sprawia, że ​​czarne, śluzowate bestie ewoluują
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: Biały śliski piasek
+	Tooltip:
+		'''
+		Można używać z Piaskowy pistolet
+		- Zamienia stworzenia i szlamy w kałuże
+		- Sprawia, że ​​białe, śluzowate bestie ewoluują
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: Super Strzykawka
+	Tooltip: Zamienia Cię w dowolną bestię-śluz
+}
+
+SummonExperiment009: {
+	DisplayName: Przywołaj Bossa Eksperymentu 009
+	Tooltip: Niedokończony. Z moda Minecraft „Changed Addon Plus”.
+}
+
+SummonShark: {
+	DisplayName: Przywołaj szefa rekina
+	Tooltip: Niedokończony.
+}
+
+SweeperItem: {
+	DisplayName: Robot zamiatający
+	Tooltip: Ekspert od sprzątania
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: Vroom
+}
+
+Paper: {
+	DisplayName: Papier
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: On jest diabłem prędkości
+}
+
+BlackLatexCubLicense: {
+	DisplayName: licencja na szczeniak czarnego szlamu
+	UseLicense: Pozwolenie teleportuje się do usługi dostarczania psów...
+	Tooltip: Użyj, aby adoptować czarnego szczeniaka-śluza do swojego miasta
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: licencja na szczeniak białego szlamu
+	UseLicense: Pozwolenie teleportuje się do usługi dostarczania psów...
+	Tooltip: Użyj, aby adoptować szczeniaka białego szlamu do swojego miasta
+}
+
+Calendar: {
+	DisplayName: Kalendarz
+	Tooltip: Umożliwia zmianę bieżącego sezonu
+}
+
+SombreroHat: {
+	DisplayName: Kapelusz sombrero
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Raj
+	Tooltip: Życie marzeniami
+}
+
+DrunkPainting6: {
+	DisplayName: Zapasy cytrusów
+	Tooltip: Duże zyski
+}
+
+SkinLion: {
+	DisplayName: Skóra Iwa
+	Tooltip: ""
+}
+
+SkinSnep: {
+	DisplayName: Skóra Irbisa
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: Różne strzykawki
+	Tooltip: Zamienia cię w różnorodne bestie-śluzy
+}
+
+TigerSharkSyringe: {
+	DisplayName: Strzykawka z rekinem tygrysim
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: Strzykawka wodna
+	Tooltip: Zamienia cię w wodne bestie-śluz
+}
+
+Syringe: {
+	DisplayName: Strzykawka
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: Strzykawka krewpaski
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: Strzykawka owczarek niemiecki
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: Strzykawka Feng Yu
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: Strzykawka fioletomruc
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: Strzykawka irbisa
+	Tooltip: ""
+}

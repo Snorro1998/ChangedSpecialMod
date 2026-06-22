@@ -64,7 +64,7 @@ For information about previous versions, please check out the change notes in th
 0.5.3
 
 General
-- Added French, Portuguese and Russian translations
+- Added all remaining languages: French, Portuguese, Russian, Italian and Polish
 - Removed Puro's shimmer variant, because it looked the same
 - Transfurs are no longer saved for now when exiting a world, because it was causing issues
 - Added some custom window titles (the bar at the top of the screen if you are not playing in fullscreen)
