@@ -1,5 +1,4 @@
-﻿
-﻿[h1]Changed Special Mod[/h1]
+﻿﻿[h1]Changed Special Mod[/h1]
 This Terraria mod is about the game Changed by DragonSnow. It adds laboratories on the surface where you will find Latex beasts. They are quite strong and grow stronger with every boss defeated.
 
 [h2]Contents[/h2]
@@ -35,8 +34,8 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
-[h2]Multiplayer[h2]
-There was no logic for multiplayer in previous versions, which caused a lot of issues. Most of these problems are now fixed, except desyncing of other players' transfurs. This means that they are transfurred, but you can't see it. It can happen when a player is transfurred and another player enters the world. An indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any syringe, except the squid dog syringe (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+[h2]Multiplayer[/h2]
+Most things should work fine in multiplayer. In rare cases, you might encounter desycing of player transfurs. This means that they are transfurred, but you can't see it. A possible indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any of the combined syringes (it's hard to explain, but it has to be a syringe that makes the interface pop up).
 
 
 [h2]Credits[/h2]
@@ -60,7 +59,7 @@ There was no logic for multiplayer in previous versions, which caused a lot of i
 [list]
 	[*]The translations were mostly made with Google Translate, so they may contains errors. If you find anything wrong or want to contribute to improve them, feel free to let me know.
 [/list]
-[b]Other[b]
+[b]Other[/b]
 [list]
 	[*]Some things were inspired by the Changed Minecraft mods
 [/list]
@@ -75,13 +74,14 @@ For information about previous versions, please check out the change notes in th
 [b]General[/b]
 [list]
 	[*]Added all remaining languages: French, Portuguese, Russian, Italian and Polish
+	[*]Added Colin. He doesn't do much yet, so you have to spawn him in with a debug item sold by Dr K.
 	[*]Removed Puro's shimmer variant, because it looked the same
 	[*]Transfurs are no longer saved for now when exiting a world, because it was causing issues
 	[*]Added some custom window titles (the bar at the top of the screen if you are not playing in fullscreen)
 	[*]Added animal skins for the Feng Yu (lion) and Snow Leopard, so they don't drop tiger and normal leopard skins anymore
 [/list]
 
-Transfur
+[b]Transfur[/b]
 [list]
 	[*]Added German Shepherd, Feng Yu, Snow Leopard, Bloodstripe and Purrpurr
 	[*]Dr K sells empty syringes. You need them to create the new transfur syringes
@@ -89,9 +89,10 @@ Transfur
 	[*]The sprites of the combined syringes are now diagonal to see the difference easier
 [/list]
 
-Fixes
+[b]Fixes[/b]
 [list]
 	[*]Active transfurs not displayed after joining a multiplayer world
 	[*]Improved mod translations by reading through vanilla translations
 	[*]Added some missing translations
+	[*]Wendigo transfur was drawn too big
 [/list]

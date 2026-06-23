@@ -81,3 +81,4 @@ Fixes
 - Active transfurs not displayed after joining a multiplayer world
 - Improved mod translations by reading through vanilla translations
 - Added some missing translations
+- Wendigo transfur was drawn too big
