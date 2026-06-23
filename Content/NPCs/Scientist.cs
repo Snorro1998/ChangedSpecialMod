@@ -380,6 +380,7 @@ namespace ChangedSpecialMod.Content.NPCs
             new NPCShop(Type, Shops[5].InternalName)
                 .Add<DebugSpawnAllNPCs>()
                 .Add<DebugResetBosses>()
+                .Add<DebugSpawnColin>()
                 .Add<SummonShark>()
                 .Add<SummonExperiment009>()
                 .Register();

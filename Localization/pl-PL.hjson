@@ -38,6 +38,7 @@ Mods: {
 			BossProgressionReset: Reset progresji bossów w Changed!
 			WolfKingCanSpawn: Słyszysz odległe wycie dochodzące z laboratorium...
 			BehemothCanSpawn: Coś porusza się w strefie białego szlamu...
+			// ColinCanSpawn: Someone is on their way to you...
 			WIPBossFight: Ta walka z bossem jest wciąż rozwijana, więc na razie nie spodziewaj się wiele.
 		}
 
@@ -199,7 +200,7 @@ Mods: {
 					Normal6: Myślałeś, że Biały Ogon jest zły? Poczekaj, aż zobaczysz, jakiego potwora kiedyś był częścią.
 					Normal7: Nie martw się! Jeśli ten eksperyment się powiedzie, zniszczeniu ulegnie tylko połowa budynku.
 					Normal8: Może i stałeś się silniejszy, ale śluzowate bestie też. Więc ostatecznie... nic się nie zmieniło.
-					Normal9: Do you want to know something interesting? Did you know that I don't have side sprites in my original game?
+					Normal9: Chcesz wiedzieć coś ciekawego? Czy wiesz, że w mojej oryginalnej grze nie ma żadnych duszków, na których patrzę na boki?
 					Normal10: Miło widzieć, że nie jesteś jedynym człowiekiem, który przetrwał wirusa bladości.
 					Normal11: With so many different latex beasts it became difficult to name them all. So that's why we came up with very scientific names like 'Squid Dog' for a Squid and Dog amalgamation or 'Purrpurr' for a purple purring cat.
 					Crimson1: "{Crimson}Świetnie, uratowałem świat przed śmiercionośnym wirusem, a teraz niszczy go Szkarłat."
@@ -626,6 +627,31 @@ Mods: {
 				DisplayName: Robot konserwacyjny
 				Description: Robot zaprogramowany do pełnienia funkcji automatycznego strażnika, który będzie chronił każdego, kto spróbuje naruszyć bezpieczeństwo.
 			}
+
+			Colin: {
+				DisplayName: Ocalały
+				Description: Jedyny obiekt testów, któremu udało się uciec z budynku Thunder Science.
+
+				TownNPCMood: {
+					// Content: ...
+					// NoHome: ...
+					// FarFromHome: ...
+					// LoveSpace: ...
+					// DislikeCrowded: ...
+					// HateCrowded: ...
+					// LoveBiome: ...
+					// LikeBiome: ...
+					// HateBiome: ...
+					// LoveNPC: ...
+					// LikeNPC: ...
+					// DislikeNPC: ...
+					// HateNPC: ...
+					// LikeNPC_Princess: ...
+					// Princess_LovesNPC: ...
+				}
+
+				Census.SpawnCondition: Za pomocą elementu debugowania.
+			}
 		}
 
 		Emotes: {
@@ -717,8 +743,8 @@ SpecialWorldName.TheConstant: Mmmmm Pomarańczowy
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-	PlayerIsCreativeAndWorldIsNotCreative: "Człowiek! Tylko postacie niegrające w Podróż mogą używać nienależących do niej światów."
-	PlayerIsNotCreativeAndWorldIsCreative: "Człowiek! Tylko postacie grające w Podróż mogą używać należących do niej światów."
+	PlayerIsCreativeAndWorldIsNotCreative: Człowiek! Tylko postacie niegrające w Podróż mogą używać nienależących do niej światów.
+	PlayerIsNotCreativeAndWorldIsCreative: Człowiek! Tylko postacie grające w Podróż mogą używać należących do niej światów.
 }
 
 GameTitle: {

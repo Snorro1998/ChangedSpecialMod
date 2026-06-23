@@ -777,3 +777,8 @@ SnepSyringe: {
 	DisplayName: Jeringa de Leopardo de las nieves
 	Tooltip: ""
 }
+
+DebugSpawnColin: {
+	// DisplayName: Debug Spawn Colin
+	// Tooltip: ""
+}

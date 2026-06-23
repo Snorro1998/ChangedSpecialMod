@@ -430,11 +430,11 @@ namespace ChangedSpecialMod.Content.NPCs
             var frame = NPC.frame;
             var fr = frame.Top / frameHeight;
 
-            if (fr == 1 || fr == 13 || fr == 14 || fr == 15)
+            if (fr == 1 || fr == 13 || fr == 14 || fr == 15 || fr == 35 || fr == 36 || fr == 37)
             {
                 beerXOffset = 5;
             }
-            else if (fr == 6 || fr == 7 || fr == 8)
+            else if (fr == 6 || fr == 7 || fr == 8 || fr == 28 || fr == 29 || fr == 30)
             {
                 beerXOffset = 11;
             }

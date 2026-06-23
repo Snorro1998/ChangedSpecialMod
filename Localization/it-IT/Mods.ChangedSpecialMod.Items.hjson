@@ -777,3 +777,8 @@ SnepSyringe: {
 	DisplayName: Snow Leopard Syringe
 	Tooltip: ""
 }
+
+DebugSpawnColin: {
+	// DisplayName: Debug Spawn Colin
+	// Tooltip: ""
+}

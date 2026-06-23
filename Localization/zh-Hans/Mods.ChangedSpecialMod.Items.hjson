@@ -777,3 +777,8 @@ SnepSyringe: {
 	DisplayName: 雪豹注射器
 	Tooltip: ""
 }
+
+DebugSpawnColin: {
+	// DisplayName: Debug Spawn Colin
+	// Tooltip: ""
+}

@@ -777,3 +777,8 @@ SnepSyringe: {
 	DisplayName: шприц снежного барса
 	Tooltip: ""
 }
+
+DebugSpawnColin: {
+	// DisplayName: Debug Spawn Colin
+	// Tooltip: ""
+}

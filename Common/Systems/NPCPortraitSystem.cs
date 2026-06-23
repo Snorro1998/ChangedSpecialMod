@@ -43,6 +43,7 @@ namespace ChangedSpecialMod.Common.Systems
             npcsWithPortraits.Add(ModContent.NPCType<Puro>());
             npcsWithPortraits.Add(ModContent.NPCType<Prototype>());
             npcsWithPortraits.Add(ModContent.NPCType<Scientist>());
+            npcsWithPortraits.Add(ModContent.NPCType<Colin>());
             DummyLoad();
         }
 

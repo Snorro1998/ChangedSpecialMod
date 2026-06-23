@@ -777,3 +777,8 @@ SnepSyringe: {
 	DisplayName: Schneeleopardenspritze
 	Tooltip: ""
 }
+
+DebugSpawnColin: {
+	// DisplayName: Debug Spawn Colin
+	// Tooltip: ""
+}

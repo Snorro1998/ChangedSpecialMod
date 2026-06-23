@@ -65,6 +65,7 @@ For information about previous versions, please check out the change notes in th
 
 General
 - Added all remaining languages: French, Portuguese, Russian, Italian and Polish
+- Added Colin. He doesn't do much yet, so you have to spawn him in with a debug item sold by Dr K.
 - Removed Puro's shimmer variant, because it looked the same
 - Transfurs are no longer saved for now when exiting a world, because it was causing issues
 - Added some custom window titles (the bar at the top of the screen if you are not playing in fullscreen)

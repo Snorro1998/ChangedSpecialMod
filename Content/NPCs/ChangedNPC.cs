@@ -274,7 +274,11 @@ namespace ChangedSpecialMod.Content.NPCs
             var isPuro = npc.type == ModContent.NPCType<Puro>();
             var isDrK = npc.type == ModContent.NPCType<Scientist>();
             var isPrototype = npc.type == ModContent.NPCType<Prototype>();
-            var isChangedNPC = isPuro || isDrK || isPrototype;
+            var isColin = npc.type == ModContent.NPCType<Colin>();
+            var isChangedNPC = isPuro || isDrK || isPrototype || isColin;
+
+            //if (isColin)
+            //    return new List<int> { EmoteID.DebuffSilence };
 
             List<int> changedEmotes = new List<int>
             {
