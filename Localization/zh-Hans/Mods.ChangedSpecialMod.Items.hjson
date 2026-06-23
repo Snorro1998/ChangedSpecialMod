@@ -779,6 +779,6 @@ SnepSyringe: {
 }
 
 DebugSpawnColin: {
-	// DisplayName: Debug Spawn Colin
-	// Tooltip: ""
+	DisplayName: 召唤林
+	Tooltip: ""
 }
