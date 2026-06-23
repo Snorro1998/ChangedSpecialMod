@@ -61,6 +61,11 @@ Other
 This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
+0.5.3.1 (hotfix)
+
+Fixes
+- Town NPCs could talk about the Changed NPCs, even if they were not present yet
+
 0.5.3
 
 General

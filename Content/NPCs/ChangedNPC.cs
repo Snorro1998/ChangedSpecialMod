@@ -475,6 +475,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 foreach (var npcName in npcNames)
                 {
+                    if (!keywords.ContainsKey($"{npcName}Present"))
+                        continue;
                     randomChat = GetDialogueTextNPC(npcIdentifier, npcName, keywords);
                     if (randomChat != null)
                         chatOptions.Add(randomChat);
