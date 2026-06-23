@@ -1,46 +1,46 @@
 Painting1: {
-	DisplayName: The Silly Poofball
-	Tooltip: Adorable until he grows up
+	DisplayName: La sciocca palla di pelo
+	Tooltip: Adorabile finché non cresce
 }
 
 Painting2: {
-	DisplayName: Wolf King
-	Tooltip: A mighty beast
+	DisplayName: Re Lupo
+	Tooltip: Una bestia possente
 }
 
 Painting3: {
-	DisplayName: The Effects of Oranges
-	Tooltip: Healthy
+	DisplayName: Gli effetti delle arance
+	Tooltip: Salutare
 }
 
 Painting4: {
 	DisplayName: Shhhhhh
-	Tooltip: Quiet, or else they will find you
+	Tooltip: Silenzio, altrimenti ti troveranno
 }
 
 Painting5: {
-	DisplayName: Comedy
-	Tooltip: HAHAHAHA!
+	DisplayName: Commedia
+	Tooltip: AHAHAHAHA!
 }
 
 Painting6: {
-	DisplayName: The Dark Ninja
-	Tooltip: Epic
+	DisplayName: Il Ninja Oscuro
+	Tooltip: Epico
 }
 
 Painting7: {
-	DisplayName: Best Buddies
-	Tooltip: Cuddly
+	DisplayName: Migliori amici
+	Tooltip: Abbraccio
 }
 
 Painting8: {
-	DisplayName: Snack Time
-	Tooltip: Tasty
+	DisplayName: L'ora dello spuntino
+	Tooltip: Gustoso
 }
 
 Painting9: {
-	DisplayName: Puro the Black Goo
-	Tooltip: Cute
+	DisplayName: Puro la melma nera
+	Tooltip: Carino
 }
 
 Painting10: {
@@ -49,32 +49,32 @@ Painting10: {
 }
 
 Painting11: {
-	DisplayName: The Squid Dog
-	Tooltip: A Menacing Mollusc
+	DisplayName: Il cane calamaro
+	Tooltip: Un mollusco minaccioso
 }
 
 Painting12: {
-	DisplayName: Snow Leopard
-	Tooltip: Calm
+	DisplayName: Leopardo delle nevi
+	Tooltip: Calmo
 }
 
 Painting13: {
-	DisplayName: Caught
+	DisplayName: Catturato
 	Tooltip: Oh no
 }
 
 DrunkPainting1: {
-	DisplayName: Orang
+	DisplayName: Aranccc
 	Tooltip: Mmmm
 }
 
 DrunkPainting2: {
-	DisplayName: Shork
+	DisplayName: Squalolo
 	Tooltip: Derp
 }
 
 DrunkPainting3: {
-	DisplayName: Squog
+	DisplayName: Canemaro
 	Tooltip: Derp
 }
 
@@ -84,697 +84,697 @@ DrunkPainting4: {
 }
 
 MusicBoxLab: {
-	DisplayName: Music Box (Laboratory)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Laboratorio)
+	Tooltip: Di ShiZi
 }
 
 DarkLatexBanner: {
 	Tooltip: ""
-	DisplayName: Black Latex Banner
+	DisplayName: Stendardo melma nera
 }
 
 SquidDogBanner: {
-	DisplayName: Squid Dog Banner
+	DisplayName: Stendardo cane calamaro
 	Tooltip: ""
 }
 
 Elevator: {
 	Tooltip: ""
-	DisplayName: Elevator
+	DisplayName: Ascensore
 }
 
 PuroPlush: {
 	Tooltip: ""
-	DisplayName: Puro Plush
+	DisplayName: Peluche di Puro
 }
 
 Basketball: {
 	Tooltip: ""
-	DisplayName: Basketball (Placeable)
+	DisplayName: Pallone da basket (Posizionabile)
 }
 
 SharkPlush: {
 	Tooltip: ""
-	DisplayName: Shark Plush
+	DisplayName: Peluche Squalo
 }
 
 Orange: {
-	DisplayName: Orange
+	DisplayName: Arancia
 	Tooltip: ""
 }
 
 BlackLatexBlock: {
-	DisplayName: Black Latex Block
+	DisplayName: Blocco di melma nera
 	Tooltip: ""
 }
 
 CautionTileBlock: {
-	DisplayName: Caution Tile Block
+	DisplayName: Blocco di avviso
 	Tooltip: ""
 }
 
 DryDirtBlock: {
-	DisplayName: Dry Dirt Block
+	DisplayName: Blocco di terra secca
 	Tooltip: ""
 }
 
 BlueGasTank: {
-	DisplayName: Blue Gas Cylinder
+	DisplayName: Bombola di gas blu
 	Tooltip: ""
 }
 
 BlueOfficeChair: {
-	DisplayName: Blue Office Chair
+	DisplayName: Sedia da ufficio blu
 	Tooltip: ""
 }
 
 DocumentPaper: {
-	DisplayName: Document Paper
+	DisplayName: Documento cartaceo
 	Tooltip: ""
 }
 
 Generator: {
-	DisplayName: Generator
+	DisplayName: Generatore
 	Tooltip: ""
 }
 
 GreenOfficeChair: {
-	DisplayName: Green Office Chair
+	DisplayName: Sedia da ufficio verde
 	Tooltip: ""
 }
 
 IrisScanner: {
-	DisplayName: Iris Scanner
+	DisplayName: Scanner dell'iride
 	Tooltip: ""
 }
 
 LabDoor: {
-	DisplayName: Lab Door
+	DisplayName: Porta del laboratorio
 	Tooltip: ""
 }
 
 LabTable: {
-	DisplayName: Lab Table
+	DisplayName: Tavolo da laboratorio
 	Tooltip: ""
 }
 
 MountBookest: {
-	DisplayName: Mount Bookest
+	DisplayName: Pila di libri
 	Tooltip: ""
 }
 
 MusicBoxCrystalZone: {
-	DisplayName: Music Box (Crystal Zone)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (zona cristallina)
+	Tooltip: Di ShiZi
 }
 
 PackingBox: {
-	DisplayName: Packing Box
+	DisplayName: Scatola di imballaggio
 	Tooltip: ""
 }
 
 PackingBoxKey: {
-	DisplayName: Packing Box Key
+	DisplayName: Chiave della scatola di imballaggio
 	Tooltip: ""
 }
 
 RedGasTank: {
-	DisplayName: Red Gas Cylinder
+	DisplayName: Bombola di gas rossa
 	Tooltip: ""
 }
 
 RedOfficeChair: {
-	DisplayName: Red Office Chair
+	DisplayName: Sedia da ufficio rossa
 	Tooltip: ""
 }
 
 StackOfBoxes: {
-	DisplayName: Stack Of Boxes
+	DisplayName: Pila di scatole
 	Tooltip: ""
 }
 
 StorageBox: {
-	DisplayName: Storage Box
+	DisplayName: Scatola portaoggetti
 	Tooltip: ""
 }
 
 StorageBoxKey: {
-	DisplayName: Storage Box Key
+	DisplayName: Chiave della scatola di stoccaggio
 	Tooltip: ""
 }
 
 WhiteLatexBookcases: {
-	DisplayName: White Latex Bookcases
+	DisplayName: Libreria ricoperta di melma bianca
 	Tooltip: ""
 }
 
 LabTileBlock: {
-	DisplayName: Lab Tile Block
+	DisplayName: Blocco di piastrelle da laboratorio
 	Tooltip: ""
 }
 
 WhiteLatexBlock: {
-	DisplayName: White Latex Block
+	DisplayName: Blocco di melma bianca
 	Tooltip: ""
 }
 
 RottenOrange: {
-	DisplayName: Rotten Orange
-	Tooltip: Just holding this is enough to see strange things
+	DisplayName: Arancia marcia
+	Tooltip: Basta tenere in mano questo per vedere cose strane
 }
 
 TigerPaw: {
-	DisplayName: Crimclaw
+	DisplayName: Artiglio cremisi
 	Tooltip: ""
 }
 
 Encyclopedia: {
-	DisplayName: Encyclopedia
-	Tooltip: Feel the weight of knowledge
+	DisplayName: Enciclopedia
+	Tooltip: Senti il ​​peso della conoscenza
 }
 
 Dreadhorn: {
 	Tooltip: ""
-	DisplayName: Dreadhorn
+	DisplayName: Corno terrificante
 }
 
 Mollash: {
 	Tooltip: ""
-	DisplayName: Mollash
+	DisplayName: Frusta di molluschi
 }
 
 WendigoBanner: {
 	Tooltip: ""
-	DisplayName: Wendigo Banner
+	DisplayName: Stendardo Wendigo
 }
 
 BloodstripeBanner: {
 	Tooltip: ""
-	DisplayName: Bloodstripe Banner
+	DisplayName: Stendardo Sanguestriscia
 }
 
 BlackGoopBanner: {
-	DisplayName: Black Goop Banner
+	DisplayName: Stendardo pozzanghera nera
 	Tooltip: ""
 }
 
 WhiteGoopBanner: {
-	DisplayName: White Goop Banner
+	DisplayName: Stendardo pozzanghera bianca
 	Tooltip: ""
 }
 
 GermanShepherdBanner: {
-	DisplayName: German Shepherd Banner
+	DisplayName: Stendardo cane da pastore tedesco
 	Tooltip: ""
 }
 
 WhiteLatexTaurMountItem: {
-	DisplayName: Slimy Horseshoe
-	Tooltip: Summons a rideable White Latex mount
+	DisplayName: Ferro di cavallo viscido
+	Tooltip: Evoca una cavalcatura di melma bianca.
 }
 
 FlyingDarkLatexMountItem: {
-	DisplayName: Black Wing
-	Tooltip: Summons a rideable Yufeng mount
+	DisplayName: Ala Nera
+	Tooltip: Evoca una cavalcatura di Yufeng.
 }
 
 Literature: {
-	DisplayName: Literature
-	Tooltip: Full of hot topics
+	DisplayName: Letteratura
+	Tooltip: Contiene argomenti popolari
 }
 
 WhiskerStaff: {
-	DisplayName: Whisker Wand
-	Tooltip: Summons a cat to fight for you
+	DisplayName: Bacchetta a baffi
+	Tooltip: Evoca un gatto che combatta per te
 }
 
 PurrpurrBanner: {
-	DisplayName: Purrpurr Banner
+	DisplayName: Stendardo Viofalefusa
 	Tooltip: ""
 }
 
 BookBarrage: {
 	Tooltip: ""
-	DisplayName: Book Barrage
+	DisplayName: Pioggia di libri
 }
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Watering Can
+	DisplayName: Annaffiatoio
 }
 
 MusicBoxPuro: {
-	DisplayName: Music Box (Puro the Black Goo)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Puro la melma nera)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxPuroDance: {
-	DisplayName: Music Box (Puro Dance)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (La danza di Puro)
+	Tooltip: Di ShiZi
 }
 
 PurrpurrStaff: {
-	Tooltip: Summons a massive purple cat to fight for you
-	DisplayName: Purrpurr Wand
+	Tooltip: Evoca un enorme gatto viola che combatterà per te
+	DisplayName: Bacchetta a Viofalefusa
 }
 
 TabbyStaff: {
-	Tooltip: Summons a large tabby cat to fight for you
-	DisplayName: Tabby Staff
+	Tooltip: Evoca un grosso gatto tigrato che combatterà per te
+	DisplayName: Bacchetta per gatto tigrato
 }
 
 FennecPlush: {
-	DisplayName: Fennec Plush
+	DisplayName: Peluche del fennec
 	Tooltip: ""
 }
 
 Twintacle: {
-	DisplayName: Twintacle
+	DisplayName: Doppio tentacolo
 	Tooltip: ""
 }
 
 MegaMauler: {
-	DisplayName: Mega Mauler
+	DisplayName: Mega artiglio
 	Tooltip: ""
 }
 
 Shredder: {
-	DisplayName: Shredder
+	DisplayName: Trituratore
 	Tooltip: ""
 }
 
 Tentatrio: {
 	Tooltip: ""
-	DisplayName: Tentatrio
+	DisplayName: Trio di tentacoli
 }
 
 Bashskewer: {
-	DisplayName: Bashskewer
+	DisplayName: Spiedino per battere
 	Tooltip: ""
 }
 
 Daemonspike: {
-	DisplayName: Daemonspike
+	DisplayName: Punta demoniaca
 	Tooltip: ""
 }
 
 AlpineHat: {
-	DisplayName: Alpine Hat
+	DisplayName: Cappello alpino
 	Tooltip: ""
 }
 
 ElevatorUp: {
-	Tooltip: This item does nothing and is only used when hovering over an elevator
-	DisplayName: Icon Elevator Up
+	Tooltip: Questo elemento non ha alcuna funzione e viene utilizzato solo quando si posiziona il cursore sopra un ascensore.
+	DisplayName: Ascensore Icon su
 }
 
 ElevatorDown: {
-	Tooltip: This item does nothing and is only used when hovering over an elevator
-	DisplayName: Icon Elevator Down
+	Tooltip: Questo elemento non ha alcuna funzione e viene utilizzato solo quando si posiziona il cursore sopra un ascensore.
+	DisplayName: Ascensore Icon in discesa
 }
 
 MusicBoxHappyBirthday: {
-	DisplayName: Music Box (Happy Birthday)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Buon compleanno)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxLibrary: {
-	DisplayName: Music Box (Library)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Biblioteca)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxWhiteLatexZone: {
-	DisplayName: Music Box (White Goo Jungle)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Giungla di melma bianca)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxBlackLatexZone2: {
-	DisplayName: Music Box (Scarlet Crystal Mine)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Miniera di cristallo scarlatto)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxBlackLatexZone1: {
-	DisplayName: Music Box (Black Goo Zone)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Zona di melma nera)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxWolfKing: {
-	DisplayName: Music Box (Wolf King)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Re Lupo)
+	Tooltip: Di ShiZi
 }
 
 FlyingDarkLatexBanner: {
 	Tooltip: ""
-	DisplayName: Yufeng Cub Banner
+	DisplayName: Stendardo cucciolo di Yufeng
 }
 
 SummonWolfKing: {
-	Tooltip: Summons the Wolf King
-	DisplayName: Strange Swivel Chair
+	Tooltip: Evoca il Re Lupo
+	DisplayName: Strana sedia girevole
 }
 
 SummonBehemoth: {
-	Tooltip: Summons the Behemoth
-	DisplayName: Humongous Hand
+	Tooltip: Evoca il Colosso
+	DisplayName: Mano gigantesca
 }
 
 DebugResetBosses: {
-	DisplayName: Reset boss fight progress
-	Tooltip: Resets progression for all Changed bosses
+	DisplayName: Reimposta i progressi della battaglia contro il boss
+	Tooltip: Reimposta la progressione per tutti i boss di Changed
 }
 
 Fan: {
 	Tooltip: ""
-	DisplayName: Fan
+	DisplayName: Ventilatore
 }
 
 Painting14: {
 	Tooltip: Zzzz
-	DisplayName: Wolf Den
+	DisplayName: Tana del lupo
 }
 
 MusicBoxGreenhouse: {
-	DisplayName: Music Box (Greenhouse)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Serra)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxLabSlow: {
-	DisplayName: Music Box (Laboratory Slow)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Laboratorio, Lento)
+	Tooltip: Di ShiZi
 }
 
 MusicBoxVents: {
-	Tooltip: By ShiZi
-	DisplayName: Music Box (Vents)
+	Tooltip: Di ShiZi
+	DisplayName: Carillon (Tubo di sfiato)
 }
 
 WhiteLatexBanner: {
 	Tooltip: ""
-	DisplayName: White Latex Banner
+	DisplayName: Stendardo melma bianca
 }
 
 Locker: {
 	Tooltip: ""
-	DisplayName: Locker
+	DisplayName: Armadietto
 }
 
 Blocks: {
 	Tooltip: ""
-	DisplayName: Toy Blocks
+	DisplayName: Blocchi giocattolo
 }
 
 MusicBoxBehemoth: {
-	Tooltip: By ShiZi
-	DisplayName: Music Box (Behemoth)
+	Tooltip: Di ShiZi
+	DisplayName: Carillon (Colosso)
 }
 
 SummonWhiteTail: {
-	Tooltip: Summons the White Tail
-	DisplayName: Suspicious Slime Ball
+	Tooltip: Evoca la Coda Bianca
+	DisplayName: Palla di melma sospetta
 }
 
 DebugSpawnAllNPCs: {
-	Tooltip: Yes
-	DisplayName: Debug Spawn All NPCs
+	Tooltip: SÌ
+	DisplayName: Genera tutti i personaggi
 }
 
 CrystalWhite: {
 	Tooltip: ""
-	DisplayName: White Crystal
+	DisplayName: Cristallo bianco
 }
 
 CrystalGreen: {
-	DisplayName: Green Crystal
+	DisplayName: Cristallo verde
 	Tooltip: ""
 }
 
 CrystalRed: {
-	DisplayName: Red Crystal
+	DisplayName: Cristallo rosso
 	Tooltip: ""
 }
 
 PillarWhite: {
-	DisplayName: White Pillar
+	DisplayName: Pilastro Bianco
 	Tooltip: ""
 }
 
 Painting15: {
 	Tooltip: Awoo
-	DisplayName: Creature of the Night
+	DisplayName: Creatura della notte
 }
 
 Painting16: {
-	DisplayName: The Scientist
-	Tooltip: Spooky
+	DisplayName: Lo scienziato
+	Tooltip: Sinistro
 }
 
 Painting17: {
-	DisplayName: Sleeping Fox
-	Tooltip: Don't wake him up
+	DisplayName: Volpe addormentata
+	Tooltip: Non svegliarlo
 }
 
 Painting18: {
-	DisplayName: World of Goo
-	Tooltip: Building a Bridge
+	DisplayName: Mondo di Melma
+	Tooltip: Costruire un ponte
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Music Box (White Tail)
-	Tooltip: By ShiZi
+	DisplayName: Carillon (Coda bianca)
+	Tooltip: Di ShiZi
 }
 
 Cryopod: {
 	Tooltip: ""
-	DisplayName: Cryopod
+	DisplayName: Criopode
 }
 
 Pictures1: {
 	Tooltip: ""
-	DisplayName: Pictures (Puro)
+	DisplayName: Immagini (Puro)
 }
 
 Pictures2: {
 	Tooltip: ""
-	DisplayName: Pictures (Black Latex)
+	DisplayName: Immagini (Melma nera)
 }
 
 Pictures3: {
 	Tooltip: ""
-	DisplayName: Pictures (Outside)
+	DisplayName: Immagini (Al di fuori)
 }
 
 Pictures4: {
-	DisplayName: Pictures (Corridor)
+	DisplayName: Immagini (Corridoio)
 	Tooltip: ""
 }
 
 Pictures5: {
 	Tooltip: ""
-	DisplayName: Pictures (Bacteria)
+	DisplayName: Immagini (Batteri)
 }
 
 Pictures6: {
 	Tooltip: ""
-	DisplayName: Pictures (Friends)
+	DisplayName: Immagini (Amici)
 }
 
 BlackSyringe: {
-	DisplayName: Black Syringe
+	DisplayName: Siringa nera
 	Tooltip:
 		'''
-		- Transforms you into a black latex
-		- Provides immunity to black latecis
+		- Ti trasforma in una melma nera
+		- Fornisce immunità alle melme nere
 		'''
 }
 
 WhiteSyringe: {
-	DisplayName: White Syringe
+	DisplayName: Siringa bianca
 	Tooltip:
 		'''
-		- Transforms you into a white latex
-		- Provides immunity to white latecis
+		- Ti trasforma in una melma bianca
+		- Fornisce immunità alle melme bianche
 		'''
 }
 
 BasketballWeapon: {
-	DisplayName: Basketball
+	DisplayName: Pallone da basket
 	Tooltip: ""
 }
 
 DiscoCrystal: {
-	DisplayName: Disco Crystal
-	Tooltip: Carrying this will make crystals behave like disco lights
+	DisplayName: Disco cristallo
+	Tooltip: Portando con sé questo oggetto, i cristalli si comporteranno come luci da discoteca.
 }
 
 BlackLatexSolution: {
-	DisplayName: Black Latex Solution
-	Tooltip: Spreads the black latex area
+	DisplayName: Soluzione di melma nera
+	Tooltip: Estende la zona di melma nera
 }
 
 WhiteLatexSolution: {
-	DisplayName: White Latex Solution
-	Tooltip: Spreads the white latex area
+	DisplayName: Soluzione di melma bianca
+	Tooltip: Estende la zona di melma bianca
 }
 
 DryDirtSolution: {
-	DisplayName: Dry Dirt Solution
-	Tooltip: Spreads the city ruins
+	DisplayName: Soluzione per sporco secco
+	Tooltip: Si estende sulle rovine della città
 }
 
 OrangeStatue: {
-	DisplayName: Orange Statue
+	DisplayName: Statua arancione
 	Tooltip: ""
 }
 
 Sunglasses: {
-	DisplayName: Sunglasses
+	DisplayName: Occhiali da sole
 	Tooltip: ""
 }
 
 SquidDogSyringe: {
-	DisplayName: Squid Dog Syringe
+	DisplayName: Siringa per cane calamaro
 	Tooltip: ""
 }
 
 BlackLatexSand: {
-	DisplayName: Black Slimy Sand
+	DisplayName: Sabbia nera e viscida
 	Tooltip:
 		'''
-		Can be used with the sand gun
-		- Turns critters and slimes into goops
-		- Makes black latex beasts evolve
+		Può essere utilizzato con la Pistola di sabbia
+		- Trasforma creature e melme in pozzanghere
+		- Fa evolvere le bestie di melma nera
 		'''
 }
 
 WhiteLatexSand: {
-	DisplayName: White Slimy Sand
+	DisplayName: Sabbia bianca e viscida
 	Tooltip:
 		'''
-		Can be used with the sand gun
-		- Turns critters and slimes into goops
-		- Makes white latex beasts evolve
+		Può essere utilizzato con la Pistola di sabbia
+		- Trasforma creature e melme in pozzanghere
+		- Fa evolvere le bestie di melma bianca
 		'''
 }
 
 SuperSyringe: {
-	DisplayName: Super Syringe
-	Tooltip: Transforms you into any latex beast
+	DisplayName: Super siringa
+	Tooltip: Ti trasforma in qualsiasi bestia viscida
 }
 
 SummonExperiment009: {
-	DisplayName: Debug Summon Experiment 009 Boss
-	Tooltip: Unfinished. From the Minecraft Changed Addon Plus mod.
+	DisplayName: Evoca il boss dell'Esperimento 009
+	Tooltip: Incompiuto. Dalla mod di Minecraft 'Changed Addon Plus'.
 }
 
 SummonShark: {
-	DisplayName: Debug Summon Shark Boss
-	Tooltip: Unfinished.
+	DisplayName: Evoca il Boss Squalo
+	Tooltip: Incompiuto.
 }
 
 SweeperItem: {
-	DisplayName: Sweeper
-	Tooltip: Scrubber specialist
+	DisplayName: Robot spazzatrice
+	Tooltip: Esperto di pulizie
 }
 
 SweeperPuroItem: {
 	DisplayName: Puroomba
-	Tooltip: Vroom
+	Tooltip: è un demone della velocità
 }
 
 Paper: {
-	DisplayName: Paper
+	DisplayName: Carta
 	Tooltip: ""
 }
 
 Painting19: {
 	DisplayName: Puroomba
-	Tooltip: Vroom
+	Tooltip: è un demone della velocità
 }
 
 BlackLatexCubLicense: {
-	DisplayName: Black Goo Puppy License
-	UseLicense: The license teleports away to the dog delivery service...
-	Tooltip: Use to adopt a black goo puppy for your town
+	DisplayName: Licenza per cucciolo di melma nera
+	UseLicense: La licenza ti teletrasporta al servizio di consegna del cane...
+	Tooltip: Usa per adottare un cucciolo di melma nera per la tua città
 }
 
 WhiteLatexCubLicense: {
-	DisplayName: White Goo Puppy License
-	UseLicense: The license teleports away to the dog delivery service...
-	Tooltip: Use to adopt a white goo puppy for your town
+	DisplayName: Licenza per cucciolo di melma bianca
+	UseLicense: La licenza ti teletrasporta al servizio di consegna del cane...
+	Tooltip: Usa per adottare un cucciolo di melma bianca per la tua città
 }
 
 Calendar: {
-	DisplayName: Calendar
-	Tooltip: Allows you to change the current season
+	DisplayName: Calendario
+	Tooltip: Consente di cambiare la stagione corrente
 }
 
 SombreroHat: {
-	DisplayName: Sombrero Hat
+	DisplayName: Cappello da sombrero
 	Tooltip: ""
 }
 
 DrunkPainting5: {
-	DisplayName: Paradise
-	Tooltip: Living the dream
+	DisplayName: Paradiso
+	Tooltip: Vivere il sogno
 }
 
 DrunkPainting6: {
-	DisplayName: Citrus Stonks
-	Tooltip: Big business
+	DisplayName: Mercato azionario degli agrumi
+	Tooltip: Grandi profitti
 }
 
 SkinLion: {
-	DisplayName: Lion Skin
+	DisplayName: Pelle di leone
 	Tooltip: ""
 }
 
 SkinSnep: {
-	DisplayName: Snow Leopard Skin
+	DisplayName: Pelle di leopardo delle nevi
 	Tooltip: ""
 }
 
 MiscSyringe: {
-	DisplayName: Miscellaneous Syringe
-	Tooltip: Transforms you into a variety of latex beasts
+	DisplayName: Siringhe varie
+	Tooltip: Ti trasforma in una varietà di bestie melmose
 }
 
 TigerSharkSyringe: {
-	DisplayName: Tiger Shark Syringe
+	DisplayName: Siringa di squalo tigre
 	Tooltip: ""
 }
 
 AquaticSyringe: {
-	DisplayName: Aquatic Syringe
-	Tooltip: Transforms you into aquatic latex beasts
+	DisplayName: Siringa acquatica
+	Tooltip: Ti trasforma in bestie acquatiche di melma
 }
 
 Syringe: {
-	DisplayName: Syringe
+	DisplayName: Siringa
 	Tooltip: ""
 }
 
 BloodstripeSyringe: {
-	DisplayName: Bloodstripe Syringe
+	DisplayName: Siringa di Sanguestriscia
 	Tooltip: ""
 }
 
 GermanShepherdSyringe: {
-	DisplayName: German Shepherd Syringe
+	DisplayName: Siringa di cane da pastore tedesco
 	Tooltip: ""
 }
 
 LionSyringe: {
-	DisplayName: Feng Yu Syringe
+	DisplayName: Siringa di Feng Yu
 	Tooltip: ""
 }
 
 PurrpurrSyringe: {
-	DisplayName: Purrpurr Syringe
+	DisplayName: Siringa di Viofalefusa
 	Tooltip: ""
 }
 
 SnepSyringe: {
-	DisplayName: Snow Leopard Syringe
+	DisplayName: Siringa del leopardo delle nevi
 	Tooltip: ""
 }
 

@@ -68,7 +68,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 .SetBiomeAffection<BlackLatexSurfaceBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<ForestBiome>(AffectionLevel.Like) 
 				.SetBiomeAffection<DesertBiome>(AffectionLevel.Hate) 
-                // In Changed, black latexes hate white ones so maybe that should also be added
 				
 				.SetNPCAffection(loveNPC, AffectionLevel.Love) 
 				.SetNPCAffection(likeNPC, AffectionLevel.Like) 

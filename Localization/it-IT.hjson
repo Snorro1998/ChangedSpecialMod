@@ -9,65 +9,65 @@
 Mods: {
 	ChangedSpecialMod: {
 		SizeDescription: {
-			Big: Big
-			Huge: Huge
-			Giant: Giant
-			Behemoth: Behemoth
+			Big: Grande
+			Huge: Enorme
+			Giant: Gigante
+			Behemoth: Colosso
 		}
 
 		Seasons: {
 			None: None
-			Valentine: Valentine
+			Valentine: San Valentino
 			Fiesta: Fiesta
 			Oktoberfest: Oktoberfest
 			Halloween: Halloween
-			Xmas: Christmas
+			Xmas: Natale
 		}
 
 		EventAnnouncement: {
-			None: Everything returns to normal
-			Valentine: Love is in the air!
+			None: Tutto torna alla normalità
+			Valentine: L'amore è nell'aria!
 			Fiesta: Suavemente!
-			Oktoberfest: The Oktoberfest has begun!
-			Halloween: It's starting to get spooky!
-			Xmas: It's beginning to look a lot like Christmas!
+			Oktoberfest: L'Oktoberfest è iniziato!
+			Halloween: Sta iniziando a farsi inquietante!
+			Xmas: Comincia a sembrare proprio Natale!
 		}
 
 		Messages: {
-			TogglePower: Use the switch to turn the power on and off.
-			BossProgressionReset: Changed boss progression reset!
-			WolfKingCanSpawn: You hear distant howls coming from the laboratory...
-			BehemothCanSpawn: Something stirs in the White Goo zone...
+			TogglePower: Utilizzare l'interruttore per accendere e spegnere l'alimentazione.
+			BossProgressionReset: Reset della progressione dei boss di Changed!
+			WolfKingCanSpawn: Si sentono ululati lontani provenire dal laboratorio...
+			BehemothCanSpawn: Qualcosa si muove nella zona della melma bianca...
 			// ColinCanSpawn: Someone is on their way to you...
-			WIPBossFight: This boss fight is still being developed, so don't expect much for now.
+			WIPBossFight: Questo scontro con il boss è ancora in fase di sviluppo, quindi per ora non aspettatevi granché.
 		}
 
 		NPCs: {
 			Puro: {
-				DisplayName: Black Goo
-				Description: This friendly latex beast likes books, oranges and you!
+				DisplayName: Melma nera
+				Description: Questa amichevole creatura gelatinosa ama i libri, le arance e te!
 
 				# This is what displays during all of an NPC's happiness levels.
 				TownNPCMood: {
-					Content: I feel pretty good right now. Especially now that you are here!
-					NoHome: I'm used to having no home but I'd prefer having one.
-					FarFromHome: Where am I?
-					LoveSpace: I love how spacious this place is!
-					DislikeCrowded: It feels a bit cramped in here. I would love to have more space for myself.
-					HateCrowded: AH! It's too crowded! Human, please find a better place.
-					LoveBiome: I grew up in this place, so of course I love it here.
-					LikeBiome: "{BiomeName} is so nice and peaceful, just the way I like it."
-					DislikeBiome: I don't like {BiomeName}.
-					HateBiome: "{BiomeName} is way too hot when you have a thick coat of fur!"
-					LoveNPC: "{NPCName} is so cute with her big ears and fluffy tail. But not as cute as you hehehe..."
-					LikeNPC: With {NPCName} around, I always feel like a party animal.
-					DislikeNPC: I don't like {NPCName}, because he is always grumpy.
-					HateNPC: I hate how reckless {NPCName} is! He doesn't listen to me and keeps trying to catch a Squid Dog.
-					LikeNPC_Princess: "{NPCName} is so sweet, she even offered to brush my fur!"
-					Princess_LovesNPC: I just can't get enough of the delicious cupcakes {NPCName} makes!
+					Content: Mi sento davvero bene adesso. Soprattutto ora che sei qui!
+					NoHome: Sono abituato a non avere una casa, ma preferirei averne una.
+					FarFromHome: Dove mi trovo?
+					LoveSpace: Adoro quanto sia spazioso questo posto!
+					DislikeCrowded: Mi sento un po' stretto qui dentro. Mi piacerebbe avere più spazio per me.
+					HateCrowded: AH! È troppo affollato! Umano, per favore, trova una stanza migliore.
+					LoveBiome: Sono cresciuto in questo posto, quindi ovviamente lo adoro.
+					LikeBiome: "{BiomeName} è così bello e tranquillo, proprio come piace a me."
+					DislikeBiome: Non mi piace {BiomeName}.
+					HateBiome: "{BiomeName} è decisamente troppo caldo quando si ha una folta pelliccia!"
+					LoveNPC: "{NPCName} è così carina con le sue grandi orecchie e la coda soffice. Ma non così carina come te, hehehe..."
+					LikeNPC: Quando sono con {NPCName}, mi sento sempre come un animale da festa.
+					DislikeNPC: Non mi piace {NPCName}, perché è sempre di cattivo umore.
+					HateNPC: Odio quanto sia spericolato {NPCName}! Non mi ascolta e continua a cercare di catturare un cane-calamaro.
+					LikeNPC_Princess: "{NPCName} è così dolce, si è persino offerta di spazzolarmi il pelo!"
+					Princess_LovesNPC: Non mi stanco mai dei deliziosi cupcake che prepara {NPCName}!
 				}
 
-				Census.SpawnCondition: White Tail defeated
+				Census.SpawnCondition: Devi aver sconfitto coda bianca
 			}
 
 			#This is used to display the NPC's dialogues.
@@ -75,192 +75,192 @@ Mods: {
 				# This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
 				Puro: {
 					# NPCs
-					NPCAngler: "{NameAngler} is so reckless. Yesterday he nearly got pulled into the water by a Squid Dog while he was fishing."
-					NPCDryad: I wonder if {NameDryad} knows how to grow an orange tree.
-					NPCGuide: Do you think {NameGuide} can tell me what else I can make from my oranges besides drinks and dishes?
-					NPCMerchant: If only {NameMerchant} sold orange juice, he would be rich!
-					NPCTavernKeep: I told {NameTavernKeep} he should expand his menu with orange drinks and dishes! Think of all the delicious possibilities like citrus salad, orange pound cake, orange juice, oh and mimosa! Mmmmm mimosa...
-					NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
-					NPCTaxCollector: Human what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them.
-					NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
-					Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
-					Book2: Hello human! Have you seen my book?
-					Book3: Will you help me make the biggest book tower?
-					Book4: Human! Look at this amazing book I just found!
-					Book5: One day I will write a book about the amazing adventures of {NamePlayer}!
-					Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together human?
+					NPCAngler: "{NameAngler} è così spericolato. Ieri è quasi stato trascinato in acqua da uno cane calamaro mentre pescava."
+					NPCDryad: Mi chiedo se {NameDryad} sappia come coltivare un albero d'arancio.
+					NPCGuide: Credi che {NameGuide} possa dirmi cos'altro posso fare con le mie arance oltre a bevande e piatti?
+					NPCMerchant: Se {NameMerchant} vendesse succo d'arancia, sarebbe ricchissimo!
+					NPCTavernKeep: Ho detto a {NameTavernKeep} che dovrebbe ampliare il suo menù con bevande e piatti all'arancia! Pensa a tutte le deliziose possibilità, come insalata di agrumi, torta all'arancia, succo d'arancia, oh e mimosa! Mmmmm mimosa...
+					NPCNurse: "{NameNurse} ha detto che fa bene alla salute mangiare due frutti al giorno. Le ho risposto che io ne mangio dieci al giorno!"
+					NPCTaxCollector: Umano, cosa sono le 'tasse'? {NameTaxCollector} era molto scontroso e ha detto che avrei dovuto pagarle.
+					NPCZoologist: "{NameZoologist} è così carina con le sue grandi orecchie e la coda soffice. Ma non così carina come te, hehehe..."
+					Book1: Giudico i libri come giudico le arance: in base a quanto mi soddisfano dall'ultima pagina all'ultima fetta.
+					Book2: Ciao umano! Hai visto il mio libro?
+					Book3: Mi aiuteresti a costruire la torre di libri più alta?
+					Book4: Umano! Guarda che libro fantastico ho appena trovato!
+					Book5: Un giorno scriverò un libro sulle incredibili avventure di {NamePlayer}!
+					Book6: Ieri ho trovato un libro di ricette con tantissime ricette dall'aspetto delizioso. Ti andrebbe di preparare qualcosa insieme, umano?
 					# Globglobgabgalab
-					Book7: I am the gooey glabgalab, and I love books.
-					Orange1: What's your favorite color? My favorite color is orange.
-					Orange2: Mmmm *munch* orange *munch* Oh, hello human.
-					Orange3: I don't have a favorite child but if I did, it would be this orange.
-					Orange4: Last night I dreamt I was in a ball pit filled with oranges.
-					Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
-					Orange6: I know everything about oranges, so you could say I am a citrus connoisseur!
+					Book7: Io sono il glabgalab appiccicoso e amo i libri.
+					Orange1: Qual è il tuo colore preferito? Il mio colore preferito è l'arancione.
+					Orange2: Mmmm *munch* arancia *munch* Oh, ciao umano.
+					Orange3: Non ho un figlio preferito, ma se ne avessi uno, sarebbe quest'arancia.
+					Orange4: Stanotte ho sognato di trovarmi in una piscina di palline piena di arance.
+					Orange5: Se vuoi rendermi felice, dammi semplicemente un'arancia perfettamente matura.
+					Orange6: So tutto sulle arance, si potrebbe dire che sono un intenditore di agrumi!
 					# TF2
-					Orange7: I have done nothing but teleport oranges for 3 days.
-					Crimson1: "{Crimson}Did you know that some trees in the Crimson grow blood oranges? Do you think you could get me one?"
-					Crimson2: "{Crimson}Be careful around the lab near the Crimson. I saw a huge, hulking tiger there."
-					Corruption1: "{Corruption}Be careful around the lab near the Corruption. I saw a massive, purple cat there."
-					Changed1: Have you seen my drawings in the lab? Would you like me to make a drawing of you?
-					Changed2: "{Behemoth}I want to become as big as the Behemoth, so I can hold you in my paws like a doll and keep you safe."
-					Normal1: I don't need gear to protect myself, because I've got big claws, paws and a big maw!
-					Normal2: Hello! How's my favorite human today?
-					TransfurCub: "{TransfurCub}Hello little puppy. You are so small and cute! Can I hold you please?"
-					Rain1: "{Rain}If you are cold from the rain and want to warm up, you can bury yourself in my fluffy fur!"
-					Rain2: "{Rain}I shook my fur to dry myself off and now I am extra floofy!"
-					Thunder1: "{Thunder}I am not afraid of lightning. My whole body is made out of rubber so even if I got struck by it, I would be totally fine!"
-					Thunder2: "{Thunder}With all those bright flashes I hardly need a lamp to read my books."
-					Windy1: "{Windy}Would you like to fly a kite with me, human?"
-					Windy2: "{Windy}The wind is so strong today that my fur got all messed up."
-					Windy3: "{Windy}I wish I had wings so I could fly and take you everywhere."
-					PlayerHasOrange: "{PlayerHasOrange}*Sniff* Human, are you carrying juicy oranges? Can I have one please?"
-					PlayerHasBook: "{PlayerHasBook}Is that a book you have there human? Would you like to read it together?"
-					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}What is that? 'Book of Skulls?' Heh, the cover looks a bit like my mask."
-					PlayerHasWaterBolt: "{PlayerHasWaterBolt}What do you have there? A magical book that sprays water? I hope it doesn't do that if I try to read it."
-					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oooh you brought me another book? Eh, why is it called 'Golden Shower'?"
-					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oooh a shiny balloon! Can I hold it please?"
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress human. You look kinda cute in it hehehe."
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah human, who is that cat? She is huge!"
-					Valentine1: "{Valentine}What do you think, human? Do I look cute with this Valentine hair pin?"
-					Valentine2: "{Valentine}A bouquet is nice, but if you want to win my heart then you have to bring me a booklet!"
+					Orange7: Non ho fatto altro che teletrasportare arance per 3 giorni.
+					Crimson1: "{Crimson}Lo sapevi che in alcune zone del Cremisi crescono arance rosse? Credi di potermene procurare una?"
+					Crimson2: "{Crimson}Fate attenzione al laboratorio vicino al Cremisi. Ho visto una tigre enorme e imponente lì."
+					Corruption1: "{Corruption}Fate attenzione nei pressi del laboratorio vicino alla Corruzione. Ho visto un enorme gatto viola lì."
+					Changed1: Hai visto i miei disegni in laboratorio? Ti piacerebbe che ti facessi un ritratto?
+					Changed2: "{Behemoth}Voglio diventare grande come il Colosso, così potrò tenerti tra le mie zampe come una bambola e proteggerti."
+					Normal1: Non ho bisogno di equipaggiamento per proteggermi, perché ho artigli, zampe e una bocca enormi!
+					Normal2: Ciao! Come sta oggi il mio umano preferito?
+					TransfurCub: "{TransfurCub}Ciao piccolo cucciolo. Sei così piccolo e carino! Posso tenerti in braccio, per favore?"
+					Rain1: "{Rain}Se hai freddo per la pioggia e vuoi riscaldarti, puoi seppellirti nella mia soffice pelliccia!"
+					Rain2: "{Rain}Mi sono scrollato il pelo per asciugarmi e ora sono super soffice!"
+					Thunder1: "{Thunder}Non ho paura dei fulmini. Tutto il mio corpo è fatto di melma, quindi anche se venissi colpito, starei benissimo!"
+					Thunder2: "{Thunder}Con tutti quei lampi di luce, non ho quasi bisogno di una lampada per leggere i miei libri."
+					Windy1: "{Windy}Ti piacerebbe far volare un aquilone con me, umano?"
+					Windy2: "{Windy}Oggi il vento è così forte che la mia pelliccia si è tutta arruffata."
+					Windy3: "{Windy}Vorrei avere le ali per poter volare e portarti ovunque."
+					PlayerHasOrange: "{PlayerHasOrange}*Sniff* Umano, hai per caso delle arance succose? Posso averne una, per favore?"
+					PlayerHasBook: "{PlayerHasBook}Quello che hai lì è un libro, umano? Ti piacerebbe leggerlo insieme?"
+					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}Cos'è? 'Libro di teschi'? Eh, la copertina assomiglia un po' alla mia maschera."
+					PlayerHasWaterBolt: "{PlayerHasWaterBolt}Cos'hai lì? Un libro magico che spruzza acqua? Spero di no, se provo a leggerlo."
+					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Ohhh, mi hai portato un altro libro? Eh, perché si chiama 'Doccia dorata'?"
+					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Ohhh, un palloncino luccicante! Posso tenerlo in mano, per favore?"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Che bel vestito, umana. Ti sta benissimo, hehehe."
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Wow, umano, chi è quel gatto? È enorme!"
+					Valentine1: "{Valentine}Che ne pensi, umano? Sto bene con questa forcina per capelli di San Valentino?"
+					Valentine2: "{Valentine}Un mazzo di fiori è carino, ma se vuoi conquistare il mio cuore devi portarmi un libricino!"
 					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
 					Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
-					Oktoberfest1: "{Oktoberfest}It is that time of the year for lots of beer! PROST!"
-					Oktoberfest2: "{Oktoberfest}Hooooman... Is it the beer or have you always looked so pretty?"
-					Oktoberfest3: "{Oktoberfest}Mmmm. This beerrr ish some good shtuff."
-					Oktoberfest4: "{Oktoberfest}I'm fineeeee. Just give me one more steinnn."
-					Halloween1: "{Halloween}Citrus orb of juice and seed, grant me warmth in hour of need. Sour flee and sweet remain, Citrus ward against all bane!"
-					Halloween2: "{Halloween}Wooooh! I am Boo-ro!"
-					Halloween3: "{Halloween}BOO! Hehe I scared you didn't I?"
-					Halloween4: "{Halloween}Grrrr! I am the evil Wizard Wolf. And I will turn you into a juicy orange and swallow you whole!"
-					Halloween5: "{Halloween}I am going to scare everybody and take their candy!"
-					Xmas1: "{Xmas}Ho ho ho! Hello human!"
-					Xmas2: "{Xmas}What should I ask from Santa? More books or more oranges?"
-					Xmas3: "{Xmas}Jingle bells, Puro smells, human on a sleigh!"
-					Xmas4: "{Xmas}Would you like to help me decorate my orange tree with Christmas ornaments?"
-					Xmas5: "{Xmas}Silent night, citrus bright. All is calm, peel held tight. Round orange, golden and sweet. Spoiled rotten, with such a nice treat."
+					Oktoberfest1: "{Oktoberfest}È quel periodo dell'anno in cui si beve tanta birra! Cin cin!"
+					Oktoberfest2: "{Oktoberfest}Umanoooo... È merito della birra o sei sempre stato così bello?"
+					Oktoberfest3: "{Oktoberfest}Mmmm. Questa birra è roba buona."
+					Oktoberfest4: "{Oktoberfest}Sto bene. Dammi solo un'altra birra."
+					Halloween1: "{Halloween}Sfera di succo e semi di agrumi, donami calore nell'ora del bisogno. Fuggi l'aspro e resta il dolce, agrumi proteggi da ogni male!"
+					Halloween2: "{Halloween}Wooooh! Io sono Boo-ro!"
+					Halloween3: "{Halloween}BUH! Hehe ti ho spaventato, vero??"
+					Halloween4: "{Halloween}Grrrr! Io sono il malvagio Mago Lupo. E ti trasformerò in un'arancia succosa e ti inghiottirò intero!"
+					Halloween5: "{Halloween}Spaventerò tutti e prenderò le loro caramelle!"
+					Xmas1: "{Xmas}Ho ho ho! Ciao umano!"
+					Xmas2: "{Xmas}Cosa dovrei chiedere a Babbo Natale? Più libri o più arance?"
+					Xmas3: "{Xmas}Buon Natale!"
+					Xmas4: "{Xmas}Ti piacerebbe aiutarmi a decorare il mio albero di arance con addobbi natalizi?"
+					Xmas5: "{Xmas}Fuori nevica e ho voglia di arance."
 					Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 					BloodMoon: {
-						BloodMoon1: Stay away from me human. I am not feeling like myself today.
-						BloodMoon2: Hello juicy orange, say hi to my mouth.
-						BloodMoon3: Grrrr.. need... more... oranges!
-						BloodMoon4: Do you want to be transfurred?
+						BloodMoon1: Stai lontano da me, umano. Oggi non mi sento in me.
+						BloodMoon2: Ciao succosa arancia, saluta la mia bocca.
+						BloodMoon3: Grrrr... ho bisogno... di... altre... arance!
+						BloodMoon4: Vuoi che ti trasformi?
 						# Great Mighty Poo - Conkers Bad Fur Day
-						BloodMoon5: I... am... the Great Mighty Goo, and I'm going to throw my books at you!
+						BloodMoon5: Io sono il grande e potente slime, e ti lancerò addosso i miei libri!
 					}
 
 					Pirates: {
-						Pirates1: ARRRG! I am Captain Puro! And I am coming for yer oranges!
-						Pirates2: Yar! Stay close to Captain Puro me hearty. I will protect ya from those bilge rats!
-						Pirates3: No! Don't load the cannons with me precious oranges!
-						Pirates4: Fear the Mighty Puro and me crew of Bookkaneers!
-						Pirates5: Arrr ye ready to sail the seven seas of orange juice?
+						Pirates1: ARRRG! Sono il Capitano Puro! E sto arrivando a prendermi le vostre arance!
+						Pirates2: Yar! Resta vicino al Capitano Puro, mio ​​caro. Ti proteggerò da quei topi di sentina!
+						Pirates3: No! Non caricate i cannoni con le mie preziose arance!
+						Pirates4: Temete il possente Puro e la mia ciurma di bucanieri!
+						Pirates5: Arrr, are you ready to sail the seven seas of orange juice?
 					}
 
 					Martians: {
-						Martians1: Creatures from another world? First I find out there is a whole world outside the lab and now you are telling me there is another world out there?
-						Martians2: I want one of those martian zappers so I can be pew pew Puro!
-						Martians3: Human, what's a U.F.O? An Unbelievably Fruity Orange?
+						Martians1: Creature provenienti da un altro mondo? Prima scopro che esiste un intero mondo al di fuori del laboratorio e ora mi dici che c'è un altro mondo là fuori?
+						Martians2: Voglio uno di quei fulminatori marziani così posso essere pew pew Puro!
+						Martians3: Umano, cos'è un UFO?
 					}
 
 					Eclipse: {
-						Eclipse1: Human! Please don't go outside today. It is way too dangerous!
-						Eclipse2: I think I will stay inside and read some books until the sun gets back.
-						Eclipse3: I tried to pick some oranges today, but it is just way too dark.
+						Eclipse1: Umano! Per favore, non uscire oggi. È troppo pericoloso!
+						Eclipse2: Penso che resterò in casa a leggere qualche libro finché non tornerà il sole.
+						Eclipse3: Oggi ho provato a raccogliere delle arance, ma è troppo buio.
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}Human! Where is your party hat?"
-						Party2: Hold my plate. No wait actually, give me yours too.
-						Party3: If anybody is looking for the orange pound cake.. eh, don't. I ate the whole thing.
-						Party4: I want to make a balloon animal that looks just like you. Cute and squishy!
-						Party5: Yes, I'd love a drink! And a refill on that. And maybe a refill on the refill.
-						Party6: What? I am not a glutton. I am just a big, strong beast who needs lots of food to stay in shape.
-						Party7: Do you think they will be mad if I eat everything and they find out?
-						Party8: *Nom* *Glrk* Mmmmm the food is so good! *Munch*
-						Party9: "{PlayerIsWearingBalloon}Yes! Just what this party needed. More balloons!"
-						Party10: I am a black latex beast, and my mouth is a black hole for delicious food!
-						Party11: Mmmm these fluffy orange cupcakes are so good, but I already had so many.. Perhaps just one more.
-						Party12: Shall we dance together human? Because I feel like a party animal!
+						Party1: "{PlayerHasNoPartyHat}Umano! Dov'è il tuo cappellino da festa?"
+						Party2: Tienimi il piatto. Anzi no, dammi anche il tuo.
+						Party3: Se qualcuno sta cercando la torta all'arancia... beh, lasciate perdere. L'ho mangiata tutta io.
+						Party4: Voglio creare un animale con i palloncini che ti somigli tanto. Carino e morbido!
+						Party5: YSì, mi piacerebbe molto un drink! E anche un altro. E magari un altro ancora.
+						Party6: Cosa? Non sono un ingordo. Sono solo una bestia grossa e forte che ha bisogno di tanto cibo per mantenersi in forma.
+						Party7: Pensi che si arrabbieranno se mangio tutto e lo scoprono?
+						Party8: *Nom* *Glrk* Mmmmm il cibo è così buono! *Munch*
+						Party9: "{PlayerIsWearingBalloon}Sì! Proprio quello che ci voleva a questa festa. Altri palloncini!"
+						Party10: Sono una bestia di melma nera e la mia bocca è un buco nero per il cibo delizioso!
+						Party11: Mmm, questi soffici cupcake all'arancia sono così buoni, ma ne ho già mangiati troppi... Forse solo un altro.
+						Party12: Vogliamo ballare insieme, umano? Perché mi sento proprio un animale da festa!
 					}
 				}
 
 				DrK: {
-					NPCAngler: "{NameAngler} is always outside catching fish, and I am always inside the lab fishing for results."
-					NPCNurse: It is good to have {NameNurse} around here, because I was running out of syringes.
-					NPCZoologist: I wonder what happened to {NameZoologist}. Did she only get partially transfurred?
-					Normal1: Perfect timing. I just needed a volunteer for my next experiment.
-					Normal2: Hello test subject. Could you please hold this for me? It is rather difficult to do it myself now that I have big, furry paws.
-					Normal3: If only my colleagues had followed the protocols, we wouldn't have monsters roaming outside the laboratory.
-					Normal4: Now that I don't have to work on a cure for the virus anymore, I can focus on creating the cutest latex beast!
-					Normal5: "{PuroPresent}That black sample is... unique. I have never seen one of his kind so fond of humans."
-					Normal6: You thought the White Tail was bad? Wait until you see what monster he was once a part of.
-					Normal7: Relax! If this experiment blows up, only half the building will be gone.
-					Normal8: You may have grown stronger but so did the latex beasts. So in the end... nothing has Changed.
-					Normal9: Do you want to know something interesting? Did you know that I don't have side sprites in my original game?
-					Normal10: It's good to see that you are not the only human who survived the pale virus.
-					Normal11: With so many different latex beasts it became difficult to name them all. So that's why we came up with very scientific names like 'Squid Dog' for a Squid and Dog amalgamation or 'Purrpurr' for a purple purring cat.
-					Crimson1: "{Crimson}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Crimson."
-					Crimson2: "{Crimson}There is a massive red beast roaming around the Crimson. If you value your life, you should stay away from him."
-					Corruption1: "{Corruption}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Corruption."
-					Corruption2: "{Corruption}Have you seen that large purple cat near the Corruption? Trust me, if you haven't, you should keep it that way."
-					Thunder1: "{Thunder}The weather is perfect for a crazy scientist like me!"
-					Thunder2: "{Thunder}How fitting, the lightning just struck the Thunder Science building."
-					Windy1: "{Windy}Who left the window open? Now all my notes are scattered on the floor!"
-					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Please don't open that 'Golden Shower' book of yours around here."
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Why are you wearing a wedding dress? Are you going to get married to your black jelly wolf buddy?"
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr} What? Did you befriend that giant cat? Okay I have to admit that is impressive."
-					Valentine1: "{Valentine}Love is like chemistry. It has unexpected results and things can get really hot."
-					Valentine2: "{Valentine}What? Don't tell me you wanted to ask me on a date for Valentine. I have more important things to do."
-					Oktoberfest1: "{Oktoberfest}I am going to... *hic* ...make excellent decisions today."
-					Oktoberfest2: "{Oktoberfest}Come on test subject. Let's do some drunk science!"
-					Oktoberfest3: "{Oktoberfest}Only the dose makes the poison, so I can have another beer!"
-					Oktoberfest4: "{Oktoberfest}In the Bratwurst-case scenario, I have to do this experiment all over again."
+					NPCAngler: "{NameAngler} è sempre fuori a pescare, e io sono sempre dentro in laboratorio a cercare risultati."
+					NPCNurse: È un bene avere {NameNurse} qui intorno, perché stavo finendo le siringhe.
+					NPCZoologist: Mi chiedo cosa sia successo a {NameZoologist}. Si è trasformata solo parzialmente?
+					Normal1: Tempismo perfetto. Mi serviva proprio un volontario per il mio prossimo esperimento.
+					Normal2: Salve, soggetto del test. Potrebbe tenermelo, per favore? È piuttosto difficile farlo da solo ora che ho delle zampe grandi e pelose.
+					Normal3: Se solo i miei colleghi avessero seguito i protocolli, non avremmo mostri che si aggirano fuori dal laboratorio.
+					Normal4: Ora che non devo più lavorare a una cura per il virus, posso concentrarmi sulla creazione della bestia di melma più carina!
+					Normal5: "{PuroPresent}Quella melma nera è... unica. Non ho mai visto uno della sua specie così affezionato agli umani."
+					Normal6: Pensavate che la Coda Bianca fosse cattiva? Aspettate di vedere in quale mostro si è trasformato una volta.
+					Normal7: Tranquillo! Se questo esperimento dovesse esplodere, solo metà dell'edificio verrebbe distrutta.
+					Normal8: Potresti essere diventato più forte, ma lo sono diventate anche le bestie melmose. Quindi, alla fine... non è cambiato nulla.
+					Normal9: Vuoi sapere una cosa interessante? Lo sapevi che nel mio gioco originale non ci sono sprite che mi ritraggono mentre guardo di lato?
+					Normal10: È un sollievo sapere che non sei l'unico essere umano ad essere sopravvissuto al virus della pelle pallida.
+					Normal11: Con così tante creature melmose diverse, è diventato difficile nominarle tutte. Ecco perché abbiamo inventato nomi molto scientifici come "Cane calamaro" per una fusione tra un calamaro e un cane o "Viofalefusa" per un gatto viola che fa le fusa.
+					Crimson1: "{Crimson}Fantastico, ho salvato il mondo da un virus mortale e ora viene distrutto dai Cremisi."
+					Crimson2: "{Crimson}Una bestia rossa gigantesca si aggira per la zona cremisi. Se tieni alla tua vita, dovresti starle alla larga."
+					Corruption1: "{Corruption}Fantastico, ho salvato il mondo da un virus mortale e ora viene distrutto dalla Corruzione."
+					Corruption2: "{Corruption}Avete visto quel grosso gatto viola vicino alla Corruzione? Credetemi, se non l'avete visto, fareste meglio a non notarlo."
+					Thunder1: "{Thunder}Il tempo è perfetto per uno scienziato pazzo come me!"
+					Thunder2: "{Thunder}Che coincidenza, il fulmine ha appena colpito l'edificio dedicato alla 'scienza dei fulmini'."
+					Windy1: "{Windy}Chi ha lasciato la finestra aperta? Ora tutti i miei appunti sono sparsi sul pavimento!"
+					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Per favore, non aprire quel tuo libro sulla 'Doccia dorata' qui intorno."
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Perché indossi un abito da sposa? Hai intenzione di sposare il tuo amico lupo nero gelatinoso?"
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Cosa? Hai fatto amicizia con quel gatto gigante? Ok, devo ammettere che è impressionante."
+					Valentine1: "{Valentine}L'amore è come la chimica. Ha risultati inaspettati e le cose possono farsi molto intense."
+					Valentine2: "{Valentine}Cosa? Non dirmi che volevi invitarmi a uscire per San Valentino. Ho cose più importanti da fare."
+					Oktoberfest1: "{Oktoberfest}Oggi prenderò... *hic* ...ottime decisioni."
+					Oktoberfest2: "{Oktoberfest}Avanti, soggetto del test. Facciamo un po' di scienza da ubriachi!"
+					Oktoberfest3: "{Oktoberfest}È solo la dose che fa il veleno, quindi posso bermi un'altra birra!"
+					Oktoberfest4: "{Oktoberfest}Nella peggiore delle ipotesi, dovrò ripetere l'intero esperimento."
 					# Spooky Scary Skeletons
-					Halloween1: "{Halloween}Spooky scary scientists will haunt you in your dreams!"
-					Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp, and my eyes glow red."
-					Halloween3: "{Halloween}If you inhale the fumes from this beaker, you'll look more terrifying than in any Halloween costume."
-					Halloween4: "{Halloween}To be a successful doctor like me you need to have... Brainz! BRAINZZZ!"
-					Xmas1: "{Xmas}A wishlist for Santa? No, I don't believe in him. I believe in science."
-					Xmas2: "{Xmas}What do you think of this chemical mixture? Isn't it beautiful? Its colors are even more vibrant than a Christmas tree!"
-					Xmas3: "{Xmas}Outside there is some snow, my beaker starts to glow. It's getting really hot. But we carry on, why not! It blew up in my face, and wrecked my own workplace. But the resulting goo is a massive breakthrough!"
-					Xmas4: "{Xmas}If I had a carrot for a nose, they would mistake me for a snowman."
+					Halloween1: "{Halloween}Scienziati inquietanti e spaventosi ti perseguiteranno nei tuoi sogni!"
+					Halloween2: "{Halloween}Io sono il mostro sotto il tuo letto. I miei denti sono affilati e i miei occhi brillano di rosso."
+					Halloween3: "{Halloween}Se inali i vapori di questo becher, avrai un aspetto più terrificante che con qualsiasi costume di Halloween."
+					Halloween4: "{Halloween}Per essere un medico di successo come me, devi avere... Cervelli! Cervelli!"
+					Xmas1: "{Xmas}Una lista dei desideri per Babbo Natale? No, non ci credo. Credo nella scienza."
+					Xmas2: "{Xmas}Che ne pensi di questa miscela chimica? Non è bellissima? I suoi colori sono persino più vivaci di quelli di un albero di Natale!"
+					Xmas3: "{Xmas}Buon Natale!"
+					Xmas4: "{Xmas}Se avessi una carota al posto del naso, mi scambierebbero per un pupazzo di neve."
 
 					BloodMoon: {
-						BloodMoon1: Get here test subject! I have to run a few tests on you!
+						BloodMoon1: Vieni qui, soggetto del test! Devo sottoporti ad alcuni test!
 						# Dr Nefario
-						BloodMoon2: Do you want to explode?
-						BloodMoon3: Muahaha! I am going to get you and turn you into one of us!
+						BloodMoon2: Vuoi esplodere?
+						BloodMoon3: Muahaha! Ti prenderò e ti trasformerò in uno di noi!
 					}
 
 					Pirates: {
-						Pirates1: If those violent, mindless thieves destroy my equipment they will regret it!
-						Pirates2: Pirates are so materialistic and don't realize that knowledge is much more valuable than some gold.
-						Pirates3: I was on the verge of a breakthrough before those blasted bandits kicked in my door.
+						Pirates1: Se quei ladri violenti e senza cervello distruggeranno la mia attrezzatura, se ne pentiranno amaramente!
+						Pirates2: I pirati sono così materialisti da non rendersi conto che la conoscenza ha un valore di gran lunga superiore a quello dell'oro.
+						Pirates3: Ero sul punto di fare una svolta, prima che quei maledetti banditi sfondassero la mia porta.
 					}
 
 					Martians: {
-						Martians1: If you manage to find a piece of martian equipment, could you please bring it to me? I would love to study their technology.
-						Martians2: It's never a dull day around here huh?
+						Martians1: Se doveste trovare qualche pezzo di equipaggiamento marziano, potreste per favore portarmelo? Mi piacerebbe molto studiare la loro tecnologia.
+						Martians2: Da queste parti non ci si annoia mai, eh?
 					}
 
 					Eclipse: {
-						Eclipse1: I may be a mad scientist, but even I wouldn't create such monsters.
-						Eclipse2: It is better to stay inside today, so it is just like any other day for me.
-						Eclipse3: Please stay alive, because I can't stitch you back together if you perish. After all, I am Dr K, not Dr Frankenstein.
+						Eclipse1: Potrei essere uno scienziato pazzo, ma nemmeno io creerei dei mostri del genere.
+						Eclipse2: Oggi è meglio restare in casa, quindi per me è un giorno come un altro.
+						Eclipse3: Ti prego, resta in vita, perché non posso ricucirti se muori. Dopotutto, sono il dottor K, non il dottor Frankenstein.
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}Come on, test subject, where's your party hat? They think I'm boring, but even I wear one!"
-						Party2: According to my calculations, there is never enough food at a party to satisfy the hunger of a black latex.
-						Party3: You could easily miss a latex beast between those balloons. After all, they are made of the same material.
-						Party4: Do you want to dance? Okay, let me show you the scientist swirl!
+						Party1: "{PlayerHasNoPartyHat}Avanti, soggetto del test, dov'è il tuo cappellino da festa? Pensano che io sia noioso, ma persino io ne indosso uno!"
+						Party2: Secondo i miei calcoli, a una festa non c'è mai abbastanza cibo per saziare la fame di una melma nera.
+						Party3: Potresti facilmente non notare una bestia viscida tra quei palloncini. Dopotutto, sono fatti dello stesso materiale.
+						Party4: Vuoi ballare? Bene, lascia che ti mostri il vortice dello scienziato!
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
-						Party5: Are you ready for a cool party trick? Look, I can turn toilet paper into moonshine!
-						Party6: This party is lacking fireworks. Do you want me to fix that?
+						Party5: Siete pronti per un trucco da festa davvero fantastico? Guardate, posso trasformare la carta igienica in liquore di contrabbando!
+						Party6: A questa festa mancano i fuochi d'artificio. Vuoi che ci pensi io?
 					}
 				}
 
@@ -290,16 +290,16 @@ Mods: {
 			}
 
 			Prototype: {
-				DisplayName: Prototype
-				Description: A prototype for mass production of household robots.
+				DisplayName: Prototipo
+				Description: Un prototipo per la produzione in serie di robot per le pulizie domestiche.
 
 				TownNPCMood: {
 					Content: ":)"
-					NoHome: No home :(
-					FarFromHome: Far home :(
-					LoveSpace: Spacious :)
-					DislikeCrowded: Busy :(
-					HateCrowded: Busy >:(
+					NoHome: Senzatetto :(
+					FarFromHome: Lontano da casa :(
+					LoveSpace: Spaziosa :)
+					DislikeCrowded: Affollato :(
+					HateCrowded: Affollato >:(
 					LoveBiome: "{BiomeName} :3"
 					LikeBiome: "{BiomeName} :)"
 					DislikeBiome: "{BiomeName} :("
@@ -312,7 +312,7 @@ Mods: {
 					Princess_LovesNPC: "{NPCName} :)"
 				}
 
-				Census.SpawnCondition: Behemoth defeated
+				Census.SpawnCondition: Devi aver sconfitto il Colosso
 			}
 
 			UI: {
@@ -323,285 +323,285 @@ Mods: {
 			NotPresentDuringWorldGenMessage: ChangedSpecialMod was not used to generate this world, your experience with the content of ChangedSpecialMod will be degraded
 
 			FemaleDarkLatex: {
-				DisplayName: Black Latex
-				Description: A gooey wolf-like monster created in a laboratory.
+				DisplayName: Melma nera
+				Description: Un mostro viscido simile a un lupo, creato in laboratorio.
 			}
 
 			MaleDarkLatex: {
-				DisplayName: Black Latex
-				Description: A gooey wolf-like monster created in a laboratory.
+				DisplayName: Melma nera
+				Description: Un mostro viscido simile a un lupo, creato in laboratorio.
 			}
 
 			WingedDarkLatex: {
 				DisplayName: Yufeng
-				Description: This dragon-like beast has grown too big to fly, but thanks to its powerful legs, it can still run faster than almost any other creature.
+				Description: Questa bestia simile a un drago è diventata troppo grande per volare, ma grazie alle sue zampe potenti, può ancora correre più veloce di quasi qualsiasi altra creatura.
 			}
 
 			FlyingDarkLatex: {
-				DisplayName: Yufeng Cub
-				Description: A mutated Black Latex that has grown wings, allowing him to fly anywhere.
+				DisplayName: Cucciolo di Yufeng
+				Description: Una melma nera mutata a cui sono spuntate le ali, che gli permettono di volare ovunque.
 			}
 
 			DarkLatexCub: {
-				DisplayName: Black Latex Cub
-				Description: Small and cute, but still dangerous.
+				DisplayName: Cucciolo di melma nera
+				Description: Piccola e graziosa, ma pur sempre pericolosa.
 			}
 
 			SquidDog: {
-				DisplayName: Squid Dog
-				Description: Half squid, half dog and double as dangerous. This monster can easily catch anything with its tentacles.
+				DisplayName: Cane calamaro
+				Description: Metà calamaro, metà cane e doppiamente pericoloso. Questo mostro può catturare facilmente qualsiasi cosa con i suoi tentacoli.
 			}
 
 			SquidDogCub: {
-				DisplayName: Squid Dog Cub
-				Description: This curious water creature wants to play with anything near it.
+				DisplayName: Cucciolo di Cane calamaro
+				Description: Questa curiosa creatura acquatica vuole giocare con qualsiasi cosa le capiti a tiro.
 			}
 
 			Sweeper: {
-				DisplayName: Sweeper
-				Description: He tries his best to keep everything clean and tidy.
+				DisplayName: Robot spazzatrice
+				Description: Fa del suo meglio per mantenere tutto pulito e in ordine.
 			}
 
 			Bloodstripe: {
-				DisplayName: Bloodstripe
-				Description: This huge, hulking tiger can crush anything with its paws.
+				DisplayName: Sanguestriscia
+				Description: Questa tigre enorme e imponente può schiacciare qualsiasi cosa con le sue zampe.
 			}
 
 			Wendigo: {
 				DisplayName: Wendigo
-				Description: This massive beast can pierce the hardest materials with its horns.
+				Description: Questa bestia imponente è in grado di perforare i materiali più duri con le sue corna.
 			}
 
 			WhiteKnight: {
-				DisplayName: White Latex
-				Description: The albino cousin of the Black Latex.
+				DisplayName: Melma bianca
+				Description: Il cugino albino della melma nera.
 			}
 
 			WhiteLatexTaur: {
-				DisplayName: White Latex Taur
-				Description: His extra limbs make him extra fast and extra dangerous.
+				DisplayName: Centauro di melma bianca
+				Description: I suoi arti extra lo rendono estremamente veloce ed estremamente pericoloso.
 			}
 
 			Behemoth: {
-				DisplayName: Behemoth
-				Description: When enough white goos merge, they can become a monstrously large beast.
+				DisplayName: Colosso
+				Description: Quando un numero sufficiente di melme bianche si uniscono, possono trasformarsi in una bestia di dimensioni mostruose.
 			}
 
 			BehemothHand: {
-				DisplayName: Behemoth Hand
-				Description: Very handy.
+				DisplayName: Mano del colosso
+				Description: Molto pratico.
 			}
 
 			WolfKingSpawn: {
 				DisplayName: ???
-				Description: A mysterious figure.
+				Description: Una figura misteriosa.
 			}
 
 			WolfKing: {
-				DisplayName: Wolf King
-				Description: The leader of a pack of rowdy wolves.
+				DisplayName: Re Lupo
+				Description: Il capo di un branco di lupi turbolenti.
 			}
 
 			Cheerleader: {
 				DisplayName: Cheerleader
-				Description: Very happy guy.
+				Description: Un ragazzo molto felice.
 			}
 
 			WhiteTail: {
-				DisplayName: White Tail
-				Description: A piece that seperated from a large beast that is now looking to feast!
+				DisplayName: Coda bianca
+				Description: Un pezzo che si stacca da una grossa bestia che ora è in cerca di cibo!
 			}
 
 			Spike: {
-				DisplayName: Spike
-				Description: These things really hurt.
+				DisplayName: Arpione
+				Description: Queste cose fanno davvero male.
 			}
 
 			WhiteGoop: {
-				DisplayName: White Goop
-				Description: A strange, walking milk pudding.
+				DisplayName: Pozzanghera bianca
+				Description: Uno strano budino di latte ambulante.
 			}
 
 			BlackGoop: {
-				DisplayName: Black Goop
-				Description: A strange, walking oil slick.
+				DisplayName: Pozzanghera nera
+				Description: Una strana chiazza di petrolio ambulante.
 			}
 
 			WideLatex: {
-				DisplayName: Wide Latex
-				Description: He barely fits through the door.
+				DisplayName: Melma larga
+				Description: Passa a malapena attraverso la porta.
 			}
 
 			BackLatex: {
-				DisplayName: Back Latex
-				Description: He is looking the wrong way.
+				DisplayName: Melma al contrario
+				Description: Sta guardando nella direzione sbagliata.
 			}
 
 			WackLatex: {
-				DisplayName: Wack Latex
-				Description: He is crazy.
+				DisplayName: Melma pazza
+				Description: è pazzo.
 			}
 
 			BrightLatex: {
-				DisplayName: Bright Latex
-				Description: Brighter than the future.
+				DisplayName: Melma luminosa
+				Description: Molto luminoso.
 			}
 
 			WhiteLatexCub: {
-				DisplayName: White Latex Cub
-				Description: Small and cute, but still dangerous.
+				DisplayName: Cucciolo di melma bianca
+				Description: Piccola e graziosa, ma pur sempre pericolosa.
 			}
 
 			GermanShepherd: {
-				DisplayName: German Shepherd
-				Description: While most of his kind are harmless and used for herding sheep, this one is a big, bad dog coming for you!
+				DisplayName: Cane da pastore tedesco
+				Description: Sebbene la maggior parte dei suoi simili sia innocua e venga utilizzata per radunare le pecore, questo è un cane grosso e cattivo che ti sta venendo incontro!
 			}
 
 			Raccoon: {
-				DisplayName: Raccoon
-				Description: This silly guy loves rolling around on the ground, and he's really good at it.
+				DisplayName: Procione
+				Description: Questo simpatico tipo adora rotolarsi per terra, ed è davvero bravo a farlo.
 			}
 
 			QuackLatex: {
-				DisplayName: Quack Latex
-				Description: He is quackers.
+				DisplayName: Melma starnazzante
+				Description: Lui è un ciarlatano
 			}
 
 			StackLatex: {
-				DisplayName: Stack Latex
-				Description: A stack of Black Latecis.
+				DisplayName: Pila di melme
+				Description: Una pila di melme nere
 			}
 
 			PuroWormBody: {
-				DisplayName: Devourer of Oranges
-				Description: He wants to devour you like a juicy orange.
+				DisplayName: Divoratore di arance
+				Description: Vuole divorarti come un'arancia succosa.
 			}
 
 			PuroWormHead: {
-				DisplayName: Devourer of Oranges
-				Description: He wants to devour you like a juicy orange.
+				DisplayName: Divoratore di arance
+				Description: Vuole divorarti come un'arancia succosa.
 			}
 
 			PuroWormTail: {
-				DisplayName: Devourer of Oranges
-				Description: He wants to devour you like a juicy orange.
+				DisplayName: Divoratore di arance
+				Description: Vuole divorarti come un'arancia succosa.
 			}
 
 			SideLatex: {
-				DisplayName: Side Latex
-				Description: He has fallen, and he can't get up.
+				DisplayName: Melma laterale
+				Description: È caduto e non riesce ad alzarsi.
 			}
 
 			MightLatex: {
-				DisplayName: Might Latex
-				Description: He is a big guy.
+				DisplayName: Melma possente
+				Description: è un tipo tosto
 			}
 
 			HideLatex: {
-				DisplayName: Hide Latex
-				Description: He is hard to see.
+				DisplayName: Melma nascosta
+				Description: è difficile da individuare
 			}
 
 			Purrpurr: {
-				DisplayName: Purrpurr
-				Description: A big, purring purple cat.
+				DisplayName: Viofalefusa
+				Description: Un grosso gatto viola che fa le fusa.
 			}
 
 			Scientist: {
 				TownNPCMood: {
-					HateBiome: I hate {BiomeName}, because it's too humid and there are way too many things trying to hurt you!
-					DislikeBiome: I don't like {BiomeName}.
-					LikeBiome: I like {BiomeName}. There is something soothing about the sound of the waves.
-					LoveBiome: My body is made of white goo, so I fit in perfectly in {BiomeName}.
-					HateCrowded: I can't get anything done with so much noise around me.
-					DislikeCrowded: It's hard to concentrate with all those people around me.
-					LoveSpace: It's nice not having so many people around me so I can concentrate.
-					FarFromHome: I miss my desk and my equipment.
-					NoHome: I am not a field researcher, so I would like to have a decent place to live.
-					Content: I am doing just fine.
+					HateBiome: Odio {BiomeName} perché è troppo umida e ci sono troppe cose che cercano di farti del male!
+					DislikeBiome: Non mi piace {BiomeName}.
+					LikeBiome: Mi piace {BiomeName}. C'è qualcosa di rilassante nel suono delle onde.
+					LoveBiome: Il mio corpo è fatto di melma bianca, quindi mi integro perfettamente in {BiomeName}.
+					HateCrowded: Con tutto questo rumore intorno non riesco a combinare niente.
+					DislikeCrowded: È difficile concentrarsi con tutta quella gente intorno a me.
+					LoveSpace: È bello non avere tanta gente intorno, così posso concentrarmi.
+					FarFromHome: Mi mancano la mia scrivania e la mia attrezzatura.
+					NoHome: Non sono un ricercatore sul campo, quindi vorrei avere un posto decente dove vivere.
+					Content: Sto benissimo.
 					# Nurse
-					LoveNPC: I highly admire {NPCName} for curing all sorts of ailments.
+					LoveNPC: Ammiro moltissimo {NPCName} per la sua capacità di curare ogni sorta di disturbo.
 					# Furry girl
-					LikeNPC: I know from personal experience how painful a transformation can be, so seeing how well {NPCName} is putting up with it is quite impressive.
+					LikeNPC: So per esperienza personale quanto possa essere dolorosa una trasformazione, quindi vedere come {NPCName} la stia sopportando è davvero impressionante.
 					# Wizard
-					DislikeNPC: As a scientist I try to understand things, but I don't get what {NPCName} does and I don't like it.
+					DislikeNPC: Da scienziato cerco di capire le cose, ma non capisco quello che fa {NPCName} e non mi piace.
 					# Arms Dealer
-					HateNPC: I really hate {NPCName} for selling the same weapons that were used during the riots.
-					LikeNPC_Princess: "{NPCName} is always so cheerful, it's contagious."
-					Princess_LovesNPC: "{NPCName} is always so cheerful, it's contagious."
+					HateNPC: Detesto davvero {NPCName} per aver venduto le stesse armi usate durante le rivolte.
+					LikeNPC_Princess: "{NPCName} è sempre così allegra, è contagiosa."
+					Princess_LovesNPC: "{NPCName} è sempre così allegra, è contagiosa."
 				}
 
-				DisplayName: Scientist
-				Description: A scientist who previously worked on a cure for a deadly virus.
-				Census.SpawnCondition: Behemoth defeated
+				DisplayName: Scienziato
+				Description: Uno scienziato che in precedenza aveva lavorato alla cura di un virus mortale.
+				Census.SpawnCondition: Devi aver sconfitto il Colosso
 			}
 
 			FlightLatex: {
-				DisplayName: Flight Latex
-				Description: Flying on a magic carpet.
+				DisplayName: Melma volante
+				Description: Volare su un tappeto magico.
 			}
 
 			SnackLatex: {
-				DisplayName: Snack Latex
-				Description: A giant glutton.
+				DisplayName: Melma affamata
+				Description: Una melma molto affamata.
 			}
 
 			FightLatex: {
-				DisplayName: Fight Latex
-				Description: Don't mess with him.
+				DisplayName: Melma combattente
+				Description: Non scherzare con lui.
 			}
 
 			DarkLatexCubOfDoom: {
-				DisplayName: Puppy of Doom
-				Description: He will squish you with cuddles.
+				DisplayName: Cucciolo della Sventura
+				Description: Ti sommergerà di coccole.
 			}
 
 			MutatedLatex: {
-				DisplayName: Mutated Latex
-				DisplayNameBlack: Black Mutated Latex
-				DisplayNameWhite: White Mutated Latex
+				DisplayName: Melma mutata
+				DisplayNameBlack: Melma nera mutata
+				DisplayNameWhite: Melma bianca mutata
 				DisplayNameDrunk: Furry
-				Description: A goo monster that has morphed into something bizarre.
+				Description: Un mostro di melma che si è trasformato in qualcosa di bizzarro.
 			}
 
 			HungryLocker: {
-				DisplayName: Hungry Locker
+				DisplayName: Armadietto affamato
 				Description: Nom nom nom.
 			}
 
 			Snep: {
 				DisplayName: Snow Leopard
-				Description: A very fast and fluffy feline.
+				Description: Un felino molto veloce e soffice.
 			}
 
 			Lion: {
 				DisplayName: Feng Yu
-				Description: A lion-like creature that lures its prey with his mesmerizing asymmetrically colored eyes.
+				Description: Una creatura simile a un leone che attira le sue prede con i suoi occhi ipnotici dal colore asimmetrico.
 			}
 
 			TigerShark: {
-				DisplayName: Tiger Shark
+				DisplayName: Squalo tigre
 				# This is accurate to real life because they eat many different things
-				Description: A massive predator that can devour anything and anybody. Those foolish enough to swim near it end up swimming inside its belly.
+				Description: Un predatore gigantesco in grado di divorare qualsiasi cosa e chiunque. Chi è così folle da nuotargli vicino finisce per nuotare dentro il suo ventre.
 			}
 
 			BehemothSpawn: {
 				DisplayName: ???
-				Description: Great mighty goo.
+				Description: Grande, potentissima melma.
 			}
 
-			TigerSharkBoss.DisplayName: Tiger Shark Boss
+			TigerSharkBoss.DisplayName: Capo squalo tigre
 
 			SweeperPuro: {
 				DisplayName: Puroomba
-				Description: He goes vroomba.
+				Description: è un demone della velocità
 			}
 
-			Experiment009.DisplayName: Experiment 009
+			Experiment009.DisplayName: Esperimento 009
 
 			DarkLatexCubTownPet: {
-				DisplayName: Black Goo Puppy
-				Description: Cute
+				DisplayName: Cucciolo di melma nera
+				Description: Carino
 
 				Dialogue: {
 					Normal1: Woof!
@@ -612,8 +612,8 @@ Mods: {
 			}
 
 			WhiteLatexCubTownPet: {
-				DisplayName: White Goo Puppy
-				Description: Cute
+				DisplayName: Cucciolo di melma bianca
+				Description: Carino
 
 				Dialogue: {
 					Normal1: Woof!
@@ -624,8 +624,8 @@ Mods: {
 			}
 
 			ExoSuitRobot: {
-				DisplayName: Maintenance Robot
-				Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
+				DisplayName: Robot di manutenzione
+				Description: Un robot programmato per fungere da sentinella automatizzata contro chiunque tenti di violare il contenimento.
 			}
 
 			Colin: {
@@ -672,55 +672,55 @@ Mods: {
 
 		Tiles: {
 			PackingBox: {
-				MapEntry0: Packing Box
-				MapEntry1: Packing Box
+				MapEntry0: Scatola di imballaggio
+				MapEntry1: Scatola di imballaggio
 			}
 
 			StorageBox: {
-				MapEntry0: Storage Box
-				MapEntry1: Storage Box
+				MapEntry0: Scatola portaoggetti
+				MapEntry1: Scatola portaoggetti
 			}
 
-			IrisScanner: Iris Scanner
+			IrisScanner: Scanner dell'iride
 		}
 
 		Buffs: {
 			WhiteLatexTaurMountBuff: {
-				Description: White and Whoosh!
-				DisplayName: White Latex Taur
+				Description: Bianco e veloce!
+				DisplayName: Centauro di melma bianca
 			}
 
 			FlyingDarkLatexMountBuff: {
-				Description: Gliding on Goo!
+				Description: Volare sulla melma!
 				DisplayName: Yufeng
 			}
 
 			WhiskerStaffBuff: {
-				Description: The cat will fight for you
-				DisplayName: Ming Cat
+				Description: Il gatto combatterà per te
+				DisplayName: Gatto ming
 			}
 
 			PurrpurrStaffBuff: {
-				Description: Don't mess with her!
-				DisplayName: Purrpurr
+				Description: Non scherzare con lei!
+				DisplayName: Viofalefusa
 			}
 
 			TabbyStaffBuff: {
-				Description: The cat will fight for you
-				DisplayName: Tabby Cat
+				Description: Il gatto combatterà per te
+				DisplayName: Gatto tigrato
 			}
 		}
 
-		Keybinds.TransfurAttack.DisplayName: Ability
+		Keybinds.TransfurAttack.DisplayName: Capacità
 
 		Abilities: {
-			MingCat: Ming Cat
-			TentacleWhip: Tentacle whip
-			WaterBreathing: Can breathe underwater
-			WaterBreathingCalamity: Can endure the Abyss
-			IncreasedLifeRegen: Increased life regen
-			WhileInBiome: while in {0}
-			TransformsYouInto: Transforms you into a {0}
+			MingCat: Gatto ming
+			TentacleWhip: Frusta tentacolare
+			WaterBreathing: Può respirare sott'acqua
+			WaterBreathingCalamity: Può resistere all'Abisso
+			IncreasedLifeRegen: Aumento della rigenerazione vitale
+			WhileInBiome: mentre nella {0}
+			TransformsYouInto: Ti trasforma in un {0}
 		}
 	}
 }
@@ -734,8 +734,8 @@ RandomWorldName_Noun: {
 	Hayden: Hayden
 	Shizi: ShiZi
 	Snorro: Snorro
-	WhiteTail: White Tail
-	WolfKing: Wolf King
+	WhiteTail: Coda bianca
+	WolfKing: Re Lupo
 }
 
 # You better make a screenshot if you see this one
