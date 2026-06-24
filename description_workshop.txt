@@ -107,3 +107,8 @@ For information about previous versions, please check out the change notes in th
 [list]
 	[*]Town NPCs could not be hit by enemies at all, except latex beasts
 [/list]
+
+[h3]0.5.3.3[/h3]
+[list]
+	[*]Dialogue box would not show up if the player was carrying an orange
+[/list]

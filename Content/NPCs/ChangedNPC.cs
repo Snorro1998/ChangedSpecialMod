@@ -621,7 +621,6 @@ namespace ChangedSpecialMod.Content.NPCs
                         keyWords.Add("PlayerHasManyOranges", string.Empty);
                 }
 
-                AddIf(player.HasItem(ModContent.ItemType<Orange>()), "PlayerHasOrange");
                 AddIf(hasAnyBook, "PlayerHasBook");
                 AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");
                 AddIf(hasWaterBolt, "PlayerHasWaterBolt");

@@ -92,3 +92,6 @@ Hotfixes
 
 0.5.3.2
 - Town NPCs could not be hit by enemies at all, except latex beasts
+
+0.5.3.3
+- Dialogue box would not show up if the player was carrying an orange
