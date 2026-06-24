@@ -1170,7 +1170,10 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             var changedNPC = npc.Changed();
             var attackerChangedNPC = attacker.Changed();
-            if (changedNPC != null && attackerChangedNPC != null && changedNPC.GooType == attackerChangedNPC.GooType)
+            if (changedNPC != null && attackerChangedNPC != null)
+                return true;
+
+            if (changedNPC.GooType != GooType.Invalid && changedNPC.GooType == attackerChangedNPC.GooType)
                 return false;
             return true;
         }

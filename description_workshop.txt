@@ -69,13 +69,6 @@ Most things should work fine in multiplayer. In rare cases, you might encounter 
 This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
-[h3]0.5.3.1 (hotfix)[/h3]
-
-[b]Fixes[/b]
-[list]
-	[*]Town NPCs could talk about the Changed NPCs, even if they were not present yet
-[/list]
-
 [h3]0.5.3[/h3]
 
 [b]General[/b]
@@ -102,4 +95,15 @@ For information about previous versions, please check out the change notes in th
 	[*]Improved mod translations by reading through vanilla translations
 	[*]Added some missing translations
 	[*]Wendigo transfur was drawn too big
+[/list]
+
+[h2]Hotfixes[/h2]
+[h3]0.5.3.1[/h3]
+[list]
+	[*]Town NPCs could talk about the Changed NPCs, even if they were not present yet
+[/list]
+
+[h3]0.5.3.2[/h3]
+[list]
+	[*]Town NPCs could not be hit by enemies at all, except latex beasts
 [/list]

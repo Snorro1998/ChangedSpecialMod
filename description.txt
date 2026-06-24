@@ -61,10 +61,6 @@ Other
 This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
-0.5.3.1 (hotfix)
-
-Fixes
-- Town NPCs could talk about the Changed NPCs, even if they were not present yet
 
 0.5.3
 
@@ -87,3 +83,12 @@ Fixes
 - Improved mod translations by reading through vanilla translations
 - Added some missing translations
 - Wendigo transfur was drawn too big
+
+
+Hotfixes
+
+0.5.3.1
+- Town NPCs could talk about the Changed NPCs, even if they were not present yet
+
+0.5.3.2
+- Town NPCs could not be hit by enemies at all, except latex beasts
