@@ -652,6 +652,10 @@ Mods: {
 
 				Census.SpawnCondition: 通过使用调试项。
 			}
+
+			// CrystalWolf.DisplayName: Crystal Wolf
+			// CrystalWolfGreen.DisplayName: Emerald Wolf
+			// CrystalWolfRed.DisplayName: Ruby Wolf
 		}
 
 		Emotes: {
@@ -721,6 +725,11 @@ Mods: {
 			IncreasedLifeRegen: 生命再生能力增强
 			WhileInBiome: 在{0}里
 			TransformsYouInto: 把你变成一只{0}
+		}
+
+		Liquids: {
+			// BlackLatexLiquid.MapEntry: Black Latex Liquid
+			// WhiteLatexLiquid.MapEntry: White Latex Liquid
 		}
 	}
 }

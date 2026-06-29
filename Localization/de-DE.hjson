@@ -652,6 +652,10 @@ Mods: {
 
 				Census.SpawnCondition: Durch die Verwendung eines Debug-Elements.
 			}
+
+			// CrystalWolf.DisplayName: Crystal Wolf
+			// CrystalWolfGreen.DisplayName: Emerald Wolf
+			// CrystalWolfRed.DisplayName: Ruby Wolf
 		}
 
 		Emotes: {
@@ -721,6 +725,11 @@ Mods: {
 			IncreasedLifeRegen: erhöhte Lebensregeneration
 			WhileInBiome: während {0}
 			TransformsYouInto: Verwandelt dich in einen {0}
+		}
+
+		Liquids: {
+			// BlackLatexLiquid.MapEntry: Black Latex Liquid
+			// WhiteLatexLiquid.MapEntry: White Latex Liquid
 		}
 	}
 }

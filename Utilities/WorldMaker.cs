@@ -1,8 +1,12 @@
 ﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Content.Liquids;
+using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.Tiles;
+using Microsoft.Xna.Framework;
+using ModLiquidLib.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
@@ -124,10 +128,243 @@ namespace ChangedSpecialMod.Utilities
                     GenerateLabs();
                 }));
 
-                HandleSpecialSeeds(ref tasks, taskIndex + 1);
+                MakeLatexPools(ref tasks, taskIndex + 1);
+                HandleSpecialSeeds(ref tasks, taskIndex + 2);
             }
         }
 
+        private void MakeLatexPools(ref List<GenPass> tasks, int taskIndex)
+        {
+            var lastIndex = tasks.Count - 1;
+
+            tasks.Insert(lastIndex, new PassLegacy("ChangedLatexPools", (progress, config) =>
+            {
+                progress.Message = "Adding Latex Pools";
+
+                int spacing = 20;
+
+                List<(int x, int y)> possibleLocations = new();
+
+                for (int y = Main.maxTilesY / 2; y < Main.maxTilesY; y += spacing)
+                {
+                    for (int x = 0; x < Main.maxTilesX; x += spacing)
+                    {
+                        Tile tile = Main.tile[x, y];
+
+                        if (tile.HasTile &&
+                            tile.LiquidAmount > 0 &&
+                            tile.LiquidType == LiquidID.Water)
+                        {
+                            possibleLocations.Add((x, y));
+                        }
+                    }
+                }
+
+                // Shuffle
+                possibleLocations = possibleLocations.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, int.MaxValue)).ToList();
+                int maxPools = Math.Min(possibleLocations.Count, 20);
+                int placedPools = 0;
+
+                for (int i = 0; i < maxPools; i++)
+                {
+                    if (placedPools == maxPools)
+                        return;
+
+                    var poolType = placedPools < maxPools / 2 ? GooType.Black : GooType.White;
+                    var liquidType = poolType == GooType.Black ? LiquidLoader.LiquidType<BlackLatexLiquid>() : LiquidLoader.LiquidType<WhiteLatexLiquid>();
+
+                    var x = possibleLocations[i].x;
+                    var y = possibleLocations[i].y;
+                    var (bounds, waterTiles) = FloodFillWater(x, y);
+
+                    // Skip if a large body of water like the ocean or something from another mod
+                    if (waterTiles.Count > 1000)
+                        continue;
+
+                    foreach (var (tx, ty) in waterTiles)
+                    {
+                        var tile = Main.tile[tx, ty];
+                        tile.LiquidType = liquidType;
+                    }
+
+                    MakeBiomeAroundPool(bounds, 20, 15, poolType);
+                    placedPools++;
+                }
+            }));
+        }
+
+
+        private static void MakeBiomeAroundPool(Rectangle bounds, int paddingX, int paddingY, GooType gooType)
+        {
+            var blockType = gooType == GooType.Black ? ModContent.TileType<BlackLatexTile>() : ModContent.TileType<WhiteLatexTile>();
+
+            float radiusX = bounds.Width / 2f + paddingX;
+            float radiusY = bounds.Height / 2f + paddingY;
+
+            float centerX = bounds.Center.X;
+            float centerY = bounds.Center.Y;
+
+            // --------------------------------------------------------------------
+            // Generate an irregular outline.
+            // --------------------------------------------------------------------
+
+            const int Samples = 180; // One sample every 2 degrees.
+
+            float[] offsets = new float[Samples];
+
+            // Initial random offsets.
+            for (int i = 0; i < Samples; i++)
+                offsets[i] = WorldGen.genRand.NextFloat(-0.18f, 0.18f);
+
+            // Smooth them several times so nearby angles have similar values.
+            for (int pass = 0; pass < 4; pass++)
+            {
+                float[] temp = new float[Samples];
+
+                for (int i = 0; i < Samples; i++)
+                {
+                    float prev = offsets[(i - 1 + Samples) % Samples];
+                    float curr = offsets[i];
+                    float next = offsets[(i + 1) % Samples];
+
+                    temp[i] = (prev + curr * 2f + next) / 4f;
+                }
+
+                offsets = temp;
+            }
+
+            // --------------------------------------------------------------------
+            // Fill inside the irregular ellipse.
+            // --------------------------------------------------------------------
+
+            int minX = Math.Max(0, (int)Math.Floor(centerX - radiusX * 1.3f));
+            int maxX = Math.Min(Main.maxTilesX - 1, (int)Math.Ceiling(centerX + radiusX * 1.3f));
+            int minY = Math.Max(0, (int)Math.Floor(centerY - radiusY * 1.3f));
+            int maxY = Math.Min(Main.maxTilesY - 1, (int)Math.Ceiling(centerY + radiusY * 1.3f));
+
+            for (int y = minY; y <= maxY; y++)
+            {
+                for (int x = minX; x <= maxX; x++)
+                {
+                    float dx = x - centerX;
+                    float dy = y - centerY;
+
+                    float angle = MathF.Atan2(dy, dx);
+                    if (angle < 0)
+                        angle += MathHelper.TwoPi;
+
+                    int index = (int)(angle / MathHelper.TwoPi * Samples);
+                    index = Math.Clamp(index, 0, Samples - 1);
+
+                    float radiusScale = 1f + offsets[index];
+
+                    float nx = dx / (radiusX * radiusScale);
+                    float ny = dy / (radiusY * radiusScale);
+
+                    if (nx * nx + ny * ny > 1f)
+                        continue;
+
+                    Tile tile = Main.tile[x, y];
+
+                    if (tile.HasTile)
+                    {
+                        var newTileType = WorldGenerator.GetTileType(tile, gooType);
+                        if (newTileType != -1)
+                            tile.TileType = (ushort)blockType;
+                    }
+                }
+            }
+        }
+
+        private static (Rectangle Bounds, List<(int x, int y)> Tiles) FloodFillWater(int startX, int startY)
+        {
+            Queue<(int x, int y)> queue = new();
+            HashSet<(int x, int y)> visited = new();
+            List<(int x, int y)> waterTiles = new();
+
+            queue.Enqueue((startX, startY));
+
+            int minX = startX;
+            int maxX = startX;
+            int minY = startY;
+            int maxY = startY;
+
+            while (queue.Count > 0)
+            {
+                var (x, y) = queue.Dequeue();
+
+                if (!visited.Add((x, y)))
+                    continue;
+
+                if (x < 0 || x >= Main.maxTilesX ||
+                    y < 0 || y >= Main.maxTilesY)
+                    continue;
+
+                Tile tile = Main.tile[x, y];
+
+                if (tile.LiquidAmount == 0 ||
+                    tile.LiquidType != LiquidID.Water)
+                    continue;
+
+                waterTiles.Add((x, y));
+
+                minX = Math.Min(minX, x);
+                maxX = Math.Max(maxX, x);
+                minY = Math.Min(minY, y);
+                maxY = Math.Max(maxY, y);
+
+                queue.Enqueue((x + 1, y));
+                queue.Enqueue((x - 1, y));
+                queue.Enqueue((x, y + 1));
+                queue.Enqueue((x, y - 1));
+            }
+
+            Rectangle bounds = new Rectangle(
+                minX,
+                minY,
+                maxX - minX + 1,
+                maxY - minY + 1);
+
+            return (bounds, waterTiles);
+        }
+        /*
+        private static void FloodFillLiquid(int startX, int startY)
+        {
+            Queue<(int x, int y)> queue = new();
+            HashSet<(int x, int y)> visited = new();
+
+            queue.Enqueue((startX, startY));
+
+            while (queue.Count > 0)
+            {
+                // Stop if it is a large body of water, like the ocean or something from another mod
+                if (visited.Count > 300)
+                    break;
+
+                var (x, y) = queue.Dequeue();
+
+                if (!visited.Add((x, y)))
+                    continue;
+
+                if (x < 0 || x >= Main.maxTilesX ||
+                    y < 0 || y >= Main.maxTilesY)
+                    continue;
+
+                Tile tile = Main.tile[x, y];
+
+                if (tile.LiquidAmount == 0 ||
+                    tile.LiquidType != LiquidID.Water)
+                    continue;
+
+                tile.LiquidType = LiquidLoader.LiquidType<BlackLatexLiquid>();
+
+                queue.Enqueue((x + 1, y));
+                queue.Enqueue((x - 1, y));
+                queue.Enqueue((x, y + 1));
+                queue.Enqueue((x, y - 1));
+            }
+        }
+        */
         private void HandleSpecialSeeds(ref List<GenPass> tasks, int taskIndex)
         {
             var worldSeedName = WorldGen.currentWorldSeed.ToLower();

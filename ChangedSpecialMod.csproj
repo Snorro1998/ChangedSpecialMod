@@ -17,6 +17,12 @@
 	  <Folder Include="Content\Items\Placeable\Paintings\" />
 	  <Folder Include="Content\NPCs\Gores\" />
 	  <Folder Include="Localization\en-US\" />
+	  <Folder Include="Lib\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="ModLiquidLib">
+	    <HintPath>Lib\ModLiquidLib.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 	<!-- References -->

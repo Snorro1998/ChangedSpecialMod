@@ -4,10 +4,12 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
+using ChangedSpecialMod.Content.Liquids;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ModLiquidLib.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,12 +50,30 @@ namespace ChangedSpecialMod.Content.NPCs
         Wind
     }
 
+    public enum SpawnRequirement
+    {
+        None,
+        WhiteTail,
+        WolfKing,
+        Behemoth,
+        Hardmode
+    }
+
+    public enum SpawnDepth
+    {
+        Everywhere,
+        Surface,
+        Cave,
+    }
+
+
     public enum HatType
     {
         None,
         All,
         Rain,
         Party,
+        Underground,
         Fiesta,
         Silly,
         Valentine,
@@ -103,6 +123,9 @@ namespace ChangedSpecialMod.Content.NPCs
             // Rain
             new HatStruct(ItemID.RainHat, HatType.Rain, new int[] { 0, 0 }),
             new HatStruct(ItemID.UmbrellaHat, HatType.Rain, new int[] { 0, -4 }),
+
+            // Underground
+            new HatStruct(ItemID.MiningHelmet, HatType.Underground, new int[] { 0, 2 }),
 
             // Party
             new HatStruct(ItemID.PartyHat, HatType.Party, new int[] { 3, -3 }),
@@ -196,7 +219,31 @@ namespace ChangedSpecialMod.Content.NPCs
         public int EvolveType = -1;
         public bool CanEvolve = false;
 
+        // Spawn params
+        public SpawnRequirement spawnRequirement = SpawnRequirement.None;
+        public SpawnDepth spawnDepth = SpawnDepth.Surface;
+
         public override bool InstancePerEntity => true;
+
+        public override void SetDefaults(NPC entity)
+        {
+            base.SetDefaults(entity);
+            var changedNPC = entity.Changed();
+            var modLiquidNPC = entity.ModLiquid();
+
+            if (changedNPC == null || modLiquidNPC == null)
+                return;
+
+            var liquidID = -1;
+
+            if (changedNPC.GooType == GooType.Black)
+                liquidID = LiquidLoader.LiquidType<BlackLatexLiquid>();
+            else if (changedNPC.GooType == GooType.White)
+                liquidID = LiquidLoader.LiquidType<WhiteLatexLiquid>();
+
+            if (liquidID != -1)
+                modLiquidNPC.moddedLiquidMovementSpeed[liquidID - LiquidID.Count] = 1.5f;
+        }
 
         // Debug method to visualize a position by spamming confetti particles at it
         public void VisualizePosition(NPC npc, int xPos, int yPos)
@@ -308,7 +355,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     changedEmotes.Add(ModContent.EmoteBubbleType<PrototypeEmote>());
             }
 
-            if (ChangedUtils.CanSpawnStrongLatex())
+            if (ChangedUtils.CanSpawn(SpawnRequirement.WolfKing))
             {
                 changedEmotes.Add(ModContent.EmoteBubbleType<BloodStripeEmote>());
                 changedEmotes.Add(ModContent.EmoteBubbleType<PurrpurrEmote>());
@@ -920,7 +967,7 @@ namespace ChangedSpecialMod.Content.NPCs
             npc.scale *= (float)tmpSize * BaseScaleMultiplier;
         }
 
-        public void PickHat()
+        public void PickHat(NPC npc)
         {
             var player = Main.LocalPlayer;
             Drunk = ChangedUtils.IsDrunk(player);
@@ -930,7 +977,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 WornHatType = HatType.All;
             else if (BirthdayParty.PartyIsUp)
                 WornHatType = HatType.Party;
-            else if (Main.IsItRaining)
+            // Don't wear a rain hat if underground
+            else if (Main.IsItRaining && npc.Center.Y < Main.worldSurface * 16)
                 WornHatType = HatType.Rain;
             else if (SeasonSystem.season == SeasonalEvent.Birthday)
                 WornHatType = HatType.Party;
@@ -946,8 +994,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 WornHatType = HatType.Halloween;
             else if (SeasonSystem.season == SeasonalEvent.XMas)
                 WornHatType = HatType.XMas;
+            else if (Main.rand.NextBool(30) && npc.Center.Y > Main.worldSurface)
+                WornHatType = HatType.Underground;
 
-                var hatOptions = new List<HatStruct> { };
+            var hatOptions = new List<HatStruct> { };
             if (WornHatType == HatType.All)
                 hatOptions = NewHats;
             else if (WornHatType != HatType.None)
@@ -994,10 +1044,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         }
 
-        public void OnSpawnExtra(NPC npc = null)
+        public void OnSpawnExtra(NPC npc)
         {
-            PickHat();
-            if (npc != null && SeasonSystem.season == SeasonalEvent.Valentine && Main.rand.NextBool(3))
+            PickHat(npc);
+            if (SeasonSystem.season == SeasonalEvent.Valentine && Main.rand.NextBool(3))
                 npc.AddBuff(BuffID.Lovestruck, 60 * 20);
         }
 
@@ -1080,6 +1130,11 @@ namespace ChangedSpecialMod.Content.NPCs
                     effects,
                     0f
                 );
+
+                if (CurrentHat.HatId == ItemID.MiningHelmet)
+                {
+                    Lighting.AddLight(npc.Center, 1f, 1f, 1f);
+                }
             }
 
             if (changedNPC.HasBeer)

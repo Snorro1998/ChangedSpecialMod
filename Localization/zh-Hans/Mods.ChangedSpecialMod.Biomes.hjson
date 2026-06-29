@@ -22,3 +22,13 @@ ZDrunkBiome: {
 	TownNPCDialogueName: 醉酒生物群落
 	DisplayName: 醉
 }
+
+BlackLatexUndergroundBiome: {
+	// DisplayName: Black Latex Underground Biome
+	// TownNPCDialogueName: the Black Latex Underground Biome
+}
+
+WhiteLatexUndergroundBiome: {
+	// DisplayName: White Latex Underground Biome
+	// TownNPCDialogueName: the White Latex Underground Biome
+}

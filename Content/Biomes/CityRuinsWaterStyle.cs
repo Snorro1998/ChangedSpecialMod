@@ -9,19 +9,23 @@ namespace ChangedSpecialMod.Content.Biomes
 {
 	public class CityRuinsWaterStyle : ModWaterStyle
 	{
-		public override int ChooseWaterfallStyle() {
+		public override int ChooseWaterfallStyle() 
+		{
 			return ModContent.GetInstance<CityRuinsWaterfallStyle>().Slot;
 		}
 
-		public override int GetSplashDust() {
+		public override int GetSplashDust() 
+		{
             return ModContent.DustType<ChangedSolution>();
         }
 
-		public override int GetDropletGore() {
+		public override int GetDropletGore() 
+		{
 			return Terraria.ID.GoreID.WaterDrip;
         }
 
-		public override void LightColorMultiplier(ref float r, ref float g, ref float b) {
+		public override void LightColorMultiplier(ref float r, ref float g, ref float b) 
+		{
 			r = 1f;
 			g = 1f;
 			b = 1f;

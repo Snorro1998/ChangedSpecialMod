@@ -9,6 +9,7 @@ using System.Reflection;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static ChangedSpecialMod.Common.Systems.ExternalModItemSystem;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -29,6 +30,7 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modBossChecklist = null;
         public static Mod modMusicDisplay = null;
         public static Mod modCensus = null;
+        public static Mod modWikiThis = null;
 
         // Shops
         public static Mod modFargosMutant = null;
@@ -56,6 +58,7 @@ namespace ChangedSpecialMod.Common.Systems
             modBossChecklist = GetMod("BossChecklist");
             modMusicDisplay = GetMod("MusicDisplay");
             modCensus = GetMod("Census");
+            modWikiThis = GetMod("Wikithis");
 
             // Shops
             modFargosMutant = GetMod("Fargowiltas");
@@ -86,6 +89,7 @@ namespace ChangedSpecialMod.Common.Systems
             modBossChecklist = null;
             modMusicDisplay = null;
             modCensus = null;
+            modWikiThis = null;
 
             // Shops
             modFargosMutant = null;
@@ -115,6 +119,7 @@ namespace ChangedSpecialMod.Common.Systems
             SetupFargosMutant();
             SetupMusicDisplay();
             SetupCensus();
+            SetupWikiThis();
             SetupExtraTitles();
             TryUpdateTitle();
         }
@@ -168,6 +173,96 @@ namespace ChangedSpecialMod.Common.Systems
             AddToMutantShop("WhiteTail", "SummonWhiteTail", () => DownedBossSystem.DownedWhiteTail, Item.buyPrice(gold: 2));
             AddToMutantShop("WolfKing", "SummonWolfKing", () => DownedBossSystem.DownedWolfKing, Item.buyPrice(gold: 2));
             AddToMutantShop("Behemoth", "SummonBehemoth", () => DownedBossSystem.DownedBehemoth, Item.buyPrice(gold: 2));
+        }
+
+        private static void SetupWikiThis()
+        {
+            // Wikithis is a clientside mod
+            if (Main.dedServ)
+                return;
+
+            if (modWikiThis == null)
+                return;
+
+            var wikiURL = "https://changedterraria.wiki.gg/wiki/{}";
+
+            modWikiThis.Call("AddModURL", changedMod, wikiURL);
+            modWikiThis.Call(0, changedMod, wikiURL);
+            //wiki.Call("AddWikiTexture", calamity, Request<Texture2D>("CalamityMod/ModSupport/WikiThisIcon"));
+            //wiki.Call(3, calamity, Request<Texture2D>("CalamityMod/ModSupport/WikiThisIcon"));
+
+            // Clear up name conflicts
+            void ItemRedirect(int item, string pageName) => modWikiThis.Call(1, item, "https://changedterraria.wiki.gg/wiki/" + pageName);
+            void EnemyRedirect(int item, string pageName) => modWikiThis.Call(2, item, "https://changedterraria.wiki.gg/wiki/" + pageName);
+
+            EnemyRedirect(ModContent.NPCType<Puro>(), "Puro");
+            EnemyRedirect(ModContent.NPCType<Scientist>(), "Dr_K");
+            /*
+            // Items
+            ItemRedirect(ItemType<PineapplePet>(), "Pineapple (calamity)");
+            ItemRedirect(ItemType<TrashmanTrashcan>(), "Trash Can (pet)");
+            // Lore items
+            ItemRedirect(ItemType<LoreAstralInfection>(), loreItemPage);
+            ItemRedirect(ItemType<LoreAbyss>(), loreItemPage);
+            ItemRedirect(ItemType<LoreAquaticScourge>(), loreItemPage);
+            ItemRedirect(ItemType<LoreArchmage>(), loreItemPage);
+            ItemRedirect(ItemType<LoreAstrumAureus>(), loreItemPage);
+            ItemRedirect(ItemType<LoreAstrumDeus>(), loreItemPage);
+            ItemRedirect(ItemType<LoreAwakening>(), loreItemPage);
+            ItemRedirect(ItemType<LoreAzafure>(), loreItemPage);
+            ItemRedirect(ItemType<LoreBloodMoon>(), loreItemPage);
+            ItemRedirect(ItemType<LoreBrainofCthulhu>(), loreItemPage);
+            ItemRedirect(ItemType<LoreBrimstoneElemental>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCalamitas>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCalamitasClone>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCeaselessVoid>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCorruption>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCrabulon>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCrimson>(), loreItemPage);
+            ItemRedirect(ItemType<LoreCynosure>(), loreItemPage);
+            ItemRedirect(ItemType<LoreDesertScourge>(), loreItemPage);
+            ItemRedirect(ItemType<LoreDestroyer>(), loreItemPage);
+            ItemRedirect(ItemType<LoreDevourerofGods>(), loreItemPage);
+            ItemRedirect(ItemType<LoreDragonfolly>(), loreItemPage);
+            ItemRedirect(ItemType<LoreDukeFishron>(), loreItemPage);
+            ItemRedirect(ItemType<LoreEaterofWorlds>(), loreItemPage);
+            ItemRedirect(ItemType<LoreEmpressofLight>(), loreItemPage);
+            ItemRedirect(ItemType<LoreExoMechs>(), loreItemPage);
+            ItemRedirect(ItemType<LoreEyeofCthulhu>(), loreItemPage);
+            ItemRedirect(ItemType<LoreGolem>(), loreItemPage);
+            ItemRedirect(ItemType<LoreHiveMind>(), loreItemPage);
+            ItemRedirect(ItemType<LoreKingSlime>(), loreItemPage);
+            ItemRedirect(ItemType<LoreLeviathanAnahita>(), loreItemPage);
+            ItemRedirect(ItemType<LoreMechs>(), loreItemPage);
+            ItemRedirect(ItemType<LoreOldDuke>(), loreItemPage);
+            ItemRedirect(ItemType<LorePerforators>(), loreItemPage);
+            ItemRedirect(ItemType<LorePlaguebringerGoliath>(), loreItemPage);
+            ItemRedirect(ItemType<LorePlantera>(), loreItemPage);
+            ItemRedirect(ItemType<LorePolterghast>(), loreItemPage);
+            ItemRedirect(ItemType<LorePrelude>(), loreItemPage);
+            ItemRedirect(ItemType<LoreProfanedGuardians>(), loreItemPage);
+            ItemRedirect(ItemType<LoreProvidence>(), loreItemPage);
+            ItemRedirect(ItemType<LoreQueenBee>(), loreItemPage);
+            ItemRedirect(ItemType<LoreQueenSlime>(), loreItemPage);
+            ItemRedirect(ItemType<LoreRavager>(), loreItemPage);
+            ItemRedirect(ItemType<LoreRequiem>(), loreItemPage);
+            ItemRedirect(ItemType<LoreSignus>(), loreItemPage);
+            ItemRedirect(ItemType<LoreSkeletron>(), loreItemPage);
+            ItemRedirect(ItemType<LoreSkeletronPrime>(), loreItemPage);
+            ItemRedirect(ItemType<LoreSlimeGod>(), loreItemPage);
+            ItemRedirect(ItemType<LoreStormWeaver>(), loreItemPage);
+            ItemRedirect(ItemType<LoreSulphurSea>(), loreItemPage);
+            ItemRedirect(ItemType<LoreTwins>(), loreItemPage);
+            ItemRedirect(ItemType<LoreUnderworld>(), loreItemPage);
+            ItemRedirect(ItemType<LoreWallofFlesh>(), loreItemPage);
+            ItemRedirect(ItemType<LoreYharon>(), loreItemPage);
+
+            // Enemies
+            EnemyRedirect(NPCType<KingSlimeJewelRuby>(), "Crown Jewels");
+            EnemyRedirect(NPCType<OldDukeToothBall>(), "Tooth Ball (Old Duke)");
+            EnemyRedirect(NPCType<CalamitasEnchantDemon>(), "Enchantment");
+            EnemyRedirect(NPCType<LeviathanStart>(), "%3F%3F%3F");
+            */
         }
 
         /*

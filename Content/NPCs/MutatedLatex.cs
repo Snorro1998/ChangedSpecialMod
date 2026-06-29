@@ -110,6 +110,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanHaveBeer = true;
             changedNPC.BeerXOffset = -16;
+            changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -127,9 +128,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!ChangedUtils.CanSpawnFastLatex())
-                return 0;
-
             var multiplier = 0.4f;
             if (spawnInfo.Player != null && ChangedUtils.IsDrunk(spawnInfo.Player))
                 multiplier = 0.8f;

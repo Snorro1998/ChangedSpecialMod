@@ -22,3 +22,13 @@ ZDrunkBiome: {
 	TownNPCDialogueName: o Bioma Bêbado
 	DisplayName: Bêbado
 }
+
+BlackLatexUndergroundBiome: {
+	// DisplayName: Black Latex Underground Biome
+	// TownNPCDialogueName: the Black Latex Underground Biome
+}
+
+WhiteLatexUndergroundBiome: {
+	// DisplayName: White Latex Underground Biome
+	// TownNPCDialogueName: the White Latex Underground Biome
+}

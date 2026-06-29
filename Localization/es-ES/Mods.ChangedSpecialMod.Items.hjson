@@ -782,3 +782,23 @@ DebugSpawnColin: {
 	DisplayName: Llamar a Colin
 	Tooltip: ""
 }
+
+BlackLatexLiquidBucket: {
+	// Tooltip: ""
+	// DisplayName: Black Latex Liquid Bucket
+}
+
+LatexSponge: {
+	// Tooltip: ""
+	// DisplayName: Latex Sponge
+}
+
+PuroStatue: {
+	// DisplayName: Puro Statue
+	// Tooltip: ""
+}
+
+SquidDogStatue: {
+	// DisplayName: Squid Dog Statue
+	// Tooltip: ""
+}

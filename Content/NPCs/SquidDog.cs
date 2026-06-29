@@ -68,6 +68,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -90,23 +91,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            // He isn't fast, but he also requires the White Tail or any other boss to be defeated first
-            if (!ChangedUtils.CanSpawnFastLatex())
-                return 0;
             var changedNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         private void UpdateHatPosition(int frameHeight)
         {
-            /*
-            standing    0 2 3 4 5 9 10 11 12 16 17 24 25
-            wide legs   1 13 14 15
-            leg frwd    6 7 8
-            sitting     18 19 20 21 22 23
-            throw 26..29
-            */
-
             var changedNPC = NPC.Changed();
             var frame = NPC.frame;
             var fr = frame.Top / frameHeight;

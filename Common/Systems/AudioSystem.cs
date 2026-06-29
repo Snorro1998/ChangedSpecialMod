@@ -121,12 +121,12 @@ namespace ChangedSpecialMod.Common.Systems
             CurrentMusicParty = Utils.SelectRandom(Main.rand, MusicParty);
         }
 
-        public static string GetMusic(Player player, GooType gooType)
+        public static string GetMusic(Player player, GooType gooType, bool underground = false)
         {
             // This also causes the party music to play if you are near the old man at the dungeon
             if (player != null && player.townNPCs > 0 && BirthdayParty.PartyIsUp)
                 return CurrentMusicParty;
-            if (!Main.IsItDay())
+            if (!Main.IsItDay() && !underground)
                 return Sounds.MusicVents;
             if (gooType == GooType.Black)
                 return CurrentMusicBlackLatexZone;

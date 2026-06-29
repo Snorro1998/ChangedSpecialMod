@@ -118,6 +118,9 @@ namespace ChangedSpecialMod
                 if (waterBreathingCalamity)
                     CalamityAbyssBreathing(ref player);
             }
+
+            // Wall climbing
+            //player.spikedBoots = 2;
         }
     }
 

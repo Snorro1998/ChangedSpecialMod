@@ -55,6 +55,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
+            changedNPC.spawnRequirement = SpawnRequirement.WolfKing;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -64,11 +65,11 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!ChangedUtils.CanSpawnStrongLatex() || NPC.AnyNPCs(ModContent.NPCType<Wendigo>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Wendigo>()))
                 return 0;
 
             var changedNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type) * 0.3f;
+            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

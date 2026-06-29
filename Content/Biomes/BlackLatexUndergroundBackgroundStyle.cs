@@ -1,0 +1,76 @@
+using Terraria.ModLoader;
+
+namespace ChangedSpecialMod.Backgrounds
+{
+	public class BlackLatexUndergroundBackgroundStyle : ModUndergroundBackgroundStyle
+	{
+		/*
+		// Use this to keep far Backgrounds like the mountains.
+		public override void ModifyFarFades(float[] fades, float transitionSpeed) 
+		{
+			for (int i = 0; i < fades.Length; i++) 
+			{
+				if (i == Slot) 
+				{
+					fades[i] += transitionSpeed;
+					if (fades[i] > 1f) 
+					{
+						fades[i] = 1f;
+					}
+				}
+				else 
+				{
+					fades[i] -= transitionSpeed;
+					if (fades[i] < 0f) 
+					{
+						fades[i] = 0f;
+					}
+				}
+			}
+		}
+
+		public override int ChooseFarTexture() 
+		{
+			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurface/Far");
+		}
+
+		private static int SurfaceFrameCounter;
+		private static int SurfaceFrame;
+		public override int ChooseMiddleTexture() 
+		{
+			if (++SurfaceFrameCounter > 12) 
+			{
+				SurfaceFrame = (SurfaceFrame + 1) % 4;
+				SurfaceFrameCounter = 0;
+			}
+			switch (SurfaceFrame) 
+			{
+				case 0:
+					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurface/Mid0");
+				case 1:
+					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurface/Mid1");
+				case 2:
+					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurface/Mid2");
+				case 3:
+					return BackgroundTextureLoader.GetBackgroundSlot("ChangedSpecialMod/Assets/Textures/Backgrounds/BlackLatexSurface/Mid3"); // You can use the full path version of GetBackgroundSlot too
+				default:
+					return -1;
+			}
+		}
+
+		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) 
+		{
+			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurface/Close");
+		}
+		*/
+
+        public override void FillTextureArray(int[] textureSlots)
+        {
+			textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/0");
+			textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/1");
+			textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/2");
+			textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/3");
+			textureSlots[4] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/4");
+        }
+    }
+}

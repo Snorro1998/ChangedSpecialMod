@@ -54,6 +54,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -71,8 +72,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!ChangedUtils.CanSpawnFastLatex())
-                return 0;
             var ChangedGlobalNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
         }

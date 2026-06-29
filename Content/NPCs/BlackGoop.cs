@@ -50,6 +50,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanEvolve = true;
             changedNPC.EvolveType = ModContent.NPCType<DarkLatexCub>();
+            changedNPC.spawnDepth = SpawnDepth.Everywhere;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

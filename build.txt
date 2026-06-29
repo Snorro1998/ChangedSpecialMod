@@ -1,3 +1,4 @@
 displayName = Changed Special
 author = Snorro
+modReferences = ModLiquidLib
 version = 0.5.3.3

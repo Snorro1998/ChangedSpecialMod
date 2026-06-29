@@ -110,11 +110,11 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!ChangedUtils.CanSpawnStrongLatex())
+            if (!ChangedUtils.CanSpawnExtraStrong())
                 return 0f;
 
             var changedNPC = NPC.Changed();
-            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            return 0.2f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

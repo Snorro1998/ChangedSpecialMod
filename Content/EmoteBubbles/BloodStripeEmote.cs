@@ -13,7 +13,7 @@ namespace ChangedSpecialMod.Content.EmoteBubbles
 
         public override bool IsUnlocked()
         {
-            return ChangedUtils.CanSpawnStrongLatex();
+            return ChangedUtils.CanSpawn(NPCs.SpawnRequirement.WolfKing);
         }
     }
 }

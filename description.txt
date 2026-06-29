@@ -2,7 +2,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 
 -------- Contents ---------
 
-- 3 surface biomes
+- 5 biomes
 - 3 Town NPCs
 - 22 normal monsters
 - Some extra monsters on the drunk world
@@ -34,6 +34,13 @@ It should also work fine with most other mods. The only issue that can occur is 
 There was no logic for multiplayer in previous versions, which caused a lot of issues. Most of these problems are now fixed, except desyncing of other players' transfurs. This means that they are transfurred, but you can't see it. It can happen when a player is transfurred and another player enters the world. An indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any syringe, except the squid dog syringe (it's hard to explain, but it has to be a syringe that makes the interface pop up).
 
 
+---------- Other ----------
+
+Items and NPCs used to have scaled down sprites from Changed as placeholders.
+A lot of them have since been updated, but not all of them.
+So you may come accross things that clash with Terraria's art style.
+
+
 --------- Credits ---------
 
 Art
@@ -58,40 +65,31 @@ Other
 
 --------- Changelog ---------
 
-This update adds new transfur options and makes their stats visible in the ui.
+This update adds underground biomes. 
 For information about previous versions, please check out the change notes in the steam workshop.
 
 
-0.5.3
+0.5.4
 
 General
-- Added all remaining languages: French, Portuguese, Russian, Italian and Polish
-- Added Colin. He doesn't do much yet, so you have to spawn him in with a debug item sold by Dr K.
-- Removed Puro's shimmer variant, because it looked the same
-- Transfurs are no longer saved for now when exiting a world, because it was causing issues
-- Added some custom window titles (the bar at the top of the screen if you are not playing in fullscreen)
-- Added animal skins for the Feng Yu (lion) and Snow Leopard, so they don't drop tiger and normal leopard skins anymore
+- Added Puro and Squid Dog statues
+- The mod now requires modliquid for the newly added fluids.
+- NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now
 
-Transfur
-- Added German Shepherd, Feng Yu, Snow Leopard, Bloodstripe and Purrpurr
-- Dr K sells empty syringes. You need them to create the new transfur syringes
-- Both the item tooltip and the transfur option menu show the stats of each transfur
-- The sprites of the combined syringes are now diagonal to see the difference easier
+Liquid latex
+- Added black and white latex liquids. It isn't dangerous, but it slows you down like honey.
+- Latex beasts walk faster in it if they are the same type.
+- Can be picked up or placed with a bucket
+- Can be removed with a super sponge
+
+Underground biomes
+- Black and white latex 
+- Generate around latex ponds in the lower half of the world
+- No unique NPCs yet, but some that spawn on the surface won't appear here.
+
+Resprited
+- Tabby Cat
 
 Fixes
-- Active transfurs not displayed after joining a multiplayer world
-- Improved mod translations by reading through vanilla translations
-- Added some missing translations
-- Wendigo transfur was drawn too big
-
-
-Hotfixes
-
-0.5.3.1
-- Town NPCs could talk about the Changed NPCs, even if they were not present yet
-
-0.5.3.2
-- Town NPCs could not be hit by enemies at all, except latex beasts
-
-0.5.3.3
-- Dialogue box would not show up if the player was carrying an orange
+- Blocks not merging correctly when next to dirt
+- Waterfalls glowed in the dark when in any Changed biome

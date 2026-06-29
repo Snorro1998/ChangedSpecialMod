@@ -484,6 +484,7 @@ namespace ChangedSpecialMod.Utilities
 
                 case TileID.Grass:
                 case TileID.Dirt:
+                case TileID.Stone:
                 case TileID.ClayBlock:
 
                 // Desert
@@ -527,6 +528,7 @@ namespace ChangedSpecialMod.Utilities
 
                 case TileID.Grass:
                 case TileID.Dirt:
+                case TileID.Stone:
                 case TileID.ClayBlock:
 
                 // Desert

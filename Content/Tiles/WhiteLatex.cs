@@ -14,6 +14,7 @@ namespace ChangedSpecialMod.Content.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<WhiteLatexTile>());
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;

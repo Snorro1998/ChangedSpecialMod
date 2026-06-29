@@ -43,6 +43,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.IsFish = true;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
+            changedNPC.spawnDepth = SpawnDepth.Everywhere;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

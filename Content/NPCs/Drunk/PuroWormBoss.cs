@@ -57,6 +57,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.HitEffectScale = 3;
             changedNPC.RemoveAllHats();
+            changedNPC.spawnDepth = SpawnDepth.Everywhere;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

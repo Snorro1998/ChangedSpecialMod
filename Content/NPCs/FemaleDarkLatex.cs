@@ -59,6 +59,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.CanHaveBeer = true;
             changedNPC.BeerXOffset = -16;
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.spawnDepth = SpawnDepth.Everywhere;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
