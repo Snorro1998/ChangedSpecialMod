@@ -653,7 +653,6 @@ Mods: {
 				Census.SpawnCondition: By using a debug item for now.
 			}
 
-			CrystalWolf.DisplayName: Crystal Wolf
 			CrystalWolfGreen.DisplayName: Emerald Wolf
 			CrystalWolfRed.DisplayName: Ruby Wolf
 			CrystalWolfBlue.DisplayName: Crystal Wolf Blue

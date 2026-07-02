@@ -8,13 +8,16 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <AdditionalFiles Remove="Content\Items\Placeable\Paintings\**" />
 	  <AdditionalFiles Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <Compile Remove="Content\Items\Placeable\Paintings\**" />
 	  <Compile Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <EmbeddedResource Remove="Content\Items\Placeable\Paintings\**" />
 	  <EmbeddedResource Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <None Remove="Content\Items\Placeable\Paintings\**" />
 	  <None Remove="Content\Tiles\Furniture\MusicBoxes\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Content\Items\Placeable\Paintings\" />
 	  <Folder Include="Content\NPCs\Gores\" />
 	  <Folder Include="Lib\" />
 	</ItemGroup>

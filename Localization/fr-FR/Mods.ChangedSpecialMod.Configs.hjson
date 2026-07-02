@@ -91,12 +91,12 @@ ChangedSpecialModClientConfig: {
 	}
 
 	CustomWorldNames: {
-		// Label: Custom World Names
-		// Tooltip: ""
+		Label: Nouveaux noms du monde
+		Tooltip: Lors de la génération d'un nouveau monde, de nouveaux noms peuvent être sélectionnés.
 	}
 
 	CustomDryadWorldStatus: {
-		// Label: Custom Dryad World Status
-		// Tooltip: ""
+		Label: Informations supplémentaires sur le statut mondial
+		Tooltip: La dryade peut aussi vous indiquer la quantité de vase présente dans le monde.
 	}
 }

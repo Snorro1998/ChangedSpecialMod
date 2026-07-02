@@ -653,7 +653,6 @@ Mods: {
 				Census.SpawnCondition: 通过使用调试项。
 			}
 
-			// CrystalWolf.DisplayName: Crystal Wolf
 			// CrystalWolfGreen.DisplayName: Emerald Wolf
 			// CrystalWolfRed.DisplayName: Ruby Wolf
 			// CrystalWolfBlue.DisplayName: Crystal Wolf Blue

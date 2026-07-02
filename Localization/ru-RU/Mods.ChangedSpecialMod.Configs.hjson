@@ -93,12 +93,12 @@ ChangedSpecialModClientConfig: {
 	}
 
 	CustomWorldNames: {
-		// Label: Custom World Names
-		// Tooltip: ""
+		Label: новые мировые имена
+		Tooltip: При создании нового мира можно выбрать новые имена.
 	}
 
 	CustomDryadWorldStatus: {
-		// Label: Custom Dryad World Status
-		// Tooltip: ""
+		Label: Дополнительная информация о состоянии мира
+		Tooltip: Дриада также может рассказать вам, сколько слизи существует в мире.
 	}
 }

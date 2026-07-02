@@ -91,12 +91,12 @@ ChangedSpecialModClientConfig: {
 	}
 
 	CustomWorldNames: {
-		// Label: Custom World Names
-		// Tooltip: ""
+		Label: 新世界名称
+		Tooltip: 生成新世界时，可以选择新名称。
 	}
 
 	CustomDryadWorldStatus: {
-		// Label: Custom Dryad World Status
-		// Tooltip: ""
+		Label: 额外世界状态信息
+		Tooltip: 树精还可以告诉你世界上有多少黏液。
 	}
 }

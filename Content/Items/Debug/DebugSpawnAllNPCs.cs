@@ -20,10 +20,17 @@ namespace ChangedSpecialMod.Content.Items.Debug
 
         public override bool? UseItem(Player player)
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return true;
+
             var entitySource = Item.GetSource_FromThis();
 
             var npcs = new List<int>
             {
+                // Sweeper
+                ModContent.NPCType<Sweeper>(),
+                ModContent.NPCType<SweeperPuro>(),
+
                 // Black
                 ModContent.NPCType<BlackGoop>(),
                 ModContent.NPCType<DarkLatexCub>(),
@@ -32,6 +39,14 @@ namespace ChangedSpecialMod.Content.Items.Debug
                 ModContent.NPCType<MaleDarkLatex>(),
                 ModContent.NPCType<FlyingDarkLatex>(),
                 ModContent.NPCType<WingedDarkLatex>(),
+
+                // Crystal wolves
+                ModContent.NPCType<CrystalWolfBlue>(),
+                ModContent.NPCType<CrystalWolfGreen>(),
+                ModContent.NPCType<CrystalWolfOrange>(),
+                ModContent.NPCType<CrystalWolfPurple>(),
+                ModContent.NPCType<CrystalWolfRed>(),
+                ModContent.NPCType<CrystalWolfWhite>(),
 
                 // White
                 ModContent.NPCType<WhiteGoop>(),
@@ -47,7 +62,6 @@ namespace ChangedSpecialMod.Content.Items.Debug
                 ModContent.NPCType<Snep>(),
                 ModContent.NPCType<Raccoon>(),
                 ModContent.NPCType<SquidDog>(),
-                ModContent.NPCType<Sweeper>(),
                 ModContent.NPCType<Wendigo>(),
                 ModContent.NPCType<MutatedLatex>(),
 
