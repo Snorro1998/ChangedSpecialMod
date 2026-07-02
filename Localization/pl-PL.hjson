@@ -664,13 +664,8 @@ Mods: {
 			}
 
 			CrystalWolfBlue: {
-				DisplayName: Szafirowy wilk 
+				DisplayName: Szafirowy wilk
 				Description: Świecąc jasno jak szafir.
-			}
-
-			CrystalWolfOrange: {
-				DisplayName: Topazowy wilk 
-				Description: Świecąc jasno jak topaz.
 			}
 
 			CrystalWolfOrange: {
@@ -682,6 +677,8 @@ Mods: {
 				DisplayName: Diamentowy wilk
 				Description: Świeci jasno jak diament.
 			}
+
+			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
 		}
 
 		Emotes: {

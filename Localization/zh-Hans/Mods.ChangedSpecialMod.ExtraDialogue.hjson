@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0}中{1}%为神圣之地，{2}%为腐化之地，{3}%为猩红之地，{4}%为黏液之地。"
+		WorldIsHallowCorruptLatex: "{0}中{1}%为神圣之地，{2}%为腐化之地，{3}%为黏液之地。"
+		WorldIsHallowCrimsonLatex: "{0}中{1}%为神圣之地 {2}%为猩红之地，{3}%为黏液之地。"
+		WorldIsCorruptCrimsonLatex: "{0}中{1}%为腐化之地，{2}%为猩红之地，{3}%为黏液之地。"
+		WorldIsCorruptLatex: "{0}中{1}%为腐化之地，{2}%为黏液之地。"
+		WorldIsCrimsonLatex: "{0}中{1}%为猩红之地，{2}%为黏液之地。"
+		WorldIsHallowLatex: "{0}中{1}%为神圣之地，{2}%为黏液之地。"
+		WorldIsLatex: "{0}中{1}%为黏液之地。"
+		NoteGooNearlyGone: 只剩下一点点黏液了！
+		NoteGooSmallAmount: 你必须阻止黏液蔓延。
+		NoteGooLargeAmount: 我们生活在一个充满粘液的区域。
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} — на {1} % Освящение, на {2} % Порча, на {3} % Багрянец и на {4} % слизь."
+		WorldIsHallowCorruptLatex: "{0} — на {1} % Освящение, на {2} % Порча и на {3} % слизь."
+		WorldIsHallowCrimsonLatex: "{0} — на {1} % Освящение, на {2} % Багрянец и на {3} % слизь."
+		WorldIsCorruptCrimsonLatex: "{0} — на {1} % Порча, на {2} % Багрянец и на {3} % слизь."
+		WorldIsCorruptLatex: "{0} — на {1} % Порча и на {2} % слизь."
+		WorldIsCrimsonLatex: "{0} — на {1} % Багрянец и на {2} % слизь."
+		WorldIsHallowLatex: "{0} — на {1} % Освящение и на {2} % слизь."
+		WorldIsLatex: "{0} — на {1} % слизь."
+		NoteGooNearlyGone: Осталось совсем немного слизи!
+		NoteGooSmallAmount: Вы должны остановить распространение слизи.
+		NoteGooLargeAmount: Мы живём в область слизи
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

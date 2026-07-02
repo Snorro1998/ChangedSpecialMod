@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} è {1}% consacrato, {2}% corrotto, {3}% cremisi e {4} melma."
+		WorldIsHallowCorruptLatex: "{0} è {1}% consacrato, {2}% corrotto e {3} melma."
+		WorldIsHallowCrimsonLatex: "{0} è {1}% consacrato, {2}% cremisi e {3} melma."
+		WorldIsCorruptCrimsonLatex: "{0} è {1}% corrotto, {2}% cremisi e {3} melma."
+		WorldIsCorruptLatex: "{0} è {1}% corrotto e {2} melma."
+		WorldIsCrimsonLatex: "{0} è {1}% cremisi e {2} melma."
+		WorldIsHallowLatex: "{0} è {1}% consacrato e {2} melma."
+		WorldIsLatex: "{0} è {1}% melma."
+		NoteGooNearlyGone: È rimasto solo un pochino di melma!
+		NoteGooSmallAmount: Devi fermare la melma.
+		NoteGooLargeAmount: Viviamo in una zona melmosa.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

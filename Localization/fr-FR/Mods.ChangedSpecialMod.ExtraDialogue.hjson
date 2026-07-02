@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} est {1} % sacré, {2} % corrompu, {3} % carmin et {4} % gelée."
+		WorldIsHallowCorruptLatex: "{0} est {1} % sacré, {2} % corrompu et {3} % gelée."
+		WorldIsHallowCrimsonLatex: "{0} est {1} % sacré, {2} % carmin et {3} % gelée."
+		WorldIsCorruptCrimsonLatex: "{0} est {1} % corrompu, {2} % carmin et {3} % gelée."
+		WorldIsCorruptLatex: "{0} est {1} % corrompu et {2} % gelée."
+		WorldIsCrimsonLatex: "{0} est {1} % carmin et {2} % gelée."
+		WorldIsHallowLatex: "{0} est {1} % sacré et {2} % gelée."
+		WorldIsLatex: "{0} est {1} % gelée."
+		NoteGooNearlyGone: Il ne reste plus qu'un peu de gelée!
+		NoteGooSmallAmount: Il faut arrêter la gelée.
+		NoteGooLargeAmount: Nous vivons dans une zone de gelée.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

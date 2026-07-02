@@ -608,17 +608,17 @@ DiscoCrystal: {
 
 BlackLatexSolution: {
 	DisplayName: Schwarze Schleimlösung
-	Tooltip: Breitet den schwarzen Schleimgebiet aus
+	Tooltip: Verbreitet den schwarzen Schleimgebiet
 }
 
 WhiteLatexSolution: {
 	DisplayName: Weiße Schleimlösung
-	Tooltip: Breitet den weißen Schleimgebiet aus
+	Tooltip: Verbreitet den weißen Schleimgebiet
 }
 
 DryDirtSolution: {
 	DisplayName: Trockene Schmutzlösung
-	Tooltip: Breitet die Stadtruinen aus
+	Tooltip: Verbreitet die Stadtruinen
 }
 
 OrangeStatue: {

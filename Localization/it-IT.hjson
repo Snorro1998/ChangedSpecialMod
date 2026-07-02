@@ -669,11 +669,6 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Lupo di topazio
-				Description: Splendente come un topazio.
-			}
-
-			CrystalWolfOrange: {
 				DisplayName: Lupo di ametista
 				Description: Splendente come un'ametista.
 			}
@@ -682,6 +677,8 @@ Mods: {
 				DisplayName: Lupo di diamante
 				Description: Splende come un diamante.
 			}
+
+			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
 		}
 
 		Emotes: {

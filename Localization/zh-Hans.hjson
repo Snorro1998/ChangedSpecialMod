@@ -590,14 +590,14 @@ Mods: {
 				Description: 巨大的粘稠物。
 			}
 
-			TigerSharkBoss.DisplayName: Tiger Shark Boss
+			TigerSharkBoss.DisplayName: 虎鲨老板
 
 			SweeperPuro: {
 				DisplayName: 普羅吸尘器
 				Description: 他是个速度狂魔。
 			}
 
-			Experiment009.DisplayName: Experiment 009
+			Experiment009.DisplayName: 实验009
 
 			DarkLatexCubTownPet: {
 				DisplayName: 黑色粘液小狗
@@ -669,11 +669,6 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: 黄玉狼
-				Description: 它像黄玉一样闪闪发光。
-			}
-
-			CrystalWolfOrange: {
 				DisplayName: 紫水晶狼
 				Description: 它像紫水晶一样闪闪发光。
 			}
@@ -682,6 +677,8 @@ Mods: {
 				DisplayName: 钻石狼
 				Description: 它像钻石一样闪闪发光。
 			}
+
+			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
 		}
 
 		Emotes: {
@@ -766,15 +763,15 @@ Mods: {
 # 885 entries in vanilla
 RandomWorldName_Noun_Custom: {
 	DragonSnow: 小天
-	Hayden: Hayden
+	Hayden: 海登
 	Shizi: 噬子
-	Snorro: Snorro
+	Snorro: 斯诺罗
 	WhiteTail: 白尾
 	WolfKing: 狼王
 }
 
 # You better make a screenshot if you see this one
-SpecialWorldName.TheConstant: Mmmmm Orange
+SpecialWorldName.TheConstant: 嗯橙子
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.

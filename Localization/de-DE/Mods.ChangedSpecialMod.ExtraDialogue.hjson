@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} ist {1}% heilig, {2}% verdorben, {3}% purpur und {4}% schleim."
+		WorldIsHallowCorruptLatex: "{0} ist {1}% heilig, {2}% verdorben und {3}% schleim."
+		WorldIsHallowCrimsonLatex: "{0} ist {1}% heilig, {2}% purpur und {3}% schleim."
+		WorldIsCorruptCrimsonLatex: "{0} ist {1}% verdorben, {2}% purpur und {3}% schleim."
+		WorldIsCorruptLatex: "{0} ist {1}% verdorben und {2}% schleim."
+		WorldIsCrimsonLatex: "{0} ist {1}% purpur und {2}% schleim."
+		WorldIsHallowLatex: "{0} ist {1}% heilig und {2}% schleim."
+		WorldIsLatex: "{0} ist {1}% schleim."
+		NoteGooNearlyGone: Nur noch ein bisschen Schleim übrig!
+		NoteGooSmallAmount: Du musst den Schleim stoppen.
+		NoteGooLargeAmount: Wir leben in einer Schleimzone.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

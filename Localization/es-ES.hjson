@@ -669,11 +669,6 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Lobo topacio
-				Description: Brillando intensamente como un topacio.
-			}
-
-			CrystalWolfOrange: {
 				DisplayName: Lobo amatista
 				Description: Brillando intensamente como una amatista.
 			}
@@ -682,6 +677,8 @@ Mods: {
 				DisplayName: Lobo diamante
 				Description: Brillando intensamente como un diamante.
 			}
+
+			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
 		}
 
 		Emotes: {

@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0}: {1}% Bajkowa, {2}% Zepsucia, {3}% Szkarłatu i {4}% Szlam."
+		WorldIsHallowCorruptLatex: "{0}: {1}% Bajkowa, {2}% Zepsucia i {3}% Szlam."
+		WorldIsHallowCrimsonLatex: "{0}: {1}% Bajkowa, {2}% Szkarłatu i {3}% Szlam."
+		WorldIsCorruptCrimsonLatex: "{0}: {1}% Zepsucia, {2}% Szkarłatu i {3}% Szlam."
+		WorldIsCorruptLatex: "{0}: {1}% Zepsucia i {2}% Szlam."
+		WorldIsCrimsonLatex: "{0}: {1}% Szkarłatu i {2}% Szlam."
+		WorldIsHallowLatex: "{0}: {1}% Bajkowa i {2}% Szlam."
+		WorldIsLatex: "{0}: {1}% Szlam."
+		NoteGooNearlyGone: Zostało już tylko odrobinę szlamu!
+		NoteGooSmallAmount: Musisz zatrzymać ten szlam.
+		NoteGooLargeAmount: Żyjemy w strefie szlamu.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

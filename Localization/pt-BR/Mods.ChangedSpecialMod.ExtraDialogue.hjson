@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} é {1}% consagrado, {2}% corrompido, {3}% carmesim e {4}% gosma."
+		WorldIsHallowCorruptLatex: "{0} é {1}% consagrado, {2}% corrompido e {3}% gosma."
+		WorldIsHallowCrimsonLatex: "{0} é {1}% consagrado, {2}% carmesim e {3}% gosma."
+		WorldIsCorruptCrimsonLatex: "{0} é {1}% corrompido, {2}% carmesim e {3}% gosma."
+		WorldIsCorruptLatex: "{0} é {1}% corrompido e {2}% gosma."
+		WorldIsCrimsonLatex: "{0} é {1}% carmesim e {2}% gosma."
+		WorldIsHallowLatex: "{0} é {1}% consagrado e {2}% gosma."
+		WorldIsLatex: "{0} é {1}% lodo."
+		NoteGooNearlyGone: Só sobrou um pouquinho de gosma!
+		NoteGooSmallAmount: Você precisa deter a gosma.
+		NoteGooLargeAmount: Estamos vivendo em uma zona de gosma.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

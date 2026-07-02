@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} tiene un {1}% de sagrado, un {2}% de corrompido, un {3}% carmesí y un {4}% de limo."
+		WorldIsHallowCorruptLatex: "{0} tiene un {1}% de sagrado, un {2}% de corrompido y un {3}% de limo."
+		WorldIsHallowCrimsonLatex: "{0} tiene un {1}% de sagrado, un {2}% carmesí y un {3}% de limo."
+		WorldIsCorruptCrimsonLatex: "{0} tiene un {1}% de corrompido, un {2}% carmesí y un {3}% de limo."
+		WorldIsCorruptLatex: "{0} tiene un {1}% de corrompido y un {2}% de limo."
+		WorldIsCrimsonLatex: "{0} tiene un {1}% carmesí y un {2}% de limo."
+		WorldIsHallowLatex: "{0} tiene un {1}% de sagrado y un {2}% de limo."
+		WorldIsLatex: "{0} tiene un {1}% de limo."
+		NoteGooNearlyGone: ¡Solo queda un poquito de baba!
+		NoteGooSmallAmount: Debes detener el limo.
+		NoteGooLargeAmount: Nosotros estamos viviendo en una zona de limo.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None

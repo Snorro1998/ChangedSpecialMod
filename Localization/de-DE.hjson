@@ -669,11 +669,6 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Topaswolf
-				Description: Es leuchtet hell wie ein Topas.
-			}
-
-			CrystalWolfOrange: {
 				DisplayName: Amethystwolf
 				Description: Es leuchtet hell wie ein Amethyst.
 			}
@@ -682,6 +677,8 @@ Mods: {
 				DisplayName: Diamantwolf
 				Description: Es leuchtet hell wie ein Diamant.
 			}
+
+			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
 		}
 
 		Emotes: {

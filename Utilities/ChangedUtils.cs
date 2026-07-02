@@ -147,41 +147,41 @@ namespace ChangedSpecialMod.Utilities
             if (tLatex == 0 && nLatex > 0)
                 tLatex = 1;
 
-            //return $"{Main.worldName} is {tGood}% Hallow, {tEvil}% Corrupt, {tBlood}% Crimson and {tLatex}% goo.";
+            var baseTextPath = "Mods.ChangedSpecialMod.ExtraDialogue.Dryad.WorldStatus.";
 
             if (tLatex > 0)
             {
                 if (tGood > 0 && tEvil > 0 && tBlood > 0)
                 {
-                    text = $"{Main.worldName} is {tGood}% Hallow, {tEvil}% Corrupt, {tBlood}% Crimson and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsHallowCorruptCrimsonLatex", Main.worldName, tGood, tEvil, tBlood, tLatex);
                 }
                 else if (tGood > 0 && tEvil > 0)
                 {
-                    text = $"{Main.worldName} is {tGood}% Hallow, {tEvil}% Corrupt and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsHallowCorruptLatex", Main.worldName, tGood, tEvil, tLatex);
                 }
                 else if (tGood > 0 && tBlood > 0)
                 {
-                    text = $"{Main.worldName} is {tGood}% Hallow, {tBlood}% Crimson and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsHallowCrimsonLatex", Main.worldName, tGood, tBlood, tLatex);
                 }
                 else if (tEvil > 0 && tBlood > 0)
                 {
-                    text = $"{Main.worldName} is {tEvil}% Corrupt, {tBlood}% Crimson and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsCorruptCrimsonLatex", Main.worldName, tEvil, tBlood, tLatex);
                 }
                 else if (tEvil > 0)
                 {
-                    text = $"{Main.worldName} is {tEvil}% Corrupt and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsCorruptLatex", Main.worldName, tEvil, tLatex);
                 }
                 else if (tBlood > 0)
                 {
-                    text = $"{Main.worldName} is {tBlood}% Crimson and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsCrimsonLatex", Main.worldName, tBlood, tLatex);
                 }
                 else if (tGood > 0)
                 {
-                    text = $"{Main.worldName} is {tGood}% Hallow and {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsHallowLatex", Main.worldName, tGood, tLatex);
                 }
                 else
                 {
-                    text = $"{Main.worldName} is {tLatex}% goo.";
+                    text = Language.GetTextValue($"{baseTextPath}WorldIsLatex", Main.worldName, tLatex);
                 }
             }
             else
@@ -230,14 +230,16 @@ namespace ChangedSpecialMod.Utilities
             if (tLatex > tGood && tLatex > evilTotal)
             {
                 if (tLatex >= 15)
-                    arg = "We are living in a goo zone";
+                    arg = Language.GetTextValue($"{baseTextPath}NoteGooLargeAmount");
                 else if (tLatex >= 5)
-                    arg = "The goo must be stopped";
+                    arg = Language.GetTextValue($"{baseTextPath}NoteGooSmallAmount");
                 else
-                    arg = "Only a little bit of goo left!";
+                    arg = Language.GetTextValue($"{baseTextPath}NoteGooNearlyGone");
             }
             else if (tLatex > tGood + 15 && tLatex > evilTotal + 15)
-                arg = "We are living in a goo zone";
+            {
+                arg = Language.GetTextValue($"{baseTextPath}NoteGooLargeAmount");
+            }
             else if (good * 1.2 >= evilTotal && good * 0.8 <= evilTotal)
             {
                 arg = Language.GetTextValue("DryadSpecialText.WorldDescriptionBalanced");

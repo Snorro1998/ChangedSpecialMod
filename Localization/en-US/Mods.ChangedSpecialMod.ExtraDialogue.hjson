@@ -94,6 +94,22 @@ Demolitionist: {
 	}
 }
 
+Dryad: {
+	WorldStatus: {
+		WorldIsHallowCorruptCrimsonLatex: "{0} is {1}% hallow, {2}% corrupt, {3}% crimson and {4}% goo."
+		WorldIsHallowCorruptLatex: "{0} is {1}% hallow, {2}% corrupt and {3}% goo."
+		WorldIsHallowCrimsonLatex: "{0} is {1}% hallow, {2}% crimson and {3}% goo."
+		WorldIsCorruptCrimsonLatex: "{0} is {1}% corrupt, {2}% crimson and {3}% goo."
+		WorldIsCorruptLatex: "{0} is {1}% corrupt and {2}% goo."
+		WorldIsCrimsonLatex: "{0} is {1}% crimson and {2}% goo."
+		WorldIsHallowLatex: "{0} is {1}% hallow and {2}% goo."
+		WorldIsLatex: "{0} is {1}% goo."
+		NoteGooNearlyGone: Only a little bit of goo left!
+		NoteGooSmallAmount: You must stop the goo.
+		NoteGooLargeAmount: We are living in a goo zone.
+	}
+}
+
 DyeTrader: {
 	NPC: {
 		Puro: None
