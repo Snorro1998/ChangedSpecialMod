@@ -24,11 +24,10 @@ ZDrunkBiome: {
 }
 
 BlackLatexUndergroundBiome: {
-	// DisplayName: Black Latex Underground Biome
-	// TownNPCDialogueName: the Black Latex Underground Biome
+	DisplayName: la Grotte de la Gelée Noire
+	TownNPCDialogueName: la Grotte de la Gelée Noire
 }
 
 WhiteLatexUndergroundBiome: {
-	// DisplayName: White Latex Underground Biome
-	// TownNPCDialogueName: the White Latex Underground Biome
-}
+	DisplayName: Grotte de la Gelée Blanche
+	TownNPCDialogueName: la Grotte de la Gelée Blanche

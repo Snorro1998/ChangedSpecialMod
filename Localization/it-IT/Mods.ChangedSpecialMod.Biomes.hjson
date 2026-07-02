@@ -24,11 +24,11 @@ ZDrunkBiome: {
 }
 
 BlackLatexUndergroundBiome: {
-	// DisplayName: Black Latex Underground Biome
-	// TownNPCDialogueName: the Black Latex Underground Biome
+	DisplayName: grotta della melma nera
+	TownNPCDialogueName: la grotta della melma nera
 }
 
 WhiteLatexUndergroundBiome: {
-	// DisplayName: White Latex Underground Biome
-	// TownNPCDialogueName: the White Latex Underground Biome
+	DisplayName: grotta di melma bianca
+	TownNPCDialogueName: la grotta di melma bianca
 }

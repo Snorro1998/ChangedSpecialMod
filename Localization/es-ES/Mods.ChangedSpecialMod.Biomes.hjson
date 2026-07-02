@@ -24,11 +24,11 @@ ZDrunkBiome: {
 }
 
 BlackLatexUndergroundBiome: {
-	// DisplayName: Black Latex Underground Biome
-	// TownNPCDialogueName: the Black Latex Underground Biome
+	DisplayName: Cueva de Látex Negro
+	TownNPCDialogueName: la Cueva de Látex Negro
 }
 
 WhiteLatexUndergroundBiome: {
-	// DisplayName: White Latex Underground Biome
-	// TownNPCDialogueName: the White Latex Underground Biome
+	DisplayName: Cueva de Látex Blanco
+	TownNPCDialogueName: la Cueva de Látex Blanco
 }
