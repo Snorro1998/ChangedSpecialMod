@@ -16,7 +16,6 @@
 	<ItemGroup>
 	  <Folder Include="Content\Items\Placeable\Paintings\" />
 	  <Folder Include="Content\NPCs\Gores\" />
-	  <Folder Include="Localization\en-US\" />
 	  <Folder Include="Lib\" />
 	</ItemGroup>
 	<ItemGroup>

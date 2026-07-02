@@ -38,6 +38,9 @@ namespace ChangedSpecialMod.Common.Configs
         public bool CustomHealthBar { get; set; }
 
         [Header("WorldGeneration")]
+        [DefaultValue(true)]
+        public bool CustomWorldNames { get; set; }
+
         [Range(0, 20)]
         [DefaultValue(1)]
         public int NumberOfLabs { get; set; }

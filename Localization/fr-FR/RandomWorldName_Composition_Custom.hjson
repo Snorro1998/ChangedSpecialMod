@@ -2,7 +2,7 @@
 # 75 percent change it will pick one of these name compositions
 # Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
 # A name will never be chosen if it has more then 27 characters
-RandomWorldName_Composition: {
+RandomWorldName_Composition_Custom: {
 	Colin1: La {Adjective} {Location} de Colin
 	Colin2: "{Adjective} {Location} de Colin"
 	Colin3: La {Location} de Colin
@@ -11,20 +11,20 @@ RandomWorldName_Composition: {
 	DrK2: "{Adjective} {Location} de Dr. K"
 	DrK3: La {Location} de Dr. K
 	DrK4: "{Location} de Dr. K"
-	Oranges1: La {Adjective} {Location} de Naranjas
-	Oranges2: "{Adjective} {Location} de Naranjas"
-	Oranges3: La {Location} de Naranjas
-	Oranges4: "{Location} de Naranjas"
+	Oranges1: La {Adjective} {Location} des Oranges
+	Oranges2: "{Adjective} {Location} des Oranges"
+	Oranges3: La {Location} des Oranges
+	Oranges4: "{Location} des Oranges"
 	Puro1: La {Adjective} {Location} de Puro
 	Puro2: "{Adjective} {Location} de Puro"
 	Puro3: La {Location} de Puro
 	Puro4: "{Location} de Puro"
-	SquidDog1: La {Adjective} {Location} de Perro Calamar
-	SquidDog2: "{Adjective} {Location} de Perro Calamar"
-	SquidDog3: La {Location} de Perro Calamar
-	SquidDog4: "{Location} de Perro Calamar"
-	TigerShark1: La {Adjective} {Location} de Tiburón Tigre
-	TigerShark2: "{Adjective} {Location} de Tiburón Tigre"
-	TigerShark3: La {Location} de Tiburón Tigre
-	TigerShark4: "{Location} de Tiburón tigre"
+	SquidDog1: La {Adjective} {Location} de Chien-calamar
+	SquidDog2: "{Adjective} {Location} de Chien-calamar"
+	SquidDog3: La {Location} de Chien-calamar
+	SquidDog4: "{Location} de Chien-calamar"
+	TigerShark1: La {Adjective} {Location} de Requin-tigre
+	TigerShark2: "{Adjective} {Location} de Requin-tigre"
+	TigerShark3: La {Location} de Requin-tigre
+	TigerShark4: "{Location} de Requin-tigre"
 }

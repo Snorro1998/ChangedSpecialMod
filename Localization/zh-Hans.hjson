@@ -738,7 +738,7 @@ Mods: {
 # Then there is only a 6 in 890 chance (0.67 percent) chance it will be any of these
 # or 1 in 712
 # 885 entries in vanilla
-RandomWorldName_Noun: {
+RandomWorldName_Noun_Custom: {
 	DragonSnow: 小天
 	Hayden: Hayden
 	Shizi: 噬子

@@ -4,12 +4,10 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
-using ChangedSpecialMod.Content.Liquids;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ModLiquidLib.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -225,6 +223,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool InstancePerEntity => true;
 
+        /*
         public override void SetDefaults(NPC entity)
         {
             base.SetDefaults(entity);
@@ -244,6 +243,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (liquidID != -1)
                 modLiquidNPC.moddedLiquidMovementSpeed[liquidID - LiquidID.Count] = 1.5f;
         }
+        */
 
         // Debug method to visualize a position by spamming confetti particles at it
         public void VisualizePosition(NPC npc, int xPos, int yPos)

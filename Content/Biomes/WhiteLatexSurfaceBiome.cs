@@ -26,13 +26,7 @@ namespace ChangedSpecialMod.Content.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            var tileCounter = ModContent.GetInstance<CityRuinsBiomeTileCount>();
-            var nDryDirt = tileCounter.DryDirtBlockCount;
-            var nWhiteLatex = tileCounter.WhiteLatexBlockCount;
-            var nBlackLatex = tileCounter.BlackLatexBlockCount;
-            bool enoughBlocks = nWhiteLatex >= tileCounter.NBlocksNeeded && nWhiteLatex > nDryDirt && nWhiteLatex > nBlackLatex;
-            bool surfaceZone = player.ZoneSkyHeight || player.ZoneOverworldHeight;
-            return enoughBlocks && surfaceZone;
+            return CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.White);
         }
         public override SceneEffectPriority Priority => SceneEffectPriority.Environment; // Biomehigh
 

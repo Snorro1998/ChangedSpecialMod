@@ -1,9 +1,10 @@
 ﻿using ChangedSpecialMod.Common.Configs;
-using ChangedSpecialMod.Content.Liquids;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.Furniture;
 using Microsoft.Xna.Framework;
-using ModLiquidLib.ModLoader;
+//using ModLiquidLib.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -129,7 +130,15 @@ namespace ChangedSpecialMod.Utilities
                 }));
 
                 MakeLatexPools(ref tasks, taskIndex + 1);
-                HandleSpecialSeeds(ref tasks, taskIndex + 2);
+
+                tasks.Insert(taskIndex + 2, new PassLegacy("ChangedOrangeShrines", (progress, config) =>
+                {
+                    progress.Message = "Orang";
+                    for (int i = 0; i < 10; i++)
+                        MakeOrangeShrine();
+                }));
+
+                HandleSpecialSeeds(ref tasks, taskIndex + 3);
             }
         }
 
@@ -162,7 +171,7 @@ namespace ChangedSpecialMod.Utilities
 
                 // Shuffle
                 possibleLocations = possibleLocations.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, int.MaxValue)).ToList();
-                int maxPools = Math.Min(possibleLocations.Count, 20);
+                int maxPools = Math.Min(possibleLocations.Count, 10);
                 int placedPools = 0;
 
                 for (int i = 0; i < maxPools; i++)
@@ -171,7 +180,7 @@ namespace ChangedSpecialMod.Utilities
                         return;
 
                     var poolType = placedPools < maxPools / 2 ? GooType.Black : GooType.White;
-                    var liquidType = poolType == GooType.Black ? LiquidLoader.LiquidType<BlackLatexLiquid>() : LiquidLoader.LiquidType<WhiteLatexLiquid>();
+                    //var liquidType = poolType == GooType.Black ? LiquidLoader.LiquidType<BlackLatexLiquid>() : LiquidLoader.LiquidType<WhiteLatexLiquid>();
 
                     var x = possibleLocations[i].x;
                     var y = possibleLocations[i].y;
@@ -181,13 +190,16 @@ namespace ChangedSpecialMod.Utilities
                     if (waterTiles.Count > 1000)
                         continue;
 
+                    /*
                     foreach (var (tx, ty) in waterTiles)
                     {
                         var tile = Main.tile[tx, ty];
                         tile.LiquidType = liquidType;
                     }
+                    */
 
-                    MakeBiomeAroundPool(bounds, 20, 15, poolType);
+                    //padding 20 15
+                    MakeBiomeAroundPool(bounds, 30, 25, poolType);
                     placedPools++;
                 }
             }));
@@ -546,6 +558,189 @@ namespace ChangedSpecialMod.Utilities
                 }
 
                 UpdateLabPositionInner(lab);
+            }
+        }
+
+        private void MakeOrangeShrine()
+        {
+            List<string> structure = new List<string>()
+            {
+                "     111111     ",
+                "   111....111   ",
+                "  11.7....7.11  ",
+                " 11..7....7..11 ",
+                " 1............1 ",
+                "11............11",
+                "1......66......1",
+                "1......66......1",
+                "1......55......1",
+                "1.4..........4.1",
+                "114..........411",
+                " 14....33....41 ",
+                " 11..2.33..2.11 ",
+                "  11.2.11..211  ",
+                "   1111111111   ",
+                "     111111     ",
+            };
+
+            List<string> structureWires = new List<string>()
+            {
+                "                ",
+                "                ",
+                "                ",
+                "                ",
+                "                ",
+                "                ",
+                "                ",
+                "     111111     ",
+                "     1    1     ",
+                "     1    1     ",
+                "     1    1     ",
+                "     1    1     ",
+                "     1    1     ",
+                "     1    1     ",
+                "                ",
+                "                ",
+            };
+
+            int distFromBorderX = 200;
+            int distFromBorderY = 200;
+
+            int width = structure[0].Length;
+            int height = structure.Count;
+
+            int xPosMin = distFromBorderX;
+            int xPosMax = Main.maxTilesX - distFromBorderX - width;
+            int yPosMin = Main.maxTilesY / 2;
+            int yPosMax = Main.maxTilesY - distFromBorderY;
+
+            int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
+            int yPos = ChangedUtils.WorldGenRandNext(yPosMin, yPosMax);
+
+            if (!WorldGen.InWorld(xPos, yPos)) return;
+
+            for (int i = 0; i < 8; i++)
+            {
+                var firstPass = i == 0;
+                for (int y = 0; y < height; y++)
+                {
+                    string line = structure[y];
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        char tile = line[x];
+
+                        int xx = xPos + x;
+                        int yy = yPos + y;
+
+                        if (!WorldGen.InWorld(xx, yy))
+                            continue;
+
+                        Tile t = Framing.GetTileSafely(xx, yy);
+
+                        if (firstPass)
+                        {
+                            if (tile != ' ')
+                            {
+                                WorldGen.KillTile(xx, yy, false, false, true);
+                                WorldGen.KillWall(xx, yy);
+                                WorldGen.PlaceWall(xx, yy, WallID.Slime, true);
+                                t.WallColor = PaintID.YellowPaint;
+                                t.LiquidAmount = 0;
+                            }
+
+                            var wireLine = structureWires[y];
+                            var wireTile = wireLine[x];
+
+                            if (wireTile == '1')
+                                t.RedWire = true;
+                        }
+                        else
+                        {
+                            if (tile != i.ToString()[0])
+                                continue;
+                            switch (tile)
+                            {
+                                case ' ':
+                                    continue;
+
+                                //case '.':
+                                //    WorldGen.KillTile(xx, yy, false, false, true);
+                                //    continue;
+
+                                case '1':
+                                    WorldGen.PlaceTile(xx, yy, TileID.SlimeBlock, true);
+                                    t = Framing.GetTileSafely(xx, yy);
+                                    t.TileColor = PaintID.OrangePaint;
+                                    continue;
+
+                                case '2':
+                                    WorldGen.PlaceTile(xx, yy, (ushort)ModContent.TileType<OrangeStatue>(), true);
+                                    continue;
+
+                                case '3':
+                                    WorldGen.PlaceTile(xx, yy, (ushort)ModContent.TileType<PuroStatue>(), true);
+                                    continue;
+
+                                case '4':
+                                    WorldGen.PlaceTile(xx, yy, TileID.Lamps, true);
+                                    continue;
+
+                                case '5':
+                                    WorldGen.PlaceTile(xx, yy, TileID.Platforms, true);
+                                    continue;
+
+                                case '6':
+                                    var chestIndex = WorldGen.PlaceChest(xx, yy, TileID.Containers2, false, 4);
+                                    if (chestIndex >= 0)
+                                    {
+                                        var chest = Main.chest[chestIndex];
+                                        var amount = 1;
+
+                                        var items = new List<int>
+                                        {
+                                            ItemID.OrangeandBlackDye,
+                                            ItemID.OrangeandSilverDye,
+                                            ItemID.OrangeBloodroot,
+                                            ItemID.OrangeDragonfly,
+                                            ItemID.OrangeDye,
+                                            ItemID.OrangePaint,
+                                            ItemID.OrangePressurePlate,
+                                            ItemID.OrangeStainedGlass,
+                                            ItemID.OrangeString,
+                                            ItemID.OrangeTorch,
+                                            ItemID.BloodOrange,
+                                            ItemID.BrightOrangeDye,
+                                            ItemID.DeepOrangePaint,
+                                            ItemID.GolfBallDyedOrange
+                                        };
+
+                                        for (int j = items.Count; j < 40; j++)
+                                        {
+                                            items.Add(ModContent.ItemType<Orange>());
+                                        }
+
+                                        items = items.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+
+                                        for (int j = 0; j < 40; j++)
+                                        {
+                                            var item = items[j];
+                                            chest.item[j].SetDefaults(item, false);
+                                            chest.item[j].stack = amount;
+                                        }
+                                    }
+                                    //WorldGen.PlaceTile(xx, yy, TileID.Containers, true);
+                                    continue;
+
+                                case '7':
+                                    WorldGen.PlaceTile(xx, yy, TileID.HangingLanterns, true);
+                                    continue;
+                            }
+                        }
+
+                        WorldGen.SquareTileFrame(xx, yy);
+                    }
+                }
             }
         }
 

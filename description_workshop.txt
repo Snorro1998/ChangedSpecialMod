@@ -22,6 +22,7 @@ This mod has built-in support for:
 	[*]Census
 	[*]Fargos Mutant Mod
 	[*]Music Display
+	[*]Wikithis
 [/list]
 
 Additionally, town npcs can sell fruits and herbs from these mods:
@@ -69,46 +70,32 @@ Most things should work fine in multiplayer. In rare cases, you might encounter 
 This update adds new transfur options and makes their stats visible in the ui.
 For information about previous versions, please check out the change notes in the steam workshop.
 
-[h3]0.5.3[/h3]
+[h3]0.5.4[/h3]
 
 [b]General[/b]
 [list]
-	[*]Added all remaining languages: French, Portuguese, Russian, Italian and Polish
-	[*]Added Colin. He doesn't do much yet, so you have to spawn him in with a debug item sold by Dr K.
-	[*]Removed Puro's shimmer variant, because it looked the same
-	[*]Transfurs are no longer saved for now when exiting a world, because it was causing issues
-	[*]Added some custom window titles (the bar at the top of the screen if you are not playing in fullscreen)
-	[*]Added animal skins for the Feng Yu (lion) and Snow Leopard, so they don't drop tiger and normal leopard skins anymore
+	[*]Added Puro and Squid Dog statues
+	[*]NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now
+	[*]Added a rare underground structure
+	[*]Added a config option to disable custom world names
+	[*]Added support for wikithis, but you can't use it right now because the wiki is not public yet
 [/list]
 
-[b]Transfur[/b]
+[b]Underground biomes[/b]
 [list]
-	[*]Added German Shepherd, Feng Yu, Snow Leopard, Bloodstripe and Purrpurr
-	[*]Dr K sells empty syringes. You need them to create the new transfur syringes
-	[*]Both the item tooltip and the transfur option menu show the stats of each transfur
-	[*]The sprites of the combined syringes are now diagonal to see the difference easier
+	[*]Black and white latex 
+	[*]Generate in the lower half of the world
+	[*]Ruby and Emerald wolves can spawn here. They can rarely drop gems.
+[/list]
+
+[b]Resprited[/b]
+[list]
+	[*]Tabby Cat
 [/list]
 
 [b]Fixes[/b]
 [list]
-	[*]Active transfurs not displayed after joining a multiplayer world
-	[*]Improved mod translations by reading through vanilla translations
-	[*]Added some missing translations
-	[*]Wendigo transfur was drawn too big
-[/list]
-
-[h2]Hotfixes[/h2]
-[h3]0.5.3.1[/h3]
-[list]
-	[*]Town NPCs could talk about the Changed NPCs, even if they were not present yet
-[/list]
-
-[h3]0.5.3.2[/h3]
-[list]
-	[*]Town NPCs could not be hit by enemies at all, except latex beasts
-[/list]
-
-[h3]0.5.3.3[/h3]
-[list]
-	[*]Dialogue box would not show up if the player was carrying an orange
+	[*]Blocks not merging correctly when next to dirt
+	[*]Prototype not selling Dragonfruit and Starfruit in hardmode
+	[*]Waterfalls glowed in the dark when in any Changed biome
 [/list]

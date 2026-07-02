@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Common.Systems;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.NPCs;
@@ -8,7 +9,7 @@ using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ModLiquidLib.Utils.LiquidContent;
+//using ModLiquidLib.Utils.LiquidContent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,11 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.UI.States;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using static ChangedSpecialMod.ChangedSpecialMod;
-using static tModPorter.ProgressUpdate;
 
 
 // This thing is a mess and contains all kinds of functions that probably should be in their own class
@@ -30,7 +32,7 @@ namespace ChangedSpecialMod.Utilities
     public static partial class Things
     {
         public static ChangedNPC Changed(this NPC npc) => npc.GetGlobalNPC<ChangedNPC>();
-        public static ModLiquidNPC ModLiquid(this NPC npc) => npc.GetGlobalNPC<ModLiquidNPC>();
+        //public static ModLiquidNPC ModLiquid(this NPC npc) => npc.GetGlobalNPC<ModLiquidNPC>();
         public static ChangedSpecialModPlayer ChangedPlayer(this Player player) => player.GetModPlayer<ChangedSpecialModPlayer>();
     }
 
@@ -62,6 +64,69 @@ namespace ChangedSpecialMod.Utilities
         {
             return InCityRuinsBiome(player) || InBlackLatexBiome(player) || InWhiteLatexBiome(player);
         }
+
+        public override void Load()
+        {
+            On_UIWorldCreation.AssignRandomWorldName += MyAssignRandomWorldName;
+        }
+
+        public override void Unload()
+        {
+            On_UIWorldCreation.AssignRandomWorldName -= MyAssignRandomWorldName;
+        }
+
+        private static void MyAssignRandomWorldName(On_UIWorldCreation.orig_AssignRandomWorldName orig, UIWorldCreation self)
+        {
+            if (!ModContent.GetInstance<ChangedSpecialModClientConfig>().CustomWorldNames)
+            {
+                orig(self);
+                return;
+            }
+
+            MyAssignRandomWorldName(self);
+            // Copy vanilla code here and use your own composition list.
+        }
+
+        private static readonly FieldInfo OptionWorldNameField =
+            typeof(UIWorldCreation).GetField("_optionwWorldName",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+
+        private static void MyAssignRandomWorldName(UIWorldCreation self)
+        {
+            string worldName;
+
+            do
+            {                
+                LocalizedText composition = SelectWorldNamePartString("Composition");
+                LocalizedText adjective = SelectWorldNamePartString("Adjective");
+                LocalizedText location = SelectWorldNamePartString("Location");
+                LocalizedText noun = SelectWorldNamePartString("Noun"); 
+
+                var args = new
+                {
+                    Adjective = adjective.Value,
+                    Location = location.Value,
+                    Noun = noun.Value
+                };
+
+                worldName = composition.FormatWith(args);
+
+                if (Main.rand.Next(10000) == 0)
+                    worldName = Language.GetTextValue("SpecialWorldName.TheConstant");
+            }
+            while (worldName.Length > 27);
+
+            OptionWorldNameField.SetValue(self, worldName);
+        }
+
+        private static LocalizedText SelectWorldNamePartString(string subject)
+        {
+            var defaultOptions = Language.FindAll(Lang.CreateDialogFilter($"RandomWorldName_{subject}."));
+            var customOptions = Language.FindAll(Lang.CreateDialogFilter($"RandomWorldName_{subject}_Custom."));
+            var allOptions = defaultOptions.ToList();
+            allOptions.AddRange(customOptions.ToList());
+            return Main.rand.Next(allOptions);
+        } 
 
         private static int[] BalloonItems = new int[]
         {

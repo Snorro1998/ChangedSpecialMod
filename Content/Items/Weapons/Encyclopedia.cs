@@ -1,6 +1,5 @@
 ﻿using ChangedSpecialMod.Content.Projectiles;
 using Microsoft.Xna.Framework;
-using Mono.Cecil;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

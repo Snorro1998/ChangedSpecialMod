@@ -1,6 +1,6 @@
 # 728 entries in vanilla
 # 6?? percent chance it will be one of those
-RandomWorldName_Adjective: {
+RandomWorldName_Adjective_Custom: {
 	Changing1: 不断变化
 	Changing2: 不断变化
 	Changing3: 不断变化

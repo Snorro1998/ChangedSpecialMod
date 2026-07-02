@@ -89,4 +89,9 @@ ChangedSpecialModClientConfig: {
 			und stattdessen die Option "Modded Town NPC Portraits" verwendet.
 			'''
 	}
+
+	CustomWorldNames: {
+		// Label: Custom World Names
+		// Tooltip: ""
+	}
 }

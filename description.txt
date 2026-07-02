@@ -20,6 +20,7 @@ This mod has built-in support for:
 - Census
 - Fargos Mutant Mod
 - Music Display
+- Wikithis
 
 Additionally, town npcs can sell fruits and herbs from these mods:
 - Calamity
@@ -73,23 +74,20 @@ For information about previous versions, please check out the change notes in th
 
 General
 - Added Puro and Squid Dog statues
-- The mod now requires modliquid for the newly added fluids.
 - NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now
-
-Liquid latex
-- Added black and white latex liquids. It isn't dangerous, but it slows you down like honey.
-- Latex beasts walk faster in it if they are the same type.
-- Can be picked up or placed with a bucket
-- Can be removed with a super sponge
+- Added a rare underground structure
+- Added a config option to disable custom world names
+- Added support for wikithis, but you can't use it right now because the wiki is not public yet
 
 Underground biomes
 - Black and white latex 
-- Generate around latex ponds in the lower half of the world
-- No unique NPCs yet, but some that spawn on the surface won't appear here.
+- Generate in the lower half of the world
+- Ruby and Emerald wolves can spawn here. They can rarely drop gems.
 
 Resprited
 - Tabby Cat
 
 Fixes
 - Blocks not merging correctly when next to dirt
+- Prototype not selling Dragonfruit and Starfruit in hardmode
 - Waterfalls glowed in the dark when in any Changed biome

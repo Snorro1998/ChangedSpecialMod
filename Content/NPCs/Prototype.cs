@@ -350,6 +350,13 @@ namespace ChangedSpecialMod.Content.NPCs
                         ItemID.Rambutan, 
                         ItemID.SpicyPepper, 
                     };
+
+                    if (Main.hardMode)
+                    {
+                        itemList.Insert(8, ItemID.Dragonfruit);
+                        itemList.Add(ItemID.Starfruit);
+                    }
+
                     foreach (var mod in externalMods)
                     {
                         itemList.AddRange(mod.GetAvailable(ItemCategory.Fruit));

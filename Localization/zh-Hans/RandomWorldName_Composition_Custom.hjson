@@ -2,7 +2,7 @@
 # 75 percent change it will pick one of these name compositions
 # Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
 # A name will never be chosen if it has more then 27 characters
-RandomWorldName_Composition: {
+RandomWorldName_Composition_Custom: {
 	Colin1: 林的{Adjective}{Location}
 	Colin2: 林的{Adjective}{Location}
 	Colin3: 林的{Location}
