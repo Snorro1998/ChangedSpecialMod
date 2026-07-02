@@ -78,11 +78,20 @@ General
 - Added a rare underground structure
 - Added a config option to disable custom world names
 - Added support for wikithis, but you can't use it right now because the wiki is not public yet
+- special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface
 
 Underground biomes
 - Black and white latex 
 - Generate in the lower half of the world
-- Ruby and Emerald wolves can spawn here. They can rarely drop gems.
+- Crystal wolves can spawn here. They can drop gems.
+- Every latex beast underground has a small change to wear a mining helmet.
+
+Latex spread
+- Added black and white slimestone.
+- Latex can now spread to stone.
+- The dryad can now tell how much goo there is in the world
+- Latex blocks are now highlighted if under the effects of the biome sight potion
+- Because of these new underground biomes, the restriction that latex could only spread on the surface has been removed.
 
 Resprited
 - Tabby Cat

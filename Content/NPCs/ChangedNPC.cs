@@ -994,7 +994,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 WornHatType = HatType.Halloween;
             else if (SeasonSystem.season == SeasonalEvent.XMas)
                 WornHatType = HatType.XMas;
-            else if (Main.rand.NextBool(30) && npc.Center.Y > Main.worldSurface)
+            else if (Main.rand.NextBool(30) && npc.Center.Y > Main.worldSurface * 16)
                 WornHatType = HatType.Underground;
 
             var hatOptions = new List<HatStruct> { };

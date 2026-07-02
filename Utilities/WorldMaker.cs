@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
@@ -134,8 +135,18 @@ namespace ChangedSpecialMod.Utilities
                 tasks.Insert(taskIndex + 2, new PassLegacy("ChangedOrangeShrines", (progress, config) =>
                 {
                     progress.Message = "Orang";
-                    for (int i = 0; i < 10; i++)
-                        MakeOrangeShrine();
+                    var nSucces = 0;
+                    var nMaxAttempts = 1000;
+                    var placedPositions = new List<(int, int)>();
+
+                    for (int i = 0; i < nMaxAttempts; i++)
+                    {
+                        var succes = MakeOrangeShrine(ref placedPositions);
+                        if (succes)
+                            nSucces++;
+                        if (nSucces >= 10)
+                            break;
+                    }
                 }));
 
                 HandleSpecialSeeds(ref tasks, taskIndex + 3);
@@ -419,17 +430,22 @@ namespace ChangedSpecialMod.Utilities
 
         private void AddLatexEverywhereTask(ref List<GenPass> tasks, int passIndex, Content.NPCs.GooType gooType)
         {
+            int bottomFalloff = 20;
+
             tasks.Insert(passIndex, new PassLegacy("ChangedSeedLatexEverywhere", (progress, config) =>
             {
                 progress.Message = "Spreading too much latex";
 
-                for (int y = 0; y < Main.worldSurface; y++)
+                for (int y = 0; y < Main.worldSurface + bottomFalloff; y++)
                 {
-                    for (int x = 0; x < Main.maxTilesX; x++)
+                    for (int x = 0; x < Main.maxTilesX + bottomFalloff; x++)
                     {
                         var tile = Main.tile[x, y];
                         if (tile != null && tile.HasTile)
                         {
+                            if (y >= Main.worldSurface && !WorldGen.genRand.NextBool((int)Math.Max(1, y - Main.worldSurface)))
+                                continue;
+
                             var tileType = WorldGenerator.GetTileType(tile, gooType);
                             if (tileType != -1)
                                 tile.TileType = (ushort)tileType;
@@ -561,14 +577,34 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-        private void MakeOrangeShrine()
+        private bool MakeOrangeShrine(ref List<(int, int)> placedPositions)
         {
+            List<string> structureBackground = new List<string>()
+            {
+                "      1111      ",
+                "    11111111    ",
+                "   1111111111   ",
+                "  111111111111  ",
+                "  111111111111  ",
+                " 11111111111111 ",
+                " 11111111111111 ",
+                " 11111111111111 ",
+                " 11111111111111 ",
+                " 11111111111111 ",
+                " 11111111111111 ",
+                "  111111111111  ",
+                "  111111111111  ",
+                "   1111111111   ",
+                "    11111111    ",
+                "      1111      ",
+            };
+
             List<string> structure = new List<string>()
             {
                 "     111111     ",
                 "   111....111   ",
-                "  11.7....7.11  ",
-                " 11..7....7..11 ",
+                "  11........11  ",
+                " 11..........11 ",
                 " 1............1 ",
                 "11............11",
                 "1......66......1",
@@ -604,6 +640,12 @@ namespace ChangedSpecialMod.Utilities
             };
 
             int distFromBorderX = 200;
+
+            // Move further inward if Calamity is enabled so it won't end up in the abyss
+            // We might have to also add something for the sunken sea under the desert
+            if (ModSupportSystem.modCalamity != null)
+                distFromBorderX = 400;
+
             int distFromBorderY = 200;
 
             int width = structure[0].Length;
@@ -617,9 +659,63 @@ namespace ChangedSpecialMod.Utilities
             int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
             int yPos = ChangedUtils.WorldGenRandNext(yPosMin, yPosMax);
 
-            if (!WorldGen.InWorld(xPos, yPos)) return;
+            if (!WorldGen.InWorld(xPos, yPos)) 
+                return false;
 
-            for (int i = 0; i < 8; i++)
+            // Don't place it if too close to another shrine
+            foreach (var position in placedPositions)
+            {
+                var dist = Vector2.DistanceSquared(new Vector2(position.Item1, position.Item2), new Vector2(xPos, yPos));
+                var minDist = 300;
+                if (dist < minDist * minDist)
+                    return false;
+            }
+
+            List<int> blackListBlocks = new List<int>()
+            {
+                TileID.BlueDungeonBrick,
+                TileID.GreenDungeonBrick,
+                TileID.PinkDungeonBrick,
+                TileID.LihzahrdBrick,
+                TileID.MushroomGrass,
+                TileID.Granite,
+                TileID.Marble,
+                TileID.Hive
+            };
+
+            List<int> blackListLiquids = new List<int>
+            {
+                LiquidID.Honey,
+                LiquidID.Shimmer
+            };
+
+            // Check if in a good place
+            for (int y = 0; y < height; y++)
+            {
+                string line = structure[y];
+
+                for (int x = 0; x < width; x++)
+                {
+                    int xx = xPos + x;
+                    int yy = yPos + y;
+
+                    if (!WorldGen.InWorld(xx, yy))
+                        continue;
+
+                    Tile t = Framing.GetTileSafely(xx, yy);
+                    if (t.LiquidAmount > 0 && blackListLiquids.Contains(t.LiquidType))
+                        return false;
+                    if (t.HasTile && blackListBlocks.Contains(t.TileType))
+                        return false;
+                }
+            }
+
+            placedPositions.Add((xPos, yPos));
+
+            // 0: clears space and places walls and wires
+            // 1: place normal blocks
+            // 2: place things that need to be anchored to blocks
+            for (int i = 0; i < 3; i++)
             {
                 var firstPass = i == 0;
                 for (int y = 0; y < height; y++)
@@ -637,16 +733,24 @@ namespace ChangedSpecialMod.Utilities
                             continue;
 
                         Tile t = Framing.GetTileSafely(xx, yy);
-
+                        
+                        // Remove blocks, place walls and wires
                         if (firstPass)
                         {
                             if (tile != ' ')
                             {
                                 WorldGen.KillTile(xx, yy, false, false, true);
+                                t.LiquidAmount = 0;
+                            }
+
+                            var bgLine = structureBackground[y];
+                            var bgTile = bgLine[x];
+
+                            if (bgTile == '1')
+                            {
                                 WorldGen.KillWall(xx, yy);
                                 WorldGen.PlaceWall(xx, yy, WallID.Slime, true);
                                 t.WallColor = PaintID.YellowPaint;
-                                t.LiquidAmount = 0;
                             }
 
                             var wireLine = structureWires[y];
@@ -655,18 +759,15 @@ namespace ChangedSpecialMod.Utilities
                             if (wireTile == '1')
                                 t.RedWire = true;
                         }
+                        // Place the blocks
                         else
                         {
-                            if (tile != i.ToString()[0])
-                                continue;
+                            //if (tile != i.ToString()[0])
+                            //    continue;
                             switch (tile)
                             {
                                 case ' ':
                                     continue;
-
-                                //case '.':
-                                //    WorldGen.KillTile(xx, yy, false, false, true);
-                                //    continue;
 
                                 case '1':
                                     WorldGen.PlaceTile(xx, yy, TileID.SlimeBlock, true);
@@ -691,12 +792,33 @@ namespace ChangedSpecialMod.Utilities
                                     continue;
 
                                 case '6':
+                                    // Place a dead man's chest
                                     var chestIndex = WorldGen.PlaceChest(xx, yy, TileID.Containers2, false, 4);
                                     if (chestIndex >= 0)
                                     {
                                         var chest = Main.chest[chestIndex];
                                         var amount = 1;
 
+                                        var items = new List<int>
+                                        {
+                                            ItemID.OrangeTorch,
+                                            ItemID.OrangeTorch,
+                                            ItemID.OrangeTorch,
+                                            ItemID.OrangeTorch,
+                                            ItemID.OrangeTorch,
+                                            ItemID.BloodOrange,
+                                            ItemID.BloodOrange,
+                                            ItemID.BloodOrange,
+                                            ItemID.GolfBallDyedOrange,
+
+                                            ItemID.Topaz,
+                                            ItemID.Topaz,
+                                            ItemID.GoldBar,
+                                            ItemID.GoldBar,
+                                            ItemID.GoldBar,
+                                            ItemID.GoldBar,
+                                        };
+                                        /*
                                         var items = new List<int>
                                         {
                                             ItemID.OrangeandBlackDye,
@@ -714,6 +836,7 @@ namespace ChangedSpecialMod.Utilities
                                             ItemID.DeepOrangePaint,
                                             ItemID.GolfBallDyedOrange
                                         };
+                                        */
 
                                         for (int j = items.Count; j < 40; j++)
                                         {
@@ -729,7 +852,7 @@ namespace ChangedSpecialMod.Utilities
                                             chest.item[j].stack = amount;
                                         }
                                     }
-                                    //WorldGen.PlaceTile(xx, yy, TileID.Containers, true);
+
                                     continue;
 
                                 case '7':
@@ -742,6 +865,7 @@ namespace ChangedSpecialMod.Utilities
                     }
                 }
             }
+            return true;
         }
 
         private void UpdateLabPositionInner(LabStruct lab)

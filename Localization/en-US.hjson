@@ -656,6 +656,10 @@ Mods: {
 			CrystalWolf.DisplayName: Crystal Wolf
 			CrystalWolfGreen.DisplayName: Emerald Wolf
 			CrystalWolfRed.DisplayName: Ruby Wolf
+			CrystalWolfBlue.DisplayName: Crystal Wolf Blue
+			CrystalWolfOrange.DisplayName: Crystal Wolf Orange
+			CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfWhite.DisplayName: Crystal Wolf White
 		}
 
 		Emotes: {

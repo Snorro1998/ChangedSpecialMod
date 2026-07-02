@@ -85,7 +85,7 @@ For information about previous versions, please check out the change notes in th
 [list]
 	[*]Black and white latex 
 	[*]Generate in the lower half of the world
-	[*]Ruby and Emerald wolves can spawn here. They can rarely drop gems.
+	[*]Crystal wolves can spawn here. They can drop gems.
 [/list]
 
 [b]Resprited[/b]

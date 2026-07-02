@@ -96,4 +96,9 @@ ChangedSpecialModClientConfig: {
 		// Label: Custom World Names
 		// Tooltip: ""
 	}
+
+	CustomDryadWorldStatus: {
+		// Label: Custom Dryad World Status
+		// Tooltip: ""
+	}
 }

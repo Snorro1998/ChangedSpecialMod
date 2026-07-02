@@ -37,7 +37,7 @@ namespace ChangedSpecialMod.Common.Systems
             for (int i = 0; i < 255; i++)
             {
                 var player = Main.player[i];
-                if (!player.active || !ChangedUtils.InChangedBiome(player))
+                if (!player.active || !ChangedUtils.InChangedSurfaceBiome(player))
                 {
                     playerChanges.Add(0);
                     continue;

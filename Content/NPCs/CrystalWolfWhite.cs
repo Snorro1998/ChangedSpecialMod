@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class CrystalWolfRed : ModNPC
+	public class CrystalWolfWhite : ModNPC
 	{
         public override void SetStaticDefaults() 
         {
@@ -42,13 +42,13 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexUndergroundBiome>().Type };
+            SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexUndergroundBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.SetHalloweenHatsForBlackLatex();
-            changedNPC.GooType = GooType.Black;
+            changedNPC.GooType = GooType.White;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
@@ -66,13 +66,13 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 //  Add the new portrait with the modified rarity
                 //new NPCPortraitInfoElement(3),
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.CrystalWolfRed.Description")),
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.CrystalWolfWhite.Description")),
             });
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Ruby, 10));
+            npcLoot.Add(ItemDropRule.Common(ItemID.Diamond, 10));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

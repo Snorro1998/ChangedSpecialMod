@@ -9,6 +9,8 @@ using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json.Linq;
+
 //using ModLiquidLib.Utils.LiquidContent;
 using System;
 using System.Collections.Generic;
@@ -68,11 +70,205 @@ namespace ChangedSpecialMod.Utilities
         public override void Load()
         {
             On_UIWorldCreation.AssignRandomWorldName += MyAssignRandomWorldName;
+            On_Lang.GetDryadWorldStatusDialog += Hook_GetDryadWorldStatusDialog;
         }
 
         public override void Unload()
         {
             On_UIWorldCreation.AssignRandomWorldName -= MyAssignRandomWorldName;
+            On_Lang.GetDryadWorldStatusDialog -= Hook_GetDryadWorldStatusDialog;
+        }
+
+        private static string Hook_GetDryadWorldStatusDialog(
+    On_Lang.orig_GetDryadWorldStatusDialog orig,
+    out bool worldIsEntirelyPure)
+        {
+            var config = ModContent.GetInstance<ChangedSpecialModClientConfig>();
+
+            if (!config.CustomDryadWorldStatus)
+                return orig(out worldIsEntirelyPure);
+
+            // Force to recalculate
+            WorldGen.AddUpAlignmentCounts(true);
+
+            string text = "";
+            worldIsEntirelyPure = false;
+            
+            var nTotalBlocks = 0;
+            var nGood = 0;
+            var nEvil = 0;
+            var nBlood = 0;
+            var nLatex = 0;
+
+            List<int> latexBlocks = new List<int>()
+            {
+                ModContent.TileType<BlackLatexTile>(),
+                ModContent.TileType<BlackLatexSandTile>(),
+                ModContent.TileType<BlackLatexStoneTile>(),
+
+                ModContent.TileType<WhiteLatexTile>(),
+                ModContent.TileType<WhiteLatexSandTile>(),
+                ModContent.TileType<WhiteLatexStoneTile>()
+            };
+
+            var CorruptCountCollection = new List<int> { 23, 661, 25, 112, 163, 398, 400, 636, 24, 32 };
+            var CrimsonCountCollection = new List<int> { 199, 662, 203, 234, 200, 399, 401, 205, 201, 352 };
+            var HallowCountCollection = new List<int> { 109, 117, 116, 164, 402, 403, 115, 110, 113 };
+
+            for (var x = 0; x < Main.maxTilesX; x++)
+            {
+                for (var y = 0; y < Main.maxTilesY; y++)
+                {
+                    var tile = Main.tile[x, y];
+                    if (!tile.HasTile)
+                        continue;
+                    nTotalBlocks++;
+                    if (latexBlocks.Contains(tile.TileType))
+                        nLatex++;
+                    else if (CorruptCountCollection.Contains(tile.TileType))
+                        nEvil++;
+                    else if (CrimsonCountCollection.Contains(tile.TileType))
+                        nBlood++;
+                    else if (HallowCountCollection.Contains(tile.TileType))
+                        nGood++;
+                }
+            }
+
+            int tGood = (byte)Math.Round((double)nGood / (double)WorldGen.totalSolid * 100.0);// WorldGen.tGood;
+            if (tGood == 0 && nGood > 0)
+                tGood = 1;
+            int tEvil = (byte)Math.Round((double)nEvil / (double)WorldGen.totalSolid * 100.0);// WorldGen.tEvil;
+            if (tEvil == 0 && nEvil > 0)
+                tEvil = 1;
+            int tBlood = (byte)Math.Round((double)nBlood / (double)WorldGen.totalSolid * 100.0);// WorldGen.tBlood;
+            if (tBlood == 0 && nBlood > 0)
+                tBlood = 1;
+            int tLatex = (byte)Math.Round((double)nLatex / (double)WorldGen.totalSolid * 100.0);
+            if (tLatex == 0 && nLatex > 0)
+                tLatex = 1;
+
+            //return $"{Main.worldName} is {tGood}% Hallow, {tEvil}% Corrupt, {tBlood}% Crimson and {tLatex}% goo.";
+
+            if (tLatex > 0)
+            {
+                if (tGood > 0 && tEvil > 0 && tBlood > 0)
+                {
+                    text = $"{Main.worldName} is {tGood}% Hallow, {tEvil}% Corrupt, {tBlood}% Crimson and {tLatex}% goo.";
+                }
+                else if (tGood > 0 && tEvil > 0)
+                {
+                    text = $"{Main.worldName} is {tGood}% Hallow, {tEvil}% Corrupt and {tLatex}% goo.";
+                }
+                else if (tGood > 0 && tBlood > 0)
+                {
+                    text = $"{Main.worldName} is {tGood}% Hallow, {tBlood}% Crimson and {tLatex}% goo.";
+                }
+                else if (tEvil > 0 && tBlood > 0)
+                {
+                    text = $"{Main.worldName} is {tEvil}% Corrupt, {tBlood}% Crimson and {tLatex}% goo.";
+                }
+                else if (tEvil > 0)
+                {
+                    text = $"{Main.worldName} is {tEvil}% Corrupt and {tLatex}% goo.";
+                }
+                else if (tBlood > 0)
+                {
+                    text = $"{Main.worldName} is {tBlood}% Crimson and {tLatex}% goo.";
+                }
+                else if (tGood > 0)
+                {
+                    text = $"{Main.worldName} is {tGood}% Hallow and {tLatex}% goo.";
+                }
+                else
+                {
+                    text = $"{Main.worldName} is {tLatex}% goo.";
+                }
+            }
+            else
+            {
+                // old
+                if (tGood > 0 && tEvil > 0 && tBlood > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusAll", Main.worldName, tGood, tEvil, tBlood);
+                }
+                else if (tGood > 0 && tEvil > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusHallowCorrupt", Main.worldName, tGood, tEvil);
+                }
+                else if (tGood > 0 && tBlood > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusHallowCrimson", Main.worldName, tGood, tBlood);
+                }
+                else if (tEvil > 0 && tBlood > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusCorruptCrimson", Main.worldName, tEvil, tBlood);
+                }
+                else if (tEvil > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusCorrupt", Main.worldName, tEvil);
+                }
+                else if (tBlood > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusCrimson", Main.worldName, tBlood);
+                }
+                else if (tGood > 0)
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusHallow", Main.worldName, tGood);
+                }
+                else
+                {
+                    text = Language.GetTextValue("DryadSpecialText.WorldStatusPure", Main.worldName);
+                    worldIsEntirelyPure = true;
+                    return text;
+                }
+            }
+
+            string arg;
+            int evilTotal = tEvil + tBlood;
+            double good = tGood;
+
+            if (tLatex > tGood && tLatex > evilTotal)
+            {
+                if (tLatex >= 15)
+                    arg = "We are living in a goo zone";
+                else if (tLatex >= 5)
+                    arg = "The goo must be stopped";
+                else
+                    arg = "Only a little bit of goo left!";
+            }
+            else if (tLatex > tGood + 15 && tLatex > evilTotal + 15)
+                arg = "We are living in a goo zone";
+            else if (good * 1.2 >= evilTotal && good * 0.8 <= evilTotal)
+            {
+                arg = Language.GetTextValue("DryadSpecialText.WorldDescriptionBalanced");
+            }
+            else if (tGood >= evilTotal)
+            {
+                arg = Language.GetTextValue("DryadSpecialText.WorldDescriptionFairyTale");
+            }
+            else if (evilTotal > tGood + 20)
+            {
+                arg = Language.GetTextValue("DryadSpecialText.WorldDescriptionGrim");
+            }
+            else if (evilTotal <= 5)
+            {
+                arg = Language.GetTextValue("DryadSpecialText.WorldDescriptionClose");
+            }
+            else
+            {
+                arg = Language.GetTextValue("DryadSpecialText.WorldDescriptionWork");
+            }
+
+            return text + " " + arg;
+            /*
+            string arg = (((double)tGood * 1.2 >= (double)(tEvil + tBlood) && (double)tGood * 0.8 <= (double)(tEvil + tBlood)) ? 
+                Language.GetTextValue("DryadSpecialText.WorldDescriptionBalanced") : 
+                ((tGood >= tEvil + tBlood) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionFairyTale") : 
+                ((tEvil + tBlood > tGood + 20) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionGrim") : 
+                ((tEvil + tBlood <= 5) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionClose") : 
+                Language.GetTextValue("DryadSpecialText.WorldDescriptionWork")))));
+            return text + " " + arg;
+            */
         }
 
         private static void MyAssignRandomWorldName(On_UIWorldCreation.orig_AssignRandomWorldName orig, UIWorldCreation self)

@@ -5,23 +5,20 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.Latex
 {
-    public class WhiteLatexTile : ModTile
+    public class BlackLatexStoneTile : ModTile
     {
-        public int ItemDrop { get; private set; }
-
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
-            ChangedUtils.SetTileMerge(ModContent.TileType<WhiteLatexTile>());
+            ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexStoneTile>());
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = DustID.SnowBlock;
-            ItemDrop = ModContent.ItemType<WhiteLatexBlock>();
-            AddMapEntry(new Color(200, 200, 200));
+            DustType = DustID.Asphalt;
+            AddMapEntry(new Color(35, 34, 41));
         }
 
         public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
@@ -31,10 +28,9 @@ namespace ChangedSpecialMod.Content.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
-            WorldGenerator.GrowCrystal(i, j, NPCs.GooType.White);
-            WorldGenerator.Corrupt(i, j, NPCs.GooType.White);
+            WorldGenerator.GrowCrystal(i, j, NPCs.GooType.Black);
+            WorldGenerator.Corrupt(i, j, NPCs.GooType.Black);
             base.RandomUpdate(i, j);
         }
     }
 }
-

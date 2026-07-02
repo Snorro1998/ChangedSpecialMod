@@ -63,6 +63,8 @@ namespace ChangedSpecialMod.Common.Configs
         [Header("Misc")]
         [DefaultValue(true)]
         public bool Evolution { get; set; }
+        [DefaultValue(true)]
+        public bool CustomDryadWorldStatus { get; set; }
 
         [DefaultValue(false)]
         public bool DebugItems { get; set; }

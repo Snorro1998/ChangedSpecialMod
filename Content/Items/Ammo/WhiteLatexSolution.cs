@@ -111,6 +111,13 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             return false;
         }
 
+        private static bool StoneConversion(int i, int j, int type, int conversionType)
+        {
+            WorldGen.ConvertTile(i, j, ModContent.TileType<WhiteLatexStoneTile>());
+            return false;
+        }
+
+        // Purity
         private static bool PurityDirtConversion(int i, int j, int type, int conversionType)
         {
             WorldGen.ConvertTile(i, j, TileID.Dirt);
@@ -123,18 +130,27 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             return false;
         }
 
+        private static bool PurityStoneConversion(int i, int j, int type, int conversionType)
+        {
+            WorldGen.ConvertTile(i, j, TileID.Stone);
+            return false;
+        }
+
         public override void PostSetupContent()
         {
             TileLoader.RegisterConversion(TileID.Dirt, Type, NormalConversion);
             TileLoader.RegisterConversion(TileID.Grass, Type, NormalConversion);
             TileLoader.RegisterConversion(TileID.Sand, Type, SandConversion);
+            TileLoader.RegisterConversion(TileID.Stone, Type, StoneConversion);
             TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), Type, NormalConversion);
             TileLoader.RegisterConversion(ModContent.TileType<BlackLatexSandTile>(), Type, SandConversion);
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexStoneTile>(), Type, StoneConversion);
             TileLoader.RegisterConversion(ModContent.TileType<DryDirt>(), Type, NormalConversion);
 
             // Green solution
             TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), BiomeConversionID.Purity, PurityDirtConversion);
             TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), BiomeConversionID.Purity, PuritySandConversion);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStoneTile>(), BiomeConversionID.Purity, PurityStoneConversion);
         }
     }
 }

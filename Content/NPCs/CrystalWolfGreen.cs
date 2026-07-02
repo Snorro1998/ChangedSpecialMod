@@ -72,7 +72,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Emerald, 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.Emerald, 10));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

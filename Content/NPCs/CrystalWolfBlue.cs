@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class CrystalWolfRed : ModNPC
+	public class CrystalWolfBlue : ModNPC
 	{
         public override void SetStaticDefaults() 
         {
@@ -66,13 +66,13 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 //  Add the new portrait with the modified rarity
                 //new NPCPortraitInfoElement(3),
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.CrystalWolfRed.Description")),
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.CrystalWolfBlue.Description")),
             });
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Ruby, 10));
+            npcLoot.Add(ItemDropRule.Common(ItemID.Sapphire, 10));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

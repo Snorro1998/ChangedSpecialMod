@@ -23,6 +23,12 @@ namespace ChangedSpecialMod.Content.Tiles
             ItemDrop = ModContent.ItemType<BlackLatexBlock>();
             AddMapEntry(new Color(35, 34, 41));
         }
+
+        public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
+        {
+            return true;
+        }
+
         public override void RandomUpdate(int i, int j)
         {
             WorldGenerator.GrowCrystal(i, j, NPCs.GooType.Black);

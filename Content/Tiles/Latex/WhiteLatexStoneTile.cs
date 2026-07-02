@@ -5,22 +5,19 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.Latex
 {
-    public class WhiteLatexTile : ModTile
+    public class WhiteLatexStoneTile : ModTile
     {
-        public int ItemDrop { get; private set; }
-
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
-            ChangedUtils.SetTileMerge(ModContent.TileType<WhiteLatexTile>());
+            ChangedUtils.SetTileMerge(ModContent.TileType<WhiteLatexStoneTile>());
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             DustType = DustID.SnowBlock;
-            ItemDrop = ModContent.ItemType<WhiteLatexBlock>();
             AddMapEntry(new Color(200, 200, 200));
         }
 
@@ -37,4 +34,3 @@ namespace ChangedSpecialMod.Content.Tiles
         }
     }
 }
-

@@ -802,3 +802,13 @@ SquidDogStatue: {
 	DisplayName: Squid Dog Statue
 	Tooltip: ""
 }
+
+BlackLatexStoneBlock: {
+	DisplayName: Black Latex Stone Block
+	Tooltip: ""
+}
+
+WhiteLatexStoneBlock: {
+	DisplayName: White Latex Stone Block
+	Tooltip: ""
+}

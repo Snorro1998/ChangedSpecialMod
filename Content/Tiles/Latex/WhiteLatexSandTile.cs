@@ -45,6 +45,11 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             dustType = DustID.SnowBlock;
         }
 
+        public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
+        {
+            return true;
+        }
+
         public override void RandomUpdate(int i, int j)
         {
             WorldGenerator.GrowCrystal(i, j, NPCs.GooType.White);
