@@ -653,12 +653,35 @@ Mods: {
 				Census.SpawnCondition: Durch die Verwendung eines Debug-Elements.
 			}
 
-			// CrystalWolfGreen.DisplayName: Emerald Wolf
-			// CrystalWolfRed.DisplayName: Ruby Wolf
-			// CrystalWolfBlue.DisplayName: Crystal Wolf Blue
-			// CrystalWolfOrange.DisplayName: Crystal Wolf Orange
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
-			// CrystalWolfWhite.DisplayName: Crystal Wolf White
+			CrystalWolfGreen: {
+				DisplayName: Smaragdwolf
+				Description: Es leuchtet hell wie ein Smaragd.
+			}
+
+			CrystalWolfRed: {
+				DisplayName: Rubinwolf
+				Description: Es leuchtet hell wie ein Rubin.
+			}
+
+			CrystalWolfBlue: {
+				DisplayName: Saphirwolf
+				Description: Es leuchtet hell wie ein Saphir.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Topaswolf
+				Description: Es leuchtet hell wie ein Topas.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Amethystwolf
+				Description: Es leuchtet hell wie ein Amethyst.
+			}
+
+			CrystalWolfWhite: {
+				DisplayName: Diamantwolf
+				Description: Es leuchtet hell wie ein Diamant.
+			}
 		}
 
 		Emotes: {

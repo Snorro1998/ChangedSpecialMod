@@ -653,12 +653,35 @@ Mods: {
 				Census.SpawnCondition: Используя элемент отладки.
 			}
 
-			// CrystalWolfGreen.DisplayName: Emerald Wolf
-			// CrystalWolfRed.DisplayName: Ruby Wolf
-			// CrystalWolfBlue.DisplayName: Crystal Wolf Blue
-			// CrystalWolfOrange.DisplayName: Crystal Wolf Orange
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
-			// CrystalWolfWhite.DisplayName: Crystal Wolf White
+			CrystalWolfGreen: {
+				DisplayName: Изумрудный волк
+				Description: Сияет ярко, как изумруд.
+			}
+
+			CrystalWolfRed: {
+				DisplayName: RРуби волк
+				Description: Сияет ярко, как рубин.
+			}
+
+			CrystalWolfBlue: {
+				DisplayName: Сапфировый волк
+				Description: Сияет ярко, как сапфир.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Топазовый волк
+				Description: Сияет ярко, как топаз.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Аметистовый волк
+				Description: Сияет ярко, как аметист.
+			}
+
+			CrystalWolfWhite: {
+				DisplayName: Алмазный волк
+				Description: Сияет ярко, как бриллиант.
+			}
 		}
 
 		Emotes: {

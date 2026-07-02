@@ -653,12 +653,35 @@ Mods: {
 				Census.SpawnCondition: 通过使用调试项。
 			}
 
-			// CrystalWolfGreen.DisplayName: Emerald Wolf
-			// CrystalWolfRed.DisplayName: Ruby Wolf
-			// CrystalWolfBlue.DisplayName: Crystal Wolf Blue
-			// CrystalWolfOrange.DisplayName: Crystal Wolf Orange
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
-			// CrystalWolfWhite.DisplayName: Crystal Wolf White
+			CrystalWolfGreen: {
+				DisplayName: 翡翠狼
+				Description: 它像祖母绿一样闪闪发光
+			}
+
+			CrystalWolfRed: {
+				DisplayName: 红宝石狼
+				Description: 它像红宝石一样闪闪发光。
+			}
+
+			CrystalWolfBlue: {
+				DisplayName: 蓝宝石狼
+				Description: 它像蓝宝石一样闪闪发光。
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: 黄玉狼
+				Description: 它像黄玉一样闪闪发光。
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: 紫水晶狼
+				Description: 它像紫水晶一样闪闪发光。
+			}
+
+			CrystalWolfWhite: {
+				DisplayName: 钻石狼
+				Description: 它像钻石一样闪闪发光。
+			}
 		}
 
 		Emotes: {

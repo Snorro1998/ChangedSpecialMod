@@ -784,21 +784,21 @@ DebugSpawnColin: {
 }
 
 PuroStatue: {
-	// DisplayName: Puro Statue
-	// Tooltip: ""
+	DisplayName: Estatua de Puro
+	Tooltip: ""
 }
 
 SquidDogStatue: {
-	// DisplayName: Squid Dog Statue
-	// Tooltip: ""
+	DisplayName: Estatua de Perro Calamar
+	Tooltip: ""
 }
 
 BlackLatexStoneBlock: {
-	// DisplayName: Black Latex Stone Block
-	// Tooltip: ""
+	DisplayName: Piedra limosa negra
+	Tooltip: ""
 }
 
 WhiteLatexStoneBlock: {
-	// DisplayName: White Latex Stone Block
-	// Tooltip: ""
+	DisplayName: Piedra limosa blanca
+	Tooltip: ""
 }

@@ -794,11 +794,11 @@ SquidDogStatue: {
 }
 
 BlackLatexStoneBlock: {
-	DisplayName: Black Latex Stone Block
+	DisplayName: Black Slimestone
 	Tooltip: ""
 }
 
 WhiteLatexStoneBlock: {
-	DisplayName: White Latex Stone Block
+	DisplayName: White Slimestone
 	Tooltip: ""
 }

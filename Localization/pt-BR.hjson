@@ -653,12 +653,35 @@ Mods: {
 				Census.SpawnCondition: Ao usar um item de depuração.
 			}
 
-			// CrystalWolfGreen.DisplayName: Emerald Wolf
-			// CrystalWolfRed.DisplayName: Ruby Wolf
-			// CrystalWolfBlue.DisplayName: Crystal Wolf Blue
-			// CrystalWolfOrange.DisplayName: Crystal Wolf Orange
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
-			// CrystalWolfWhite.DisplayName: Crystal Wolf White
+			CrystalWolfGreen: {
+				DisplayName: Lobo esmeralda
+				Description: Brilhando intensamente como uma esmeralda.
+			}
+
+			CrystalWolfRed: {
+				DisplayName: Lobo rubi
+				Description: Brilhando intensamente como um rubi.
+			}
+
+			CrystalWolfBlue: {
+				DisplayName: Lobo safira
+				Description: Brilhando intensamente como uma safira.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Lobo topázio
+				Description: Brilhando intensamente como um topázio.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Lobo ametista
+				Description: Brilhando intensamente como uma ametista.
+			}
+
+			CrystalWolfWhite: {
+				DisplayName: Lobo de diamante
+				Description: Brilhando intensamente como um diamante.
+			}
 		}
 
 		Emotes: {

@@ -653,12 +653,35 @@ Mods: {
 				Census.SpawnCondition: Utilizzando un elemento di debug.
 			}
 
-			// CrystalWolfGreen.DisplayName: Emerald Wolf
-			// CrystalWolfRed.DisplayName: Ruby Wolf
-			// CrystalWolfBlue.DisplayName: Crystal Wolf Blue
-			// CrystalWolfOrange.DisplayName: Crystal Wolf Orange
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
-			// CrystalWolfWhite.DisplayName: Crystal Wolf White
+			CrystalWolfGreen: {
+				DisplayName: Lupo di smeraldo
+				Description: Splendente come uno smeraldo.
+			}
+
+			CrystalWolfRed: {
+				DisplayName: Lupo di rubino
+				Description: Splendente come un rubino.
+			}
+
+			CrystalWolfBlue: {
+				DisplayName: Lupo di zaffiro
+				Description: Splendente come uno zaffiro.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Lupo di topazio
+				Description: Splendente come un topazio.
+			}
+
+			CrystalWolfOrange: {
+				DisplayName: Lupo di ametista
+				Description: Splendente come un'ametista.
+			}
+
+			CrystalWolfWhite: {
+				DisplayName: Lupo di diamante
+				Description: Splende come un diamante.
+			}
 		}
 
 		Emotes: {
