@@ -94,6 +94,7 @@ Latex spread
 - Because of these new underground biomes, the restriction that latex could only spread on the surface has been removed.
 
 Resprited
+- Dr K.
 - Tabby Cat
 
 Fixes

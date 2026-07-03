@@ -520,11 +520,11 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = NPC.Changed();
             var frame = NPC.frame;
             var fr = frame.Top / frameHeight;
-            var hatYOffset = -48;
+            var hatYOffset = -46;
 
             if (fr == 1 || fr == 13 || fr == 14 || fr == 15 || fr == 6 || fr == 7 || fr == 8)
             {
-                hatYOffset += 1;
+                hatYOffset += 2;
                 //hatYOffset = -47;
             }
             else if (fr == 18 || fr == 19 || fr == 20 || fr == 21 || fr == 22 || fr == 23)

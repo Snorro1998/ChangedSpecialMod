@@ -157,23 +157,37 @@ namespace ChangedSpecialMod.Utilities
         {
             var lastIndex = tasks.Count - 1;
 
+            var blackListBlockTypes = new List<int>()
+            {
+                TileID.Granite,
+                TileID.Marble,
+                TileID.BlueDungeonBrick,
+                TileID.GreenDungeonBrick,
+                TileID.PinkDungeonBrick,
+                TileID.LihzahrdBrick,
+                TileID.MushroomGrass,
+                TileID.Hive
+            };
+
             tasks.Insert(lastIndex, new PassLegacy("ChangedLatexPools", (progress, config) =>
             {
                 progress.Message = "Adding Latex Pools";
 
-                int spacing = 20;
+                int spacing = 10;
+                var minDistBetweenPools = 300;
+                int xDistFromBorder = 200;
 
                 List<(int x, int y)> possibleLocations = new();
 
-                for (int y = Main.maxTilesY / 2; y < Main.maxTilesY; y += spacing)
+                for (int y = (int)(Main.maxTilesY * 0.4f); y < Main.maxTilesY; y += spacing)
                 {
-                    for (int x = 0; x < Main.maxTilesX; x += spacing)
+                    for (int x = xDistFromBorder; x < Main.maxTilesX - xDistFromBorder; x += spacing)
                     {
                         Tile tile = Main.tile[x, y];
 
                         if (tile.HasTile &&
                             tile.LiquidAmount > 0 &&
-                            tile.LiquidType == LiquidID.Water)
+                            (tile.LiquidType == LiquidID.Water || tile.LiquidType == LiquidID.Lava))
                         {
                             possibleLocations.Add((x, y));
                         }
@@ -185,7 +199,9 @@ namespace ChangedSpecialMod.Utilities
                 int maxPools = Math.Min(possibleLocations.Count, 10);
                 int placedPools = 0;
 
-                for (int i = 0; i < maxPools; i++)
+                List<(int, int)> placedPositions = new List<(int, int)>();
+
+                for (int i = 0; i < possibleLocations.Count; i++)
                 {
                     if (placedPools == maxPools)
                         return;
@@ -195,11 +211,31 @@ namespace ChangedSpecialMod.Utilities
 
                     var x = possibleLocations[i].x;
                     var y = possibleLocations[i].y;
+
+                    // Don't place it if too close to another pool
+                    foreach (var position in placedPositions)
+                    {
+                        var dist = Vector2.DistanceSquared(new Vector2(position.Item1, position.Item2), new Vector2(x, y));
+                        
+                        if (dist < minDistBetweenPools * minDistBetweenPools)
+                            goto labelSkip;
+                    }
+
                     var (bounds, waterTiles) = FloodFillWater(x, y);
 
                     // Skip if a large body of water like the ocean or something from another mod
                     if (waterTiles.Count > 1000)
-                        continue;
+                        goto labelSkip;
+
+                    for (int j = bounds.Left; j < bounds.Left + bounds.Width; j++)
+                    {
+                        for (int k = bounds.Top; k < bounds.Top + bounds.Height; k++)
+                        {
+                            var tmpTile = Framing.GetTileSafely(j, k);
+                            if (tmpTile != null & tmpTile.HasTile && blackListBlockTypes.Contains(tmpTile.TileType))
+                                goto labelSkip;
+                        }
+                    }
 
                     /*
                     foreach (var (tx, ty) in waterTiles)
@@ -211,7 +247,11 @@ namespace ChangedSpecialMod.Utilities
 
                     //padding 20 15
                     MakeBiomeAroundPool(bounds, 30, 25, poolType);
+                    placedPositions.Add((x, y));
                     placedPools++;
+
+                    labelSkip:
+                    var dummy = 0;
                 }
             }));
         }
@@ -312,6 +352,12 @@ namespace ChangedSpecialMod.Utilities
             int minY = startY;
             int maxY = startY;
 
+            List<int> blackListLiquids = new List<int>
+            {
+                LiquidID.Honey,
+                LiquidID.Shimmer
+            };
+
             while (queue.Count > 0)
             {
                 var (x, y) = queue.Dequeue();
@@ -325,8 +371,7 @@ namespace ChangedSpecialMod.Utilities
 
                 Tile tile = Main.tile[x, y];
 
-                if (tile.LiquidAmount == 0 ||
-                    tile.LiquidType != LiquidID.Water)
+                if (tile.LiquidAmount == 0 || blackListLiquids.Contains(tile.LiquidType))
                     continue;
 
                 waterTiles.Add((x, y));
@@ -646,14 +691,14 @@ namespace ChangedSpecialMod.Utilities
             if (ModSupportSystem.modCalamity != null)
                 distFromBorderX = 400;
 
-            int distFromBorderY = 200;
+            int distFromBorderY = 300;
 
             int width = structure[0].Length;
             int height = structure.Count;
 
             int xPosMin = distFromBorderX;
             int xPosMax = Main.maxTilesX - distFromBorderX - width;
-            int yPosMin = Main.maxTilesY / 2;
+            int yPosMin = (int)(Main.maxTilesY * 0.4f);
             int yPosMax = Main.maxTilesY - distFromBorderY;
 
             int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
