@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +10,6 @@ using System.Reflection;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static ChangedSpecialMod.Common.Systems.ExternalModItemSystem;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -197,65 +197,36 @@ namespace ChangedSpecialMod.Common.Systems
 
             EnemyRedirect(ModContent.NPCType<Puro>(), "Puro");
             EnemyRedirect(ModContent.NPCType<Scientist>(), "Dr_K");
+
+            // Normal paintings
+            ItemRedirect(ModContent.ItemType<Painting1>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting2>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting3>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting4>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting5>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting6>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting7>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting8>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting9>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting10>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting11>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting12>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting13>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting14>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting15>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting16>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting17>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting18>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<Painting19>(), "Paintings");
+
+            // Drunk paintings
+            ItemRedirect(ModContent.ItemType<DrunkPainting1>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<DrunkPainting2>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<DrunkPainting3>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<DrunkPainting4>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<DrunkPainting5>(), "Paintings");
+            ItemRedirect(ModContent.ItemType<DrunkPainting6>(), "Paintings");
             /*
-            // Items
-            ItemRedirect(ItemType<PineapplePet>(), "Pineapple (calamity)");
-            ItemRedirect(ItemType<TrashmanTrashcan>(), "Trash Can (pet)");
-            // Lore items
-            ItemRedirect(ItemType<LoreAstralInfection>(), loreItemPage);
-            ItemRedirect(ItemType<LoreAbyss>(), loreItemPage);
-            ItemRedirect(ItemType<LoreAquaticScourge>(), loreItemPage);
-            ItemRedirect(ItemType<LoreArchmage>(), loreItemPage);
-            ItemRedirect(ItemType<LoreAstrumAureus>(), loreItemPage);
-            ItemRedirect(ItemType<LoreAstrumDeus>(), loreItemPage);
-            ItemRedirect(ItemType<LoreAwakening>(), loreItemPage);
-            ItemRedirect(ItemType<LoreAzafure>(), loreItemPage);
-            ItemRedirect(ItemType<LoreBloodMoon>(), loreItemPage);
-            ItemRedirect(ItemType<LoreBrainofCthulhu>(), loreItemPage);
-            ItemRedirect(ItemType<LoreBrimstoneElemental>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCalamitas>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCalamitasClone>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCeaselessVoid>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCorruption>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCrabulon>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCrimson>(), loreItemPage);
-            ItemRedirect(ItemType<LoreCynosure>(), loreItemPage);
-            ItemRedirect(ItemType<LoreDesertScourge>(), loreItemPage);
-            ItemRedirect(ItemType<LoreDestroyer>(), loreItemPage);
-            ItemRedirect(ItemType<LoreDevourerofGods>(), loreItemPage);
-            ItemRedirect(ItemType<LoreDragonfolly>(), loreItemPage);
-            ItemRedirect(ItemType<LoreDukeFishron>(), loreItemPage);
-            ItemRedirect(ItemType<LoreEaterofWorlds>(), loreItemPage);
-            ItemRedirect(ItemType<LoreEmpressofLight>(), loreItemPage);
-            ItemRedirect(ItemType<LoreExoMechs>(), loreItemPage);
-            ItemRedirect(ItemType<LoreEyeofCthulhu>(), loreItemPage);
-            ItemRedirect(ItemType<LoreGolem>(), loreItemPage);
-            ItemRedirect(ItemType<LoreHiveMind>(), loreItemPage);
-            ItemRedirect(ItemType<LoreKingSlime>(), loreItemPage);
-            ItemRedirect(ItemType<LoreLeviathanAnahita>(), loreItemPage);
-            ItemRedirect(ItemType<LoreMechs>(), loreItemPage);
-            ItemRedirect(ItemType<LoreOldDuke>(), loreItemPage);
-            ItemRedirect(ItemType<LorePerforators>(), loreItemPage);
-            ItemRedirect(ItemType<LorePlaguebringerGoliath>(), loreItemPage);
-            ItemRedirect(ItemType<LorePlantera>(), loreItemPage);
-            ItemRedirect(ItemType<LorePolterghast>(), loreItemPage);
-            ItemRedirect(ItemType<LorePrelude>(), loreItemPage);
-            ItemRedirect(ItemType<LoreProfanedGuardians>(), loreItemPage);
-            ItemRedirect(ItemType<LoreProvidence>(), loreItemPage);
-            ItemRedirect(ItemType<LoreQueenBee>(), loreItemPage);
-            ItemRedirect(ItemType<LoreQueenSlime>(), loreItemPage);
-            ItemRedirect(ItemType<LoreRavager>(), loreItemPage);
-            ItemRedirect(ItemType<LoreRequiem>(), loreItemPage);
-            ItemRedirect(ItemType<LoreSignus>(), loreItemPage);
-            ItemRedirect(ItemType<LoreSkeletron>(), loreItemPage);
-            ItemRedirect(ItemType<LoreSkeletronPrime>(), loreItemPage);
-            ItemRedirect(ItemType<LoreSlimeGod>(), loreItemPage);
-            ItemRedirect(ItemType<LoreStormWeaver>(), loreItemPage);
-            ItemRedirect(ItemType<LoreSulphurSea>(), loreItemPage);
-            ItemRedirect(ItemType<LoreTwins>(), loreItemPage);
-            ItemRedirect(ItemType<LoreUnderworld>(), loreItemPage);
-            ItemRedirect(ItemType<LoreWallofFlesh>(), loreItemPage);
-            ItemRedirect(ItemType<LoreYharon>(), loreItemPage);
 
             // Enemies
             EnemyRedirect(NPCType<KingSlimeJewelRuby>(), "Crown Jewels");

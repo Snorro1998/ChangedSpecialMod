@@ -79,8 +79,7 @@ namespace ChangedSpecialMod.Common.Systems
                 var musicOptions = new List<string>()
                 {
                     Sounds.MusicWhiteLatexZone,
-                    Sounds.MusicLabSlow,
-                    //Sounds.MusicGreenhouse
+                    Sounds.MusicLabSlow
                 };
                 if (player.townNPCs > 0)
                     musicOptions.Add(Sounds.MusicLibrary);

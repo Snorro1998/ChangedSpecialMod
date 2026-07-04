@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Pedra de lodo branca
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Pilar da Gosma Preta
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Pilar da Gosma Branca
+}

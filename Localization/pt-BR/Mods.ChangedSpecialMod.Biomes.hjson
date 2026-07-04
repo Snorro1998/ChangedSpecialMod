@@ -10,7 +10,7 @@ CityRuinsUndergroundBiome: {
 
 WhiteLatexSurfaceBiome: {
 	DisplayName: Zona de Gosma Branca
-	TownNPCDialogueName: a Zona de Gosma Branca
+	TownNPCDialogueName: a Zona da Gosma Branca
 }
 
 BlackLatexSurfaceBiome: {

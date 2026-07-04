@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: 白色粘液石
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: 黑色粘液晶塔
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: 白色粘液晶塔
+}

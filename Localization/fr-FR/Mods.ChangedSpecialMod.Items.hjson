@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Pierre de gelée blanche
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Pylône de la gelée noire
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Pylône de la gelée blanche
+}

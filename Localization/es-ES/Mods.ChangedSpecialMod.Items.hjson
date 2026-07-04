@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Piedra limosa blanca
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Torre de la limosa negra
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Torre de la limosa blanca
+}

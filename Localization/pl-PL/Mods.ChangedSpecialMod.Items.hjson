@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Biały szlamowiec
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Pylon czarnego szlamu
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Pylon białego szlamu
+}

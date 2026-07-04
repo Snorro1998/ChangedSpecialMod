@@ -28,7 +28,7 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 - Thorium
 
 It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
-
+Another issue is when playing with any mod dependant on modliquid library, waterfalls will be frozen if you are in a Changed biome. This is an issue of modlibrary. 
 
 ------- Multiplayer -------
 
@@ -73,24 +73,25 @@ For information about previous versions, please check out the change notes in th
 0.5.4
 
 General
-- Added Puro and Squid Dog statues
-- NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now
-- Added a rare underground structure
-- Added a config option to disable custom world names
-- Added support for wikithis, but you can't use it right now because the wiki is not public yet
-- special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface
+- Added Puro and Squid Dog statues.
+- NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now.
+- Added a rare underground structure.
+- Added a config option to disable custom world names.
+- Added support for wikithis, but you can't use it right now because the wiki is not public yet.
+- special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface.
+- Added black and white pylons. They work at any depth.
 
 Underground biomes
-- Black and white latex 
-- Generate in the lower half of the world
+- Black and white latex .
+- Generate in the lower half of the world.
 - Crystal wolves can spawn here. They can drop gems.
 - Every latex beast underground has a small change to wear a mining helmet.
 
 Latex spread
 - Added black and white slimestone.
 - Latex can now spread to stone.
-- The dryad can now tell how much goo there is in the world
-- Latex blocks are now highlighted if under the effects of the biome sight potion
+- The dryad can now tell how much goo there is in the world.
+- Latex blocks are now highlighted if under the effects of the biome sight potion.
 - Because of these new underground biomes, the restriction that latex could only spread on the surface has been removed.
 
 Resprited
@@ -98,6 +99,6 @@ Resprited
 - Tabby Cat
 
 Fixes
-- Blocks not merging correctly when next to dirt
-- Prototype not selling Dragonfruit and Starfruit in hardmode
-- Waterfalls glowed in the dark when in any Changed biome
+- Blocks not merging correctly when next to dirt.
+- Prototype not selling Dragonfruit and Starfruit in hardmode.
+- Waterfalls glowed in the dark when in any Changed biome.

@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Pietra melmosa bianca
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Portale della melma nera
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Portale della melma bianca
+}

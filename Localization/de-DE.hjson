@@ -709,6 +709,8 @@ Mods: {
 			}
 
 			IrisScanner: Iris-Scanner
+			BlackLatexPylonTile.MapEntry: Schwarzer Schleimpylon
+			WhiteLatexPylonTile.MapEntry: Weißer Schleimpylon
 		}
 
 		Buffs: {
@@ -753,6 +755,11 @@ Mods: {
 		Liquids: {
 			// BlackLatexLiquid.MapEntry: Black Latex Liquid
 			// WhiteLatexLiquid.MapEntry: White Latex Liquid
+		}
+
+		Conditions: {
+			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
+			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
 		}
 	}
 }

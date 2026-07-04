@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Weißer Schleimstein
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Schwarzer Schleimpylon
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Weißer Schleimpylon
+}

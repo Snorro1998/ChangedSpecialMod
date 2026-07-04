@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: Белый слизистый камень
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Столб чёрной слизи
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: Столб белой слизи
+}

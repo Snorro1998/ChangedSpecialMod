@@ -802,3 +802,13 @@ WhiteLatexStoneBlock: {
 	DisplayName: White Slimestone
 	Tooltip: ""
 }
+
+BlackLatexPylon: {
+	DisplayName: Black Latex Pylon
+	Tooltip: ""
+}
+
+WhiteLatexPylon: {
+	Tooltip: ""
+	DisplayName: White Latex Pylon
+}

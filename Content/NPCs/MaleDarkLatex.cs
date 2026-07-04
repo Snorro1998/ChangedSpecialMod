@@ -11,7 +11,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
 	public class MaleDarkLatex : ModNPC
@@ -29,13 +28,14 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
 			NPC.height = 35;
             NPC.damage = 30;
             NPC.defense = 12;
-            NPC.lifeMax = 80; //320
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.lifeMax = 80;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;

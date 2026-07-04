@@ -709,6 +709,8 @@ Mods: {
 			}
 
 			IrisScanner: 虹膜扫描仪
+			BlackLatexPylonTile.MapEntry: 黑色粘液晶塔
+			WhiteLatexPylonTile.MapEntry: 白色粘液晶塔
 		}
 
 		Buffs: {
@@ -753,6 +755,11 @@ Mods: {
 		Liquids: {
 			// BlackLatexLiquid.MapEntry: Black Latex Liquid
 			// WhiteLatexLiquid.MapEntry: White Latex Liquid
+		}
+
+		Conditions: {
+			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
+			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
 		}
 	}
 }
