@@ -290,12 +290,12 @@ GermanShepherdBanner: {
 
 WhiteLatexTaurMountItem: {
 	DisplayName: Schleimiges Hufeisen
-	Tooltip: Beschwört ein weißes Schleim-Reittier.
+	Tooltip: Beschwört ein weißer Schleim zum Reiten.
 }
 
 FlyingDarkLatexMountItem: {
 	DisplayName: Schwarzer Flügel
-	Tooltip: Beschwört ein Yufeng-Reittier.
+	Tooltip: Beschwört ein Yufeng zum Reiten.
 }
 
 Literature: {
@@ -813,7 +813,7 @@ WhiteLatexPylon: {
 	DisplayName: Weißer Schleimpylon
 }
 
-DebugPrintModData: {
-	// DisplayName: Debug Print Mod Data
-	// Tooltip: ""
+LatexMothMountItem: {
+	DisplayName: Weißer Flügel
+	Tooltip: Beschwört eine Schleimmotte zum Reiten.
 }

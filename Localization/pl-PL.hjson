@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Ametystowy wilk
-				Description: Świecąc jasno jak ametyst.
+				DisplayName: Topazowy wilk
+				Description: Świecąc jasno jak topaz.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Świeci jasno jak diament.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Ametystowy wilk
+				Description: Świecąc jasno jak ametyst.
+			}
+
+			LatexMoth: {
+				// DisplayName: Slime Moth
+				// Description: Fuzzy
+			}
+
+			Snek: {
+				// DisplayName: Snake
+				// Description: Noodle
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Skaner tęczówki
 			BlackLatexPylonTile.MapEntry: Pylon czarnego szlamu
 			WhiteLatexPylonTile.MapEntry: Pylon białego szlamu
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: Biały i szybki!
-				DisplayName: Biały szlam centaur
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Latanie na szlamie!
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: Kot będzie walczył za ciebie
-				DisplayName: Kot ming
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Nie zadzieraj z nią!
-				DisplayName: Fioletomruc
-			}
-
-			TabbyStaffBuff: {
-				Description: Kot będzie walczył za ciebie
-				DisplayName: Pręgowany kot
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Umiejętność

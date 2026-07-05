@@ -43,16 +43,19 @@ namespace ChangedSpecialMod.Content.Items.Debug
                 // Crystal wolves
                 ModContent.NPCType<CrystalWolfBlue>(),
                 ModContent.NPCType<CrystalWolfGreen>(),
-                ModContent.NPCType<CrystalWolfOrange>(),
+                //ModContent.NPCType<CrystalWolfOrange>(),
                 ModContent.NPCType<CrystalWolfPurple>(),
                 ModContent.NPCType<CrystalWolfRed>(),
-                ModContent.NPCType<CrystalWolfWhite>(),
+                //ModContent.NPCType<CrystalWolfWhite>(),
 
                 // White
                 ModContent.NPCType<WhiteGoop>(),
                 ModContent.NPCType<WhiteKnight>(),
                 ModContent.NPCType<WhiteLatexCub>(),
                 ModContent.NPCType<WhiteLatexTaur>(),
+
+                ModContent.NPCType<LatexMoth>(),
+                ModContent.NPCType<Snek>(),
 
                 // Others
                 ModContent.NPCType<Bloodstripe>(),

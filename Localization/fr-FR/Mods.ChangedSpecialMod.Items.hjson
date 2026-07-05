@@ -290,12 +290,12 @@ GermanShepherdBanner: {
 
 WhiteLatexTaurMountItem: {
 	DisplayName: Fer à cheval visqueux
-	Tooltip: Invoque une monture Gelée Blanche
+	Tooltip: Invoque une gelée blanche à chevaucher
 }
 
 FlyingDarkLatexMountItem: {
 	DisplayName: Aile noire
-	Tooltip: Invoque une monture Yufeng
+	Tooltip: Invoque un Yufeng à chevaucher
 }
 
 Literature: {
@@ -813,7 +813,7 @@ WhiteLatexPylon: {
 	DisplayName: Pylône de la gelée blanche
 }
 
-DebugPrintModData: {
-	// DisplayName: Debug Print Mod Data
-	// Tooltip: ""
+LatexMothMountItem: {
+	DisplayName: Aile blanche
+	Tooltip: Invoque une papillon de nuit de gelée à chevaucher
 }

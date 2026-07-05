@@ -3,28 +3,52 @@
 # Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
 # A name will never be chosen if it has more then 27 characters
 RandomWorldName_Composition_Custom: {
-	Colin1: A {Adjective} {Location} de Colin
+	1A: "{Location} {Adjective} de {Noun}"
+	1B: "{Location} {Adjective} de {Noun}"
+	1C: "{Location} {Adjective} de {Noun}"
+	2A: "{Location} {Adjective} de {Noun}"
+	2B: "{Location} {Adjective} de {Noun}"
+	2C: "{Location} {Adjective} de {Noun}"
+	3A: "{Location} {Adjective} de {Noun}"
+	3B: "{Location} {Adjective} de {Noun}"
+	3C: "{Location} {Adjective} de {Noun}"
+	4A: "{Location} {Adjective} de {Noun}"
+	4B: "{Location} {Adjective} de {Noun}"
+	4C: "{Location} {Adjective} de {Noun}"
+	5A: "{Location} {Adjective}"
+	5B: "{Location} {Adjective}"
+	5C: "{Location} {Adjective}"
+	6A: "{Adjective} {Location}"
+	6B: "{Adjective} {Location}"
+	6C: "{Adjective} {Location}"
+	7A: "{Location} de {Noun}"
+	7B: "{Location} de {Noun}"
+	7C: "{Location} de {Noun}"
+	8A: "{Location} de {Noun}"
+	8B: "{Location} de {Noun}"
+	8C: "{Location} de {Noun}"
+	Colin1: "{Adjective} {Location} de Colin"
 	Colin2: "{Adjective} {Location} de Colin"
-	Colin3: A {Location} de Colin
+	Colin3: "{Location} de Colin"
 	Colin4: "{Location} de Colin"
-	DrK1: A {Adjective} {Location} do Dr. K
-	DrK2: "{Adjective} {Location} do Dr. K"
-	DrK3: A {Location} do Dr. K
-	DrK4: "{Location} do Dr. K"
-	Oranges1: A {Adjective} {Location} das Laranjas
+	DrK1: "{Adjective} {Location} de Dr. K"
+	DrK2: "{Adjective} {Location} de Dr. K"
+	DrK3: "{Location} de Dr. K"
+	DrK4: "{Location} de Dr. K"
+	Oranges1: "{Adjective} {Location} das Laranjas"
 	Oranges2: "{Adjective} {Location} das Laranjas"
-	Oranges3: A {Location} das Laranjas
+	Oranges3: "{Location} das Laranjas"
 	Oranges4: "{Location} das Laranjas"
-	Puro1: A {Adjective} {Location} de Puro
+	Puro1: "{Adjective} {Location} de Puro"
 	Puro2: "{Adjective} {Location} de Puro"
-	Puro3: A {Location} de Puro
+	Puro3: "{Location} de Puro"
 	Puro4: "{Location} de Puro"
-	SquidDog1: A {Adjective} {Location} do Cachorro-Lula
-	SquidDog2: "{Adjective} {Location} do Cachorro-Lula"
-	SquidDog3: A {Location} do Cachorro-Lula
-	SquidDog4: "{Location} do Cachorro-Lula"
-	TigerShark1: A {Adjective} {Location} do Tubarão-Tigre
-	TigerShark2: "{Adjective} {Location} do Tubarão-Tigre"
-	TigerShark3: A {Location} do Tubarão-Tigre
-	TigerShark4: "{Location} do Tubarão-Tigre"
+	SquidDog1: "{Adjective} {Location} de Cachorro-Lula"
+	SquidDog2: "{Adjective} {Location} de Cachorro-Lula"
+	SquidDog3: "{Location} de Cachorro-Lula"
+	SquidDog4: "{Location} de Cachorro-Lula"
+	TigerShark1: "{Adjective} {Location} de Tubarão-Tigre"
+	TigerShark2: "{Adjective} {Location} de Tubarão-Tigre"
+	TigerShark3: "{Location} de Tubarão-Tigre"
+	TigerShark4: "{Location} de Tubarão-Tigre"
 }

@@ -42,13 +42,13 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexUndergroundBiome>().Type };
+            SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexUndergroundBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.SetHalloweenHatsForBlackLatex();
-            changedNPC.GooType = GooType.White;
+            changedNPC.GooType = GooType.Black;
             changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;

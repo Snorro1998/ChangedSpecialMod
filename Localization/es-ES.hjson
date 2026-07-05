@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Lobo amatista
-				Description: Brillando intensamente como una amatista.
+				DisplayName: Lobo topacio
+				Description: Brillando intensamente como un topacio.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Brillando intensamente como un diamante.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Lobo amatista
+				Description: Brillando intensamente como una amatista.
+			}
+
+			LatexMoth: {
+				DisplayName: Polilla de lodo
+				Description: Un lodo que es atraída por la luz.
+			}
+
+			Snek: {
+				DisplayName: Serpiente
+				Description: Largo y rápido.
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: escáner de iris
 			BlackLatexPylonTile.MapEntry: Torre de la limosa negra
 			WhiteLatexPylonTile.MapEntry: Torre de la limosa blanca
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: Blanco y rápido
-				DisplayName: Centauro Látex Blanco
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Deslizándose sobre látex
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: El gato luchará por ti.
-				DisplayName: Gato Ming
-			}
-
-			PurrpurrStaffBuff: {
-				Description: ¡No te metas con ella!
-				DisplayName: Gatomorado
-			}
-
-			TabbyStaffBuff: {
-				Description: El gato luchará por ti.
-				DisplayName: Gato atigrado
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidad

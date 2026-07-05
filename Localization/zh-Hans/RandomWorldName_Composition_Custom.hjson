@@ -3,6 +3,30 @@
 # Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
 # A name will never be chosen if it has more then 27 characters
 RandomWorldName_Composition_Custom: {
+	1A: "{Adjective}的{Noun}{Location}"
+	1B: "{Adjective}的{Noun}{Location}"
+	1C: "{Adjective}的{Noun}{Location}"
+	2A: "{Adjective}的{Noun}{Location}"
+	2B: "{Adjective}的{Noun}{Location}"
+	2C: "{Adjective}的{Noun}{Location}"
+	3A: "{Adjective}的{Noun}{Location}"
+	3B: "{Adjective}的{Noun}{Location}"
+	3C: "{Adjective}的{Noun}{Location}"
+	4A: "{Adjective}的{Noun}{Location}"
+	4B: "{Adjective}的{Noun}{Location}"
+	4C: "{Adjective}的{Noun}{Location}"
+	5A: "{Adjective}的{Location}"
+	5B: "{Adjective}的{Location}"
+	5C: "{Adjective}的{Location}"
+	6A: "{Adjective} {Location}"
+	6B: "{Adjective} {Location}"
+	6C: "{Adjective} {Location}"
+	7A: "{Noun}{Location}"
+	7B: "{Noun}{Location}"
+	7C: "{Noun}{Location}"
+	8A: "{Noun}{Location}"
+	8B: "{Noun}{Location}"
+	8C: "{Noun}{Location}"
 	Colin1: 林的{Adjective}{Location}
 	Colin2: 林的{Adjective}{Location}
 	Colin3: 林的{Location}

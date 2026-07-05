@@ -290,12 +290,12 @@ GermanShepherdBanner: {
 
 WhiteLatexTaurMountItem: {
 	DisplayName: Ferro di cavallo viscido
-	Tooltip: Evoca una cavalcatura di melma bianca.
+	Tooltip: Evoca una melma bianca cavalcabile
 }
 
 FlyingDarkLatexMountItem: {
 	DisplayName: Ala Nera
-	Tooltip: Evoca una cavalcatura di Yufeng.
+	Tooltip: Evoca uno Yufeng cavalcabile
 }
 
 Literature: {
@@ -813,7 +813,7 @@ WhiteLatexPylon: {
 	DisplayName: Portale della melma bianca
 }
 
-DebugPrintModData: {
-	// DisplayName: Debug Print Mod Data
-	// Tooltip: ""
+LatexMothMountItem: {
+	DisplayName: Ala bianca
+	Tooltip: Evoca una falena melmosa cavalcabile
 }

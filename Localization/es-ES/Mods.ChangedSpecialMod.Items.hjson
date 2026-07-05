@@ -290,12 +290,12 @@ GermanShepherdBanner: {
 
 WhiteLatexTaurMountItem: {
 	DisplayName: Herradura Babosa
-	Tooltip: Summons a rideable White Latex mount
+	Tooltip: Invoca un Centauro Látex Blanco como montura.
 }
 
 FlyingDarkLatexMountItem: {
-	DisplayName: Ala Negra
-	Tooltip: Summons a rideable Yufeng mount
+	DisplayName: Ala negra
+	Tooltip: Invoca un Cachorro de Yufeng como montura.
 }
 
 Literature: {
@@ -813,7 +813,7 @@ WhiteLatexPylon: {
 	DisplayName: Torre de la limosa blanca
 }
 
-DebugPrintModData: {
-	// DisplayName: Debug Print Mod Data
-	// Tooltip: ""
+LatexMothMountItem: {
+	DisplayName: Ala blanca
+	Tooltip: Invoca una polilla de lodo como montura
 }

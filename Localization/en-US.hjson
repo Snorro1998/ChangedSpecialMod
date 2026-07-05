@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Amethyst Wolf
-				Description: Shining bright like an amethyst.
+				DisplayName: Topaz Wolf
+				Description: Shining bright like an topaz.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Shining bright like a diamond.
 			}
 
-			CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Amethyst Wolf
+				Description: Shining bright like an amethyst.
+			}
+
+			LatexMoth: {
+				DisplayName: Slime Moth
+				Description: A slime that is attracted to light.
+			}
+
+			Snek: {
+				DisplayName: Snake
+				Description: Long and fast.
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Iris Scanner
 			BlackLatexPylonTile.MapEntry: Black Latex Pylon
 			WhiteLatexPylonTile.MapEntry: White Latex Pylon
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: White and Whoosh!
-				DisplayName: White Latex Taur
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Gliding on Goo!
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: The cat will fight for you
-				DisplayName: Ming Cat
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Don't mess with her!
-				DisplayName: Purrpurr
-			}
-
-			TabbyStaffBuff: {
-				Description: The cat will fight for you
-				DisplayName: Tabby Cat
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Ability

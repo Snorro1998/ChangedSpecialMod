@@ -3,28 +3,52 @@
 # Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
 # A name will never be chosen if it has more then 27 characters
 RandomWorldName_Composition_Custom: {
-	Colin1: Die {Adjective} {Location} von Colin
-	Colin2: "{Adjective} {Location} von Colin"
-	Colin3: Die {Location} von Colin
-	Colin4: "{Location} von Colin"
-	DrK1: Die {Adjective} {Location} von Dr. K
-	DrK2: "{Adjective} {Location} von Dr. K"
-	DrK3: Die {Location} von Dr. K
-	DrK4: "{Location} von Dr. K"
-	Oranges1: Die {Adjective} {Location} von Orangen
-	Oranges2: "{Adjective} {Location} von Orangen"
-	Oranges3: Die {Location} von Orangen
-	Oranges4: "{Location} von Orangen"
-	Puro1: Die {Adjective} {Location} von Puro
-	Puro2: "{Adjective} {Location} von Puro"
-	Puro3: Die {Location} von Puro
-	Puro4: "{Location} von Puro"
-	SquidDog1: Tintenfischhunds {Adjective} {Location}
-	SquidDog2: Tintenfischhunds {Adjective} {Location}
-	SquidDog3: Tintenfischhunds {Location}
-	SquidDog4: Tintenfischhunds {Location}
-	TigerShark1: Die {Adjective} {Location} von Tigerhai
-	TigerShark2: "{Adjective} {Location} von Tigerhai"
-	TigerShark3: Die {Location} von Tigerhai
-	TigerShark4: "{Location} von Tigerhai"
+	1A: "{Adjective} {Location}-{Noun}"
+	1B: "{Adjective} {Location}-{Noun}"
+	1C: "{Adjective} {Location}-{Noun}"
+	2A: "{Adjective} {Location}-{Noun}"
+	2B: "{Adjective} {Location}-{Noun}"
+	2C: "{Adjective} {Location}-{Noun}"
+	3A: "{Adjective} {Location}-{Noun}"
+	3B: "{Adjective} {Location}-{Noun}"
+	3C: "{Adjective} {Location}-{Noun}"
+	4A: "{Adjective} {Location}-{Noun}"
+	4B: "{Adjective} {Location}-{Noun}"
+	4C: "{Adjective} {Location}-{Noun}"
+	5A: "{Adjective}-{Location}"
+	5B: "{Adjective}-{Location}"
+	5C: "{Adjective}-{Location}"
+	6A: "{Adjective} {Location}"
+	6B: "{Adjective} {Location}"
+	6C: "{Adjective} {Location}"
+	7A: "{Location}-{Noun}"
+	7B: "{Location}-{Noun}"
+	7C: "{Location}-{Noun}"
+	8A: "{Location}-{Noun}"
+	8B: "{Location}-{Noun}"
+	8C: "{Location}-{Noun}"
+	Colin1: "{Adjective} {Location}-Colin"
+	Colin2: "{Adjective} {Location}-Colin"
+	Colin3: "{Location}-Colin"
+	Colin4: "{Location}-Colin"
+	DrK1: "{Adjective} {Location}-Dr. K"
+	DrK2: "{Adjective} {Location}-Dr. K"
+	DrK3: "{Location}-Dr. K"
+	DrK4: "{Location}-Dr. K"
+	Oranges1: "{Adjective} {Location}-Orangen"
+	Oranges2: "{Adjective} {Location}-Orangen"
+	Oranges3: "{Location}-Orangen"
+	Oranges4: "{Location}-Orangen"
+	Puro1: "{Adjective} {Location}-Puro"
+	Puro2: "{Adjective} {Location}-Puro"
+	Puro3: "{Location}-Puro"
+	Puro4: "{Location}-Puro"
+	SquidDog1: "{Adjective} {Location}-Tintenfischhund"
+	SquidDog2: "{Adjective} {Location}-Tintenfischhund"
+	SquidDog3: "{Location}-Tintenfischhund"
+	SquidDog4: "{Location}-Tintenfischhund"
+	TigerShark1: "{Adjective} {Location}-Tigerhai"
+	TigerShark2: "{Adjective} {Location}-Tigerhai"
+	TigerShark3: "{Location}-Tigerhai"
+	TigerShark4: "{Location}-Tigerhai"
 }

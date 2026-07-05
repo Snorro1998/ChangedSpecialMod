@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Аметистовый волк
-				Description: Сияет ярко, как аметист.
+				DisplayName: Топазы волк
+				Description: Сияет ярко, как топаз.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Сияет ярко, как бриллиант.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Аметистовый волк
+				Description: Сияет ярко, как аметист.
+			}
+
+			LatexMoth: {
+				// DisplayName: Slime Moth
+				// Description: Fuzzy
+			}
+
+			Snek: {
+				// DisplayName: Snake
+				// Description: Noodle
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Сканер радужной оболочки глаза
 			BlackLatexPylonTile.MapEntry: Столб чёрной слизи
 			WhiteLatexPylonTile.MapEntry: Столб белой слизи
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: белый и быстрый
-				DisplayName: белый слизистый кентавр
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: летать на слизи!
-				DisplayName: Юфэна
-			}
-
-			WhiskerStaffBuff: {
-				Description: Кот будет бороться за тебя.
-				DisplayName: кот мин
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Не стоит с ней связываться!
-				DisplayName: фиолетомурлыка
-			}
-
-			TabbyStaffBuff: {
-				Description: Кот будет бороться за тебя.
-				DisplayName: полосатая кошка
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: способность

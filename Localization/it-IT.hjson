@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Lupo di ametista
-				Description: Splendente come un'ametista.
+				DisplayName: Lupo di topazio
+				Description: Splendente come un topazio.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Splende come un diamante.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Lupo di ametista
+				Description: Splendente come un'ametista.
+			}
+
+			LatexMoth: {
+				DisplayName: Falena melmosa
+				Description: Una melma che è attratta dalla luce.
+			}
+
+			Snek: {
+				DisplayName: Serpente
+				Description: Lungo e veloce.
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Scanner dell'iride
 			BlackLatexPylonTile.MapEntry: Portale della melma nera
 			WhiteLatexPylonTile.MapEntry: Portale della melma bianca
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: Bianco e veloce!
-				DisplayName: Centauro di melma bianca
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Volare sulla melma!
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: Il gatto combatterà per te
-				DisplayName: Gatto ming
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Non scherzare con lei!
-				DisplayName: Viofalefusa
-			}
-
-			TabbyStaffBuff: {
-				Description: Il gatto combatterà per te
-				DisplayName: Gatto tigrato
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Capacità

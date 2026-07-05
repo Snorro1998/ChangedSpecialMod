@@ -32,15 +32,22 @@ Another issue is when playing with any mod dependant on modliquid library, water
 
 ------- Multiplayer -------
 
-There was no logic for multiplayer in previous versions, which caused a lot of issues. Most of these problems are now fixed, except desyncing of other players' transfurs. This means that they are transfurred, but you can't see it. It can happen when a player is transfurred and another player enters the world. An indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any syringe, except the squid dog syringe (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+Most things should work fine in multiplayer. In rare cases, you might encounter desycing of player transfurs. This means that they are transfurred, but you can't see it. A possible indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any of the combined syringes (it's hard to explain, but it has to be a syringe that makes the interface pop up).
 
 
 ---------- Other ----------
 
-Items and NPCs used to have scaled down sprites from Changed as placeholders.
-A lot of them have since been updated, but not all of them.
-So you may come accross things that clash with Terraria's art style.
+Items and NPCs used to have scaled down sprites from Changed as placeholders. A lot of them have since been updated, but not all of them. You may come accross things that clash with Terraria's art style.
 
+
+---------- Links ----------
+
+Wiki. You can't access it yet, but the staff of wiki.gg will make it public after 13-07-2026.
+https://changedterraria.wiki.gg/
+Known bugs: 
+https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M/edit?usp=sharing
+Source code:
+https://github.com/Snorro1998/ChangedSpecialMod
 
 --------- Credits ---------
 
@@ -76,16 +83,23 @@ General
 - Added Puro and Squid Dog statues.
 - NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now.
 - Added a rare underground structure.
-- Added a config option to disable custom world names.
-- Added support for wikithis, but you can't use it right now because the wiki is not public yet.
+- Made custom world names rarer and also added a config option to disable them entirely.
+- Added support for wikithis, but you can't use it right now, because the wiki is not public yet.
 - special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface.
 - Added black and white pylons. They work at any depth.
+- Added crystal wolves, snake and slime moth
+- Added slime moth mount. Like the Yufeng mount, its stats are enhanced after entering hard mode.
 
 Underground biomes
-- Black and white latex.
 - Generate in the lower half of the world.
-- Crystal wolves can spawn here. They can drop gems.
-- Every latex beast underground has a small change to wear a mining helmet.
+- Most latex beast have a small change to wear a mining helmet.
+
+Black latex cave
+- Crystal wolves spawn here. They can drop gems.
+
+White latex cave
+- Slime moths can spawn here. They can drop a mount item.
+- Slime snakes can also spawn here. They are very fast and can drop the snake flute.
 
 Latex spread
 - Added black and white slimestone.
@@ -102,3 +116,4 @@ Fixes
 - Blocks not merging correctly when next to dirt.
 - Prototype not selling Dragonfruit and Starfruit in hardmode.
 - Waterfalls glowed in the dark when in any Changed biome.
+- Buff icons of Yugeng mount and the tabby cat still used the old sprites

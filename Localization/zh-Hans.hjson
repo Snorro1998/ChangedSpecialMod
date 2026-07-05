@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: 紫水晶狼
-				Description: 它像紫水晶一样闪闪发光。
+				DisplayName: 黄玉狼
+				Description: 它像黄玉一样闪闪发光。
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: 它像钻石一样闪闪发光。
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: 紫水晶狼
+				Description: 它像紫水晶一样闪闪发光。
+			}
+
+			LatexMoth: {
+				// DisplayName: Slime Moth
+				// Description: Fuzzy
+			}
+
+			Snek: {
+				// DisplayName: Snake
+				// Description: Noodle
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: 虹膜扫描仪
 			BlackLatexPylonTile.MapEntry: 黑色粘液晶塔
 			WhiteLatexPylonTile.MapEntry: 白色粘液晶塔
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: 白色且快速
-				DisplayName: 白色史莱姆半人马
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: 乘着黏液飞行
-				DisplayName: 与锋
-			}
-
-			WhiskerStaffBuff: {
-				Description: 猫会为你而战
-				DisplayName: 明猫
-			}
-
-			PurrpurrStaffBuff: {
-				Description: 别惹她！
-				DisplayName: 紫呼噜猫
-			}
-
-			TabbyStaffBuff: {
-				Description: 猫会为你而战
-				DisplayName: 虎斑猫
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: 能力

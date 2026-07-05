@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Loup améthyste
-				Description: Brillant comme une améthyste.
+				DisplayName: Loup topaze
+				Description: Brillant comme une topaze.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Brillant comme un diamant.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Loup améthyste
+				Description: Brillant comme une améthyste.
+			}
+
+			LatexMoth: {
+				DisplayName: Papillon de nuit de gelée 
+				Description: Un slime attirée par la lumière
+			}
+
+			Snek: {
+				DisplayName: Serpent
+				Description: Long et rapide
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Scanner d'iris
 			BlackLatexPylonTile.MapEntry: Pylône de la gelée noire
 			WhiteLatexPylonTile.MapEntry: Pylône de la gelée blanche
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: Blanc et rapide!
-				DisplayName: Centaure de Gelée Blanche
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Voler sur de la gelée!
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: Le chat se battra pour vous
-				DisplayName: Chat Ming
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Ne la provoquez pas!
-				DisplayName: Vioronron
-			}
-
-			TabbyStaffBuff: {
-				Description: Le chat se battra pour vous
-				DisplayName: Chat tigré
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Capacité

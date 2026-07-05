@@ -22,8 +22,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -31,7 +31,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetDefaults() 
         {
             NPC.width = 18;
-            NPC.height = 40;
+            NPC.height = 64;
             NPC.damage = 35;//40
             NPC.defense = 12;
             NPC.lifeMax = 300;

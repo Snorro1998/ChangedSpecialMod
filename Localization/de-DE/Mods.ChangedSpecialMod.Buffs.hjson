@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: Weiß und schnell!
+		DisplayName: Weißer Schleimzentaur
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: Auf einem Schleim fliegen!
+		DisplayName: Yufeng
+	}
+
+	WhiskerStaffBuff: {
+		Description: Die Katze wird für dich kämpfen
+		DisplayName: Ming-Katze
+	}
+
+	PurrpurrStaffBuff: {
+		Description: Leg dich nicht mit ihr an!
+		DisplayName: Purrpurr
+	}
+
+	TabbyStaffBuff: {
+		Description: Die Katze wird für dich kämpfen
+		DisplayName: Getigerte Katze
+	}
+
+	LatexMothMountBuff: {
+		Description: Auf einem Schleim fliegen!
+		DisplayName: Schleimmotte
+	}
+}

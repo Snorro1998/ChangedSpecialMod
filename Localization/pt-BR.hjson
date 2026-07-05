@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Lobo ametista
-				Description: Brilhando intensamente como uma ametista.
+				DisplayName: Lobo topázio
+				Description: Brilhando intensamente como uma topázio.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Brilhando intensamente como um diamante.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Lobo ametista
+				Description: Brilhando intensamente como uma ametista.
+			}
+
+			LatexMoth: {
+				// DisplayName: Slime Moth
+				// Description: Fuzzy
+			}
+
+			Snek: {
+				// DisplayName: Snake
+				// Description: Noodle
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Scanner de íris
 			BlackLatexPylonTile.MapEntry: Pilar da Gosma Preta
 			WhiteLatexPylonTile.MapEntry: Pilar da Gosma Branca
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: Branco e rápido!
-				DisplayName: Centauro de Gosma Branca
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Voando em uma gosma!
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: O gato lutará por você.
-				DisplayName: Gato Ming
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Não se meta com ela!
-				DisplayName: Roxoronando
-			}
-
-			TabbyStaffBuff: {
-				Description: O gato lutará por você.
-				DisplayName: Gato Malhado
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidade

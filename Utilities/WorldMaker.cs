@@ -134,8 +134,9 @@ namespace ChangedSpecialMod.Utilities
 
                 tasks.Insert(taskIndex + 2, new PassLegacy("ChangedOrangeShrines", (progress, config) =>
                 {
-                    progress.Message = "Orang";
+                    progress.Message = "Building shrines";
                     var nSucces = 0;
+                    var nShrines = 5;
                     var nMaxAttempts = 1000;
                     var placedPositions = new List<(int, int)>();
 
@@ -144,7 +145,7 @@ namespace ChangedSpecialMod.Utilities
                         var succes = MakeOrangeShrine(ref placedPositions);
                         if (succes)
                             nSucces++;
-                        if (nSucces >= 10)
+                        if (nSucces >= nShrines)
                             break;
                     }
                 }));

@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: Bianco e veloce!
+		DisplayName: Centauro di melma bianca
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: Volare sulla melma!
+		DisplayName: Yufeng
+	}
+
+	WhiskerStaffBuff: {
+		Description: Il gatto combatterà per te
+		DisplayName: Gatto ming
+	}
+
+	PurrpurrStaffBuff: {
+		Description: Non scherzare con lei!
+		DisplayName: Viofalefusa
+	}
+
+	TabbyStaffBuff: {
+		Description: Il gatto combatterà per te
+		DisplayName: Gatto tigrato
+	}
+
+	LatexMothMountBuff: {
+		Description: Volare sulla melma!
+		DisplayName: Falena melmosa
+	}
+}

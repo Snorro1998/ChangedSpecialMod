@@ -17,7 +17,7 @@ namespace ChangedSpecialMod.Common.Systems
     {
         public Mod mod;
         public Dictionary<string, int> tileTypes = new Dictionary<string, int>();
-        public List<int> avoidedByLatexBiomes = new List<int>();
+        public List<int> avoidedByOrangeShrines = new List<int>();
         public bool isActive => mod != null;
 
         public ExternalModData(Mod mod) 
@@ -25,7 +25,7 @@ namespace ChangedSpecialMod.Common.Systems
             this.mod = mod;
         }
 
-        public void AddTileType(string name, bool avoidedByLatexBiomes = false)
+        public void AddTileType(string name, bool avoidedByOrangeShrine = false)
         {
             if (tileTypes == null)
                 tileTypes = new Dictionary<string, int>();
@@ -37,14 +37,14 @@ namespace ChangedSpecialMod.Common.Systems
             {
                 var itemType = modTile.Type;
                 tileTypes.Add(name, itemType);
-                if (avoidedByLatexBiomes)
-                    this.avoidedByLatexBiomes.Add(itemType);
+                if (avoidedByOrangeShrine)
+                    avoidedByOrangeShrines.Add(itemType);
             }
         }
 
         public bool ShouldAvoidTileType(int tileType)
         {
-            return avoidedByLatexBiomes.Contains(tileType);
+            return avoidedByOrangeShrines.Contains(tileType);
         }
     }
 
@@ -161,10 +161,18 @@ namespace ChangedSpecialMod.Common.Systems
             SetupCensus();
             SetupWikiThis();
 
+            SetupExternalModData();
+
+            SetupExtraTitles();
+            TryUpdateTitle();
+        }
+
+        private static void SetupExternalModData()
+        {
             if (modCalamity != null)
             {
                 var externalModData = new ExternalModData(modCalamity);
-                
+
                 // Draedon Lab
                 externalModData.AddTileType("LaboratoryPlating", true);
 
@@ -186,8 +194,18 @@ namespace ChangedSpecialMod.Common.Systems
                 externalModsData.Add(externalModData);
             }
 
-            SetupExtraTitles();
-            TryUpdateTitle();
+            if (modCoralite != null)
+            {
+                var externalModData = new ExternalModData(modCoralite);
+
+                // Crystal cave
+                externalModData.AddTileType("BasaltTile", true);
+                externalModData.AddTileType("CrystalBasaltTile", true);
+                externalModData.AddTileType("HardBasaltTile", true);
+                externalModData.AddTileType("MagicCrystalBrickTile", true);
+
+                externalModsData.Add(externalModData);
+            }
         }
 
         public static List<int> GetAvoidTiles()
@@ -197,7 +215,7 @@ namespace ChangedSpecialMod.Common.Systems
             if (externalModsData != null)
             {
                 foreach (var externalModData in  externalModsData)
-                    list.AddRange(externalModData.avoidedByLatexBiomes);
+                    list.AddRange(externalModData.avoidedByOrangeShrines);
             }
 
             return list;

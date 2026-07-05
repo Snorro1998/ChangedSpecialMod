@@ -669,8 +669,8 @@ Mods: {
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Amethystwolf
-				Description: Es leuchtet hell wie ein Amethyst.
+				DisplayName: Topaswolf
+				Description: Es leuchtet hell wie ein Topas.
 			}
 
 			CrystalWolfWhite: {
@@ -678,7 +678,20 @@ Mods: {
 				Description: Es leuchtet hell wie ein Diamant.
 			}
 
-			// CrystalWolfPurple.DisplayName: Crystal Wolf Purple
+			CrystalWolfPurple: {
+				DisplayName: Amethystwolf
+				Description: Es leuchtet hell wie ein Amethyst.
+			}
+
+			LatexMoth: {
+				DisplayName: Schleimmotte
+				Description: Ein Schleim, der vom Licht angezogen wird.
+			}
+
+			Snek: {
+				DisplayName: Schlange
+				Description: Lang und schnell.
+			}
 		}
 
 		Emotes: {
@@ -711,33 +724,6 @@ Mods: {
 			IrisScanner: Iris-Scanner
 			BlackLatexPylonTile.MapEntry: Schwarzer Schleimpylon
 			WhiteLatexPylonTile.MapEntry: Weißer Schleimpylon
-		}
-
-		Buffs: {
-			WhiteLatexTaurMountBuff: {
-				Description: Weiß und schnell!
-				DisplayName: Weißer Schleimzentaur
-			}
-
-			FlyingDarkLatexMountBuff: {
-				Description: Auf einem Schleim fliegen!
-				DisplayName: Yufeng
-			}
-
-			WhiskerStaffBuff: {
-				Description: Die Katze wird für dich kämpfen
-				DisplayName: Ming-Katze
-			}
-
-			PurrpurrStaffBuff: {
-				Description: Leg dich nicht mit ihr an!
-				DisplayName: Purrpurr
-			}
-
-			TabbyStaffBuff: {
-				Description: Die Katze wird für dich kämpfen
-				DisplayName: Getigerte Katze
-			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Fähigkeit

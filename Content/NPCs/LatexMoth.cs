@@ -1,9 +1,11 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Food;
+using ChangedSpecialMod.Content.Items.Mounts;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -11,68 +13,55 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class CrystalWolfOrange : ModNPC
+	public class LatexMoth : ModNPC
 	{
         public override void SetStaticDefaults() 
         {
-			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
-            NPCID.Sets.ShimmerTransformToNPC[Type] = ModContent.NPCType<WhiteKnight>();
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            {
-                Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
+			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Slimer];
         }
 
-		public override void SetDefaults() {
-			NPC.width = 18;
-			NPC.height = 35;
-            NPC.damage = 35;
-            NPC.defense = 12;
-            NPC.lifeMax = 90;
+		public override void SetDefaults() 
+        {
+            NPC.width = 18;
+			NPC.height = 45;
+            NPC.damage = 25;
+            NPC.defense = 10;
+            NPC.lifeMax = 70;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
-			NPC.aiStyle = NPCAIStyleID.Fighter;
-			AIType = NPCID.GoblinScout;
-			AnimationType = NPCID.Zombie;
+			NPC.aiStyle = NPCAIStyleID.Bat;
+			NPC.noGravity = true;
+            //Banner = Type;
+            //BannerItem = ModContent.ItemType<FlyingDarkLatexBanner>();
+            AnimationType = NPCID.Slimer;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexUndergroundBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-            changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.GooType = GooType.White;
-            changedNPC.ElementType = ElementType.None;
+            changedNPC.spawnDepth = SpawnDepth.Cave;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
-            changedNPC.CanHaveBeer = true;
-            changedNPC.BeerXOffset = -16;
             changedNPC.DoOnSpawnExtra = true;
-            changedNPC.spawnDepth = SpawnDepth.Cave;
+            changedNPC.RemoveAllHats();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            // Remove the default portrait, otherwise you get two of them
-            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                //  Add the new portrait with the modified rarity
-                //new NPCPortraitInfoElement(3),
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.CrystalWolfOrange.Description")),
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.LatexMoth.Description")),
             });
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Topaz, 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LatexMothMountItem>(), 20));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -83,8 +72,42 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            var changedNPC = NPC.Changed();
+
+            var frame = NPC.frame;
+
+            // Adjust hat postion when sitting
+            // 129 = frame height
+            // 18 = sitting frame
+            var fr = frame.Top / 65;
+            if (fr == 0)
+            {
+                changedNPC.HatYOffset = -22;//-22
+            }
+            else if (fr == 1 || fr == 3)
+            {
+                changedNPC.HatYOffset = -26;//-24
+            }
+            else if (fr == 2)
+            {
+                changedNPC.HatYOffset = -30;//-28
+            }
+
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
+        }
+
+        private void UpdateHatPosition()
+        {
+            var changedNPC = NPC.Changed();
+            changedNPC.HatXOffset = (float)(Math.Sin(NPC.rotation) * -22 * NPC.spriteDirection); //0
+            changedNPC.HatYOffset = (float)(Math.Cos(NPC.rotation) * -22);
+        }
+
+        public override void AI()
+        {
+            base.AI();
+            UpdateHatPosition();
         }
     }
 }

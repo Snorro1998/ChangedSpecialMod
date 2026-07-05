@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: Blanc et rapide!
+		DisplayName: Centaure de Gelée Blanche
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: Voler sur de la gelée!
+		DisplayName: Yufeng
+	}
+
+	WhiskerStaffBuff: {
+		Description: Le chat se battra pour vous
+		DisplayName: Chat Ming
+	}
+
+	PurrpurrStaffBuff: {
+		Description: Ne la provoquez pas!
+		DisplayName: Vioronron
+	}
+
+	TabbyStaffBuff: {
+		Description: Le chat se battra pour vous
+		DisplayName: Chat tigré
+	}
+
+	LatexMothMountBuff: {
+		Description: Invoque un papillon de nuit de gelée à chevaucher
+		DisplayName: Papillon de nuit de gelée 
+	}
+}

@@ -1,6 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Food;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,15 +10,13 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class CrystalWolfWhite : ModNPC
+	public class Snek : ModNPC
 	{
         public override void SetStaticDefaults() 
-        {
-			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
-            NPCID.Sets.ShimmerTransformToNPC[Type] = ModContent.NPCType<WhiteKnight>();
+		{
+            Main.npcFrameCount[Type] = 3;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -29,50 +26,47 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
-			NPC.height = 35;
-            NPC.damage = 35;
-            NPC.defense = 12;
-            NPC.lifeMax = 90;
+			NPC.height = 18;
+			NPC.damage = 15;
+			NPC.defense = 6;
+			NPC.lifeMax = 40;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
-			NPC.aiStyle = NPCAIStyleID.Fighter;
-			AIType = NPCID.GoblinScout;
+            NPC.aiStyle = -1;
+            AIType = 0;
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexUndergroundBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-            changedNPC.SetHalloweenHatsForBlackLatex();
+            changedNPC.HatXOffset = -2;
+            changedNPC.HatYOffset = -15;
             changedNPC.GooType = GooType.White;
             changedNPC.ElementType = ElementType.None;
+            changedNPC.spawnDepth = SpawnDepth.Cave;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
-            changedNPC.CanHaveBeer = true;
-            changedNPC.BeerXOffset = -16;
+            changedNPC.RemoveAllHats();
             changedNPC.DoOnSpawnExtra = true;
-            changedNPC.spawnDepth = SpawnDepth.Cave;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            // Remove the default portrait, otherwise you get two of them
-            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                //  Add the new portrait with the modified rarity
-                //new NPCPortraitInfoElement(3),
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.CrystalWolfWhite.Description")),
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Snek.Description")),
             });
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Diamond, 10));
+            npcLoot.Add(ItemDropRule.Common(ItemID.MysticCoilSnake, 20));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -85,6 +79,11 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
+        }
+
+        public override void AI()
+        {
+            AI_Fighter.AI_003_Fighter(NPC);
         }
     }
 }

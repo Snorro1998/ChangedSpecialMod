@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: белый и быстрый
+		DisplayName: белый слизистый кентавр
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: летать на слизи!
+		DisplayName: Юфэна
+	}
+
+	WhiskerStaffBuff: {
+		Description: Кот будет бороться за тебя.
+		DisplayName: кот мин
+	}
+
+	PurrpurrStaffBuff: {
+		Description: Не стоит с ней связываться!
+		DisplayName: фиолетомурлыка
+	}
+
+	TabbyStaffBuff: {
+		Description: Кот будет бороться за тебя.
+		DisplayName: полосатая кошка
+	}
+
+	LatexMothMountBuff: {
+		// Description: Mods.ChangedSpecialMod.Buffs.LatexMothMountBuff.Description
+		// DisplayName: Latex Moth Mount Buff
+	}
+}

@@ -57,14 +57,18 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPCID.Sets.AttackTime[Type] = 90;
 			NPCID.Sets.AttackAverageChance[Type] = 30;
 
+            /*
 			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers() 
 			{
 				Velocity = 1f
 			};
 
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+            */
 
-			NPC.Happiness
+            ChangedUtils.HideFromBestiary(this);
+
+            NPC.Happiness
                 .SetBiomeAffection<BlackLatexSurfaceBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<ForestBiome>(AffectionLevel.Like) 
 				.SetBiomeAffection<DesertBiome>(AffectionLevel.Hate) 
@@ -72,8 +76,9 @@ namespace ChangedSpecialMod.Content.NPCs
 				.SetNPCAffection(loveNPC, AffectionLevel.Love) 
 				.SetNPCAffection(likeNPC, AffectionLevel.Like) 
 				.SetNPCAffection(dislikeNPC, AffectionLevel.Dislike)
-				.SetNPCAffection(hateNPC, AffectionLevel.Hate); 
-		}
+				.SetNPCAffection(hateNPC, AffectionLevel.Hate);
+
+        }
 
         public override int? PickEmote(Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
         {
@@ -110,6 +115,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.CanHaveBeer = true;
         }
 
+        /*
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
@@ -117,6 +123,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Colin.Description"))
             });
         }
+        */
 
 		public override bool CanTownNPCSpawn(int numTownNPCs) 
 		{

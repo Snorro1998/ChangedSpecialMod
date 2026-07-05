@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: 白色且快速
+		DisplayName: 白色史莱姆半人马
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: 乘着黏液飞行
+		DisplayName: 与锋
+	}
+
+	WhiskerStaffBuff: {
+		Description: 猫会为你而战
+		DisplayName: 明猫
+	}
+
+	PurrpurrStaffBuff: {
+		Description: 别惹她！
+		DisplayName: 紫呼噜猫
+	}
+
+	TabbyStaffBuff: {
+		Description: 猫会为你而战
+		DisplayName: 虎斑猫
+	}
+
+	LatexMothMountBuff: {
+		// Description: Mods.ChangedSpecialMod.Buffs.LatexMothMountBuff.Description
+		// DisplayName: Latex Moth Mount Buff
+	}
+}

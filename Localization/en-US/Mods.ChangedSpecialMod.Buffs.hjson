@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: White and whoosh!
+		DisplayName: White Latex Taur
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: Gliding on goo!
+		DisplayName: Yufeng
+	}
+
+	WhiskerStaffBuff: {
+		Description: The cat will fight for you
+		DisplayName: Ming Cat
+	}
+
+	PurrpurrStaffBuff: {
+		Description: Don't mess with her!
+		DisplayName: Purrpurr
+	}
+
+	TabbyStaffBuff: {
+		Description: The cat will fight for you
+		DisplayName: Tabby Cat
+	}
+
+	LatexMothMountBuff: {
+		Description: Gliding on goo!
+		DisplayName: Latex Moth Mount Buff
+	}
+}

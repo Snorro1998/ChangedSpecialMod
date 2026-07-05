@@ -1,0 +1,31 @@
+Buffs: {
+	WhiteLatexTaurMountBuff: {
+		Description: Blanco y rápido
+		DisplayName: Centauro Látex Blanco
+	}
+
+	FlyingDarkLatexMountBuff: {
+		Description: Deslizándose sobre látex
+		DisplayName: Yufeng
+	}
+
+	WhiskerStaffBuff: {
+		Description: El gato luchará por ti.
+		DisplayName: Gato Ming
+	}
+
+	PurrpurrStaffBuff: {
+		Description: ¡No te metas con ella!
+		DisplayName: Gatomorado
+	}
+
+	TabbyStaffBuff: {
+		Description: El gato luchará por ti.
+		DisplayName: Gato atigrado
+	}
+
+	LatexMothMountBuff: {
+		Description: Deslizándose sobre látex
+		DisplayName: Polilla de lodo
+	}
+}

@@ -813,7 +813,7 @@ WhiteLatexPylon: {
 	DisplayName: Столб белой слизи
 }
 
-DebugPrintModData: {
-	// DisplayName: Debug Print Mod Data
-	// Tooltip: ""
+LatexMothMountItem: {
+	// DisplayName: White Wing
+	// Tooltip: Summons a rideable Slime Moth mount
 }

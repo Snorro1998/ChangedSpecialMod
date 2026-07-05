@@ -20,6 +20,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var isEyezor = npc.type == NPCID.Eyezor || npc.type == ModContent.NPCType<ExoSuitRobot>();
             var isBlackCub = npc.type == ModContent.NPCType<DarkLatexCub>();
             var isWhiteCub = npc.type == ModContent.NPCType<WhiteLatexCub>();
+            var isSnek = npc.type == ModContent.NPCType<Snek>();
 
             // TODO implement the commented part again without NPC.transform, because that shit doesnt work properly
 
@@ -1737,12 +1738,16 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            else if (npc.type == NPCID.Skeleton || npc.type == 26 || npc.type == 31 || npc.type == 294 || npc.type == 295 || npc.type == 296 || npc.type == 47 || npc.type == NPCID.GoblinScout || npc.type == 140 || npc.type == 164 || npc.type == 239 || npc.type == 167 || npc.type == 168 || npc.type == 185 || npc.type == 198 || npc.type == 201 || npc.type == 202 || npc.type == 203 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 226 || npc.type == 181 || npc.type == 254 || npc.type == 338 || npc.type == 339 || npc.type == 340 || npc.type == 342 || npc.type == 385 || npc.type == 389 || npc.type == 462 || npc.type == 463 || npc.type == 466 || npc.type == 464 || npc.type == 469 || npc.type == 470 || npc.type == 480 || npc.type == 482 || npc.type == 425 || npc.type == 429 || npc.type == 586 || npc.type == 631 || npc.type == 635 || isBlackCub || isWhiteCub)
+            else if (npc.type == NPCID.Skeleton || npc.type == 26 || npc.type == 31 || npc.type == 294 || npc.type == 295 || npc.type == 296 || npc.type == 47 || npc.type == NPCID.GoblinScout || npc.type == 140 || npc.type == 164 || npc.type == 239 || npc.type == 167 || npc.type == 168 || npc.type == 185 || npc.type == 198 || npc.type == 201 || npc.type == 202 || npc.type == 203 || npc.type == 217 || npc.type == 218 || npc.type == 219 || npc.type == 226 || npc.type == 181 || npc.type == 254 || npc.type == 338 || npc.type == 339 || npc.type == 340 || npc.type == 342 || npc.type == 385 || npc.type == 389 || npc.type == 462 || npc.type == 463 || npc.type == 466 || npc.type == 464 || npc.type == 469 || npc.type == 470 || npc.type == 480 || npc.type == 482 || npc.type == 425 || npc.type == 429 || npc.type == 586 || npc.type == 631 || npc.type == 635 || isBlackCub || isWhiteCub || isSnek)
             {
                 float num80 = 1.5f;
                 if (npc.type == 181 && Main.remixWorld)
                 {
                     num80 = 3.75f;
+                }
+                else if (isSnek)
+                {
+                    num80 = 4f;
                 }
                 else if (npc.type == 294)
                 {
