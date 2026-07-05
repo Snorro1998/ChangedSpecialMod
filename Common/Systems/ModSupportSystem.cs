@@ -13,6 +13,41 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
 {
+    public class ExternalModData
+    {
+        public Mod mod;
+        public Dictionary<string, int> tileTypes = new Dictionary<string, int>();
+        public List<int> avoidedByLatexBiomes = new List<int>();
+        public bool isActive => mod != null;
+
+        public ExternalModData(Mod mod) 
+        {
+            this.mod = mod;
+        }
+
+        public void AddTileType(string name, bool avoidedByLatexBiomes = false)
+        {
+            if (tileTypes == null)
+                tileTypes = new Dictionary<string, int>();
+
+            if (mod == null || tileTypes.ContainsKey(name))
+                return;
+
+            if (mod.TryFind(name, out ModTile modTile))
+            {
+                var itemType = modTile.Type;
+                tileTypes.Add(name, itemType);
+                if (avoidedByLatexBiomes)
+                    this.avoidedByLatexBiomes.Add(itemType);
+            }
+        }
+
+        public bool ShouldAvoidTileType(int tileType)
+        {
+            return avoidedByLatexBiomes.Contains(tileType);
+        }
+    }
+
     public class ModSupportSystem : ModSystem
     {
         // TODO Coralite
@@ -50,6 +85,8 @@ namespace ChangedSpecialMod.Common.Systems
         private static int indexTitleMessageMin = 1;
         private static int indexTitleMessageMax = 5;
 
+        public static List<ExternalModData> externalModsData;
+
         public override void Load()
         {
             changedMod = ChangedSpecialMod.Instance;
@@ -73,6 +110,8 @@ namespace ChangedSpecialMod.Common.Systems
             // Other
             modBoulderBackport = GetMod("BoulderBackport");
             //modDialogueTweak = GetMod("DialogueTweak");
+
+            externalModsData = new List<ExternalModData>();
         }
 
         private static Mod GetMod(string name)
@@ -105,6 +144,7 @@ namespace ChangedSpecialMod.Common.Systems
             modBoulderBackport = null;
             //modDialogueTweak = null;
 
+            externalModsData = null;
             RemoveExtraTitles();
         }
 
@@ -120,8 +160,61 @@ namespace ChangedSpecialMod.Common.Systems
             SetupMusicDisplay();
             SetupCensus();
             SetupWikiThis();
+
+            if (modCalamity != null)
+            {
+                var externalModData = new ExternalModData(modCalamity);
+                
+                // Draedon Lab
+                externalModData.AddTileType("LaboratoryPlating", true);
+
+                // Sunken sea
+                externalModData.AddTileType("EutrophicSand", true);
+                externalModData.AddTileType("Navystone", true);
+
+                // Sulphuric sea
+                externalModData.AddTileType("SulphurousSand", true);
+                externalModData.AddTileType("SulphurousSandstone", true);
+                externalModData.AddTileType("SulphurousShale", true);
+                externalModData.AddTileType("HardenedSulphurousSandstone", true);
+
+                // Abyss
+                externalModData.AddTileType("AbyssGravel", true);
+                externalModData.AddTileType("PyreMantle", true);
+                externalModData.AddTileType("Voidstone", true);
+
+                externalModsData.Add(externalModData);
+            }
+
             SetupExtraTitles();
             TryUpdateTitle();
+        }
+
+        public static List<int> GetAvoidTiles()
+        {
+            var list = new List<int>();
+
+            if (externalModsData != null)
+            {
+                foreach (var externalModData in  externalModsData)
+                    list.AddRange(externalModData.avoidedByLatexBiomes);
+            }
+
+            return list;
+        }
+
+        public static bool CheckIfShouldAvoidTile(int tileType)
+        {
+            if (externalModsData == null)
+                return false;
+
+            foreach (var externalModData in externalModsData)
+            {
+                if (externalModData.ShouldAvoidTileType(tileType))
+                    return true;
+            }
+
+            return false;
         }
 
         private void TryUpdateTitle()
@@ -258,9 +351,9 @@ namespace ChangedSpecialMod.Common.Systems
         }
         */
 
-        private static void SetOtherModBool(string className, string fieldName, bool newValue)
+        private static void SetOtherModBool(Mod mod, string className, string fieldName, bool newValue)
         {
-            Type myWorldType = modSpirit.Code.GetType(className);
+            Type myWorldType = mod.Code.GetType(className);
 
             FieldInfo boolField = myWorldType?.GetField(
                 fieldName,

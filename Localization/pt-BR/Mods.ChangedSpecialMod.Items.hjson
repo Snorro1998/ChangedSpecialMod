@@ -812,3 +812,8 @@ WhiteLatexPylon: {
 	Tooltip: ""
 	DisplayName: Pilar da Gosma Branca
 }
+
+DebugPrintModData: {
+	// DisplayName: Debug Print Mod Data
+	// Tooltip: ""
+}

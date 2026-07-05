@@ -812,3 +812,8 @@ WhiteLatexPylon: {
 	Tooltip: ""
 	DisplayName: Pylon białego szlamu
 }
+
+DebugPrintModData: {
+	// DisplayName: Debug Print Mod Data
+	// Tooltip: ""
+}

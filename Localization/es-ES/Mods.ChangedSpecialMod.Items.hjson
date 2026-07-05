@@ -812,3 +812,8 @@ WhiteLatexPylon: {
 	Tooltip: ""
 	DisplayName: Torre de la limosa blanca
 }
+
+DebugPrintModData: {
+	// DisplayName: Debug Print Mod Data
+	// Tooltip: ""
+}

@@ -812,3 +812,8 @@ WhiteLatexPylon: {
 	Tooltip: ""
 	DisplayName: Столб белой слизи
 }
+
+DebugPrintModData: {
+	// DisplayName: Debug Print Mod Data
+	// Tooltip: ""
+}

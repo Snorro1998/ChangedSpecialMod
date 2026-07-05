@@ -82,7 +82,7 @@ General
 - Added black and white pylons. They work at any depth.
 
 Underground biomes
-- Black and white latex .
+- Black and white latex.
 - Generate in the lower half of the world.
 - Crystal wolves can spawn here. They can drop gems.
 - Every latex beast underground has a small change to wear a mining helmet.

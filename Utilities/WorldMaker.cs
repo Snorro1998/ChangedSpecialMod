@@ -149,6 +149,24 @@ namespace ChangedSpecialMod.Utilities
                     }
                 }));
 
+                /*
+                var lastIndex = tasks.Count - 1;
+                tasks.Insert(lastIndex, new PassLegacy("ChangedTestPass", (progress, config) =>
+                {
+                    progress.Message = "Woah";
+
+                    for (int x = 0; x < Main.maxTilesX; x++)
+                    {
+                        for (int y = 0; y < Main.maxTilesY; y++)
+                        {
+                            var tmpTile = Main.tile[x, y];
+                            if (tmpTile != null && tmpTile.HasTile && ModSupportSystem.CheckIfShouldAvoidTile(tmpTile.TileType))
+                                tmpTile.TileType = TileID.Stone;
+                        }
+                    }
+                }));
+                */
+
                 HandleSpecialSeeds(ref tasks, taskIndex + 3);
             }
         }
@@ -388,10 +406,10 @@ namespace ChangedSpecialMod.Utilities
             }
 
             Rectangle bounds = new Rectangle(
-                minX,
-                minY,
-                maxX - minX + 1,
-                maxY - minY + 1);
+                minX - 2, // 0
+                minY - 2, // 0
+                maxX - minX + 3, // + 1
+                maxY - minY + 3); // + 1
 
             return (bounds, waterTiles);
         }
@@ -727,6 +745,9 @@ namespace ChangedSpecialMod.Utilities
                 TileID.Marble,
                 TileID.Hive
             };
+
+            // Get blocks from other mods we should avoid
+            blackListBlocks.AddRange(ModSupportSystem.GetAvoidTiles());
 
             List<int> blackListLiquids = new List<int>
             {
