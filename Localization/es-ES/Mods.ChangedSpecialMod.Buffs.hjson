@@ -1,31 +1,29 @@
-Buffs: {
-	WhiteLatexTaurMountBuff: {
-		Description: Blanco y rápido
-		DisplayName: Centauro Látex Blanco
-	}
+WhiteLatexTaurMountBuff: {
+	Description: Blanco y rï¿½pido
+	DisplayName: Centauro Lï¿½tex Blanco
+}
 
-	FlyingDarkLatexMountBuff: {
-		Description: Deslizándose sobre látex
-		DisplayName: Yufeng
-	}
+FlyingDarkLatexMountBuff: {
+	Description: Deslizï¿½ndose sobre lï¿½tex
+	DisplayName: Yufeng
+}
 
-	WhiskerStaffBuff: {
-		Description: El gato luchará por ti.
-		DisplayName: Gato Ming
-	}
+WhiskerStaffBuff: {
+	Description: El gato lucharï¿½ por ti.
+	DisplayName: Gato Ming
+}
 
-	PurrpurrStaffBuff: {
-		Description: ¡No te metas con ella!
-		DisplayName: Gatomorado
-	}
+PurrpurrStaffBuff: {
+	Description: ï¿½No te metas con ella!
+	DisplayName: Gatomorado
+}
 
-	TabbyStaffBuff: {
-		Description: El gato luchará por ti.
-		DisplayName: Gato atigrado
-	}
+TabbyStaffBuff: {
+	Description: El gato lucharï¿½ por ti.
+	DisplayName: Gato atigrado
+}
 
-	LatexMothMountBuff: {
-		Description: Deslizándose sobre látex
-		DisplayName: Polilla de lodo
-	}
+LatexMothMountBuff: {
+	Description: Deslizï¿½ndose sobre lï¿½tex
+	DisplayName: Polilla de lodo
 }

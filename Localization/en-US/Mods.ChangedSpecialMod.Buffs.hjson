@@ -1,31 +1,29 @@
-Buffs: {
-	WhiteLatexTaurMountBuff: {
-		Description: White and whoosh!
-		DisplayName: White Latex Taur
-	}
+WhiteLatexTaurMountBuff: {
+	Description: White and whoosh!
+	DisplayName: White Latex Taur
+}
 
-	FlyingDarkLatexMountBuff: {
-		Description: Gliding on goo!
-		DisplayName: Yufeng
-	}
+FlyingDarkLatexMountBuff: {
+	Description: Gliding on goo!
+	DisplayName: Yufeng
+}
 
-	WhiskerStaffBuff: {
-		Description: The cat will fight for you
-		DisplayName: Ming Cat
-	}
+WhiskerStaffBuff: {
+	Description: The cat will fight for you
+	DisplayName: Ming Cat
+}
 
-	PurrpurrStaffBuff: {
-		Description: Don't mess with her!
-		DisplayName: Purrpurr
-	}
+PurrpurrStaffBuff: {
+	Description: Don't mess with her!
+	DisplayName: Purrpurr
+}
 
-	TabbyStaffBuff: {
-		Description: The cat will fight for you
-		DisplayName: Tabby Cat
-	}
+TabbyStaffBuff: {
+	Description: The cat will fight for you
+	DisplayName: Tabby Cat
+}
 
-	LatexMothMountBuff: {
-		Description: Gliding on goo!
-		DisplayName: Latex Moth Mount Buff
-	}
+LatexMothMountBuff: {
+	Description: Gliding on goo!
+	DisplayName: Slime moth
 }

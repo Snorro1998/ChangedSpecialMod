@@ -684,13 +684,13 @@ Mods: {
 			}
 
 			LatexMoth: {
-				// DisplayName: Slime Moth
-				// Description: Fuzzy
+				DisplayName: Mariposa viscosa
+				Description: Uma gosma que é atraída pela luz.
 			}
 
 			Snek: {
-				// DisplayName: Snake
-				// Description: Noodle
+				DisplayName: Cobra
+				Description: Longo e rápido
 			}
 		}
 

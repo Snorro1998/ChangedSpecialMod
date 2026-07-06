@@ -1,9 +1,10 @@
 ﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.OS;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -145,7 +146,9 @@ namespace ChangedSpecialMod.Common.Systems
             //modDialogueTweak = null;
 
             externalModsData = null;
-            RemoveExtraTitles();
+
+            if (Platform.Current.Type == PlatformType.Windows)
+                RemoveExtraTitles();
         }
 
         public override void PostAddRecipes()
@@ -163,8 +166,12 @@ namespace ChangedSpecialMod.Common.Systems
 
             SetupExternalModData();
 
-            SetupExtraTitles();
-            TryUpdateTitle();
+            // This might fix a startup crash on MacOS, but I can't confirm this
+            if (Platform.Current.Type == PlatformType.Windows)
+            {
+                SetupExtraTitles();
+                TryUpdateTitle();
+            }
         }
 
         private static void SetupExternalModData()
@@ -244,19 +251,21 @@ namespace ChangedSpecialMod.Common.Systems
 
         private void SetupExtraTitles()
         {
+            var gameTitleKeys = LanguageManager.Instance.GetKeysInCategory("GameTitle");
             for (int i = indexTitleMessageMin; i <= indexTitleMessageMax; i++)
             {
-                if (!LanguageManager.Instance.GetKeysInCategory("GameTitle").Contains($"Changed{i.ToString()}"))
-                    LanguageManager.Instance.GetKeysInCategory("GameTitle").Add($"Changed{i.ToString()}");
+                if (!gameTitleKeys.Contains($"Changed{i.ToString()}"))
+                    gameTitleKeys.Add($"Changed{i.ToString()}");
             }
         }
 
         private void RemoveExtraTitles()
         {
+            var gameTitleKeys = LanguageManager.Instance.GetKeysInCategory("GameTitle");
             for (int i = indexTitleMessageMin; i <= indexTitleMessageMax; i++)
             {
-                if (LanguageManager.Instance.GetKeysInCategory("GameTitle").Contains($"Changed{i.ToString()}"))
-                    LanguageManager.Instance.GetKeysInCategory("GameTitle").Remove($"Changed{i.ToString()}");
+                if (gameTitleKeys.Contains($"Changed{i.ToString()}"))
+                    gameTitleKeys.Remove($"Changed{i.ToString()}");
             }
         }
 

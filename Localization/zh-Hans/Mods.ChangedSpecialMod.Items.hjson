@@ -89,13 +89,13 @@ MusicBoxLab: {
 }
 
 DarkLatexBanner: {
-	Tooltip: ""
 	DisplayName: 黑色粘液横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
 }
 
 SquidDogBanner: {
 	DisplayName: 乌贼犬横幅
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
 }
 
 Elevator: {
@@ -264,28 +264,28 @@ Mollash: {
 }
 
 WendigoBanner: {
-	Tooltip: ""
 	DisplayName: 温迪戈横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
 }
 
 BloodstripeBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
 	DisplayName: 绯红之虎横幅
 }
 
 BlackGoopBanner: {
 	DisplayName: 黑色的水坑横幅
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
 WhiteGoopBanner: {
 	DisplayName: 白色的水坑横幅
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
 }
 
 GermanShepherdBanner: {
 	DisplayName: 德国牧羊犬横幅
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
 }
 
 WhiteLatexTaurMountItem: {
@@ -310,7 +310,7 @@ WhiskerStaff: {
 
 PurrpurrBanner: {
 	DisplayName: 紫呼噜猫横幅
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
 }
 
 BookBarrage: {
@@ -424,7 +424,7 @@ MusicBoxWolfKing: {
 }
 
 FlyingDarkLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
 	DisplayName: 与锋小狗横幅
 }
 
@@ -459,7 +459,7 @@ MusicBoxGreenhouse: {
 }
 
 MusicBoxLabSlow: {
-	DisplayName: 八音盒 (慢的)
+	DisplayName: 八音盒 (实验室，慢速)
 	Tooltip: 噬子
 }
 
@@ -469,7 +469,7 @@ MusicBoxVents: {
 }
 
 WhiteLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
 	DisplayName: 白色粘液横幅
 }
 
@@ -805,15 +805,15 @@ WhiteLatexStoneBlock: {
 
 BlackLatexPylon: {
 	DisplayName: 黑色粘液晶塔
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 WhiteLatexPylon: {
-	Tooltip: ""
 	DisplayName: 白色粘液晶塔
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 LatexMothMountItem: {
-	// DisplayName: White Wing
-	// Tooltip: Summons a rideable Slime Moth mount
+	DisplayName: 白翅
+	Tooltip: 召唤可骑乘的独黏糊糊的蛾子坐骑
 }

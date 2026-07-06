@@ -1,31 +1,29 @@
-Buffs: {
-	WhiteLatexTaurMountBuff: {
-		Description: Blanc et rapide!
-		DisplayName: Centaure de Gelée Blanche
-	}
+WhiteLatexTaurMountBuff: {
+	Description: Blanc et rapide!
+	DisplayName: Centaure de Gelï¿½e Blanche
+}
 
-	FlyingDarkLatexMountBuff: {
-		Description: Voler sur de la gelée!
-		DisplayName: Yufeng
-	}
+FlyingDarkLatexMountBuff: {
+	Description: Voler sur de la gelï¿½e!
+	DisplayName: Yufeng
+}
 
-	WhiskerStaffBuff: {
-		Description: Le chat se battra pour vous
-		DisplayName: Chat Ming
-	}
+WhiskerStaffBuff: {
+	Description: Le chat se battra pour vous
+	DisplayName: Chat Ming
+}
 
-	PurrpurrStaffBuff: {
-		Description: Ne la provoquez pas!
-		DisplayName: Vioronron
-	}
+PurrpurrStaffBuff: {
+	Description: Ne la provoquez pas!
+	DisplayName: Vioronron
+}
 
-	TabbyStaffBuff: {
-		Description: Le chat se battra pour vous
-		DisplayName: Chat tigré
-	}
+TabbyStaffBuff: {
+	Description: Le chat se battra pour vous
+	DisplayName: Chat tigrï¿½
+}
 
-	LatexMothMountBuff: {
-		Description: Invoque un papillon de nuit de gelée à chevaucher
-		DisplayName: Papillon de nuit de gelée 
-	}
+LatexMothMountBuff: {
+	Description: Invoque un papillon de nuit de gelï¿½e ï¿½ chevaucher
+	DisplayName: Papillon de nuit de gelï¿½e
 }

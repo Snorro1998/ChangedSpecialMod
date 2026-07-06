@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Banners
 {
@@ -7,6 +8,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Banners
         public override void SetDefaults()
         {
             Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Banners.WendigoBanner>());
+            Item.rare = ItemRarityID.Blue;
         }
     }
 }

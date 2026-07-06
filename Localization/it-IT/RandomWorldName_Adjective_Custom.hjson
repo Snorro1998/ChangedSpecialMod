@@ -1,154 +1,26 @@
 # 728 entries in vanilla
-# 6?? percent chance it will be one of those
-RandomWorldName_Adjective_Custom: {
-	Changing1: Mutevole
-	Changing2: Mutevole
-	Changing3: Mutevole
-	Changing4: Mutevole
-	Changing5: Mutevole
-	Changing6: Mutevole
-	Comfy1: Accogliente
-	Comfy2: Accogliente
-	Comfy3: Accogliente
-	Comfy4: Accogliente
-	Comfy5: Accogliente
-	Comfy6: Accogliente
-	Fleshy1: Carnosa
-	Fleshy2: Carnosa
-	Fleshy3: Carnosa
-	Fleshy4: Carnosa
-	Fleshy5: Carnosa
-	Fleshy6: Carnosa
-	Floofy1: Lanuginoso
-	Floofy2: Lanuginoso
-	Floofy3: Lanuginoso
-	Floofy4: Lanuginoso
-	Floofy5: Lanuginoso
-	Floofy6: Lanuginoso
-	Fluffy1: Soffice
-	Fluffy2: Soffice
-	Fluffy3: Soffice
-	Fluffy4: Soffice
-	Fluffy5: Soffice
-	Fluffy6: Soffice
-	Fruity1: Fruttata
-	Fruity2: Fruttata
-	Fruity3: Fruttata
-	Fruity4: Fruttata
-	Fruity5: Fruttata
-	Fruity6: Fruttata
-	Furry1: Peloso
-	Furry2: Peloso
-	Furry3: Peloso
-	Furry4: Peloso
-	Furry5: Peloso
-	Furry6: Peloso
-	Gargantuan1: Gargantuesco
-	Gargantuan2: Gargantuesco
-	Gargantuan3: Gargantuesco
-	Gargantuan4: Gargantuesco
-	Gargantuan5: Gargantuesco
-	Gargantuan6: Gargantuesco
-	Giant1: Gigante
-	Giant2: Gigante
-	Giant3: Gigante
-	Giant4: Gigante
-	Giant5: Gigante
-	Giant6: Gigante
-	Gooey1: Appiccicoso
-	Gooey2: Appiccicoso
-	Gooey3: Appiccicoso
-	Gooey4: Appiccicoso
-	Gooey5: Appiccicoso
-	Gooey6: Appiccicoso
-	Hefty1: Pesante
-	Hefty2: Pesante
-	Hefty3: Pesante
-	Hefty4: Pesante
-	Hefty5: Pesante
-	Hefty6: Pesante
-	Inviting1: Allettante
-	Inviting2: Allettante
-	Inviting3: Allettante
-	Inviting4: Allettante
-	Inviting5: Allettante
-	Inviting6: Allettante
-	Juicy1: Succoso
-	Juicy2: Succoso
-	Juicy3: Succoso
-	Juicy4: Succoso
-	Juicy5: Succoso
-	Juicy6: Succoso
-	Massive1: Enorme
-	Massive2: Enorme
-	Massive3: Enorme
-	Massive4: Enorme
-	Massive5: Enorme
-	Massive6: Enorme
-	Meaty1: Paffuto
-	Meaty2: Paffuto
-	Meaty3: Paffuto
-	Meaty4: Paffuto
-	Meaty5: Paffuto
-	Meaty6: Paffuto
-	Naughty1: Birichino
-	Naughty2: Birichino
-	Naughty3: Birichino
-	Naughty4: Birichino
-	Naughty5: Birichino
-	Naughty6: Birichino
-	Small1: Piccolo
-	Small2: Piccolo
-	Small3: Piccolo
-	Small4: Piccolo
-	Small5: Piccolo
-	Small6: Piccolo
-	Smelly1: Puzzolente
-	Smelly2: Puzzolente
-	Smelly3: Puzzolente
-	Smelly4: Puzzolente
-	Smelly5: Puzzolente
-	Smelly6: Puzzolente
-	Soft1: Morbide
-	Soft2: Morbide
-	Soft3: Morbide
-	Soft4: Morbide
-	Soft5: Morbide
-	Soft6: Morbide
-	Special1: Speciale
-	Special2: Speciale
-	Special3: Speciale
-	Special4: Speciale
-	Special5: Speciale
-	Special6: Speciale
-	Spicy1: Speziata
-	Spicy2: Speziata
-	Spicy3: Speziata
-	Spicy4: Speziata
-	Spicy5: Speziata
-	Spicy6: Speziata
-	Steaming1: Fumante
-	Steaming2: Fumante
-	Steaming3: Fumante
-	Steaming4: Fumante
-	Steaming5: Fumante
-	Steaming6: Fumante
-	Unstable1: Instabile
-	Unstable2: Instabile
-	Unstable3: Instabile
-	Unstable4: Instabile
-	Unstable5: Instabile
-	Unstable6: Instabile
-	Warm1: Calda
-	Warm2: Calda
-	Warm3: Calda
-	Warm4: Calda
-	Warm5: Calda
-	Warm6: Calda
-	Wild1: selvatico
-	Wild2: selvatico
-	Wild3: selvatico
-	Wild4: selvatico
-	Wild5: selvatico
-	Wild6: selvatico
-}
+Changing: Mutevole
+Comfy: Accogliente
+Fleshy: Carnosa
+Floofy: Lanuginoso
+Fluffy: Soffice
+Fruity: Fruttata
+Furry: Peloso
+Gargantuan: Gargantuesco
+Giant: Gigante
+Gooey: Appiccicoso
+Hefty: Pesante
+Inviting: Allettante
+Juicy: Succoso
+Massive: Enorme
+Meaty: Paffuto
+Naughty: Birichino
+Small: Piccolo
+Smelly: Puzzolente
+Soft: Morbide
+Special: Speciale
+Spicy: Speziata
+Steaming: Fumante
+Unstable: Instabile
+Warm: Calda
+Wild: selvatico

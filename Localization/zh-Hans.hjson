@@ -684,13 +684,13 @@ Mods: {
 			}
 
 			LatexMoth: {
-				// DisplayName: Slime Moth
-				// Description: Fuzzy
+				DisplayName: 黏糊糊的蛾子
+				Description: 一种会被光吸引的黏液怪物
 			}
 
 			Snek: {
-				// DisplayName: Snake
-				// Description: Noodle
+				DisplayName: 蛇
+				Description: 长而快
 			}
 		}
 

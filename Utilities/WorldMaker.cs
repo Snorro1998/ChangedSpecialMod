@@ -134,9 +134,19 @@ namespace ChangedSpecialMod.Utilities
 
                 tasks.Insert(taskIndex + 2, new PassLegacy("ChangedOrangeShrines", (progress, config) =>
                 {
+                    //8400 X 2400   20160000
+                    //6400 X 1800   11520000 X 1.75
+                    //4200 X 1200   5040000 X 2.285714285714286
+
                     progress.Message = "Building shrines";
                     var nSucces = 0;
                     var nShrines = 5;
+
+                    if (Main.maxTilesX >= WorldGen.WorldSizeLargeX)
+                        nShrines = 15;
+                    else if (Main.maxTilesX >= WorldGen.WorldSizeMediumX)
+                        nShrines = 10;
+
                     var nMaxAttempts = 1000;
                     var placedPositions = new List<(int, int)>();
 
@@ -215,7 +225,15 @@ namespace ChangedSpecialMod.Utilities
 
                 // Shuffle
                 possibleLocations = possibleLocations.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, int.MaxValue)).ToList();
-                int maxPools = Math.Min(possibleLocations.Count, 10);
+
+                int maxAmount = 5;
+
+                if (Main.maxTilesX >= WorldGen.WorldSizeLargeX)
+                    maxAmount = 15;
+                else if (Main.maxTilesX >= WorldGen.WorldSizeMediumX)
+                    maxAmount = 10;
+
+                int maxPools = Math.Min(possibleLocations.Count, maxAmount);
                 int placedPools = 0;
 
                 List<(int, int)> placedPositions = new List<(int, int)>();
@@ -243,7 +261,7 @@ namespace ChangedSpecialMod.Utilities
                     var (bounds, waterTiles) = FloodFillWater(x, y);
 
                     // Skip if a large body of water like the ocean or something from another mod
-                    if (waterTiles.Count > 1000)
+                    if (waterTiles.Count < 100 || waterTiles.Count > 1000)
                         goto labelSkip;
 
                     for (int j = bounds.Left; j < bounds.Left + bounds.Width; j++)

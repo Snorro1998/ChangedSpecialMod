@@ -89,13 +89,13 @@ MusicBoxLab: {
 }
 
 DarkLatexBanner: {
-	Tooltip: ""
 	DisplayName: Bandeira da Gosma Negra
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
 }
 
 SquidDogBanner: {
 	DisplayName: Bandeira do Cachorro-Lula
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
 }
 
 Elevator: {
@@ -264,28 +264,28 @@ Mollash: {
 }
 
 WendigoBanner: {
-	Tooltip: ""
 	DisplayName: Bandeira do Wendigo
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
 }
 
 BloodstripeBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
 	DisplayName: Bandeira do Sanglistra
 }
 
 BlackGoopBanner: {
 	DisplayName: Bandeira da Mancha Preta
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
 WhiteGoopBanner: {
 	DisplayName: Bandeira da Mancha Branca
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
 }
 
 GermanShepherdBanner: {
 	DisplayName: Bandeira do Cão Pastor Alemão
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
 }
 
 WhiteLatexTaurMountItem: {
@@ -310,7 +310,7 @@ WhiskerStaff: {
 
 PurrpurrBanner: {
 	DisplayName: Bandeira do Roxoronando
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
 }
 
 BookBarrage: {
@@ -424,7 +424,7 @@ MusicBoxWolfKing: {
 }
 
 FlyingDarkLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
 	DisplayName: Bandeira do Filhote de Yufeng
 }
 
@@ -469,7 +469,7 @@ MusicBoxVents: {
 }
 
 WhiteLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
 	DisplayName: Bandeira da Gosma Branca
 }
 
@@ -805,15 +805,15 @@ WhiteLatexStoneBlock: {
 
 BlackLatexPylon: {
 	DisplayName: Pilar da Gosma Preta
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 WhiteLatexPylon: {
-	Tooltip: ""
 	DisplayName: Pilar da Gosma Branca
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 LatexMothMountItem: {
-	// DisplayName: White Wing
-	// Tooltip: Summons a rideable Slime Moth mount
+	DisplayName: Asa branca
+	Tooltip: Invoca uma mariposa viscosa que pode ser montada
 }

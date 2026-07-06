@@ -89,13 +89,13 @@ MusicBoxLab: {
 }
 
 DarkLatexBanner: {
-	Tooltip: ""
 	DisplayName: Bannière de Gelée Noire
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
 }
 
 SquidDogBanner: {
 	DisplayName: Bannière de Chien-Calamar
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
 }
 
 Elevator: {
@@ -264,28 +264,28 @@ Mollash: {
 }
 
 WendigoBanner: {
-	Tooltip: ""
 	DisplayName: Bannière de Wendigo
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
 }
 
 BloodstripeBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
 	DisplayName: Bannière de Sangrayure
 }
 
 BlackGoopBanner: {
 	DisplayName: Bannière de Goutte Noire
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
 WhiteGoopBanner: {
 	DisplayName: Bannière de Goutte Blanche
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
 }
 
 GermanShepherdBanner: {
 	DisplayName: Bannière de Berger Allemand
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
 }
 
 WhiteLatexTaurMountItem: {
@@ -310,7 +310,7 @@ WhiskerStaff: {
 
 PurrpurrBanner: {
 	DisplayName: Bannière de Vioronron
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
 }
 
 BookBarrage: {
@@ -424,7 +424,7 @@ MusicBoxWolfKing: {
 }
 
 FlyingDarkLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
 	DisplayName: Bannière de petit Yufeng
 }
 
@@ -469,7 +469,7 @@ MusicBoxVents: {
 }
 
 WhiteLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
 	DisplayName: Bannière de Gelée Blanche
 }
 
@@ -805,12 +805,12 @@ WhiteLatexStoneBlock: {
 
 BlackLatexPylon: {
 	DisplayName: Pylône de la gelée noire
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 WhiteLatexPylon: {
-	Tooltip: ""
 	DisplayName: Pylône de la gelée blanche
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 LatexMothMountItem: {

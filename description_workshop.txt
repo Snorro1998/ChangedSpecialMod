@@ -32,11 +32,30 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 	[*]Thorium
 [/list]
 
-It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
+Mods that can cause issues:
+[list]
+	[*]Modliquid library: there is a bug in this mod that causes waterfalls to freeze in all modded biomes, included the Changed biomes.
+	[*]MrPlague's Authentic Races: Not game-breaking, but the visuals of races are overwritten when transfurred.
+[/list]
+
+Most other mods should work fine. The only problem that you can run into is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
 [h2]Multiplayer[/h2]
 Most things should work fine in multiplayer. In rare cases, you might encounter desycing of player transfurs. This means that they are transfurred, but you can't see it. A possible indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any of the combined syringes (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+
+
+[h2]Other[/h2]
+Most items and NPCs used to have scaled down sprites from Changed as placeholders. A lot of them have since been updated, but not all of them. You may come accross things that clash with Terraria's art style.
+
+
+[h2]Links[/h2]
+Wiki. You can't access it yet, but the staff of wiki.gg will make it public after 13-07-2026.
+https://changedterraria.wiki.gg/
+Known bugs: 
+https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M
+Source code:
+https://github.com/Snorro1998/ChangedSpecialMod
 
 
 [h2]Credits[/h2]
@@ -81,25 +100,61 @@ For information about previous versions, please check out the change notes in th
 	[*]Added support for wikithis, but you can't use it right now because the wiki is not public yet.
 	[*]special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface.
 	[*]Added black and white pylons. They work at any depth.
+	[*]Added crystal wolves, snake and slime moth
+	[*]Added slime moth mount. Like the Yufeng mount, its stats are enhanced after entering hard mode.
 [/list]
 
 [b]Underground biomes[/b]
 [list]
-	[*]Black and white latex.
 	[*]Generate in the lower half of the world.
-	[*]Crystal wolves can spawn here. They can drop gems.
-	[*]Every latex beast underground has a small change to wear a mining helmet.
+	[*]Most latex beast have a small change to wear a mining helmet.
+[/list]
+
+[b]Black latex cave[/b]
+[list]
+	[*]Crystal wolves spawn here. They can drop gems.
+[/list]
+
+[b]White latex cave[/b]
+[list]
+	[*]Slime moths can spawn here. They can drop a mount item.
+	[*]Slime snakes can also spawn here. They are very fast and can drop the snake flute.
+[/list]
+
+[b]Latex spread[/b]
+[list]
+	[*]Added black and white slimestone.
+	[*]Latex can now spread to stone.
+	[*]The dryad can now tell how much goo there is in the world.
+	[*]Latex blocks are now highlighted when under the effects of the biome sight potion.
+	[*]Because of the new underground biomes, the restriction that latex could only spread on the surface has been removed.
 [/list]
 
 [b]Resprited[/b]
 [list]
 	[*]Dr K.
 	[*]Tabby Cat
+	[*]Maintenance robot
 [/list]
 
-[b]Fixes[/b]
+Mod calls (for developers)
+[list]
+	[*]bossdowned: check if a boss has been defeated (whitetail, wolfking, behemoth)
+	[*]orange: spawns oranges around all players
+	[*]spawnall: spawn all NPCs
+[/list]
+
+Fixes
 [list]
 	[*]Blocks not merging correctly when next to dirt.
 	[*]Prototype not selling Dragonfruit and Starfruit in hardmode.
 	[*]Waterfalls glowed in the dark when in any Changed biome.
+	[*]Buff icon of Yugeng mount still used the old sprite.
+[/list]
+
+[h2]Hotfixes[/h2]
+
+[h3]0.5.4.1[/h3]
+[list]
+	[*]Disabled custom window titles for MacOS, because it was causing crashes.
 [/list]

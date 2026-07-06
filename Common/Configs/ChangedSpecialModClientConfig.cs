@@ -57,7 +57,7 @@ namespace ChangedSpecialMod.Common.Configs
         public bool LatexSpread { get; set; }
 
         [Range(1, 30)]
-        [DefaultValue(10)]
+        [DefaultValue(6)]
         public int LatexSpreadChance { get; set; }
 
         [Header("Misc")]

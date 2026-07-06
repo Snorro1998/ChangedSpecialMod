@@ -89,13 +89,13 @@ MusicBoxLab: {
 }
 
 DarkLatexBanner: {
-	Tooltip: ""
 	DisplayName: Schwarzer Schleimbanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
 }
 
 SquidDogBanner: {
 	DisplayName: Tintenfischhundbanner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
 }
 
 Elevator: {
@@ -264,28 +264,28 @@ Mollash: {
 }
 
 WendigoBanner: {
-	Tooltip: ""
 	DisplayName: Wendigobanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
 }
 
 BloodstripeBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
 	DisplayName: Blutstreifenbanner
 }
 
 BlackGoopBanner: {
 	DisplayName: Schwarze Pfützebanner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
 WhiteGoopBanner: {
 	DisplayName: Weiße Pfützebanner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
 }
 
 GermanShepherdBanner: {
 	DisplayName: Deutscher Schäferhundbanner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
 }
 
 WhiteLatexTaurMountItem: {
@@ -310,7 +310,7 @@ WhiskerStaff: {
 
 PurrpurrBanner: {
 	DisplayName: Schnurrlilabanner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
 }
 
 BookBarrage: {
@@ -424,7 +424,7 @@ MusicBoxWolfKing: {
 }
 
 FlyingDarkLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
 	DisplayName: Yufengwelpebanner
 }
 
@@ -469,7 +469,7 @@ MusicBoxVents: {
 }
 
 WhiteLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
 	DisplayName: Weißer Schleimbanner
 }
 
@@ -805,12 +805,12 @@ WhiteLatexStoneBlock: {
 
 BlackLatexPylon: {
 	DisplayName: Schwarzer Schleimpylon
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 WhiteLatexPylon: {
-	Tooltip: ""
 	DisplayName: Weißer Schleimpylon
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 LatexMothMountItem: {

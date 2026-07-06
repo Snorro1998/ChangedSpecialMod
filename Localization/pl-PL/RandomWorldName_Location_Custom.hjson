@@ -1,130 +1,34 @@
 # 497 entries in vanilla
 # 10 percent chance it will be one of those
-BallPit1: Basen z piłeczkami
-BallPit2: Basen z piłeczkami
-BallPit3: Basen z piłeczkami
-BallPit4: Basen z piłeczkami
-Basement1: Piwnica
-Basement2: Piwnica
-Basement3: Piwnica
-Basement4: Piwnica
-BathWater1: Woda do kąpieli
-BathWater2: Woda do kąpieli
-BathWater3: Woda do kąpieli
-BathWater4: Woda do kąpieli
-BeanBag1: Worek sako
-BeanBag2: Worek sako
-BeanBag3: Worek sako
-BeanBag4: Worek sako
-Body1: Ciało
-Body2: Ciało
-Body3: Ciało
-Body4: Ciało
-BouncyCastle1: Dmuchany zamek
-BouncyCastle2: Dmuchany zamek
-BouncyCastle3: Dmuchany zamek
-BouncyCastle4: Dmuchany zamek
-Closet1: Gabinet
-Closet2: Gabinet
-Closet3: Gabinet
-Closet4: Gabinet
-Cottage1: Domek
-Cottage2: Domek
-Cottage3: Domek
-Cottage4: Domek
-Crib1: Kołyska
-Crib2: Kołyska
-Crib3: Kołyska
-Crib4: Kołyska
-CrystalZone1: Jaskinia Kryształowa
-CrystalZone2: Jaskinia Kryształowa
-CrystalZone3: Jaskinia Kryształowa
-CrystalZone4: Jaskinia Kryształowa
-Ears1: Uszy
-Ears2: Uszy
-Ears3: Uszy
-Ears4: Uszy
-Feet1: Stopy
-Feet2: Stopy
-Feet3: Stopy
-Feet4: Stopy
-GooJungle1: Dżungla szlamu
-GooJungle2: Dżungla szlamu
-GooJungle3: Dżungla szlamu
-GooJungle4: Dżungla szlamu
-Greenhouse1: Szklarnia
-Greenhouse2: Szklarnia
-Greenhouse3: Szklarnia
-Greenhouse4: Szklarnia
-Grotto1: Grota
-Grotto2: Grota
-Grotto3: Grota
-Grotto4: Grota
-Hut1: Chata
-Hut2: Chata
-Hut3: Chata
-Hut4: Chata
-LatexZone1: Strefa śluzu
-LatexZone2: Strefa śluzu
-LatexZone3: Strefa śluzu
-LatexZone4: Strefa śluzu
-Library1: Biblioteka
-Library2: Biblioteka
-Library3: Biblioteka
-Library4: Biblioteka
-Laboratory1: Laboratorium
-Laboratory2: Laboratorium
-Laboratory3: Laboratorium
-Laboratory4: Laboratorium
-Maw1: Trawieniec
-Maw2: Trawieniec
-Maw3: Trawieniec
-Maw4: Trawieniec
-Mouth1: Usta
-Mouth2: Usta
-Mouth3: Usta
-Mouth4: Usta
-Nose1: Nos
-Nose2: Nos
-Nose3: Nos
-Nose4: Nos
-PartyRoom1: Sala imprezowa
-PartyRoom2: Sala imprezowa
-PartyRoom3: Sala imprezowa
-PartyRoom4: Sala imprezowa
-Paws1: Łapy
-Paws2: Łapy
-Paws3: Łapy
-Paws4: Łapy
-SandCastle1: Zamek z piasku
-SandCastle2: Zamek z piasku
-SandCastle3: Zamek z piasku
-SandCastle4: Zamek z piasku
-Snack1: Przekąska
-Snack2: Przekąska
-Snack3: Przekąska
-Snack4: Przekąska
-Shack1: Buda
-Shack2: Buda
-Shack3: Buda
-Shack4: Buda
-SwimmingPool1: Basen
-SwimmingPool2: Basen
-SwimmingPool3: Basen
-SwimmingPool4: Basen
-Tail1: Ogon
-Tail2: Ogon
-Tail3: Ogon
-Tail4: Ogon
-Toes1: Palce u stóp
-Toes2: Palce u stóp
-Toes3: Palce u stóp
-Toes4: Palce u stóp
-Tongue1: Język
-Tongue2: Język
-Tongue3: Język
-Tongue4: Język
-Underwear1: Bielizna
-Underwear2: Bielizna
-Underwear3: Bielizna
-Underwear4: Bielizna
+BallPit: Basen z piłeczkami
+Basement: Piwnica
+BathWater: Woda do kąpieli
+BeanBag: Worek sako
+Body: Ciało
+BouncyCastle: Dmuchany zamek
+Closet: Gabinet
+Cottage: Domek
+Crib: Kołyska
+CrystalZone: Jaskinia Kryształowa
+Ears: Uszy
+Feet: Stopy
+GooJungle: Dżungla szlamu
+Greenhouse: Szklarnia
+Grotto: Grota
+Hut: Chata
+LatexZone: Strefa śluzu
+Library: Biblioteka
+Laboratory: Laboratorium
+Maw: Trawieniec
+Mouth: Usta
+Nose: Nos
+PartyRoom: Sala imprezowa
+Paws: Łapy
+SandCastle: Zamek z piasku
+Snack: Przekąska
+Shack: Buda
+SwimmingPool: Basen
+Tail: Ogon
+Toes: Palce u stóp
+Tongue: Język
+Underwear: Bielizna

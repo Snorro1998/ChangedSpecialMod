@@ -89,13 +89,13 @@ MusicBoxLab: {
 }
 
 DarkLatexBanner: {
-	Tooltip: ""
 	DisplayName: Sztandar czarny szlam
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
 }
 
 SquidDogBanner: {
 	DisplayName: Sztandar pies-kałamarnica
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
 }
 
 Elevator: {
@@ -264,38 +264,38 @@ Mollash: {
 }
 
 WendigoBanner: {
-	Tooltip: ""
 	DisplayName: Sztandar Wendigo
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
 }
 
 BloodstripeBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
 	DisplayName: Sztandar Krewpaski
 }
 
 BlackGoopBanner: {
 	DisplayName: Sztandar czarna kałuża
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
 WhiteGoopBanner: {
 	DisplayName: Sztandar biała kałuża
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
 }
 
 GermanShepherdBanner: {
 	DisplayName: Sztandar owczarek niemiecki
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
 }
 
 WhiteLatexTaurMountItem: {
 	DisplayName: Śliska podkowa
-	Tooltip: Przywołuje wierzchowca w postaci białego szlamu, na którym można jeździć
+	Tooltip: Przywołuje postaci białego szlamu, którego można dosiąść
 }
 
 FlyingDarkLatexMountItem: {
 	DisplayName: Czarne skrzydło
-	Tooltip: Przywołuje wierzchowca Yufeng, na którym można jeździć
+	Tooltip: Przywołuje Yufeng, którego można dosiąść
 }
 
 Literature: {
@@ -310,7 +310,7 @@ WhiskerStaff: {
 
 PurrpurrBanner: {
 	DisplayName: Sztandar fioletomruc
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
 }
 
 BookBarrage: {
@@ -424,7 +424,7 @@ MusicBoxWolfKing: {
 }
 
 FlyingDarkLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
 	DisplayName: Sztandar Szczeniak Yufeng
 }
 
@@ -469,7 +469,7 @@ MusicBoxVents: {
 }
 
 WhiteLatexBanner: {
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
 	DisplayName: Sztandar biały szlam
 }
 
@@ -805,15 +805,15 @@ WhiteLatexStoneBlock: {
 
 BlackLatexPylon: {
 	DisplayName: Pylon czarnego szlamu
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 WhiteLatexPylon: {
-	Tooltip: ""
 	DisplayName: Pylon białego szlamu
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 }
 
 LatexMothMountItem: {
-	// DisplayName: White Wing
-	// Tooltip: Summons a rideable Slime Moth mount
+	DisplayName: Białe skrzydło
+	Tooltip: Przywołuje białe skrzydło, którego można dosiąść
 }

@@ -27,8 +27,12 @@ Additionally, town npcs can sell fruits and herbs from these mods:
 - Spirit and Spirit Reforged
 - Thorium
 
-It should also work fine with most other mods. The only issue that can occur is when the world generation overwrites structures or biomes from other mods and vice versa.
-Another issue is when playing with any mod dependant on modliquid library, waterfalls will be frozen if you are in a Changed biome. This is an issue of modlibrary. 
+Mods that can cause issues:
+- Modliquid library: there is a bug in this mod that causes waterfalls to freeze in all modded biomes, included the Changed biomes.
+- MrPlague's Authentic Races: Not game-breaking, but the visuals of races are overwritten when transfurred.
+
+Most other mods should work fine. The only problem that you can run into is when the world generation overwrites structures or biomes from other mods and vice versa.
+
 
 ------- Multiplayer -------
 
@@ -37,7 +41,7 @@ Most things should work fine in multiplayer. In rare cases, you might encounter 
 
 ---------- Other ----------
 
-Items and NPCs used to have scaled down sprites from Changed as placeholders. A lot of them have since been updated, but not all of them. You may come accross things that clash with Terraria's art style.
+Most items and NPCs used to have scaled down sprites from Changed as placeholders. A lot of them have since been updated, but not all of them. You may come accross things that clash with Terraria's art style.
 
 
 ---------- Links ----------
@@ -45,9 +49,10 @@ Items and NPCs used to have scaled down sprites from Changed as placeholders. A 
 Wiki. You can't access it yet, but the staff of wiki.gg will make it public after 13-07-2026.
 https://changedterraria.wiki.gg/
 Known bugs: 
-https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M/edit?usp=sharing
+https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M
 Source code:
 https://github.com/Snorro1998/ChangedSpecialMod
+
 
 --------- Credits ---------
 
@@ -105,15 +110,26 @@ Latex spread
 - Added black and white slimestone.
 - Latex can now spread to stone.
 - The dryad can now tell how much goo there is in the world.
-- Latex blocks are now highlighted if under the effects of the biome sight potion.
-- Because of these new underground biomes, the restriction that latex could only spread on the surface has been removed.
+- Latex blocks are now highlighted when under the effects of the biome sight potion.
+- Because of the new underground biomes, the restriction that latex could only spread on the surface has been removed.
 
 Resprited
 - Dr K.
 - Tabby Cat
+- Maintenance robot
+
+Mod calls (for developers)
+- bossdowned: check if a boss has been defeated (whitetail, wolfking, behemoth)
+- orange: spawns oranges around all players
+- spawnall: spawn all NPCs
 
 Fixes
 - Blocks not merging correctly when next to dirt.
 - Prototype not selling Dragonfruit and Starfruit in hardmode.
 - Waterfalls glowed in the dark when in any Changed biome.
-- Buff icons of Yugeng mount and the tabby cat still used the old sprites
+- Buff icon of Yugeng mount still used the old sprite.
+
+Hotfixes
+
+0.5.4.1
+- Disabled custom window titles for MacOS, because it was causing crashes.

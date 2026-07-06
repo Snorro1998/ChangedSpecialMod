@@ -1,130 +1,34 @@
 # 497 entries in vanilla
 # 10 percent chance it will be one of those
-BallPit1: Ball Pit
-BallPit2: Ball Pit
-BallPit3: Ball Pit
-BallPit4: Ball Pit
-Basement1: Basement
-Basement2: Basement
-Basement3: Basement
-Basement4: Basement
-BathWater1: Bath Water
-BathWater2: Bath Water
-BathWater3: Bath Water
-BathWater4: Bath Water
-BeanBag1: Beanbag
-BeanBag2: Beanbag
-BeanBag3: Beanbag
-BeanBag4: Beanbag
-Body1: Body
-Body2: Body
-Body3: Body
-Body4: Body
-BouncyCastle1: Bouncy Castle
-BouncyCastle2: Bouncy Castle
-BouncyCastle3: Bouncy Castle
-BouncyCastle4: Bouncy Castle
-Closet1: Closet
-Closet2: Closet
-Closet3: Closet
-Closet4: Closet
-Cottage1: Cottage
-Cottage2: Cottage
-Cottage3: Cottage
-Cottage4: Cottage
-Crib1: Crib
-Crib2: Crib
-Crib3: Crib
-Crib4: Crib
-CrystalZone1: Crystal Cave
-CrystalZone2: Crystal Cave
-CrystalZone3: Crystal Cave
-CrystalZone4: Crystal Cave
-Ears1: Ears
-Ears2: Ears
-Ears3: Ears
-Ears4: Ears
-Feet1: Feet
-Feet2: Feet
-Feet3: Feet
-Feet4: Feet
-GooJungle1: Goo Jungle
-GooJungle2: Goo Jungle
-GooJungle3: Goo Jungle
-GooJungle4: Goo Jungle
-Greenhouse1: Greenhouse
-Greenhouse2: Greenhouse
-Greenhouse3: Greenhouse
-Greenhouse4: Greenhouse
-Grotto1: Grotto
-Grotto2: Grotto
-Grotto3: Grotto
-Grotto4: Grotto
-Hut1: Hut
-Hut2: Hut
-Hut3: Hut
-Hut4: Hut
-LatexZone1: Latex Zone
-LatexZone2: Latex Zone
-LatexZone3: Latex Zone
-LatexZone4: Latex Zone
-Library1: Library
-Library2: Library
-Library3: Library
-Library4: Library
-Laboratory1: Laboratory
-Laboratory2: Laboratory
-Laboratory3: Laboratory
-Laboratory4: Laboratory
-Maw1: Maw
-Maw2: Maw
-Maw3: Maw
-Maw4: Maw
-Mouth1: Mouth
-Mouth2: Mouth
-Mouth3: Mouth
-Mouth4: Mouth
-Nose1: Nose
-Nose2: Nose
-Nose3: Nose
-Nose4: Nose
-PartyRoom1: Party Room
-PartyRoom2: Party Room
-PartyRoom3: Party Room
-PartyRoom4: Party Room
-Paws1: Paws
-Paws2: Paws
-Paws3: Paws
-Paws4: Paws
-SandCastle1: Sandcastle
-SandCastle2: Sandcastle
-SandCastle3: Sandcastle
-SandCastle4: Sandcastle
-Snack1: Snack
-Snack2: Snack
-Snack3: Snack
-Snack4: Snack
-Shack1: Shack
-Shack2: Shack
-Shack3: Shack
-Shack4: Shack
-SwimmingPool1: Swimming Pool
-SwimmingPool2: Swimming Pool
-SwimmingPool3: Swimming Pool
-SwimmingPool4: Swimming Pool
-Tail1: Tail
-Tail2: Tail
-Tail3: Tail
-Tail4: Tail
-Toes1: Toes
-Toes2: Toes
-Toes3: Toes
-Toes4: Toes
-Tongue1: Tongue
-Tongue2: Tongue
-Tongue3: Tongue
-Tongue4: Tongue
-Underwear1: Underwear
-Underwear2: Underwear
-Underwear3: Underwear
-Underwear4: Underwear
+BallPit: Ball Pit
+Basement: Basement
+BathWater: Bath Water
+BeanBag: Beanbag
+Body: Body
+BouncyCastle: Bouncy Castle
+Closet: Closet
+Cottage: Cottage
+Crib: Crib
+CrystalZone: Crystal Cave
+Ears: Ears
+Feet: Feet
+GooJungle: Goo Jungle
+Greenhouse: Greenhouse
+Grotto: Grotto
+Hut: Hut
+LatexZone: Latex Zone
+Library: Library
+Laboratory: Laboratory
+Maw: Maw
+Mouth: Mouth
+Nose: Nose
+PartyRoom: Party Room
+Paws: Paws
+SandCastle: Sandcastle
+Snack: Snack
+Shack: Shack
+SwimmingPool: Swimming Pool
+Tail: Tail
+Toes: Toes
+Tongue: Tongue
+Underwear: Underwear

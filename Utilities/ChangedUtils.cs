@@ -295,10 +295,10 @@ namespace ChangedSpecialMod.Utilities
 
             do
             {                
-                LocalizedText composition = SelectWorldNamePartString("Composition");
-                LocalizedText adjective = SelectWorldNamePartString("Adjective");
-                LocalizedText location = SelectWorldNamePartString("Location");
-                LocalizedText noun = SelectWorldNamePartString("Noun"); 
+                LocalizedText composition = SelectWorldNamePartString("Composition", 7, 1);
+                LocalizedText adjective = SelectWorldNamePartString("Adjective", 1, 5);
+                LocalizedText location = SelectWorldNamePartString("Location", 1, 4);
+                LocalizedText noun = SelectWorldNamePartString("Noun", 1, 5); 
 
                 var args = new
                 {
@@ -317,12 +317,21 @@ namespace ChangedSpecialMod.Utilities
             OptionWorldNameField.SetValue(self, worldName);
         }
 
-        private static LocalizedText SelectWorldNamePartString(string subject)
+        private static LocalizedText SelectWorldNamePartString(string subject, int vanillaMultiplier = 1, int modMultiplier = 1)
         {
             var defaultOptions = Language.FindAll(Lang.CreateDialogFilter($"RandomWorldName_{subject}."));
             var customOptions = Language.FindAll(Lang.CreateDialogFilter($"RandomWorldName_{subject}_Custom."));
-            var allOptions = defaultOptions.ToList();
-            allOptions.AddRange(customOptions.ToList());
+
+            vanillaMultiplier = Math.Max(1, vanillaMultiplier);
+            modMultiplier = Math.Max(1, modMultiplier);
+
+            var allOptions = new List<LocalizedText>();
+            for (int i = 0; i < vanillaMultiplier; i++)
+                allOptions.AddRange(defaultOptions.ToList());
+
+            for (int i = 0; i < modMultiplier; i++)
+                allOptions.AddRange(customOptions.ToList());
+
             return Main.rand.Next(allOptions);
         } 
 
@@ -476,13 +485,105 @@ namespace ChangedSpecialMod.Utilities
             Projectile.NewProjectile(source, xPos, yPos, 0, 0, projectileType, 0, 0, player.whoAmI, 0f, 0f);
         }
 
-        public static void SpawnOranges(IEntitySource source, Player player, int x, int y)
+        public static void SpawnAllNPCs(Player player)
+        {
+            var entitySource = new EntitySource_SpawnNPC("ChangedUtils");
+
+            if (player == null)
+                player = Main.player.Where(x => x.active).FirstOrDefault();
+            if (player == null)
+                return;
+
+            var npcs = new List<int>
+            {
+                // Sweeper
+                ModContent.NPCType<Sweeper>(),
+                ModContent.NPCType<SweeperPuro>(),
+
+                // Black
+                ModContent.NPCType<BlackGoop>(),
+                ModContent.NPCType<DarkLatexCub>(),
+                //ModContent.NPCType<Cheerleader>(),
+                ModContent.NPCType<FemaleDarkLatex>(),
+                ModContent.NPCType<MaleDarkLatex>(),
+                ModContent.NPCType<FlyingDarkLatex>(),
+                ModContent.NPCType<WingedDarkLatex>(),
+
+                // Crystal wolves
+                ModContent.NPCType<CrystalWolfBlue>(),
+                ModContent.NPCType<CrystalWolfGreen>(),
+                //ModContent.NPCType<CrystalWolfOrange>(),
+                ModContent.NPCType<CrystalWolfPurple>(),
+                ModContent.NPCType<CrystalWolfRed>(),
+                //ModContent.NPCType<CrystalWolfWhite>(),
+
+                // White
+                ModContent.NPCType<WhiteGoop>(),
+                ModContent.NPCType<WhiteKnight>(),
+                ModContent.NPCType<WhiteLatexCub>(),
+                ModContent.NPCType<WhiteLatexTaur>(),
+
+                ModContent.NPCType<LatexMoth>(),
+                ModContent.NPCType<Snek>(),
+
+                // Others
+                ModContent.NPCType<Bloodstripe>(),
+                ModContent.NPCType<Purrpurr>(),
+                ModContent.NPCType<GermanShepherd>(),
+                ModContent.NPCType<Lion>(),
+                ModContent.NPCType<Snep>(),
+                ModContent.NPCType<Raccoon>(),
+                ModContent.NPCType<SquidDog>(),
+                ModContent.NPCType<Wendigo>(),
+                ModContent.NPCType<MutatedLatex>(),
+
+                // Drunk
+                ModContent.NPCType<BackLatex>(),
+                ModContent.NPCType<BrightLatex>(),
+                ModContent.NPCType<DarkLatexCubOfDoom>(),
+                ModContent.NPCType<FightLatex>(),
+                ModContent.NPCType<FlightLatex>(),
+                ModContent.NPCType<HideLatex>(),
+                ModContent.NPCType<HungryLocker>(),
+                ModContent.NPCType<MightLatex>(),
+                ModContent.NPCType<PuroWormHead>(),
+                ModContent.NPCType<QuackLatex>(),
+                ModContent.NPCType<SideLatex>(),
+                ModContent.NPCType<SnackLatex>(),
+                ModContent.NPCType<StackLatex>(),
+                ModContent.NPCType<WackLatex>(),
+                ModContent.NPCType<WideLatex>(),
+            };
+
+            foreach (var npc in npcs)
+            {
+                int xPos = (int)player.Center.X + Main.rand.Next(-40, 40) * 16;
+                int yPos = (int)player.Center.Y + Main.rand.Next(-20, 0) * 16;
+                NPC.NewNPCDirect(entitySource, xPos, yPos, npc, player.whoAmI);
+            }
+        }
+
+        public static void SpawnOrangesOnAllPlayers()
+        {
+            var players = Main.player.Where(x => x.active).ToList();
+            var maxProjectilesPerPlayer = (Main.maxProjectiles / 2) / Math.Max(1, players.Count);
+            var projectilesPerPlayer = Math.Min(maxProjectilesPerPlayer, 30);
+            var entitySource = new EntitySource_WorldEvent("OrangeSpam");
+
+            foreach (var player in players)
+            {
+                var pos = player.Center.ToTileCoordinates();
+                SpawnOranges(entitySource, player, pos.X, pos.Y, projectilesPerPlayer);
+            }
+        }
+
+        public static void SpawnOranges(IEntitySource source, Player player, int x, int y, int amount = 30)
         {
             var nCurrentOranges = Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<OrangeProjectile>()).Count();
             if (nCurrentOranges > Main.maxProjectiles / 2)
                 return;
 
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < amount; i++)
             {
                 //owner player.whoAmI
                 var index = Projectile.NewProjectile(source, x * 16, y * 16, 0, 0, ModContent.ProjectileType<OrangeProjectile>(), 0, 0, -1, 0f, 0f);

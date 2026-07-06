@@ -1,154 +1,26 @@
 # 728 entries in vanilla
-# 6?? percent chance it will be one of those
-RandomWorldName_Adjective_Custom: {
-	Changing1: Zmieniający
-	Changing2: Zmieniający
-	Changing3: Zmieniający
-	Changing4: Zmieniający
-	Changing5: Zmieniający
-	Changing6: Zmieniający
-	Comfy1: Przytulny
-	Comfy2: Przytulny
-	Comfy3: Przytulny
-	Comfy4: Przytulny
-	Comfy5: Przytulny
-	Comfy6: Przytulny
-	Fleshy1: Mięsisty
-	Fleshy2: Mięsisty
-	Fleshy3: Mięsisty
-	Fleshy4: Mięsisty
-	Fleshy5: Mięsisty
-	Fleshy6: Mięsisty
-	Floofy1: Kłaczasty
-	Floofy2: Kłaczasty
-	Floofy3: Kłaczasty
-	Floofy4: Kłaczasty
-	Floofy5: Kłaczasty
-	Floofy6: Kłaczasty
-	Fluffy1: Puszyste
-	Fluffy2: Puszyste
-	Fluffy3: Puszyste
-	Fluffy4: Puszyste
-	Fluffy5: Puszyste
-	Fluffy6: Puszyste
-	Fruity1: Owocowy
-	Fruity2: Owocowy
-	Fruity3: Owocowy
-	Fruity4: Owocowy
-	Fruity5: Owocowy
-	Fruity6: Owocowy
-	Furry1: Futrzany
-	Furry2: Futrzany
-	Furry3: Futrzany
-	Furry4: Futrzany
-	Furry5: Futrzany
-	Furry6: Futrzany
-	Gargantuan1: Olbrzymi
-	Gargantuan2: Olbrzymi
-	Gargantuan3: Olbrzymi
-	Gargantuan4: Olbrzymi
-	Gargantuan5: Olbrzymi
-	Gargantuan6: Olbrzymi
-	Giant1: Gigant
-	Giant2: Gigant
-	Giant3: Gigant
-	Giant4: Gigant
-	Giant5: Gigant
-	Giant6: Gigant
-	Gooey1: Lepkie
-	Gooey2: Lepkie
-	Gooey3: Lepkie
-	Gooey4: Lepkie
-	Gooey5: Lepkie
-	Gooey6: Lepkie
-	Hefty1: Mocny
-	Hefty2: Mocny
-	Hefty3: Mocny
-	Hefty4: Mocny
-	Hefty5: Mocny
-	Hefty6: Mocny
-	Inviting1: Atrakcyjny
-	Inviting2: Atrakcyjny
-	Inviting3: Atrakcyjny
-	Inviting4: Atrakcyjny
-	Inviting5: Atrakcyjny
-	Inviting6: Atrakcyjny
-	Juicy1: Soczysty
-	Juicy2: Soczysty
-	Juicy3: Soczysty
-	Juicy4: Soczysty
-	Juicy5: Soczysty
-	Juicy6: Soczysty
-	Massive1: Masywny
-	Massive2: Masywny
-	Massive3: Masywny
-	Massive4: Masywny
-	Massive5: Masywny
-	Massive6: Masywny
-	Meaty1: Pulchny
-	Meaty2: Pulchny
-	Meaty3: Pulchny
-	Meaty4: Pulchny
-	Meaty5: Pulchny
-	Meaty6: Pulchny
-	Naughty1: Niegrzeczny
-	Naughty2: Niegrzeczny
-	Naughty3: Niegrzeczny
-	Naughty4: Niegrzeczny
-	Naughty5: Niegrzeczny
-	Naughty6: Niegrzeczny
-	Small1: Mały
-	Small2: Mały
-	Small3: Mały
-	Small4: Mały
-	Small5: Mały
-	Small6: Mały
-	Smelly1: Śmierdzący
-	Smelly2: Śmierdzący
-	Smelly3: Śmierdzący
-	Smelly4: Śmierdzący
-	Smelly5: Śmierdzący
-	Smelly6: Śmierdzący
-	Soft1: Miękkie
-	Soft2: Miękkie
-	Soft3: Miękkie
-	Soft4: Miękkie
-	Soft5: Miękkie
-	Soft6: Miękkie
-	Special1: Specjalny
-	Special2: Specjalny
-	Special3: Specjalny
-	Special4: Specjalny
-	Special5: Specjalny
-	Special6: Specjalny
-	Spicy1: Pikantny
-	Spicy2: Pikantny
-	Spicy3: Pikantny
-	Spicy4: Pikantny
-	Spicy5: Pikantny
-	Spicy6: Pikantny
-	Steaming1: Parujący
-	Steaming2: Parujący
-	Steaming3: Parujący
-	Steaming4: Parujący
-	Steaming5: Parujący
-	Steaming6: Parujący
-	Unstable1: Nietrwały
-	Unstable2: Nietrwały
-	Unstable3: Nietrwały
-	Unstable4: Nietrwały
-	Unstable5: Nietrwały
-	Unstable6: Nietrwały
-	Warm1: Ciepły
-	Warm2: Ciepły
-	Warm3: Ciepły
-	Warm4: Ciepły
-	Warm5: Ciepły
-	Warm6: Ciepły
-	Wild1: Dzikie
-	Wild2: Dzikie
-	Wild3: Dzikie
-	Wild4: Dzikie
-	Wild5: Dzikie
-	Wild6: Dzikie
-}
+Changing: Zmieniający
+Comfy: Przytulny
+Fleshy: Mięsisty
+Floofy: Kłaczasty
+Fluffy: Puszyste
+Fruity: Owocowy
+Furry: Futrzany
+Gargantuan: Olbrzymi
+Giant: Gigant
+Gooey: Lepkie
+Hefty: Mocny
+Inviting: Atrakcyjny
+Juicy: Soczysty
+Massive: Masywny
+Meaty: Pulchny
+Naughty: Niegrzeczny
+Small: Mały
+Smelly: Śmierdzący
+Soft: Miękkie
+Special: Specjalny
+Spicy: Pikantny
+Steaming: Parujący
+Unstable: Nietrwały
+Warm: Ciepły
+Wild: Dzikie

@@ -1,31 +1,29 @@
-Buffs: {
-	WhiteLatexTaurMountBuff: {
-		Description: Branco e rápido!
-		DisplayName: Centauro de Gosma Branca
-	}
+WhiteLatexTaurMountBuff: {
+	Description: Branco e rï¿½pido!
+	DisplayName: Centauro de gosma branca
+}
 
-	FlyingDarkLatexMountBuff: {
-		Description: Voando em uma gosma!
-		DisplayName: Yufeng
-	}
+FlyingDarkLatexMountBuff: {
+	Description: Voando em uma gosma!
+	DisplayName: Yufeng
+}
 
-	WhiskerStaffBuff: {
-		Description: O gato lutará por você.
-		DisplayName: Gato Ming
-	}
+WhiskerStaffBuff: {
+	Description: O gato lutarï¿½ por vocï¿½.
+	DisplayName: Gato Ming
+}
 
-	PurrpurrStaffBuff: {
-		Description: Não se meta com ela!
-		DisplayName: Roxoronando
-	}
+PurrpurrStaffBuff: {
+	Description: Nï¿½o se meta com ela!
+	DisplayName: Roxoronando
+}
 
-	TabbyStaffBuff: {
-		Description: O gato lutará por você.
-		DisplayName: Gato Malhado
-	}
+TabbyStaffBuff: {
+	Description: O gato lutarï¿½ por vocï¿½.
+	DisplayName: Gato malhado
+}
 
-	LatexMothMountBuff: {
-		// Description: Mods.ChangedSpecialMod.Buffs.LatexMothMountBuff.Description
-		// DisplayName: Latex Moth Mount Buff
-	}
+LatexMothMountBuff: {
+	Description: Voando em uma gosma!
+	DisplayName: Mariposa viscosa
 }

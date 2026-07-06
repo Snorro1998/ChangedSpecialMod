@@ -1,154 +1,26 @@
 # 728 entries in vanilla
-# 6?? percent chance it will be one of those
-RandomWorldName_Adjective_Custom: {
-	Changing1: Changing
-	Changing2: Changing
-	Changing3: Changing
-	Changing4: Changing
-	Changing5: Changing
-	Changing6: Changing
-	Comfy1: Comfy
-	Comfy2: Comfy
-	Comfy3: Comfy
-	Comfy4: Comfy
-	Comfy5: Comfy
-	Comfy6: Comfy
-	Fleshy1: Fleshy
-	Fleshy2: Fleshy
-	Fleshy3: Fleshy
-	Fleshy4: Fleshy
-	Fleshy5: Fleshy
-	Fleshy6: Fleshy
-	Floofy1: Floofy
-	Floofy2: Floofy
-	Floofy3: Floofy
-	Floofy4: Floofy
-	Floofy5: Floofy
-	Floofy6: Floofy
-	Fluffy1: Fluffy
-	Fluffy2: Fluffy
-	Fluffy3: Fluffy
-	Fluffy4: Fluffy
-	Fluffy5: Fluffy
-	Fluffy6: Fluffy
-	Fruity1: Fruity
-	Fruity2: Fruity
-	Fruity3: Fruity
-	Fruity4: Fruity
-	Fruity5: Fruity
-	Fruity6: Fruity
-	Furry1: Furry
-	Furry2: Furry
-	Furry3: Furry
-	Furry4: Furry
-	Furry5: Furry
-	Furry6: Furry
-	Gargantuan1: Gargantuan
-	Gargantuan2: Gargantuan
-	Gargantuan3: Gargantuan
-	Gargantuan4: Gargantuan
-	Gargantuan5: Gargantuan
-	Gargantuan6: Gargantuan
-	Giant1: Giant
-	Giant2: Giant
-	Giant3: Giant
-	Giant4: Giant
-	Giant5: Giant
-	Giant6: Giant
-	Gooey1: Gooey
-	Gooey2: Gooey
-	Gooey3: Gooey
-	Gooey4: Gooey
-	Gooey5: Gooey
-	Gooey6: Gooey
-	Hefty1: Hefty
-	Hefty2: Hefty
-	Hefty3: Hefty
-	Hefty4: Hefty
-	Hefty5: Hefty
-	Hefty6: Hefty
-	Inviting1: Inviting
-	Inviting2: Inviting
-	Inviting3: Inviting
-	Inviting4: Inviting
-	Inviting5: Inviting
-	Inviting6: Inviting
-	Juicy1: Juicy
-	Juicy2: Juicy
-	Juicy3: Juicy
-	Juicy4: Juicy
-	Juicy5: Juicy
-	Juicy6: Juicy
-	Massive1: Massive
-	Massive2: Massive
-	Massive3: Massive
-	Massive4: Massive
-	Massive5: Massive
-	Massive6: Massive
-	Meaty1: Meaty
-	Meaty2: Meaty
-	Meaty3: Meaty
-	Meaty4: Meaty
-	Meaty5: Meaty
-	Meaty6: Meaty
-	Naughty1: Naughty
-	Naughty2: Naughty
-	Naughty3: Naughty
-	Naughty4: Naughty
-	Naughty5: Naughty
-	Naughty6: Naughty
-	Small1: Small
-	Small2: Small
-	Small3: Small
-	Small4: Small
-	Small5: Small
-	Small6: Small
-	Smelly1: Smelly
-	Smelly2: Smelly
-	Smelly3: Smelly
-	Smelly4: Smelly
-	Smelly5: Smelly
-	Smelly6: Smelly
-	Soft1: Soft
-	Soft2: Soft
-	Soft3: Soft
-	Soft4: Soft
-	Soft5: Soft
-	Soft6: Soft
-	Special1: Special
-	Special2: Special
-	Special3: Special
-	Special4: Special
-	Special5: Special
-	Special6: Special
-	Spicy1: Spicy
-	Spicy2: Spicy
-	Spicy3: Spicy
-	Spicy4: Spicy
-	Spicy5: Spicy
-	Spicy6: Spicy
-	Steaming1: Steaming
-	Steaming2: Steaming
-	Steaming3: Steaming
-	Steaming4: Steaming
-	Steaming5: Steaming
-	Steaming6: Steaming
-	Unstable1: Unstable
-	Unstable2: Unstable
-	Unstable3: Unstable
-	Unstable4: Unstable
-	Unstable5: Unstable
-	Unstable6: Unstable
-	Warm1: Warm
-	Warm2: Warm
-	Warm3: Warm
-	Warm4: Warm
-	Warm5: Warm
-	Warm6: Warm
-	Wild1: Wild
-	Wild2: Wild
-	Wild3: Wild
-	Wild4: Wild
-	Wild5: Wild
-	Wild6: Wild
-}
+Changing: Changing
+Comfy: Comfy
+Fleshy: Fleshy
+Floofy: Floofy
+Fluffy: Fluffy
+Fruity: Fruity
+Furry: Furry
+Gargantuan: Gargantuan
+Giant: Giant
+Gooey: Gooey
+Hefty: Hefty
+Inviting: Inviting
+Juicy: Juicy
+Massive: Massive
+Meaty: Meaty
+Naughty: Naughty
+Small: Small
+Smelly: Smelly
+Soft: Soft
+Special: Special
+Spicy: Spicy
+Steaming: Steaming
+Unstable: Unstable
+Warm: Warm
+Wild: Wild

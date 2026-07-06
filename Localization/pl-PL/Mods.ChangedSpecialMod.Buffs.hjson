@@ -1,31 +1,29 @@
-Buffs: {
-	WhiteLatexTaurMountBuff: {
-		Description: Biały i szybki!
-		DisplayName: Biały szlam centaur
-	}
+WhiteLatexTaurMountBuff: {
+	Description: Biały i szybki!
+	DisplayName: Biały szlam centaur
+}
 
-	FlyingDarkLatexMountBuff: {
-		Description: Latanie na szlamie!
-		DisplayName: Yufeng
-	}
+FlyingDarkLatexMountBuff: {
+	Description: Latanie na szlamie!
+	DisplayName: Yufeng
+}
 
-	WhiskerStaffBuff: {
-		Description: Kot będzie walczył za ciebie
-		DisplayName: Kot ming
-	}
+WhiskerStaffBuff: {
+	Description: Kot będzie walczył za ciebie
+	DisplayName: Kot ming
+}
 
-	PurrpurrStaffBuff: {
-		Description: Nie zadzieraj z nią!
-		DisplayName: Fioletomruc
-	}
+PurrpurrStaffBuff: {
+	Description: Nie zadzieraj z nią!
+	DisplayName: Fioletomruc
+}
 
-	TabbyStaffBuff: {
-		Description: Kot będzie walczył za ciebie
-		DisplayName: Pręgowany kot
-	}
+TabbyStaffBuff: {
+	Description: Kot będzie walczył za ciebie
+	DisplayName: Pręgowany kot
+}
 
-	LatexMothMountBuff: {
-		// Description: Mods.ChangedSpecialMod.Buffs.LatexMothMountBuff.Description
-		// DisplayName: Latex Moth Mount Buff
-	}
+LatexMothMountBuff: {
+	Description: Latanie na szlamie!
+	DisplayName: Ćma śluzowa
 }

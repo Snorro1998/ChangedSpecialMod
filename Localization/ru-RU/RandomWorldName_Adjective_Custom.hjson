@@ -1,154 +1,26 @@
 # 728 entries in vanilla
-# 6?? percent chance it will be one of those
-RandomWorldName_Adjective_Custom: {
-	Changing1: меняющийся
-	Changing2: меняющийся
-	Changing3: меняющийся
-	Changing4: меняющийся
-	Changing5: меняющийся
-	Changing6: меняющийся
-	Comfy1: уютный
-	Comfy2: уютный
-	Comfy3: уютный
-	Comfy4: уютный
-	Comfy5: уютный
-	Comfy6: уютный
-	Fleshy1: мясистый
-	Fleshy2: мясистый
-	Fleshy3: мясистый
-	Fleshy4: мясистый
-	Fleshy5: мясистый
-	Fleshy6: мясистый
-	Floofy1: волосатый
-	Floofy2: волосатый
-	Floofy3: волосатый
-	Floofy4: волосатый
-	Floofy5: волосатый
-	Floofy6: волосатый
-	Fluffy1: пушистый
-	Fluffy2: пушистый
-	Fluffy3: пушистый
-	Fluffy4: пушистый
-	Fluffy5: пушистый
-	Fluffy6: пушистый
-	Fruity1: Фруктовый
-	Fruity2: Фруктовый
-	Fruity3: Фруктовый
-	Fruity4: Фруктовый
-	Fruity5: Фруктовый
-	Fruity6: Фруктовый
-	Furry1: меховой
-	Furry2: меховой
-	Furry3: меховой
-	Furry4: меховой
-	Furry5: меховой
-	Furry6: меховой
-	Gargantuan1: колоссальный
-	Gargantuan2: колоссальный
-	Gargantuan3: колоссальный
-	Gargantuan4: колоссальный
-	Gargantuan5: колоссальный
-	Gargantuan6: колоссальный
-	Giant1: гигантская
-	Giant2: гигантская
-	Giant3: гигантская
-	Giant4: гигантская
-	Giant5: гигантская
-	Giant6: гигантская
-	Gooey1: слизистая
-	Gooey2: слизистая
-	Gooey3: слизистая
-	Gooey4: слизистая
-	Gooey5: слизистая
-	Gooey6: слизистая
-	Hefty1: тяжелая
-	Hefty2: тяжелая
-	Hefty3: тяжелая
-	Hefty4: тяжелая
-	Hefty5: тяжелая
-	Hefty6: тяжелая
-	Inviting1: Привлекательный
-	Inviting2: Привлекательный
-	Inviting3: Привлекательный
-	Inviting4: Привлекательный
-	Inviting5: Привлекательный
-	Inviting6: Привлекательный
-	Juicy1: Сочное
-	Juicy2: Сочное
-	Juicy3: Сочное
-	Juicy4: Сочное
-	Juicy5: Сочное
-	Juicy6: Сочное
-	Massive1: Массивный
-	Massive2: Массивный
-	Massive3: Массивный
-	Massive4: Массивный
-	Massive5: Массивный
-	Massive6: Массивный
-	Meaty1: дающий пищу уму
-	Meaty2: дающий пищу уму
-	Meaty3: дающий пищу уму
-	Meaty4: дающий пищу уму
-	Meaty5: дающий пищу уму
-	Meaty6: дающий пищу уму
-	Naughty1: непослушная
-	Naughty2: непослушная
-	Naughty3: непослушная
-	Naughty4: непослушная
-	Naughty5: непослушная
-	Naughty6: непослушная
-	Small1: маленькие
-	Small2: маленькие
-	Small3: маленькие
-	Small4: маленькие
-	Small5: маленькие
-	Small6: маленькие
-	Smelly1: вонючие
-	Smelly2: вонючие
-	Smelly3: вонючие
-	Smelly4: вонючие
-	Smelly5: вонючие
-	Smelly6: вонючие
-	Soft1: мягкие
-	Soft2: мягкие
-	Soft3: мягкие
-	Soft4: мягкие
-	Soft5: мягкие
-	Soft6: мягкие
-	Special1: Особенный
-	Special2: Особенный
-	Special3: Особенный
-	Special4: Особенный
-	Special5: Особенный
-	Special6: Особенный
-	Spicy1: острый
-	Spicy2: острый
-	Spicy3: острый
-	Spicy4: острый
-	Spicy5: острый
-	Spicy6: острый
-	Steaming1: дымящийся
-	Steaming2: дымящийся
-	Steaming3: дымящийся
-	Steaming4: дымящийся
-	Steaming5: дымящийся
-	Steaming6: дымящийся
-	Unstable1: неустойчивый
-	Unstable2: неустойчивый
-	Unstable3: неустойчивый
-	Unstable4: неустойчивый
-	Unstable5: неустойчивый
-	Unstable6: неустойчивый
-	Warm1: теплая
-	Warm2: теплая
-	Warm3: теплая
-	Warm4: теплая
-	Warm5: теплая
-	Warm6: теплая
-	Wild1: дикое
-	Wild2: дикое
-	Wild3: дикое
-	Wild4: дикое
-	Wild5: дикое
-	Wild6: дикое
-}
+Changing: меняющийся
+Comfy: уютный
+Fleshy: мясистый
+Floofy: волосатый
+Fluffy: пушистый
+Fruity: Фруктовый
+Furry: меховой
+Gargantuan: колоссальный
+Giant: гигантская
+Gooey: слизистая
+Hefty: тяжелая
+Inviting: Привлекательный
+Juicy: Сочное
+Massive: Массивный
+Meaty: дающий пищу уму
+Naughty: непослушная
+Small: маленькие
+Smelly: вонючие
+Soft: мягкие
+Special: Особенный
+Spicy: острый
+Steaming: дымящийся
+Unstable: неустойчивый
+Warm: теплая
+Wild: дикое

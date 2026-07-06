@@ -487,6 +487,19 @@ namespace ChangedSpecialMod.Utilities
                 case TileID.Stone:
                 case TileID.Ebonstone:
                 case TileID.Crimstone:
+
+                // Mossy stone
+                case TileID.GreenMoss:
+                case TileID.BrownMoss:
+                case TileID.RedMoss:
+                case TileID.BlueMoss:
+                case TileID.PurpleMoss:
+                case TileID.LavaMoss:
+                case TileID.KryptonMoss:
+                case TileID.XenonMoss:
+                case TileID.ArgonMoss:
+                case TileID.VioletMoss:
+                case TileID.RainbowMoss:
                     tileType = ModContent.TileType<BlackLatexStoneTile>();
                     break;
 
@@ -536,6 +549,19 @@ namespace ChangedSpecialMod.Utilities
                 case TileID.Stone:
                 case TileID.Ebonstone:
                 case TileID.Crimstone:
+
+                // Mossy stone
+                case TileID.GreenMoss:
+                case TileID.BrownMoss:
+                case TileID.RedMoss:
+                case TileID.BlueMoss:
+                case TileID.PurpleMoss:
+                case TileID.LavaMoss:
+                case TileID.KryptonMoss:
+                case TileID.XenonMoss:
+                case TileID.ArgonMoss:
+                case TileID.VioletMoss:
+                case TileID.RainbowMoss:
                     tileType = ModContent.TileType<WhiteLatexStoneTile>();
                     break;
 

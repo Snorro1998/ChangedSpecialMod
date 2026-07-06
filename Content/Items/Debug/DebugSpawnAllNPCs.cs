@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +24,17 @@ namespace ChangedSpecialMod.Content.Items.Debug
             if (Main.netMode == NetmodeID.MultiplayerClient)
                 return true;
 
+            var changedMod = ChangedSpecialMod.Instance;
+            changedMod.Call("spawnall");
+            //ChangedUtils.SpawnAllNPCs(player);
+
+            /*
             var entitySource = Item.GetSource_FromThis();
+
+            var changedMod = ChangedSpecialMod.Instance;
+            changedMod.Call("orang");
+
+            return true;
 
             var npcs = new List<int>
             {
@@ -92,6 +103,7 @@ namespace ChangedSpecialMod.Content.Items.Debug
                 int yPos = (int)player.Center.Y + Main.rand.Next(-20, 0) * 16;
                 NPC.NewNPCDirect(entitySource, xPos, yPos, npc, player.whoAmI);
             }
+            */
 
             return true;
         }

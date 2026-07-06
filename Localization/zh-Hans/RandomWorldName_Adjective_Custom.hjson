@@ -1,154 +1,26 @@
 # 728 entries in vanilla
-# 6?? percent chance it will be one of those
-RandomWorldName_Adjective_Custom: {
-	Changing1: 不断变化
-	Changing2: 不断变化
-	Changing3: 不断变化
-	Changing4: 不断变化
-	Changing5: 不断变化
-	Changing6: 不断变化
-	Comfy1: 舒适
-	Comfy2: 舒适
-	Comfy3: 舒适
-	Comfy4: 舒适
-	Comfy5: 舒适
-	Comfy6: 舒适
-	Fleshy1: 肉质
-	Fleshy2: 肉质
-	Fleshy3: 肉质
-	Fleshy4: 肉质
-	Fleshy5: 肉质
-	Fleshy6: 肉质
-	Floofy1: 蓬松的
-	Floofy2: 蓬松的
-	Floofy3: 蓬松的
-	Floofy4: 蓬松的
-	Floofy5: 蓬松的
-	Floofy6: 蓬松的
-	Fluffy1: 蓬松的
-	Fluffy2: 蓬松的
-	Fluffy3: 蓬松的
-	Fluffy4: 蓬松的
-	Fluffy5: 蓬松的
-	Fluffy6: 蓬松的
-	Fruity1: 果香
-	Fruity2: 果香
-	Fruity3: 果香
-	Fruity4: 果香
-	Fruity5: 果香
-	Fruity6: 果香
-	Furry1: 毛茸茸
-	Furry2: 毛茸茸
-	Furry3: 毛茸茸
-	Furry4: 毛茸茸
-	Furry5: 毛茸茸
-	Furry6: 毛茸茸
-	Gargantuan1: 巨型
-	Gargantuan2: 巨型
-	Gargantuan3: 巨型
-	Gargantuan4: 巨型
-	Gargantuan5: 巨型
-	Gargantuan6: 巨型
-	Giant1: 巨
-	Giant2: 巨
-	Giant3: 巨
-	Giant4: 巨
-	Giant5: 巨
-	Giant6: 巨
-	Gooey1: 黏糊糊的
-	Gooey2: 黏糊糊的
-	Gooey3: 黏糊糊的
-	Gooey4: 黏糊糊的
-	Gooey5: 黏糊糊的
-	Gooey6: 黏糊糊的
-	Hefty1: 厚重
-	Hefty2: 厚重
-	Hefty3: 厚重
-	Hefty4: 厚重
-	Hefty5: 厚重
-	Hefty6: 厚重
-	Inviting1: 诱人
-	Inviting2: 诱人
-	Inviting3: 诱人
-	Inviting4: 诱人
-	Inviting5: 诱人
-	Inviting6: 诱人
-	Juicy1: 多汁
-	Juicy2: 多汁
-	Juicy3: 多汁
-	Juicy4: 多汁
-	Juicy5: 多汁
-	Juicy6: 多汁
-	Massive1: 大量的
-	Massive2: 大量的
-	Massive3: 大量的
-	Massive4: 大量的
-	Massive5: 大量的
-	Massive6: 大量的
-	Meaty1: 肉质的
-	Meaty2: 肉质的
-	Meaty3: 肉质的
-	Meaty4: 肉质的
-	Meaty5: 肉质的
-	Meaty6: 肉质的
-	Naughty1: 淘气
-	Naughty2: 淘气
-	Naughty3: 淘气
-	Naughty4: 淘气
-	Naughty5: 淘气
-	Naughty6: 淘气
-	Small1: 小
-	Small2: 小
-	Small3: 小
-	Small4: 小
-	Small5: 小
-	Small6: 小
-	Smelly1: 臭
-	Smelly2: 臭
-	Smelly3: 臭
-	Smelly4: 臭
-	Smelly5: 臭
-	Smelly6: 臭
-	Soft1: 柔软
-	Soft2: 柔软
-	Soft3: 柔软
-	Soft4: 柔软
-	Soft5: 柔软
-	Soft6: 柔软
-	Special1: 特别的
-	Special2: 特别的
-	Special3: 特别的
-	Special4: 特别的
-	Special5: 特别的
-	Special6: 特别的
-	Spicy1: 辛辣的
-	Spicy2: 辛辣的
-	Spicy3: 辛辣的
-	Spicy4: 辛辣的
-	Spicy5: 辛辣的
-	Spicy6: 辛辣的
-	Steaming1: 蒸
-	Steaming2: 蒸
-	Steaming3: 蒸
-	Steaming4: 蒸
-	Steaming5: 蒸
-	Steaming6: 蒸
-	Unstable1: 不稳定
-	Unstable2: 不稳定
-	Unstable3: 不稳定
-	Unstable4: 不稳定
-	Unstable5: 不稳定
-	Unstable6: 不稳定
-	Warm1: 温暖的
-	Warm2: 温暖的
-	Warm3: 温暖的
-	Warm4: 温暖的
-	Warm5: 温暖的
-	Warm6: 温暖的
-	Wild1: 野生
-	Wild2: 野生
-	Wild3: 野生
-	Wild4: 野生
-	Wild5: 野生
-	Wild6: 野生
-}
+Changing: 不断变化
+Comfy: 舒适
+Fleshy: 肉质
+Floofy: 蓬松的
+Fluffy: 蓬松的
+Fruity: 果香
+Furry: 毛茸茸
+Gargantuan: 巨型
+Giant: 巨
+Gooey: 黏糊糊的
+Hefty: 厚重
+Inviting: 诱人
+Juicy: 多汁
+Massive: 大量的
+Meaty: 肉质的
+Naughty: 淘气
+Small: 小
+Smelly: 臭
+Soft: 柔软
+Special: 特别的
+Spicy: 辛辣的
+Steaming: 蒸
+Unstable: 不稳定
+Warm: 温暖的
+Wild: 野生

@@ -1,130 +1,34 @@
 # 497 entries in vanilla
 # 10 percent chance it will be one of those
-BallPit1: Piscina de Bolinhas
-BallPit2: Piscina de Bolinhas
-BallPit3: Piscina de Bolinhas
-BallPit4: Piscina de Bolinhas
-Basement1: Porão
-Basement2: Porão
-Basement3: Porão
-Basement4: Porão
-BathWater1: Água do banho
-BathWater2: Água do banho
-BathWater3: Água do banho
-BathWater4: Água do banho
-BeanBag1: Puf
-BeanBag2: Puf
-BeanBag3: Puf
-BeanBag4: Puf
-Body1: Corpo
-Body2: Corpo
-Body3: Corpo
-Body4: Corpo
-BouncyCastle1: Castelo inflável
-BouncyCastle2: Castelo inflável
-BouncyCastle3: Castelo inflável
-BouncyCastle4: Castelo inflável
-Closet1: Armário
-Closet2: Armário
-Closet3: Armário
-Closet4: Armário
-Cottage1: Cabana
-Cottage2: Cabana
-Cottage3: Cabana
-Cottage4: Cabana
-Crib1: Berço
-Crib2: Berço
-Crib3: Berço
-Crib4: Berço
-CrystalZone1: Caverna de Cristal
-CrystalZone2: Caverna de Cristal
-CrystalZone3: Caverna de Cristal
-CrystalZone4: Caverna de Cristal
-Ears1: Orelhas
-Ears2: Orelhas
-Ears3: Orelhas
-Ears4: Orelhas
-Feet1: Pés
-Feet2: Pés
-Feet3: Pés
-Feet4: Pés
-GooJungle1: Selva Gosmenta
-GooJungle2: Selva Gosmenta
-GooJungle3: Selva Gosmenta
-GooJungle4: Selva Gosmenta
-Greenhouse1: Estufa
-Greenhouse2: Estufa
-Greenhouse3: Estufa
-Greenhouse4: Estufa
-Grotto1: Gruta
-Grotto2: Gruta
-Grotto3: Gruta
-Grotto4: Gruta
-Hut1: Choupana
-Hut2: Choupana
-Hut3: Choupana
-Hut4: Choupana
-LatexZone1: Zona da Gosma
-LatexZone2: Zona da Gosma
-LatexZone3: Zona da Gosma
-LatexZone4: Zona da Gosma
-Library1: Biblioteca
-Library2: Biblioteca
-Library3: Biblioteca
-Library4: Biblioteca
-Laboratory1: Laboratório
-Laboratory2: Laboratório
-Laboratory3: Laboratório
-Laboratory4: Laboratório
-Maw1: Bucho
-Maw2: Bucho
-Maw3: Bucho
-Maw4: Bucho
-Mouth1: Boca
-Mouth2: Boca
-Mouth3: Boca
-Mouth4: Boca
-Nose1: Nariz
-Nose2: Nariz
-Nose3: Nariz
-Nose4: Nariz
-PartyRoom1: Salão de Festas
-PartyRoom2: Salão de Festas
-PartyRoom3: Salão de Festas
-PartyRoom4: Salão de Festas
-Paws1: Patas
-Paws2: Patas
-Paws3: Patas
-Paws4: Patas
-SandCastle1: Castelo de areia
-SandCastle2: Castelo de areia
-SandCastle3: Castelo de areia
-SandCastle4: Castelo de areia
-Snack1: Lanche
-Snack2: Lanche
-Snack3: Lanche
-Snack4: Lanche
-Shack1: Choça
-Shack2: Choça
-Shack3: Choça
-Shack4: Choça
-SwimmingPool1: Piscina
-SwimmingPool2: Piscina
-SwimmingPool3: Piscina
-SwimmingPool4: Piscina
-Tail1: Cauda
-Tail2: Cauda
-Tail3: Cauda
-Tail4: Cauda
-Toes1: Dedos
-Toes2: Dedos
-Toes3: Dedos
-Toes4: Dedos
-Tongue1: Língua
-Tongue2: Língua
-Tongue3: Língua
-Tongue4: Língua
-Underwear1: Roupa íntima
-Underwear2: Roupa íntima
-Underwear3: Roupa íntima
-Underwear4: Roupa íntima
+BallPit: Piscina de Bolinhas
+Basement: Porão
+BathWater: Água do banho
+BeanBag: Puf
+Body: Corpo
+BouncyCastle: Castelo inflável
+Closet: Armário
+Cottage: Cabana
+Crib: Berço
+CrystalZone: Caverna de Cristal
+Ears: Orelhas
+Feet: Pés
+GooJungle: Selva Gosmenta
+Greenhouse: Estufa
+Grotto: Gruta
+Hut: Choupana
+LatexZone: Zona da Gosma
+Library: Biblioteca
+Laboratory: Laboratório
+Maw: Bucho
+Mouth: Boca
+Nose: Nariz
+PartyRoom: Salão de Festas
+Paws: Patas
+SandCastle: Castelo de areia
+Snack: Lanche
+Shack: Choça
+SwimmingPool: Piscina
+Tail: Cauda
+Toes: Dedos
+Tongue: Língua
+Underwear: Roupa íntima

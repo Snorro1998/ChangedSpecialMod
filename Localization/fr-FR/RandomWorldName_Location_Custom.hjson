@@ -1,130 +1,34 @@
 # 497 entries in vanilla
 # 10 percent chance it will be one of those
-BallPit1: Piscine à balles
-BallPit2: Piscine à balles
-BallPit3: Piscine à balles
-BallPit4: Piscine à balles
-Basement1: Sous-sol
-Basement2: Sous-sol
-Basement3: Sous-sol
-Basement4: Sous-sol
-BathWater1: Eau du bain
-BathWater2: Eau du bain
-BathWater3: Eau du bain
-BathWater4: Eau du bain
-BeanBag1: Pouf
-BeanBag2: Pouf
-BeanBag3: Pouf
-BeanBag4: Pouf
-Body1: Corps
-Body2: Corps
-Body3: Corps
-Body4: Corps
-BouncyCastle1: Château gonflable
-BouncyCastle2: Château gonflable
-BouncyCastle3: Château gonflable
-BouncyCastle4: Château gonflable
-Closet1: Placard
-Closet2: Placard
-Closet3: Placard
-Closet4: Placard
-Cottage1: Chalet
-Cottage2: Chalet
-Cottage3: Chalet
-Cottage4: Chalet
-Crib1: Berceau
-Crib2: Berceau
-Crib3: Berceau
-Crib4: Berceau
-CrystalZone1: Grotte de cristal
-CrystalZone2: Grotte de cristal
-CrystalZone3: Grotte de cristal
-CrystalZone4: Grotte de cristal
-Ears1: Oreilles
-Ears2: Oreilles
-Ears3: Oreilles
-Ears4: Oreilles
-Feet1: Pieds
-Feet2: Pieds
-Feet3: Pieds
-Feet4: Pieds
-GooJungle1: Jungle de Gelée
-GooJungle2: Jungle de Gelée
-GooJungle3: Jungle de Gelée
-GooJungle4: Jungle de Gelée
-Greenhouse1: Serre
-Greenhouse2: Serre
-Greenhouse3: Serre
-Greenhouse4: Serre
-Grotto1: Grotte
-Grotto2: Grotte
-Grotto3: Grotte
-Grotto4: Grotte
-Hut1: Cabane
-Hut2: Cabane
-Hut3: Cabane
-Hut4: Cabane
-LatexZone1: Zone de Gelée
-LatexZone2: Zone de Gelée
-LatexZone3: Zone de Gelée
-LatexZone4: Zone de Gelée
-Library1: Bibliothèque
-Library2: Bibliothèque
-Library3: Bibliothèque
-Library4: Bibliothèque
-Laboratory1: Laboratoire
-Laboratory2: Laboratoire
-Laboratory3: Laboratoire
-Laboratory4: Laboratoire
-Maw1: Gueule
-Maw2: Gueule
-Maw3: Gueule
-Maw4: Gueule
-Mouth1: Bouche
-Mouth2: Bouche
-Mouth3: Bouche
-Mouth4: Bouche
-Nose1: Nez
-Nose2: Nez
-Nose3: Nez
-Nose4: Nez
-PartyRoom1: Chambre la fête
-PartyRoom2: Chambre la fête
-PartyRoom3: Chambre la fête
-PartyRoom4: Chambre la fête
-Paws1: Pattes
-Paws2: Pattes
-Paws3: Pattes
-Paws4: Pattes
-SandCastle1: Château de sable
-SandCastle2: Château de sable
-SandCastle3: Château de sable
-SandCastle4: Château de sable
-Snack1: Collation
-Snack2: Collation
-Snack3: Collation
-Snack4: Collation
-Shack1: Case
-Shack2: Case
-Shack3: Case
-Shack4: Case
-SwimmingPool1: Piscine
-SwimmingPool2: Piscine
-SwimmingPool3: Piscine
-SwimmingPool4: Piscine
-Tail1: Queue
-Tail2: Queue
-Tail3: Queue
-Tail4: Queue
-Toes1: Orteils
-Toes2: Orteils
-Toes3: Orteils
-Toes4: Orteils
-Tongue1: Langue
-Tongue2: Langue
-Tongue3: Langue
-Tongue4: Langue
-Underwear1: Sous-vêtement
-Underwear2: Sous-vêtement
-Underwear3: Sous-vêtement
-Underwear4: Sous-vêtement
+BallPit: Piscine à balles
+Basement: Sous-sol
+BathWater: Eau du bain
+BeanBag: Pouf
+Body: Corps
+BouncyCastle: Château gonflable
+Closet: Placard
+Cottage: Chalet
+Crib: Berceau
+CrystalZone: Grotte de cristal
+Ears: Oreilles
+Feet: Pieds
+GooJungle: Jungle de Gelée
+Greenhouse: Serre
+Grotto: Grotte
+Hut: Cabane
+LatexZone: Zone de Gelée
+Library: Bibliothèque
+Laboratory: Laboratoire
+Maw: Gueule
+Mouth: Bouche
+Nose: Nez
+PartyRoom: Chambre la fête
+Paws: Pattes
+SandCastle: Château de sable
+Snack: Collation
+Shack: Case
+SwimmingPool: Piscine
+Tail: Queue
+Toes: Orteils
+Tongue: Langue
+Underwear: Sous-vêtement

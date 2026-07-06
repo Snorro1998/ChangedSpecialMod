@@ -684,13 +684,13 @@ Mods: {
 			}
 
 			LatexMoth: {
-				// DisplayName: Slime Moth
-				// Description: Fuzzy
+				DisplayName: Слизистый мотыль
+				Description: Слизь, которая притягивается к свету
 			}
 
 			Snek: {
-				// DisplayName: Snake
-				// Description: Noodle
+				DisplayName: Змея
+				Description: Длинный и быстрый
 			}
 		}
 

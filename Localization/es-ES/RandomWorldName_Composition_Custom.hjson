@@ -3,30 +3,6 @@
 # Squid Dog and Tiger Shark would look better with 'the' in front of it, but then the name would often be too long
 # A name will never be chosen if it has more then 27 characters
 RandomWorldName_Composition_Custom: {
-	1A: El {Location} {Adjective} de {Noun}
-	1B: El {Location} {Adjective} de {Noun}
-	1C: El {Location} {Adjective} de {Noun}
-	2A: El {Location} {Adjective} de {Noun}
-	2B: El {Location} {Adjective} de {Noun}
-	2C: El {Location} {Adjective} de {Noun}
-	3A: "{Location} {Adjective} de {Noun}"
-	3B: "{Location} {Adjective} de {Noun}"
-	3C: "{Location} {Adjective} de {Noun}"
-	4A: "{Location} {Adjective} de {Noun}"
-	4B: "{Location} {Adjective} de {Noun}"
-	4C: "{Location} {Adjective} de {Noun}"
-	5A: El {Location} {Adjective}
-	5B: El {Location} {Adjective}
-	5C: El {Location} {Adjective}
-	6A: "{Adjective} {Location}"
-	6B: "{Adjective} {Location}"
-	6C: "{Adjective} {Location}"
-	7A: El {Location} de {Noun}
-	7B: El {Location} de {Noun}
-	7C: El {Location} de {Noun}
-	8A: "{Location} de {Noun}"
-	8B: "{Location} de {Noun}"
-	8C: "{Location} de {Noun}"
 	Colin1: El {Adjective} {Location} de Colin
 	Colin2: "{Adjective} {Location} de Colin"
 	Colin3: El {Location} de Colin
