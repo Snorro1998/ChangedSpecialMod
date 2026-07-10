@@ -1090,6 +1090,8 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = npc.Changed();
             if (CurrentHat != null)
             {
+                drawColor *= (1 - npc.shimmerTransparency);
+
                 //Content/Items/AlpineHat
                 Texture2D hatTexture = null;
                 if (CurrentHat.ModHatTexture != null)
@@ -1133,7 +1135,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 if (CurrentHat.HatId == ItemID.MiningHelmet)
                 {
-                    Lighting.AddLight(npc.Center, 1f, 1f, 1f);
+                    var lightColor = new Vector3(1f, 1f, 1f) * (1 - npc.shimmerTransparency);
+                    Lighting.AddLight(npc.Center, lightColor.X, lightColor.Y, lightColor.Z);
                 }
             }
 

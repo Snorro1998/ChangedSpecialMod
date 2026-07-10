@@ -79,6 +79,15 @@ namespace ChangedSpecialMod.Utilities
             On_Lang.GetDryadWorldStatusDialog -= Hook_GetDryadWorldStatusDialog;
         }
 
+        private enum BiomeType : byte
+        {
+            None,
+            Latex,
+            Corrupt,
+            Crimson,
+            Hallow
+        }
+
         private static string Hook_GetDryadWorldStatusDialog(
     On_Lang.orig_GetDryadWorldStatusDialog orig,
     out bool worldIsEntirelyPure)
@@ -100,8 +109,10 @@ namespace ChangedSpecialMod.Utilities
             var nBlood = 0;
             var nLatex = 0;
 
-            List<int> latexBlocks = new List<int>()
-            {
+            BiomeType[] TileLookup = new BiomeType[TileLoader.TileCount];
+
+            HashSet<int> LatexCountCollection =
+            [
                 ModContent.TileType<BlackLatexTile>(),
                 ModContent.TileType<BlackLatexSandTile>(),
                 ModContent.TileType<BlackLatexStoneTile>(),
@@ -109,11 +120,60 @@ namespace ChangedSpecialMod.Utilities
                 ModContent.TileType<WhiteLatexTile>(),
                 ModContent.TileType<WhiteLatexSandTile>(),
                 ModContent.TileType<WhiteLatexStoneTile>()
-            };
+            ];
 
-            var CorruptCountCollection = new List<int> { 23, 661, 25, 112, 163, 398, 400, 636, 24, 32 };
-            var CrimsonCountCollection = new List<int> { 199, 662, 203, 234, 200, 399, 401, 205, 201, 352 };
-            var HallowCountCollection = new List<int> { 109, 117, 116, 164, 402, 403, 115, 110, 113 };
+            HashSet<ushort> CorruptCountCollection =
+            [
+                TileID.CorruptGrass,
+                TileID.CorruptPlants,
+                TileID.Ebonstone,
+                TileID.CorruptThorns, 
+                TileID.Ebonsand, 
+                TileID.CorruptIce, 
+                TileID.CorruptHardenedSand, 
+                TileID.CorruptSandstone, 
+                TileID.CorruptVines,
+                TileID.CorruptJungleGrass
+            ];
+
+            HashSet<ushort> CrimsonCountCollection =
+            [
+                TileID.CrimsonGrass,
+                TileID.FleshIce,
+                TileID.CrimsonPlants,
+                TileID.Crimstone,
+                TileID.CrimsonVines,
+                TileID.Crimsand,
+                TileID.CrimsonThorns,
+                TileID.CrimsonHardenedSand,
+                TileID.CrimsonSandstone,
+                TileID.CrimsonJungleGrass
+            ];
+
+            HashSet<ushort> HallowCountCollection =
+            [
+                TileID.HallowedGrass,
+                TileID.HallowedPlants,
+                TileID.HallowedPlants2,
+                TileID.HallowedVines,
+                TileID.Pearlsand,
+                TileID.Pearlstone,  
+                TileID.HallowedIce, 
+                TileID.HallowHardenedSand, 
+                TileID.HallowSandstone
+            ];
+
+            foreach (ushort id in CorruptCountCollection)
+                TileLookup[id] = BiomeType.Corrupt;
+
+            foreach (ushort id in CrimsonCountCollection)
+                TileLookup[id] = BiomeType.Crimson;
+
+            foreach (ushort id in HallowCountCollection)
+                TileLookup[id] = BiomeType.Hallow;
+
+            foreach (int id in LatexCountCollection)
+                TileLookup[id] = BiomeType.Latex;
 
             for (var x = 0; x < Main.maxTilesX; x++)
             {
@@ -123,14 +183,22 @@ namespace ChangedSpecialMod.Utilities
                     if (!tile.HasTile)
                         continue;
                     nTotalBlocks++;
-                    if (latexBlocks.Contains(tile.TileType))
-                        nLatex++;
-                    else if (CorruptCountCollection.Contains(tile.TileType))
-                        nEvil++;
-                    else if (CrimsonCountCollection.Contains(tile.TileType))
-                        nBlood++;
-                    else if (HallowCountCollection.Contains(tile.TileType))
-                        nGood++;
+
+                    switch (TileLookup[tile.TileType])
+                    {
+                        case BiomeType.Latex:
+                            nLatex++;
+                            break;
+                        case BiomeType.Corrupt:
+                            nEvil++;
+                            break;
+                        case BiomeType.Crimson:
+                            nBlood++;
+                            break;
+                        case BiomeType.Hallow:
+                            nGood++;
+                            break;
+                    }
                 }
             }
 

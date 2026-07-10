@@ -472,6 +472,7 @@ namespace ChangedSpecialMod.Content.NPCs
             Texture2D textureRadio = Mod.Assets.Request<Texture2D>("Content/NPCs/Prototype_Radio").Value;
             int frameHeight = textureRadio.Height / nFramesRadio;
             Rectangle frameRadio = new Rectangle(0, frameIndexRadio * frameHeight, textureRadio.Width, frameHeight);
+            drawColor *= (1 - NPC.shimmerTransparency);
 
             // Mmm spaghetti
             if (frameHeight > 0)
@@ -506,6 +507,7 @@ namespace ChangedSpecialMod.Content.NPCs
             Texture2D textureLight = Mod.Assets.Request<Texture2D>("Content/NPCs/Prototype_Light").Value;
             Vector2 drawPos = NPC.Top - screenPos;
             drawPos.Y += NPC.gfxOffY;
+            drawColor *= (1 - NPC.shimmerTransparency);
 
             SpriteEffects effects = NPC.direction == 1
                 ? SpriteEffects.FlipHorizontally
@@ -579,6 +581,7 @@ namespace ChangedSpecialMod.Content.NPCs
             float mean = 0.65f;
             float alpha = (float)Math.Sin(Main.GlobalTimeWrappedHourly * speed) * amplitude + mean;
             lightColor *= alpha;
+            lightColor *= (1 - NPC.shimmerTransparency);
         }
 
         private void DetermineHat(ChangedNPC changedNPC)

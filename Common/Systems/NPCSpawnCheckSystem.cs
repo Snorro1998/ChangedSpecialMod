@@ -129,7 +129,7 @@ namespace ChangedSpecialMod.Common.Systems
             if (NPC.AnyNPCs(ModContent.NPCType<WolfKing>()) || NPC.AnyNPCs(ModContent.NPCType<WolfKingSpawn>()))
                 return false;
 
-            int blockCheckSpacing = 8;
+            int blockCheckSpacing = 6;
             if (summon && playerIndex != -1)
             {
                 for (int y = 0; y < Main.worldSurface; y += blockCheckSpacing)

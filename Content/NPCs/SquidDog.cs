@@ -20,7 +20,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
 			Main.npcFrameCount[Type] = 4;
-            NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<MaleDarkLatex>();
+            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<MaleDarkLatex>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,

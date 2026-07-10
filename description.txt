@@ -21,6 +21,7 @@ This mod has built-in support for:
 - Fargos Mutant Mod
 - Music Display
 - Wikithis
+- Biome Titles
 
 Additionally, town npcs can sell fruits and herbs from these mods:
 - Calamity
@@ -78,58 +79,18 @@ Other
 
 --------- Changelog ---------
 
-This update adds underground biomes. 
+This update adds support for the Biome Titles mod and fixes some issues with shimmer.
 For information about previous versions, please check out the change notes in the steam workshop.
 
 
-0.5.4
+0.5.5
 
 General
-- Added Puro and Squid Dog statues.
-- NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now.
-- Added a rare underground structure.
-- Made custom world names rarer and also added a config option to disable them entirely.
-- Added support for wikithis, but you can't use it right now, because the wiki is not public yet.
-- special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface.
-- Added black and white pylons. They work at any depth.
-- Added crystal wolves, snake and slime moth
-- Added slime moth mount. Like the Yufeng mount, its stats are enhanced after entering hard mode.
-
-Underground biomes
-- Generate in the lower half of the world.
-- Most latex beast have a small change to wear a mining helmet.
-
-Black latex cave
-- Crystal wolves spawn here. They can drop gems.
-
-White latex cave
-- Slime moths can spawn here. They can drop a mount item.
-- Slime snakes can also spawn here. They are very fast and can drop the snake flute.
-
-Latex spread
-- Added black and white slimestone.
-- Latex can now spread to stone.
-- The dryad can now tell how much goo there is in the world.
-- Latex blocks are now highlighted when under the effects of the biome sight potion.
-- Because of the new underground biomes, the restriction that latex could only spread on the surface has been removed.
-
-Resprited
-- Dr K.
-- Tabby Cat
-- Maintenance robot
-
-Mod calls (for developers)
-- bossdowned: check if a boss has been defeated (whitetail, wolfking, behemoth)
-- orange: spawns oranges around all players
-- spawnall: spawn all NPCs
+- Added support for Biome Titles
+- Removed latex beast shimmer transmutations, because they were buggy. Now they just become transparent.
+- Greatly optimized the code for the dryad's world status, so now the game won't hang anymore when you click the button.
 
 Fixes
-- Blocks not merging correctly when next to dirt.
-- Prototype not selling Dragonfruit and Starfruit in hardmode.
-- Waterfalls glowed in the dark when in any Changed biome.
-- Buff icon of Yugeng mount still used the old sprite.
-
-Hotfixes
-
-0.5.4.1
-- Disabled custom window titles for MacOS, because it was causing crashes.
+- Prototype did not become transparent from shimmer.
+- Hats of shimmering latex beasts did not become transparent.
+- It was possible that the strange swivel chair would not summon the wolf king if the black goo room had the smallest possible room height of 9 blocks.
