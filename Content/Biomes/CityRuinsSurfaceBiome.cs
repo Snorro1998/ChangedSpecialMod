@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Backgrounds;
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -44,6 +45,7 @@ namespace ChangedSpecialMod.Content.Biomes
         {
             LastEnteredPlayer = player;
             AudioSystem.RandomizeMusic(player, NPCs.GooType.None);
+            //ModContent.GetInstance<VisitAllBiomesAchievement>().ConditionCityRuins.Complete();
         }
 
         public bool IsInBiome()

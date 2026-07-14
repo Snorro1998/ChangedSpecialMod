@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} meinte, es sei gesund, zwei Stück Obst am Tag zu essen. Ich sagte ihr, ich esse zehn Orangen am Tag!"
 					NPCTaxCollector: Mensch, was sind denn „Steuern“? {NameTaxCollector} war sehr mürrisch und meinte, ich solle sie bezahlen.
 					NPCZoologist: "{NameZoologist} ist so süß mit ihren großen Ohren und ihrem flauschigen Schwanz. Aber nicht so süß wie du, hehehe..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} erzählte mir allerlei Dinge über „Magie“, aber ich wollte nur wissen, ob man daraus Orangen machen kann."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} hat so viele Schuhe, aber sie sind alle zu klein für meine Pfoten."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Ich verstehe nicht, warum {NameStarsModPackFarmer} keine Orangenbaumsamen hat. Jeder Bauer sollte welche haben."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Mensch, weißt du, warum {NameStarsModPackScrapyardGeek} immerz zso redetz?"
 					Book1: Ich beurteile Bücher wie Orangen: danach, wie befriedigend sie bis zur letzten Seite oder dem letzten Stück sind.
 					Book2: Hallo Mensch! Hast du mein Buch gesehen?
 					Book3: Hilfst du mir, den größten Bücherturm zu bauen?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Schalten Sie den Strom in einem Labor ein.
+				FriendlyName: Und es werde Licht
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Besiege den Weißschwanz
+				FriendlyName: Schneller Schwanz
+			}
+
+			ACWolfKingAchievement: {
+				Description: Besiege den Wolfskönig
+				FriendlyName: Der böse Wolf
+			}
+
+			ADBehemothAchievement: {
+				Description: Besiege den Gigant
+				FriendlyName: Sehr großes Problem
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Kuscheliger Koloss
+				Description: Besiege einen sehr großen Schleim.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Schleimige Expedition
+				Description: Besuchen Sie alle schleimigen Bereiche.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Zitrusschrein
+				Description: Finde einen Zitrusschrein.
+			}
+
+			RocketScienceAchievement: {
+				Description: Lass eine Gasflasche wegfliegen.
+				FriendlyName: Raketenwissenschaft
+			}
 		}
 	}
 }

@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Content.Tiles;
-using ChangedSpecialMod.Content.Tiles.Latex;
+﻿using ChangedSpecialMod.Content.Tiles.Latex;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Latex
         {
             Item.ResearchUnlockCount = 100;
             ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<BlackLatexBlock>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<BlackLatexStoneBlock>();
         }
 
         public override void SetDefaults()

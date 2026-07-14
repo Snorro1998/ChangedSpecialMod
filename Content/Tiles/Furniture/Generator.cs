@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Net.Sockets;
+﻿using ChangedSpecialMod.Content.Achievements;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -18,7 +17,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             Main.tileFrameImportant[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = false;
-            // Copy default settings
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.Width = 4;
             TileObjectData.newTile.Height = 4;
@@ -28,28 +26,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             AnimationFrameHeight = 72;
         }
 
-        /*
-        // I don't know why, but without this it won't drop an item if it is turned on
-        public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
-        {
-            noItem = true;
-            var coords = TileObjectData.TopLeft(i, j);
-            var isEnabled = Main.tile[i, j].TileFrameX > 0;
-
-            // Breaking top left tile
-            if (coords.X == i && coords.Y == j && isEnabled && !fail)
-            {
-                Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Placeable.Furniture.Generator>());
-            }
-
-            base.KillTile(i, j, ref fail, ref effectOnly, ref noItem);
-        }
-        */
-
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-            if (frameCounter >= 10) // speed of animation (lower = faster)
+            if (frameCounter >= 10)
             {
                 frameCounter = 0;
                 frame = (frame + 1) % 3;
@@ -84,6 +64,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 packet.Send();
             }
 
+            ModContent.GetInstance<AATurnPowerOnAchievement>().ConditionTurnPowerOn.Complete();
             bool wireSkip = Wiring.running;
 
             for (int y = 0; y < 4; y++)

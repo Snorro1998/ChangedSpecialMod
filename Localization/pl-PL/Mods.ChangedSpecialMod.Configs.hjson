@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: Dodatkowe informacje o stanie świata
 		Tooltip: Driada może również powiedzieć, ile szlamu jest na świecie.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

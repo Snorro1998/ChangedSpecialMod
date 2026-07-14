@@ -8,7 +8,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 - Some extra monsters on the drunk world
 - 3 Bosses
 - 5 upgradeable weapons
-- 2 mounts
+- 3 mounts
 - Many furniture items
 - Transformation mechanic (WIP)
 
@@ -16,12 +16,12 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 ------- Mod support -------
 
 This mod has built-in support for:
+- Biome Titles
 - Boss Checklist
 - Census
 - Fargos Mutant Mod
 - Music Display
 - Wikithis
-- Biome Titles
 
 Additionally, town npcs can sell fruits and herbs from these mods:
 - Calamity
@@ -47,7 +47,7 @@ Most items and NPCs used to have scaled down sprites from Changed as placeholder
 
 ---------- Links ----------
 
-Wiki. You can't access it yet, but the staff of wiki.gg will make it public after 13-07-2026.
+Wiki:
 https://changedterraria.wiki.gg/
 Known bugs: 
 https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M
@@ -79,7 +79,7 @@ Other
 
 --------- Changelog ---------
 
-This update adds support for the Biome Titles mod and fixes some issues with shimmer.
+This update adds achievements and fixes some issues with shimmer.
 For information about previous versions, please check out the change notes in the steam workshop.
 
 
@@ -88,9 +88,26 @@ For information about previous versions, please check out the change notes in th
 General
 - Added support for Biome Titles
 - Removed latex beast shimmer transmutations, because they were buggy. Now they just become transparent.
-- Greatly optimized the code for the dryad's world status, so now the game won't hang anymore when you click the button.
+- Greatly optimized the code for the dryad's world status. Now the game won't hang anymore when you click the button.
+
+Snow
+- Latex can spread through ice like the evils biomes and hallow. It can also spread through snow.
+- Added Glacial Goo, a slime variant for ice
+- It makes you slip endlessly like the slippery blocks in Changed
+- If you want the Changed experience, there is a config option to enable the slipping sound. It is disabled by default.
+
+Achievements
+- Let there be Light: Turn on the power in a laboratory.
+- Rocket Science: Make a gas cylinder fly away.
+- Citrus Shrine: Find a citrus shrine underground.
+- Cuddly Colossus: Defeat a very large latex.
+- Gooey Expedition: Find all biomes from this mod.
 
 Fixes
+- Removed broken iris scanner interaction text.
+- Some blocks had the wrong hit sound.
+- Wikithis not always directing to the right pages.
 - Prototype did not become transparent from shimmer.
 - Hats of shimmering latex beasts did not become transparent.
 - It was possible that the strange swivel chair would not summon the wolf king if the black goo room had the smallest possible room height of 9 blocks.
+- Hungry locker grew bigger from evolution

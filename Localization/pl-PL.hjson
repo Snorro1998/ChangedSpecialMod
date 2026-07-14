@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} powiedziała, że ​​jedzenie dwóch owoców dziennie jest dobre dla zdrowia. Powiedziałem jej, że jem dziesięć pomarańczy dziennie!"
 					NPCTaxCollector: Człowieku, co to są „podatki”? {NameTaxCollector} był bardzo zrzędliwy i powiedział, że powinienem je zapłacić.
 					NPCZoologist: "{NameZoologist} jest taka słodka z tymi swoimi dużymi uszami i puszystym ogonkiem. Ale nie tak słodka jak ty, hehehe..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} opowiadał mi mnóstwo rzeczy o „magii”, ale ja chciałem się tylko dowiedzieć, czy można z niej zrobić pomarańcze."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} ma wiele butów, ale wszystkie są za małe na moje łapy."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Nie rozumiem, dlaczego {NameStarsModPackFarmer} nie ma nasion drzewa pomarańczowego. Każdy rolnik powinien je mieć."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Człowieku, wiesz dlaczego {NameStarsModPackScrapyardGeek} zawsze tak gada?"
 					Book1: Oceniam książki tak, jak oceniam pomarańcze. Według tego, jak satysfakcjonujące są aż do ostatniej strony lub ostatniego kawałka.
 					Book2: Cześć człowieku! Widziałeś moją książkę?
 					Book3: Pomożesz mi zbudować największą wieżę z książek?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Włącz zasilanie w laboratorium.
+				FriendlyName: Niech stanie się światłość
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Pokonał biały ogon
+				FriendlyName: Biały puszysty ogon
+			}
+
+			ACWolfKingAchievement: {
+				Description: Pokonał król wilków
+				FriendlyName: Wielki zły wilk
+			}
+
+			ADBehemothAchievement: {
+				Description: Pokonał Gigant
+				FriendlyName: Bardzo duży kłopot
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Słodki Kolos
+				Description: Pokonaj bardzo dużego szlamu.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Wyprawa śluzowa
+				Description: Odwiedź wszystkie obszary ze szlamem.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Świątynia Cytrusów
+				Description: Znajdź Świątynię Cytrusów.
+			}
+
+			RocketScienceAchievement: {
+				Description: Spraw, by butla z gazem odleciała.
+				FriendlyName: Nauka o rakietach
+			}
 		}
 	}
 }

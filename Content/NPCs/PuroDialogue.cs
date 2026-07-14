@@ -18,6 +18,16 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCTavernKeep"),
                 new DialogueElement("NPCTaxCollector", "Question"),
                 new DialogueElement("NPCZoologist", "Happy"),
+
+                // Coralite
+                new DialogueElement("NPCCoraliteCrystalRobot"),
+
+                // Thorium
+                new DialogueElement("NPCThoriumCobbler"),
+
+                // Stars mod
+                new DialogueElement("NPCStarsModPackFarmer", "Question"),
+                new DialogueElement("NPCStarsModPackScrapyardGeek", "Question"),
                 
 				// Books
 				new DialogueElement("Book1"),

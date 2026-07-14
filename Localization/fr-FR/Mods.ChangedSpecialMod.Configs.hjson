@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: Informations supplémentaires sur le statut mondial
 		Tooltip: La dryade peut aussi vous indiquer la quantité de vase présente dans le monde.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

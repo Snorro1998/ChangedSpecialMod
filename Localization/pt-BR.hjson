@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} disse que comer duas frutas por dia faz bem à saúde. Eu respondi que como dez laranjas por dia!"
 					NPCTaxCollector: Humano, o que são 'impostos'? {NameTaxCollector} estava muito mal-humorado e disse que eu deveria pagá-los.
 					NPCZoologist: "{NameZoologist} é tão fofa com suas orelhas grandes e rabo peludo. Mas não tão fofa quanto você, hehehe..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} me contou todo tipo de coisa sobre 'magike', mas tudo o que eu queria saber era se dava para fazer laranjas com isso."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} tem tantos sapatos, mas todos são pequenos demais para as minhas patas."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Não entendo por que {NameStarsModPackFarmer} não tem sementes de laranjeira. Todo agricultor deveria tê-las."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Humano, você sabe por que o {NameStarsModPackScrapyardGeek} está sempre falando desse jeito?"
 					Book1: Eu avalio livros da mesma forma que avalio laranjas: pela satisfação que proporcionam do começo ao fim, até a última página ou a última fatia.
 					Book2: Olá, humano! Você já viu meu livro?
 					Book3: Você me ajudaria a construir a maior torre de livros?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Ligue a energia em um laboratório.
+				FriendlyName: Que haja luz.
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Derrote a Cauda Branca
+				FriendlyName: Cauda branca e fofa
+			}
+
+			ACWolfKingAchievement: {
+				Description: Derrote o Rei Lobo
+				FriendlyName: Lobo mau
+			}
+
+			ADBehemothAchievement: {
+				Description: Derrotou o Gigante
+				FriendlyName: Problema muito grande
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Colosso fofinho
+				Description: Derrote uma gosma muito grande.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Expedição viscosa
+				Description: Visite todas as áreas de gosma.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Santuário dos cítricos
+				Description: Encontre um santuário de cítricos.
+			}
+
+			RocketScienceAchievement: {
+				Description: Faça um cilindro de gás voar para longe.
+				FriendlyName: Ciência de foguetes
+			}
 		}
 	}
 }

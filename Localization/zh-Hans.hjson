@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse}说每天吃两个水果对身体好。我告诉她我一天吃十个橙子！"
 					NPCTaxCollector: 人类，什么是《税》？{NameTaxCollector}很不高兴，说我应该交税。
 					NPCZoologist: "{NameZoologist}长着大耳朵和毛茸茸的尾巴，真是太可爱了。不过，她还是没有你可爱，嘿嘿嘿……"
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot}跟我讲了很多关于“魔能”的事情，但我只想知道能不能用它做出橘子。"
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}我不明白为什么{NameStarsModPackFarmer}没有橘子树种子。每个农民都应该有。"
+					NPCStarsModPackScrapyardGeek: 人类，你知道{StarsModPackScrapyardGeekPresent}为什么总是那样说话吗？
 					Book1: 我评判一本书的方式就像评判一个橘子一样：看它从头到尾，直到最后一页或最后一片，是否都令人满意。
 					Book2: 你好，人类!你找到我的书了吗?
 					Book3: 你愿意帮我搭建最高的书塔吗?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: 打开实验室的电源。
+				FriendlyName: 要有光
+			}
+
+			ABWhiteTailAchievement: {
+				Description: 击败了白尾
+				FriendlyName: 白色蓬松的尾巴
+			}
+
+			ACWolfKingAchievement: {
+				Description: 击败了狼王
+				FriendlyName: 大灰狼
+			}
+
+			ADBehemothAchievement: {
+				Description: 击败了庞然大物
+				FriendlyName: 非常大的麻烦
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: 可爱的巨像
+				Description: 击败一只体型巨大的史莱姆。
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: 黏糊糊的探险
+				Description: 参观所有粘液区域。
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: 橘子神殿
+				Description: 找到一座橘子神龛
+			}
+
+			RocketScienceAchievement: {
+				Description: 让煤气罐飞走。
+				FriendlyName: 火箭科学
+			}
 		}
 	}
 }

@@ -637,7 +637,7 @@ SquidDogSyringe: {
 }
 
 BlackLatexSand: {
-	DisplayName: Black Slimy Sand
+	DisplayName: Black Slimesand Block
 	Tooltip:
 		'''
 		Can be used with the sand gun
@@ -647,7 +647,7 @@ BlackLatexSand: {
 }
 
 WhiteLatexSand: {
-	DisplayName: White Slimy Sand
+	DisplayName: White Slimesand Block
 	Tooltip:
 		'''
 		Can be used with the sand gun
@@ -794,12 +794,12 @@ SquidDogStatue: {
 }
 
 BlackLatexStoneBlock: {
-	DisplayName: Black Slimestone
+	DisplayName: Black Slimestone Block
 	Tooltip: ""
 }
 
 WhiteLatexStoneBlock: {
-	DisplayName: White Slimestone
+	DisplayName: White Slimestone Block
 	Tooltip: ""
 }
 
@@ -816,4 +816,49 @@ WhiteLatexPylon: {
 LatexMothMountItem: {
 	DisplayName: White Wing
 	Tooltip: Summons a rideable Slime Moth mount
+}
+
+BlackLatexIce: {
+	Tooltip: ""
+	DisplayName: Black Glacial Goo Block
+}
+
+WhiteLatexIce: {
+	Tooltip: ""
+	DisplayName: White Glacial Goo Block
+}
+
+WhiteLatexSnow: {
+	Tooltip: ""
+	DisplayName: White Slime Snow Block
+}
+
+BlackLatexSnow: {
+	Tooltip: ""
+	DisplayName: Black Slime Snow Block
+}
+
+DebugTeleportToInfection: {
+	Tooltip: ""
+	DisplayName: Debug Teleport To Infection
+}
+
+DebugTeleportToHallow: {
+	Tooltip: ""
+	DisplayName: Debug Teleport To Hallow
+}
+
+DebugTeleportToCrimson: {
+	Tooltip: ""
+	DisplayName: Debug Teleport To Crimson
+}
+
+DebugTeleportToLatex: {
+	Tooltip: ""
+	DisplayName: Debug Teleport To Latex
+}
+
+DebugTeleportToCorruption: {
+	Tooltip: ""
+	DisplayName: Debug Teleport To Corruption
 }

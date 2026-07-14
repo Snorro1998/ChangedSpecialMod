@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} сказала, что для здоровья полезно съедать два фрукта в день. А я ей ответила, что съедаю десять апельсинов в день!"
 					NPCTaxCollector: Человек, что такое «налоги»? {NameTaxCollector} был очень ворчлив и сказал, что я должен их заплатить.
 					NPCZoologist: "{NameZoologist} такая милая со своими большими ушками и пушистым хвостиком. Но не такая милая, как ты, хе-хе..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} рассказал мне всякое про 'магию', но меня интересовало только одно: можно ли из нее делать апельсины."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} очень много обуви, но вся она мне мала."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Я не понимаю, почему у {NameStarsModPackFarmer} нет семян апельсиновых деревьев. Они должны быть у каждого фермера."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Человек, ты знаешь, почему {NameStarsModPackScrapyardGeek} всегда так говорит?"
 					Book1: Я оцениваю книги так же, как и апельсины. По тому, насколько они доставляют удовольствие до последней страницы или последнего ломтика.
 					Book2: Привет, человек! Ты видел мою книгу?
 					Book3: Поможешь мне построить самую большую книжную башню?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Включите питание в лаборатории.
+				FriendlyName: Да будет свет!
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Победил белый хвост
+				FriendlyName: белый пушистый хвост
+			}
+
+			ACWolfKingAchievement: {
+				Description: Победил король волков
+				FriendlyName: Большой злой волк
+			}
+
+			ADBehemothAchievement: {
+				Description: Победил бегемот
+				FriendlyName: Очень большие проблемы
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Милый Колосс
+				Description: Победите очень большого слизня.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: скользкая экспедиция
+				Description: посетить все скользкие места
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Цитрусовый храм
+				Description: Найдите цитрусовый храм.
+			}
+
+			RocketScienceAchievement: {
+				Description: Заставьте газовый баллон улететь.
+				FriendlyName: Ракетостроение
+			}
 		}
 	}
 }

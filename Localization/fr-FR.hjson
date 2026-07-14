@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} a dit que c'était bon pour la santé de manger deux fruits par jour. Je lui ai répondu que je mangeais dix oranges par jour !"
 					NPCTaxCollector: Humain, c'est quoi les « impôts » ? {NameTaxCollector} était très grognon et a dit que je devais les payer.
 					NPCZoologist: "{NameZoologist} est trop mignonne avec ses grandes oreilles et sa queue touffue. Mais pas autant que toi, hehehe..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} m'a raconté plein de choses sur la « magie », mais tout ce que je voulais savoir, c'est si on pouvait en faire des oranges."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} a tellement de chaussures, mais elles sont toutes trop petites pour mes pattes."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Je ne comprends pas pourquoi {NameStarsModPackFarmer} n'a pas de graines d'oranger. Tous les agriculteurs devraient en avoir."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Humain, sais-tu pourquoi {NameStarsModPackScrapyardGeek} parle toujours comme ça ?"
 					Book1: Je juge les livres comme je juge les oranges : selon le plaisir qu’ils procurent jusqu’à la dernière page ou la dernière tranche.
 					Book2: Salut humain! As-tu vu mon livre?
 					Book3: Voulez-vous m'aider à construire la plus grande tour de livres?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Mettez le courant dans un laboratoire.
+				FriendlyName: Et que la lumière soit
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Vaincre la queue blanche
+				FriendlyName: Queue blanche et duveteuse
+			}
+
+			ACWolfKingAchievement: {
+				Description: Vaincre le roi loup
+				FriendlyName: Grand méchant loup
+			}
+
+			ADBehemothAchievement: {
+				Description: Vaincre le Béhémoth
+				FriendlyName: Très gros problème
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Colosse câlin
+				Description: Vaincre un très gros slime.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Expédition visqueuse
+				Description: Visitez toutes les zones de slime.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Sanctuaire des agrumes.
+				Description: Trouvez un sanctuaire des agrumes.
+			}
+
+			RocketScienceAchievement: {
+				Description: Faire voler une bonbonne de gaz.
+				FriendlyName: L'astronautique
+			}
 		}
 	}
 }

@@ -101,4 +101,9 @@ ChangedSpecialModClientConfig: {
 		Label: Дополнительная информация о состоянии мира
 		Tooltip: Дриада также может рассказать вам, сколько слизи существует в мире.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

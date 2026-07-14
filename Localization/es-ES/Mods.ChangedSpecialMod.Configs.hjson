@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: Información adicional sobre el estado mundial
 		Tooltip: La dríada también puede decirte cuánto limo hay en el mundo.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

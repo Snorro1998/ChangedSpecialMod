@@ -1,14 +1,19 @@
-﻿using ChangedSpecialMod.Common.Configs;
+﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Buffs;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.GameInput;
@@ -131,6 +136,9 @@ namespace ChangedSpecialMod
         public bool pictureViewerOpen = false;
         public int pictureIndex = -1;
         public bool hidePlayer = false;
+
+        private int timerSlipSound = 0;
+        private int intervalSlipSound = 20;
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -378,6 +386,70 @@ namespace ChangedSpecialMod
                 if (Player.mount.Active)
                     TransfurSystem.UntransfurPlayer(Player.whoAmI);
             }   
+        }
+
+        public override void PostUpdate()
+        {
+            if (Player.chest != -1 && IsNearOrangeShrineWall(Player, 20) && Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<OrangeProjectile>()) != null)
+            {
+                ModContent.GetInstance<OrangeShrineAchievement>().Condition.Complete();
+            }
+        }
+
+        public override void PostUpdateRunSpeeds()
+        {
+            if (Player.mount.Active)
+                return;
+
+            Point tilePos = Player.Bottom.ToTileCoordinates();
+            Tile tile = Framing.GetTileSafely(tilePos);
+
+            var slipperyTiles = new List<int>
+            {
+                ModContent.TileType<BlackLatexIceTile>(),
+                ModContent.TileType<WhiteLatexIceTile>(),
+            };
+
+            if (tile.HasTile && slipperyTiles.Contains(tile.TileType))
+            {
+                if (Player.velocity.X != 0f)
+                {
+                    if (ChangedSpecialModClientConfig.Instance.SlipSound)
+                    {
+                        timerSlipSound = (timerSlipSound + 1) % intervalSlipSound;
+                        if (timerSlipSound == 0)
+                            SoundEngine.PlaySound(Sounds.SoundSlip, Player.Center);
+                    }
+                    //var accel = 0.1f;
+                    //var maxSpeed = Player.maxRunSpeed * Player.moveSpeed;
+                    //Player.velocity.X = Math.Clamp(Player.velocity.X + MathF.Sign(Player.velocity.X) * accel, -maxSpeed, maxSpeed);
+                    Player.velocity.X = MathF.Sign(Player.velocity.X) * Player.maxRunSpeed * Player.moveSpeed;
+                }
+            }
+        }
+
+        public static bool IsNearOrangeShrineWall(Player player, int radius)
+        {
+            Point center = player.Center.ToTileCoordinates();
+
+            for (int x = center.X - radius; x <= center.X + radius; x++)
+            {
+                for (int y = center.Y - radius; y <= center.Y + radius; y++)
+                {
+                    if (!WorldGen.InWorld(x, y))
+                        continue;
+
+                    Tile tile = Main.tile[x, y];
+
+                    if (tile.WallType == WallID.Slime &&
+                        tile.WallColor == PaintID.YellowPaint)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         public override void Initialize()

@@ -60,6 +60,7 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundDoor = new(Sound("Close2"));           // Door sound, currently unused because I couldn't figure out how to overwrite the vanilla door sound properly
         public static readonly SoundStyle SoundSave = new(Sound("Save"));             // Iris scanner
         public static readonly SoundStyle SoundLoad = new(Sound("Load"));             // Iris scanner
+        public static readonly SoundStyle SoundSlip = new(Sound("Jump1"));            // Slippery goo
 
         public static readonly SoundStyle SoundPlush = new(Sound("Plush"));           // From the Minecraft mod
 

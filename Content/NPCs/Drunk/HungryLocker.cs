@@ -48,6 +48,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
+            NPC.scale = 1;
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.None;
             changedNPC.ElementType = ElementType.None;

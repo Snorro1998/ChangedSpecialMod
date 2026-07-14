@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: Zusätzliche Weltstatusinformationen
 		Tooltip: Die Dryade kann auch sagen, wie viel Schleim es in der Welt gibt.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

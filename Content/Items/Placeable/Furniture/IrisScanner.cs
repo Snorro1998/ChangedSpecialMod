@@ -7,9 +7,10 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
 {
 	public class IrisScanner : ModItem
 	{
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+		{
 			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.IrisScanner>());
-            Item.value = Item.buyPrice(0, 0, 1, 50);
+            Item.value = Item.buyPrice(0, 1, 0, 0);
         }
 	}
 }

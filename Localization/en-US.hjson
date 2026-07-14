@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
 					NPCTaxCollector: Human, what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them.
 					NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} told me all kinds of things about 'magike', but all I wanted to know is if you can make oranges from it."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} has so many shoes, but they are all too small for my paws."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}I don't understand why {NameStarsModPackFarmer} doesn't have orange tree seeds. Every farmer should have them."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Human, do you know why {NameStarsModPackScrapyardGeek} iz alwaz talking like zat?"
 					Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
 					Book2: Hello human! Have you seen my book?
 					Book3: Will you help me make the biggest book tower?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Turn on the power in a laboratory.
+				FriendlyName: Let there be Light
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Defeat the White Tail
+				FriendlyName: Tail Tales
+			}
+
+			ACWolfKingAchievement: {
+				Description: Defeat the Wolf King
+				FriendlyName: Howl are you doing?
+			}
+
+			ADBehemothAchievement: {
+				Description: Defeat the Behemoth
+				FriendlyName: Big trouble
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Cuddly Colossus
+				Description: Defeat a very large latex.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Gooey Expedition
+				Description: Visit all latex biomes.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Citrus Shrine
+				Description: Find a citrus shrine.
+			}
+
+			RocketScienceAchievement: {
+				Description: Make a gas cylinder fly away.
+				FriendlyName: Rocket Science
+			}
 		}
 	}
 }

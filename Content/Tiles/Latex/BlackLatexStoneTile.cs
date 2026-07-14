@@ -18,6 +18,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             DustType = DustID.Asphalt;
+            HitSound = SoundID.Tink;
             AddMapEntry(new Color(35, 34, 41));
         }
 

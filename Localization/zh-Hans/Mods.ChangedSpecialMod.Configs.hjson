@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: 额外世界状态信息
 		Tooltip: 树精还可以告诉你世界上有多少黏液。
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} ha detto che fa bene alla salute mangiare due frutti al giorno. Le ho risposto che io ne mangio dieci al giorno!"
 					NPCTaxCollector: Umano, cosa sono le 'tasse'? {NameTaxCollector} era molto scontroso e ha detto che avrei dovuto pagarle.
 					NPCZoologist: "{NameZoologist} è così carina con le sue grandi orecchie e la coda soffice. Ma non così carina come te, hehehe..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} mi ha raccontato un sacco di cose sulla 'magia', ma tutto quello che volevo sapere era se si possono ricavare arance da essa."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} ha tantissime scarpe, ma sono tutte troppo piccole per le mie zampe."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Non capisco perché {NameStarsModPackFarmer} non abbia semi di arancio. Ogni agricoltore dovrebbe averli."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Umano, sai perché {NameStarsModPackScrapyardGeek} parla sempre in quel modo?"
 					Book1: Giudico i libri come giudico le arance: in base a quanto mi soddisfano dall'ultima pagina all'ultima fetta.
 					Book2: Ciao umano! Hai visto il mio libro?
 					Book3: Mi aiuteresti a costruire la torre di libri più alta?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Accendere l'alimentazione in un laboratorio.
+				FriendlyName: E sia fatta luce
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Sconfiggi el coda bianca
+				FriendlyName: Coda bianca e soffice
+			}
+
+			ACWolfKingAchievement: {
+				Description: Sconfiggi il Re Lupo
+				FriendlyName: Il lupo cattivo
+			}
+
+			ADBehemothAchievement: {
+				Description: Sconfiggi il Colosso
+				FriendlyName: Un grosso problema
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Colosso coccoloso
+				Description: Sconfiggi uno slime molto grande.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Spedizione viscida
+				Description: Visita tutte le zone di slime.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Santuario degli agrumi
+				Description: Trova un santuario dedicato agli agrumi.
+			}
+
+			RocketScienceAchievement: {
+				Description: Fai volare via una bombola di gas.
+				FriendlyName: Scienza missilistica
+			}
 		}
 	}
 }

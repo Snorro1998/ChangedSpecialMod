@@ -100,4 +100,9 @@ ChangedSpecialModClientConfig: {
 		Label: Informazioni sullo stato del mondo extra
 		Tooltip: La driade può anche dirti quanta melma c'è nel mondo.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: Informações adicionais sobre o status mundial
 		Tooltip: A dríade também pode lhe dizer quanta gosma existe no mundo.
 	}
+
+	SlipSound: {
+		// Tooltip: ""
+		// Label: Slip Sound
+	}
 }

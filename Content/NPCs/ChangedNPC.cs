@@ -8,6 +8,7 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoMod.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -570,42 +571,17 @@ namespace ChangedSpecialMod.Content.NPCs
                 { ModContent.NPCType<Scientist>(), "Scientist" },
             };
 
-            void AddModdedNPC(Mod mod, string identifier, string localizationName)
+            foreach (var externalMod in ModSupportSystem.externalModsData)
             {
-                if (mod.TryFind<ModNPC>(identifier, out ModNPC tmpNPC))
-                    npcIdentifiers.Add(tmpNPC.Type, localizationName);
-            }
-
-            // These are not used at the moment, but can be if you add entries in the localization
-            var modThorium = ModSupportSystem.modThorium;
-            if (modThorium != null)
-            {
-                AddModdedNPC(modThorium, "Cobbler", "ThoriumCobbler");
-                AddModdedNPC(modThorium, "DesertAcolyte", "ThoriumDesertAcolyte");
-                AddModdedNPC(modThorium, "Cook", "ThoriumCook");
-                AddModdedNPC(modThorium, "ConfusedZombie", "ThoriumConfusedZombie");
-                AddModdedNPC(modThorium, "Blacksmith", "ThoriumBlacksmith");
-                AddModdedNPC(modThorium, "Tracker", "ThoriumTracker");
-                AddModdedNPC(modThorium, "Diverman", "ThoriumDiverman");
-                AddModdedNPC(modThorium, "Druid", "ThoriumDruid");
-                AddModdedNPC(modThorium, "Spiritualist", "ThoriumSpiritualist");
-                AddModdedNPC(modThorium, "WeaponMaster", "ThoriumWeaponMaster");
-            }
-
-            var modCalamity = ModSupportSystem.modCalamity;
-            if (modCalamity != null)
-            {
-                AddModdedNPC(modCalamity, "DILF", "CalamityArchmage");
-                AddModdedNPC(modCalamity, "THIEF", "CalamityBandit");
-                AddModdedNPC(modCalamity, "SEAHOE", "CalamitySeaKing");
-                AddModdedNPC(modCalamity, "WITCH", "CalamityBrimstoneWitch");
-            }
-
-            var modCoralite = ModSupportSystem.modCoralite;
-            if (modCoralite != null)
-            {
-                AddModdedNPC(modCoralite, "CrystalRobot", "CoroliteCrystalRobot");
-                AddModdedNPC(modCoralite, "ElfRanger", "CoroliteElfRanger");
+                if (externalMod.townNPCIds == null)
+                    continue;
+                foreach (var keyPair in externalMod.townNPCIds)
+                {
+                    // Externalmod has them reverted
+                    if (npcIdentifiers.ContainsKey(keyPair.Value))
+                        continue;
+                    npcIdentifiers.Add(keyPair.Value, keyPair.Key);
+                }
             }
 
             return npcIdentifiers;

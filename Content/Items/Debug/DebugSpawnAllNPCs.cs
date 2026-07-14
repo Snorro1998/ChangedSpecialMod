@@ -1,6 +1,9 @@
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,9 +27,28 @@ namespace ChangedSpecialMod.Content.Items.Debug
             if (Main.netMode == NetmodeID.MultiplayerClient)
                 return true;
 
-            var changedMod = ChangedSpecialMod.Instance;
-            changedMod.Call("spawnall");
-            //ChangedUtils.SpawnAllNPCs(player);
+            /*
+            if (ModSupportSystem.modMrPlagueRaces != null)
+            {
+                //var cont = ModSupportSystem.modMrPlagueRaces.GetContent<ModSystem>().ToList();
+                ModSystem system = ModSupportSystem.modMrPlagueRaces.GetContent<ModSystem>().FirstOrDefault(s => s.GetType().Name == "RaceChangeUISystem");
+
+                if (system != null)
+                {
+                    MethodInfo showMethod = system.GetType().GetMethod(
+                        "ShowMyUI",
+                        BindingFlags.Instance | BindingFlags.Public);
+
+                    showMethod?.Invoke(system, null);
+                }
+
+                return true;
+            }
+            */
+
+            //var changedMod = ChangedSpecialMod.Instance;
+            //changedMod.Call("spawnall");
+            ChangedUtils.SpawnAllNPCs(player);
 
             /*
             var entitySource = Item.GetSource_FromThis();

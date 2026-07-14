@@ -99,4 +99,9 @@ ChangedSpecialModClientConfig: {
 		Label: Extra world status information
 		Tooltip: The dryad can also tell you how much goo there is in the world.
 	}
+
+	SlipSound: {
+		Tooltip: ""
+		Label: Slip Sound
+	}
 }

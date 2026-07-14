@@ -30,19 +30,17 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
         {
             Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
-            int spawnX = (i - (tile.TileFrameX / 18)) + (tile.TileFrameX >= 72 ? 5 : 2);
+            int spawnX = (i - (tile.TileFrameX / 18));
             int spawnY = j + 2;
             player.FindSpawn();
 
             if (nTimesClicked == 0)
             {
-                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.SpawnPointSet"), 255, 240, 20);
                 SoundEngine.PlaySound(Assets.Sounds.SoundSave, new Vector2(i * 16, j * 16));
                 player.ChangeSpawn(spawnX, spawnY);
             }
             else
             {
-                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.SpawnPointRemoved"), 255, 240, 20);
                 SoundEngine.PlaySound(Assets.Sounds.SoundLoad, new Vector2(i * 16, j * 16));
                 player.RemoveSpawn();
             }

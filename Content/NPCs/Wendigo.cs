@@ -26,7 +26,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 40;
 			NPC.height = 96;
             NPC.damage = 40;

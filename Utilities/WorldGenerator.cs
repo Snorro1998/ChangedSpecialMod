@@ -503,6 +503,15 @@ namespace ChangedSpecialMod.Utilities
                     tileType = ModContent.TileType<BlackLatexStoneTile>();
                     break;
 
+                // Snow
+                case TileID.IceBlock:
+                    tileType = ModContent.TileType<BlackLatexIceTile>();
+                    break;
+
+                case TileID.SnowBlock:
+                    tileType = ModContent.TileType<BlackLatexSnowTile>();
+                    break;
+
                 case TileID.Grass:
                 case TileID.Dirt:
                 case TileID.ClayBlock:
@@ -521,10 +530,6 @@ namespace ChangedSpecialMod.Utilities
                 // Jungle
                 case TileID.Mud:
                 case TileID.JungleGrass:
-
-                // Snow
-                case TileID.SnowBlock:
-                case TileID.IceBlock:
                     tileType = ModContent.TileType<BlackLatexTile>();
                     break;
                 default:
@@ -565,6 +570,15 @@ namespace ChangedSpecialMod.Utilities
                     tileType = ModContent.TileType<WhiteLatexStoneTile>();
                     break;
 
+                // Snow
+                case TileID.IceBlock:
+                    tileType = ModContent.TileType<WhiteLatexIceTile>();
+                    break;
+
+                case TileID.SnowBlock:
+                    tileType = ModContent.TileType<WhiteLatexSnowTile>();
+                    break;
+
                 case TileID.Grass:
                 case TileID.Dirt:
                 case TileID.ClayBlock:
@@ -583,10 +597,6 @@ namespace ChangedSpecialMod.Utilities
                 // Jungle
                 case TileID.Mud:
                 case TileID.JungleGrass:
-
-                // Snow
-                case TileID.SnowBlock:
-                case TileID.IceBlock:
                     tileType = ModContent.TileType<WhiteLatexTile>();
                     break;
                 default:
@@ -650,6 +660,8 @@ namespace ChangedSpecialMod.Utilities
                     case TileID.Dirt:
                     case TileID.Sand:
                     case TileID.Stone:
+                    case TileID.SnowBlock:
+                    case TileID.IceBlock:
                         break;
                     default:
                         return -1;

@@ -20,6 +20,9 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(true)]
         public bool WhipCrackSound { get; set; }
 
+        [DefaultValue(false)]
+        public bool SlipSound { get; set; }
+
         [Header("Npc")]
         [DefaultValue(true)]
         public bool NPCsCanUseChangedEmotes { get; set; }

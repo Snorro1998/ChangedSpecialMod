@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Utilities;
@@ -95,6 +96,11 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 changedNPC.HatYOffset = -15;
             }
+        }
+
+        public override void OnKill()
+        {
+            ModContent.GetInstance<PuppyOfDoomAchievement>().PuppyOfDoomCondition.Complete();
         }
 
         public override void FindFrame(int frameHeight)

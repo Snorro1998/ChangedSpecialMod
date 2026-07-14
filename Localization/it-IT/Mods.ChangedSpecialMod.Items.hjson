@@ -817,3 +817,48 @@ LatexMothMountItem: {
 	DisplayName: Ala bianca
 	Tooltip: Evoca una falena melmosa cavalcabile
 }
+
+BlackLatexIce: {
+	// Tooltip: ""
+	// DisplayName: Black Glacial Goo Block
+}
+
+WhiteLatexIce: {
+	// Tooltip: ""
+	// DisplayName: White Glacial Goo Block
+}
+
+WhiteLatexSnow: {
+	// Tooltip: ""
+	// DisplayName: White Slime Snow Block
+}
+
+BlackLatexSnow: {
+	// Tooltip: ""
+	// DisplayName: Black Slime Snow Block
+}
+
+DebugTeleportToInfection: {
+	// Tooltip: ""
+	// DisplayName: Debug Teleport To Infection
+}
+
+DebugTeleportToHallow: {
+	// Tooltip: ""
+	// DisplayName: Debug Teleport To Hallow
+}
+
+DebugTeleportToCrimson: {
+	// Tooltip: ""
+	// DisplayName: Debug Teleport To Crimson
+}
+
+DebugTeleportToLatex: {
+	// Tooltip: ""
+	// DisplayName: Debug Teleport To Latex
+}
+
+DebugTeleportToCorruption: {
+	// Tooltip: ""
+	// DisplayName: Debug Teleport To Corruption
+}

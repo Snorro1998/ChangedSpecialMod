@@ -24,9 +24,33 @@ namespace ChangedSpecialMod.Common.Systems
 
 		public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts) 
 		{
+            var blackTiles = new List<int>()
+            {
+                ModContent.TileType<BlackLatexTile>(),
+                ModContent.TileType<BlackLatexSandTile>(),
+                ModContent.TileType<BlackLatexStoneTile>(),
+                ModContent.TileType<BlackLatexIceTile>(),
+                ModContent.TileType<BlackLatexSnowTile>()
+            };
+
+            var whiteTiles = new List<int>()
+            {
+                ModContent.TileType<WhiteLatexTile>(),
+                ModContent.TileType<WhiteLatexSandTile>(),
+                ModContent.TileType<WhiteLatexStoneTile>(),
+                ModContent.TileType<WhiteLatexIceTile>(),
+                ModContent.TileType<WhiteLatexSnowTile>()
+            };
+
 			DryDirtBlockCount = tileCounts[ModContent.TileType<DryDirt>()];
-			WhiteLatexBlockCount = tileCounts[ModContent.TileType<WhiteLatexTile>()] + tileCounts[ModContent.TileType<WhiteLatexSandTile>()] + tileCounts[ModContent.TileType<WhiteLatexStoneTile>()];
-            BlackLatexBlockCount = tileCounts[ModContent.TileType<BlackLatexTile>()] + tileCounts[ModContent.TileType<BlackLatexSandTile>()] + tileCounts[ModContent.TileType<BlackLatexStoneTile>()];
+            BlackLatexBlockCount = 0;// tileCounts[ModContent.TileType<BlackLatexTile>()] + tileCounts[ModContent.TileType<BlackLatexSandTile>()] + tileCounts[ModContent.TileType<BlackLatexStoneTile>()];
+            WhiteLatexBlockCount = 0;// tileCounts[ModContent.TileType<WhiteLatexTile>()] + tileCounts[ModContent.TileType<WhiteLatexSandTile>()] + tileCounts[ModContent.TileType<WhiteLatexStoneTile>()];
+
+            foreach (var tile in blackTiles)
+                BlackLatexBlockCount += tileCounts[tile];
+
+            foreach (var tile in whiteTiles)
+               WhiteLatexBlockCount += tileCounts[tile];
         }
 
         public static bool BlockNearby(Player player, List<int> tileIDs, int radius)
@@ -83,6 +107,8 @@ namespace ChangedSpecialMod.Common.Systems
                         ModContent.TileType<BlackLatexTile>(),
                         ModContent.TileType<BlackLatexSandTile>(),
                         ModContent.TileType<BlackLatexStoneTile>(),
+                        ModContent.TileType<BlackLatexIceTile>(),
+                        ModContent.TileType<BlackLatexSnowTile>()
                     };
                     targetBlockCount = BlackLatexBlockCount;
 					otherBlockCount1 = WhiteLatexBlockCount;
@@ -94,6 +120,8 @@ namespace ChangedSpecialMod.Common.Systems
                         ModContent.TileType<WhiteLatexTile>(),
                         ModContent.TileType<WhiteLatexSandTile>(),
                         ModContent.TileType<WhiteLatexStoneTile>(),
+                        ModContent.TileType<WhiteLatexIceTile>(),
+                        ModContent.TileType<WhiteLatexSnowTile>()
                     };
                     targetBlockCount = WhiteLatexBlockCount;
 					otherBlockCount1 = BlackLatexBlockCount;

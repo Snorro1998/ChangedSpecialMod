@@ -83,6 +83,10 @@ Mods: {
 					NPCNurse: "{NameNurse} dijo que es bueno para la salud comer dos piezas de fruta al día. ¡Yo le dije que como diez naranjas al día!"
 					NPCTaxCollector: Humano, ¿qué son los 'impuestos'? {NameTaxCollector} estaba muy gruñón y dijo que tenía que pagarlos.
 					NPCZoologist: "{NameZoologist} es tan linda con sus grandes orejas y su cola esponjosa. Pero no tan linda como tú, jejeje..."
+					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} me contó todo tipo de cosas sobre la 'magia', pero lo único que quería saber era si se pueden hacer naranjas con ella."
+					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} tiene muchísimos zapatos, pero todos son demasiado pequeños para mis patas."
+					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}No entiendo por qué {NameStarsModPackFarmer} no tiene semillas de naranjo. Todo agricultor debería tenerlas."
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Humano, ¿sabes por qué {NameStarsModPackScrapyardGeek} zsiempre zhabla zasí?"
 					Book1: Yo juzgo los libros como juzgo las naranjas: por lo satisfactorios que resultan hasta la última página o la última rodaja.
 					Book2: ¡Hola humano! ¿Has visto mi libro?
 					Book3: ¿Me ayudarías a construir la torre de libros más grande?
@@ -746,6 +750,48 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+		}
+
+		Achievements: {
+			AATurnPowerOnAchievement: {
+				Description: Enciende la corriente en un laboratorio.
+				FriendlyName: Y que haya luz.
+			}
+
+			ABWhiteTailAchievement: {
+				Description: Derrota al Cola blanca
+				FriendlyName: Cola blanca y esponjosa
+			}
+
+			ACWolfKingAchievement: {
+				Description: Derrota al Rey Lobo
+				FriendlyName: El lobo feroz
+			}
+
+			ADBehemothAchievement: {
+				Description: Derrota al Behemot
+				FriendlyName: Un problema muy grande
+			}
+
+			PuppyOfDoomAchievement: {
+				FriendlyName: Coloso adorable
+				Description: Derrota a un limo muy grande.
+			}
+
+			VisitAllBiomesAchievement: {
+				FriendlyName: Expedición viscosa
+				Description: Visita todas las zonas de slime.
+			}
+
+			OrangeShrineAchievement: {
+				FriendlyName: Santuario de cítricos.
+				Description: Encuentra un santuario de cítricos.
+			}
+
+			RocketScienceAchievement: {
+				Description: Haz que un cilindro de gas salga volando.
+				FriendlyName: Ciencia de cohetes
+			}
 		}
 	}
 }

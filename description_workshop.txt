@@ -9,7 +9,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 	[*]Some extra monsters on the drunk world
 	[*]3 bosses
 	[*]5 upgradeable weapons
-	[*]2 mounts
+	[*]3 mounts
 	[*]Many furniture items
 	[*]Transformation mechanic (WIP)
 [/list]
@@ -18,6 +18,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 [h2]Mod Support[/h2]
 This mod has built-in support for:
 [list]
+	[*]Biome Titles
 	[*]Boss Checklist
 	[*]Census
 	[*]Fargos Mutant Mod
@@ -50,7 +51,7 @@ Most items and NPCs used to have scaled down sprites from Changed as placeholder
 
 
 [h2]Links[/h2]
-Wiki. You can't access it yet, but the staff of wiki.gg will make it public after 13-07-2026.
+Wiki:
 https://changedterraria.wiki.gg/
 Known bugs: 
 https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M
@@ -104,57 +105,34 @@ For information about previous versions, please check out the change notes in th
 	[*]Added slime moth mount. Like the Yufeng mount, its stats are enhanced after entering hard mode.
 [/list]
 
-[b]Underground biomes[/b]
+This update adds achievements and fixes some issues with shimmer.
+For information about previous versions, please check out the change notes in the steam workshop.
+
+
+[h3]0.5.5[/h3]
+
+[b]General[/b]
 [list]
-	[*]Generate in the lower half of the world.
-	[*]Most latex beast have a small change to wear a mining helmet.
+	[*]Added support for Biome Titles
+	[*]Removed latex beast shimmer transmutations, because they were buggy. Now they just become transparent.
+	[*]Greatly optimized the code for the dryad's world status. Now the game won't hang anymore when you click the button.
 [/list]
 
-[b]Black latex cave[/b]
+[b]Achievements[/b]
 [list]
-	[*]Crystal wolves spawn here. They can drop gems.
+	[*]Let there be Light: Turn on the power in a laboratory.
+	[*]Rocket Science: Make a gas cylinder fly away.
+	[*]Citrus Shrine: Find a citrus shrine underground.
+	[*]Cuddly Colossus: Defeat a very large latex.
+	[*]Gooey Expedition: Find all biomes from this mod.
 [/list]
 
-[b]White latex cave[/b]
+[b]Fixes[/b]
 [list]
-	[*]Slime moths can spawn here. They can drop a mount item.
-	[*]Slime snakes can also spawn here. They are very fast and can drop the snake flute.
-[/list]
-
-[b]Latex spread[/b]
-[list]
-	[*]Added black and white slimestone.
-	[*]Latex can now spread to stone.
-	[*]The dryad can now tell how much goo there is in the world.
-	[*]Latex blocks are now highlighted when under the effects of the biome sight potion.
-	[*]Because of the new underground biomes, the restriction that latex could only spread on the surface has been removed.
-[/list]
-
-[b]Resprited[/b]
-[list]
-	[*]Dr K.
-	[*]Tabby Cat
-	[*]Maintenance robot
-[/list]
-
-Mod calls (for developers)
-[list]
-	[*]bossdowned: check if a boss has been defeated (whitetail, wolfking, behemoth)
-	[*]orange: spawns oranges around all players
-	[*]spawnall: spawn all NPCs
-[/list]
-
-Fixes
-[list]
-	[*]Blocks not merging correctly when next to dirt.
-	[*]Prototype not selling Dragonfruit and Starfruit in hardmode.
-	[*]Waterfalls glowed in the dark when in any Changed biome.
-	[*]Buff icon of Yugeng mount still used the old sprite.
-[/list]
-
-[h2]Hotfixes[/h2]
-
-[h3]0.5.4.1[/h3]
-[list]
-	[*]Disabled custom window titles for MacOS, because it was causing crashes.
+	[*]Removed broken iris scanner interaction text.
+	[*]Wikithis not always directing to the right pages.
+	[*]Prototype did not become transparent from shimmer.
+	[*]Hats of shimmering latex beasts did not become transparent.
+	[*]It was possible that the strange swivel chair would not summon the wolf king if the black goo room had the smallest possible room height of 9 blocks.
+	[*]Hungry locker grew bigger from evolution
 [/list]

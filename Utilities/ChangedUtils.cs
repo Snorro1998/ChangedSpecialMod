@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.NPCs;
@@ -7,6 +8,7 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex;
+using log4net.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json.Linq;
@@ -79,7 +81,7 @@ namespace ChangedSpecialMod.Utilities
             On_Lang.GetDryadWorldStatusDialog -= Hook_GetDryadWorldStatusDialog;
         }
 
-        private enum BiomeType : byte
+        public enum BiomeType : byte
         {
             None,
             Latex,
@@ -88,9 +90,7 @@ namespace ChangedSpecialMod.Utilities
             Hallow
         }
 
-        private static string Hook_GetDryadWorldStatusDialog(
-    On_Lang.orig_GetDryadWorldStatusDialog orig,
-    out bool worldIsEntirelyPure)
+        private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
         {
             var config = ModContent.GetInstance<ChangedSpecialModClientConfig>();
 
@@ -116,10 +116,14 @@ namespace ChangedSpecialMod.Utilities
                 ModContent.TileType<BlackLatexTile>(),
                 ModContent.TileType<BlackLatexSandTile>(),
                 ModContent.TileType<BlackLatexStoneTile>(),
+                ModContent.TileType<BlackLatexIceTile>(),
+                ModContent.TileType<BlackLatexSnowTile>(),
 
                 ModContent.TileType<WhiteLatexTile>(),
                 ModContent.TileType<WhiteLatexSandTile>(),
-                ModContent.TileType<WhiteLatexStoneTile>()
+                ModContent.TileType<WhiteLatexStoneTile>(),
+                ModContent.TileType<WhiteLatexIceTile>(),
+                ModContent.TileType<WhiteLatexSnowTile>()
             ];
 
             HashSet<ushort> CorruptCountCollection =
@@ -252,9 +256,9 @@ namespace ChangedSpecialMod.Utilities
                     text = Language.GetTextValue($"{baseTextPath}WorldIsLatex", Main.worldName, tLatex);
                 }
             }
+            // Vanilla logic
             else
             {
-                // old
                 if (tGood > 0 && tEvil > 0 && tBlood > 0)
                 {
                     text = Language.GetTextValue("DryadSpecialText.WorldStatusAll", Main.worldName, tGood, tEvil, tBlood);
@@ -330,15 +334,106 @@ namespace ChangedSpecialMod.Utilities
             }
 
             return text + " " + arg;
-            /*
-            string arg = (((double)tGood * 1.2 >= (double)(tEvil + tBlood) && (double)tGood * 0.8 <= (double)(tEvil + tBlood)) ? 
-                Language.GetTextValue("DryadSpecialText.WorldDescriptionBalanced") : 
-                ((tGood >= tEvil + tBlood) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionFairyTale") : 
-                ((tEvil + tBlood > tGood + 20) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionGrim") : 
-                ((tEvil + tBlood <= 5) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionClose") : 
-                Language.GetTextValue("DryadSpecialText.WorldDescriptionWork")))));
-            return text + " " + arg;
-            */
+        }
+
+        public static Vector2 GetInfectionBlockPosition(BiomeType biomeType)
+        {
+            BiomeType[] TileLookup = new BiomeType[TileLoader.TileCount];
+
+            HashSet<int> LatexCountCollection =
+            [
+                ModContent.TileType<BlackLatexTile>(),
+                ModContent.TileType<BlackLatexSandTile>(),
+                ModContent.TileType<BlackLatexStoneTile>(),
+                ModContent.TileType<BlackLatexIceTile>(),
+                ModContent.TileType<BlackLatexSnowTile>(),
+
+                ModContent.TileType<WhiteLatexTile>(),
+                ModContent.TileType<WhiteLatexSandTile>(),
+                ModContent.TileType<WhiteLatexStoneTile>(),
+                ModContent.TileType<WhiteLatexIceTile>(),
+                ModContent.TileType<WhiteLatexSnowTile>()
+            ];
+
+            HashSet<int> CorruptCountCollection =
+            [
+                TileID.CorruptGrass,
+                TileID.CorruptPlants,
+                TileID.Ebonstone,
+                TileID.CorruptThorns,
+                TileID.Ebonsand,
+                TileID.CorruptIce,
+                TileID.CorruptHardenedSand,
+                TileID.CorruptSandstone,
+                TileID.CorruptVines,
+                TileID.CorruptJungleGrass
+            ];
+
+            HashSet<int> CrimsonCountCollection =
+            [
+                TileID.CrimsonGrass,
+                TileID.FleshIce,
+                TileID.CrimsonPlants,
+                TileID.Crimstone,
+                TileID.CrimsonVines,
+                TileID.Crimsand,
+                TileID.CrimsonThorns,
+                TileID.CrimsonHardenedSand,
+                TileID.CrimsonSandstone,
+                TileID.CrimsonJungleGrass
+            ];
+
+            HashSet<int> HallowCountCollection =
+            [
+                TileID.HallowedGrass,
+                TileID.HallowedPlants,
+                TileID.HallowedPlants2,
+                TileID.HallowedVines,
+                TileID.Pearlsand,
+                TileID.Pearlstone,
+                TileID.HallowedIce,
+                TileID.HallowHardenedSand,
+                TileID.HallowSandstone
+            ];
+
+            HashSet<int> TileCountCollection = new HashSet<int>();
+
+            switch (biomeType)
+            {
+                case BiomeType.Latex:
+                    TileCountCollection = LatexCountCollection;
+                    break;
+                case BiomeType.Crimson:
+                    TileCountCollection = CrimsonCountCollection;
+                    break;
+                case BiomeType.Corrupt:
+                    TileCountCollection = CorruptCountCollection;
+                    break;
+                case BiomeType.Hallow:
+                    TileCountCollection = HallowCountCollection;
+                    break;
+            }
+
+            foreach (int id in TileCountCollection)
+                TileLookup[id] = BiomeType.Corrupt;
+
+
+            for (var x = 0; x < Main.maxTilesX; x++)
+            {
+                for (var y = 0; y < Main.maxTilesY; y++)
+                {
+                    var tile = Main.tile[x, y];
+                    if (!tile.HasTile)
+                        continue;
+
+                    switch (TileLookup[tile.TileType])
+                    {
+                        case BiomeType.Corrupt:
+                            return new Vector2(x * 16, y * 16);
+                    }
+                }
+            }
+            return new Vector2(-1, -1);
         }
 
         private static void MyAssignRandomWorldName(On_UIWorldCreation.orig_AssignRandomWorldName orig, UIWorldCreation self)
@@ -483,9 +578,19 @@ namespace ChangedSpecialMod.Utilities
             TileID.IceBlock,
 
             ModContent.TileType<DryDirt>(),
+
             ModContent.TileType<BlackLatexTile>(),
             ModContent.TileType<BlackLatexSandTile>(),
+            ModContent.TileType<BlackLatexStoneTile>(),
+            ModContent.TileType<BlackLatexIceTile>(),
+            ModContent.TileType<BlackLatexSnowTile>(),
+
             ModContent.TileType<WhiteLatexTile>(),
+            ModContent.TileType<WhiteLatexSandTile>(),
+            ModContent.TileType<WhiteLatexStoneTile>(),
+            ModContent.TileType<WhiteLatexIceTile>(),
+            ModContent.TileType<WhiteLatexSnowTile>(),
+
             ModContent.TileType<Lab_TileTile>(),
         };
 
@@ -551,6 +656,7 @@ namespace ChangedSpecialMod.Utilities
             var xPos = i * 16 + 8;
             var yPos = (j + 1) * 16 + 8;
             Projectile.NewProjectile(source, xPos, yPos, 0, 0, projectileType, 0, 0, player.whoAmI, 0f, 0f);
+            ModContent.GetInstance<RocketScienceAchievement>().Condition.Complete();
         }
 
         public static void SpawnAllNPCs(Player player)
