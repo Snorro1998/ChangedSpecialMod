@@ -7,10 +7,11 @@ using ChangedSpecialMod.Content.Projectiles.Latex;
 
 namespace ChangedSpecialMod.Content.Tiles.Latex
 {
-    public class BlackLatexSandTile : ModTile
+    public class BlackLatexSandTile : BaseBlackLatexTile
     {
         public override void SetStaticDefaults()
         {
+            base.SetStaticDefaults();
             Main.tileSolid[Type] = true;
             Main.tileBrick[Type] = true;
             Main.tileMergeDirt[Type] = true;
@@ -31,30 +32,6 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             TileID.Sets.ChecksForMerge[Type] = true;
 
             MineResist = 0.5f; // Sand tile typically require half as many hits to mine.
-            DustType = DustID.Asphalt;
-            AddMapEntry(new Color(35, 34, 41));
-        }
-
-        public override bool HasWalkDust()
-        {
-            return Main.rand.NextBool(3);
-        }
-
-        public override void WalkDust(ref int dustType, ref bool makeDust, ref Color color)
-        {
-            dustType = DustID.Asphalt;
-        }
-
-        public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
-        {
-            return true;
-        }
-
-        public override void RandomUpdate(int i, int j)
-        {
-            WorldGenerator.GrowCrystal(i, j, NPCs.GooType.Black);
-            WorldGenerator.Corrupt(i, j, NPCs.GooType.Black);
-            base.RandomUpdate(i, j);
         }
     }
 }

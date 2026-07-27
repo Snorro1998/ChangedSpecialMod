@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: 鞭子抽打声
 	}
 
+	SlipSound: {
+		Tooltip: 如果玩家滑倒，则应播放玩家滑倒音效。
+		Label: 播放器滑落的声音
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: 角色可以谈论《Changed》。
 		Label: 角色可以使用《Changed》表情
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: 额外世界状态信息
 		Tooltip: 树精还可以告诉你世界上有多少黏液。
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

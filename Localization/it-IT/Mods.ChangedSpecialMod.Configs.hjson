@@ -7,8 +7,13 @@ ChangedSpecialModClientConfig: {
 	}
 
 	WhipCrackSound: {
-		Tooltip: If whip-like weapons should play a whip crack sound.
-		Label: Whip Crack Sound
+		Tooltip: Se le armi simili a fruste dovrebbero riprodurre un suono di frusta schioccata.
+		Label: Suono di frusta che schiocca
+	}
+
+	SlipSound: {
+		Tooltip: Se un giocatore scivola, dovrebbe essere riprodotto un effetto sonoro che indichi che il giocatore sta scivolando.
+		Label: Suono di slittamento del giocatore
 	}
 
 	NPCsCanUseChangedEmotes: {
@@ -99,10 +104,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Informazioni sullo stato del mondo extra
 		Tooltip: La driade può anche dirti quanta melma c'è nel mondo.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

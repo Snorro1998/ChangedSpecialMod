@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Whip Crack Sound
 	}
 
+	SlipSound: {
+		Tooltip: If the slip sound should be played if the player is sliding around.
+		Label: Slip Sound
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: When NPCs talk they can use emotes about Changed.
 		Label: NPCs Can Use Changed Emotes
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Extra world status information
 		Tooltip: The dryad can also tell you how much goo there is in the world.
-	}
-
-	SlipSound: {
-		Tooltip: ""
-		Label: Slip Sound
 	}
 }

@@ -429,7 +429,58 @@ namespace ChangedSpecialMod.Utilities
                     switch (TileLookup[tile.TileType])
                     {
                         case BiomeType.Corrupt:
-                            return new Vector2(x * 16, y * 16);
+                            {
+                                for (int radius = 0; radius < 100; radius++)
+                                {
+                                    for (int x2 = x - radius; x2 <= x + radius; x2++)
+                                    {
+                                        for (int y2 = y - radius; y2 <= y + radius; y2++)
+                                        {
+                                            if (x2 < 0 || x2 >= Main.maxTilesX || y2 < 0 || y2 >= Main.maxTilesY - 10)
+                                                continue;
+
+                                            var validPosition = true;
+                                            for (int x3 = x2 - 1; x3 <= x2 + 1; x3++)
+                                            {
+                                                for (int y3 = y2; y3 <= y2 + 2; y3++)
+                                                {
+                                                    if (x3 < 0 || x3 >= Main.maxTilesX || y3 < 0 || y3 >= Main.maxTilesY)
+                                                    {
+                                                        validPosition = false;
+                                                        break;
+                                                    }
+
+                                                    var liquidType = Main.tile[x3, y3].LiquidType;
+                                                    if (WorldGen.SolidTile(x3, y3) || (Main.tile[x3, y3].LiquidAmount > 0 && (liquidType == LiquidID.Lava || liquidType == LiquidID.Shimmer)))
+                                                    {
+                                                        validPosition = false;
+                                                        break;
+                                                    }
+                                                }
+                                                if (!validPosition)
+                                                    break;
+                                            }
+
+                                            var tileType = Main.tile[x2, y2 + 3].TileType;
+                                            var dangerousTile = tileType == TileID.Traps || tileType == TileID.RollingCactus || tileType == TileID.Spikes || tileType == TileID.WoodenSpikes || tileType == TileID.PressurePlates;
+                                            if (validPosition && !dangerousTile && WorldGen.SolidTile(x2, y2 + 3))
+                                                return new Vector2(x2 * 16, y2 * 16);
+
+                                            /*
+                                            if (WorldGen.SolidTile(x2, y2 + 3) && // floor
+                                                !WorldGen.SolidTile(x2, y2) &&
+                                                !WorldGen.SolidTile(x2, y2 + 1) &&
+                                                !WorldGen.SolidTile(x2, y2 + 2))
+                                            {
+                                                return new Vector2(x2 * 16, y2 * 16);
+                                            }
+                                            */
+                                        }
+                                    }
+                                }
+                            }
+                            return new Vector2(-1, -1);
+                            //return new Vector2(x * 16, y * 16);
                     }
                 }
             }
@@ -545,6 +596,29 @@ namespace ChangedSpecialMod.Utilities
             NetMessage.SendTileSquare(-1, i, j - 1, TileChangeType.None);
         }
 
+        private static int[] LatexMergeBlocks = new int[]
+        {
+            ModContent.TileType<BlackLatexTile>(),
+            ModContent.TileType<BlackLatexMudTile>(),
+            ModContent.TileType<BlackLatexSandTile>(),
+            ModContent.TileType<BlackLatexStoneTile>(),
+            ModContent.TileType<BlackLatexIceTile>(),
+            ModContent.TileType<BlackLatexSnowTile>(),
+
+            ModContent.TileType<BlackLatexGrassTile>(),
+            ModContent.TileType<BlackLatexJungleGrassTile>(),
+
+            ModContent.TileType<WhiteLatexTile>(),
+            ModContent.TileType<WhiteLatexMudTile>(),
+            ModContent.TileType<WhiteLatexSandTile>(),
+            ModContent.TileType<WhiteLatexStoneTile>(),
+            ModContent.TileType<WhiteLatexIceTile>(),
+            ModContent.TileType<WhiteLatexSnowTile>(),
+
+            ModContent.TileType<WhiteLatexGrassTile>(),
+            ModContent.TileType<WhiteLatexJungleGrassTile>(),
+        };
+
         private static int[] DefaultMergeBlocks = new int[]
         {
             TileID.Grass,
@@ -578,28 +652,38 @@ namespace ChangedSpecialMod.Utilities
             TileID.IceBlock,
 
             ModContent.TileType<DryDirt>(),
-
-            ModContent.TileType<BlackLatexTile>(),
-            ModContent.TileType<BlackLatexSandTile>(),
-            ModContent.TileType<BlackLatexStoneTile>(),
-            ModContent.TileType<BlackLatexIceTile>(),
-            ModContent.TileType<BlackLatexSnowTile>(),
-
-            ModContent.TileType<WhiteLatexTile>(),
-            ModContent.TileType<WhiteLatexSandTile>(),
-            ModContent.TileType<WhiteLatexStoneTile>(),
-            ModContent.TileType<WhiteLatexIceTile>(),
-            ModContent.TileType<WhiteLatexSnowTile>(),
+            ModContent.TileType<DryDirtGrassTile>(),
 
             ModContent.TileType<Lab_TileTile>(),
         };
+
+        public static void SetMerge(int type1, int type2, bool merge = true)
+        {
+            if (type1 != type2)
+            {
+                Main.tileMerge[type1][type2] = merge;
+                Main.tileMerge[type2][type1] = merge;
+            }
+        }
 
         public static void SetTileMerge(int tileType)
         {
             foreach (var block in DefaultMergeBlocks)
             {
-                Main.tileMerge[block][tileType] = true;
-                Main.tileMerge[tileType][block] = true;
+                if (block != tileType)
+                {
+                    Main.tileMerge[block][tileType] = true;
+                    Main.tileMerge[tileType][block] = true;
+                }
+            }
+
+            foreach (var block in LatexMergeBlocks)
+            {
+                if (block != tileType)
+                {
+                    Main.tileMerge[block][tileType] = true;
+                    Main.tileMerge[tileType][block] = true;
+                }
             }
         }
 

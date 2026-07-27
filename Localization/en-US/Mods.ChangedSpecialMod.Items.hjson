@@ -830,35 +830,76 @@ WhiteLatexIce: {
 
 WhiteLatexSnow: {
 	Tooltip: ""
-	DisplayName: White Slime Snow Block
+	DisplayName: White Slimesnow Block
 }
 
 BlackLatexSnow: {
 	Tooltip: ""
-	DisplayName: Black Slime Snow Block
-}
-
-DebugTeleportToInfection: {
-	Tooltip: ""
-	DisplayName: Debug Teleport To Infection
+	DisplayName: Black Slimesnow Block
 }
 
 DebugTeleportToHallow: {
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right-click to change the destination.
+		WARNING: This may teleport you to a dangerous place.
+		'''
 	DisplayName: Debug Teleport To Hallow
 }
 
 DebugTeleportToCrimson: {
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right-click to change the destination.
+		WARNING: This may teleport you to a dangerous place.
+		'''
 	DisplayName: Debug Teleport To Crimson
 }
 
 DebugTeleportToLatex: {
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right-click to change the destination.
+		WARNING: This may teleport you to a dangerous place.
+		'''
 	DisplayName: Debug Teleport To Latex
 }
 
 DebugTeleportToCorruption: {
-	Tooltip: ""
+	Tooltip:
+		'''
+		Right-click to change the destination.
+		WARNING: This may teleport you to a dangerous place.
+		'''
 	DisplayName: Debug Teleport To Corruption
+}
+
+DryDirtGrassBlock: {
+	DisplayName: Dry Dirt Grass Block
+	Tooltip: ""
+}
+
+DryDirtGrassSeeds: {
+	DisplayName: Dry Dirt Grass Seeds
+	Tooltip: ""
+}
+
+BlackLatexGrassBlock: {
+	DisplayName: Black Latex Grass Block
+	Tooltip: ""
+}
+
+BlackLatexLantern: {
+	DisplayName: Black Latex Lantern
+	Tooltip: ""
+}
+
+BlackLatexMudBlock: {
+	DisplayName: Black Latex Mud Block
+	Tooltip: ""
+}
+
+WhiteLatexMudBlock: {
+	DisplayName: White Latex Mud Block
+	Tooltip: ""
 }

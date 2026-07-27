@@ -27,7 +27,7 @@ namespace ChangedSpecialMod.Content.Tiles.Plants
             TileObjectData.newTile.CoordinateHeights = [16, 18];
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
-            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<DryDirt>()];
+            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<DryDirtGrassTile>()];
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;

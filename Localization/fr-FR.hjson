@@ -613,6 +613,8 @@ Mods: {
 					Normal3: Ouaf ouaf!
 					Normal4: *Snif* *snif*
 				}
+
+				Census.SpawnCondition: Utiliser {$ChangedSpecialMod.Items.BlackLatexCubLicense.DisplayName} [i:ChangedSpecialMod/BlackLatexCubLicense], vendu par la zoologiste
 			}
 
 			WhiteLatexCubTownPet: {
@@ -625,6 +627,8 @@ Mods: {
 					Normal3: Ouaf ouaf!
 					Normal4: *Snif* *snif*
 				}
+
+				Census.SpawnCondition: Utiliser {$ChangedSpecialMod.Items.WhiteLatexCubLicense.DisplayName} [i:ChangedSpecialMod/WhiteLatexCubLicense], vendu par la zoologiste
 			}
 
 			ExoSuitRobot: {

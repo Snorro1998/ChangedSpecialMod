@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.Latex
 {
 	// This file contains 3 classes and shows off using inheritance to share code between classes.
 	// Terraria has many tiles that are purely decorative and do not drop items when broken.
@@ -18,7 +18,7 @@ namespace ChangedSpecialMod.Content.Tiles
 	public class WhiteLatexGrass : ModTile
 	{
 		// We want both tiles to use the same texture
-		public override string Texture => "ChangedSpecialMod/Content/Tiles/WhiteLatexGrass";
+		public override string Texture => "ChangedSpecialMod/Content/Tiles/Latex/WhiteLatexGrass";
 
 		public override void SetStaticDefaults() 
 		{
@@ -26,7 +26,7 @@ namespace ChangedSpecialMod.Content.Tiles
 			Main.tileNoFail[Type] = true;
 			Main.tileObsidianKill[Type] = true;
 
-			DustType = DustID.Stone;
+			DustType = DustID.Grass;
 
             Main.tileCut[Type] = true;
             Main.tileSolid[Type] = false;

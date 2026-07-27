@@ -21,9 +21,28 @@ namespace ChangedSpecialMod.Content.Tiles
             DustType = DustID.Mud;
             ItemDrop = ModContent.ItemType<DryDirtBlock>();
             AddMapEntry(new Color(77, 54, 50));
+
+            TileID.Sets.ChecksForMerge[Type] = true;
+            TileID.Sets.CanBeDugByShovel[Type] = true;
+            TileID.Sets.CanBeClearedDuringOreRunner[Type] = true;
+            TileID.Sets.Conversion.Dirt[Type] = true;
         }
 
 
+        public override void RandomUpdate(int i, int j)
+        {
+            //Make sure that astral grass only spreads to adjacent tiles, as opposed to appearing out of thin air
+            Tile up = Main.tile[i, j - 1];
+            Tile down = Main.tile[i, j + 1];
+            Tile left = Main.tile[i - 1, j];
+            Tile right = Main.tile[i + 1, j];
+            var grassTileType = ModContent.TileType<DryDirtGrassTile>();
+            if (WorldGen.genRand.NextBool(3) && (up.TileType == grassTileType || down.TileType == grassTileType || left.TileType == grassTileType || right.TileType == grassTileType))
+            {
+                WorldGen.SpreadGrass(i, j, Type, grassTileType, false);
+            }
+        }
+        /*
         public override void RandomUpdate(int i, int j)
         {
             if (Main.rand.Next(2) == 0)
@@ -41,6 +60,7 @@ namespace ChangedSpecialMod.Content.Tiles
 
             base.RandomUpdate(i, j);
         }
+        */
     }
 }
 

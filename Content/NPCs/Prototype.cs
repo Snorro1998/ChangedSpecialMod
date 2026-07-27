@@ -3,6 +3,7 @@ using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Items.Placeable.Seeds;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -34,7 +35,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             new ShopData("First Shop", "Fruits"),
             new ShopData("Second Shop", "Herbs"),
-            new ShopData("Third Shop", "MusicBoxes")
+            new ShopData("Third Shop", "Seeds"),
+            new ShopData("Fourth Shop", "MusicBoxes")
         };
 
         // Everything starting with state needs to be figured out still
@@ -288,6 +290,16 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Register();
 
             new NPCShop(Type, Shops[2].InternalName)
+                .Add(ItemID.GrassSeeds)
+                .Add(ItemID.JungleGrassSeeds)
+                .Add(ItemID.MushroomGrassSeeds)
+                .Add(ItemID.CorruptSeeds)
+                .Add(ItemID.CrimsonSeeds)
+                .Add(ItemID.HallowedSeeds)
+                .Add(ItemID.AshGrassSeeds)
+                .Register();
+
+            new NPCShop(Type, Shops[3].InternalName)
                 .Add(ModContent.ItemType<MusicBoxBlackLatexZone1>())
                 .Add(ModContent.ItemType<MusicBoxBlackLatexZone2>())
                 .Add(ModContent.ItemType<MusicBoxCrystalZone>())
@@ -313,7 +325,7 @@ namespace ChangedSpecialMod.Content.NPCs
             // No I don't want to fix that right now so just check if the name contains the shop name instead of equal
 
             // Don't do anything for the other shops
-            if (shopName.Contains("First Shop") || shopName.Contains("Second Shop")) 
+            if (shopName.Contains("First Shop") || shopName.Contains("Second Shop") || shopName.Contains("Third Shop")) 
             { 
                 // Clear out the shop in case he sells pylons or things from other mods
                 for (int i = 0; i < items.Length; i++) 
@@ -379,7 +391,22 @@ namespace ChangedSpecialMod.Content.NPCs
                     {
                         itemList.AddRange(mod.GetAvailable(ItemCategory.Herb));
                     }
-                } 
+                }
+                // Seed shop
+                else if (shopName.Contains("Third Shop"))
+                {
+                    itemList = new List<int>()
+                    {
+                        ItemID.GrassSeeds,
+                        ItemID.JungleGrassSeeds,
+                        //ItemID.MushroomGrassSeeds,
+                        //ItemID.CorruptSeeds,
+                        //ItemID.CrimsonSeeds,
+                        //ItemID.HallowedSeeds,
+                        //ItemID.AshGrassSeeds
+                        ModContent.ItemType<DryDirtGrassSeeds>()
+                    };
+                }
                 var nShopSlots = 40; 
                 // Replace items in the shop
                 for (int i = 0; i < itemList.Count; i++) 

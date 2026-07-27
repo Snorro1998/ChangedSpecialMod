@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Som de estalo de chicote
 	}
 
+	SlipSound: {
+		Tooltip: Se um jogador escorregar, deve ser reproduzido um efeito sonoro que imite o escorregão.
+		Label: Som de escorregão do jogador
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: Quando os personagens conversam, eles podem usar emotes relacionados ao Changed.
 		Label: Personagens podem usar emotes do Changed.
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Informações adicionais sobre o status mundial
 		Tooltip: A dríade também pode lhe dizer quanta gosma existe no mundo.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

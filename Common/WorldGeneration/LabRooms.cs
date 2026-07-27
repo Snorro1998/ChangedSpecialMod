@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Plushies;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using ChangedSpecialMod.Utilities;
 using Terraria.ID;
 using Terraria.ModLoader;

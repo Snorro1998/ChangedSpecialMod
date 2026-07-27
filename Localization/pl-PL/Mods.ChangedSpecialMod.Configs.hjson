@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Dźwięk trzasku bicza
 	}
 
+	SlipSound: {
+		Tooltip: Jeżeli dźwięk poślizgu ma być odtwarzany, gdy gracz się ślizga.
+		Label: Dźwięk poślizgu gracza
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: Kiedy postacie rozmawiają, mogą używać emotikonów dotyczących gry Changed.
 		Label: Postacie mogą używać emotikonów Changed
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Dodatkowe informacje o stanie świata
 		Tooltip: Driada może również powiedzieć, ile szlamu jest na świecie.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

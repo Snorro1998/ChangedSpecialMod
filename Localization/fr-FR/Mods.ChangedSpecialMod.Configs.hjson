@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Bruit de fouet
 	}
 
+	SlipSound: {
+		Tooltip: Le son de glissement doit être joué lorsque le joueur glisse.
+		Label: Son de glissement
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: Les personnages peuvent utiliser des émoticônes liées à « Changed ».
 		Label: Personnages utiliser des émoticônes « Changed »
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Informations supplémentaires sur le statut mondial
 		Tooltip: La dryade peut aussi vous indiquer la quantité de vase présente dans le monde.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

@@ -1,7 +1,8 @@
-﻿using Terraria;
+﻿using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.Latex;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ChangedSpecialMod.Content.Tiles;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Latex
 {

@@ -6,6 +6,7 @@ using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
 using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Content.Walls.Latex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -151,6 +152,10 @@ namespace ChangedSpecialMod.Utilities
             var possibleTilesY = new List<int>();
             var possibleTileConversionType = new List<int>();
 
+            var possibleWallsX = new List<int>();
+            var possibleWallsY = new List<int>();
+            var possibleWallConversionType = new List<int>();
+
             for (var y = j - spreadRange; y < j + spreadRange; y++)
             {
                 for (var x = i - spreadRange; x < i + spreadRange; x++)
@@ -171,6 +176,16 @@ namespace ChangedSpecialMod.Utilities
                         possibleTilesY.Add(y);
                         possibleTileConversionType.Add(conversionType);
                     }
+
+                    var conversionTypeWall = -1;
+                    conversionTypeWall = GetWallType(target, gooType, true);
+
+                    if (conversionTypeWall != -1)
+                    {
+                        possibleWallsX.Add(x);
+                        possibleWallsY.Add(y);
+                        possibleWallConversionType.Add(conversionTypeWall);
+                    }
                 }
             }
 
@@ -182,6 +197,16 @@ namespace ChangedSpecialMod.Utilities
                 var conversionType = possibleTileConversionType[index];
                 Main.tile[targetX, targetY].TileType = (ushort)conversionType;
                 WorldGen.SquareTileFrame(targetX, targetY);
+            }
+
+            if (possibleWallsX.Any())
+            {
+                var index = ChangedUtils.MainRandNext(0, possibleWallsX.Count);
+                var targetX = possibleWallsX[index];
+                var targetY = possibleWallsY[index];
+                var conversionType = possibleWallConversionType[index];
+                Main.tile[targetX, targetY].WallType = (ushort)conversionType;
+                WorldGen.SquareWallFrame(targetX, targetY);
             }
         }
 
@@ -478,8 +503,16 @@ namespace ChangedSpecialMod.Utilities
 
             switch (tile.TileType)
             {
+                case TileID.Grass:
+                case TileID.CorruptGrass:
+                case TileID.CrimsonGrass:
+                    tileType = ModContent.TileType<BlackLatexGrassTile>();
+                    break;
+
                 // Sand
                 case TileID.Sand:
+                case TileID.Ebonsand:
+                case TileID.Crimsand:
                     tileType = ModContent.TileType<BlackLatexSandTile>();
                     break;
 
@@ -512,24 +545,25 @@ namespace ChangedSpecialMod.Utilities
                     tileType = ModContent.TileType<BlackLatexSnowTile>();
                     break;
 
-                case TileID.Grass:
+                // Jungle
+                case TileID.Mud:
+                    tileType = ModContent.TileType<BlackLatexMudTile>();
+                    break;
+
+                case TileID.JungleGrass:
+                    tileType = ModContent.TileType<BlackLatexJungleGrassTile>();
+                    break;
+
+                // Living trees
+                case TileID.LivingWood:
+                    tileType = ModContent.TileType<BlackLatexLivingWoodTile>();
+                    break;
+
                 case TileID.Dirt:
                 case TileID.ClayBlock:
-
                 // Desert
                 case TileID.HardenedSand:
 
-                // Corruption
-                case TileID.CorruptGrass:
-                case TileID.Ebonsand:
-
-                // Crimson
-                case TileID.CrimsonGrass:
-                case TileID.Crimsand:
-
-                // Jungle
-                case TileID.Mud:
-                case TileID.JungleGrass:
                     tileType = ModContent.TileType<BlackLatexTile>();
                     break;
                 default:
@@ -539,18 +573,50 @@ namespace ChangedSpecialMod.Utilities
             return tileType;
         }
 
+        private static int GetWallTypeBlackLatex(Tile tile)
+        {
+            int wallType = -1;
+
+            switch (tile.WallType)
+            {
+                case WallID.DirtUnsafe:
+                    wallType = ModContent.WallType<BlackLatexDirtWallUnsafe>();
+                    break;
+                case WallID.DirtUnsafe1:
+                    wallType = ModContent.WallType<BlackLatexDirtWallUnsafe1>();
+                    break;
+
+                case WallID.Stone:
+                    wallType = ModContent.WallType<BlackLatexStoneWall>();
+                    break;
+
+                default:
+                    break;
+            }
+
+            return wallType;
+        }
+
         private static int GetTileTypeWhiteLatex(Tile tile)
         {
             int tileType = -1;
 
             switch (tile.TileType)
             {
+                case TileID.Grass:
+                case TileID.CorruptGrass:
+                case TileID.CrimsonGrass:
+                    tileType = ModContent.TileType<WhiteLatexGrassTile>();
+                    break;
+
                 // Sand
                 case TileID.Sand:
+                case TileID.Ebonsand:
+                case TileID.Crimsand:
                     tileType = ModContent.TileType<WhiteLatexSandTile>();
                     break;
                 
-                    // Stone
+                // Stone
                 case TileID.Stone:
                 case TileID.Ebonstone:
                 case TileID.Crimstone:
@@ -579,24 +645,24 @@ namespace ChangedSpecialMod.Utilities
                     tileType = ModContent.TileType<WhiteLatexSnowTile>();
                     break;
 
-                case TileID.Grass:
-                case TileID.Dirt:
-                case TileID.ClayBlock:
-
-                // Desert
-                case TileID.HardenedSand:
-
-                // Corruption
-                case TileID.CorruptGrass:
-                case TileID.Ebonsand:
-
-                // Crimson
-                case TileID.CrimsonGrass:
-                case TileID.Crimsand:
-
                 // Jungle
                 case TileID.Mud:
+                    tileType = ModContent.TileType<WhiteLatexMudTile>();
+                    break;
+
                 case TileID.JungleGrass:
+                    tileType = ModContent.TileType<WhiteLatexJungleGrassTile>();
+                    break;
+
+                // Living trees
+                case TileID.LivingWood:
+                    tileType = ModContent.TileType<WhiteLatexLivingWoodTile>();
+                    break;
+
+                case TileID.Dirt:
+                case TileID.ClayBlock:
+                // Desert
+                case TileID.HardenedSand:
                     tileType = ModContent.TileType<WhiteLatexTile>();
                     break;
                 default:
@@ -606,14 +672,42 @@ namespace ChangedSpecialMod.Utilities
             return tileType;
         }
 
+        private static int GetWallTypeWhiteLatex(Tile tile)
+        {
+            int wallType = -1;
+
+            switch (tile.WallType)
+            {
+                case WallID.DirtUnsafe:
+                    wallType = ModContent.WallType<WhiteLatexDirtWallUnsafe>();
+                    break;
+                case WallID.DirtUnsafe1:
+                    wallType = ModContent.WallType<WhiteLatexDirtWallUnsafe1>();
+                    break;
+                case WallID.Stone:
+                    wallType = ModContent.WallType<WhiteLatexStoneWall>();
+                    break;
+
+                default:
+                    break;
+            }
+
+            return wallType;
+        }
+
         private static int GetTileTypeDryDirt(Tile tile)
         {
             int tileType = -1;
 
             switch (tile.TileType)
             {
-                case TileID.Sand:
                 case TileID.Grass:
+                case TileID.CorruptGrass:
+                case TileID.CrimsonGrass:
+                    tileType = ModContent.TileType<DryDirtGrassTile>();
+                    break;
+
+                case TileID.Sand:
                 case TileID.Dirt:
                 case TileID.ClayBlock:
 
@@ -621,12 +715,10 @@ namespace ChangedSpecialMod.Utilities
                 case TileID.HardenedSand:
 
                 // Corruption
-                case TileID.CorruptGrass:
                 case TileID.Ebonsand:
                 case TileID.Ebonstone:
 
                 // Crimson
-                case TileID.CrimsonGrass:
                 case TileID.Crimsand:
                 case TileID.Crimstone:
 
@@ -657,11 +749,14 @@ namespace ChangedSpecialMod.Utilities
                 switch (tile.TileType)
                 {
                     case TileID.Grass:
+                    case TileID.JungleGrass:
                     case TileID.Dirt:
+                    case TileID.Mud:
                     case TileID.Sand:
                     case TileID.Stone:
                     case TileID.SnowBlock:
                     case TileID.IceBlock:
+                    case TileID.LivingWood:
                         break;
                     default:
                         return -1;
@@ -677,22 +772,17 @@ namespace ChangedSpecialMod.Utilities
             return -1;
         }
 
-        public static bool ShouldReplaceWall(int wallId)
+        public static int GetWallType(Tile tile, GooType gooType, bool onlySpread = false)
         {
-            switch (wallId)
-            {
-                case WallID.DirtUnsafe:
-                case WallID.GrassUnsafe:
-                case WallID.FlowerUnsafe:
-                case WallID.MudUnsafe:
-                case WallID.JungleUnsafe:
-                case WallID.Sandstone:
-                case WallID.CorruptGrassEcho:
-                case WallID.Corruption1Echo:
-                case WallID.EbonstoneEcho:
-                    return true;
-            }
-            return false;
+            if (tile == null)
+                return -1;
+
+            if (gooType == GooType.Black)
+                return GetWallTypeBlackLatex(tile);
+            else if (gooType == GooType.White)
+                return GetWallTypeWhiteLatex(tile);
+
+            return -1;
         }
 
         public static void CreateLatexBiome(int xPos, int yPos, int width, int height, int xPadding = 100, int yPadding = 50, LabType labType = LabType.CityRuins)

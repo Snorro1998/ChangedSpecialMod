@@ -819,46 +819,87 @@ LatexMothMountItem: {
 }
 
 BlackLatexIce: {
-	// Tooltip: ""
-	// DisplayName: Black Glacial Goo Block
+	Tooltip: ""
+	DisplayName: 黑色冰川粘液块
 }
 
 WhiteLatexIce: {
-	// Tooltip: ""
-	// DisplayName: White Glacial Goo Block
+	Tooltip: ""
+	DisplayName: 白色冰川粘液块
 }
 
 WhiteLatexSnow: {
-	// Tooltip: ""
-	// DisplayName: White Slime Snow Block
+	Tooltip: ""
+	DisplayName: 白色史莱姆雪块
 }
 
 BlackLatexSnow: {
-	// Tooltip: ""
-	// DisplayName: Black Slime Snow Block
-}
-
-DebugTeleportToInfection: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Infection
+	Tooltip: ""
+	DisplayName: 黑色史莱姆雪块
 }
 
 DebugTeleportToHallow: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Hallow
+	Tooltip:
+		'''
+		右键单击以更改目标位置。
+		警告：这可能会将你传送到危险的地方。
+		'''
+	DisplayName: 传送至神圣之地
 }
 
 DebugTeleportToCrimson: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Crimson
+	Tooltip:
+		'''
+		右键单击以更改目标位置。
+		警告：这可能会将你传送到危险的地方。
+		'''
+	DisplayName: 传送至猩红之地
 }
 
 DebugTeleportToLatex: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Latex
+	Tooltip:
+		'''
+		右键单击以更改目标位置。
+		警告：这可能会将你传送到危险的地方。
+		'''
+	DisplayName: 传送至粘液区域
 }
 
 DebugTeleportToCorruption: {
+	Tooltip:
+		'''
+		右键单击以更改目标位置。
+		警告：这可能会将你传送到危险的地方。
+		'''
+	DisplayName: 传送至腐化之地
+}
+
+DryDirtGrassBlock: {
+	// DisplayName: Dry Dirt Grass Block
 	// Tooltip: ""
-	// DisplayName: Debug Teleport To Corruption
+}
+
+DryDirtGrassSeeds: {
+	// DisplayName: Dry Dirt Grass Seeds
+	// Tooltip: ""
+}
+
+BlackLatexGrassBlock: {
+	// DisplayName: Black Latex Grass Block
+	// Tooltip: ""
+}
+
+BlackLatexLantern: {
+	// DisplayName: Black Latex Lantern
+	// Tooltip: ""
+}
+
+BlackLatexMudBlock: {
+	// DisplayName: Black Latex Mud Block
+	// Tooltip: ""
+}
+
+WhiteLatexMudBlock: {
+	// DisplayName: White Latex Mud Block
+	// Tooltip: ""
 }

@@ -613,6 +613,8 @@ Mods: {
 					Normal3: тяф тяф!
 					Normal4: *шмыг* *шмыг*
 				}
+
+				Census.SpawnCondition: использовать {$ChangedSpecialMod.Items.BlackLatexCubLicense.DisplayName} [i:ChangedSpecialMod/BlackLatexCubLicense], продается зоолог
 			}
 
 			WhiteLatexCubTownPet: {
@@ -625,6 +627,8 @@ Mods: {
 					Normal3: тяф тяф!
 					Normal4: *шмыг* *шмыг*
 				}
+
+				Census.SpawnCondition: использовать {$ChangedSpecialMod.Items.WhiteLatexCubLicense.DisplayName} [i:ChangedSpecialMod/WhiteLatexCubLicense], продается зоолог
 			}
 
 			ExoSuitRobot: {

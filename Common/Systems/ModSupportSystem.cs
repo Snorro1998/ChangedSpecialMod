@@ -354,9 +354,19 @@ namespace ChangedSpecialMod.Common.Systems
             if (changedMod == null || modCensus == null)
                 return;
 
-            modCensus.Call("TownNPCCondition", ModContent.NPCType<Puro>());
-            modCensus.Call("TownNPCCondition", ModContent.NPCType<Prototype>());
-            modCensus.Call("TownNPCCondition", ModContent.NPCType<Scientist>());
+            try
+            {
+                modCensus.Call("TownNPCCondition", ModContent.NPCType<Puro>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Puro.Census.SpawnCondition"));
+                modCensus.Call("TownNPCCondition", ModContent.NPCType<Prototype>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Prototype.Census.SpawnCondition"));
+                modCensus.Call("TownNPCCondition", ModContent.NPCType<Scientist>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Scientist.Census.SpawnCondition"));
+                modCensus.Call("TownNPCCondition", ModContent.NPCType<Colin>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Colin.Census.SpawnCondition"));
+                modCensus.Call("TownNPCCondition", ModContent.NPCType<DarkLatexCubTownPet>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Census.SpawnCondition"));
+                modCensus.Call("TownNPCCondition", ModContent.NPCType<WhiteLatexCubTownPet>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Census.SpawnCondition"));
+            }
+            catch(Exception ex)
+            {
+                Mod.Logger.Error("Census Call Error: " + ex.Message);
+            }
         }
 
         private void SetupFargosMutant()

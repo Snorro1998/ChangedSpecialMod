@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Peitschenknallgeräusch
 	}
 
+	SlipSound: {
+		Tooltip: Das Rutschgeräusch soll abgespielt werden, wenn der Spieler herumrutscht.
+		Label: Rutschgeräusch
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: Wenn die Charaktere sprechen, können sie Emotes zum Thema "Changed" verwenden.
 		Label: Charaktere können "Changed"-Emotes verwenden.
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Zusätzliche Weltstatusinformationen
 		Tooltip: Die Dryade kann auch sagen, wie viel Schleim es in der Welt gibt.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

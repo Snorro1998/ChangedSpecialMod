@@ -48,7 +48,8 @@ namespace ChangedSpecialMod.Utilities
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
             // If another mod removes this task, nothing will be generated
-            int taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Smooth World")); //Floating Islands Smooth World
+            // used to be smooth world
+            int taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Spreading Grass"));
             if (taskIndex != -1)
             {
                 tasks.Insert(taskIndex + 1, new PassLegacy("ChangedStructures", (progress, config) =>
@@ -296,8 +297,6 @@ namespace ChangedSpecialMod.Utilities
 
         private static void MakeBiomeAroundPool(Rectangle bounds, int paddingX, int paddingY, GooType gooType)
         {
-            var blockType = gooType == GooType.Black ? ModContent.TileType<BlackLatexTile>() : ModContent.TileType<WhiteLatexTile>();
-
             float radiusX = bounds.Width / 2f + paddingX;
             float radiusY = bounds.Height / 2f + paddingY;
 
@@ -370,7 +369,7 @@ namespace ChangedSpecialMod.Utilities
                     {
                         var newTileType = WorldGenerator.GetTileType(tile, gooType);
                         if (newTileType != -1)
-                            tile.TileType = (ushort)blockType;
+                            tile.TileType = (ushort)newTileType;
                     }
                 }
             }
@@ -765,6 +764,38 @@ namespace ChangedSpecialMod.Utilities
                 TileID.Hive
             };
 
+            List<int> blackListWalls = new List<int>()
+            {
+                WallID.BlueDungeon,
+                WallID.BlueDungeonUnsafe,
+                WallID.BlueDungeonSlab,
+                WallID.BlueDungeonSlabUnsafe,
+                WallID.BlueDungeonTile,
+                WallID.BlueDungeonTileUnsafe,
+
+                WallID.GreenDungeon,
+                WallID.GreenDungeonUnsafe,
+                WallID.GreenDungeonSlab,
+                WallID.GreenDungeonSlabUnsafe,
+                WallID.GreenDungeonTile,
+                WallID.GreenDungeonTileUnsafe,
+
+                WallID.PinkDungeon,
+                WallID.PinkDungeonUnsafe,
+                WallID.PinkDungeonSlab,
+                WallID.PinkDungeonSlabUnsafe,
+                WallID.PinkDungeonTile,
+                WallID.PinkDungeonTileUnsafe,
+
+                WallID.Hive,
+                WallID.HiveUnsafe,
+                WallID.Spider,
+                WallID.SpiderEcho,
+                WallID.SpiderUnsafe,
+                WallID.LihzahrdBrick,
+                WallID.LihzahrdBrickUnsafe
+            };
+
             // Get blocks from other mods we should avoid
             blackListBlocks.AddRange(ModSupportSystem.GetAvoidTiles());
 
@@ -773,6 +804,9 @@ namespace ChangedSpecialMod.Utilities
                 LiquidID.Honey,
                 LiquidID.Shimmer
             };
+
+            if (!GenVars.structures.CanPlace(new Rectangle(xPos, yPos, width, height)))
+                return false;
 
             // Check if in a good place
             for (int y = 0; y < height; y++)
@@ -791,6 +825,8 @@ namespace ChangedSpecialMod.Utilities
                     if (t.LiquidAmount > 0 && blackListLiquids.Contains(t.LiquidType))
                         return false;
                     if (t.HasTile && blackListBlocks.Contains(t.TileType))
+                        return false;
+                    if (blackListWalls.Contains(t.WallType))
                         return false;
                 }
             }

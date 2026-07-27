@@ -86,7 +86,7 @@ Mods: {
 					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot}跟我讲了很多关于“魔能”的事情，但我只想知道能不能用它做出橘子。"
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}我不明白为什么{NameStarsModPackFarmer}没有橘子树种子。每个农民都应该有。"
-					NPCStarsModPackScrapyardGeek: 人类，你知道{StarsModPackScrapyardGeekPresent}为什么总是那样说话吗？
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}人类，你知道{NameStarsModPackScrapyardGeek}为什么总是那样说话吗？"
 					Book1: 我评判一本书的方式就像评判一个橘子一样：看它从头到尾，直到最后一页或最后一片，是否都令人满意。
 					Book2: 你好，人类!你找到我的书了吗?
 					Book3: 你愿意帮我搭建最高的书塔吗?
@@ -613,6 +613,8 @@ Mods: {
 					Normal3: 汪汪！
 					Normal4: 闻闻
 				}
+
+				Census.SpawnCondition: 使用{$ChangedSpecialMod.Items.BlackLatexCubLicense.DisplayName}[i:ChangedSpecialMod/BlackLatexCubLicense], 出售方动物学家
 			}
 
 			WhiteLatexCubTownPet: {
@@ -625,6 +627,8 @@ Mods: {
 					Normal3: 汪汪！
 					Normal4: 闻闻
 				}
+
+				Census.SpawnCondition: 使用{$ChangedSpecialMod.Items.WhiteLatexCubLicense.DisplayName}[i:ChangedSpecialMod/WhiteLatexCubLicense], 出售方动物学家
 			}
 
 			ExoSuitRobot: {

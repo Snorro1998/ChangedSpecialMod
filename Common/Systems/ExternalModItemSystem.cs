@@ -9,7 +9,8 @@ namespace ChangedSpecialMod.Common.Systems
     public enum ItemCategory
     {
         Fruit,
-        Herb
+        Herb,
+        Seeds
     }
 
     public static class ExternalModItemSystem
@@ -98,6 +99,11 @@ namespace ChangedSpecialMod.Common.Systems
                             new("Cometfruit", Main.hardMode),
                             new("Lotus", Main.hardMode),
                             new("Mangosteen", Main.hardMode)
+                        },
+                        [ItemCategory.Seeds] = new()
+                        {
+                            new("CinderBlossomSeeds", Main.hardMode),
+                            new("AstralGrassSeeds", Main.hardMode),
                         }
                     }
                 ),
@@ -116,6 +122,11 @@ namespace ChangedSpecialMod.Common.Systems
                             new("LuminBerry", anyMech),
                             new("BirdhouseGourd", NPC.downedGolemBoss),
                             new("CaramelApple", NPC.downedGolemBoss)
+                        },
+                        [ItemCategory.Seeds] = new()
+                        {
+                            new("BriarGrassSeeds")
+                            //Soulbloom Seeds
                         }
                     }
                 ),

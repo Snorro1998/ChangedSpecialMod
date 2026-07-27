@@ -99,93 +99,101 @@ namespace ChangedSpecialMod.Content.Items.Ammo
 
     public class WhiteLatexSolutionConversion : ModBiomeConversion
     {
-        private static bool NormalConversion(int i, int j, int type, int conversionType)
+        private static TileLoader.ConvertTile CreateConversion(int targetTile) =>
+        (i, j, type, conversionType) =>
         {
-            WorldGen.ConvertTile(i, j, ModContent.TileType<WhiteLatexTile>());
+            WorldGen.ConvertTile(i, j, targetTile);
             return false;
-        }
+        };
 
-        private static bool SandConversion(int i, int j, int type, int conversionType)
+        private static bool DestroyTile(int i, int j, int type, int conversionType)
         {
-            WorldGen.ConvertTile(i, j, ModContent.TileType<WhiteLatexSandTile>());
-            return false;
-        }
-
-        private static bool StoneConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, ModContent.TileType<WhiteLatexStoneTile>());
-            return false;
-        }
-
-        private static bool IceConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, ModContent.TileType<WhiteLatexIceTile>());
-            return false;
-        }
-
-        private static bool SnowConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, ModContent.TileType<WhiteLatexSnowTile>());
-            return false;
-        }
-
-        // Purity conversions
-        private static bool PurityDirtConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, TileID.Dirt);
-            return false;
-        }
-
-        private static bool PuritySandConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, TileID.Sand);
-            return false;
-        }
-
-        private static bool PurityStoneConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, TileID.Stone);
-            return false;
-        }
-
-        private static bool PurityIceConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, TileID.IceBlock);
-            return false;
-        }
-
-        private static bool PuritySnowConversion(int i, int j, int type, int conversionType)
-        {
-            WorldGen.ConvertTile(i, j, TileID.SnowBlock);
+            WorldGen.KillTile(i, j);
             return false;
         }
 
         public override void PostSetupContent()
         {
             // Normal to white
-            TileLoader.RegisterConversion(TileID.Dirt, Type, NormalConversion);
-            TileLoader.RegisterConversion(TileID.Grass, Type, NormalConversion);
-            TileLoader.RegisterConversion(TileID.Sand, Type, SandConversion);
-            TileLoader.RegisterConversion(TileID.Stone, Type, StoneConversion);
-            TileLoader.RegisterConversion(TileID.IceBlock, Type, IceConversion);
-            TileLoader.RegisterConversion(TileID.SnowBlock, Type, SnowConversion);
-            
-            // Black to white
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), Type, NormalConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexSandTile>(), Type, SandConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexStoneTile>(), Type, StoneConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexIceTile>(), Type, IceConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexSnowTile>(), Type, SnowConversion);
-            
-            // Dry dirt to white
-            TileLoader.RegisterConversion(ModContent.TileType<DryDirt>(), Type, NormalConversion);
+            TileLoader.RegisterConversion(TileID.Dirt, Type, CreateConversion(ModContent.TileType<WhiteLatexTile>()));
+            TileLoader.RegisterConversion(TileID.Grass, Type, CreateConversion(ModContent.TileType<WhiteLatexGrassTile>()));
+            TileLoader.RegisterConversion(TileID.Mud, Type, CreateConversion(ModContent.TileType<WhiteLatexMudTile>()));
+            TileLoader.RegisterConversion(TileID.JungleGrass, Type, CreateConversion(ModContent.TileType<WhiteLatexJungleGrassTile>()));
+            TileLoader.RegisterConversion(TileID.Sand, Type, CreateConversion(ModContent.TileType<WhiteLatexSandTile>()));
+            TileLoader.RegisterConversion(TileID.Stone, Type, CreateConversion(ModContent.TileType<WhiteLatexStoneTile>()));
+            TileLoader.RegisterConversion(TileID.IceBlock, Type, CreateConversion(ModContent.TileType<WhiteLatexIceTile>()));
+            TileLoader.RegisterConversion(TileID.SnowBlock, Type, CreateConversion(ModContent.TileType<WhiteLatexSnowTile>()));
+            TileLoader.RegisterConversion(TileID.LivingWood, Type, CreateConversion(ModContent.TileType<WhiteLatexLivingWoodTile>()));
+            TileLoader.RegisterConversion(TileID.Stalactite, Type, CreateConversion(ModContent.TileType<WhiteLatexStalactiteTile>()));
 
-            // Black to purity
-            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), BiomeConversionID.Purity, PurityDirtConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), BiomeConversionID.Purity, PuritySandConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStoneTile>(), BiomeConversionID.Purity, PurityStoneConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexIceTile>(), BiomeConversionID.Purity, PurityIceConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSnowTile>(), BiomeConversionID.Purity, PuritySnowConversion);
+            // Black to white
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexGrassTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexGrassTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexMudTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexMudTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexJungleGrassTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexJungleGrassTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexSandTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexSandTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexStoneTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexStoneTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexIceTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexIceTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexSnowTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexSnowTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexLivingWoodTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexLivingWoodTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexStalactiteTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexStalactiteTile>()));
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), Type, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), Type, DestroyTile);
+
+            // Dry dirt to white
+            TileLoader.RegisterConversion(ModContent.TileType<DryDirt>(), Type, CreateConversion(ModContent.TileType<WhiteLatexTile>()));
+            TileLoader.RegisterConversion(ModContent.TileType<DryDirtGrassTile>(), Type, CreateConversion(ModContent.TileType<WhiteLatexGrassTile>()));
+
+            TileLoader.RegisterConversion(ModContent.TileType<DryDirtPlant>(), Type, DestroyTile);
+
+            // White to purity
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), BiomeConversionID.Purity, TileID.Dirt);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexGrassTile>(), BiomeConversionID.Purity, TileID.Grass);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexMudTile>(), BiomeConversionID.Purity, TileID.Mud);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexJungleGrassTile>(), BiomeConversionID.Purity, TileID.JungleGrass);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), BiomeConversionID.Purity, TileID.Sand);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStoneTile>(), BiomeConversionID.Purity, TileID.Stone);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexIceTile>(), BiomeConversionID.Purity, TileID.IceBlock);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSnowTile>(), BiomeConversionID.Purity, TileID.SnowBlock);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexLivingWoodTile>(), BiomeConversionID.Purity, TileID.LivingWood);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStalactiteTile>(), BiomeConversionID.Purity, TileID.Stalactite);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Purity, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Purity, DestroyTile);
+
+            // White to corruption
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), BiomeConversionID.Corruption, TileID.Dirt);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexGrassTile>(), BiomeConversionID.Corruption, TileID.CorruptGrass);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), BiomeConversionID.Corruption, TileID.Ebonsand);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStoneTile>(), BiomeConversionID.Corruption, TileID.Ebonstone);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexIceTile>(), BiomeConversionID.Corruption, TileID.CorruptIce);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSnowTile>(), BiomeConversionID.Corruption, TileID.SnowBlock);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Corruption, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Corruption, DestroyTile);
+
+            // White to crimson
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), BiomeConversionID.Crimson, TileID.Dirt);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexGrassTile>(), BiomeConversionID.Crimson, TileID.CrimsonGrass);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), BiomeConversionID.Crimson, TileID.Crimsand);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStoneTile>(), BiomeConversionID.Crimson, TileID.Crimstone);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexIceTile>(), BiomeConversionID.Crimson, TileID.FleshIce);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSnowTile>(), BiomeConversionID.Crimson, TileID.SnowBlock);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Crimson, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Crimson, DestroyTile);
+
+            // White to hallow
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), BiomeConversionID.Hallow, TileID.Dirt);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexGrassTile>(), BiomeConversionID.Hallow, TileID.HallowedGrass);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSandTile>(), BiomeConversionID.Hallow, TileID.Pearlsand);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexStoneTile>(), BiomeConversionID.Hallow, TileID.Pearlstone);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexIceTile>(), BiomeConversionID.Hallow, TileID.HallowedIce);
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexSnowTile>(), BiomeConversionID.Hallow, TileID.SnowBlock);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Hallow, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Hallow, DestroyTile);
         }
     }
 }

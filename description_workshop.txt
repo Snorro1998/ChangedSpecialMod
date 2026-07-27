@@ -87,24 +87,6 @@ https://github.com/Snorro1998/ChangedSpecialMod
 
 
 [h2]Changelog[/h2]
-This update adds new transfur options and makes their stats visible in the ui.
-For information about previous versions, please check out the change notes in the steam workshop.
-
-[h3]0.5.4[/h3]
-
-[b]General[/b]
-[list]
-	[*]Added Puro and Squid Dog statues.
-	[*]NPCs which require a boss to be defeated to spawn can now also spawn if any boss that comes after it has been defeated. This only works for vanilla for now.
-	[*]Added a rare underground structure.
-	[*]Added a config option to disable custom world names.
-	[*]Added support for wikithis, but you can't use it right now because the wiki is not public yet.
-	[*]special seeds blackgoozone and whitegoojungle now convert the whole world instead of just the surface.
-	[*]Added black and white pylons. They work at any depth.
-	[*]Added crystal wolves, snake and slime moth
-	[*]Added slime moth mount. Like the Yufeng mount, its stats are enhanced after entering hard mode.
-[/list]
-
 This update adds achievements and fixes some issues with shimmer.
 For information about previous versions, please check out the change notes in the steam workshop.
 
@@ -116,6 +98,7 @@ For information about previous versions, please check out the change notes in th
 	[*]Added support for Biome Titles
 	[*]Removed latex beast shimmer transmutations, because they were buggy. Now they just become transparent.
 	[*]Greatly optimized the code for the dryad's world status. Now the game won't hang anymore when you click the button.
+	[*]Added a debug item for teleporting to hallow, corruption, crimson and latex blocks if you want to purify the world.
 [/list]
 
 [b]Achievements[/b]
@@ -130,9 +113,22 @@ For information about previous versions, please check out the change notes in th
 [b]Fixes[/b]
 [list]
 	[*]Removed broken iris scanner interaction text.
+	[*]Some blocks had the wrong hit sound.
 	[*]Wikithis not always directing to the right pages.
 	[*]Prototype did not become transparent from shimmer.
 	[*]Hats of shimmering latex beasts did not become transparent.
 	[*]It was possible that the strange swivel chair would not summon the wolf king if the black goo room had the smallest possible room height of 9 blocks.
 	[*]Hungry locker grew bigger from evolution
+[/list]
+
+[h3]0.5.5.1 (hotfix)[/h3]
+
+[b]Fixes[/b]
+[list]
+	[*]Error with Census.
+	[*]Goo Puppies did not have a description for how they can move in.
+	[*]New goo blocks had the wrong item sprite.
+	[*]Orange shrines could generate in large structures, such as the temple.
+	[*]Underground biomes always generated with goo versions of dirt.
+	[*]Debug teleport items could teleport the player into lava, shimmer or on top of dangerous blocks.
 [/list]

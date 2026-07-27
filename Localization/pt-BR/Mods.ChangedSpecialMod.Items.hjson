@@ -819,46 +819,87 @@ LatexMothMountItem: {
 }
 
 BlackLatexIce: {
-	// Tooltip: ""
-	// DisplayName: Black Glacial Goo Block
+	Tooltip: ""
+	DisplayName: Bloco de gelo preto e viscoso
 }
 
 WhiteLatexIce: {
-	// Tooltip: ""
-	// DisplayName: White Glacial Goo Block
+	Tooltip: ""
+	DisplayName: Bloco de gelo branco e viscoso
 }
 
 WhiteLatexSnow: {
-	// Tooltip: ""
-	// DisplayName: White Slime Snow Block
+	Tooltip: ""
+	DisplayName: Bloco de neve branca e viscosa
 }
 
 BlackLatexSnow: {
-	// Tooltip: ""
-	// DisplayName: Black Slime Snow Block
-}
-
-DebugTeleportToInfection: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Infection
+	Tooltip: ""
+	DisplayName: Bloco de neve preta e viscosa
 }
 
 DebugTeleportToHallow: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Hallow
+	Tooltip:
+		'''
+		Clique com o botão direito do mouse para alterar o destino.
+		AVISO: Isso pode teletransportá-lo para um local perigoso.
+		'''
+	DisplayName: Teletransportar-se para o Sagrado
 }
 
 DebugTeleportToCrimson: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Crimson
+	Tooltip:
+		'''
+		Clique com o botão direito do mouse para alterar o destino.
+		AVISO: Isso pode teletransportá-lo para um local perigoso.
+		'''
+	DisplayName: Teletransportar-se para o Carmim
 }
 
 DebugTeleportToLatex: {
-	// Tooltip: ""
-	// DisplayName: Debug Teleport To Latex
+	Tooltip:
+		'''
+		Clique com o botão direito do mouse para alterar o destino.
+		AVISO: Isso pode teletransportá-lo para um local perigoso.
+		'''
+	DisplayName: Teletransportar-se para a gosma
 }
 
 DebugTeleportToCorruption: {
+	Tooltip:
+		'''
+		Clique com o botão direito do mouse para alterar o destino.
+		AVISO: Isso pode teletransportá-lo para um local perigoso.
+		'''
+	DisplayName: Teletransportar-se para a Corrupção
+}
+
+DryDirtGrassBlock: {
+	// DisplayName: Dry Dirt Grass Block
 	// Tooltip: ""
-	// DisplayName: Debug Teleport To Corruption
+}
+
+DryDirtGrassSeeds: {
+	// DisplayName: Dry Dirt Grass Seeds
+	// Tooltip: ""
+}
+
+BlackLatexGrassBlock: {
+	// DisplayName: Black Latex Grass Block
+	// Tooltip: ""
+}
+
+BlackLatexLantern: {
+	// DisplayName: Black Latex Lantern
+	// Tooltip: ""
+}
+
+BlackLatexMudBlock: {
+	// DisplayName: Black Latex Mud Block
+	// Tooltip: ""
+}
+
+WhiteLatexMudBlock: {
+	// DisplayName: White Latex Mud Block
+	// Tooltip: ""
 }

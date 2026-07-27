@@ -7,10 +7,11 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Tiles.Latex
 {
-    public class WhiteLatexSandTile : ModTile
+    public class WhiteLatexSandTile : BaseWhiteLatexTile
     {
         public override void SetStaticDefaults()
         {
+            base.SetStaticDefaults();
             Main.tileSolid[Type] = true;
             Main.tileBrick[Type] = true;
             Main.tileMergeDirt[Type] = true;
@@ -31,30 +32,6 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             TileID.Sets.ChecksForMerge[Type] = true;
 
             MineResist = 0.5f; // Sand tile typically require half as many hits to mine.
-            DustType = DustID.SnowBlock;
-            AddMapEntry(new Color(200, 200, 200));
-        }
-
-        public override bool HasWalkDust()
-        {
-            return Main.rand.NextBool(3);
-        }
-
-        public override void WalkDust(ref int dustType, ref bool makeDust, ref Color color)
-        {
-            dustType = DustID.SnowBlock;
-        }
-
-        public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
-        {
-            return true;
-        }
-
-        public override void RandomUpdate(int i, int j)
-        {
-            WorldGenerator.GrowCrystal(i, j, NPCs.GooType.White);
-            WorldGenerator.Corrupt(i, j, NPCs.GooType.White);
-            base.RandomUpdate(i, j);
         }
     }
 }

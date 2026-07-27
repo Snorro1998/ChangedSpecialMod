@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Sonido de chasquido de látigo
 	}
 
+	SlipSound: {
+		Tooltip: Si un jugador resbala, se debe reproducir un efecto de sonido que indique que el jugador resbala.
+		Label: Sonido de deslizamiento del jugador
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: Los personajes pueden usar emoticonos sobre Changed.
 		Label: Personajes pueden usar emoticonos sobre Changed
@@ -98,10 +103,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Información adicional sobre el estado mundial
 		Tooltip: La dríada también puede decirte cuánto limo hay en el mundo.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

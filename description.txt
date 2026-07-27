@@ -79,35 +79,22 @@ Other
 
 --------- Changelog ---------
 
-This update adds achievements and fixes some issues with shimmer.
-For information about previous versions, please check out the change notes in the steam workshop.
+This update adds latex trees and improves the converting of biomes with the clentiminator.
 
 
-0.5.5
+0.5.6
 
 General
-- Added support for Biome Titles
-- Removed latex beast shimmer transmutations, because they were buggy. Now they just become transparent.
-- Greatly optimized the code for the dryad's world status. Now the game won't hang anymore when you click the button.
+- Added latex trees. They don't have special loot yet.
+- Added grass latex tiles. They look the same and their only purpose is to get normal grass back when purifying a latex biome.
 
-Snow
-- Latex can spread through ice like the evils biomes and hallow. It can also spread through snow.
-- Added Glacial Goo, a slime variant for ice
-- It makes you slip endlessly like the slippery blocks in Changed
-- If you want the Changed experience, there is a config option to enable the slipping sound. It is disabled by default.
+- Added dry grass. Now dry dirt won't have grass on top of it anymore.
 
-Achievements
-- Let there be Light: Turn on the power in a laboratory.
-- Rocket Science: Make a gas cylinder fly away.
-- Citrus Shrine: Find a citrus shrine underground.
-- Cuddly Colossus: Defeat a very large latex.
-- Gooey Expedition: Find all biomes from this mod.
+NPCs
+- Prototype sells all grass seeds including the new dry grass seeds used to spread the city ruins. Seeds from some other mods are also supported.
+
+Furniture
+- Added black lantern
 
 Fixes
-- Removed broken iris scanner interaction text.
-- Some blocks had the wrong hit sound.
-- Wikithis not always directing to the right pages.
-- Prototype did not become transparent from shimmer.
-- Hats of shimmering latex beasts did not become transparent.
-- It was possible that the strange swivel chair would not summon the wolf king if the black goo room had the smallest possible room height of 9 blocks.
-- Hungry locker grew bigger from evolution
+- Crystals not destroyed when purified.

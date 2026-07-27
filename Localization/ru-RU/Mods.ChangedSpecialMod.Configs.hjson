@@ -11,6 +11,11 @@ ChangedSpecialModClientConfig: {
 		Label: Звук щелчка кнута
 	}
 
+	SlipSound: {
+		Tooltip: Если игрок поскользнётся, должен быть воспроизведён звуковой эффект, имитирующий падение игрока.
+		Label: Звук скольжения игрока
+	}
+
 	NPCsCanUseChangedEmotes: {
 		Tooltip: Персонажи могут использовать эмоции, связанные с "Changed", во время разговора.
 		Label: Персонажи могут использовать эмоции "Changed"
@@ -100,10 +105,5 @@ ChangedSpecialModClientConfig: {
 	CustomDryadWorldStatus: {
 		Label: Дополнительная информация о состоянии мира
 		Tooltip: Дриада также может рассказать вам, сколько слизи существует в мире.
-	}
-
-	SlipSound: {
-		// Tooltip: ""
-		// Label: Slip Sound
 	}
 }

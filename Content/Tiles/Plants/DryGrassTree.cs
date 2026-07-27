@@ -34,7 +34,7 @@ namespace ChangedSpecialMod.Content.Tiles.Plants
 
         public override void SetStaticDefaults()
         {
-            GrowsOnTileId = [ModContent.TileType<DryDirt>()];
+            GrowsOnTileId = [ModContent.TileType<DryDirtGrassTile>()];
             texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/DryGrassTree");
             branchesTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/DryGrassTree_Branches");
             topsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/DryGrassTree_Tops");

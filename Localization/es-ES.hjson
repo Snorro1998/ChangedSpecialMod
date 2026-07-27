@@ -613,6 +613,8 @@ Mods: {
 					Normal3: Guau guau!
 					Normal4: *Snif* *snif*
 				}
+
+				Census.SpawnCondition: Usar {$ChangedSpecialMod.Items.BlackLatexCubLicense.DisplayName} [i:ChangedSpecialMod/BlackLatexCubLicense], vendido por el zoólogo
 			}
 
 			WhiteLatexCubTownPet: {
@@ -625,11 +627,13 @@ Mods: {
 					Normal3: Guau guau!
 					Normal4: *Snif* *snif*
 				}
+
+				Census.SpawnCondition: Usar {$ChangedSpecialMod.Items.WhiteLatexCubLicense.DisplayName} [i:ChangedSpecialMod/WhiteLatexCubLicense], vendido por el zoólogo
 			}
 
 			ExoSuitRobot: {
-				// DisplayName: Maintenance Robot
-				// Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
+				DisplayName: Robot de mantenimiento
+				Description: Un robot programado para actuar como centinela automatizado contra cualquiera que intente traspasar el perímetro de seguridad.
 			}
 
 			Colin: {

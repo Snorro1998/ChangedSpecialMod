@@ -1,27 +1,30 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable.Latex;
-using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.Latex
 {
-    public class BlackLatexTile : ModTile
+    public abstract class BaseBlackLatexTile : ModTile
     {
-        public int ItemDrop { get; private set; }
-
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-            Main.tileMergeDirt[Type] = true;
-            ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexTile>());
-            Main.tileLavaDeath[Type] = true;
+            Main.tileLavaDeath[Type] = false;
             Main.tileBlockLight[Type] = true;
-            Main.tileLighted[Type] = true;
             DustType = DustID.Asphalt;
-            ItemDrop = ModContent.ItemType<BlackLatexBlock>();
             AddMapEntry(new Color(35, 34, 41));
+        }
+
+        public override bool HasWalkDust()
+        {
+            return Main.rand.NextBool(3);
+        }
+
+        public override void WalkDust(ref int dustType, ref bool makeDust, ref Color color)
+        {
+            dustType = DustID.Asphalt;
         }
 
         public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)

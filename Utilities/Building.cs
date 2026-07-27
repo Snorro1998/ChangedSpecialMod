@@ -1,13 +1,14 @@
-﻿using ChangedSpecialMod.Content.Tiles;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.WorldGeneration;
+using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using ChangedSpecialMod.Common.WorldGeneration;
-using ChangedSpecialMod.Common.Configs;
 
 namespace ChangedSpecialMod.Utilities
 {
@@ -206,6 +207,7 @@ namespace ChangedSpecialMod.Utilities
                 TileID.IceBlock,
 
                 ModContent.TileType<DryDirt>(),
+                ModContent.TileType<BlackLatexTile>(),
                 ModContent.TileType<WhiteLatexTile>(),
             };
 

@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.Latex;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -98,28 +99,44 @@ namespace ChangedSpecialMod.Content.Items.Ammo
 
     public class DryDirtSolutionConversion : ModBiomeConversion
     {
-        private static bool NormalConversion(int i, int j, int type, int conversionType)
+        private static TileLoader.ConvertTile CreateConversion(int targetTile) =>
+        (i, j, type, conversionType) =>
         {
-            WorldGen.ConvertTile(i, j, ModContent.TileType<DryDirt>());
+            WorldGen.ConvertTile(i, j, targetTile);
             return false;
-        }
+        };
 
-        private static bool PurityConversion(int i, int j, int type, int conversionType)
+        private static bool DestroyTile(int i, int j, int type, int conversionType)
         {
-            WorldGen.ConvertTile(i, j, TileID.Dirt);
+            WorldGen.KillTile(i, j);
             return false;
         }
 
         public override void PostSetupContent()
         {
-            TileLoader.RegisterConversion(TileID.Dirt, Type, NormalConversion);
-            TileLoader.RegisterConversion(TileID.Grass, Type, NormalConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), Type, NormalConversion);
-            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), Type, NormalConversion);
-            //TileLoader.RegisterConversion(ModContent.TileType<Tiles.Furniture.CrystalWhite>(), Type, ConvertCrystal);
+            // Normal to dry dirt
+            TileLoader.RegisterConversion(TileID.Dirt, Type, CreateConversion(ModContent.TileType<DryDirt>()));
+            TileLoader.RegisterConversion(TileID.Grass, Type, CreateConversion(ModContent.TileType<DryDirtGrassTile>()));
+            TileLoader.RegisterConversion(TileID.Plants, Type, CreateConversion(ModContent.TileType<DryDirtPlant>()));
 
-            // Green solution
-            TileLoader.RegisterConversion(ModContent.TileType<DryDirt>(), BiomeConversionID.Purity, PurityConversion);
+            // Black to dry dirt
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexTile>(), Type, CreateConversion(ModContent.TileType<DryDirt>()));
+            TileLoader.RegisterConversion(ModContent.TileType<BlackLatexGrassTile>(), Type, CreateConversion(ModContent.TileType<DryDirtGrassTile>()));
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), Type, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), Type, DestroyTile);
+
+            // White to dry dirt
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexTile>(), Type, CreateConversion(ModContent.TileType<DryDirt>()));
+            TileLoader.RegisterConversion(ModContent.TileType<WhiteLatexGrassTile>(), Type, CreateConversion(ModContent.TileType<DryDirtGrassTile>()));
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), Type, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), Type, DestroyTile);
+
+            // Dry dirt to purity
+            TileLoader.RegisterConversion(ModContent.TileType<DryDirt>(), BiomeConversionID.Purity, CreateConversion(TileID.Dirt));
+            TileLoader.RegisterConversion(ModContent.TileType<DryDirtGrassTile>(), BiomeConversionID.Purity, CreateConversion(TileID.Grass));
+            TileLoader.RegisterConversion(ModContent.TileType<DryDirtPlant>(), BiomeConversionID.Purity, CreateConversion(TileID.Plants));
         }
     }
 }
