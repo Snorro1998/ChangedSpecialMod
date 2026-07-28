@@ -37,7 +37,7 @@ namespace ChangedSpecialMod.Content.Tiles.Plants
         public override void SetStaticDefaults()
         {
             GrowsOnTileId = [ModContent.TileType<BlackLatexSandTile>()];
-            texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/BlackLatexTree");
+            texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/BlackLatexPalmTree");
             branchesTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/BlackLatexTree_Branches");
             topsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/BlackLatexTree_Tops");
             oasisTopsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/BlackLatexPalmTree_Tops");

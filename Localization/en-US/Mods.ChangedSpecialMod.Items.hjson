@@ -903,3 +903,13 @@ WhiteLatexMudBlock: {
 	DisplayName: White Latex Mud Block
 	Tooltip: ""
 }
+
+BlackLatexHardenedSandBlock: {
+	DisplayName: Black Latex Hardened Sand Block
+	Tooltip: ""
+}
+
+WhiteLatexHardenedSandBlock: {
+	DisplayName: White Latex Hardened Sand Block
+	Tooltip: ""
+}

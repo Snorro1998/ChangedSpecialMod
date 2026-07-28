@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Terraria;
 using Terraria.Localization;
+using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
@@ -209,6 +210,34 @@ namespace ChangedSpecialMod.Common.Systems
                 SetupExtraTitles();
                 TryUpdateTitle();
             }
+
+            // This REALLY fucks things up
+            // It replaces all colors on the mini map with red and will stay that way, even after reloading
+            /*
+            var colorLookupField = typeof(MapHelper).GetField("colorLookup", BindingFlags.Static | BindingFlags.NonPublic);
+
+            if (colorLookupField != null)
+            {
+                Color[] colorLookup = (Color[])colorLookupField.GetValue(null);
+
+                if (colorLookup != null)
+                {
+                    for (int i = 0; i < colorLookup.Length; i++)
+                    {
+                        if (colorLookup[i].A > 0)
+                            colorLookup[i] = Color.Red;
+
+                        if (i > 1)
+                            break;
+                    }
+
+                    // Not actually necessary, but harmless:
+                    colorLookupField.SetValue(null, colorLookup);
+                }
+            }
+            */
+
+            //.SetValue(null, newLookup);
         }
 
         private static void SetupExternalModData()

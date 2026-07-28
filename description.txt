@@ -79,12 +79,37 @@ Other
 
 --------- Changelog ---------
 
-This update adds latex trees and improves the converting of biomes with the clentiminator.
-
+This update improves the conversion of normal and latex biomes, such as by preserving grass and normal and desert trees (I couldn't get snow and jungle trees to work).
+It also makes walls and some more blocks infectable.
 
 0.5.6
 
 General
+- Most blocks are converted to vanilla blocks if the mod is removed from a world
+- Added ambient entities. These are background objects that you can sometimes see in the sky, such as the hot air balloon and birds.
+
+Ambient entities
+- Yufeng Cub and plushies hanging from balloons
+- They can only appear in you are in a surface latex biome
+
+Latex spread
+- It can now infect mud, jungle grass and hardened sand
+- Latex can infect walls and unlike vanilla, these infected walls can also infect blocks
+
+Fixes
+- Surface biome backgrounds had white outlines
+- Crystals not destroyed when purified.
+
+
+
+
+
+
+
+
+
+
+
 - Added latex trees. They don't have special loot yet.
 - Added grass latex tiles. They look the same and their only purpose is to get normal grass back when purifying a latex biome.
 

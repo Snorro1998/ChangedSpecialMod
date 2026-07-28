@@ -32,3 +32,23 @@ WhiteLatexUndergroundBiome: {
 	DisplayName: jaskinia białego szlamu
 	TownNPCDialogueName: jaskinia białego szlamu
 }
+
+BlackLatexSurfaceDesertBiome: {
+	// DisplayName: Black Latex Surface Desert Biome
+	// TownNPCDialogueName: the Black Latex Surface Desert Biome
+}
+
+WhiteLatexSurfaceDesertBiome: {
+	// DisplayName: White Latex Surface Desert Biome
+	// TownNPCDialogueName: the White Latex Surface Desert Biome
+}
+
+BlackLatexSurfaceSnowBiome: {
+	// DisplayName: Black Latex Surface Snow Biome
+	// TownNPCDialogueName: the Black Latex Surface Snow Biome
+}
+
+WhiteLatexSurfaceSnowBiome: {
+	// DisplayName: White Latex Surface Snow Biome
+	// TownNPCDialogueName: the White Latex Surface Snow Biome
+}

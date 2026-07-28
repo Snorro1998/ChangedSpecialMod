@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Content.Biomes;
+﻿using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -123,7 +124,8 @@ namespace ChangedSpecialMod.Content.NPCs
             if (Main.rand.Next(3) == 0)
             {
                 Color color = new Color(Main.rand.Next(255), Main.rand.Next(255), Main.rand.Next(255));
-                SoundEngine.PlaySound(Assets.Sounds.SoundNom, NPC.Center);
+                AudioSystem.PlayNomSound(NPC.Center);
+                //SoundEngine.PlaySound(Assets.Sounds.SoundNom, NPC.Center);
                 var msg = Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Dialogue.PuroWorm.Dialogue1");
                 CombatText.NewText(new Rectangle((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height), color, msg, true);
             }

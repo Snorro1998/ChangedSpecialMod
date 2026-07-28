@@ -21,6 +21,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             ItemDrop = ModContent.ItemType<WhiteLatexBlock>();
+
+            VanillaFallbackOnModDeletion = TileID.Dirt;
         }
     }
 }

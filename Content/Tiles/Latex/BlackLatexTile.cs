@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Utilities;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Tiles.Latex
@@ -11,6 +12,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             base.SetStaticDefaults();
             Main.tileMergeDirt[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexTile>());
+
+            VanillaFallbackOnModDeletion = TileID.Dirt;
         }
     }
 }

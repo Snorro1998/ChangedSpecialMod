@@ -6,6 +6,7 @@ namespace ChangedSpecialMod.Content.Walls.Latex
     {
         public override void SetStaticDefaults()
         {
+            base.SetStaticDefaults();
             VanillaFallbackOnModDeletion = WallID.DirtUnsafe1;
         }
     }

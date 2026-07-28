@@ -8,12 +8,8 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex;
-using log4net.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Newtonsoft.Json.Linq;
-
-//using ModLiquidLib.Utils.LiquidContent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +19,12 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.Skies;
 using Terraria.GameContent.UI.States;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 using static ChangedSpecialMod.ChangedSpecialMod;
 
 
@@ -73,12 +71,20 @@ namespace ChangedSpecialMod.Utilities
         {
             On_UIWorldCreation.AssignRandomWorldName += MyAssignRandomWorldName;
             On_Lang.GetDryadWorldStatusDialog += Hook_GetDryadWorldStatusDialog;
+
+            On_AmbientSky.BirdsPackSkyEntity.ctor += Hook_BirdsPackSkyEntity_ctor;
+            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor += Hook_SlimeBalloonGroupSkyEntity_ctor;
+            On_AmbientSky.AirshipSkyEntity.ctor += Hook_AirshipSkyEntity_ctor;
         }
 
         public override void Unload()
         {
             On_UIWorldCreation.AssignRandomWorldName -= MyAssignRandomWorldName;
             On_Lang.GetDryadWorldStatusDialog -= Hook_GetDryadWorldStatusDialog;
+
+            On_AmbientSky.BirdsPackSkyEntity.ctor -= Hook_BirdsPackSkyEntity_ctor;
+            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor -= Hook_SlimeBalloonGroupSkyEntity_ctor;
+            On_AmbientSky.AirshipSkyEntity.ctor -= Hook_AirshipSkyEntity_ctor;
         }
 
         public enum BiomeType : byte
@@ -88,6 +94,74 @@ namespace ChangedSpecialMod.Utilities
             Corrupt,
             Crimson,
             Hallow
+        }
+
+        private void Hook_BirdsPackSkyEntity_ctor(On_AmbientSky.BirdsPackSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        {
+            orig.Invoke(self, player, random);
+            if (player.InModBiome<BlackLatexSurfaceBiome>())
+            {
+                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
+                if (fadingSkyEntity != null)
+                {
+                    var baseType = fadingSkyEntity?.BaseType;
+
+                    if (baseType != null)
+                    {
+                        var textureField = baseType.GetField("Texture", BindingFlags.Instance |BindingFlags.Public);
+                        if (textureField != null)
+                            textureField.SetValue(self, ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/FlyingDarkLatex"));
+
+                        var framingSpeedField = fadingSkyEntity.GetField("FramingSpeed", BindingFlags.Instance | BindingFlags.Public);
+                        if (framingSpeedField != null)
+                            framingSpeedField.SetValue(self, 2);
+                    }
+                }
+            }
+        }
+
+        private void Hook_SlimeBalloonGroupSkyEntity_ctor(On_AmbientSky.SlimeBalloonGroupSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        {
+            orig.Invoke(self, player, random);
+            if (player.InModBiome<BlackLatexSurfaceBiome>())
+            {
+                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
+                if (fadingSkyEntity != null)
+                {
+                    var baseType = fadingSkyEntity?.BaseType;
+
+                    if (baseType != null)
+                    {
+                        var textureField = baseType.GetField("Texture", BindingFlags.Instance | BindingFlags.Public);
+                        if (textureField != null)
+                            textureField.SetValue(self, ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/PuroBalloon"));
+                    }
+                }
+            }
+        }
+
+        private void Hook_AirshipSkyEntity_ctor(On_AmbientSky.AirshipSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        {
+            orig.Invoke(self, player, random);
+            if (player.InModBiome<BlackLatexSurfaceBiome>())
+            {
+                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
+                if (fadingSkyEntity != null)
+                {
+                    var baseType = fadingSkyEntity?.BaseType;
+
+                    if (baseType != null)
+                    {
+                        var textureField = baseType.GetField("Texture", BindingFlags.Instance | BindingFlags.Public);
+                        if (textureField != null)
+                            textureField.SetValue(self, ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/FlyingDarkLatex"));
+
+                        var framingSpeedField = fadingSkyEntity.GetField("FramingSpeed", BindingFlags.Instance | BindingFlags.Public);
+                        if (framingSpeedField != null)
+                            framingSpeedField.SetValue(self, 2);
+                    }
+                }
+            }
         }
 
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
@@ -113,17 +187,27 @@ namespace ChangedSpecialMod.Utilities
 
             HashSet<int> LatexCountCollection =
             [
+                ModContent.TileType<BlackLatexGrassTile>(),
+                ModContent.TileType<BlackLatexJungleGrassTile>(),
                 ModContent.TileType<BlackLatexTile>(),
+                ModContent.TileType<BlackLatexMudTile>(),
                 ModContent.TileType<BlackLatexSandTile>(),
+                ModContent.TileType<BlackLatexHardenedSandTile>(),
                 ModContent.TileType<BlackLatexStoneTile>(),
                 ModContent.TileType<BlackLatexIceTile>(),
                 ModContent.TileType<BlackLatexSnowTile>(),
+                ModContent.TileType<BlackLatexLivingWoodTile>(),
 
+                ModContent.TileType<WhiteLatexGrassTile>(),
+                ModContent.TileType<WhiteLatexJungleGrassTile>(),
                 ModContent.TileType<WhiteLatexTile>(),
+                ModContent.TileType<WhiteLatexMudTile>(),
                 ModContent.TileType<WhiteLatexSandTile>(),
+                ModContent.TileType<WhiteLatexHardenedSandTile>(),
                 ModContent.TileType<WhiteLatexStoneTile>(),
                 ModContent.TileType<WhiteLatexIceTile>(),
-                ModContent.TileType<WhiteLatexSnowTile>()
+                ModContent.TileType<WhiteLatexSnowTile>(),
+                ModContent.TileType<WhiteLatexLivingWoodTile>()
             ];
 
             HashSet<ushort> CorruptCountCollection =

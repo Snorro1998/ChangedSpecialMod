@@ -18,6 +18,7 @@
 	  <None Remove="Content\Tiles\Furniture\MusicBoxes\**" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Folder Include="Assets\Textures\AmbientEntities\" />
 	  <Folder Include="Content\NPCs\Gores\" />
 	  <Folder Include="Lib\" />
 	</ItemGroup>

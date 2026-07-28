@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
@@ -87,7 +88,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             if (Main.rand.NextBool(300))
             {
-                SoundEngine.PlaySound(Sounds.SoundNom, NPC.Center);
+                AudioSystem.PlayNomSound(NPC.Center);
+                //SoundEngine.PlaySound(Sounds.SoundNom, NPC.Center);
             }
             base.AI();
         }

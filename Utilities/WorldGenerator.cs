@@ -516,6 +516,11 @@ namespace ChangedSpecialMod.Utilities
                     tileType = ModContent.TileType<BlackLatexSandTile>();
                     break;
 
+                // Desert
+                case TileID.HardenedSand:
+                    tileType = ModContent.TileType<BlackLatexHardenedSandTile>();
+                    break;
+
                 // Stone
                 case TileID.Stone:
                 case TileID.Ebonstone:
@@ -561,9 +566,6 @@ namespace ChangedSpecialMod.Utilities
 
                 case TileID.Dirt:
                 case TileID.ClayBlock:
-                // Desert
-                case TileID.HardenedSand:
-
                     tileType = ModContent.TileType<BlackLatexTile>();
                     break;
                 default:
@@ -588,6 +590,14 @@ namespace ChangedSpecialMod.Utilities
 
                 case WallID.Stone:
                     wallType = ModContent.WallType<BlackLatexStoneWall>();
+                    break;
+
+                case WallID.Sandstone:
+                    wallType = ModContent.WallType<BlackLatexSandstoneWall>();
+                    break;
+
+                case WallID.GrassUnsafe:
+                    wallType = ModContent.WallType<BlackLatexGrassWallUnsafe>();
                     break;
 
                 default:
@@ -615,7 +625,12 @@ namespace ChangedSpecialMod.Utilities
                 case TileID.Crimsand:
                     tileType = ModContent.TileType<WhiteLatexSandTile>();
                     break;
-                
+
+                // Desert
+                case TileID.HardenedSand:
+                    tileType = ModContent.TileType<WhiteLatexHardenedSandTile>();
+                    break;
+
                 // Stone
                 case TileID.Stone:
                 case TileID.Ebonstone:
@@ -661,8 +676,6 @@ namespace ChangedSpecialMod.Utilities
 
                 case TileID.Dirt:
                 case TileID.ClayBlock:
-                // Desert
-                case TileID.HardenedSand:
                     tileType = ModContent.TileType<WhiteLatexTile>();
                     break;
                 default:
@@ -684,8 +697,17 @@ namespace ChangedSpecialMod.Utilities
                 case WallID.DirtUnsafe1:
                     wallType = ModContent.WallType<WhiteLatexDirtWallUnsafe1>();
                     break;
+
                 case WallID.Stone:
                     wallType = ModContent.WallType<WhiteLatexStoneWall>();
+                    break;
+
+                case WallID.Sandstone:
+                    wallType = ModContent.WallType<WhiteLatexSandstoneWall>();
+                    break;
+
+                case WallID.GrassUnsafe:
+                    wallType = ModContent.WallType<WhiteLatexGrassWallUnsafe>();
                     break;
 
                 default:
@@ -753,6 +775,7 @@ namespace ChangedSpecialMod.Utilities
                     case TileID.Dirt:
                     case TileID.Mud:
                     case TileID.Sand:
+                    case TileID.HardenedSand:
                     case TileID.Stone:
                     case TileID.SnowBlock:
                     case TileID.IceBlock:

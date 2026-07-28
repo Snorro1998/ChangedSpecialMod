@@ -13,6 +13,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             Main.tileMergeDirt[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexSnowTile>());
             HitSound = SoundID.Item48;
+
+            VanillaFallbackOnModDeletion = TileID.SnowBlock;
         }
     }
 }

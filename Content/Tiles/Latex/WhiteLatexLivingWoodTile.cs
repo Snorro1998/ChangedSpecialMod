@@ -17,6 +17,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
+
+            VanillaFallbackOnModDeletion = TileID.LivingWood;
         }
         public override IEnumerable<Item> GetItemDrops(int i, int j)
         {

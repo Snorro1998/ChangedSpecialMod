@@ -145,5 +145,11 @@ namespace ChangedSpecialMod.Common.Systems
             if (ChangedSpecialModClientConfig.Instance.TransfurSound)
                 SoundEngine.PlaySound(Sounds.SoundTransfur, position);
         }
+
+        public static void PlayNomSound(Vector2 position)
+        {
+            var sound = ChangedUtils.Choose(Sounds.SoundNom, Sounds.SoundMlem);
+            SoundEngine.PlaySound(sound, position);
+        }
     }
 }

@@ -111,7 +111,7 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             WorldGen.KillTile(i, j);
             return false;
         }
-
+        /*
         public override void PostSetupContent()
         {
             // Normal to dry dirt
@@ -138,5 +138,6 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             TileLoader.RegisterConversion(ModContent.TileType<DryDirtGrassTile>(), BiomeConversionID.Purity, CreateConversion(TileID.Grass));
             TileLoader.RegisterConversion(ModContent.TileType<DryDirtPlant>(), BiomeConversionID.Purity, CreateConversion(TileID.Plants));
         }
+        */
     }
 }

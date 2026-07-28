@@ -20,6 +20,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             TileID.Sets.Ices[Type] = true;
             TileID.Sets.IceSkateSlippery[Type] = true;
             HitSound = SoundID.Item50;
+
+            VanillaFallbackOnModDeletion = TileID.IceBlock;
         }
     }
 }

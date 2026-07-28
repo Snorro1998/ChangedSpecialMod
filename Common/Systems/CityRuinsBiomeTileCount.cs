@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -19,38 +20,126 @@ namespace ChangedSpecialMod.Common.Systems
         public static int RadiusFromPlayer = 20;
 
 		public static int DryDirtBlockCount;
-		public static int WhiteLatexBlockCount;
+
 		public static int BlackLatexBlockCount;
+		public static int BlackLatexNormalBlockCount;
+        public static int BlackLatexDesertBlockCount;
+        public static int BlackLatexJungleBlockCount;
+        public static int BlackLatexSnowBlockCount;
 
-		public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts) 
-		{
-            var blackTiles = new List<int>()
+        public static int WhiteLatexBlockCount;
+        public static int WhiteLatexNormalBlockCount;
+        public static int WhiteLatexDesertBlockCount;
+        public static int WhiteLatexJungleBlockCount;
+        public static int WhiteLatexSnowBlockCount;
+
+        public enum BiomeType
+        {
+            Normal,
+            Desert,
+            Jungle,
+            Snow
+        }
+
+        public static BiomeType ActiveBiomeType = BiomeType.Normal;
+
+        private void GetBlackTileCount(ReadOnlySpan<int> tileCounts)
+        {
+            var blackNormalTiles = new List<int>()
             {
+                ModContent.TileType<BlackLatexGrassTile>(),
                 ModContent.TileType<BlackLatexTile>(),
-                ModContent.TileType<BlackLatexSandTile>(),
-                ModContent.TileType<BlackLatexStoneTile>(),
-                ModContent.TileType<BlackLatexIceTile>(),
-                ModContent.TileType<BlackLatexSnowTile>()
+                ModContent.TileType<BlackLatexStoneTile>()
             };
 
-            var whiteTiles = new List<int>()
+            var blackDesertTiles = new List<int>()
             {
-                ModContent.TileType<WhiteLatexTile>(),
-                ModContent.TileType<WhiteLatexSandTile>(),
-                ModContent.TileType<WhiteLatexStoneTile>(),
-                ModContent.TileType<WhiteLatexIceTile>(),
-                ModContent.TileType<WhiteLatexSnowTile>()
+                ModContent.TileType<BlackLatexSandTile>(),
             };
 
-			DryDirtBlockCount = tileCounts[ModContent.TileType<DryDirt>()];
-            BlackLatexBlockCount = 0;// tileCounts[ModContent.TileType<BlackLatexTile>()] + tileCounts[ModContent.TileType<BlackLatexSandTile>()] + tileCounts[ModContent.TileType<BlackLatexStoneTile>()];
-            WhiteLatexBlockCount = 0;// tileCounts[ModContent.TileType<WhiteLatexTile>()] + tileCounts[ModContent.TileType<WhiteLatexSandTile>()] + tileCounts[ModContent.TileType<WhiteLatexStoneTile>()];
+            var blackJungleTiles = new List<int>()
+            {
+                ModContent.TileType<BlackLatexJungleGrassTile>(),
+                ModContent.TileType<BlackLatexMudTile>(),
+            };
 
-            foreach (var tile in blackTiles)
-                BlackLatexBlockCount += tileCounts[tile];
+            var blackSnowTiles = new List<int>()
+            {
+                ModContent.TileType<BlackLatexSnowTile>(),
+                ModContent.TileType<BlackLatexIceTile>(),
+            };
 
-            foreach (var tile in whiteTiles)
-               WhiteLatexBlockCount += tileCounts[tile];
+            BlackLatexNormalBlockCount = 0;
+            BlackLatexDesertBlockCount = 0;
+            BlackLatexJungleBlockCount = 0;
+            BlackLatexSnowBlockCount = 0;
+
+            foreach (var tile in blackNormalTiles)
+                BlackLatexNormalBlockCount += tileCounts[tile];
+
+            foreach (var tile in blackDesertTiles)
+                BlackLatexDesertBlockCount += tileCounts[tile];
+
+            foreach (var tile in blackJungleTiles)
+                BlackLatexJungleBlockCount += tileCounts[tile];
+
+            foreach (var tile in blackSnowTiles)
+                BlackLatexSnowBlockCount += tileCounts[tile];
+
+            BlackLatexBlockCount = BlackLatexNormalBlockCount + BlackLatexDesertBlockCount + BlackLatexJungleBlockCount + BlackLatexSnowBlockCount;
+        }
+
+        private void GetWhiteTileCount(ReadOnlySpan<int> tileCounts)
+        {
+            var WhiteNormalTiles = new List<int>()
+            {
+                ModContent.TileType<WhiteLatexGrassTile>(),
+                ModContent.TileType<WhiteLatexTile>(),
+                ModContent.TileType<WhiteLatexStoneTile>()
+            };
+
+            var WhiteDesertTiles = new List<int>()
+            {
+                ModContent.TileType<WhiteLatexSandTile>(),
+            };
+
+            var WhiteJungleTiles = new List<int>()
+            {
+                ModContent.TileType<WhiteLatexJungleGrassTile>(),
+                ModContent.TileType<WhiteLatexMudTile>(),
+            };
+
+            var WhiteSnowTiles = new List<int>()
+            {
+                ModContent.TileType<WhiteLatexSnowTile>(),
+                ModContent.TileType<WhiteLatexIceTile>(),
+            };
+
+            WhiteLatexNormalBlockCount = 0;
+            WhiteLatexDesertBlockCount = 0;
+            WhiteLatexJungleBlockCount = 0;
+            WhiteLatexSnowBlockCount = 0;
+
+            foreach (var tile in WhiteNormalTiles)
+                WhiteLatexNormalBlockCount += tileCounts[tile];
+
+            foreach (var tile in WhiteDesertTiles)
+                WhiteLatexDesertBlockCount += tileCounts[tile];
+
+            foreach (var tile in WhiteJungleTiles)
+                WhiteLatexJungleBlockCount += tileCounts[tile];
+
+            foreach (var tile in WhiteSnowTiles)
+                WhiteLatexSnowBlockCount += tileCounts[tile];
+
+            WhiteLatexBlockCount = WhiteLatexNormalBlockCount + WhiteLatexDesertBlockCount + WhiteLatexJungleBlockCount + WhiteLatexSnowBlockCount;
+        }
+
+        public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts) 
+		{
+            GetBlackTileCount(tileCounts);
+            GetWhiteTileCount(tileCounts);
+            DryDirtBlockCount = tileCounts[ModContent.TileType<DryDirt>()];
         }
 
         public static bool BlockNearby(Player player, List<int> tileIDs, int radius)
@@ -91,7 +180,6 @@ namespace ChangedSpecialMod.Common.Systems
 
             return false;
         }
-
         public static bool BiomeActive(Player player, GooType gooType, bool surface = true)
 		{
             var targetBlockIDs = new List<int>();
@@ -113,7 +201,7 @@ namespace ChangedSpecialMod.Common.Systems
                     targetBlockCount = BlackLatexBlockCount;
 					otherBlockCount1 = WhiteLatexBlockCount;
 					otherBlockCount2 = DryDirtBlockCount;
-					break;
+                    break;
                 case GooType.White:
                     targetBlockIDs = new List<int>
                     {
@@ -147,8 +235,59 @@ namespace ChangedSpecialMod.Common.Systems
             bool undergroundZone = player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight || player.ZoneUnderworldHeight;
 
 			if (surface)
-				return enoughBlocks && surfaceZone;
+            {
+                if (enoughBlocks && surfaceZone)
+                {
+                    switch (gooType)
+                    {
+                        case GooType.Black:
+                            if (BlackLatexDesertBlockCount > BlackLatexJungleBlockCount &&
+                                BlackLatexDesertBlockCount > BlackLatexSnowBlockCount &&
+                                BlackLatexDesertBlockCount >= BlackLatexNormalBlockCount)
+                                ActiveBiomeType = BiomeType.Desert;
 
+                            else if (BlackLatexJungleBlockCount > BlackLatexDesertBlockCount &&
+                                BlackLatexJungleBlockCount > BlackLatexSnowBlockCount &&
+                                BlackLatexJungleBlockCount >= BlackLatexNormalBlockCount)
+                                ActiveBiomeType = BiomeType.Jungle;
+
+                            else if (BlackLatexSnowBlockCount > BlackLatexDesertBlockCount &&
+                                BlackLatexSnowBlockCount > BlackLatexJungleBlockCount &&
+                                BlackLatexSnowBlockCount >= BlackLatexNormalBlockCount)
+                                ActiveBiomeType = BiomeType.Snow;
+
+                            else
+                                ActiveBiomeType = BiomeType.Normal;
+
+                            break;
+                        case GooType.White:
+                            if (WhiteLatexDesertBlockCount > WhiteLatexJungleBlockCount &&
+                                WhiteLatexDesertBlockCount > WhiteLatexSnowBlockCount &&
+                                WhiteLatexDesertBlockCount >= WhiteLatexNormalBlockCount)
+                                ActiveBiomeType = BiomeType.Desert;
+
+                            else if (WhiteLatexJungleBlockCount > WhiteLatexDesertBlockCount &&
+                                WhiteLatexJungleBlockCount > WhiteLatexSnowBlockCount &&
+                                WhiteLatexJungleBlockCount >= WhiteLatexNormalBlockCount)
+                                ActiveBiomeType = BiomeType.Jungle;
+
+                            else if (WhiteLatexSnowBlockCount > WhiteLatexDesertBlockCount &&
+                                WhiteLatexSnowBlockCount > WhiteLatexJungleBlockCount &&
+                                WhiteLatexSnowBlockCount >= WhiteLatexNormalBlockCount)
+                                ActiveBiomeType = BiomeType.Snow;
+
+                            else
+                                ActiveBiomeType = BiomeType.Normal;
+
+                            break;
+                    }
+                    return true;
+                }
+
+                return false;
+            }
+
+            // Underground
 			return enoughBlocks && undergroundZone && BlockNearby(player, targetBlockIDs, RadiusFromPlayer);
         }
 	}

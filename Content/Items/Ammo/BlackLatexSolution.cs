@@ -112,7 +112,7 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             WorldGen.KillTile(i, j);
             return false;
         }
-
+        /*
         public override void PostSetupContent()
         {
             // Normal to black
@@ -208,5 +208,6 @@ namespace ChangedSpecialMod.Content.Items.Ammo
             TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Hallow, DestroyTile);
             TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), BiomeConversionID.Hallow, DestroyTile);
         }
+        */
     }
 }

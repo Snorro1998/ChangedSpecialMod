@@ -1,9 +1,10 @@
-﻿using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Content.Projectiles.Latex;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ChangedSpecialMod.Content.Projectiles.Latex;
 
 namespace ChangedSpecialMod.Content.Tiles.Latex
 {
@@ -17,6 +18,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             Main.tileMergeDirt[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexSandTile>());
             Main.tileBlockLight[Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Sand"]);
 
             // Sand specific properties
             Main.tileSand[Type] = true;
@@ -32,6 +34,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             TileID.Sets.ChecksForMerge[Type] = true;
 
             MineResist = 0.5f; // Sand tile typically require half as many hits to mine.
+
+            VanillaFallbackOnModDeletion = TileID.Sand;
         }
     }
 }

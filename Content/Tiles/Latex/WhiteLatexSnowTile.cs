@@ -18,6 +18,8 @@ namespace ChangedSpecialMod.Content.Tiles.Latex
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Item48;
+
+            VanillaFallbackOnModDeletion = TileID.SnowBlock;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ChangedSpecialMod.Content.Walls.Latex
         public override void SetStaticDefaults()
         {
             DustType = DustID.Asphalt;
-            AddMapEntry(new Color(150, 150, 150));
+            AddMapEntry(new Color(5, 5, 5));
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
