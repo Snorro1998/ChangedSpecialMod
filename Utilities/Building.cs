@@ -2,7 +2,8 @@
 using ChangedSpecialMod.Common.WorldGeneration;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
-using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;

@@ -24,7 +24,7 @@ namespace ChangedSpecialMod.Content.Items.Debug
         {
             if (Main.netMode == NetmodeID.MultiplayerClient)
                 return true;
-
+            /*
             for (int i = 0; i < 10; i++)
             {
                 var entityType = Main.rand.Next(0, 18);
@@ -41,6 +41,7 @@ namespace ChangedSpecialMod.Content.Items.Debug
             }
 
             return true;
+            */
 
             /*
             Main.NewText($"nNormal: {CityRuinsBiomeTileCount.BlackLatexBlockCount} nDesert: {CityRuinsBiomeTileCount.BlackLatexDesertBlockCount} nJungle nSnow: {CityRuinsBiomeTileCount.BlackLatexSnowBlockCount}");

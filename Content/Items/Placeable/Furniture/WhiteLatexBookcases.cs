@@ -1,4 +1,4 @@
-using ChangedSpecialMod.Content.Items.Placeable.Latex;
+using ChangedSpecialMod.Content.Items.Placeable.Latex.White;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

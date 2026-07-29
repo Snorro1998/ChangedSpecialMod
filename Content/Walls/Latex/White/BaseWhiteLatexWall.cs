@@ -1,0 +1,26 @@
+﻿using ChangedSpecialMod.Utilities;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace ChangedSpecialMod.Content.Walls.Latex.White
+{
+    public abstract class BaseWhiteLatexWall : ModWall
+    {
+        public override void SetStaticDefaults()
+        {
+            DustType = DustID.SnowBlock;
+            AddMapEntry(new Color(150, 150, 150));
+        }
+
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
+        }
+
+        public override void RandomUpdate(int i, int j)
+        {
+            WorldGenerator.Corrupt(i, j, NPCs.GooType.White);
+        }
+    }
+}

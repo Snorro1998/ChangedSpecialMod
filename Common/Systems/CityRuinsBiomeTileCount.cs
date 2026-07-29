@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
-using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;

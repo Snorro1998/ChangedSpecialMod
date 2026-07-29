@@ -1,7 +1,7 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Tiles;
-using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;

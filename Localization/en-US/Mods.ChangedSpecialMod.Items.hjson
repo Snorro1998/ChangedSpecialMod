@@ -880,7 +880,7 @@ DryDirtGrassBlock: {
 }
 
 DryDirtGrassSeeds: {
-	DisplayName: Dry Dirt Grass Seeds
+	DisplayName: Dry Grass Seeds
 	Tooltip: ""
 }
 
@@ -895,21 +895,21 @@ BlackLatexLantern: {
 }
 
 BlackLatexMudBlock: {
-	DisplayName: Black Latex Mud Block
+	DisplayName: Black Slimemud Block
 	Tooltip: ""
 }
 
 WhiteLatexMudBlock: {
-	DisplayName: White Latex Mud Block
+	DisplayName: White Slimemud Block
 	Tooltip: ""
 }
 
 BlackLatexHardenedSandBlock: {
-	DisplayName: Black Latex Hardened Sand Block
+	DisplayName: Hardened Black Slimesand Block
 	Tooltip: ""
 }
 
 WhiteLatexHardenedSandBlock: {
-	DisplayName: White Latex Hardened Sand Block
+	DisplayName: Hardened White Slimesand Block
 	Tooltip: ""
 }

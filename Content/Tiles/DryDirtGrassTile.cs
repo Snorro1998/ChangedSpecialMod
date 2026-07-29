@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Placeable;
+using ChangedSpecialMod.Content.Tiles.Plants;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;

@@ -5,8 +5,10 @@ using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
-using ChangedSpecialMod.Content.Tiles.Latex;
-using ChangedSpecialMod.Content.Walls.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
+using ChangedSpecialMod.Content.Walls.Latex.Black;
+using ChangedSpecialMod.Content.Walls.Latex.White;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,27 +117,19 @@ namespace ChangedSpecialMod.Utilities
 
         public static void GrowCrystal(int i, int j, GooType gooType)
         {
-            if (gooType == GooType.Black)
-            {
-                var topTile = Main.tile[i, j - 1];
-                var bottomTile = Main.tile[i, j + 1];
+            var options = new List<int> { ModContent.TileType<CrystalGreen>(), ModContent.TileType<CrystalRed>() };
+            if (gooType == GooType.White)
+                options = new List<int> { ModContent.TileType<CrystalWhite>(), ModContent.TileType<PillarWhite>() };
 
-                if (!topTile.HasTile && topTile.TileType != ModContent.TileType<CrystalGreen>() && topTile.TileType != ModContent.TileType<CrystalRed>())
-                {
-                    var tileType = ChangedUtils.Choose(ModContent.TileType<CrystalGreen>(), ModContent.TileType<CrystalRed>());
-                    ChangedUtils.PlaceRandomTile(i, j, tileType);
-                }
-            }
-            else if (gooType == GooType.White)
-            {
-                var topTile = Main.tile[i, j - 1];
-                var bottomTile = Main.tile[i, j + 1];
+            var tileType = Utils.SelectRandom(Main.rand, options.ToArray());
 
-                if (!topTile.HasTile && topTile.TileType != ModContent.TileType<CrystalWhite>() && topTile.TileType != ModContent.TileType<PillarWhite>())
-                {
-                    var tileType = ChangedUtils.Choose(ModContent.TileType<PillarWhite>(), ModContent.TileType<CrystalWhite>());
-                    ChangedUtils.PlaceRandomTile(i, j, tileType);
-                }
+            var topLeftTile = Framing.GetTileSafely(i - 1, j - 1);
+            var topMiddleTile = Framing.GetTileSafely(i, j - 1);
+            var topRightTile = Framing.GetTileSafely(i + 1, j - 1);
+
+            if (!topLeftTile.HasTile && !topMiddleTile.HasTile && !topRightTile.HasTile)
+            {
+                ChangedUtils.PlaceRandomTile(i, j, tileType);
             }
         }
 
@@ -560,9 +554,9 @@ namespace ChangedSpecialMod.Utilities
                     break;
 
                 // Living trees
-                case TileID.LivingWood:
-                    tileType = ModContent.TileType<BlackLatexLivingWoodTile>();
-                    break;
+                //case TileID.LivingWood:
+                //    tileType = ModContent.TileType<BlackLatexLivingWoodTile>();
+                //    break;
 
                 case TileID.Dirt:
                 case TileID.ClayBlock:
@@ -587,6 +581,12 @@ namespace ChangedSpecialMod.Utilities
                 case WallID.DirtUnsafe1:
                     wallType = ModContent.WallType<BlackLatexDirtWallUnsafe1>();
                     break;
+                case WallID.DirtUnsafe2:
+                    wallType = ModContent.WallType<BlackLatexDirtWallUnsafe2>();
+                    break;
+                case WallID.Cave6Unsafe:
+                    wallType = ModContent.WallType<BlackLatexCave6WallUnsafe>();
+                    break;
 
                 case WallID.Stone:
                     wallType = ModContent.WallType<BlackLatexStoneWall>();
@@ -598,6 +598,16 @@ namespace ChangedSpecialMod.Utilities
 
                 case WallID.GrassUnsafe:
                     wallType = ModContent.WallType<BlackLatexGrassWallUnsafe>();
+                    break;
+                case WallID.FlowerUnsafe:
+                    wallType = ModContent.WallType<BlackLatexFlowerWallUnsafe>();
+                    break;
+
+                case WallID.SnowWallUnsafe:
+                    wallType = ModContent.WallType<BlackLatexSnowWallUnsafe>();
+                    break;
+                case WallID.IceUnsafe:
+                    wallType = ModContent.WallType<BlackLatexIceWallUnsafe>();
                     break;
 
                 default:
@@ -670,9 +680,9 @@ namespace ChangedSpecialMod.Utilities
                     break;
 
                 // Living trees
-                case TileID.LivingWood:
-                    tileType = ModContent.TileType<WhiteLatexLivingWoodTile>();
-                    break;
+                //case TileID.LivingWood:
+                //    tileType = ModContent.TileType<WhiteLatexLivingWoodTile>();
+                //    break;
 
                 case TileID.Dirt:
                 case TileID.ClayBlock:
@@ -697,6 +707,12 @@ namespace ChangedSpecialMod.Utilities
                 case WallID.DirtUnsafe1:
                     wallType = ModContent.WallType<WhiteLatexDirtWallUnsafe1>();
                     break;
+                case WallID.DirtUnsafe2:
+                    wallType = ModContent.WallType<WhiteLatexDirtWallUnsafe2>();
+                    break;
+                case WallID.Cave6Unsafe:
+                    wallType = ModContent.WallType<WhiteLatexCave6WallUnsafe>();
+                    break;
 
                 case WallID.Stone:
                     wallType = ModContent.WallType<WhiteLatexStoneWall>();
@@ -708,6 +724,16 @@ namespace ChangedSpecialMod.Utilities
 
                 case WallID.GrassUnsafe:
                     wallType = ModContent.WallType<WhiteLatexGrassWallUnsafe>();
+                    break;
+                case WallID.FlowerUnsafe:
+                    wallType = ModContent.WallType<WhiteLatexFlowerWallUnsafe>();
+                    break;
+
+                case WallID.SnowWallUnsafe:
+                    wallType = ModContent.WallType<WhiteLatexSnowWallUnsafe>();
+                    break;
+                case WallID.IceUnsafe:
+                    wallType = ModContent.WallType<WhiteLatexIceWallUnsafe>();
                     break;
 
                 default:
@@ -779,7 +805,7 @@ namespace ChangedSpecialMod.Utilities
                     case TileID.Stone:
                     case TileID.SnowBlock:
                     case TileID.IceBlock:
-                    case TileID.LivingWood:
+                    //case TileID.LivingWood:
                         break;
                     default:
                         return -1;

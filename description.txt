@@ -90,15 +90,22 @@ General
 
 Ambient entities
 - Yufeng Cub and plushies hanging from balloons
-- They can only appear in you are in a surface latex biome
+- They have a small chance to appear anywhere, or always in a latex biome
 
 Latex spread
-- It can now infect mud, jungle grass and hardened sand
-- Latex can infect walls and unlike vanilla, these infected walls can also infect blocks
+- Added infected surface biomes for: Jungle, Desert and Snow
+- Trees can be infected and will no longer get destroyed
+- Latex can spread to most blocks in these biomes
+- Natural walls can be infected and unlike vanilla, these walls can also infect blocks
+
+Clentiminator
+- Crystals can be removed
+- Purple, Red and Blue solutions can be used to remove latex biomes
+- Latex solutions can be used to remove the corruption, crimson and hallow
 
 Fixes
-- Surface biome backgrounds had white outlines
-- Crystals not destroyed when purified.
+- Puro and Dr K not immune to latex beasts.
+- Crystals could grow everywhere and destroy pots and decals
 
 
 
@@ -122,4 +129,4 @@ Furniture
 - Added black lantern
 
 Fixes
-- Crystals not destroyed when purified.
+

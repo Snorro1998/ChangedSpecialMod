@@ -1,6 +1,6 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable.Latex;
+﻿using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
 using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

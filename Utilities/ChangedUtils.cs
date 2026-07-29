@@ -7,7 +7,8 @@ using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
-using ChangedSpecialMod.Content.Tiles.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -41,7 +42,14 @@ namespace ChangedSpecialMod.Utilities
     public class ChangedUtils : ModSystem
     {
         // Black
-        public static bool InBlackLatexSurfaceBiome(Player player) => player.InModBiome<BlackLatexSurfaceBiome>();
+        public static bool InBlackLatexSurfaceBiome(Player player)
+        {
+            return player.InModBiome<BlackLatexSurfaceBiome>() || 
+                player.InModBiome<BlackLatexSurfaceDesertBiome>() || 
+                player.InModBiome<BlackLatexSurfaceJungleBiome>() || 
+                player.InModBiome<BlackLatexSurfaceSnowBiome>();
+        }
+
         public static bool InBlackLatexUndergroundBiome(Player player) => player.InModBiome<BlackLatexUndergroundBiome>();
         public static bool InBlackLatexBiome(Player player)
         {
@@ -49,7 +57,14 @@ namespace ChangedSpecialMod.Utilities
         }
 
         // White
-        public static bool InWhiteLatexSurfaceBiome(Player player) => player.InModBiome<WhiteLatexSurfaceBiome>();
+        public static bool InWhiteLatexSurfaceBiome(Player player)
+        {
+            return player.InModBiome<WhiteLatexSurfaceBiome>() || 
+                player.InModBiome<WhiteLatexSurfaceDesertBiome>() || 
+                player.InModBiome<WhiteLatexSurfaceJungleBiome>() || 
+                player.InModBiome<WhiteLatexSurfaceSnowBiome>();
+        }
+
         public static bool InWhiteLatexUndergroundBiome(Player player) => player.InModBiome<WhiteLatexUndergroundBiome>();
         public static bool InWhiteLatexBiome(Player player)
         {
@@ -96,9 +111,41 @@ namespace ChangedSpecialMod.Utilities
             Hallow
         }
 
+        private void RandomChanceReplaceSkyEntityTexture(object self, Player player, bool plushBalloon = false)
+        {
+            var chance = plushBalloon ? 20 : 10;
+            if (player.InModBiome<BlackLatexSurfaceBiome>())
+                chance = 1;
+
+            if (Main.rand.NextBool(chance))
+            {
+                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
+                if (fadingSkyEntity != null)
+                {
+                    var baseType = fadingSkyEntity?.BaseType;
+                    var texture = plushBalloon ? ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/PuroBalloon") : ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/FlyingDarkLatex");
+
+                    if (baseType != null)
+                    {
+                        var textureField = baseType.GetField("Texture", BindingFlags.Instance | BindingFlags.Public);
+                        if (textureField != null)
+                            textureField.SetValue(self, texture);
+
+                        //var framingSpeedField = fadingSkyEntity.GetField("FramingSpeed", BindingFlags.Instance | BindingFlags.Public);
+                        //if (framingSpeedField != null)
+                        //    framingSpeedField.SetValue(self, 2);
+                    }
+                }
+            }
+
+            
+        }
+
         private void Hook_BirdsPackSkyEntity_ctor(On_AmbientSky.BirdsPackSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
+            RandomChanceReplaceSkyEntityTexture(self, player);
+            /*
             if (player.InModBiome<BlackLatexSurfaceBiome>())
             {
                 var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
@@ -118,11 +165,14 @@ namespace ChangedSpecialMod.Utilities
                     }
                 }
             }
+            */
         }
 
         private void Hook_SlimeBalloonGroupSkyEntity_ctor(On_AmbientSky.SlimeBalloonGroupSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
+            RandomChanceReplaceSkyEntityTexture(self, player, true);
+            /*
             if (player.InModBiome<BlackLatexSurfaceBiome>())
             {
                 var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
@@ -138,11 +188,14 @@ namespace ChangedSpecialMod.Utilities
                     }
                 }
             }
+            */
         }
 
         private void Hook_AirshipSkyEntity_ctor(On_AmbientSky.AirshipSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
+            RandomChanceReplaceSkyEntityTexture(self, player);
+            /*
             if (player.InModBiome<BlackLatexSurfaceBiome>())
             {
                 var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
@@ -162,6 +215,7 @@ namespace ChangedSpecialMod.Utilities
                     }
                 }
             }
+            */
         }
 
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
@@ -427,16 +481,24 @@ namespace ChangedSpecialMod.Utilities
             HashSet<int> LatexCountCollection =
             [
                 ModContent.TileType<BlackLatexTile>(),
+                ModContent.TileType<BlackLatexGrassTile>(),
+                ModContent.TileType<BlackLatexMudTile>(),
+                ModContent.TileType<BlackLatexJungleGrassTile>(),
                 ModContent.TileType<BlackLatexSandTile>(),
                 ModContent.TileType<BlackLatexStoneTile>(),
                 ModContent.TileType<BlackLatexIceTile>(),
                 ModContent.TileType<BlackLatexSnowTile>(),
+                ModContent.TileType<BlackLatexLivingWoodTile>(),
 
                 ModContent.TileType<WhiteLatexTile>(),
+                ModContent.TileType<WhiteLatexGrassTile>(),
+                ModContent.TileType<WhiteLatexMudTile>(),
+                ModContent.TileType<WhiteLatexJungleGrassTile>(),
                 ModContent.TileType<WhiteLatexSandTile>(),
                 ModContent.TileType<WhiteLatexStoneTile>(),
                 ModContent.TileType<WhiteLatexIceTile>(),
-                ModContent.TileType<WhiteLatexSnowTile>()
+                ModContent.TileType<WhiteLatexSnowTile>(),
+                ModContent.TileType<WhiteLatexLivingWoodTile>(),
             ];
 
             HashSet<int> CorruptCountCollection =

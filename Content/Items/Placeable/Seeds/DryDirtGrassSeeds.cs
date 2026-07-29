@@ -21,7 +21,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Seeds
             Item.useStyle = ItemUseStyleID.Swing;
             Item.maxStack = Item.CommonMaxStack;
 
-            Item.value = Item.buyPrice(silver: 20); // Sold by Dryad; equal to Hallowed Seeds
+            Item.value = Item.buyPrice(silver: 1); // Sold by Dryad; equal to Hallowed Seeds
         }
 
         public override bool? UseItem(Player player) => true;

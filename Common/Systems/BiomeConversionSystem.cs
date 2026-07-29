@@ -1,7 +1,9 @@
 ﻿using ChangedSpecialMod.Content.Items.Ammo;
 using ChangedSpecialMod.Content.Tiles;
-using ChangedSpecialMod.Content.Tiles.Latex;
-using ChangedSpecialMod.Content.Walls.Latex;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
+using ChangedSpecialMod.Content.Walls.Latex.Black;
+using ChangedSpecialMod.Content.Walls.Latex.White;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -141,7 +143,18 @@ namespace ChangedSpecialMod.Common.Systems
                     TileID.HallowedIce,
                     ModContent.TileType<BlackLatexIceTile>(),
                     ModContent.TileType<WhiteLatexIceTile>(),
-                    TileID.IceBlock)
+                    TileID.IceBlock),
+                /*
+                // Living wood
+                new BiomeConversion(
+                    TileID.LivingWood,
+                    TileID.LivingWood,
+                    TileID.LivingWood,
+                    TileID.LivingWood,
+                    ModContent.TileType<BlackLatexLivingWoodTile>(),
+                    ModContent.TileType<WhiteLatexLivingWoodTile>(),
+                    TileID.LivingWood)
+                */
             };
 
             wallConversions = new List<BiomeConversion>()
@@ -166,6 +179,26 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.WallType<WhiteLatexDirtWallUnsafe1>(),
                     WallID.DirtUnsafe1),
 
+                // Dirt unsafe 2
+                new BiomeConversion(
+                    WallID.DirtUnsafe2,
+                    WallID.DirtUnsafe2,
+                    WallID.DirtUnsafe2,
+                    WallID.DirtUnsafe2,
+                    ModContent.WallType<BlackLatexDirtWallUnsafe2>(),
+                    ModContent.WallType<WhiteLatexDirtWallUnsafe2>(),
+                    WallID.DirtUnsafe2),
+
+                // Cave6 unsafe
+                new BiomeConversion(
+                    WallID.Cave6Unsafe,
+                    WallID.Cave6Unsafe,
+                    WallID.Cave6Unsafe,
+                    WallID.Cave6Unsafe,
+                    ModContent.WallType<BlackLatexCave6WallUnsafe>(),
+                    ModContent.WallType<WhiteLatexCave6WallUnsafe>(),
+                    WallID.Cave6Unsafe),
+
                 // Grass unsafe
                 new BiomeConversion(
                     WallID.GrassUnsafe,
@@ -175,6 +208,16 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.WallType<BlackLatexGrassWallUnsafe>(),
                     ModContent.WallType<WhiteLatexGrassWallUnsafe>(),
                     WallID.GrassUnsafe),
+
+                // Flower unsafe
+                new BiomeConversion(
+                    WallID.FlowerUnsafe,
+                    WallID.FlowerUnsafe,
+                    WallID.FlowerUnsafe,
+                    WallID.FlowerUnsafe,
+                    ModContent.WallType<BlackLatexFlowerWallUnsafe>(),
+                    ModContent.WallType<WhiteLatexFlowerWallUnsafe>(),
+                    WallID.FlowerUnsafe),
 
                 // Stone
                 new BiomeConversion(
@@ -195,6 +238,26 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.WallType<BlackLatexSandstoneWall>(),
                     ModContent.WallType<WhiteLatexSandstoneWall>(),
                     WallID.Sandstone),
+
+                // Snow
+                new BiomeConversion(
+                    WallID.SnowWallUnsafe,
+                    WallID.SnowWallUnsafe,
+                    WallID.SnowWallUnsafe,
+                    WallID.SnowWallUnsafe,
+                    ModContent.WallType<BlackLatexSnowWallUnsafe>(),
+                    ModContent.WallType<WhiteLatexSnowWallUnsafe>(),
+                    WallID.SnowWallUnsafe),
+
+                // Ice
+                new BiomeConversion(
+                    WallID.IceUnsafe,
+                    WallID.IceUnsafe,
+                    WallID.IceUnsafe,
+                    WallID.IceUnsafe,
+                    ModContent.WallType<BlackLatexIceWallUnsafe>(),
+                    ModContent.WallType<WhiteLatexIceWallUnsafe>(),
+                    WallID.IceUnsafe),
             };
         }
 
@@ -508,6 +571,36 @@ namespace ChangedSpecialMod.Common.Systems
                         WallLoader.RegisterConversion(conversion.dryDirtBlockType, conversionWhiteLatex, conversion.whiteLatexBlockType);
                 }
             }
+
+            // Manually add these tiles to get destroyed
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Purity, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Corruption, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Crimson, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Hallow, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), conversionWhiteLatex, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), conversionDryDirt, DestroyTile);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), BiomeConversionID.Purity, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), BiomeConversionID.Corruption, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), BiomeConversionID.Crimson, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), BiomeConversionID.Hallow, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), conversionWhiteLatex, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalGreen>(), conversionDryDirt, DestroyTile);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Purity, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Corruption, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Crimson, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), BiomeConversionID.Hallow, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), conversionBlackLatex, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalWhite>(), conversionDryDirt, DestroyTile);
+
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Purity, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Corruption, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Crimson, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), BiomeConversionID.Hallow, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), conversionBlackLatex, DestroyTile);
+            TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.PillarWhite>(), conversionDryDirt, DestroyTile);
         }
     }
 }
