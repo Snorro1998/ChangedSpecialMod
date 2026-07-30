@@ -880,8 +880,8 @@ DryDirtGrassBlock: {
 }
 
 DryDirtGrassSeeds: {
-	// DisplayName: Dry Grass Seeds
-	// Tooltip: ""
+	DisplayName: Сухие семена травы
+	Tooltip: ""
 }
 
 BlackLatexGrassBlock: {
@@ -890,26 +890,36 @@ BlackLatexGrassBlock: {
 }
 
 BlackLatexLantern: {
-	// DisplayName: Black Latex Lantern
-	// Tooltip: ""
+	DisplayName: Черный слизистый фонарь
+	Tooltip: ""
 }
 
 BlackLatexMudBlock: {
-	// DisplayName: Black Slimemud Block
-	// Tooltip: ""
+	DisplayName: Черный слизистый грязевой блок
+	Tooltip: ""
 }
 
 WhiteLatexMudBlock: {
-	// DisplayName: White Slimemud Block
-	// Tooltip: ""
+	DisplayName: белый слизистый глиняный блок
+	Tooltip: ""
 }
 
 BlackLatexHardenedSandBlock: {
-	// DisplayName: Hardened Black Slimesand Block
-	// Tooltip: ""
+	DisplayName: Черный затвердевший песчаный блок из слизи
+	Tooltip: ""
 }
 
 WhiteLatexHardenedSandBlock: {
-	// DisplayName: Hardened White Slimesand Block
-	// Tooltip: ""
+	DisplayName: Белый затвердевший песчаный блок из слизи
+	Tooltip: ""
+}
+
+BlackLatexSandstoneBlock: {
+	DisplayName: Черный слизистый блок песчаника
+	Tooltip: ""
+}
+
+WhiteLatexSandstoneBlock: {
+	DisplayName: Белый слизистый блок песчаника
+	Tooltip: ""
 }

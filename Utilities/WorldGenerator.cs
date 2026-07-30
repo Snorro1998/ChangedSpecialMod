@@ -514,6 +514,9 @@ namespace ChangedSpecialMod.Utilities
                 case TileID.HardenedSand:
                     tileType = ModContent.TileType<BlackLatexHardenedSandTile>();
                     break;
+                case TileID.Sandstone:
+                    tileType = ModContent.TileType<BlackLatexSandstoneTile>();
+                    break;
 
                 // Stone
                 case TileID.Stone:
@@ -588,6 +591,10 @@ namespace ChangedSpecialMod.Utilities
                     wallType = ModContent.WallType<BlackLatexCave6WallUnsafe>();
                     break;
 
+                case WallID.MudUnsafe:
+                    wallType = ModContent.WallType<BlackLatexMudWallUnsafe>();
+                    break;
+
                 case WallID.Stone:
                     wallType = ModContent.WallType<BlackLatexStoneWall>();
                     break;
@@ -639,6 +646,9 @@ namespace ChangedSpecialMod.Utilities
                 // Desert
                 case TileID.HardenedSand:
                     tileType = ModContent.TileType<WhiteLatexHardenedSandTile>();
+                    break;
+                case TileID.Sandstone:
+                    tileType = ModContent.TileType<WhiteLatexSandstoneTile>();
                     break;
 
                 // Stone
@@ -712,6 +722,10 @@ namespace ChangedSpecialMod.Utilities
                     break;
                 case WallID.Cave6Unsafe:
                     wallType = ModContent.WallType<WhiteLatexCave6WallUnsafe>();
+                    break;
+
+                case WallID.MudUnsafe:
+                    wallType = ModContent.WallType<WhiteLatexMudWallUnsafe>();
                     break;
 
                 case WallID.Stone:
@@ -802,6 +816,7 @@ namespace ChangedSpecialMod.Utilities
                     case TileID.Mud:
                     case TileID.Sand:
                     case TileID.HardenedSand:
+                    case TileID.Sandstone:
                     case TileID.Stone:
                     case TileID.SnowBlock:
                     case TileID.IceBlock:

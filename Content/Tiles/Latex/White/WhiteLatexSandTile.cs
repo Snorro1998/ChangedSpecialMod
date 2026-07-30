@@ -34,7 +34,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.White
 
             MineResist = 0.5f; // Sand tile typically require half as many hits to mine.
 
-            VanillaFallbackOnModDeletion = TileID.Sand;
+            //VanillaFallbackOnModDeletion = TileID.Sand;
         }
     }
 }

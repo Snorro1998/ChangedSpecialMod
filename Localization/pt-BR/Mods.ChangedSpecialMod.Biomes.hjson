@@ -34,31 +34,31 @@ WhiteLatexUndergroundBiome: {
 }
 
 BlackLatexSurfaceDesertBiome: {
-	// DisplayName: Black Latex Surface Desert Biome
-	// TownNPCDialogueName: the Black Latex Surface Desert Biome
+	DisplayName: Dunas da Gosma Preta
+	TownNPCDialogueName: as Dunas da Gosma Preta
 }
 
 WhiteLatexSurfaceDesertBiome: {
-	// DisplayName: White Latex Surface Desert Biome
-	// TownNPCDialogueName: the White Latex Surface Desert Biome
+	DisplayName: Dunas da Gosma Branca
+	TownNPCDialogueName: as Dunas da Gosma Branca
 }
 
 BlackLatexSurfaceSnowBiome: {
-	// DisplayName: Black Latex Surface Snow Biome
-	// TownNPCDialogueName: the Black Latex Surface Snow Biome
+	DisplayName: Geleira da Gosma Preta
+	TownNPCDialogueName: a Geleira da Gosma Preta
 }
 
 WhiteLatexSurfaceSnowBiome: {
-	// DisplayName: White Latex Surface Snow Biome
-	// TownNPCDialogueName: the White Latex Surface Snow Biome
+	DisplayName: Geleira da Gosma Branca
+	TownNPCDialogueName: a Geleira da Gosma Branca
 }
 
 BlackLatexSurfaceJungleBiome: {
-	// DisplayName: Black Latex Surface Jungle Biome
-	// TownNPCDialogueName: the Black Latex Surface Jungle Biome
+	DisplayName: Selva da Gosma Preta
+	TownNPCDialogueName: a Selva da Gosma Preta
 }
 
 WhiteLatexSurfaceJungleBiome: {
-	// DisplayName: White Latex Surface Jungle Biome
-	// TownNPCDialogueName: the White Latex Surface Jungle Biome
+	DisplayName: Selva da Gosma Branca
+	TownNPCDialogueName: a Selva da Gosma Branca
 }

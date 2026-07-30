@@ -26,7 +26,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<BlackLatexMudTile>();
 
-            VanillaFallbackOnModDeletion = TileID.JungleGrass;
+            //VanillaFallbackOnModDeletion = TileID.JungleGrass;
         }
 
 

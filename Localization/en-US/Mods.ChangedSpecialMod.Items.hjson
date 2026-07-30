@@ -913,3 +913,13 @@ WhiteLatexHardenedSandBlock: {
 	DisplayName: Hardened White Slimesand Block
 	Tooltip: ""
 }
+
+BlackLatexSandstoneBlock: {
+	DisplayName: Black Slimy Sandstone Block
+	Tooltip: ""
+}
+
+WhiteLatexSandstoneBlock: {
+	DisplayName: White Slimy Sandstone Block
+	Tooltip: ""
+}

@@ -25,7 +25,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.White
 
             HitSound = SoundID.Grass;
 
-            AddMapEntry(new Color(65, 56, 83));
+            AddMapEntry(new Color(180, 180, 180));
         }
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
@@ -137,51 +137,52 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.White
                 }
             }
         }
+        /*
+// Transforming vines to ExampleVine if necessary behavior
+public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
+{
+    // This code handles transforming any vine to ExampleVine if the anchored tile happens to change to ExampleBlock. This can happen with spreading grass tiles or Clentaminator solutions. Without this code the vine would just break in those situations.
+    if (!TileID.Sets.IsVine[type])
+    {
+        return true;
+    }
 
-        // Transforming vines to ExampleVine if necessary behavior
-        public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
+    Tile tile = Main.tile[i, j];
+    Tile tileAbove = Main.tile[i, j - 1];
+
+    // We determine the tile type of the tile above this tile. If the tile doesn't exist, is actuated, or has a slopped bottom, the vine will be destroyed (-1).
+    int aboveTileType = tileAbove.HasUnactuatedTile && !tileAbove.BottomSlope ? tileAbove.TileType : -1;
+
+    // If this tile isn't the same as the one above, we need to verify that the above tile is valid.
+    if (type != aboveTileType)
+    {
+        // If the above tile is a valid ExampleVine anchor, but this tile isn't ExampleVine, we change this tile into ExampleVine.
+        if ((aboveTileType == ExampleBlock || aboveTileType == Vine) && type != Vine)
         {
-            // This code handles transforming any vine to ExampleVine if the anchored tile happens to change to ExampleBlock. This can happen with spreading grass tiles or Clentaminator solutions. Without this code the vine would just break in those situations.
-            if (!TileID.Sets.IsVine[type])
-            {
-                return true;
-            }
-
-            Tile tile = Main.tile[i, j];
-            Tile tileAbove = Main.tile[i, j - 1];
-
-            // We determine the tile type of the tile above this tile. If the tile doesn't exist, is actuated, or has a slopped bottom, the vine will be destroyed (-1).
-            int aboveTileType = tileAbove.HasUnactuatedTile && !tileAbove.BottomSlope ? tileAbove.TileType : -1;
-
-            // If this tile isn't the same as the one above, we need to verify that the above tile is valid.
-            if (type != aboveTileType)
-            {
-                // If the above tile is a valid ExampleVine anchor, but this tile isn't ExampleVine, we change this tile into ExampleVine.
-                if ((aboveTileType == ExampleBlock || aboveTileType == Vine) && type != Vine)
-                {
-                    tile.TileType = (ushort)Vine;
-                    WorldGen.SquareTileFrame(i, j);
-                    return true;
-                }
-
-                // Finally, we need to handle the case where there is not longer a valid placement for ExampleVine.
-                // Due to the ordering of hooks with respect to vanilla code, it is not easy to do this in a mod-compatible manner directly. Vanilla vine code or vine code from other mods might convert the vine to a new tile type, but we can't know that here.
-                // If the anchor tile is invalid, we kill the tile, otherwise we change the vine tile to TileID.Vines and let the vanilla code that will run after this handle the remaining logic.
-                if (type == Vine && aboveTileType != ExampleBlock)
-                {
-                    if (aboveTileType == -1)
-                    {
-                        WorldGen.KillTile(i, j);
-                    }
-                    else
-                    {
-                        tile.TileType = TileID.Vines;
-                    }
-                }
-            }
-
+            tile.TileType = (ushort)Vine;
+            WorldGen.SquareTileFrame(i, j);
             return true;
         }
+
+        // Finally, we need to handle the case where there is not longer a valid placement for ExampleVine.
+        // Due to the ordering of hooks with respect to vanilla code, it is not easy to do this in a mod-compatible manner directly. Vanilla vine code or vine code from other mods might convert the vine to a new tile type, but we can't know that here.
+        // If the anchor tile is invalid, we kill the tile, otherwise we change the vine tile to TileID.Vines and let the vanilla code that will run after this handle the remaining logic.
+        if (type == Vine && aboveTileType != ExampleBlock)
+        {
+            if (aboveTileType == -1)
+            {
+                WorldGen.KillTile(i, j);
+            }
+            else
+            {
+                tile.TileType = TileID.Vines;
+            }
+        }
+    }
+
+    return true;
+}
+*/
     }
 }
 

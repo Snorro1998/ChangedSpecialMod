@@ -9,7 +9,7 @@ namespace ChangedSpecialMod.Content.Walls.Latex.White
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            VanillaFallbackOnModDeletion = WallID.Cave6Unsafe;
+            //VanillaFallbackOnModDeletion = WallID.Cave6Unsafe;
             Main.wallBlend[Type] = ModContent.WallType<WhiteLatexDirtWallUnsafe>();
         }
     }

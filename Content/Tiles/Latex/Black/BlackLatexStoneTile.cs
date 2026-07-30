@@ -14,7 +14,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
             ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexStoneTile>());
             HitSound = SoundID.Tink;
 
-            VanillaFallbackOnModDeletion = TileID.Stone;
+            //VanillaFallbackOnModDeletion = TileID.Stone;
         }
     }
 }

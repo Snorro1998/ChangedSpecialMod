@@ -30,13 +30,15 @@ namespace ChangedSpecialMod.Backgrounds
 
 		public override int ChooseFarTexture() 
 		{
-			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceSnow/Far");
+			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Far");
 		}
 
 		private static int SurfaceFrameCounter;
 		private static int SurfaceFrame;
 		public override int ChooseMiddleTexture() 
 		{
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid");
+            /*
 			if (++SurfaceFrameCounter > 12) 
 			{
 				SurfaceFrame = (SurfaceFrame + 1) % 4;
@@ -45,21 +47,22 @@ namespace ChangedSpecialMod.Backgrounds
 			switch (SurfaceFrame) 
 			{
 				case 0:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceSnow/Mid0");
+					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid0");
 				case 1:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceSnow/Mid1");
+					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid1");
 				case 2:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceSnow/Mid2");
+					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid2");
 				case 3:
-					return BackgroundTextureLoader.GetBackgroundSlot("ChangedSpecialMod/Assets/Textures/Backgrounds/WhiteLatexSurfaceSnow/Mid3"); // You can use the full path version of GetBackgroundSlot too
+					return BackgroundTextureLoader.GetBackgroundSlot("ChangedSpecialMod/Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid3"); // You can use the full path version of GetBackgroundSlot too
 				default:
 					return -1;
 			}
-		}
+			*/
+        }
 
 		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) 
 		{
-			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceSnow/Close");
+			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Close");
 		}
 	}
 }

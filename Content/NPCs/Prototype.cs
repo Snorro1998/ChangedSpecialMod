@@ -137,7 +137,15 @@ namespace ChangedSpecialMod.Content.NPCs
 
             NPC.Happiness
                 .SetBiomeAffection<BlackLatexSurfaceBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<BlackLatexSurfaceJungleBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<BlackLatexSurfaceDesertBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<BlackLatexSurfaceSnowBiome>(AffectionLevel.Love)
+
                 .SetBiomeAffection<WhiteLatexSurfaceBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<WhiteLatexSurfaceJungleBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<WhiteLatexSurfaceDesertBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<WhiteLatexSurfaceSnowBiome>(AffectionLevel.Love)
+
                 .SetBiomeAffection<OceanBiome>(AffectionLevel.Hate)
 
                 // Happy boy doesn't hate anybody

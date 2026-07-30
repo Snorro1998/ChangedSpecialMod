@@ -17,7 +17,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
 
-            VanillaFallbackOnModDeletion = TileID.Mud;
+            //VanillaFallbackOnModDeletion = TileID.Mud;
         }
     }
 }

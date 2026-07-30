@@ -34,31 +34,31 @@ WhiteLatexUndergroundBiome: {
 }
 
 BlackLatexSurfaceDesertBiome: {
-	// DisplayName: Black Latex Surface Desert Biome
-	// TownNPCDialogueName: the Black Latex Surface Desert Biome
+	DisplayName: черные слизистые дюны
+	TownNPCDialogueName: черные слизистые дюны
 }
 
 WhiteLatexSurfaceDesertBiome: {
-	// DisplayName: White Latex Surface Desert Biome
-	// TownNPCDialogueName: the White Latex Surface Desert Biome
+	DisplayName: белые слизистые дюны
+	TownNPCDialogueName: белые слизистые дюны
 }
 
 BlackLatexSurfaceSnowBiome: {
-	// DisplayName: Black Latex Surface Snow Biome
-	// TownNPCDialogueName: the Black Latex Surface Snow Biome
+	DisplayName: черный слизистый ледник
+	TownNPCDialogueName: черный слизистый ледник
 }
 
 WhiteLatexSurfaceSnowBiome: {
-	// DisplayName: White Latex Surface Snow Biome
-	// TownNPCDialogueName: the White Latex Surface Snow Biome
+	DisplayName: белый слизистый ледник
+	TownNPCDialogueName: белый слизистый ледник
 }
 
 BlackLatexSurfaceJungleBiome: {
-	// DisplayName: Black Latex Surface Jungle Biome
-	// TownNPCDialogueName: the Black Latex Surface Jungle Biome
+	DisplayName: чёрные слизистые джунгли
+	TownNPCDialogueName: чёрные слизистые джунгли
 }
 
 WhiteLatexSurfaceJungleBiome: {
-	// DisplayName: White Latex Surface Jungle Biome
-	// TownNPCDialogueName: the White Latex Surface Jungle Biome
+	DisplayName: белые слизистые джунгли
+	TownNPCDialogueName: белые слизистые джунгли
 }

@@ -34,31 +34,31 @@ WhiteLatexUndergroundBiome: {
 }
 
 BlackLatexSurfaceDesertBiome: {
-	// DisplayName: Black Latex Surface Desert Biome
-	// TownNPCDialogueName: the Black Latex Surface Desert Biome
+	DisplayName: Schwarze Schleimdünen
+	TownNPCDialogueName: die Schwarzen Schleimdünen
 }
 
 WhiteLatexSurfaceDesertBiome: {
-	// DisplayName: White Latex Surface Desert Biome
-	// TownNPCDialogueName: the White Latex Surface Desert Biome
+	DisplayName: Weiße Schleimdünen
+	TownNPCDialogueName: die Weißen Schleimdünen
 }
 
 BlackLatexSurfaceSnowBiome: {
-	// DisplayName: Black Latex Surface Snow Biome
-	// TownNPCDialogueName: the Black Latex Surface Snow Biome
+	DisplayName: Schwarzer Schleimgletscher
+	TownNPCDialogueName: der Schwarze Schleimgletscher
 }
 
 WhiteLatexSurfaceSnowBiome: {
-	// DisplayName: White Latex Surface Snow Biome
-	// TownNPCDialogueName: the White Latex Surface Snow Biome
+	DisplayName: Weißer Schleimgletscher
+	TownNPCDialogueName: der Weiße Schleimgletscher
 }
 
 BlackLatexSurfaceJungleBiome: {
-	// DisplayName: Black Latex Surface Jungle Biome
-	// TownNPCDialogueName: the Black Latex Surface Jungle Biome
+	DisplayName: Schwarzer Schleimdschungel
+	TownNPCDialogueName: der Schwarze Schleimdschungel
 }
 
 WhiteLatexSurfaceJungleBiome: {
-	// DisplayName: White Latex Surface Jungle Biome
-	// TownNPCDialogueName: the White Latex Surface Jungle Biome
+	DisplayName: Weißer Schleimdschungel
+	TownNPCDialogueName: der Weiße Schleimdschungel
 }

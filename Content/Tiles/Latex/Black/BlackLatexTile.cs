@@ -13,7 +13,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
             Main.tileMergeDirt[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexTile>());
 
-            VanillaFallbackOnModDeletion = TileID.Dirt;
+            //VanillaFallbackOnModDeletion = TileID.Dirt;
         }
     }
 }

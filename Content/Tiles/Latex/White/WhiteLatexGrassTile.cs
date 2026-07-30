@@ -29,7 +29,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.White
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<WhiteLatexTile>();
 
-            VanillaFallbackOnModDeletion = TileID.Grass;
+            //VanillaFallbackOnModDeletion = TileID.Grass;
         }
 
 

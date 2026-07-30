@@ -57,8 +57,8 @@ Mods: {
 					HateCrowded: AH! Es ist viel zu voll! Mensch, bitte such dir einen besseren Platz.
 					LoveBiome: Ich bin hier aufgewachsen, deshalb liebe ich es natürlich hier.
 					LikeBiome: "{BiomeName} ist so schön und friedlich, genau so, wie ich es mag."
-					DislikeBiome: Ich mag {BiomeName} nicht.
-					HateBiome: "{BiomeName} ist viel zu heiß, wenn man ein dickes Fell hat!"
+					DislikeBiome: Ich habe das Gefühl, dass ich in {BiomeName} zu sehr auffalle.
+					HateBiome: AHH! {BiomeName} ist furchtbar! Alles versucht, meine Orangen und mich zu fressen!
 					LoveNPC: "{NPCName} ist so süß mit ihren großen Ohren und dem flauschigen Schwanz. Aber nicht so süß wie du, hehehe..."
 					LikeNPC: Wenn {NPCName} da ist, fühle ich mich immer wie ein Partylöwe.
 					DislikeNPC: Ich mag {NPCName} nicht, weil er immer schlecht gelaunt ist.
@@ -513,8 +513,8 @@ Mods: {
 
 			Scientist: {
 				TownNPCMood: {
-					HateBiome: Ich hasse {BiomeName}, weil es dort zu feucht ist und viel zu viele Dinge versuchen, einem weh zu tun!
-					DislikeBiome: Ich mag {BiomeName} nicht.
+					HateBiome: Man braucht keinen Hochschulabschluss, um zu dem Schluss zu kommen, dass das Leben in {BiomeName} schrecklich ist.
+					DislikeBiome: Ich habe das Gefühl, dass ich in {BiomeName} zu sehr auffalle.
 					LikeBiome: Ich mag {BiomeName}. Das Rauschen der Wellen hat etwas Beruhigendes.
 					LoveBiome: Mein Körper besteht aus weißem Schleim, daher passe ich perfekt in {BiomeName}.
 					HateCrowded: Bei so viel Lärm um mich herum kann ich nichts erledigen.

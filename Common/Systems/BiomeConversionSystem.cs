@@ -5,6 +5,7 @@ using ChangedSpecialMod.Content.Tiles.Latex.White;
 using ChangedSpecialMod.Content.Walls.Latex.Black;
 using ChangedSpecialMod.Content.Walls.Latex.White;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,8 +36,98 @@ namespace ChangedSpecialMod.Common.Systems
 
     public class BiomeConversionSystem : ModSystem
     {
-        private List<BiomeConversion> conversions;
-        private List<BiomeConversion> wallConversions;
+        private static List<BiomeConversion> conversions;
+        private static List<BiomeConversion> wallConversions;
+
+        private sealed class MergeableTileGlobalTile : GlobalTile
+        {
+            public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
+            {
+                /*
+                // Custom plant framing
+                for (int k = 0; k < PlantTypes.Length; k++)
+                    if (type == PlantTypes[k])
+                    {
+                        PlantFrame(i, j);
+                        return false;
+                    }
+                */
+
+                // Custom vine framing
+                if (type == TileID.Vines || type == TileID.CrimsonVines || type == TileID.HallowedVines || type == ModContent.TileType<BlackLatexVines>() || type == ModContent.TileType<WhiteLatexVines>())
+                    VineFrame(i, j);
+
+                return base.TileFrame(i, j, type, ref resetFrame, ref noBreak);
+            }
+
+            internal static void VineFrame(int x, int y)
+            {
+                if (x < 0 || x >= Main.maxTilesX)
+                    return;
+                if (y < 0 || y >= Main.maxTilesY)
+                    return;
+
+                var VineToGrass = new Dictionary<ushort, ushort>
+                {
+                    [TileID.Vines] = TileID.Grass,
+                    [TileID.Vines] = TileID.LeafBlock,
+                    [TileID.CrimsonVines] = TileID.CrimsonGrass,
+                    [TileID.HallowedVines] = TileID.HallowedGrass,
+                    [(ushort)ModContent.TileType<BlackLatexVines>()] = (ushort)ModContent.TileType<BlackLatexGrassTile>(),
+                    [(ushort)ModContent.TileType<WhiteLatexVines>()] = (ushort)ModContent.TileType<WhiteLatexGrassTile>(),
+                };
+
+                var tile = Main.tile[x, y];
+                int myType = tile.TileType;
+
+                // Get the type of the tile above this vine. If that tile doesn't exist, just assume it's another vine.
+                var north = y <= 0 ? default : Main.tile[x, y - 1];
+                var northType = north == default(Tile) ? myType : !north.HasTile || north.BottomSlope ? -1 : north.TileType;
+
+                // Make this vine match the tile above it if that's another vine or a grass tile.
+                var vines = VineToGrass.Keys.ToArray();
+                for (var i = 0; i < vines.Length; ++i)
+                {
+                    var correspondingGrass = VineToGrass[vines[i]];
+                    if (myType != vines[i] && (northType == correspondingGrass || northType == vines[i]))
+                    {
+                        Main.tile[x, y].TileType = vines[i];
+                        WorldGen.SquareTileFrame(x, y, true);
+                        return;
+                    }
+                }
+
+                // If the tile above is an identical vine, nothing else needs to be done.
+                if (northType == myType)
+                    return;
+
+                // If the tile above isn't sloped correctly or otherwise isn't a valid anchor for this vine, check whether the vine must die.
+                var tileMustDie = northType == -1;
+                if (northType != -1)
+                {
+                    // Vanilla vines can hang from vanilla grass and vanilla leaf blocks.
+                    if (myType == TileID.Vines && northType != TileID.Grass && northType != TileID.LeafBlock)
+                    {
+                        tileMustDie = true;
+                    }
+                    else if (myType != TileID.Vines)
+                    {
+                        for (var i = 0; i < vines.Length; ++i)
+                        {
+                            // Not matching grass? Die.
+                            if (myType == vines[i] && northType != VineToGrass[vines[i]])
+                            {
+                                tileMustDie = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (tileMustDie)
+                    WorldGen.KillTile(x, y, false, false, false);
+            }
+        }
 
         private static TileLoader.ConvertTile CreateConversion(int targetTile) =>
         (i, j, type, conversionType) =>
@@ -49,6 +140,19 @@ namespace ChangedSpecialMod.Common.Systems
         {
             WorldGen.KillTile(i, j);
             return false;
+        }
+
+        public static List<int> GetLatexBlocks()
+        {
+            var blockTypes = new List<int>();
+
+            foreach (var conversion in conversions)
+            {
+                blockTypes.Add(conversion.blackLatexBlockType);
+                blockTypes.Add(conversion.whiteLatexBlockType);
+            }
+
+            return blockTypes;
         }
 
         private void SetupConversions()
@@ -125,6 +229,16 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.TileType<WhiteLatexHardenedSandTile>(),
                     TileID.HardenedSand),
 
+                // Sandstone
+                new BiomeConversion(
+                    TileID.Sandstone,
+                    TileID.CorruptSandstone,
+                    TileID.CrimsonSandstone,
+                    TileID.HallowSandstone,
+                    ModContent.TileType<BlackLatexSandstoneTile>(),
+                    ModContent.TileType<WhiteLatexSandstoneTile>(),
+                    TileID.Sandstone),
+
                 // Snow
                 new BiomeConversion(
                     TileID.SnowBlock,
@@ -198,6 +312,16 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.WallType<BlackLatexCave6WallUnsafe>(),
                     ModContent.WallType<WhiteLatexCave6WallUnsafe>(),
                     WallID.Cave6Unsafe),
+
+                // Mud unsafe
+                new BiomeConversion(
+                    WallID.MudUnsafe,
+                    WallID.MudUnsafe,
+                    WallID.MudUnsafe,
+                    WallID.MudUnsafe,
+                    ModContent.WallType<BlackLatexMudWallUnsafe>(),
+                    ModContent.WallType<WhiteLatexMudWallUnsafe>(),
+                    WallID.MudUnsafe),
 
                 // Grass unsafe
                 new BiomeConversion(

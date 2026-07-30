@@ -34,31 +34,31 @@ WhiteLatexUndergroundBiome: {
 }
 
 BlackLatexSurfaceDesertBiome: {
-	// DisplayName: Black Latex Surface Desert Biome
-	// TownNPCDialogueName: the Black Latex Surface Desert Biome
+	DisplayName: Dunas de Látex Negro
+	TownNPCDialogueName: las Dunas de Látex Negro
 }
 
 WhiteLatexSurfaceDesertBiome: {
-	// DisplayName: White Latex Surface Desert Biome
-	// TownNPCDialogueName: the White Latex Surface Desert Biome
+	DisplayName: Dunas de Látex Blanco
+	TownNPCDialogueName: las Dunas de Látex Blanco
 }
 
 BlackLatexSurfaceSnowBiome: {
-	// DisplayName: Black Latex Surface Snow Biome
-	// TownNPCDialogueName: the Black Latex Surface Snow Biome
+	DisplayName: Glaciares de Látex Negro
+	TownNPCDialogueName: los Glaciares de Látex Negro
 }
 
 WhiteLatexSurfaceSnowBiome: {
-	// DisplayName: White Latex Surface Snow Biome
-	// TownNPCDialogueName: the White Latex Surface Snow Biome
+	DisplayName: Glaciares de Látex Blanco
+	TownNPCDialogueName: los Glaciares de Látex Blanco
 }
 
 BlackLatexSurfaceJungleBiome: {
-	// DisplayName: Black Latex Surface Jungle Biome
-	// TownNPCDialogueName: the Black Latex Surface Jungle Biome
+	DisplayName: Jungla de Látex Negro
+	TownNPCDialogueName: la Jungla de Látex Negro
 }
 
 WhiteLatexSurfaceJungleBiome: {
-	// DisplayName: White Latex Surface Jungle Biome
-	// TownNPCDialogueName: the White Latex Surface Jungle Biome
+	DisplayName: Jungla de Látex Blanco
+	TownNPCDialogueName: la Jungla de Látex Blanco
 }

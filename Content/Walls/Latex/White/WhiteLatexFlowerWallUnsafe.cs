@@ -9,7 +9,7 @@ namespace ChangedSpecialMod.Content.Walls.Latex.White
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            VanillaFallbackOnModDeletion = WallID.FlowerUnsafe;
+            //VanillaFallbackOnModDeletion = WallID.FlowerUnsafe;
             Main.wallBlend[Type] = ModContent.WallType<WhiteLatexGrassWallUnsafe>();
         }
     }

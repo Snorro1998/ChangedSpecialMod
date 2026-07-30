@@ -66,10 +66,18 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
 
 			NPC.Happiness
+
                 .SetBiomeAffection<BlackLatexSurfaceBiome>(AffectionLevel.Love)
-                .SetBiomeAffection<ForestBiome>(AffectionLevel.Like) 
-				.SetBiomeAffection<DesertBiome>(AffectionLevel.Hate) 
-                // In Changed, black latexes hate white ones so maybe that should also be added
+                .SetBiomeAffection<BlackLatexSurfaceJungleBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<BlackLatexSurfaceDesertBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<BlackLatexSurfaceSnowBiome>(AffectionLevel.Love)
+
+                .SetBiomeAffection<ForestBiome>(AffectionLevel.Like)
+
+                .SetBiomeAffection<WhiteLatexSurfaceBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<WhiteLatexSurfaceJungleBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<WhiteLatexSurfaceDesertBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<WhiteLatexSurfaceSnowBiome>(AffectionLevel.Dislike)
 				
 				.SetNPCAffection(loveNPC, AffectionLevel.Love) 
 				.SetNPCAffection(likeNPC, AffectionLevel.Like) 

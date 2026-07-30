@@ -880,8 +880,8 @@ DryDirtGrassBlock: {
 }
 
 DryDirtGrassSeeds: {
-	// DisplayName: Dry Grass Seeds
-	// Tooltip: ""
+	DisplayName: 干草籽
+	Tooltip: ""
 }
 
 BlackLatexGrassBlock: {
@@ -890,26 +890,36 @@ BlackLatexGrassBlock: {
 }
 
 BlackLatexLantern: {
-	// DisplayName: Black Latex Lantern
-	// Tooltip: ""
+	DisplayName: 黑粘液灯笼
+	Tooltip: ""
 }
 
 BlackLatexMudBlock: {
-	// DisplayName: Black Slimemud Block
-	// Tooltip: ""
+	DisplayName: 黑色黏糊糊的泥块
+	Tooltip: ""
 }
 
 WhiteLatexMudBlock: {
-	// DisplayName: White Slimemud Block
-	// Tooltip: ""
+	DisplayName: 白色黏糊糊的泥块
+	Tooltip: ""
 }
 
 BlackLatexHardenedSandBlock: {
-	// DisplayName: Hardened Black Slimesand Block
-	// Tooltip: ""
+	DisplayName: 黑色黏滑硬化的沙块
+	Tooltip: ""
 }
 
 WhiteLatexHardenedSandBlock: {
-	// DisplayName: Hardened White Slimesand Block
-	// Tooltip: ""
+	DisplayName: 白色黏滑硬化的沙块
+	Tooltip: ""
+}
+
+BlackLatexSandstoneBlock: {
+	DisplayName: 黑色黏滑砂岩块
+	Tooltip: ""
+}
+
+WhiteLatexSandstoneBlock: {
+	DisplayName: 白色黏滑砂岩块
+	Tooltip: ""
 }

@@ -880,8 +880,8 @@ DryDirtGrassBlock: {
 }
 
 DryDirtGrassSeeds: {
-	// DisplayName: Dry Grass Seeds
-	// Tooltip: ""
+	DisplayName: Graines de graminées sèches
+	Tooltip: ""
 }
 
 BlackLatexGrassBlock: {
@@ -890,26 +890,36 @@ BlackLatexGrassBlock: {
 }
 
 BlackLatexLantern: {
-	// DisplayName: Black Latex Lantern
-	// Tooltip: ""
+	DisplayName: Lanterne à gelée noire
+	Tooltip: ""
 }
 
 BlackLatexMudBlock: {
-	// DisplayName: Black Slimemud Block
-	// Tooltip: ""
+	DisplayName: Bloc de gelée noir visqueus
+	Tooltip: ""
 }
 
 WhiteLatexMudBlock: {
-	// DisplayName: White Slimemud Block
-	// Tooltip: ""
+	DisplayName: Bloc de gelée blanc visqueus
+	Tooltip: ""
 }
 
 BlackLatexHardenedSandBlock: {
-	// DisplayName: Hardened Black Slimesand Block
-	// Tooltip: ""
+	DisplayName: Bloc de sable noir et visqueux durci
+	Tooltip: ""
 }
 
 WhiteLatexHardenedSandBlock: {
-	// DisplayName: Hardened White Slimesand Block
-	// Tooltip: ""
+	DisplayName: Bloc de sable blanc visqueux durci
+	Tooltip: ""
+}
+
+BlackLatexSandstoneBlock: {
+	DisplayName: Bloc de grès noir visqueux
+	Tooltip: ""
+}
+
+WhiteLatexSandstoneBlock: {
+	DisplayName: Bloc de grès blanc et visqueux
+	Tooltip: ""
 }

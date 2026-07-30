@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -71,7 +70,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!ChangedUtils.IsDrunk(spawnInfo.Player))
+            if (spawnInfo.Player.townNPCs > 0 || !ChangedUtils.IsDrunk(spawnInfo.Player))
                 return 0;
             var changedNPC = NPC.Changed();
             return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);

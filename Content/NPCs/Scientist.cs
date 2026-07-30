@@ -93,7 +93,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("Thunder2"),
 
                 //Windy
-                new DialogueElement("Windy1"),
+                new DialogueElement("Windy1", "Angry"),
 
                 // Valentine
                 new DialogueElement("Valentine1"),
@@ -194,10 +194,17 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
 
             NPC.Happiness
-                //.SetBiomeAffection<CityRuinsSurfaceBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<WhiteLatexSurfaceBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<WhiteLatexSurfaceJungleBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<WhiteLatexSurfaceDesertBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<WhiteLatexSurfaceSnowBiome>(AffectionLevel.Love)
+
                 .SetBiomeAffection<OceanBiome>(AffectionLevel.Like)
-                .SetBiomeAffection<JungleBiome>(AffectionLevel.Hate)
+
+                .SetBiomeAffection<BlackLatexSurfaceBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<BlackLatexSurfaceJungleBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<BlackLatexSurfaceDesertBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<BlackLatexSurfaceSnowBiome>(AffectionLevel.Dislike)
 
                 .SetNPCAffection(NPCID.Nurse, AffectionLevel.Love)
                 .SetNPCAffection(NPCID.BestiaryGirl, AffectionLevel.Like)

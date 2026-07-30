@@ -57,8 +57,8 @@ Mods: {
 					HateCrowded: 啊!太拥挤了!人类，请找个更好的地方吧。
 					LoveBiome: 我在这里长大，所以我当然喜欢这里。
 					LikeBiome: "{BiomeName} 真美，真宁静，正合我意。"
-					DislikeBiome: 我不喜欢 {BiomeName}。
-					HateBiome: 对于像我这样浑身长满厚厚皮毛的人来说，{BiomeName}里真是热得要命！
+					DislikeBiome: 我觉得我在{BiomeName}中太显眼了。
+					HateBiome: 啊！{BiomeName} 太糟糕了！所有东西都想吃我的橘子，还有我！
 					LoveNPC: "{NPCName} 长着大耳朵和毛茸茸的尾巴，真是太可爱了。不过，她还是没有你可爱，嘿嘿嘿……"
 					LikeNPC: 有{NPCName}在身边，我总感觉自己像个派对动物。
 					DislikeNPC: 我不喜欢{NPCName}，因为他总是生气。
@@ -513,8 +513,8 @@ Mods: {
 
 			Scientist: {
 				TownNPCMood: {
-					HateBiome: 我讨厌{BiomeName}，因为那里太潮湿了，而且有太多东西会伤害你！
-					DislikeBiome: 我不喜欢{BiomeName}。
+					HateBiome: 你不需要学位就能得出这样的结论：生活在{BiomeName}很糟糕。
+					DislikeBiome: 我觉得我在{BiomeName}中太显眼了。
 					LikeBiome: 我喜欢{BiomeName}。海浪的声音令人感到舒缓。
 					LoveBiome: 我的身体由白色粘液构成，所以我完美地融入了{BiomeName}。
 					HateCrowded: 周围这么吵，我什么都做不了。

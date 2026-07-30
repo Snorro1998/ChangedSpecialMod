@@ -137,7 +137,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
                 }
             }
         }
-
+        /*
         // Transforming vines to ExampleVine if necessary behavior
         public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
         {
@@ -182,6 +182,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
 
             return true;
         }
+        */
     }
 }
 

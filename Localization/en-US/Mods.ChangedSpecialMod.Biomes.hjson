@@ -34,31 +34,31 @@ WhiteLatexUndergroundBiome: {
 }
 
 BlackLatexSurfaceDesertBiome: {
-	DisplayName: Black Latex Surface Desert Biome
-	TownNPCDialogueName: the Black Latex Surface Desert Biome
+	DisplayName: Black Slimesand Dunes
+	TownNPCDialogueName: the Black Slimesand Dunes
 }
 
 WhiteLatexSurfaceDesertBiome: {
-	DisplayName: White Latex Surface Desert Biome
-	TownNPCDialogueName: the White Latex Surface Desert Biome
+	DisplayName: White Slimesand Dunes
+	TownNPCDialogueName: the White Slimesand Dunes
 }
 
 BlackLatexSurfaceSnowBiome: {
-	DisplayName: Black Latex Surface Snow Biome
-	TownNPCDialogueName: the Black Latex Surface Snow Biome
+	DisplayName: Black Goo Glacier
+	TownNPCDialogueName: the Black Goo Glacier
 }
 
 WhiteLatexSurfaceSnowBiome: {
-	DisplayName: White Latex Surface Snow Biome
-	TownNPCDialogueName: the White Latex Surface Snow Biome
+	DisplayName: White Goo Glacier
+	TownNPCDialogueName: the White Goo Glacier
 }
 
 BlackLatexSurfaceJungleBiome: {
-	DisplayName: Black Latex Surface Jungle Biome
-	TownNPCDialogueName: the Black Latex Surface Jungle Biome
+	DisplayName: Black Goo Jungle
+	TownNPCDialogueName: the Black Goo Jungle
 }
 
 WhiteLatexSurfaceJungleBiome: {
-	DisplayName: White Latex Surface Jungle Biome
-	TownNPCDialogueName: the White Latex Surface Jungle Biome
+	DisplayName: White Goo Jungle
+	TownNPCDialogueName: the White Goo Jungle
 }

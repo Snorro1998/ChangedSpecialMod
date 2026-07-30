@@ -34,31 +34,31 @@ WhiteLatexUndergroundBiome: {
 }
 
 BlackLatexSurfaceDesertBiome: {
-	// DisplayName: Black Latex Surface Desert Biome
-	// TownNPCDialogueName: the Black Latex Surface Desert Biome
+	DisplayName: Dunes de la Gelée Noire
+	TownNPCDialogueName: les Dunes de la Gelée Noire
 }
 
 WhiteLatexSurfaceDesertBiome: {
-	// DisplayName: White Latex Surface Desert Biome
-	// TownNPCDialogueName: the White Latex Surface Desert Biome
+	DisplayName: Dunes de la Gelée Blanche
+	TownNPCDialogueName: les Dunes de la Gelée Blanche
 }
 
 BlackLatexSurfaceSnowBiome: {
-	// DisplayName: Black Latex Surface Snow Biome
-	// TownNPCDialogueName: the Black Latex Surface Snow Biome
+	DisplayName: Glaciers de la Gelée Noire
+	TownNPCDialogueName: les Glaciers de la Gelée Noire
 }
 
 WhiteLatexSurfaceSnowBiome: {
-	// DisplayName: White Latex Surface Snow Biome
-	// TownNPCDialogueName: the White Latex Surface Snow Biome
+	DisplayName: Glaciers de la Gelée Blanche
+	TownNPCDialogueName: les Glaciers de la Gelée Blanche
 }
 
 BlackLatexSurfaceJungleBiome: {
-	// DisplayName: Black Latex Surface Jungle Biome
-	// TownNPCDialogueName: the Black Latex Surface Jungle Biome
+	DisplayName: Jungle de la Gelée Noire
+	TownNPCDialogueName: la Jungle de la Gelée Noire
 }
 
 WhiteLatexSurfaceJungleBiome: {
-	// DisplayName: White Latex Surface Jungle Biome
-	// TownNPCDialogueName: the White Latex Surface Jungle Biome
+	DisplayName: Jungle de la Gelée Blanche
+	TownNPCDialogueName: la Jungle de la Gelée Blanche
 }

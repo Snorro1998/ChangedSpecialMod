@@ -79,14 +79,14 @@ Other
 
 --------- Changelog ---------
 
-This update improves the conversion of normal and latex biomes, such as by preserving grass and normal and desert trees (I couldn't get snow and jungle trees to work).
-It also makes walls and some more blocks infectable.
+This update improves the conversion of normal and latex biomes, such as by preserving grass and trees.
+It also makes some other blocks and walls infectable.
 
 0.5.6
 
 General
-- Most blocks are converted to vanilla blocks if the mod is removed from a world
 - Added ambient entities. These are background objects that you can sometimes see in the sky, such as the hot air balloon and birds.
+- Improved the backgrounds of surface biomes
 
 Ambient entities
 - Yufeng Cub and plushies hanging from balloons
@@ -99,9 +99,14 @@ Latex spread
 - Natural walls can be infected and unlike vanilla, these walls can also infect blocks
 
 Clentiminator
-- Crystals can be removed
+- Crystals can be destroyed
 - Purple, Red and Blue solutions can be used to remove latex biomes
-- Latex solutions can be used to remove the corruption, crimson and hallow
+
+NPCs
+- Prototype sells all grass seeds including the new dry grass seeds used to spread the city ruins.
+- Puro no longer hates the desert. Instead he dislikes the white latex biomes for him 'standing out too much'
+- Dr K no longer hates the jungle. Instead he dislikes the black latex biomes for him 'standing out too much'
+- Devourer of Oranges can no longer spawn if there are town NPCs nearby
 
 Fixes
 - Puro and Dr K not immune to latex beasts.
@@ -121,9 +126,6 @@ Fixes
 - Added grass latex tiles. They look the same and their only purpose is to get normal grass back when purifying a latex biome.
 
 - Added dry grass. Now dry dirt won't have grass on top of it anymore.
-
-NPCs
-- Prototype sells all grass seeds including the new dry grass seeds used to spread the city ruins. Seeds from some other mods are also supported.
 
 Furniture
 - Added black lantern

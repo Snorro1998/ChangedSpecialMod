@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
             HitSound = SoundID.Item48;
             TileID.Sets.Conversion.Grass[Type] = true;
 
-            VanillaFallbackOnModDeletion = TileID.SnowBlock;
+            //VanillaFallbackOnModDeletion = TileID.SnowBlock;
         }
     }
 }

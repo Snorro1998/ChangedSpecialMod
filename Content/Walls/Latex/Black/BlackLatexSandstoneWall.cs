@@ -7,7 +7,7 @@ namespace ChangedSpecialMod.Content.Walls.Latex.Black
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            VanillaFallbackOnModDeletion = WallID.Sandstone;
+            //VanillaFallbackOnModDeletion = WallID.Sandstone;
         }
     }
 }

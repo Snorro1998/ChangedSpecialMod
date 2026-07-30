@@ -38,7 +38,7 @@ namespace ChangedSpecialMod.Content.Tiles.Pylons
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
 
-            VanillaFallbackOnModDeletion = TileID.TeleportationPylon;
+            //VanillaFallbackOnModDeletion = TileID.TeleportationPylon;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.LavaDeath = false;

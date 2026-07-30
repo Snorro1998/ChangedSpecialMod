@@ -18,7 +18,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.White
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;
 
-            VanillaFallbackOnModDeletion = TileID.Stone;
+            //VanillaFallbackOnModDeletion = TileID.Stone;
         }
     }
 }

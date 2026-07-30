@@ -114,7 +114,7 @@ namespace ChangedSpecialMod.Utilities
         private void RandomChanceReplaceSkyEntityTexture(object self, Player player, bool plushBalloon = false)
         {
             var chance = plushBalloon ? 20 : 10;
-            if (player.InModBiome<BlackLatexSurfaceBiome>())
+            if (InChangedBiome(player))
                 chance = 1;
 
             if (Main.rand.NextBool(chance))
@@ -241,28 +241,15 @@ namespace ChangedSpecialMod.Utilities
 
             HashSet<int> LatexCountCollection =
             [
-                ModContent.TileType<BlackLatexGrassTile>(),
-                ModContent.TileType<BlackLatexJungleGrassTile>(),
-                ModContent.TileType<BlackLatexTile>(),
-                ModContent.TileType<BlackLatexMudTile>(),
-                ModContent.TileType<BlackLatexSandTile>(),
-                ModContent.TileType<BlackLatexHardenedSandTile>(),
-                ModContent.TileType<BlackLatexStoneTile>(),
-                ModContent.TileType<BlackLatexIceTile>(),
-                ModContent.TileType<BlackLatexSnowTile>(),
-                ModContent.TileType<BlackLatexLivingWoodTile>(),
 
-                ModContent.TileType<WhiteLatexGrassTile>(),
-                ModContent.TileType<WhiteLatexJungleGrassTile>(),
-                ModContent.TileType<WhiteLatexTile>(),
-                ModContent.TileType<WhiteLatexMudTile>(),
-                ModContent.TileType<WhiteLatexSandTile>(),
-                ModContent.TileType<WhiteLatexHardenedSandTile>(),
-                ModContent.TileType<WhiteLatexStoneTile>(),
-                ModContent.TileType<WhiteLatexIceTile>(),
-                ModContent.TileType<WhiteLatexSnowTile>(),
-                ModContent.TileType<WhiteLatexLivingWoodTile>()
             ];
+
+            var blocks = BiomeConversionSystem.GetLatexBlocks();
+
+            foreach (var block in blocks)
+            {
+                LatexCountCollection.Add(block);
+            }
 
             HashSet<ushort> CorruptCountCollection =
             [
@@ -480,26 +467,15 @@ namespace ChangedSpecialMod.Utilities
 
             HashSet<int> LatexCountCollection =
             [
-                ModContent.TileType<BlackLatexTile>(),
-                ModContent.TileType<BlackLatexGrassTile>(),
-                ModContent.TileType<BlackLatexMudTile>(),
-                ModContent.TileType<BlackLatexJungleGrassTile>(),
-                ModContent.TileType<BlackLatexSandTile>(),
-                ModContent.TileType<BlackLatexStoneTile>(),
-                ModContent.TileType<BlackLatexIceTile>(),
-                ModContent.TileType<BlackLatexSnowTile>(),
-                ModContent.TileType<BlackLatexLivingWoodTile>(),
 
-                ModContent.TileType<WhiteLatexTile>(),
-                ModContent.TileType<WhiteLatexGrassTile>(),
-                ModContent.TileType<WhiteLatexMudTile>(),
-                ModContent.TileType<WhiteLatexJungleGrassTile>(),
-                ModContent.TileType<WhiteLatexSandTile>(),
-                ModContent.TileType<WhiteLatexStoneTile>(),
-                ModContent.TileType<WhiteLatexIceTile>(),
-                ModContent.TileType<WhiteLatexSnowTile>(),
-                ModContent.TileType<WhiteLatexLivingWoodTile>(),
             ];
+
+            var blocks = BiomeConversionSystem.GetLatexBlocks();
+
+            foreach (var block in blocks)
+            {
+                LatexCountCollection.Add(block);
+            }
 
             HashSet<int> CorruptCountCollection =
             [
