@@ -49,7 +49,7 @@ namespace ChangedSpecialMod.Utilities
         {
             // If another mod removes this task, nothing will be generated
             // used to be smooth world
-            int taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Spreading Grass"));
+            int taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Spreading Grass")); 
             if (taskIndex != -1)
             {
                 tasks.Insert(taskIndex + 1, new PassLegacy("ChangedStructures", (progress, config) =>
@@ -148,7 +148,7 @@ namespace ChangedSpecialMod.Utilities
                     else if (Main.maxTilesX >= WorldGen.WorldSizeMediumX)
                         nShrines = 10;
 
-                    var nMaxAttempts = 1000;
+                    var nMaxAttempts = 500;
                     var placedPositions = new List<(int, int)>();
 
                     for (int i = 0; i < nMaxAttempts; i++)

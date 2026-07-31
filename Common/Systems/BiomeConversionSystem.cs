@@ -1,7 +1,10 @@
 ﻿using ChangedSpecialMod.Content.Items.Ammo;
+using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
+using ChangedSpecialMod.Content.Tiles.Plants;
 using ChangedSpecialMod.Content.Walls.Latex.Black;
 using ChangedSpecialMod.Content.Walls.Latex.White;
 using System.Collections.Generic;
@@ -52,12 +55,120 @@ namespace ChangedSpecialMod.Common.Systems
                         return false;
                     }
                 */
+                
+                if (type == ModContent.TileType<DryDirtPlant>())
+                {
+                    PlantFrame(i, j);
+                    return false;
+                }
 
                 // Custom vine framing
                 if (type == TileID.Vines || type == TileID.CrimsonVines || type == TileID.HallowedVines || type == ModContent.TileType<BlackLatexVines>() || type == ModContent.TileType<WhiteLatexVines>())
                     VineFrame(i, j);
 
                 return base.TileFrame(i, j, type, ref resetFrame, ref noBreak);
+            }
+
+            internal static void PlantFrame(int x, int y)
+            {
+                if (x < 0 || x >= Main.maxTilesX)
+                    return;
+
+                if (y < 0 || y >= Main.maxTilesY)
+                    return;
+
+                // If the tile below is off the bottom of the map, then assume it's invalid placement
+                var tile = Main.tile[x, y];
+                int plantType = tile.TileType;
+                if (y + 1 >= Main.maxTilesY)
+                {
+                    WorldGen.KillTile(x, y);
+                    return;
+                }
+
+                // If tile below is not elligible for growing plants, we kill the tile immediately
+                var below = Main.tile[x, y + 1];
+                if (!below.HasTile || !below.HasUnactuatedTile || below.IsHalfBlock || below.Slope != SlopeType.Solid)
+                {
+                    WorldGen.KillTile(x, y);
+                    return;
+                }
+
+                // Check if tile below is valid for given grass type, If so we don't need to update this
+                var belowTileType = (int)below.TileType;
+                if (belowTileType == ModContent.TileType<DryDirtGrassTile>())
+                    return;
+                //if (PlantValidGrounds[plantType] is not null && PlantValidGrounds[plantType].Contains(belowTileType))
+                //    return;
+
+                var latexTiles = GetLatexBlocks();
+                if (latexTiles.Contains(belowTileType))
+                {
+                    WorldGen.KillTile(x, y);
+                    return;
+                }
+
+                var newPlantType = plantType;
+
+                
+                if ((plantType == TileID.Plants || plantType == TileID.Plants2) && belowTileType != TileID.Grass && tile.TileFrameX >= 162)
+                {
+                    Main.tile[x, y].TileFrameX = 126;
+                }
+                if (plantType == TileID.JunglePlants2 && belowTileType != TileID.JungleGrass && tile.TileFrameX >= 162)
+                {
+                    Main.tile[x, y].TileFrameX = 126;
+                }
+
+                #region Biome Grass Replacements
+                if (belowTileType == TileID.CorruptGrass)
+                {
+                    newPlantType = TileID.CorruptPlants;
+                    if (tile.TileFrameX >= 162)
+                    {
+                        Main.tile[x, y].TileFrameX = 126;
+                    }
+                }
+                else if (belowTileType == TileID.Grass)
+                {
+                    newPlantType = (plantType == TileID.HallowedPlants2 ? TileID.Plants2 : TileID.Plants);
+                }
+                else if (belowTileType == TileID.HallowedGrass)
+                {
+                    newPlantType = (plantType == TileID.Plants2 ? TileID.HallowedPlants2 : TileID.HallowedPlants);
+                }
+                else if (belowTileType == TileID.CrimsonGrass)
+                {
+                    newPlantType = TileID.CrimsonPlants;
+                }
+                else if (belowTileType == TileID.MushroomGrass)
+                {
+                    newPlantType = TileID.MushroomPlants;
+                    while (Main.tile[x, y].TileFrameX > 72)
+                    {
+                        Main.tile[x, y].TileFrameX -= 72;
+                    }
+                }
+                else if (belowTileType == ModContent.TileType<DryDirtPlant>())
+                {
+                    newPlantType = ModContent.TileType<DryDirtPlant>();
+                    /*
+                    var isShortPlant = plantType == TileID.Plants ||
+                        plantType == TileID.CorruptPlants ||
+                        plantType == TileID.CrimsonPlants ||
+                        plantType == TileID.HallowedPlants ||
+                        plantType == TileID.MushroomPlants ||
+                        plantType == TileID.JunglePlants;
+                    newPlantType = isShortPlant ? ModContent.TileType<DryDirtPlant>() : ModContent.TileType<DryDirtPlant>();
+                    */
+                }
+                #endregion
+
+                // If the tile type is not the same as the plant type, then set it equal. Otherwise, destroy it.
+                if (plantType != newPlantType)
+                {
+                    Main.tile[x, y].TileType = (ushort)newPlantType;
+                }
             }
 
             internal static void VineFrame(int x, int y)
@@ -153,6 +264,24 @@ namespace ChangedSpecialMod.Common.Systems
             }
 
             return blockTypes;
+        }
+
+        public static int GetInfectedBlockType(int blockType, GooType infectionType)
+        {
+            var conversionType = conversions.FirstOrDefault(x => x.normalBlockType == blockType);
+
+            if (conversionType == null)
+                return -1;
+
+            switch (infectionType)
+            {
+                case GooType.Black:
+                    return conversionType.blackLatexBlockType;
+                case GooType.White:
+                    return conversionType.whiteLatexBlockType;
+                default:
+                    return -1;
+            }
         }
 
         private void SetupConversions()

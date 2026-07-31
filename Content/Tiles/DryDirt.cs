@@ -37,9 +37,10 @@ namespace ChangedSpecialMod.Content.Tiles
             Tile left = Main.tile[i - 1, j];
             Tile right = Main.tile[i + 1, j];
             var grassTileType = ModContent.TileType<DryDirtGrassTile>();
-            if (WorldGen.genRand.NextBool(3) && (up.TileType == grassTileType || down.TileType == grassTileType || left.TileType == grassTileType || right.TileType == grassTileType))
+            if (WorldGen.genRand.NextBool(2) && (up.TileType == grassTileType || down.TileType == grassTileType || left.TileType == grassTileType || right.TileType == grassTileType))
             {
                 WorldGen.SpreadGrass(i, j, Type, grassTileType, false);
+                WorldGen.SquareTileFrame(i, j);
             }
         }
         /*

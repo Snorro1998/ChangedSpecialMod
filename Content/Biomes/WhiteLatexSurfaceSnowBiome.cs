@@ -6,6 +6,7 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Capture;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Biomes
@@ -31,10 +32,13 @@ namespace ChangedSpecialMod.Content.Biomes
 		// Calculate when the biome is active.
 		public override bool IsBiomeActive(Player player)
         {
-            return CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.White) && CityRuinsBiomeTileCount.ActiveBiomeType == CityRuinsBiomeTileCount.BiomeType.Snow;
+            var isActive = CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.White) && CityRuinsBiomeTileCount.ActiveBiomeType == CityRuinsBiomeTileCount.BiomeType.Snow;
+            if (isActive)
+                player.ZoneSnow = true;
+            return isActive;
         }
 
-		public override SceneEffectPriority Priority => SceneEffectPriority.Environment; // Biomehigh
+        public override SceneEffectPriority Priority => SceneEffectPriority.Environment; // Biomehigh
 
         // Select music
         public override int Music
@@ -51,24 +55,6 @@ namespace ChangedSpecialMod.Content.Biomes
             LastEnteredPlayer = player;
             AudioSystem.RandomizeMusic(player, NPCs.GooType.White);
             ModContent.GetInstance<VisitAllBiomesAchievement>().ConditionWhiteSurface.Complete();
-        }
-
-        public bool IsInBiome()
-        {
-            for (int k = 0; k < Main.maxPlayers; k++)
-            {
-                Player player = Main.player[k];
-                if (!player.active)
-                {
-                    continue;
-                }
-
-                if (player.InModBiome<WhiteLatexSurfaceBiome>())
-                {
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }

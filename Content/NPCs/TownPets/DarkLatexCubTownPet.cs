@@ -4,15 +4,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-
 
 namespace ChangedSpecialMod.Content.NPCs.TownPets
 {
@@ -23,35 +19,25 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = 27; // The number of frames our sprite has.
-            NPCID.Sets.ExtraFramesCount[Type] = 20; // The number of frames after the walking frames.
-            NPCID.Sets.AttackFrameCount[Type] = 0; // Town Pets don't have any attacking frames.
-            NPCID.Sets.DangerDetectRange[Type] = 250; // How far away the NPC will detect danger. Measured in pixels.
-            NPCID.Sets.AttackType[Type] = -1; // Town Pets do not attack. The default for this set is -1, so it is safe to remove this line if you wish.
-            NPCID.Sets.AttackTime[Type] = -1; // Town Pets do not attack. The default for this set is -1, so it is safe to remove this line if you wish.
-            NPCID.Sets.AttackAverageChance[Type] = 1;  // Town Pets do not attack. The default for this set is 1, so it is safe to remove this line if you wish.
-            NPCID.Sets.HatOffsetY[Type] = -2; // An offset for where the party hat sits on the sprite.
-            NPCID.Sets.ShimmerTownTransform[Type] = false; // Town Pets don't have a Shimmer variant.
-            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true; // But they are still immune to Shimmer.
-            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true; // And Confused.
-            NPCID.Sets.ExtraTextureCount[Type] = 0; // Even though we have several variation textures, we don't use this set. The default for this set is 0, so it is safe to remove this line if you wish.
-            NPCID.Sets.NPCFramingGroup[Type] = 8; // How the party hat is animated to match the walking animation. Town Cat = 4, Town Dog = 5, Town Bunny = 6, Town Slimes = 7, No offset = 8
+            Main.npcFrameCount[Type] = 27;
+            NPCID.Sets.ExtraFramesCount[Type] = 20;
+            NPCID.Sets.AttackFrameCount[Type] = 0;
+            NPCID.Sets.DangerDetectRange[Type] = 250;
+            NPCID.Sets.AttackType[Type] = -1; 
+            NPCID.Sets.AttackTime[Type] = -1;
+            NPCID.Sets.AttackAverageChance[Type] = 1; 
+            NPCID.Sets.HatOffsetY[Type] = -2;
+            NPCID.Sets.ShimmerTownTransform[Type] = false;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+            NPCID.Sets.ExtraTextureCount[Type] = 0;
+            NPCID.Sets.NPCFramingGroup[Type] = 8;
 
-            NPCID.Sets.IsTownPet[Type] = true; // Our NPC is a Town Pet
-            NPCID.Sets.CannotSitOnFurniture[Type] = false; // True by default which means they cannot sit in chairs. True means they can sit on furniture like the Town Cat.
-           // NPCID.Sets.TownNPCBestiaryPriority.Add(Type); // Puts our NPC with all of the other Town NPCs.
-            NPCID.Sets.PlayerDistanceWhilePetting[Type] = 24; // Distance the player stands from the Town Pet to pet.
-            NPCID.Sets.IsPetSmallForPetting[Type] = true; // If set to true, the player's arm will be angled down while petting.
-
-            /*
-            // Influences how the NPC looks in the Bestiary
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new()
-            {
-                Velocity = 0.25f, // Draws the NPC in the bestiary as if its walking +0.25 tiles in the x direction
-            };
-            */
-
-            //NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+            NPCID.Sets.IsTownPet[Type] = true;
+            NPCID.Sets.CannotSitOnFurniture[Type] = false;
+            //NPCID.Sets.TownNPCBestiaryPriority.Add(Type);
+            NPCID.Sets.PlayerDistanceWhilePetting[Type] = 24;
+            NPCID.Sets.IsPetSmallForPetting[Type] = true;
 
             NPCProfile = new DarkLatexCubTownPetProfile();
             ChangedUtils.HideFromBestiary(this);
@@ -76,16 +62,6 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             changedNPC.GooType = GooType.Black;
             changedNPC.DefaultHitEffect = true;
         }
-
-        /*
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Description")),
-            });
-        }
-        */
 
         public override bool CanTownNPCSpawn(int numTownNPCs)
         {
@@ -124,12 +100,13 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override string GetChat()
         {
+            var baseString = "Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue";
             var options = new List<string>()
             {
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal1"),
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal2"),
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal3"),
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Dialogue.Normal4")
+                Language.GetTextValue($"{baseString}.Normal1"),
+                Language.GetTextValue($"{baseString}.Normal2"),
+                Language.GetTextValue($"{baseString}.Normal3"),
+                Language.GetTextValue($"{baseString}.Normal4")
             };
 
             return options[Main.rand.Next(options.Count)];
@@ -137,24 +114,21 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override bool PreAI()
         {
+            // Sitting
             if (NPC.ai[0] == 5f)
-            {
                 DrawOffsetY = -10;
-            }
+            // Anything else
             else
-            {
                 DrawOffsetY = 0;
-            }
 
             return base.PreAI();
         }
 
         public override void ChatBubblePosition(ref Vector2 position, ref SpriteEffects spriteEffects)
         {
+            // Sitting
             if (NPC.ai[0] == 5f)
-            {
                 position.Y -= 18f;
-            }
         }
 
         public override void PartyHatPosition(ref Vector2 position, ref SpriteEffects spriteEffects)
@@ -186,6 +160,7 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             }
             position.Y += yOffset;
 
+            // Sitting
             if (NPC.ai[0] == 5f)
             {
                 position.Y += -10;

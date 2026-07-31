@@ -38,14 +38,6 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             NPCID.Sets.PlayerDistanceWhilePetting[Type] = 24;
             NPCID.Sets.IsPetSmallForPetting[Type] = true;
 
-            /*
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new()
-            {
-                Velocity = 0.25f,
-            };
-            */
-
-            //NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
             NPCProfile = new WhiteLatexCubTownPetProfile();
             ChangedUtils.HideFromBestiary(this);
         }
@@ -69,16 +61,6 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             changedNPC.GooType = GooType.White;
             changedNPC.DefaultHitEffect = true;
         }
-
-        /*
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Description")),
-            });
-        }
-        */
 
         public override bool CanTownNPCSpawn(int numTownNPCs)
         {
@@ -117,12 +99,13 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override string GetChat()
         {
+            var baseString = "Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue";
             var options = new List<string>()
             {
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal1"),
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal2"),
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal3"),
-                Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Dialogue.Normal4")
+                Language.GetTextValue($"{baseString}.Normal1"),
+                Language.GetTextValue($"{baseString}.Normal2"),
+                Language.GetTextValue($"{baseString}.Normal3"),
+                Language.GetTextValue($"{baseString}.Normal4")
             };
 
             return options[Main.rand.Next(options.Count)];
@@ -130,24 +113,21 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
 
         public override bool PreAI()
         {
+            // Sitting
             if (NPC.ai[0] == 5f)
-            {
                 DrawOffsetY = -10;
-            }
+            // Anything else
             else
-            {
                 DrawOffsetY = 0;
-            }
 
             return base.PreAI();
         }
 
         public override void ChatBubblePosition(ref Vector2 position, ref SpriteEffects spriteEffects)
         {
+            // Sitting
             if (NPC.ai[0] == 5f)
-            {
                 position.Y -= 18f;
-            }
         }
 
         public override void PartyHatPosition(ref Vector2 position, ref SpriteEffects spriteEffects)
@@ -179,6 +159,7 @@ namespace ChangedSpecialMod.Content.NPCs.TownPets
             }
             position.Y += yOffset;
 
+            // Sitting
             if (NPC.ai[0] == 5f)
             {
                 position.Y += -10;

@@ -573,7 +573,7 @@ namespace ChangedSpecialMod.Utilities
                                                     }
 
                                                     var liquidType = Main.tile[x3, y3].LiquidType;
-                                                    if (WorldGen.SolidTile(x3, y3) || (Main.tile[x3, y3].LiquidAmount > 0 && (liquidType == LiquidID.Lava || liquidType == LiquidID.Shimmer)))
+                                                    if (WorldGen.SolidTile(x3, y3) || (Main.tile[x3, y3].LiquidAmount > 0))
                                                     {
                                                         validPosition = false;
                                                         break;
@@ -584,7 +584,7 @@ namespace ChangedSpecialMod.Utilities
                                             }
 
                                             var tileType = Main.tile[x2, y2 + 3].TileType;
-                                            var dangerousTile = tileType == TileID.Traps || tileType == TileID.RollingCactus || tileType == TileID.Spikes || tileType == TileID.WoodenSpikes || tileType == TileID.PressurePlates;
+                                            var dangerousTile = tileType == TileID.Traps || tileType == TileID.RollingCactus || tileType == TileID.Spikes || tileType == TileID.WoodenSpikes || tileType == TileID.PressurePlates || tileType == TileID.Detonator || tileType == TileID.WeightedPressurePlate || tileType == TileID.ProjectilePressurePad;
                                             if (validPosition && !dangerousTile && WorldGen.SolidTile(x2, y2 + 3))
                                                 return new Vector2(x2 * 16, y2 * 16);
 
@@ -722,35 +722,56 @@ namespace ChangedSpecialMod.Utilities
         {
             ModContent.TileType<BlackLatexTile>(),
             ModContent.TileType<BlackLatexMudTile>(),
-            ModContent.TileType<BlackLatexSandTile>(),
             ModContent.TileType<BlackLatexStoneTile>(),
+
+            // Black desert
+            ModContent.TileType<BlackLatexSandTile>(),
+            ModContent.TileType<BlackLatexHardenedSandTile>(),
+            ModContent.TileType<BlackLatexSandstoneTile>(),
+
+            // Black snow
             ModContent.TileType<BlackLatexIceTile>(),
             ModContent.TileType<BlackLatexSnowTile>(),
 
+            // Black grass
             ModContent.TileType<BlackLatexGrassTile>(),
             ModContent.TileType<BlackLatexJungleGrassTile>(),
 
             ModContent.TileType<WhiteLatexTile>(),
             ModContent.TileType<WhiteLatexMudTile>(),
-            ModContent.TileType<WhiteLatexSandTile>(),
             ModContent.TileType<WhiteLatexStoneTile>(),
+
+            // White desert
+            ModContent.TileType<WhiteLatexSandTile>(),
+            ModContent.TileType<WhiteLatexHardenedSandTile>(),
+            ModContent.TileType<WhiteLatexSandstoneTile>(),
+
+            // White snow
             ModContent.TileType<WhiteLatexIceTile>(),
             ModContent.TileType<WhiteLatexSnowTile>(),
 
+            // White grass
             ModContent.TileType<WhiteLatexGrassTile>(),
             ModContent.TileType<WhiteLatexJungleGrassTile>(),
         };
 
         private static int[] DefaultMergeBlocks = new int[]
         {
+            // Grass
             TileID.Grass,
+            TileID.JungleGrass,
             TileID.CorruptGrass,
             TileID.CrimsonGrass,
+            TileID.HallowedGrass,
+            ModContent.TileType<DryDirtGrassTile>(),
 
+            // Stone
             TileID.Stone,
             TileID.Ebonstone,
             TileID.Crimstone,
+            TileID.Pearlstone,
 
+            // Mossy stone
             TileID.GreenMoss,
             TileID.BrownMoss,
             TileID.RedMoss,
@@ -765,17 +786,28 @@ namespace ChangedSpecialMod.Utilities
 
             TileID.Dirt,
 
+            // Desert
             TileID.Sand,
+            TileID.Ebonsand,
+            TileID.Crimsand,
+            TileID.Pearlstone,
+            TileID.HardenedSand,
+            TileID.CorruptHardenedSand,
+            TileID.CrimsonHardenedSand,
+            TileID.HallowHardenedSand,
             TileID.Sandstone,
+            TileID.CorruptSandstone,
+            TileID.CrimsonSandstone,
+            TileID.HallowSandstone,
 
             TileID.ClayBlock,
             TileID.Mud,
+
+            // Snow
             TileID.SnowBlock,
             TileID.IceBlock,
 
             ModContent.TileType<DryDirt>(),
-            ModContent.TileType<DryDirtGrassTile>(),
-
             ModContent.TileType<Lab_TileTile>(),
         };
 

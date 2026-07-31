@@ -82,6 +82,9 @@ Other
 This update improves the conversion of normal and latex biomes, such as by preserving grass and trees.
 It also makes some other blocks and walls infectable.
 
+IMPORTANT: If you are updating a world with a city ruins biome in it, you need to replant the grass on the dirt with dry grass seeds.
+They can be bought from Prototype.
+
 0.5.6
 
 General
@@ -107,10 +110,12 @@ NPCs
 - Puro no longer hates the desert. Instead he dislikes the white latex biomes for him 'standing out too much'
 - Dr K no longer hates the jungle. Instead he dislikes the black latex biomes for him 'standing out too much'
 - Devourer of Oranges can no longer spawn if there are town NPCs nearby
+- Maintenance robot can no longer spawn in pre-hardmode
 
 Fixes
 - Puro and Dr K not immune to latex beasts.
 - Crystals could grow everywhere and destroy pots and decals
+- Debug teleport items could teleport players onto some pressure plates, detonators or into water and honey
 
 
 

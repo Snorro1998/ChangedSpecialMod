@@ -38,6 +38,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Seeds
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                     NetMessage.SendTileSquare(player.whoAmI, tileX, tileY);
                 SoundEngine.PlaySound(SoundID.Dig, player.Center);
+                WorldGen.SquareTileFrame(tileX, tileY);
                 return true;
             }
 

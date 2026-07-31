@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Common.WorldGeneration;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
@@ -764,6 +765,7 @@ namespace ChangedSpecialMod.Utilities
             switch (tile.TileType)
             {
                 case TileID.Grass:
+                case TileID.JungleGrass:
                 case TileID.CorruptGrass:
                 case TileID.CrimsonGrass:
                     tileType = ModContent.TileType<DryDirtGrassTile>();
@@ -786,7 +788,6 @@ namespace ChangedSpecialMod.Utilities
 
                 // Jungle
                 case TileID.Mud:
-                case TileID.JungleGrass:
 
                 // Snow
                 case TileID.SnowBlock:
@@ -828,9 +829,9 @@ namespace ChangedSpecialMod.Utilities
             }
 
             if (gooType == GooType.Black)
-                return GetTileTypeBlackLatex(tile);
+                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.Black);//GetTileTypeBlackLatex(tile);
             else if (gooType == GooType.White)
-                return GetTileTypeWhiteLatex(tile);
+                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.White); //return GetTileTypeWhiteLatex(tile);
             else if (gooType == GooType.None)
                 return GetTileTypeDryDirt(tile);
             return -1;
@@ -900,11 +901,13 @@ namespace ChangedSpecialMod.Utilities
                     else if (labType == LabType.White)
                         gooType = GooType.White;
                     var tileType = GetTileType(tile, gooType);
+                    var wallType = GetWallType(tile, gooType);
 
                     if (tileType != -1)
-                    {
                         tile.TileType = (ushort)tileType;
-                    }
+
+                    if (wallType != -1)
+                        tile.WallType = (ushort)wallType;
                 }
             }
         }
