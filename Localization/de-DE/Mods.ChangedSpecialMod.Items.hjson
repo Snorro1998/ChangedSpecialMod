@@ -923,3 +923,8 @@ WhiteLatexSandstoneBlock: {
 	DisplayName: Weißer Schleimsandsteinblock
 	Tooltip: ""
 }
+
+CelebrationCake: {
+	// DisplayName: Celebration Cake
+	// Tooltip: ""
+}

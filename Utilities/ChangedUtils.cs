@@ -111,6 +111,8 @@ namespace ChangedSpecialMod.Utilities
             Hallow
         }
 
+        public static Vector2 TileDrawOffset => Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
+
         private void RandomChanceReplaceSkyEntityTexture(object self, Player player, bool plushBalloon = false)
         {
             var chance = plushBalloon ? 20 : 10;

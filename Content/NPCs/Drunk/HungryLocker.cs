@@ -38,9 +38,9 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.damage = 35;
 			NPC.defense = 12;
 			NPC.lifeMax = 90;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.value = 60f;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
+            NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;

@@ -88,10 +88,11 @@ They can be bought from Prototype.
 0.5.6
 
 General
-- Added ambient entities. These are background objects that you can sometimes see in the sky, such as the hot air balloon and birds.
-- Improved the backgrounds of surface biomes
+- Added celebration cake. Thank you all for 700+ downloads
+- The candles of the happy birthday music box flicker and give off light
 
 Ambient entities
+- Background objects that you can sometimes see in the sky, such as the hot air balloon and birds
 - Yufeng Cub and plushies hanging from balloons
 - They have a small chance to appear anywhere, or always in a latex biome
 
@@ -111,6 +112,11 @@ NPCs
 - Dr K no longer hates the jungle. Instead he dislikes the black latex biomes for him 'standing out too much'
 - Devourer of Oranges can no longer spawn if there are town NPCs nearby
 - Maintenance robot can no longer spawn in pre-hardmode
+
+Resprited
+- Biome backgrounds
+- Debug teleport items
+- Locker
 
 Fixes
 - Puro and Dr K not immune to latex beasts.
