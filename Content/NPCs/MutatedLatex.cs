@@ -159,11 +159,11 @@ namespace ChangedSpecialMod.Content.NPCs
                 var player = Main.player[NPC.target];
                 if (!ChangedUtils.IsDrunk(player))
                 {
-                    if (ChangedUtils.InBlackLatexBiome(player))
+                    if (BiomeChecks.InBlackLatexBiome(player))
                     {
                         changedNPC.GooType = GooType.Black;
                     }
-                    else if (ChangedUtils.InWhiteLatexBiome(player))
+                    else if (BiomeChecks.InWhiteLatexBiome(player))
                     {
                         changedNPC.GooType = GooType.White;
                     }

@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Essa luta contra o chefe ainda está em desenvolvimento, então não espere muita coisa por enquanto.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Construir laboratórios
+			OrangeShrines: Construir santuários
+			LatexCaves: Gerando cavernas de lodo
+			SpecialLatexEverywhere: Espalhando slime demais
+			SpecialOrange: Laranja
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: Gosma Negra
@@ -701,7 +709,10 @@ Mods: {
 				Description: Longo e rápido
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Fennec
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

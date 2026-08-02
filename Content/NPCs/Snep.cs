@@ -3,6 +3,7 @@ using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -65,6 +66,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Snep.Description"))
             });
         }
@@ -78,8 +80,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            var ChangedGlobalNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            var vanillaChance = (spawnInfo.Player.ZoneSnow && Main.hardMode) ? 0.3f : 0;
+            var changedChance = ChangedUtils.GetSnowSpawnChance(spawnInfo, changedNPC);
+            return Math.Max(vanillaChance, changedChance);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -91,6 +95,12 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void FindFrame(int frameHeight)
         {
             Animations.AnimRunner(NPC, frameHeight);
+        }
+
+        public override bool PreAI()
+        {
+            AI_Unicorn.AI_026_Unicorns(NPC);
+            return false;
         }
     }
 }

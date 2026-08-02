@@ -79,5 +79,11 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             Animations.AnimRunner(NPC, frameHeight, 0.8f);
         }
+
+        public override bool PreAI()
+        {
+            AI_Unicorn.AI_026_Unicorns(NPC);
+            return false;
+        }
     }
 }

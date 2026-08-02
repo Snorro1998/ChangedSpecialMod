@@ -2,7 +2,6 @@
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Ammo;
 using ChangedSpecialMod.Content.Items.Debug;
-using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Content.Items.Mounts;
 using ChangedSpecialMod.Content.Items.Placeable;
@@ -19,14 +18,12 @@ using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.TownPets;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using ReLogic.OS;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Terraria;
 using Terraria.Localization;
-using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
@@ -211,34 +208,6 @@ namespace ChangedSpecialMod.Common.Systems
                 SetupExtraTitles();
                 TryUpdateTitle();
             }
-
-            // This REALLY fucks things up
-            // It replaces all colors on the mini map with red and will stay that way, even after reloading
-            /*
-            var colorLookupField = typeof(MapHelper).GetField("colorLookup", BindingFlags.Static | BindingFlags.NonPublic);
-
-            if (colorLookupField != null)
-            {
-                Color[] colorLookup = (Color[])colorLookupField.GetValue(null);
-
-                if (colorLookup != null)
-                {
-                    for (int i = 0; i < colorLookup.Length; i++)
-                    {
-                        if (colorLookup[i].A > 0)
-                            colorLookup[i] = Color.Red;
-
-                        if (i > 1)
-                            break;
-                    }
-
-                    // Not actually necessary, but harmless:
-                    colorLookupField.SetValue(null, colorLookup);
-                }
-            }
-            */
-
-            //.SetValue(null, newLookup);
         }
 
         private static void SetupExternalModData()

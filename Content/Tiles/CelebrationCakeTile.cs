@@ -27,8 +27,6 @@ namespace ChangedSpecialMod.Content.Tiles
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.StyleLineSkip = 2;
             TileObjectData.addTile(Type);
-
-            //AddMapEntry(new Color(191, 142, 111), Language.GetText("ItemName.MusicBox"));
         }
 
         public override void MouseOver(int i, int j)

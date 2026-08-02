@@ -83,10 +83,11 @@ namespace ChangedSpecialMod.Content.NPCs
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }
 
-        public override void AI()
+        public override bool PreAI()
         {
-            base.AI();
+            AI_Unicorn.AI_026_Unicorns(NPC);
             NPC.rotation += (float)(Math.PI * 2 / 60.0f * NPC.velocity.X * 0.5f);
+            return false;
         }
     }
 }

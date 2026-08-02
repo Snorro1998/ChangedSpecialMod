@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Questo scontro con il boss è ancora in fase di sviluppo, quindi per ora non aspettatevi granché.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Costruire laboratori
+			OrangeShrines: Costruire santuari
+			LatexCaves: Generare grotte di melma
+			SpecialLatexEverywhere: Spargendo troppa melma
+			SpecialOrange: Arancia
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: Melma nera
@@ -701,7 +709,10 @@ Mods: {
 				Description: Lungo e veloce.
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Fennec
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

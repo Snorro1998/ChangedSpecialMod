@@ -293,12 +293,23 @@ namespace ChangedSpecialMod.Common.Systems
             };
         }
 
-        public static int GetInfectedBlockType(int blockType, GooType infectionType)
+        public static int GetInfectedBlockType(int blockType, GooType infectionType, bool duringWorldGeneration)
         {
             var conversionType = conversions.FirstOrDefault(x => x.normalBlockType == blockType);
 
             if (conversionType == null)
-                return -1;
+            {
+                if (!duringWorldGeneration)
+                    return -1;
+
+                conversionType = conversions.FirstOrDefault(x => x.corruptionBlockType == blockType);
+                if (conversionType == null)
+                    conversionType = conversions.FirstOrDefault(x => x.crimsonBlockType == blockType);
+                if (conversionType == null)
+                    conversionType = conversions.FirstOrDefault(x => x.hallowBlockType == blockType);
+                if (conversionType == null)
+                    return -1;
+            }
 
             switch (infectionType)
             {
@@ -345,7 +356,7 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.TileType<WhiteLatexJungleGrassTile>(),
                     TileID.JungleGrass),
 
-                // Dirt
+                // Mud
                 new BiomeConversion(
                     TileID.Mud,
                     TileID.Mud,

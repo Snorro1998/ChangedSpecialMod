@@ -231,6 +231,7 @@ namespace ChangedSpecialMod.Content.NPCs
 				.Add<Items.Placeable.Furniture.DocumentPaper>()
 				.Add<Items.Placeable.Furniture.StorageBox>()
 				.Add<Items.Placeable.Furniture.StackOfBoxes>()
+				.Add<Items.Placeable.Furniture.CelebrationCake>()
 				.Add<Items.Placeable.Furniture.PuroPlush>()
 				.Add<Items.Placeable.Furniture.SharkPlush>()
 				.Add<Items.Placeable.Furniture.FennecPlush>()

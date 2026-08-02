@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Esta batalla contra el jefe aún está en desarrollo, así que no esperen mucho por ahora.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Construyendo laboratorios
+			OrangeShrines: Construyendo santuarios
+			LatexCaves: Generando cuevas de limo
+			SpecialLatexEverywhere: Esparciendo mucho limo
+			SpecialOrange: Naranja
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: Lodo Negro
@@ -701,7 +709,10 @@ Mods: {
 				Description: Largo y rápido.
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Fennec
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

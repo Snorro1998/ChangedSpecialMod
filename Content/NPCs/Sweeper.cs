@@ -78,7 +78,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (ChangedUtils.InChangedBiome(spawnInfo.Player))
+            if (BiomeChecks.InChangedBiome(spawnInfo.Player))
             {
                 var nSweepers = Main.npc.Where(x => x.active && x.type == Type).Count();
                 if (nSweepers < 2)

@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Dieser Bosskampf befindet sich noch in der Entwicklung, also erwartet vorerst nicht zu viel.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Laboratorien bauen
+			OrangeShrines: Schreine bauen
+			LatexCaves: Schleimhöhlen generieren
+			SpecialLatexEverywhere: Viel Schleim verbreiten
+			SpecialOrange: Orange
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: Schwarzer Schleim
@@ -701,7 +709,10 @@ Mods: {
 				Description: Lang und schnell.
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Fennek
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

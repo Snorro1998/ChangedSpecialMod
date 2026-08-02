@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Ta walka z bossem jest wciąż rozwijana, więc na razie nie spodziewaj się wiele.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Budować laboratoria
+			OrangeShrines: Budować kapliczki
+			LatexCaves: Generowanie jaskiń śluzowych
+			SpecialLatexEverywhere: Rozprzestrzenianie zbyt dużej ilości szlamu
+			SpecialOrange: Pomarańczowy
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: Czarny szlam
@@ -701,7 +709,10 @@ Mods: {
 				Description: Długo i szybko.
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Fenek
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

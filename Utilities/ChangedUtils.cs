@@ -3,7 +3,6 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
@@ -12,7 +11,6 @@ using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +19,10 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Events;
-using Terraria.GameContent.Skies;
 using Terraria.GameContent.UI.States;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using static ChangedSpecialMod.ChangedSpecialMod;
 
 
@@ -37,73 +32,21 @@ namespace ChangedSpecialMod.Utilities
     public static partial class Things
     {
         public static ChangedNPC Changed(this NPC npc) => npc.GetGlobalNPC<ChangedNPC>();
-        //public static ModLiquidNPC ModLiquid(this NPC npc) => npc.GetGlobalNPC<ModLiquidNPC>();
         public static ChangedSpecialModPlayer ChangedPlayer(this Player player) => player.GetModPlayer<ChangedSpecialModPlayer>();
     }
 
     public class ChangedUtils : ModSystem
     {
-        // Black
-        public static bool InBlackLatexSurfaceBiome(Player player)
-        {
-            return player.InModBiome<BlackLatexSurfaceBiome>() || 
-                player.InModBiome<BlackLatexSurfaceDesertBiome>() || 
-                player.InModBiome<BlackLatexSurfaceJungleBiome>() || 
-                player.InModBiome<BlackLatexSurfaceSnowBiome>();
-        }
-
-        public static bool InBlackLatexUndergroundBiome(Player player) => player.InModBiome<BlackLatexUndergroundBiome>();
-        public static bool InBlackLatexBiome(Player player)
-        {
-            return InBlackLatexSurfaceBiome(player) || InBlackLatexUndergroundBiome(player);
-        }
-
-        // White
-        public static bool InWhiteLatexSurfaceBiome(Player player)
-        {
-            return player.InModBiome<WhiteLatexSurfaceBiome>() || 
-                player.InModBiome<WhiteLatexSurfaceDesertBiome>() || 
-                player.InModBiome<WhiteLatexSurfaceJungleBiome>() || 
-                player.InModBiome<WhiteLatexSurfaceSnowBiome>();
-        }
-
-        public static bool InWhiteLatexUndergroundBiome(Player player) => player.InModBiome<WhiteLatexUndergroundBiome>();
-        public static bool InWhiteLatexBiome(Player player)
-        {
-            return InWhiteLatexSurfaceBiome(player) || InWhiteLatexUndergroundBiome(player);
-        }
-
-
-        public static bool InCityRuinsBiome(Player player) => player.InModBiome<CityRuinsSurfaceBiome>();
-        public static bool InChangedSurfaceBiome(Player player)
-        {
-            return InCityRuinsBiome(player) || InBlackLatexSurfaceBiome(player) || InWhiteLatexSurfaceBiome(player);
-        }
-        public static bool InChangedBiome(Player player)
-        {
-            return InCityRuinsBiome(player) || InBlackLatexBiome(player) || InWhiteLatexBiome(player);
-        }
-
         public override void Load()
         {
-            On_UIWorldCreation.AssignRandomWorldName += MyAssignRandomWorldName;
+            On_UIWorldCreation.AssignRandomWorldName += Hook_AssignRandomWorldName;
             On_Lang.GetDryadWorldStatusDialog += Hook_GetDryadWorldStatusDialog;
-
-            On_AmbientSky.BirdsPackSkyEntity.ctor += Hook_BirdsPackSkyEntity_ctor;
-            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor += Hook_SlimeBalloonGroupSkyEntity_ctor;
-            On_AmbientSky.AirshipSkyEntity.ctor += Hook_AirshipSkyEntity_ctor;
-            On_AmbientSky.WyvernSkyEntity.ctor += Hook_WyvernSkyEntity_ctor;
         }
 
         public override void Unload()
         {
-            On_UIWorldCreation.AssignRandomWorldName -= MyAssignRandomWorldName;
+            On_UIWorldCreation.AssignRandomWorldName -= Hook_AssignRandomWorldName;
             On_Lang.GetDryadWorldStatusDialog -= Hook_GetDryadWorldStatusDialog;
-
-            On_AmbientSky.BirdsPackSkyEntity.ctor -= Hook_BirdsPackSkyEntity_ctor;
-            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor -= Hook_SlimeBalloonGroupSkyEntity_ctor;
-            On_AmbientSky.AirshipSkyEntity.ctor -= Hook_AirshipSkyEntity_ctor;
-            On_AmbientSky.WyvernSkyEntity.ctor -= Hook_WyvernSkyEntity_ctor;
         }
 
         public enum BiomeType : byte
@@ -116,91 +59,6 @@ namespace ChangedSpecialMod.Utilities
         }
 
         public static Vector2 TileDrawOffset => Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
-
-        private void RandomChanceReplaceSkyEntityTexture(object self, Player player, int entityType = 0)
-        {
-            //0 yufeng
-            //1 yufeng2
-            //2 plush balloon
-
-            var inBlack = InBlackLatexBiome(player);
-            var inWhite = InWhiteLatexBiome(player);
-            var inBoth = InCityRuinsBiome(player) || (inBlack && inWhite);
-
-            var chance = entityType == 2 ? 20 : 10;
-            if (InChangedBiome(player))
-                chance = 1;
-
-            var entityNameBlack = "FlyingDarkLatex";
-            var entityNameWhite = "WhiteDragon";
-            var entityName = entityNameBlack;
-
-            if (inBoth)
-                entityName = ChangedUtils.Choose(entityNameBlack, entityNameWhite);
-            else if (inWhite)
-                entityName = entityNameWhite;
-
-            if (Main.rand.NextBool(chance))
-            {
-                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
-                if (fadingSkyEntity != null)
-                {
-                    var baseType = fadingSkyEntity?.BaseType;
-                    Asset<Texture2D> texture;
-
-                    switch (entityType)
-                    {
-                        case 1:
-                            texture = ModContent.Request<Texture2D>($"ChangedSpecialMod/Assets/Textures/AmbientEntities/{entityName}2");
-                            break;
-                        case 2:
-                            texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/PuroBalloon");
-                            break;
-                        default:
-                            texture = ModContent.Request<Texture2D>($"ChangedSpecialMod/Assets/Textures/AmbientEntities/{entityName}");
-                            break;
-                    }
-
-
-                    if (baseType != null)
-                    {
-                        var textureField = baseType.GetField("Texture", BindingFlags.Instance | BindingFlags.Public);
-                        if (textureField != null)
-                            textureField.SetValue(self, texture);
-
-                        //var framingSpeedField = fadingSkyEntity.GetField("FramingSpeed", BindingFlags.Instance | BindingFlags.Public);
-                        //if (framingSpeedField != null)
-                        //    framingSpeedField.SetValue(self, 2);
-                    }
-                }
-            }
-
-            
-        }
-
-        private void Hook_BirdsPackSkyEntity_ctor(On_AmbientSky.BirdsPackSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
-        {
-            orig.Invoke(self, player, random);
-            RandomChanceReplaceSkyEntityTexture(self, player);
-        }
-
-        private void Hook_SlimeBalloonGroupSkyEntity_ctor(On_AmbientSky.SlimeBalloonGroupSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
-        {
-            orig.Invoke(self, player, random);
-            RandomChanceReplaceSkyEntityTexture(self, player, 2);
-        }
-
-        private void Hook_AirshipSkyEntity_ctor(On_AmbientSky.AirshipSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
-        {
-            orig.Invoke(self, player, random);
-            RandomChanceReplaceSkyEntityTexture(self, player);
-        }
-
-        private void Hook_WyvernSkyEntity_ctor(On_AmbientSky.WyvernSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
-        {
-            orig.Invoke(self, player, random);
-            RandomChanceReplaceSkyEntityTexture(self, player, 1);
-        }
 
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
         {
@@ -571,29 +429,18 @@ namespace ChangedSpecialMod.Utilities
                                             var dangerousTile = tileType == TileID.Traps || tileType == TileID.RollingCactus || tileType == TileID.Spikes || tileType == TileID.WoodenSpikes || tileType == TileID.PressurePlates || tileType == TileID.Detonator || tileType == TileID.WeightedPressurePlate || tileType == TileID.ProjectilePressurePad;
                                             if (validPosition && !dangerousTile && WorldGen.SolidTile(x2, y2 + 3))
                                                 return new Vector2(x2 * 16, y2 * 16);
-
-                                            /*
-                                            if (WorldGen.SolidTile(x2, y2 + 3) && // floor
-                                                !WorldGen.SolidTile(x2, y2) &&
-                                                !WorldGen.SolidTile(x2, y2 + 1) &&
-                                                !WorldGen.SolidTile(x2, y2 + 2))
-                                            {
-                                                return new Vector2(x2 * 16, y2 * 16);
-                                            }
-                                            */
                                         }
                                     }
                                 }
                             }
                             return new Vector2(-1, -1);
-                            //return new Vector2(x * 16, y * 16);
                     }
                 }
             }
             return new Vector2(-1, -1);
         }
 
-        private static void MyAssignRandomWorldName(On_UIWorldCreation.orig_AssignRandomWorldName orig, UIWorldCreation self)
+        private static void Hook_AssignRandomWorldName(On_UIWorldCreation.orig_AssignRandomWorldName orig, UIWorldCreation self)
         {
             if (!ModContent.GetInstance<ChangedSpecialModClientConfig>().CustomWorldNames)
             {
@@ -601,15 +448,14 @@ namespace ChangedSpecialMod.Utilities
                 return;
             }
 
-            MyAssignRandomWorldName(self);
-            // Copy vanilla code here and use your own composition list.
+            AssignRandomWorldName(self);
         }
 
         private static readonly FieldInfo OptionWorldNameField =
             typeof(UIWorldCreation).GetField("_optionwWorldName",
                 BindingFlags.Instance | BindingFlags.NonPublic);
 
-        private static void MyAssignRandomWorldName(UIWorldCreation self)
+        private static void AssignRandomWorldName(UIWorldCreation self)
         {
             string worldName;
 
@@ -1093,134 +939,9 @@ namespace ChangedSpecialMod.Utilities
             return arr;
         }
 
-        private static void AddBossValue(List<float> numbers, bool condition, float bossValue)
-        {
-            if (condition)
-                numbers.Add(bossValue);
-        }
-
-        private static float GetBossProgressionNumber()
-        {
-            var numbers = new List<float>() { 0 };
-
-            // Vanilla vars
-            AddBossValue(numbers, NPC.downedSlimeKing, 1);
-            AddBossValue(numbers, NPC.downedBoss1, 2);
-            AddBossValue(numbers, NPC.downedBoss2, 3);
-            AddBossValue(numbers, NPC.downedQueenBee, 4);
-            AddBossValue(numbers, NPC.downedBoss3, 5);
-            AddBossValue(numbers, NPC.downedDeerclops, 6);
-            AddBossValue(numbers, Main.hardMode, 7);
-            AddBossValue(numbers, NPC.downedQueenSlime, 8);
-            AddBossValue(numbers, NPC.downedMechBoss2, 9);
-            AddBossValue(numbers, NPC.downedMechBoss1, 10);
-            AddBossValue(numbers, NPC.downedMechBoss3, 11);
-            AddBossValue(numbers, NPC.downedPlantBoss, 12);
-            AddBossValue(numbers, NPC.downedGolemBoss, 13);
-            AddBossValue(numbers, NPC.downedFishron, 14);
-            AddBossValue(numbers, NPC.downedEmpressOfLight, 15);
-            // 16 is for betsy, but it is not tracked
-            AddBossValue(numbers, NPC.downedAncientCultist, 17);
-            AddBossValue(numbers, NPC.downedMoonlord, 18);
-
-            // Our mod vars
-            AddBossValue(numbers, DownedBossSystem.DownedWhiteTail, 1.5f);
-            AddBossValue(numbers, DownedBossSystem.DownedWolfKing, 2.5f);
-            AddBossValue(numbers, DownedBossSystem.DownedBehemoth, 5.5f);
-
-            // Other mods
-            AddBosses(numbers, CalamityBossValues, ModSupportSystem.modCalamity);
-            AddBosses(numbers, CoraliteBossValues, ModSupportSystem.modCoralite);
-            AddBosses(numbers, ThoriumBossValues, ModSupportSystem.modThorium, "GetDownedBoss");
-
-            return numbers.Max();
-        }
-
-        private static readonly Dictionary<string, float> CalamityBossValues = new()
-        {
-            { "DesertScourge", 1.6f },
-            { "GiantClam", 1.61f },
-            { "AcidRainT1", 2.67f },
-            { "Crabulon", 2.7f },
-            { "HiveMind", 3.98f },
-            { "Perforators", 3.99f },
-            { "SlimeGod", 6.7f },
-            { "Cryogen", 8.5f },
-            { "AquaticScourge", 9.5f },
-            { "AcidRainT2", 9.51f },
-            { "CragmawMire", 9.52f },
-            { "BrimstoneElemental", 10.5f },
-            { "CalamitasClone", 11.7f },
-            { "GreatSandShark", 12.09f },
-            { "Leviathan", 12.8f },
-            { "AstrumAureus", 12.81f },
-            { "PlaguebringerGoliath", 14.5f },
-            { "Ravager", 16.5f },
-            { "AstrumDeus", 17.5f },
-            { "ProfanedGuardians", 18.5f },
-            { "Dragonfolly", 18.6f },
-            { "Providence", 19f },
-            { "CeaselessVoid", 19.6f },
-            { "StormWeaver", 19.61f },
-            { "Signus", 19.62f },
-            { "Polterghast", 20f },
-            { "AcidRainT3", 20.49f },
-            { "Mauler", 20.491f },
-            { "NuclearTerror", 20.492f },
-            { "OldDuke", 20.5f },
-            { "DevourerofGods", 21f },
-            { "Yharon", 22f },
-            { "ExoMechs", 22.99f },
-            { "Calamitas", 23f },
-            { "BossRush", 25.99f }
-        };
-
-        private static readonly Dictionary<string, float> CoraliteBossValues = new()
-        {
-            { "rediancie", 0.9f },
-            { "babyicedragon", 3.1f },
-            { "slimeemperor", 3.2f },
-            { "bloodiancie", 8.2f },
-            { "thunderveindragon", 11.1f },
-            { "zacurrentdragon", 15.1f },
-            { "nightmareplantera", 18.1f }
-        };
-
-        private static readonly Dictionary<string, float> ThoriumBossValues = new()
-        {
-            // TODO Figure these out
-            { "TheGrandThunderBird", 0.1f },
-            { "QueenJellyfish", 0.1f },
-            { "Viscount", 0.1f },
-            { "BoreanStrider", 0.1f },
-            { "FallenBeholder", 0.1f },
-            { "ForgottenOne", 0.1f },
-            { "PatchWerk", 0.1f },
-            { "CorpseBloom", 0.1f },
-            { "Illusionist", 0.1f },
-
-            { "GraniteEnergyStorm", 6.4f },
-            { "BuriedChampion", 6.5f },
-            { "StarScouter", 6.9f },
-            { "Lich", 11.6f },
-            { "ThePrimordials", 19.5f }
-        };
-
-
-        private static void AddBosses(List<float> bossNumberList, Dictionary<string, float> bosses, Mod mod, string bossCheckMethodName = "BossDowned")
-        {
-            if (mod == null)
-                return;
-            foreach (var (bossName, bossValue) in bosses)
-            {
-                if ((bool)mod.Call(bossCheckMethodName, bossName))
-                    bossNumberList.Add(bossValue);
-            }
-        }
-
         public static bool CanSpawn(SpawnRequirement spawnRequirement)
         {
-            var bossProgression = GetBossProgressionNumber();
+            var bossProgression = BossProgressionSystem.GetBossProgressionNumber();
 
             switch (spawnRequirement)
             {
@@ -1232,9 +953,13 @@ namespace ChangedSpecialMod.Utilities
                     return bossProgression >= 2.5f;
                 case SpawnRequirement.Behemoth:
                     return bossProgression >= 5.5f;
+                case SpawnRequirement.Hardmode:
+                    return bossProgression >= 7.0f;
             }
             return false;
         }
+
+        public static bool PillarZone(Player player) => player.ZoneTowerStardust || player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula;
 
         public static bool CorrectDepth(ChangedNPC npc, Player player)
         {
@@ -1305,46 +1030,6 @@ namespace ChangedSpecialMod.Utilities
             return false;
         }
 
-        public static bool IsInInvasionZone(Player player)
-        {
-            if (player == null)
-                return false;
-
-            // Invasion active and player on the surface
-            if (player.active && Main.invasionType > 0 && Main.invasionDelay == 0 && Main.invasionSize > 0 && ((double)player.position.Y < Main.worldSurface * 16.0 + (double)NPC.sHeight || Main.remixWorld))
-            {
-                int num7 = 3000;
-                // In the invasion zone
-                if ((double)player.position.X > Main.invasionX * 16.0 - (double)num7 && (double)player.position.X < Main.invasionX * 16.0 + (double)num7)
-                {
-                    return true;
-                }
-                // On the edge of the invasion zone
-                else if (Main.invasionX >= (double)(Main.maxTilesX / 2 - 5) && Main.invasionX <= (double)(Main.maxTilesX / 2 + 5))
-                {
-                    for (int l = 0; l < 200; l++)
-                    {
-                        if (Main.npc[l].townNPC && Math.Abs(player.position.X - Main.npc[l].Center.X) < (float)num7)
-                        {
-                            if (Main.rand.Next(3) != 0)
-                            {
-                                return true;
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-
-            // Player is in a lunar pillar zone
-            if (player.ZoneTowerSolar || player.ZoneTowerNebula || player.ZoneTowerVortex || player.ZoneTowerStardust)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         public static bool IsBossAlive()
         {
             foreach (var npc in Main.npc)
@@ -1369,15 +1054,11 @@ namespace ChangedSpecialMod.Utilities
             if (player == null)
                 return false;
 
-            var isInInvasionZone = IsInInvasionZone(player);
-            var pumpkinMoon = Main.pumpkinMoon;
-            var frostMoon = Main.snowMoon;
-            var solarEclipse = Main.eclipse && Main.IsItDay();
-            var DD2EventActive = (DD2Event.Ongoing && player.ZoneOldOneArmy);
+            var eventOngoing = (Main.eclipse || Main.snowMoon || Main.pumpkinMoon || Main.invasionType != InvasionID.None || player.ZoneOldOneArmy || PillarZone(player));
             var nearMeteor = player.ZoneMeteor;
             var bossAlive = IsBossAlive();
 
-            return (!isInInvasionZone && !pumpkinMoon && !frostMoon && !solarEclipse && !DD2EventActive && !nearMeteor && !bossAlive);
+            return (!eventOngoing && !nearMeteor && !bossAlive);
         }
 
         public static bool NoInvasionOrEvent()
@@ -1458,11 +1139,14 @@ namespace ChangedSpecialMod.Utilities
         {
             var result = 0f;
 
-            if (spawnInfo.Water)
+            var commonCanSpawnChance = CommonCanSpawn(spawnInfo, changedNPC);
+            if (!commonCanSpawnChance)
+                return 0;
+
+            if (BiomeChecks.InChangedBiome(spawnInfo.Player))
             {
-                if (InChangedBiome(spawnInfo.Player))
-                    result = 2.0f;
-                if (Main.IsItRaining)
+                result = 2.0f;
+                if (Main.IsItRaining && BiomeChecks.InChangedSurfaceBiome(spawnInfo.Player))
                     result *= 2;
             }
 
@@ -1471,11 +1155,8 @@ namespace ChangedSpecialMod.Utilities
 
         public static float GetSurfaceSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC changedNPC, int NPCID)
         {
-            var canSpawn = CanSpawn(changedNPC.spawnRequirement);
-            if (!canSpawn)
-                return 0;
-
-            if (!CorrectDepth(changedNPC, spawnInfo.Player))
+            var commonCanSpawnChance = CommonCanSpawn(spawnInfo, changedNPC);
+            if (!commonCanSpawnChance)
                 return 0;
 
             var environmentSpawnChance = GetSurfaceEnvironmentSpawnChance(spawnInfo, changedNPC);
@@ -1501,8 +1182,8 @@ namespace ChangedSpecialMod.Utilities
             var correctTileType = false;
 
             // Player in Changed biome checks
-            var playerIsInBlackGooZone = InBlackLatexUndergroundBiome(player);
-            var playerIsInWhiteGooZone = InWhiteLatexUndergroundBiome(player);
+            var playerIsInBlackGooZone = BiomeChecks.InBlackLatexUndergroundBiome(player);
+            var playerIsInWhiteGooZone = BiomeChecks.InWhiteLatexUndergroundBiome(player);
             var inBiome = false;
 
             if (gooType == GooType.None)
@@ -1550,14 +1231,46 @@ namespace ChangedSpecialMod.Utilities
             return 0.0f;
         }
 
-        public static float GetDesertSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
+        public static bool CommonCanSpawn(NPCSpawnInfo spawnInfo, ChangedNPC npc)
         {
             var player = spawnInfo.Player;
             var gooType = npc.GooType;
 
+            var canSpawn = CanSpawn(npc.spawnRequirement);
+            if (!canSpawn)
+                return false;
+
+            if (!CorrectDepth(npc, player))
+                return false;
+
+            var underground = player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight || player.ZoneUnderworldHeight;
+            var eventOngoing = (Main.eclipse || Main.snowMoon || Main.pumpkinMoon || Main.invasionType != InvasionID.None || player.ZoneOldOneArmy || PillarZone(player));
+
+            if (eventOngoing && !underground)
+                return false;
+
             // Spawn tile checks
             var tileType = GetTile(spawnInfo).TileType;
             var spawnTileIsWater = spawnInfo.Water;
+
+            // Don't spawn in water if it is not a fish or water type 
+            if (!npc.IsFish && npc.ElementType != ElementType.Water && spawnTileIsWater)
+                return false;
+            // Don't spawn fish type if there is no water
+            else if (npc.IsFish && !spawnTileIsWater)
+                return false;
+
+            return true;
+        }
+
+        public static float GetDesertSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
+        {
+            var commonCanSpawnChance = CommonCanSpawn(spawnInfo, npc);
+            if (!commonCanSpawnChance)
+                return 0;
+
+            var player = spawnInfo.Player;
+            var gooType = npc.GooType;
 
             // Player in Changed biome checks
             var playerIsInBlackGooZone = player.InModBiome<BlackLatexSurfaceDesertBiome>();
@@ -1565,50 +1278,27 @@ namespace ChangedSpecialMod.Utilities
             var inBiome = false;
 
             if (gooType == GooType.None)
-            {
                 inBiome = playerIsInBlackGooZone || playerIsInWhiteGooZone;
-            }
-            else if (gooType == GooType.Black)
-            {
+            else if (gooType == GooType.Black || gooType == GooType.BlackOnly)
                 inBiome = playerIsInBlackGooZone;
-            }
-            else if (gooType == GooType.BlackOnly)
-            {
-                inBiome = playerIsInBlackGooZone;
-            }
-            else if (gooType == GooType.White)
-            {
+            else if (gooType == GooType.White || gooType == GooType.WhiteOnly)
                 inBiome = playerIsInWhiteGooZone;
-            }
-            else if (gooType == GooType.WhiteOnly)
-            {
-                inBiome = playerIsInWhiteGooZone;
-            }
-
-            // Custom check for fish
-            // It has to be in the water and inside the biome and doesn't have a reduced change to appear elsewhere
-            if (npc.IsFish)
-            {
-                if (inBiome && spawnTileIsWater)
-                    return 4.0f;//1
-                return 0.0f;
-            }
 
             // Normal chance if inside biome
             if (inBiome)
-                return 1.0f;
+                return 1;
 
-            return 0.0f;
+            return 0;
         }
 
         public static float GetSnowSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
         {
+            var commonCanSpawnChance = CommonCanSpawn(spawnInfo, npc);
+            if (!commonCanSpawnChance)
+                return 0;
+
             var player = spawnInfo.Player;
             var gooType = npc.GooType;
-
-            // Spawn tile checks
-            var tileType = GetTile(spawnInfo).TileType;
-            var spawnTileIsWater = spawnInfo.Water;
 
             // Player in Changed biome checks
             var playerIsInBlackGooZone = player.InModBiome<BlackLatexSurfaceSnowBiome>();
@@ -1616,49 +1306,21 @@ namespace ChangedSpecialMod.Utilities
             var inBiome = false;
 
             if (gooType == GooType.None)
-            {
                 inBiome = playerIsInBlackGooZone || playerIsInWhiteGooZone;
-            }
-            else if (gooType == GooType.Black)
-            {
+            else if (gooType == GooType.Black || gooType == GooType.BlackOnly)
                 inBiome = playerIsInBlackGooZone;
-            }
-            else if (gooType == GooType.BlackOnly)
-            {
-                inBiome = playerIsInBlackGooZone;
-            }
-            else if (gooType == GooType.White)
-            {
+            else if (gooType == GooType.White || gooType == GooType.WhiteOnly)
                 inBiome = playerIsInWhiteGooZone;
-            }
-            else if (gooType == GooType.WhiteOnly)
-            {
-                inBiome = playerIsInWhiteGooZone;
-            }
-
-            // Custom check for fish
-            // It has to be in the water and inside the biome and doesn't have a reduced change to appear elsewhere
-            if (npc.IsFish)
-            {
-                if (inBiome && spawnTileIsWater)
-                    return 4.0f;//1
-                return 0.0f;
-            }
 
             // Normal chance if inside biome
             if (inBiome)
-                return 1.0f;
+                return 1;
 
-            return 0.0f;
+            return 0;
         }
 
         public static float GetSurfaceEnvironmentSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
         {
-            if (npc.BiomeType == Common.Systems.BiomeType.Desert)
-                return GetDesertSpawnChance(spawnInfo, npc);
-            if (npc.BiomeType == Common.Systems.BiomeType.Snow)
-                return GetSnowSpawnChance(spawnInfo, npc);
-
             var player = spawnInfo.Player;
             var gooType = npc.GooType;
 
@@ -1670,14 +1332,11 @@ namespace ChangedSpecialMod.Utilities
             var spawnTileIsWater = spawnInfo.Water;
             var correctTileType = false;
 
-            if (npc.ElementType != ElementType.Water && spawnTileIsWater)
-                return 0;
-
             // Player in Changed biome checks
-            var playerIsInBlackGooZone =  InBlackLatexBiome(player);
-            var playerIsInWhiteGooZone = InWhiteLatexBiome(player);
-            var playerIsInCityRuinsZone = InCityRuinsBiome(player);
-            var playerIsInChangedBiome = InChangedSurfaceBiome(player);
+            var playerIsInBlackGooZone =  BiomeChecks.InBlackLatexBiome(player);
+            var playerIsInWhiteGooZone = BiomeChecks.InWhiteLatexBiome(player);
+            var playerIsInCityRuinsZone = BiomeChecks.InCityRuinsBiome(player);
+            var playerIsInChangedBiome = BiomeChecks.InChangedSurfaceBiome(player);
             var inBiome = false;
 
             if (gooType == GooType.None)
@@ -1704,15 +1363,6 @@ namespace ChangedSpecialMod.Utilities
             {
                 inBiome = playerIsInWhiteGooZone;
                 correctTileType = spawnTileIsWhiteLatexTile;
-            }
-
-            // Custom check for fish
-            // It has to be in the water and inside the biome and doesn't have a reduced change to appear elsewhere
-            if (npc.IsFish)
-            {
-                if (inBiome && spawnTileIsWater)
-                    return 4.0f;//1
-                return 0.0f;
             }
 
             // Normal chance if inside biome

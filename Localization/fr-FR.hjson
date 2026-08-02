@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Ce combat de boss est encore en développement, alors ne vous attendez pas à grand-chose pour le moment.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Construction des laboratoires
+			OrangeShrines: Construction des sanctuaires
+			LatexCaves: Générer des grottes de slime
+			SpecialLatexEverywhere: Répandre beaucoup trop de slime
+			SpecialOrange: Orange
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: Gelée Noire
@@ -701,7 +709,10 @@ Mods: {
 				Description: Long et rapide
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Fennec
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

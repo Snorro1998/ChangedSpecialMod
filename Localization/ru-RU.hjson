@@ -42,6 +42,14 @@ Mods: {
 			WIPBossFight: Этот бой с боссом всё ещё находится в разработке, поэтому пока не стоит ожидать от него многого.
 		}
 
+		WorldGenerationPasses: {
+			Labs: Строить лаборатории
+			OrangeShrines: Стройте святилища
+			LatexCaves: Создание слизистых пещер
+			SpecialLatexEverywhere: Распространяете слишком много слизи.
+			SpecialOrange: Апельсин
+		}
+
 		NPCs: {
 			Puro: {
 				DisplayName: черная слизь
@@ -701,7 +709,10 @@ Mods: {
 				Description: Длинный и быстрый
 			}
 
-			// Fennec.DisplayName: Fennec
+			Fennec: {
+				DisplayName: Фенек
+				Description: Foxxo
+			}
 		}
 
 		Emotes: {

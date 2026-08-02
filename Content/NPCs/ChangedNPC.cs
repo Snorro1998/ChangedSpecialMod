@@ -307,14 +307,14 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             // Disables vanilla spawns if in any Changed biome and nothing special is going on
-            if (ChangedUtils.InChangedBiome(spawnInfo.Player) && ChangedUtils.ShouldDisableVanillaSpawn(spawnInfo.Player))
+            if (BiomeChecks.InChangedBiome(spawnInfo.Player) && ChangedUtils.ShouldDisableVanillaSpawn(spawnInfo.Player))
             {
                 pool[0] = 0f;
             }
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-            if (ChangedUtils.InChangedBiome(player))
+            if (BiomeChecks.InChangedBiome(player))
             {
                 //defaultspawnrate = 600
                 //defaultmaxspawns = 5

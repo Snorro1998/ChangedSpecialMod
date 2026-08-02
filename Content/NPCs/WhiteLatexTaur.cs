@@ -175,5 +175,11 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.frame.Y = frameNumber * frameHeight;
             UpdateHatPosition(frameHeight);
         }
+
+        public override bool PreAI()
+        {
+            AI_Unicorn.AI_026_Unicorns(NPC);
+            return false;
+        }
     }
 }

@@ -87,48 +87,109 @@ https://github.com/Snorro1998/ChangedSpecialMod
 
 
 [h2]Changelog[/h2]
-This update adds achievements and fixes some issues with shimmer.
-For information about previous versions, please check out the change notes in the steam workshop.
+This update improves the conversion of normal and latex biomes, such as by preserving grass and trees.
+It also makes some other blocks and walls infectable.
+
+IMPORTANT: If you are updating a world with a city ruins biome in it, you need to replant the grass on the dirt with dry grass seeds.
+They can be bought from Prototype.
 
 
-[h3]0.5.5[/h3]
+[h3]0.5.6[/h3]
 
-[b]General[/b]
+[b]Biomes[/b]
 [list]
-	[*]Added support for Biome Titles
-	[*]Removed latex beast shimmer transmutations, because they were buggy. Now they just become transparent.
-	[*]Greatly optimized the code for the dryad's world status. Now the game won't hang anymore when you click the button.
-	[*]Added a debug item for teleporting to hallow, corruption, crimson and latex blocks if you want to purify the world.
+	[*]Added black and white infected variants for the surface biomes
+	[*]Desert: Slimesand Dunes
+	[*]Jungle: Goo Jungle
+	[*]Snow: Goo Glacier
 [/list]
 
-[b]Achievements[/b]
+[b]Items[/b]
 [list]
-	[*]Let there be Light: Turn on the power in a laboratory.
-	[*]Rocket Science: Make a gas cylinder fly away.
-	[*]Citrus Shrine: Find a citrus shrine underground.
-	[*]Cuddly Colossus: Defeat a very large latex.
-	[*]Gooey Expedition: Find all biomes from this mod.
+	[*]Added celebration cake which can be bought from Puro. Thank you all for 700+ downloads
+	[*]The candles of the happy birthday music box flicker and give off light
+	[*]Added dry grass seeds which can be used to plant grass on dry dirt
+	[*]Changed shimmering of crystals to: red -> green -> white -> white pillar -> red
+	[*]Added black and white goo materials. They can be used to make all the latex blocks using the solidifier
+	[*]Added black and white goo lanterns. They can be created with goo using the solidifier
+	[*]Dirt can be turned into dry dirt at a furnace
+	[*]Dry dirt can't be turned into dirt anymore with the extractinator. Instead it can be crafted back into dirt near water
+	[*]Reduced the price of document paper from 1 gold to 15 silver
+	[*]Removed bouncing sound of the basketball
+[/list]
+
+[b]Ambient entities[/b]
+[list]
+	[*]Background objects that you can sometimes see in the sky, such as the hot air balloon and birds
+	[*]Yufeng Cub, White Dragon and plushies hanging from balloons
+	[*]They have a small chance to appear anywhere, or always in a latex biome
+[/list]
+
+[b]Latex spread[/b]
+[list]
+	[*]Added infected surface biomes for: Jungle, Desert and Snow
+	[*]Trees can be infected and will no longer get destroyed
+	[*]Latex can spread to most blocks in these biomes
+	[*]Natural walls can be infected and unlike vanilla, these walls can also infect blocks
+[/list]
+
+[b]Clentiminator[/b]
+[list]
+	[*]Crystals can be destroyed
+	[*]Purple, Red and Blue solutions can be used to remove latex biomes
+[/list]
+
+[b]NPCs[/b]
+[list]
+	[*]Added Fennec. He spawns in any desert biome and can drop a fennec plush
+	[*]Tiger Shark can drop a shark plush
+	[*]Prototype sells all grass seeds including the new dry grass seeds used to spread the city ruins
+	[*]All runner NPCs use a new AI instead of the Unicorn AI, because it made them jump around constantly if they were inside a lab
+	[*]Puro no longer hates the desert. Instead he dislikes the white latex biomes for him 'standing out too much'
+	[*]Puro no longer sells latex blocks and dry dirt. See the items sections on how to obtain them now
+	[*]Dr K no longer hates the jungle. Instead he dislikes the black latex biomes for him 'standing out too much'
+	[*]Hungry Locker and Devourer of Oranges can make two sounds
+[/list]
+
+[b]NPC Spawning[/b]
+[list]
+	[*]Devourer of Oranges can no longer spawn if there are town NPCs nearby
+	[*]All non-water type latex beasts (everything except Squid Dog, Tiger Shark and Squid Dog Cub) can no longer spawn in water
+	[*]Feng Yu can only appear in the Slimesand dunes, or in normal desert biomes in hardmode 
+	[*]Snow Leopard can only appear in the Goo Glacier, or in the normal snow biomes in hardmode
+	[*]More than 1 maintenance robot could appear
+[/list]
+
+[b]World generation[/b]
+[list]
+	[*]Moved the lab world generation task further back. This means that pots no longer generate inside them
+	[*]Packing boxes inside labs can contain the same items as regular chests on the surface
+	[*]Document paper can appear on the walls in the laboratory with text on it
+	[*]Latex biomes try to avoid the desert with the antlion hive under it
+[/list]
+
+[b]Resprited[/b]
+[list]
+	[*]Biome backgrounds
+	[*]Debug teleport items
+	[*]Feng Yu (cleanup)
+	[*]Locker and Hungry Locker
+[/list]
+
+[b]Other[/b]
+[list]
+	[*]Reduced chance of Changed game tips appearing on the loading screen
+	[*]Lockers have a solid top. This means you can stand on them
+	[*]Improved some translations
 [/list]
 
 [b]Fixes[/b]
 [list]
-	[*]Removed broken iris scanner interaction text.
-	[*]Some blocks had the wrong hit sound.
-	[*]Wikithis not always directing to the right pages.
-	[*]Prototype did not become transparent from shimmer.
-	[*]Hats of shimmering latex beasts did not become transparent.
-	[*]It was possible that the strange swivel chair would not summon the wolf king if the black goo room had the smallest possible room height of 9 blocks.
-	[*]Hungry locker grew bigger from evolution
-[/list]
-
-[h3]0.5.5.1 (hotfix)[/h3]
-
-[b]Fixes[/b]
-[list]
-	[*]Error with Census.
-	[*]Goo Puppies did not have a description for how they can move in.
-	[*]New goo blocks had the wrong item sprite.
-	[*]Orange shrines could generate in large structures, such as the temple.
-	[*]Underground biomes always generated with goo versions of dirt.
-	[*]Debug teleport items could teleport the player into lava, shimmer or on top of dangerous blocks.
+	[*]Puro and Dr K not immune to latex beasts
+	[*]All latex beasts could appear during invasions
+	[*]World generation tasks were missing translations
+	[*]The NPC portrait system caused errors when viewing or editing signs
+	[*]Latex beasts had a 0 percent spawn chance on most infected blocks if the player was not in the biome
+	[*]Crystals could grow everywhere and destroy pots and decals
+	[*]Debug teleport items could teleport players onto some pressure plates, detonators or into water and honey
 [/list]

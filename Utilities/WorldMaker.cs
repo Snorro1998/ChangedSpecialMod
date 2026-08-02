@@ -2,16 +2,15 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using Microsoft.Xna.Framework;
-//using ModLiquidLib.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
@@ -54,7 +53,7 @@ namespace ChangedSpecialMod.Utilities
             {
                 tasks.Insert(taskIndex + 1, new PassLegacy("ChangedStructures", (progress, config) =>
                 {
-                    progress.Message = "Adding Thunder Science Buildings";
+                    progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.Labs");//"Adding Thunder Science Buildings";
 
                     // Reset the Changed world generation variables. If this didn't happen, you would get variations
                     // when generating the world twice with the same seed
@@ -139,7 +138,7 @@ namespace ChangedSpecialMod.Utilities
                     //6400 X 1800   11520000 X 1.75
                     //4200 X 1200   5040000 X 2.285714285714286
 
-                    progress.Message = "Building shrines";
+                    progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.OrangeShrines"); //"Building shrines";
                     var nSucces = 0;
                     var nShrines = 5;
 
@@ -160,24 +159,6 @@ namespace ChangedSpecialMod.Utilities
                             break;
                     }
                 }));
-
-                /*
-                var lastIndex = tasks.Count - 1;
-                tasks.Insert(lastIndex, new PassLegacy("ChangedTestPass", (progress, config) =>
-                {
-                    progress.Message = "Woah";
-
-                    for (int x = 0; x < Main.maxTilesX; x++)
-                    {
-                        for (int y = 0; y < Main.maxTilesY; y++)
-                        {
-                            var tmpTile = Main.tile[x, y];
-                            if (tmpTile != null && tmpTile.HasTile && ModSupportSystem.CheckIfShouldAvoidTile(tmpTile.TileType))
-                                tmpTile.TileType = TileID.Stone;
-                        }
-                    }
-                }));
-                */
 
                 HandleSpecialSeeds(ref tasks, taskIndex + 3);
             }
@@ -201,7 +182,7 @@ namespace ChangedSpecialMod.Utilities
 
             tasks.Insert(lastIndex, new PassLegacy("ChangedLatexPools", (progress, config) =>
             {
-                progress.Message = "Adding Latex Pools";
+                progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.LatexCaves");//"Adding Latex Pools";
 
                 int spacing = 10;
                 var minDistBetweenPools = 300;
@@ -489,7 +470,7 @@ namespace ChangedSpecialMod.Utilities
                 var color = PaintID.DeepOrangePaint;
                 tasks.Insert(lastIndex, new PassLegacy("ChangedSeedOrange", (progress, config) =>
                 {
-                    progress.Message = "Orange";
+                    progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.SpecialOrange");//"Orange";
 
                     for (int y = 0; y < Main.maxTilesY; y++)
                     {
@@ -515,7 +496,7 @@ namespace ChangedSpecialMod.Utilities
 
             tasks.Insert(passIndex, new PassLegacy("ChangedSeedLatexEverywhere", (progress, config) =>
             {
-                progress.Message = "Spreading too much latex";
+                progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.SpecialLatexEverywhere");//"Spreading too much latex";
 
                 for (int y = 0; y < Main.worldSurface + bottomFalloff; y++)
                 {
@@ -647,6 +628,21 @@ namespace ChangedSpecialMod.Utilities
                 var lab = newLabs[i];
                 var pos = lab.Position;
                 var isLeftSide = pos.X < Main.maxTilesX / 2;
+
+                var desertLeft = GenVars.desertHiveLeft;
+                var desertRight = GenVars.desertHiveRight;
+                var desertMiddle = desertLeft + (GenVars.desertHiveRight - GenVars.desertHiveLeft) / 2;
+
+                // Inside desert biome with hive
+                if (pos.X > desertLeft && pos.X < desertRight)
+                {
+                    if (pos.X < desertMiddle)
+                        pos.X = desertLeft - WorldGen.genRand.Next(200);
+                    else
+                        pos.X = desertRight + WorldGen.genRand.Next(200);
+
+                    lab.Position.X = pos.X;
+                }
 
                 // Move the position if it is too close to the dungeon
                 if (Math.Abs(pos.X - GenVars.dungeonX) < 100)

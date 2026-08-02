@@ -1,5 +1,4 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -51,7 +50,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-            changedNPC.HatXOffset = -2;
+            changedNPC.HatXOffset = -8;
             changedNPC.HatYOffset = -17;
             changedNPC.GooType = GooType.None;
             changedNPC.BiomeType = Common.Systems.BiomeType.Desert;
@@ -72,11 +71,12 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            var vanillaChance = spawnInfo.Player.ZoneDesert ? 0.3f : 0;
-            var changedChance = ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
-            return Math.Max(vanillaChance, changedChance);
+            if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
+                return 0f;
 
-            //return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            var vanillaChance = spawnInfo.Player.ZoneDesert ? 0.2f : 0;
+            var changedChance = ChangedUtils.GetDesertSpawnChance(spawnInfo, changedNPC);
+            return Math.Max(vanillaChance, changedChance);
         }
 
         private void UpdateHatPosition(int frameHeight)
@@ -85,13 +85,13 @@ namespace ChangedSpecialMod.Content.NPCs
             var frame = NPC.frame;
             var fr = frame.Top / frameHeight;
 
-            if (fr == 1)
+            if (fr == 2)
             {
-                changedNPC.HatYOffset = -19;
+                changedNPC.HatYOffset = -17;
             }
             else
             {
-                changedNPC.HatYOffset = -17;
+                changedNPC.HatYOffset = -19;
             }
         }
 

@@ -4,6 +4,7 @@ using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
@@ -83,9 +84,12 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            var vanillaChance = (spawnInfo.Player.ZoneDesert && Main.hardMode) ? 0.3f : 0;
-            var changedChance = ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
+                return 0f;
+
+            var vanillaChance = (spawnInfo.Player.ZoneDesert && Main.hardMode) ? 0.2f : 0;
+            var changedChance = ChangedUtils.GetDesertSpawnChance(spawnInfo, changedNPC);
+            return Math.Max(vanillaChance, changedChance);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -97,6 +101,12 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void FindFrame(int frameHeight)
         {
             Animations.AnimRunner(NPC, frameHeight);
+        }
+
+        public override bool PreAI()
+        {
+            AI_Unicorn.AI_026_Unicorns(NPC);
+            return false;
         }
     }
 }

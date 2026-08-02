@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Common.WorldGeneration;
+using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
@@ -491,20 +492,91 @@ namespace ChangedSpecialMod.Utilities
                 if (chestIndex >= 0)
                 {
                     var chest = Main.chest[chestIndex];
-                    var item = ModContent.ItemType<Orange>();
-                    var amount = WorldGen.genRand.Next(1, 4);
-                    
-                    chest.item[0].SetDefaults(item, false);
-                    chest.item[0].stack = amount;
-
-                    item = Utils.SelectRandom(WorldGen.genRand, ItemID.IronBar, ItemID.LeadBar);
-                    amount = WorldGen.genRand.Next(3, 11);
-
-                    chest.item[1].SetDefaults(item, false);
-                    chest.item[1].stack = amount;
-
+                    FillChest(chest);
                     break;
                 }
+            }
+        }
+
+        public static void FillChest(Chest chest)
+        {
+            var items = new List<int>();
+            var itemAmounts = new List<int>();
+
+            var primaryItems = new List<int>()
+            {
+                ItemID.Spear,
+                ItemID.Blowpipe,
+                ItemID.WoodenBoomerang,
+                ItemID.Aglet,
+                ItemID.ClimbingClaws,
+                ItemID.Umbrella,
+                ItemID.CordageGuide,
+                ItemID.WandofSparking,
+                ItemID.Radar,
+                ItemID.PortableStool
+            };
+
+            items.Add(Utils.SelectRandom(WorldGen.genRand, primaryItems.ToArray()));
+            itemAmounts.Add(1);
+
+            void AddRandomToPool(int[] options, int chance, int amountMin, int amountMax, bool inverse = false)
+            {
+                if (WorldGen.genRand.NextBool(chance) && !inverse)
+                {
+                    items.Add(Utils.SelectRandom(WorldGen.genRand, options));
+                    itemAmounts.Add(WorldGen.genRand.Next(amountMin, amountMax));
+                }   
+            }
+
+            void AddToPool(int item, int chance, int amountMin, int amountMax, bool inverse = false)
+            {
+                if (WorldGen.genRand.NextBool(chance) && !inverse)
+                {
+                    items.Add(item);
+                    itemAmounts.Add(WorldGen.genRand.Next(amountMin, amountMax));
+                }
+            }
+
+            AddToPool(ItemID.Glowstick, 6, 40, 75);
+            AddToPool(ItemID.ThrowingKnife, 6, 150, 300);
+            AddToPool(ItemID.HerbBag, 6, 1, 4);
+            AddToPool(ItemID.CanOfWorms, 4, 1, 4);
+            AddToPool(ItemID.Grenade, 3, 3, 5);
+            
+            // Bars
+            AddRandomToPool(new int[] { ItemID.CopperBar, ItemID.TinBar }, 2, 3, 10);
+            AddRandomToPool(new int[] { ItemID.IronBar, ItemID.LeadBar }, 2, 3, 10);
+
+            AddToPool(ModContent.ItemType<Orange>(), 1, 1, 4);
+
+            AddToPool(ItemID.Rope, 2, 50, 100);
+            AddRandomToPool(new int[] { ItemID.WoodenArrow, ItemID.Shuriken }, 3, 25, 50, true);
+            
+            // Potions
+            AddToPool(ItemID.LesserHealingPotion, 2, 3, 5);
+            AddToPool(ItemID.RecallPotion, 3, 3, 5);
+            AddRandomToPool(new int[] 
+            { 
+                ItemID.IronskinPotion, ItemID.ShinePotion, ItemID.NightOwlPotion, 
+                ItemID.SwiftnessPotion, ItemID.MiningPotion, ItemID.BuilderPotion 
+            }, 3, 1, 2, true);
+
+            AddRandomToPool(new int[] { ModContent.ItemType<BlackGoo>(), ModContent.ItemType<WhiteGoo>() }, 1, 10, 30);
+
+            AddRandomToPool(new int[] { ItemID.Torch, ItemID.Bottle }, 2, 10, 20);
+            AddToPool(ItemID.SilverCoin, 2, 10, 29);
+            AddToPool(ItemID.Wood, 2, 50, 99);
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (i >= Chest.maxItems)
+                    break;
+
+                var itemType = items[i];
+                var amount = itemAmounts[i];
+                chest.item[i].SetDefaults(itemType, false);
+                chest.item[i].stack = amount;
             }
         }
 
@@ -845,9 +917,9 @@ namespace ChangedSpecialMod.Utilities
             }
 
             if (gooType == GooType.Black)
-                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.Black);//GetTileTypeBlackLatex(tile);
+                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.Black, !onlySpread);//GetTileTypeBlackLatex(tile);
             else if (gooType == GooType.White)
-                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.White); //return GetTileTypeWhiteLatex(tile);
+                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.White, !onlySpread); //return GetTileTypeWhiteLatex(tile);
             else if (gooType == GooType.None)
                 return GetTileTypeDryDirt(tile);
             return -1;
@@ -915,7 +987,7 @@ namespace ChangedSpecialMod.Utilities
                     if (labType == LabType.Black)
                         gooType = GooType.Black;
                     else if (labType == LabType.White)
-                        gooType = GooType.White;
+                        gooType = GooType.White;              
                     var tileType = GetTileType(tile, gooType);
                     var wallType = GetWallType(tile, gooType);
 
