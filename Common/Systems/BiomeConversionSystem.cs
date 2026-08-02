@@ -37,6 +37,14 @@ namespace ChangedSpecialMod.Common.Systems
         }
     }
 
+    public enum BiomeType
+    {
+        Normal,
+        Desert,
+        Jungle,
+        Snow
+    }
+
     public class BiomeConversionSystem : ModSystem
     {
         private static List<BiomeConversion> conversions;
@@ -264,6 +272,25 @@ namespace ChangedSpecialMod.Common.Systems
             }
 
             return blockTypes;
+        }
+
+        public static List<int> GetBlackLatexBlocks()
+        {
+            return conversions.Select(x => x.blackLatexBlockType).ToList();
+        }
+
+        public static List<int> GetWhiteLatexBlocks()
+        {
+            return conversions.Select(x => x.whiteLatexBlockType).ToList();
+        }
+
+        public static List<int> GetDryDirtBlocks()
+        {
+            return new List<int>
+            {
+                ModContent.TileType<DryDirtGrassTile>(),
+                ModContent.TileType<DryDirt>()
+            };
         }
 
         public static int GetInfectedBlockType(int blockType, GooType infectionType)

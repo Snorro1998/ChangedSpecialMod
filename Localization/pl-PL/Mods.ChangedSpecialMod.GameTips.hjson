@@ -1,33 +1,16 @@
-# We add each tip multiple times so you have a greater chance to see them. Vanilla has 117 entries
-LabTip1A: Opuszczone laboratoria można znaleźć na całym świecie.
-LabTip1B: Opuszczone laboratoria można znaleźć na całym świecie.
-LabTip2A: Laboratorium można z łatwością zamienić w mieszkanie, ale czające się tam potwory tego nie docenią.
-LabTip2B: Laboratorium można z łatwością zamienić w mieszkanie, ale czające się tam potwory tego nie docenią.
-LabTip3A: Każde laboratorium ma pomieszczenie z generatorem w piwnicy. Spróbuj tam przełączyć wyłącznik zasilania.
-LabTip3B: Każde laboratorium ma pomieszczenie z generatorem w piwnicy. Spróbuj tam przełączyć wyłącznik zasilania.
-LabTip4A: Aby przenieść się na inne piętro, kliknij windę prawym przyciskiem myszy.
-LabTip4B: Aby przenieść się na inne piętro, kliknij windę prawym przyciskiem myszy.
-WhiteTail1A: Jeśli pokonasz wystarczająco dużo bestii-śluzów, możesz sprowadzić gniew bardzo szybkiego potwora.
-WhiteTail1B: Jeśli pokonasz wystarczająco dużo bestii-śluzów, możesz sprowadzić gniew bardzo szybkiego potwora.
-Puro1A: Jeśli uda ci się zabić bardzo szybkiego potwora, może pojawić się przyjazny czarny szlam.
-Puro1B: Jeśli uda ci się zabić bardzo szybkiego potwora, może pojawić się przyjazny czarny szlam.
-WolfKing1A: Przywódcę watahy wilków możesz spotkać w pomieszczeniu wypełnionym czarnym szlamem.
-WolfKing1B: Przywódcę watahy wilków możesz spotkać w pomieszczeniu wypełnionym czarnym szlamem.
-EvolutionTip1A: Potwory stają się większe i silniejsze za każdym razem, gdy pokonany zostanie boss.
-EvolutionTip1B: Potwory stają się większe i silniejsze za każdym razem, gdy pokonany zostanie boss.
-RottenOrange1A: Wystarczy nieść ze sobą zgniłą pomarańczę, żeby zobaczyć dziwne rzeczy.
-RottenOrange1B: Wystarczy nieść ze sobą zgniłą pomarańczę, żeby zobaczyć dziwne rzeczy.
-DrK1A: Może pojawić się naukowiec, który będzie sprzedawał przydatne mikstury podczas twoich przygód.
-DrK1B: Może pojawić się naukowiec, który będzie sprzedawał przydatne mikstury podczas twoich przygód.
-Prototyp1A: Robot może wprowadzić się do środka i sprzedawać owoce do potraw oraz zioła do mikstur.
-Prototyp1B: Robot może wprowadzić się do środka i sprzedawać owoce do potraw oraz zioła do mikstur.
-Prototype2A: Jeśli potrzebujesz więcej drewna, możesz pozwolić robotowi ogrodniczemu poruszać się w pobliżu młodych drzewek, co przyspieszy ich wzrost.
-Prototype2B: Jeśli potrzebujesz więcej drewna, możesz pozwolić robotowi ogrodniczemu poruszać się w pobliżu młodych drzewek, co przyspieszy ich wzrost.
-Rain1A: Zwierzęta wodne pojawiają się częściej w czasie deszczu.
-Rain1B: Zwierzęta wodne pojawiają się częściej w czasie deszczu.
-Windy1A: Latające zwierzęta pojawiają się częściej w wietrzne dni.
-Windy1B: Latające zwierzęta pojawiają się częściej w wietrzne dni.
-StrongLatex1A: Silne potwory można spotkać w pobliżu laboratoriów na Szkarłat i w Zepsucie, rzadko w innych miejscach.
-StrongLatex1B: Silne potwory można spotkać w pobliżu laboratoriów na Szkarłat i w Zepsucie, rzadko w innych miejscach.
-Syringe1A: Strzykawki pozwalają ci przekształcać się w różne stworzenia.
-Syringe1B: Strzykawki pozwalają ci przekształcać się w różne stworzenia.
+Laboratory1: Opuszczone laboratoria można znaleźć na całym świecie.
+Laboratory2: Laboratorium można z łatwością zamienić w mieszkanie, ale czające się tam potwory tego nie docenią.
+Laboratory3: Każde laboratorium ma pomieszczenie z generatorem w piwnicy. Spróbuj tam przełączyć wyłącznik zasilania.
+Laboratory4: Aby przenieść się na inne piętro, kliknij windę prawym przyciskiem myszy.
+WhiteTail1: Jeśli pokonasz wystarczająco dużo bestii-śluzów, możesz sprowadzić gniew bardzo szybkiego potwora.
+Puro1: Jeśli uda ci się zabić bardzo szybkiego potwora, może pojawić się przyjazny czarny szlam.
+WolfKing1: Przywódcę watahy wilków możesz spotkać w pomieszczeniu wypełnionym czarnym szlamem.
+EvolutionTip1: Potwory stają się większe i silniejsze za każdym razem, gdy pokonany zostanie boss.
+RottenOrange1: Wystarczy nieść ze sobą zgniłą pomarańczę, żeby zobaczyć dziwne rzeczy.
+DrK1: Może pojawić się naukowiec, który będzie sprzedawał przydatne mikstury podczas twoich przygód.
+Prototype1: Robot może wprowadzić się do środka i sprzedawać owoce do potraw oraz zioła do mikstur.
+Prototype2: Jeśli potrzebujesz więcej drewna, możesz pozwolić robotowi ogrodniczemu poruszać się w pobliżu młodych drzewek, co przyspieszy ich wzrost.
+Rain1: Zwierzęta wodne pojawiają się częściej w czasie deszczu.
+Windy1: Latające zwierzęta pojawiają się częściej w wietrzne dni.
+StrongLatex1: Silne potwory można spotkać w pobliżu laboratoriów na Szkarłat i w Zepsucie, rzadko w innych miejscach.
+Syringe1: Strzykawki pozwalają ci przekształcać się w różne stworzenia.

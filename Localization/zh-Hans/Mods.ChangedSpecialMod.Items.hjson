@@ -278,9 +278,19 @@ BlackGoopBanner: {
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
+BlackGoo: {
+	DisplayName: 黑色粘液
+	Tooltip: ""
+}
+
 WhiteGoopBanner: {
 	DisplayName: 白色的水坑横幅
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
+}
+
+WhiteGoo: {
+	DisplayName: 白色粘液
+	Tooltip: ""
 }
 
 GermanShepherdBanner: {
@@ -925,6 +935,11 @@ WhiteLatexSandstoneBlock: {
 }
 
 CelebrationCake: {
-	// DisplayName: Celebration Cake
-	// Tooltip: ""
+	DisplayName: 庆典蛋糕
+	Tooltip: 感谢大家的支持，下载量已超过700次！
+}
+
+WhiteLatexLantern: {
+	DisplayName: 白色粘液灯笼
+	Tooltip: ""
 }

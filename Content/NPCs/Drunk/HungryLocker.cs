@@ -1,14 +1,10 @@
-using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -32,7 +28,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
 			NPC.height = 40;
 			NPC.damage = 35;
@@ -52,7 +49,6 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.scale = 1;
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             // One of the very few enemies that doesn't make the transfur sound
             changedNPC.DefaultOnHitPlayer = false;
             changedNPC.DefaultHitEffect = true;

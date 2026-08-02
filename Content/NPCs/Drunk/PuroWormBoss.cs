@@ -52,7 +52,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.HitEffectScale = 3;
@@ -224,7 +223,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.HitEffectScale = 3;
@@ -270,7 +268,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.HitEffectScale = 3;

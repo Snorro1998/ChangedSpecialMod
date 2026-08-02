@@ -71,7 +71,7 @@ namespace ChangedSpecialMod.Content.Tiles.Pylons
 
             // We will take that shop entry and add an additional condition to check for ExampleBiome, as this is typical for biome pylons
             // This does not affect the teleport conditions, only the sale conditions
-            shopEntry.AddCondition(Conditions.InBlackLatexSurfaceBiome); //ExampleConditions.InExampleBiome
+            shopEntry.AddCondition(Conditions.InBlackLatexBiome);
             shopEntry.AddCondition(Condition.HappyEnoughToSellPylons);
 
             // and finally we return the shop entry

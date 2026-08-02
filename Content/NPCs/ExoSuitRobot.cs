@@ -53,7 +53,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HatYOffset = -32;
             changedNPC.RemoveAllHats();
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DoOnSpawnExtra = true;
         }
 
@@ -110,7 +109,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!ChangedUtils.CanSpawnExtraStrong())
+            if (!ChangedUtils.CanSpawnExtraStrong() || NPC.AnyNPCs(Type))
                 return 0f;
 
             var changedNPC = NPC.Changed();

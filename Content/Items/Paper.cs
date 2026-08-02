@@ -8,7 +8,7 @@ namespace ChangedSpecialMod.Content.Items
     {
         public override void SetDefaults()
         {
-            Item.value = Item.buyPrice(0, 1, 0, 0);
+            Item.value = Item.buyPrice(0, 0, 10, 0);
             Item.rare = ItemRarityID.Blue;
             Item.maxStack = 9999;
         }

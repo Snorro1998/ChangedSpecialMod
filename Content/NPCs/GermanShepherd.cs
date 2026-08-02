@@ -56,7 +56,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.RemoveHatsFromType(HatType.Halloween);
             changedNPC.RemoveHatsFromType(HatType.XMas);
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;

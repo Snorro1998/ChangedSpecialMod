@@ -1,4 +1,3 @@
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +13,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Crystals
 			Item.height = 32;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.buyPrice(0, 0, 25);
-            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<PillarWhite>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<CrystalWhite>();
         }
 	}
 }

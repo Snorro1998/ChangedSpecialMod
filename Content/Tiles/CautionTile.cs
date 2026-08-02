@@ -22,7 +22,6 @@ namespace ChangedSpecialMod.Content.Tiles
             DustType = DustID.SnowBlock;
             ItemDrop = ModContent.ItemType<CautionTileBlock>();
             AddMapEntry(new Color(255, 191, 28));
-            // Set other values here
         }
     }
 }

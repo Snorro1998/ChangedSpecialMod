@@ -43,7 +43,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
             var changedNPC = NPC.Changed();
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.DefaultOnHitPlayer = true;

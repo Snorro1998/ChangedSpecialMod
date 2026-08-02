@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Serpent
 				Description: Long et rapide
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Scanner d'iris
 			BlackLatexPylonTile.MapEntry: Pylône de la gelée noire
 			WhiteLatexPylonTile.MapEntry: Pylône de la gelée blanche
+
+			DocumentPaper: {
+				MapEntry: Document Papier
+				SignText1: Ne restez pas ici trop longtemps. Il y a des monstres dans les parages.
+				SignText2: En cas de panne de courant, vous pouvez redémarrer le générateur situé au sous-sol.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Capacité
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

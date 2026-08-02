@@ -53,7 +53,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanHaveBeer = true;
@@ -73,11 +72,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.FemaleDarkLatex.Description")),
             });
         }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot) 
-		{
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 20)); 
-		}
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +8,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture.Latex
     public class BlackLatexLantern : ModTile
     {
         public override void SetStaticDefaults() => this.SetUpLantern(ModContent.ItemType<Items.Placeable.Furniture.Latex.BlackLatexLantern>(), true);
-        //public override bool PreDraw(int i, int j, SpriteBatch spriteBatch) => CalamityUtils.DrawSwayingMultiTile(i, j);
 
         public override bool CreateDust(int i, int j, ref int type)
         {
@@ -26,9 +24,9 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture.Latex
         {
             if (Main.tile[i, j].TileFrameX < 18)
             {
-                r = 0.8f;
-                g = 0.9f;
-                b = 1f;
+                r = 1f;
+                g = 0.2f;
+                b = 0.2f;
             }
             else
             {

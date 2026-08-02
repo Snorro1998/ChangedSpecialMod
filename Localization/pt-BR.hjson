@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Cobra
 				Description: Longo e rápido
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Scanner de íris
 			BlackLatexPylonTile.MapEntry: Pilar da Gosma Preta
 			WhiteLatexPylonTile.MapEntry: Pilar da Gosma Branca
+
+			DocumentPaper: {
+				MapEntry: Documento em papel
+				SignText1: Não fique aqui por muito tempo. Há monstros por perto.
+				SignText2: Em caso de queda de energia, você pode reiniciar o gerador no porão.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidade
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

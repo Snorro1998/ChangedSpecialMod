@@ -3,6 +3,7 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
@@ -11,6 +12,7 @@ using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -90,6 +92,7 @@ namespace ChangedSpecialMod.Utilities
             On_AmbientSky.BirdsPackSkyEntity.ctor += Hook_BirdsPackSkyEntity_ctor;
             On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor += Hook_SlimeBalloonGroupSkyEntity_ctor;
             On_AmbientSky.AirshipSkyEntity.ctor += Hook_AirshipSkyEntity_ctor;
+            On_AmbientSky.WyvernSkyEntity.ctor += Hook_WyvernSkyEntity_ctor;
         }
 
         public override void Unload()
@@ -100,6 +103,7 @@ namespace ChangedSpecialMod.Utilities
             On_AmbientSky.BirdsPackSkyEntity.ctor -= Hook_BirdsPackSkyEntity_ctor;
             On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor -= Hook_SlimeBalloonGroupSkyEntity_ctor;
             On_AmbientSky.AirshipSkyEntity.ctor -= Hook_AirshipSkyEntity_ctor;
+            On_AmbientSky.WyvernSkyEntity.ctor -= Hook_WyvernSkyEntity_ctor;
         }
 
         public enum BiomeType : byte
@@ -113,11 +117,28 @@ namespace ChangedSpecialMod.Utilities
 
         public static Vector2 TileDrawOffset => Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
 
-        private void RandomChanceReplaceSkyEntityTexture(object self, Player player, bool plushBalloon = false)
+        private void RandomChanceReplaceSkyEntityTexture(object self, Player player, int entityType = 0)
         {
-            var chance = plushBalloon ? 20 : 10;
+            //0 yufeng
+            //1 yufeng2
+            //2 plush balloon
+
+            var inBlack = InBlackLatexBiome(player);
+            var inWhite = InWhiteLatexBiome(player);
+            var inBoth = InCityRuinsBiome(player) || (inBlack && inWhite);
+
+            var chance = entityType == 2 ? 20 : 10;
             if (InChangedBiome(player))
                 chance = 1;
+
+            var entityNameBlack = "FlyingDarkLatex";
+            var entityNameWhite = "WhiteDragon";
+            var entityName = entityNameBlack;
+
+            if (inBoth)
+                entityName = ChangedUtils.Choose(entityNameBlack, entityNameWhite);
+            else if (inWhite)
+                entityName = entityNameWhite;
 
             if (Main.rand.NextBool(chance))
             {
@@ -125,7 +146,21 @@ namespace ChangedSpecialMod.Utilities
                 if (fadingSkyEntity != null)
                 {
                     var baseType = fadingSkyEntity?.BaseType;
-                    var texture = plushBalloon ? ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/PuroBalloon") : ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/FlyingDarkLatex");
+                    Asset<Texture2D> texture;
+
+                    switch (entityType)
+                    {
+                        case 1:
+                            texture = ModContent.Request<Texture2D>($"ChangedSpecialMod/Assets/Textures/AmbientEntities/{entityName}2");
+                            break;
+                        case 2:
+                            texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/PuroBalloon");
+                            break;
+                        default:
+                            texture = ModContent.Request<Texture2D>($"ChangedSpecialMod/Assets/Textures/AmbientEntities/{entityName}");
+                            break;
+                    }
+
 
                     if (baseType != null)
                     {
@@ -147,77 +182,24 @@ namespace ChangedSpecialMod.Utilities
         {
             orig.Invoke(self, player, random);
             RandomChanceReplaceSkyEntityTexture(self, player);
-            /*
-            if (player.InModBiome<BlackLatexSurfaceBiome>())
-            {
-                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
-                if (fadingSkyEntity != null)
-                {
-                    var baseType = fadingSkyEntity?.BaseType;
-
-                    if (baseType != null)
-                    {
-                        var textureField = baseType.GetField("Texture", BindingFlags.Instance |BindingFlags.Public);
-                        if (textureField != null)
-                            textureField.SetValue(self, ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/FlyingDarkLatex"));
-
-                        var framingSpeedField = fadingSkyEntity.GetField("FramingSpeed", BindingFlags.Instance | BindingFlags.Public);
-                        if (framingSpeedField != null)
-                            framingSpeedField.SetValue(self, 2);
-                    }
-                }
-            }
-            */
         }
 
         private void Hook_SlimeBalloonGroupSkyEntity_ctor(On_AmbientSky.SlimeBalloonGroupSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
-            RandomChanceReplaceSkyEntityTexture(self, player, true);
-            /*
-            if (player.InModBiome<BlackLatexSurfaceBiome>())
-            {
-                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
-                if (fadingSkyEntity != null)
-                {
-                    var baseType = fadingSkyEntity?.BaseType;
-
-                    if (baseType != null)
-                    {
-                        var textureField = baseType.GetField("Texture", BindingFlags.Instance | BindingFlags.Public);
-                        if (textureField != null)
-                            textureField.SetValue(self, ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/PuroBalloon"));
-                    }
-                }
-            }
-            */
+            RandomChanceReplaceSkyEntityTexture(self, player, 2);
         }
 
         private void Hook_AirshipSkyEntity_ctor(On_AmbientSky.AirshipSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
             RandomChanceReplaceSkyEntityTexture(self, player);
-            /*
-            if (player.InModBiome<BlackLatexSurfaceBiome>())
-            {
-                var fadingSkyEntity = typeof(AmbientSky).GetNestedType("FadingSkyEntity", BindingFlags.NonPublic);
-                if (fadingSkyEntity != null)
-                {
-                    var baseType = fadingSkyEntity?.BaseType;
+        }
 
-                    if (baseType != null)
-                    {
-                        var textureField = baseType.GetField("Texture", BindingFlags.Instance | BindingFlags.Public);
-                        if (textureField != null)
-                            textureField.SetValue(self, ModContent.Request<Texture2D>("ChangedSpecialMod/Assets/Textures/AmbientEntities/FlyingDarkLatex"));
-
-                        var framingSpeedField = fadingSkyEntity.GetField("FramingSpeed", BindingFlags.Instance | BindingFlags.Public);
-                        if (framingSpeedField != null)
-                            framingSpeedField.SetValue(self, 2);
-                    }
-                }
-            }
-            */
+        private void Hook_WyvernSkyEntity_ctor(On_AmbientSky.WyvernSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        {
+            orig.Invoke(self, player, random);
+            RandomChanceReplaceSkyEntityTexture(self, player, 1);
         }
 
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
@@ -948,6 +930,7 @@ namespace ChangedSpecialMod.Utilities
                 ModContent.NPCType<Snep>(),
                 ModContent.NPCType<Raccoon>(),
                 ModContent.NPCType<SquidDog>(),
+                ModContent.NPCType<SquidDogCub>(),
                 ModContent.NPCType<Wendigo>(),
                 ModContent.NPCType<MutatedLatex>(),
 
@@ -1409,26 +1392,19 @@ namespace ChangedSpecialMod.Utilities
 
         public static float GetWeatherSpawnChance(ElementType elementType)
         {
-            var highChance = 2.0f;
-            var defaultChance = 1.0f;
-            var lowChance = 0.8f;
             var isRaining = Main.IsItRaining;
             var isWindy = IsItWindy();
 
             if (elementType == ElementType.Water)
-                return isRaining ? highChance : lowChance;
+                return isRaining ? 2 : 0.8f;
 
             if (elementType == ElementType.Wind)
-            {
-                lowChance = 1.0f;
-                highChance = 4.0f;
-                return isWindy ? highChance : lowChance;
-            }
+                return isWindy ? 4 : 1;
 
-            if (elementType == ElementType.None)
-                return (isRaining || isWindy) ? lowChance : defaultChance;
+            if (elementType == ElementType.Normal)
+                return (isRaining || isWindy) ? 0.8f : 1;
 
-            return defaultChance;
+            return 1;
         }
 
         /// <summary>
@@ -1476,6 +1452,21 @@ namespace ChangedSpecialMod.Utilities
         private static Tile GetTile(NPCSpawnInfo info)
         {
             return Main.tile[info.SpawnTileX, info.SpawnTileY];
+        }
+
+        public static float GetFishSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC changedNPC, int NPCID)
+        {
+            var result = 0f;
+
+            if (spawnInfo.Water)
+            {
+                if (InChangedBiome(spawnInfo.Player))
+                    result = 2.0f;
+                if (Main.IsItRaining)
+                    result *= 2;
+            }
+
+            return result;
         }
 
         public static float GetSurfaceSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC changedNPC, int NPCID)
@@ -1559,18 +1550,128 @@ namespace ChangedSpecialMod.Utilities
             return 0.0f;
         }
 
-        public static float GetSurfaceEnvironmentSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
+        public static float GetDesertSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
         {
             var player = spawnInfo.Player;
             var gooType = npc.GooType;
 
             // Spawn tile checks
             var tileType = GetTile(spawnInfo).TileType;
-            var spawnTileIsBlackLatexTile = tileType == ModContent.TileType<BlackLatexTile>();
-            var spawnTileIsWhiteLatexTile = tileType == ModContent.TileType<WhiteLatexTile>();
-            var spawnTileIsDryDirt = tileType == ModContent.TileType<DryDirt>();
+            var spawnTileIsWater = spawnInfo.Water;
+
+            // Player in Changed biome checks
+            var playerIsInBlackGooZone = player.InModBiome<BlackLatexSurfaceDesertBiome>();
+            var playerIsInWhiteGooZone = player.InModBiome<WhiteLatexSurfaceDesertBiome>();
+            var inBiome = false;
+
+            if (gooType == GooType.None)
+            {
+                inBiome = playerIsInBlackGooZone || playerIsInWhiteGooZone;
+            }
+            else if (gooType == GooType.Black)
+            {
+                inBiome = playerIsInBlackGooZone;
+            }
+            else if (gooType == GooType.BlackOnly)
+            {
+                inBiome = playerIsInBlackGooZone;
+            }
+            else if (gooType == GooType.White)
+            {
+                inBiome = playerIsInWhiteGooZone;
+            }
+            else if (gooType == GooType.WhiteOnly)
+            {
+                inBiome = playerIsInWhiteGooZone;
+            }
+
+            // Custom check for fish
+            // It has to be in the water and inside the biome and doesn't have a reduced change to appear elsewhere
+            if (npc.IsFish)
+            {
+                if (inBiome && spawnTileIsWater)
+                    return 4.0f;//1
+                return 0.0f;
+            }
+
+            // Normal chance if inside biome
+            if (inBiome)
+                return 1.0f;
+
+            return 0.0f;
+        }
+
+        public static float GetSnowSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
+        {
+            var player = spawnInfo.Player;
+            var gooType = npc.GooType;
+
+            // Spawn tile checks
+            var tileType = GetTile(spawnInfo).TileType;
+            var spawnTileIsWater = spawnInfo.Water;
+
+            // Player in Changed biome checks
+            var playerIsInBlackGooZone = player.InModBiome<BlackLatexSurfaceSnowBiome>();
+            var playerIsInWhiteGooZone = player.InModBiome<WhiteLatexSurfaceSnowBiome>();
+            var inBiome = false;
+
+            if (gooType == GooType.None)
+            {
+                inBiome = playerIsInBlackGooZone || playerIsInWhiteGooZone;
+            }
+            else if (gooType == GooType.Black)
+            {
+                inBiome = playerIsInBlackGooZone;
+            }
+            else if (gooType == GooType.BlackOnly)
+            {
+                inBiome = playerIsInBlackGooZone;
+            }
+            else if (gooType == GooType.White)
+            {
+                inBiome = playerIsInWhiteGooZone;
+            }
+            else if (gooType == GooType.WhiteOnly)
+            {
+                inBiome = playerIsInWhiteGooZone;
+            }
+
+            // Custom check for fish
+            // It has to be in the water and inside the biome and doesn't have a reduced change to appear elsewhere
+            if (npc.IsFish)
+            {
+                if (inBiome && spawnTileIsWater)
+                    return 4.0f;//1
+                return 0.0f;
+            }
+
+            // Normal chance if inside biome
+            if (inBiome)
+                return 1.0f;
+
+            return 0.0f;
+        }
+
+        public static float GetSurfaceEnvironmentSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC npc)
+        {
+            if (npc.BiomeType == Common.Systems.BiomeType.Desert)
+                return GetDesertSpawnChance(spawnInfo, npc);
+            if (npc.BiomeType == Common.Systems.BiomeType.Snow)
+                return GetSnowSpawnChance(spawnInfo, npc);
+
+            var player = spawnInfo.Player;
+            var gooType = npc.GooType;
+
+            // Spawn tile checks
+            var tileType = GetTile(spawnInfo).TileType;
+            var spawnTileIsBlackLatexTile = BiomeConversionSystem.GetBlackLatexBlocks().Contains(tileType);
+            var spawnTileIsWhiteLatexTile = BiomeConversionSystem.GetWhiteLatexBlocks().Contains(tileType);
+            var spawnTileIsDryDirt = BiomeConversionSystem.GetDryDirtBlocks().Contains(tileType);
             var spawnTileIsWater = spawnInfo.Water;
             var correctTileType = false;
+
+            if (npc.ElementType != ElementType.Water && spawnTileIsWater)
+                return 0;
 
             // Player in Changed biome checks
             var playerIsInBlackGooZone =  InBlackLatexBiome(player);

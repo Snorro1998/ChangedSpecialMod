@@ -134,7 +134,7 @@ CautionTileBlock: {
 }
 
 DryDirtBlock: {
-	DisplayName: сухой земляной блок
+	DisplayName: Сухая земля блок
 	Tooltip: ""
 }
 
@@ -278,9 +278,19 @@ BlackGoopBanner: {
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
+BlackGoo: {
+	DisplayName: Черная слизь
+	Tooltip: ""
+}
+
 WhiteGoopBanner: {
 	DisplayName: Знамя белая лужа
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
+}
+
+WhiteGoo: {
+	DisplayName: Белая слизь
+	Tooltip: ""
 }
 
 GermanShepherdBanner: {
@@ -617,7 +627,7 @@ WhiteLatexSolution: {
 }
 
 DryDirtSolution: {
-	DisplayName: Раствор сухой земли
+	DisplayName: Раствор сухое земляное
 	Tooltip: расширяет руины города
 }
 
@@ -925,6 +935,11 @@ WhiteLatexSandstoneBlock: {
 }
 
 CelebrationCake: {
-	// DisplayName: Celebration Cake
-	// Tooltip: ""
+	DisplayName: Праздничный торт
+	Tooltip: Спасибо всем за более чем 700 загрузок!
+}
+
+WhiteLatexLantern: {
+	DisplayName: Белый слизистый фонарь
+	Tooltip: ""
 }

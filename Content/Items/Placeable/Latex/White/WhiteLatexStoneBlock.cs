@@ -27,5 +27,14 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Latex.White
             resultType = ItemID.StoneBlock;
             resultStack = 1;
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(10)
+                .AddIngredient(ModContent.ItemType<WhiteGoo>(), 1)
+                .AddIngredient(ItemID.StoneBlock, 10)
+                .AddTile(TileID.Solidifier)
+                .Register();
+        }
     }
 }

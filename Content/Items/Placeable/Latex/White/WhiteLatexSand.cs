@@ -31,5 +31,14 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Latex.White
             resultType = ItemID.SandBlock;
             resultStack = 1;
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(10)
+                .AddIngredient(ModContent.ItemType<WhiteGoo>(), 1)
+                .AddIngredient(ItemID.SandBlock, 10)
+                .AddTile(TileID.Solidifier)
+                .Register();
+        }
     }
 }

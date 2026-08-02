@@ -79,6 +79,8 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 //  Add the new portrait with the modified rarity
                 //new NPCPortraitInfoElement(3),
+                //BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Visuals.Rain,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.Rain,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.SquidDog.Description")),
             });
         }

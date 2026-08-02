@@ -24,7 +24,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.Height = 4;
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-		}
+            DustType = DustID.Silver;
+        }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {

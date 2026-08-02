@@ -30,7 +30,7 @@ namespace ChangedSpecialMod.Common.Systems
                 orig(self);
 
                 var player = Main.LocalPlayer;
-                if (player.talkNPC < 0 && player.sign == -1)
+                if (player.talkNPC < 0 || player.sign != -1)
                     return;
 
                 DrawNPCPortrait();

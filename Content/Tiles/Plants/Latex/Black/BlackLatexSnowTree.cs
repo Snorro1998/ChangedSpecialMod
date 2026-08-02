@@ -14,7 +14,6 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.Black
             texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/Black/BlackLatexTree");
             branchesTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/Black/BlackLatexTree_Branches");
             topsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/Black/BlackLatexTree_Tops");
-            blockItemType = ModContent.ItemType<BlackLatexSnow>();
         }
 
         public override int SaplingGrowthType(ref int style)

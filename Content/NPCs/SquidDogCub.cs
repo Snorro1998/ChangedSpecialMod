@@ -66,7 +66,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            return ChangedUtils.GetFishSpawnChance(spawnInfo, changedNPC, NPC.type);
+            //return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         // Squid animation logic

@@ -28,6 +28,7 @@ namespace ChangedSpecialMod.Content.Items.Summons
         {
             CreateRecipe()
                 .AddIngredient(ItemID.Silk, 5)
+                .AddIngredient(ModContent.ItemType<BlackGoo>(), 5)
                 .AddIngredient(ModContent.ItemType<CrystalRed>(), 2)
                 .AddIngredient(ModContent.ItemType<CrystalGreen>(), 2)
                 .AddTile(TileID.WorkBenches)

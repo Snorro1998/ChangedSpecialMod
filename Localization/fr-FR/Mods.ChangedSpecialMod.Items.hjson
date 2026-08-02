@@ -278,9 +278,19 @@ BlackGoopBanner: {
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
 }
 
+BlackGoo: {
+	DisplayName: Slime Noire
+	Tooltip: ""
+}
+
 WhiteGoopBanner: {
 	DisplayName: Bannière de Goutte Blanche
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
+}
+
+WhiteGoo: {
+	DisplayName: Slime Blanc
+	Tooltip: ""
 }
 
 GermanShepherdBanner: {
@@ -925,6 +935,11 @@ WhiteLatexSandstoneBlock: {
 }
 
 CelebrationCake: {
-	// DisplayName: Celebration Cake
-	// Tooltip: ""
+	DisplayName: Gâteau de fête
+	Tooltip: Merci à tous pour plus de 700 téléchargements!
+}
+
+WhiteLatexLantern: {
+	DisplayName: Lanterne à gelée blanche
+	Tooltip: ""
 }

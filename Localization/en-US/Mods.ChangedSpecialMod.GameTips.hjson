@@ -1,33 +1,16 @@
-# We add each tip multiple times so you have a greater chance to see them. Vanilla has 117 entries
-LabTip1A: You can find abandoned laboratories scattered around the world.
-LabTip1B: You can find abandoned laboratories scattered around the world.
-LabTip2A: You can easily turn a laboratory into apartments, but the monsters lurking there will not like it.
-LabTip2B: You can easily turn a laboratory into apartments, but the monsters lurking there will not like it.
-LabTip3A: Each laboratory has a generator room in the basement. Try flipping the power switch in there.
-LabTip3B: Each laboratory has a generator room in the basement. Try flipping the power switch in there.
-LabTip4A: You can right-click an elevator to move to a different floor.
-LabTip4B: You can right-click an elevator to move to a different floor.
-WhiteTail1A: If you defeat enough latex beasts, you might invoke the wrath of a very fast monster.
-WhiteTail1B: If you defeat enough latex beasts, you might invoke the wrath of a very fast monster.
-Puro1A: A friendly black goo can move in if you manage to slay a very fast monster.
-Puro1B: A friendly black goo can move in if you manage to slay a very fast monster.
-WolfKing1A: You may encounter the leader of a wolf pack in a room filled with black goo.
-WolfKing1B: You may encounter the leader of a wolf pack in a room filled with black goo.
-EvolutionTip1A: Monsters grow bigger and stronger every time a boss is defeated.
-EvolutionTip1B: Monsters grow bigger and stronger every time a boss is defeated.
-RottenOrange1A: Carrying a rotten orange is enough to see strange things.
-RottenOrange1B: Carrying a rotten orange is enough to see strange things.
-DrK1A: A scientist can move in who sells useful potions for your adventures.
-DrK1B: A scientist can move in who sells useful potions for your adventures.
-Prototyp1A: A robot can move in who sells fruit for dishes and herbs for potions.
-Prototyp1B: A robot can move in who sells fruit for dishes and herbs for potions.
-Prototype2A: If you need more wood you can let the gardening robot walk near saplings to make them grow into trees faster.
-Prototype2B: If you need more wood you can let the gardening robot walk near saplings to make them grow into trees faster.
-Rain1A: Aquatic beasts appear more often during rain.
-Rain1B: Aquatic beasts appear more often during rain.
-Windy1A: Flying beasts appear more often on windy days.
-Windy1B: Flying beasts appear more often on windy days.
-StrongLatex1A: You can encounter strong monsters near labs in the crimson and corruption, and rarely in other places.
-StrongLatex1B: You can encounter strong monsters near labs in the crimson and corruption, and rarely in other places.
-Syringe1A: Syringes let you transform into different creatures.
-Syringe1B: Syringes let you transform into different creatures.
+Laboratory1: You can find abandoned laboratories scattered around the world.
+Laboratory2: You can easily turn a laboratory into apartments, but the monsters lurking there will not like it.
+Laboratory3: Each laboratory has a generator room in the basement. Try flipping the power switch in there.
+Laboratory4: You can right-click an elevator to move to a different floor.
+WhiteTail1: If you defeat enough latex beasts, you might invoke the wrath of a very fast monster.
+Puro1: A friendly black goo can move in if you manage to slay a very fast monster.
+WolfKing1: You may encounter the leader of a wolf pack in a room filled with black goo.
+EvolutionTip1: Monsters grow bigger and stronger every time a boss is defeated.
+RottenOrange1: Carrying a rotten orange is enough to see strange things.
+DrK1: A scientist can move in who sells useful potions for your adventures.
+Prototype1: A robot can move in who sells fruit for dishes and herbs for potions.
+Prototype2: If you need more wood you can let the gardening robot walk near saplings to make them grow into trees faster.
+Rain1: Aquatic beasts appear more often during rain.
+Windy1: Flying beasts appear more often on windy days.
+StrongLatex1: You can encounter strong monsters near labs in the crimson and corruption, and rarely in other places.
+Syringe1: Syringes let you transform into different creatures.

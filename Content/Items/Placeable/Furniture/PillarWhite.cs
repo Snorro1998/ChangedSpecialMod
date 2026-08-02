@@ -14,7 +14,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
 			Item.height = 32;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.buyPrice(0, 0, 25);
-            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<CrystalGreen>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<CrystalRed>();
         }
 	}
 }

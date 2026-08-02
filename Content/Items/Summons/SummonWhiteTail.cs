@@ -34,7 +34,7 @@ namespace ChangedSpecialMod.Content.Items.Summons
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<Orange>(), 1)
-                .AddIngredient(ItemID.Gel, 10)
+                .AddIngredient(ModContent.ItemType<WhiteGoo>(), 10)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }

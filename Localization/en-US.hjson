@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Snake
 				Description: Long and fast.
 			}
+
+			Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Iris Scanner
 			BlackLatexPylonTile.MapEntry: Black Latex Pylon
 			WhiteLatexPylonTile.MapEntry: White Latex Pylon
+
+			DocumentPaper: {
+				MapEntry: Document Paper
+				SignText1: Don't stay here too long. There are monsters nearby.
+				SignText2: In the event of a power outage, you can restart the generator in the basement.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Ability
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

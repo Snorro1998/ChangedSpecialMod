@@ -1,5 +1,5 @@
-﻿using ChangedSpecialMod.Content.Items.Food;
-using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
+﻿using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
@@ -42,7 +42,7 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.Black
 
         public override void SetStaticDefaults()
         {
-            blockItemType = ModContent.ItemType<BlackLatexBlock>();
+            blockItemType = ModContent.ItemType<BlackGoo>();
         }
 
         public override int DropWood()

@@ -48,7 +48,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.RemoveAllHats();

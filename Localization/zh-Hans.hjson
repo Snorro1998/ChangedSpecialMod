@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: 蛇
 				Description: 长而快
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: 虹膜扫描仪
 			BlackLatexPylonTile.MapEntry: 黑色粘液晶塔
 			WhiteLatexPylonTile.MapEntry: 白色粘液晶塔
+
+			DocumentPaper: {
+				MapEntry: 文件纸
+				SignText1: 不要在这里待太久，附近有怪物。
+				SignText2: 如果发生停电，您可以重新启动地下室的发电机。
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: 能力
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

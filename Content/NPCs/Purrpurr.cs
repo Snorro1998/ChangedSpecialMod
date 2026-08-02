@@ -57,7 +57,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.SetNPCName(NPC);
             changedNPC.HatYOffset = -34;
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.ChangeHatPosition(ItemID.FlowerBoyHat, new int[] { 0, 14 });

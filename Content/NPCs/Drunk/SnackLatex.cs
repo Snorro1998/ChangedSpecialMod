@@ -48,7 +48,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HatXOffset = -4;
             changedNPC.HatYOffset = -36;
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;

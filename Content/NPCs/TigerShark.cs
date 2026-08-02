@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -64,6 +65,8 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
+                //BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Visuals.Rain,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.Rain,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.TigerShark.Description")),
             });
         }
@@ -71,6 +74,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.SharkFin, 5));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SharkPlush>(), 20));
             npcLoot.Add(ItemDropRule.Common(ItemID.SharkBait, 20));
         }
 

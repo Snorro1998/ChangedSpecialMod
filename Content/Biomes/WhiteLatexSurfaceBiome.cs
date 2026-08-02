@@ -27,7 +27,7 @@ namespace ChangedSpecialMod.Content.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            return CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.White) && CityRuinsBiomeTileCount.ActiveBiomeType == CityRuinsBiomeTileCount.BiomeType.Normal; ;
+            return CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.White) && CityRuinsBiomeTileCount.ActiveBiomeType == BiomeType.Normal;
         }
         public override SceneEffectPriority Priority => SceneEffectPriority.Environment; // Biomehigh
 

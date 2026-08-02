@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Serpiente
 				Description: Largo y rápido.
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: escáner de iris
 			BlackLatexPylonTile.MapEntry: Torre de la limosa negra
 			WhiteLatexPylonTile.MapEntry: Torre de la limosa blanca
+
+			DocumentPaper: {
+				MapEntry: Papel para documentos
+				SignText1: No te quedes aquí mucho tiempo. Hay monstruos cerca.
+				SignText2: En caso de un corte de luz, puede reiniciar el generador que se encuentra en el sótano.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidad
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

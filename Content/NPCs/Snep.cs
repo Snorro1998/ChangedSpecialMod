@@ -17,7 +17,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -27,23 +26,26 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
 			NPC.height = 40;
             NPC.damage = 25;
             NPC.defense = 10;
             NPC.lifeMax = 70;
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			AIType = NPCID.Unicorn;
-            AnimationType = -1;// NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
+            AnimationType = -1;
+            SpawnModBiomes = new int[] 
+            {
+                ModContent.GetInstance<BlackLatexSurfaceSnowBiome>().Type,
+                ModContent.GetInstance<WhiteLatexSurfaceSnowBiome>().Type
+            };
 
-            //Banner = Type;
-            //BannerItem = ModContent.ItemType<Items.Placeable.Banners.PurrpurrBanner>();
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
             var changedNPC = NPC.Changed();
@@ -52,7 +54,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HatXOffset = 0;
             changedNPC.HatYOffset = -34;
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
+            changedNPC.BiomeType = Common.Systems.BiomeType.Snow;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
@@ -77,7 +79,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var ChangedGlobalNPC = NPC.Changed();
-            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

@@ -2,8 +2,10 @@
 using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
+using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
+using ChangedSpecialMod.Content.NPCs.TownPets;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -15,6 +17,7 @@ using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
@@ -44,7 +47,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
     public enum ElementType
     {
-        None,
+        Normal,
         Water,
         Wind
     }
@@ -187,6 +190,39 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            base.ModifyNPCLoot(npc, npcLoot);
+
+            var ignoreTypes = new List<int>()
+            {
+                ModContent.NPCType<WhiteTail>(),
+                ModContent.NPCType<WolfKingSpawn>(),
+                ModContent.NPCType<WolfKing>(),
+                ModContent.NPCType<BehemothHand>(),
+                ModContent.NPCType<BehemothSpawn>(),
+                ModContent.NPCType<Behemoth>(),
+                ModContent.NPCType<Experiment009>(),
+
+                ModContent.NPCType<Puro>(),
+                ModContent.NPCType<Prototype>(),
+                ModContent.NPCType<Scientist>(),
+                ModContent.NPCType<Colin>(),
+                ModContent.NPCType<DarkLatexCubTownPet>(),
+                ModContent.NPCType<WhiteLatexCubTownPet>(),
+            };
+
+            if (!ignoreTypes.Contains(npc.type) && (GooType == GooType.Black || GooType == GooType.White))
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 25));
+
+                if (GooType == GooType.Black)
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BlackGoo>(), 4));
+                else if (GooType == GooType.White)
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiteGoo>(), 4));
+            }
+        }
+
         // If the NPC is already big, we can change this value to make statscaling increase his size less
         public float BaseScaleMultiplier { get; set; } = 1.0f;
 
@@ -205,7 +241,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public float BeerYOffset = 0;
 
         public GooType GooType = GooType.Invalid;
-        public ElementType ElementType = ElementType.None;
+        public ElementType ElementType = ElementType.Normal;
+        public BiomeType BiomeType = BiomeType.Normal;
         public bool IsFish = false;
 
         public bool DefaultOnHitPlayer = false;
@@ -1126,10 +1163,12 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = npc.Changed();
             if (changedNPC == null || !changedNPC.DefaultOnHitPlayer)
                 return;
+            /*
             if (hurtInfo.Damage > 0 && ChangedSpecialModClientConfig.Instance.TransfurSound && !ChangedSpecialModClientConfig.Instance.NPCsCanTransfurPlayer)
             {
                 AudioSystem.PlaySoundWithProbability(Sounds.SoundTransfur, npc.Center, 3);
             }
+            */
         }
 
         public override void HitEffect(NPC npc, NPC.HitInfo hit)

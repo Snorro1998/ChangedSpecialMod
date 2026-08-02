@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Serpente
 				Description: Lungo e veloce.
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Scanner dell'iride
 			BlackLatexPylonTile.MapEntry: Portale della melma nera
 			WhiteLatexPylonTile.MapEntry: Portale della melma bianca
+
+			DocumentPaper: {
+				MapEntry: Documento cartaceo
+				SignText1: Non restare qui troppo a lungo. Ci sono dei mostri nelle vicinanze.
+				SignText2: In caso di interruzione di corrente, è possibile riavviare il generatore nel seminterrato.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Capacità
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

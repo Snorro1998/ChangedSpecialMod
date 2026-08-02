@@ -73,7 +73,7 @@ namespace ChangedSpecialMod.Content.Items.Summons
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.Gel, 20)
+                .AddIngredient(ModContent.ItemType<WhiteGoo>(), 20)
                 .AddIngredient(ModContent.ItemType<PillarWhite>(), 3)
                 .AddIngredient(ModContent.ItemType<CrystalWhite>(), 3)
                 .AddTile(TileID.WorkBenches)

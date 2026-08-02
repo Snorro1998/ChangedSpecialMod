@@ -2,12 +2,10 @@
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
-using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
@@ -33,14 +31,6 @@ namespace ChangedSpecialMod.Common.Systems
         public static int WhiteLatexDesertBlockCount;
         public static int WhiteLatexJungleBlockCount;
         public static int WhiteLatexSnowBlockCount;
-
-        public enum BiomeType
-        {
-            Normal,
-            Desert,
-            Jungle,
-            Snow
-        }
 
         public static BiomeType ActiveBiomeType = BiomeType.Normal;
 
@@ -140,7 +130,7 @@ namespace ChangedSpecialMod.Common.Systems
 		{
             GetBlackTileCount(tileCounts);
             GetWhiteTileCount(tileCounts);
-            DryDirtBlockCount = tileCounts[ModContent.TileType<DryDirt>()];
+            DryDirtBlockCount = tileCounts[ModContent.TileType<DryDirt>()] + tileCounts[ModContent.TileType<DryDirtGrassTile>()];
         }
 
         public static bool BlockNearby(Player player, List<int> tileIDs, int radius)

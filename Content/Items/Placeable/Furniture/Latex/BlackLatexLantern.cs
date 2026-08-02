@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ChangedSpecialMod.Content.Items.Placeable.Crystals;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Furniture.Latex
 {
-    public class BlackLatexLantern : ModItem//, ILocalizedModType
+    public class BlackLatexLantern : ModItem
     {
-        //public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
             Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.Latex.BlackLatexLantern>());
             Item.value = Item.sellPrice(copper: 30);
         }
 
-        /*
         public override void AddRecipes()
         {
-            CreateRecipe().
-                AddIngredient<SmoothAbyssGravel>(6).
-                AddIngredient(ItemID.Torch).
-                AddTile<VoidCondenser>().
-                Register();
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<BlackGoo>(), 5)
+                .AddIngredient(ModContent.ItemType<CrystalRed>(), 1)
+                .AddTile(TileID.Solidifier)
+                .Register();
         }
-        */
     }
 }

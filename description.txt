@@ -87,9 +87,22 @@ They can be bought from Prototype.
 
 0.5.6
 
-General
-- Added celebration cake. Thank you all for 700+ downloads
+Biomes
+- Added black and white infected variants for the surface biomes
+- Desert: Slimesand Dunes
+- Jungle: Goo Jungle
+- Snow: Goo Glacier
+
+Items
+- Added celebration cake which can be bought from Puro. Thank you all for 700+ downloads
 - The candles of the happy birthday music box flicker and give off light
+- Added dry grass seeds which can be used to plant grass on dry dirt
+- Changed shimmering of crystals to: red -> green -> white -> white pillar -> red
+- Added black and white goo materials. They can be used to make all the latex blocks using the solidifier
+- Added black and white goo lanterns. They can be created with goo using the solidifier
+- Dry dirt can't be turned into dirt anymore with the extractinator. Instead it can be crafted into dirt near water
+- Reduced the price of document paper from 1 gold to 15 silver
+- Removed bouncing sound of the basketball
 
 Ambient entities
 - Background objects that you can sometimes see in the sky, such as the hot air balloon and birds
@@ -109,37 +122,31 @@ Clentiminator
 NPCs
 - Prototype sells all grass seeds including the new dry grass seeds used to spread the city ruins.
 - Puro no longer hates the desert. Instead he dislikes the white latex biomes for him 'standing out too much'
+- Puro no longer sells latex blocks. Instead he sells black and white goo to make them with
+- Puro no longer sells dry dirt. It can now be crafted with dirt at a furnace
 - Dr K no longer hates the jungle. Instead he dislikes the black latex biomes for him 'standing out too much'
 - Devourer of Oranges can no longer spawn if there are town NPCs nearby
-- Maintenance robot can no longer spawn in pre-hardmode
+- Feng Yu can only appear in the Slimesand dunes
+- Snow Leopard can only appear in the Goo Glacier
+
+World generation
+- Moved the generation tasks further back. This means that pots no longer generate in labs
+- Document paper can appear on the walls in the laboratory with text on it
 
 Resprited
 - Biome backgrounds
 - Debug teleport items
+- Feng Yu (cleanup)
 - Locker
 
+Other
+- Reduced chance of Changed game tips appearing on the loading screen
+- Improved some translations
+
 Fixes
-- Puro and Dr K not immune to latex beasts.
+- Puro and Dr K not immune to latex beasts
+- More than 1 maintenance robot could appear
+- The NPC portrait system caused errors when viewing or editing signs
+- Latex beasts had a 0 percent spawn chance on most infected blocks if the player was not in the biome
 - Crystals could grow everywhere and destroy pots and decals
 - Debug teleport items could teleport players onto some pressure plates, detonators or into water and honey
-
-
-
-
-
-
-
-
-
-
-
-- Added latex trees. They don't have special loot yet.
-- Added grass latex tiles. They look the same and their only purpose is to get normal grass back when purifying a latex biome.
-
-- Added dry grass. Now dry dirt won't have grass on top of it anymore.
-
-Furniture
-- Added black lantern
-
-Fixes
-

@@ -39,7 +39,9 @@ namespace ChangedSpecialMod.Content.Projectiles
             var vec = oldVelocity + Projectile.velocity;
 
             if (Projectile.velocity.Length() > 0.5f && vec.Length() > 0.5f)
-                SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            {
+                //SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+            }
             else
                 Projectile.velocity.Y = 0;
 

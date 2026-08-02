@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Schlange
 				Description: Lang und schnell.
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Iris-Scanner
 			BlackLatexPylonTile.MapEntry: Schwarzer Schleimpylon
 			WhiteLatexPylonTile.MapEntry: Weißer Schleimpylon
+
+			DocumentPaper: {
+				MapEntry: Dokumentenpapier
+				SignText1: Bleib nicht zu lange hier. In der Nähe sind Monster.
+				SignText2: Im Falle eines Stromausfalls können Sie den Generator im Keller wieder in Betrieb nehmen.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Fähigkeit
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

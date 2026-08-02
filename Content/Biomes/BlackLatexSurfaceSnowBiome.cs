@@ -32,7 +32,7 @@ namespace ChangedSpecialMod.Content.Biomes
 		// Calculate when the biome is active.
 		public override bool IsBiomeActive(Player player)
         {
-            var isActive = CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.Black) && CityRuinsBiomeTileCount.ActiveBiomeType == CityRuinsBiomeTileCount.BiomeType.Snow;
+            var isActive = CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.Black) && CityRuinsBiomeTileCount.ActiveBiomeType == BiomeType.Snow;
             if (isActive)
                 player.ZoneSnow = true;
             return isActive;

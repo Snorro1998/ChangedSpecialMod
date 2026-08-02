@@ -79,7 +79,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
             var changedNPC = NPC.Changed();
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
         }

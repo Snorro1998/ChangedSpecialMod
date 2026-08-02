@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
@@ -41,7 +42,11 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			AIType = NPCID.Unicorn;
             AnimationType = -1;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
+            SpawnModBiomes = new int[] 
+            {
+                ModContent.GetInstance<BlackLatexSurfaceDesertBiome>().Type,
+                ModContent.GetInstance<WhiteLatexSurfaceDesertBiome>().Type
+            };
 
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
@@ -51,7 +56,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HatXOffset = -4;
             changedNPC.HatYOffset = -31;
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
+            changedNPC.BiomeType = Common.Systems.BiomeType.Desert;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.RemoveAllHats();
@@ -63,6 +68,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Lion.Description"))
             });
         }
@@ -76,8 +82,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            var ChangedGlobalNPC = NPC.Changed();
-            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
+            var changedNPC = NPC.Changed();
+            var vanillaChance = (spawnInfo.Player.ZoneDesert && Main.hardMode) ? 0.3f : 0;
+            var changedChance = ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

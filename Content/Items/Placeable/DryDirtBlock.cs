@@ -9,7 +9,6 @@ namespace ChangedSpecialMod.Content.Items.Placeable
         public override void SetStaticDefaults()
         {
             Item.ResearchUnlockCount = 100;
-            ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
         }
 
         public override void SetDefaults()
@@ -19,10 +18,17 @@ namespace ChangedSpecialMod.Content.Items.Placeable
             Item.height = 12;
         }
 
-        public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
+        public override void AddRecipes()
         {
-            resultType = ItemID.DirtBlock;
-            resultStack = 1;
+            CreateRecipe()
+                .AddIngredient(ItemID.DirtBlock, 1)
+                .AddTile(TileID.Furnaces)
+                .Register();
+
+            var recipe = Recipe.Create(ItemID.DirtBlock);
+            recipe.AddIngredient(ModContent.ItemType<DryDirtBlock>(), 1);
+            recipe.AddCondition(Condition.NearWater);
+            recipe.Register();
         }
     }
 }

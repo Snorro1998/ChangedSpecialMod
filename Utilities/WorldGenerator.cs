@@ -16,6 +16,7 @@ using System.Linq;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -53,6 +54,7 @@ namespace ChangedSpecialMod.Utilities
 
             // Others
             ModContent.TileType<IrisScanner>(),
+            ModContent.TileType<DocumentPaper>(),
         };
 
         private static int[] globalWallDecorationsDrunk = new int[]
@@ -383,6 +385,20 @@ namespace ChangedSpecialMod.Utilities
                 // Successfully placed
                 if (Main.tile[xPos, yCur + h - 5].TileType == decor)
                 {
+                    // This code sets a default value for the sign, this is not typical and can be removed from normal sign tiles.
+                    int signId = Sign.ReadSign(xPos, yCur + h - 5, true);
+                    if (signId != -1)
+                    {
+                        var options = new string[]
+                        {
+                            Language.GetTextValue("Mods.ChangedSpecialMod.Tiles.DocumentPaper.SignText1"),
+                            Language.GetTextValue("Mods.ChangedSpecialMod.Tiles.DocumentPaper.SignText2")
+                        };
+
+                        string txt = Utils.SelectRandom(Main.rand, options);
+                        Sign.TextSign(signId, txt);
+                    }
+
                     WallDecorationIndex++;
                     break;
                 }

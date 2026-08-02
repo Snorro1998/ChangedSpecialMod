@@ -1,5 +1,5 @@
-﻿using ChangedSpecialMod.Content.Items.Food;
-using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
+﻿using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
@@ -65,8 +65,8 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.Black
             var amount = 1;
             items.Add(ItemID.Wood, 2);
             items.Add(ItemID.Acorn, 2);
-            var blockItemType = ModContent.ItemType<BlackLatexSand>();
-            items.Add(ModContent.ItemType<BlackLatexSand>(), 1);
+            var blockItemType = ModContent.ItemType<BlackGoo>();
+            items.Add(ModContent.ItemType<BlackGoo>(), 1);
             items.Add(ModContent.ItemType<Orange>(), 1);
             var itemId = items.Get();
 

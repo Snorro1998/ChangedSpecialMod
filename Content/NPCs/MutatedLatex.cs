@@ -105,7 +105,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
             changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.GooType = GooType.None;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.CanHaveBeer = true;
@@ -119,11 +118,6 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.MutatedLatex.Description")),
             });
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 20));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

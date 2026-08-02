@@ -49,7 +49,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HatXOffset = -4;
             changedNPC.HatYOffset = -32;
             changedNPC.GooType = GooType.Black;
-            changedNPC.ElementType = ElementType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
@@ -62,11 +61,6 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WingedDarkLatex.Description"))
             });
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 20));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

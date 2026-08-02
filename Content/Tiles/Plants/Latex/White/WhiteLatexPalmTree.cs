@@ -1,6 +1,5 @@
-﻿using ChangedSpecialMod.Content.Items.Food;
-using ChangedSpecialMod.Content.Items.Placeable;
-using ChangedSpecialMod.Content.Items.Placeable.Latex.White;
+﻿using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
@@ -8,7 +7,6 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -21,7 +19,6 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.White
     public class WhiteLatexPalmTree : ModPalmTree
     {
         private Asset<Texture2D> texture;
-        private Asset<Texture2D> branchesTexture;
         private Asset<Texture2D> topsTexture;
         private Asset<Texture2D> oasisTopsTexture;
 
@@ -38,43 +35,22 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.White
         {
             GrowsOnTileId = [ModContent.TileType<WhiteLatexSandTile>()];
             texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/White/WhiteLatexPalmTree");
-            branchesTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/White/WhiteLatexTree_Branches");
             topsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/White/WhiteLatexTree_Tops");
             oasisTopsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/White/WhiteLatexPalmTree_Tops");
         }
 
         // This is the primary texture for the trunk. Branches and foliage use different settings.
-        public override Asset<Texture2D> GetTexture()
-        {
-            return texture;
-        }
-
-        public override int SaplingGrowthType(ref int style)
-        {
-            style = 0;
-            return ModContent.TileType<WhiteLatexPalmTreeSapling>();
-        }
-
-        // Branch Textures
-        //public override Asset<Texture2D> GetBranchTextures() => branchesTexture;
+        public override Asset<Texture2D> GetTexture() => texture;
 
         // Top Textures
         public override Asset<Texture2D> GetTopTextures() => topsTexture;
 
         public override Asset<Texture2D> GetOasisTopTextures() => oasisTopsTexture;
 
-
-        private void SpawnOranges(IEntitySource source, Player player, int x, int y)
+        public override int SaplingGrowthType(ref int style)
         {
-            for (int i = 0; i < 30; i++)
-            {
-                var index = Projectile.NewProjectile(source, x * 16, y * 16, 0, 0, ModContent.ProjectileType<OrangeProjectile>(), 0, 0, player.whoAmI, 0f, 0f);
-                if (index >= 0 && index < Main.projectile.Length)
-                {
-                    var angle = Main.rand.NextFloat((float)Math.PI * 2);
-                    Main.projectile[index].velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 5;
-                }
-            }
+            style = 0;
+            return ModContent.TileType<WhiteLatexPalmTreeSapling>();
         }
 
         private void SpawnGasTank(IEntitySource source, Player player, int x, int y)
@@ -89,12 +65,12 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.White
             var amount = 1;
             items.Add(ItemID.Wood, 2);
             items.Add(ItemID.Acorn, 2);
-            var whiteBlockID = ModContent.ItemType<WhiteLatexSand>();
-            items.Add(ModContent.ItemType<WhiteLatexSand>(), 1);
+            var blockItemType = ModContent.ItemType<WhiteGoo>();
+            items.Add(ModContent.ItemType<WhiteGoo>(), 1);
             items.Add(ModContent.ItemType<Orange>(), 1);
             var itemId = items.Get();
 
-            if (itemId == whiteBlockID)
+            if (itemId == blockItemType)
                 amount = Main.rand.Next(15, 31);
             else if (itemId == ItemID.Wood)
                 amount = Main.rand.Next(4, 10);
@@ -136,7 +112,7 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.White
                 // Drop item
                 case 1:
                     if (isDrunk)
-                        SpawnOranges(source, player, x, y);
+                        ChangedUtils.SpawnOranges(source, player, x, y);
                     DropItem(source, player, x, y);
                     break;
                 // Spawn monster

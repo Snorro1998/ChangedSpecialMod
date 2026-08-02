@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Wąż
 				Description: Długo i szybko.
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Skaner tęczówki
 			BlackLatexPylonTile.MapEntry: Pylon czarnego szlamu
 			WhiteLatexPylonTile.MapEntry: Pylon białego szlamu
+
+			DocumentPaper: {
+				MapEntry: Dokument Papierowy
+				SignText1: Nie siedź tu zbyt długo. W pobliżu są potwory.
+				SignText2: W przypadku zaniku zasilania istnieje możliwość ponownego uruchomienia generatora w piwnicy.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Umiejętność
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

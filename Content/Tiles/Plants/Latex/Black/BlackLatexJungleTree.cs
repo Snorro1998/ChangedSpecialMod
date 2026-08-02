@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
-using ChangedSpecialMod.Content.Tiles.Latex.Black;
+﻿using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
@@ -14,7 +13,6 @@ namespace ChangedSpecialMod.Content.Tiles.Plants.Latex.Black
             texture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/Black/BlackLatexTree");
             branchesTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/Black/BlackLatexTree_Branches");
             topsTexture = ModContent.Request<Texture2D>("ChangedSpecialMod/Content/Tiles/Plants/Latex/Black/BlackLatexTree_Tops");
-            blockItemType = ModContent.ItemType<BlackLatexMudBlock>();
         }
 
         public override int SaplingGrowthType(ref int style)

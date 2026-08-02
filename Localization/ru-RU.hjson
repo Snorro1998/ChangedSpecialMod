@@ -700,6 +700,8 @@ Mods: {
 				DisplayName: Змея
 				Description: Длинный и быстрый
 			}
+
+			// Fennec.DisplayName: Fennec
 		}
 
 		Emotes: {
@@ -732,6 +734,12 @@ Mods: {
 			IrisScanner: Сканер радужной оболочки глаза
 			BlackLatexPylonTile.MapEntry: Столб чёрной слизи
 			WhiteLatexPylonTile.MapEntry: Столб белой слизи
+
+			DocumentPaper: {
+				MapEntry: Документ Бумага
+				SignText1: Не задерживайтесь здесь надолго. Поблизости водятся чудовища.
+				SignText2: В случае отключения электроэнергии вы можете перезапустить генератор в подвале.
+			}
 		}
 
 		Keybinds.TransfurAttack.DisplayName: способность
@@ -754,6 +762,8 @@ Mods: {
 		Conditions: {
 			// InWhiteLatexSurfaceBiome: Player must be in the White Latex Area
 			// InBlackLatexSurfaceBiome: Player must be in the Black Latex Area
+			// InBlackLatexBiome: Mods.ChangedSpecialMod.Conditions.InBlackLatexBiome
+			// InWhiteLatexBiome: Mods.ChangedSpecialMod.Conditions.InWhiteLatexBiome
 		}
 
 		Achievements: {

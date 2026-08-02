@@ -32,7 +32,8 @@ namespace ChangedSpecialMod.Content.Items.Debug
                     //(int)Terraria.GameContent.Ambience.SkyEntityType.AirBalloon,
                     (int)Terraria.GameContent.Ambience.SkyEntityType.BirdsV,
                     (int)Terraria.GameContent.Ambience.SkyEntityType.Airship,
-                    (int)Terraria.GameContent.Ambience.SkyEntityType.SlimeBalloons
+                    (int)Terraria.GameContent.Ambience.SkyEntityType.SlimeBalloons,
+                    (int)Terraria.GameContent.Ambience.SkyEntityType.Wyvern
                     );
                 var seed = Main.rand.Next();
                 //Terraria.GameContent.Ambience.SkyEntityType.BirdsV
