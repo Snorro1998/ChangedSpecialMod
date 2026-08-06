@@ -10,7 +10,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
     public class GermanShepherd : ModNPC
@@ -18,7 +17,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -92,12 +90,12 @@ namespace ChangedSpecialMod.Content.NPCs
             var fr = frame.Top / 58;
             if (fr == 0)
             {
-                hatXOffset = 2;//4
+                hatXOffset = 2;
             }
             // Frame 1 and 3 use offset 0
             else if (fr == 2)
             {
-                hatXOffset = -4;//-4
+                hatXOffset = -4;
             }
 
             changedNPC.HatXOffset = hatXOffset;

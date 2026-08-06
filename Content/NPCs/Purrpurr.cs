@@ -19,7 +19,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -35,8 +34,8 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.height = 56;
             NPC.damage = 40;
             NPC.defense = 12;
-            NPC.lifeMax = 300;//400
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.lifeMax = 300;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = ChangedUtils.GetNPCValue(gold: 1);
 			NPC.knockBackResist = 0.1f;

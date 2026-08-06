@@ -1,11 +1,9 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -17,7 +15,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteLatexCub>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -38,8 +35,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
-            NPC.aiStyle = -1;// NPCAIStyleID.Fighter;
-            AIType = 0;// NPCID.GoblinScout;
+            NPC.aiStyle = -1;
+            AIType = NPCID.None;
 			AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
 

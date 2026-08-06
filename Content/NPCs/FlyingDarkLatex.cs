@@ -19,7 +19,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Slimer];
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
         }
 
 		public override void SetDefaults() 
@@ -52,12 +51,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            // Remove the default portrait, otherwise you get two of them
-            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                //  Add the new portrait with the modified rarity
-                //new NPCPortraitInfoElement(3),
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.Description")),
             });
         }
@@ -85,15 +80,15 @@ namespace ChangedSpecialMod.Content.NPCs
             var fr = frame.Top / 65;
             if (fr == 0)
             {
-                changedNPC.HatYOffset = -22;//-22
+                changedNPC.HatYOffset = -22;
             }
             else if (fr == 1 || fr == 3)
             {
-                changedNPC.HatYOffset = -26;//-24
+                changedNPC.HatYOffset = -26;
             }
             else if (fr == 2)
             {
-                changedNPC.HatYOffset = -30;//-28
+                changedNPC.HatYOffset = -30;
             }
 
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
@@ -103,7 +98,7 @@ namespace ChangedSpecialMod.Content.NPCs
         private void UpdateHatPosition()
         {
             var changedNPC = NPC.Changed();
-            changedNPC.HatXOffset = (float)(Math.Sin(NPC.rotation) * -22 * NPC.spriteDirection); //0
+            changedNPC.HatXOffset = (float)(Math.Sin(NPC.rotation) * -22 * NPC.spriteDirection);
             changedNPC.HatYOffset = (float)(Math.Cos(NPC.rotation) * -22);
         }
 

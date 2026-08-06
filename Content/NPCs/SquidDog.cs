@@ -20,7 +20,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
 			Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<MaleDarkLatex>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -37,7 +36,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.damage = 40;
             NPC.defense = 12;
             NPC.lifeMax = 100;
-            NPC.HitSound = SoundID.NPCHit1; //SoundID.NPCHit6;
+            NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.4f;
@@ -73,13 +72,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            // Remove the default portrait, otherwise you get two of them
-            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                //  Add the new portrait with the modified rarity
-                //new NPCPortraitInfoElement(3),
-                //BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Visuals.Rain,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.Rain,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.SquidDog.Description")),
             });
@@ -135,17 +129,17 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     var target = Main.player[NPC.target];
                     // For some strange reason, projectile damage is doubled
-                    var whipDamage = (int)(NPC.damage * 0.75f);//0.5
+                    var whipDamage = (int)(NPC.damage * 0.75f);
                     Projectile.NewProjectile(
                         NPC.GetSource_FromAI(),
                         NPC.Center,
                         Vector2.Zero,
-                        projectileType,//
-                        whipDamage, // damage
-                        2f, // knockback
+                        projectileType,
+                        whipDamage,                                 // damage
+                        2f,                                         // knockback
                         -1,
                         NPC.whoAmI,
-                        (target.Center - NPC.Center).ToRotation(), // ai[1] = direction
+                        (target.Center - NPC.Center).ToRotation(),  // ai[1] = direction
                         NPC.spriteDirection
                     );
                 }

@@ -1,5 +1,4 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,11 +6,9 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -73,7 +70,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[Type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -231,7 +227,6 @@ namespace ChangedSpecialMod.Content.NPCs
         private void DrawHead(ChangedNPC changedNPC, SpriteBatch spriteBatch, Vector2 drawPos, Vector2 offset, Color drawColor, Color hairColor, Color eyeColor, Color lightingColor, SpriteEffects effects, float rotation, bool hideEars)
         {
             offset.X *= NPC.spriteDirection;
-            //rotation *= NPC.spriteDirection;
             drawPos += offset;
 
             // Ears

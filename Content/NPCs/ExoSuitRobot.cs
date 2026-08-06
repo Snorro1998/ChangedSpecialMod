@@ -1,5 +1,4 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,7 +9,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
     public class ExoSuitRobot : ModNPC
@@ -18,7 +16,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -32,7 +29,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.width = 18;
             NPC.height = 64;
-            NPC.damage = 35;//40
+            NPC.damage = 35;
             NPC.defense = 12;
             NPC.lifeMax = 300;
             NPC.HitSound = SoundID.NPCHit4;
@@ -73,13 +70,8 @@ namespace ChangedSpecialMod.Content.NPCs
             npcLoot.Add(ItemDropRule.Common(ItemID.Stopwatch, 20));
             npcLoot.Add(ItemDropRule.Common(ItemID.LifeformAnalyzer, 20));
 
+            // Found in surface chests
             npcLoot.Add(ItemDropRule.Common(ItemID.Radar, 20));
-            /*
-            npcLoot.Add(ItemDropRule.Common(ItemID.TallyCounter, 20));
-            npcLoot.Add(ItemDropRule.Common(ItemID.MetalDetector, 20));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Compass, 20));
-            npcLoot.Add(ItemDropRule.Common(ItemID.DepthMeter, 20));
-            */
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -125,12 +117,12 @@ namespace ChangedSpecialMod.Content.NPCs
             var fr = frame.Top / 58;
             if (fr == 0)
             {
-                hatXOffset = 2;//4
+                hatXOffset = 2;
             }
             // Frame 1 and 3 use offset 0
             else if (fr == 2)
             {
-                hatXOffset = -4;//-4
+                hatXOffset = -4;
             }
 
             changedNPC.HatXOffset = hatXOffset;

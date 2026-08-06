@@ -10,7 +10,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-
 namespace ChangedSpecialMod.Content.NPCs
 {
     public class TigerShark : ModNPC
@@ -18,7 +17,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 4;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -65,7 +63,6 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                //BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Visuals.Rain,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.Rain,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.TigerShark.Description")),
             });

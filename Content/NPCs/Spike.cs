@@ -1,17 +1,9 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Graphics.PackedVector;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
@@ -43,11 +35,11 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 2;
-            //NPCID.Sets.ShimmerTransformToNPC[NPC.type] = ModContent.NPCType<WhiteKnight>();
             ChangedUtils.HideFromBestiary(this);
         }
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+        {
 			NPC.width = 18;
 			NPC.height = 76;
             NPC.damage = 0;
