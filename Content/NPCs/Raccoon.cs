@@ -52,6 +52,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.RemoveAllHats();
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.GooColor = new Color(148, 148, 148);
 
             rotationValue = NPC.rotation;
         }

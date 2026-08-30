@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: 庆典蛋糕
-	Tooltip: 感谢大家的支持，下载量已超过700次！
+	Tooltip: 感谢大家的支持，下载量已超过800次！
 }
 
 WhiteLatexLantern: {
 	DisplayName: 白色粘液灯笼
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: 绿水晶法杖
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: 红水晶法杖
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: 水枪大战
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: 白水晶法杖
 	Tooltip: ""
 }

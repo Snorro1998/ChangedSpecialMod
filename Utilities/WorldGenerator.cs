@@ -7,8 +7,6 @@ using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
-using ChangedSpecialMod.Content.Tiles.Latex.Black;
-using ChangedSpecialMod.Content.Tiles.Latex.White;
 using ChangedSpecialMod.Content.Walls.Latex.Black;
 using ChangedSpecialMod.Content.Walls.Latex.White;
 using System;
@@ -470,8 +468,7 @@ namespace ChangedSpecialMod.Utilities
             return placedAnything;
         }
 
-        // We don't have many useful items, but we still add a chest to the lab so it won't get destroyed by meteors
-        // During testing one fell right next to it, but they don't do that if there is a chest nearby
+        // Add chests to labs so they can't be destroyed by meteors
         public static void AddChest(int xStart, int roomWidth, int yCur, int h)
         {
             var ww = xStart + 2;
@@ -580,87 +577,6 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-        private static int GetTileTypeBlackLatex(Tile tile)
-        {
-            int tileType = -1;
-
-            switch (tile.TileType)
-            {
-                case TileID.Grass:
-                case TileID.CorruptGrass:
-                case TileID.CrimsonGrass:
-                    tileType = ModContent.TileType<BlackLatexGrassTile>();
-                    break;
-
-                // Sand
-                case TileID.Sand:
-                case TileID.Ebonsand:
-                case TileID.Crimsand:
-                    tileType = ModContent.TileType<BlackLatexSandTile>();
-                    break;
-
-                // Desert
-                case TileID.HardenedSand:
-                    tileType = ModContent.TileType<BlackLatexHardenedSandTile>();
-                    break;
-                case TileID.Sandstone:
-                    tileType = ModContent.TileType<BlackLatexSandstoneTile>();
-                    break;
-
-                // Stone
-                case TileID.Stone:
-                case TileID.Ebonstone:
-                case TileID.Crimstone:
-
-                // Mossy stone
-                case TileID.GreenMoss:
-                case TileID.BrownMoss:
-                case TileID.RedMoss:
-                case TileID.BlueMoss:
-                case TileID.PurpleMoss:
-                case TileID.LavaMoss:
-                case TileID.KryptonMoss:
-                case TileID.XenonMoss:
-                case TileID.ArgonMoss:
-                case TileID.VioletMoss:
-                case TileID.RainbowMoss:
-                    tileType = ModContent.TileType<BlackLatexStoneTile>();
-                    break;
-
-                // Snow
-                case TileID.IceBlock:
-                    tileType = ModContent.TileType<BlackLatexIceTile>();
-                    break;
-
-                case TileID.SnowBlock:
-                    tileType = ModContent.TileType<BlackLatexSnowTile>();
-                    break;
-
-                // Jungle
-                case TileID.Mud:
-                    tileType = ModContent.TileType<BlackLatexMudTile>();
-                    break;
-
-                case TileID.JungleGrass:
-                    tileType = ModContent.TileType<BlackLatexJungleGrassTile>();
-                    break;
-
-                // Living trees
-                //case TileID.LivingWood:
-                //    tileType = ModContent.TileType<BlackLatexLivingWoodTile>();
-                //    break;
-
-                case TileID.Dirt:
-                case TileID.ClayBlock:
-                    tileType = ModContent.TileType<BlackLatexTile>();
-                    break;
-                default:
-                    break;
-            }
-
-            return tileType;
-        }
-
         private static int GetWallTypeBlackLatex(Tile tile)
         {
             int wallType = -1;
@@ -711,87 +627,6 @@ namespace ChangedSpecialMod.Utilities
             }
 
             return wallType;
-        }
-
-        private static int GetTileTypeWhiteLatex(Tile tile)
-        {
-            int tileType = -1;
-
-            switch (tile.TileType)
-            {
-                case TileID.Grass:
-                case TileID.CorruptGrass:
-                case TileID.CrimsonGrass:
-                    tileType = ModContent.TileType<WhiteLatexGrassTile>();
-                    break;
-
-                // Sand
-                case TileID.Sand:
-                case TileID.Ebonsand:
-                case TileID.Crimsand:
-                    tileType = ModContent.TileType<WhiteLatexSandTile>();
-                    break;
-
-                // Desert
-                case TileID.HardenedSand:
-                    tileType = ModContent.TileType<WhiteLatexHardenedSandTile>();
-                    break;
-                case TileID.Sandstone:
-                    tileType = ModContent.TileType<WhiteLatexSandstoneTile>();
-                    break;
-
-                // Stone
-                case TileID.Stone:
-                case TileID.Ebonstone:
-                case TileID.Crimstone:
-
-                // Mossy stone
-                case TileID.GreenMoss:
-                case TileID.BrownMoss:
-                case TileID.RedMoss:
-                case TileID.BlueMoss:
-                case TileID.PurpleMoss:
-                case TileID.LavaMoss:
-                case TileID.KryptonMoss:
-                case TileID.XenonMoss:
-                case TileID.ArgonMoss:
-                case TileID.VioletMoss:
-                case TileID.RainbowMoss:
-                    tileType = ModContent.TileType<WhiteLatexStoneTile>();
-                    break;
-
-                // Snow
-                case TileID.IceBlock:
-                    tileType = ModContent.TileType<WhiteLatexIceTile>();
-                    break;
-
-                case TileID.SnowBlock:
-                    tileType = ModContent.TileType<WhiteLatexSnowTile>();
-                    break;
-
-                // Jungle
-                case TileID.Mud:
-                    tileType = ModContent.TileType<WhiteLatexMudTile>();
-                    break;
-
-                case TileID.JungleGrass:
-                    tileType = ModContent.TileType<WhiteLatexJungleGrassTile>();
-                    break;
-
-                // Living trees
-                //case TileID.LivingWood:
-                //    tileType = ModContent.TileType<WhiteLatexLivingWoodTile>();
-                //    break;
-
-                case TileID.Dirt:
-                case TileID.ClayBlock:
-                    tileType = ModContent.TileType<WhiteLatexTile>();
-                    break;
-                default:
-                    break;
-            }
-
-            return tileType;
         }
 
         private static int GetWallTypeWhiteLatex(Tile tile)
@@ -917,9 +752,9 @@ namespace ChangedSpecialMod.Utilities
             }
 
             if (gooType == GooType.Black)
-                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.Black, !onlySpread);//GetTileTypeBlackLatex(tile);
+                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.Black, !onlySpread);
             else if (gooType == GooType.White)
-                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.White, !onlySpread); //return GetTileTypeWhiteLatex(tile);
+                return BiomeConversionSystem.GetInfectedBlockType(tile.TileType, GooType.White, !onlySpread);
             else if (gooType == GooType.None)
                 return GetTileTypeDryDirt(tile);
             return -1;

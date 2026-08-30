@@ -254,6 +254,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.Painting17>()
                 .Add<Items.Placeable.Furniture.Painting18>()
                 .Add<Items.Placeable.Furniture.Painting19>()
+                .Add<Items.Placeable.Furniture.Painting20>()
 
                 // Big paintings
                 .Add<Items.Placeable.Furniture.Painting6>()

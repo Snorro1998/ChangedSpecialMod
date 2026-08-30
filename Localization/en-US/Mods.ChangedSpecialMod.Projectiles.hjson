@@ -40,3 +40,7 @@ WhiteLatexSandBallGunProjectile.DisplayName: White Latex Sand Ball Gun Projectil
 LightningBoltProjectile.DisplayName: Lightning Bolt Projectile
 ElectricOrbProjectile.DisplayName: Electric Orb Projectile
 FakeCloudProjectile.DisplayName: Fake Cloud Projectile
+MagicWeaponProjectile.DisplayName: Magic Weapon Projectile
+GreenCrystalMagicWeaponProjectile.DisplayName: Green Crystal Magic Weapon Projectile
+RedCrystalMagicWeaponProjectile.DisplayName: Red Crystal Magic Weapon Projectile
+WhiteCrystalMagicWeaponProjectile.DisplayName: White Crystal Magic Weapon Projectile

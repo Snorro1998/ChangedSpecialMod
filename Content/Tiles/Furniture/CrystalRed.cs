@@ -19,6 +19,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.RandomStyleRange = 4;
             TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.DrawYOffset = 2;
             TileID.Sets.FramesOnKillWall[Type] = false;
             TileObjectData.addTile(Type);
             DustType = DustID.RedTorch;

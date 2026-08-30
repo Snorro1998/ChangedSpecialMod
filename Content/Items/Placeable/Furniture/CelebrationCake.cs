@@ -1,5 +1,6 @@
 using ChangedSpecialMod.Content.Tiles;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
@@ -10,6 +11,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
         {
             Item.DefaultToPlaceableTile(ModContent.TileType<CelebrationCakeTile>());
             Item.value = Item.buyPrice(0, 5);
+            Item.rare = ItemRarityID.Blue;
         }
 	}
 }

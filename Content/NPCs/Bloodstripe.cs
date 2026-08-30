@@ -34,7 +34,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.defense = 12;
             NPC.lifeMax = 300;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.DeathSound = SoundID.NPCDeath5;//1
 			NPC.value = ChangedUtils.GetNPCValue(gold: 1);
             NPC.knockBackResist = 0.1f;
 			NPC.aiStyle = NPCAIStyleID.Fighter;
@@ -60,6 +60,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ChangeHatPosition(ItemID.FlowerBoyHat, new int[] { 0, 14 });
             changedNPC.ChangeHatPosition(ItemID.BuccaneerBandana, new int[] { 6, 8 });
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.GooColor = new Color(246, 73, 103);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

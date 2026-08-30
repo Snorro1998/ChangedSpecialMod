@@ -60,6 +60,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
             changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
+            changedNPC.GooColor = new Color(156, 156, 156);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -81,7 +82,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            var vanillaChance = (spawnInfo.Player.ZoneSnow && Main.hardMode) ? 0.3f : 0;
+            var vanillaChance = (spawnInfo.Player.ZoneSnow && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.3f : 0;
             var changedChance = ChangedUtils.GetSnowSpawnChance(spawnInfo, changedNPC);
             return Math.Max(vanillaChance, changedChance);
         }

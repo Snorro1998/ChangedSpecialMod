@@ -63,6 +63,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.RemoveAllHats();
             changedNPC.DoOnSpawnExtra = true;
             changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
+            changedNPC.GooColor = new Color(255, 236, 160);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -87,7 +88,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
                 return 0f;
 
-            var vanillaChance = (spawnInfo.Player.ZoneDesert && Main.hardMode) ? 0.2f : 0;
+            var vanillaChance = (spawnInfo.Player.ZoneDesert && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.2f : 0;
             var changedChance = ChangedUtils.GetDesertSpawnChance(spawnInfo, changedNPC);
             return Math.Max(vanillaChance, changedChance);
         }

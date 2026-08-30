@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Gâteau de fête
-	Tooltip: Merci à tous pour plus de 700 téléchargements!
+	Tooltip: Merci à tous pour plus de 800 téléchargements!
 }
 
 WhiteLatexLantern: {
 	DisplayName: Lanterne à gelée blanche
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Sceptre de cristal vert
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Sceptre de cristal rouge
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Bataille d'eau
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: Sceptre de cristal blanc
 	Tooltip: ""
 }

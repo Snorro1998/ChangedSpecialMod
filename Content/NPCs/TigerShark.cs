@@ -57,6 +57,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
             changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
+            changedNPC.GooColor = new Color(150, 150, 150);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

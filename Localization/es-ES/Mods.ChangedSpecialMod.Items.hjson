@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Pastel de celebración
-	Tooltip: Gracias a todos por las más de 700 descargas.
+	Tooltip: Gracias a todos por las más de 800 descargas.
 }
 
 WhiteLatexLantern: {
 	DisplayName: Linterna de limo blanco
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Báculo de cristal verde
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Báculo de cristal rojo
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Guerra de agua
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: Báculo de cristal blanco
 	Tooltip: ""
 }

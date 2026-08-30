@@ -23,12 +23,14 @@ namespace ChangedSpecialMod.Content.Projectiles
         public double imageSpeed = 10D;
         public int imageIndex = 0;
         public int ImageLength { get { return animation.Length; } }
-        public bool Loop = true;
+        public bool Loop = false;
         public double imageCounter = 0D;
+        public double ImageSpeed = 120D;
 
-        public int[] animation = new int[] { 0, 1 };
+        public int[] animation = new int[] { 0 };
         public int[] animIdle = new int[] { 0 };
-        public int[] animUp = new int[] { 1 };
+        public int[] animUp = new int[] { 0, 1, 2 };
+        public int[] animDown = new int[] { 2, 1, 0 };
 
         public ref float AIState => ref Projectile.ai[0];
         public ref float AITimer => ref Projectile.ai[1];
@@ -38,7 +40,7 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Type] = 2;
+            Main.projFrames[Type] = 3;
         }
 
         public override void SetDefaults()
@@ -53,38 +55,60 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         public override bool PreDraw(ref Color lightColor)
         {
+            FindFrame();
             ChangedUtils.DrawProjectileCentered(Projectile, lightColor);
             return false;
         }
 
-        public void DrawProjectileCentered(Projectile proj, Color lightColor, Texture2D texture = null, bool drawCentered = true)
+        public void FindFrame()
         {
-            if (texture is null)
-                texture = TextureAssets.Projectile[proj.type].Value;
+            imageCounter += imageSpeed;
+            if (imageCounter >= ImageLength * 60)
+            {
+                if (Loop)
+                {
+                    imageCounter %= ImageLength * 60;
+                }
+                else
+                {
+                    imageCounter = ImageLength * 60 - 1;
+                }
+            }
 
-            int frameHeight = texture.Height / Main.projFrames[proj.type];
-            int frameY = frameHeight * proj.frame;
-            float scale = proj.scale;
-            float rotation = proj.rotation;
-
-            Rectangle rectangle = new Rectangle(0, frameY, texture.Width, frameHeight);
-            Vector2 origin = rectangle.Size() / 2f;
-
-            SpriteEffects spriteEffects = SpriteEffects.None;
-            if (proj.spriteDirection == -1)
-                spriteEffects = SpriteEffects.FlipHorizontally;
-
-            Vector2 startPos = drawCentered ? proj.Center : proj.position;
-            Vector2 drawPos = startPos - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
-
-            Main.spriteBatch.Draw(texture, drawPos, rectangle, proj.GetAlpha(lightColor), rotation, origin, scale, spriteEffects, 0f);
-
+            var arrayIndex = (int)(imageCounter / 60D);
+            imageIndex = animation[arrayIndex];
+            Projectile.frame = imageIndex;
         }
+        /*
+        public void FindFrame()
+        {
+            int maxFrames = ImageLength * 60;
+            Projectile.frameCounter += (int)ImageSpeed;
+
+            if (Loop)
+            {
+                Projectile.frameCounter %= maxFrames;
+            }
+            else if (Projectile.frameCounter >= maxFrames)
+            {
+                Projectile.frameCounter = maxFrames - 1;
+            }
+
+            int index = (int)(Projectile.frameCounter / 60d);
+            Projectile.frame = animation[index];
+        }
+        */
 
         private void SwitchState(ActionState newState)
         {
             AIState = (float)newState;
             AITimer = 0;
+        }
+
+        private void SwitchAnimation(int[] newAnimation)
+        {
+            imageCounter = 0;
+            animation = newAnimation;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -99,7 +123,7 @@ namespace ChangedSpecialMod.Content.Projectiles
             if (AITimer == 1)
             {
                 Projectile.damage = 0;
-                Projectile.frame = 0;
+                SwitchAnimation(animIdle);
             }
 
             if (AITimer >= AITimeIdle)
@@ -115,7 +139,7 @@ namespace ChangedSpecialMod.Content.Projectiles
             if (AITimer == 1)
             {
                 Projectile.damage = SpikeDamage;
-                Projectile.frame = 1;
+                SwitchAnimation(animUp);
                 SoundEngine.PlaySound(Sounds.SoundSpike, Projectile.Center);
             }
 
@@ -127,7 +151,19 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         public void StateDown()
         {
-            Projectile.active = false;
+            AITimer++;
+
+            if (AITimer == 1)
+            {
+                Projectile.damage = 0;
+                SwitchAnimation(animDown);
+            }
+
+            if (AITimer > 30)
+            {
+                Projectile.active = false;
+            }
+            //Projectile.active = false;
         }
 
         public override void AI()

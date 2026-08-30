@@ -229,7 +229,7 @@ WhiteLatexBookcases: {
 }
 
 LabTileBlock: {
-	DisplayName: Lab Tile Block
+	DisplayName: Laboratory Tile Block
 	Tooltip: ""
 }
 
@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Celebration Cake
-	Tooltip: Thank you all for over 700 downloads
+	Tooltip: Thank you all for over 800 downloads
 }
 
 WhiteLatexLantern: {
 	DisplayName: White Latex Lantern
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Green Crystal Staff
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Red Crystal Staff
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Water Fight
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: White Crystal Staff
 	Tooltip: ""
 }

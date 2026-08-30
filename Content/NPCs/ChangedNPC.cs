@@ -244,6 +244,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public ElementType ElementType = ElementType.Normal;
         public BiomeType BiomeType = BiomeType.Normal;
         public bool IsFish = false;
+        public Color GooColor = Color.White;
 
         public bool DefaultOnHitPlayer = false;
         public bool DefaultHitEffect = false;
@@ -1178,15 +1179,52 @@ namespace ChangedSpecialMod.Content.NPCs
             if (changedNPC == null || !changedNPC.DefaultHitEffect)
                 return;
 
-            var dustType = DustID.Asphalt;
-            if (changedNPC.GooType == GooType.White || changedNPC.GooType == GooType.WhiteOnly)
+            var dustType = DustID.TintableDust;
+            if (changedNPC.GooType == GooType.Black || changedNPC.GooType == GooType.BlackOnly)
+                dustType = DustID.Asphalt;
+            else if (changedNPC.GooType == GooType.White || changedNPC.GooType == GooType.WhiteOnly)
                 dustType = DustID.SnowBlock;
 
             var nParticles = 10;
-            if (npc.life <= 0) nParticles = 40;
+            if (npc.life <= 0)
+            {
+                nParticles = 40;
+                if (!Main.dedServ)
+                {
+                    var goreTypes = new List<string>();
+
+                    if (npc.type == ModContent.NPCType<MaleDarkLatex>())
+                        goreTypes.Add("MaleDarkLatex1");
+                    else if (npc.type == ModContent.NPCType<FemaleDarkLatex>())
+                        goreTypes.Add("FemaleDarkLatex1");
+                    else if (npc.type == ModContent.NPCType<FlyingDarkLatex>())
+                    {
+                        goreTypes.Add("FlyingDarkLatex1");
+                        goreTypes.Add("FlyingDarkLatex2");
+                        goreTypes.Add("FlyingDarkLatex3");
+                    }
+                    else if (npc.type == ModContent.NPCType<WingedDarkLatex>())
+                        goreTypes.Add("WingedDarkLatex");
+                    else if (npc.type == ModContent.NPCType<Wendigo>())
+                    {
+                        goreTypes.Add("Wendigo1");
+                        goreTypes.Add("Wendigo2");
+                        goreTypes.Add("Wendigo3");
+                    }
+
+                    if (goreTypes.Any())
+                    {
+                        foreach (var goreType in goreTypes)
+                        {
+                            var scale = npc.scale;// / changedNPC.BaseScaleMultiplier;
+                            Gore.NewGore(npc.GetSource_Death(), npc.position, npc.velocity, Mod.Find<ModGore>(goreType).Type, scale);
+                        }
+                    }
+                }
+            }
             for (int i = 0; i < nParticles; i++)
             {
-                var dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, dustType, 0, 0, 1, Color.White);
+                var dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, dustType, 0, 0, 1, changedNPC.GooColor);
                 dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
                 dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
                 dust.scale *= npc.scale * changedNPC.HitEffectScale + Main.rand.NextFloat(-0.03f, 0.03f);

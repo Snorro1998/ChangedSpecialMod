@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Festtagstorte
-	Tooltip: Vielen Dank an alle für über 700 Downloads!
+	Tooltip: Vielen Dank an alle für über 800 Downloads!
 }
 
 WhiteLatexLantern: {
 	DisplayName: Weiße Schleimlaterne
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Grüner Kristallstab
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Roter Kristallstab
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Wasserschlacht
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: Weißer Kristallstab
 	Tooltip: ""
 }

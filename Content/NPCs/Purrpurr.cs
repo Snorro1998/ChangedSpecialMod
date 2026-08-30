@@ -64,6 +64,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ChangeHatPosition(ItemID.GhostMask, new int[] { 2, 10 });
             changedNPC.ChangeHatPosition(ItemID.WitchHat, new int[] { 4, 6 });
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.GooColor = new Color(196, 110, 233);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

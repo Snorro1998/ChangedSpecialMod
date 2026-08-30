@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Torta di festa
-	Tooltip: Grazie a tutti per gli oltre 700 download
+	Tooltip: Grazie a tutti per gli oltre 800 download
 }
 
 WhiteLatexLantern: {
 	DisplayName: Lanterna di melma bianca
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Bastone di cristallo verde
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Bastone di cristallo rosso
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Battaglia d'acqua
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: Bastone di cristallo bianco
 	Tooltip: ""
 }

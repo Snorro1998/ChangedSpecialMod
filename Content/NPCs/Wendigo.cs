@@ -32,7 +32,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.defense = 12;
             NPC.lifeMax = 300;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.DeathSound = SoundID.NPCDeath5;//1
             NPC.value = ChangedUtils.GetNPCValue(gold: 1);
             NPC.knockBackResist = 0.1f;
 			NPC.aiStyle = NPCAIStyleID.Fighter;

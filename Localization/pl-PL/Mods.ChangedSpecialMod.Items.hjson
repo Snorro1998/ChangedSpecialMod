@@ -936,10 +936,30 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Tort na uroczystość
-	Tooltip: Dziękujemy wszystkim za ponad 700 pobrań
+	Tooltip: Dziękujemy wszystkim za ponad 800 pobrań
 }
 
 WhiteLatexLantern: {
 	DisplayName: Biała latarnia śluzowa
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Zielony Kryształowy Kostur
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Czerwony Kryształowy Kostur
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Walka wodna
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: Biały Kryształowy Kostur
 	Tooltip: ""
 }

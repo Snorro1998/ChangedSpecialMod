@@ -404,6 +404,8 @@ namespace ChangedSpecialMod.Utilities
                                                 continue;
 
                                             var validPosition = true;
+
+                                            // Check if 3X3 area has no blocks and no liquids
                                             for (int x3 = x2 - 1; x3 <= x2 + 1; x3++)
                                             {
                                                 for (int y3 = y2; y3 <= y2 + 2; y3++)
@@ -425,8 +427,22 @@ namespace ChangedSpecialMod.Utilities
                                                     break;
                                             }
 
-                                            var tileType = Main.tile[x2, y2 + 3].TileType;
-                                            var dangerousTile = tileType == TileID.Traps || tileType == TileID.RollingCactus || tileType == TileID.Spikes || tileType == TileID.WoodenSpikes || tileType == TileID.PressurePlates || tileType == TileID.Detonator || tileType == TileID.WeightedPressurePlate || tileType == TileID.ProjectilePressurePad;
+                                            var dangerousTile = false;
+                                            for (int x3 = x2 - 2; x3 <= x2 + 2; x3++)
+                                            {
+                                                for (int y3 = y2 - 2; y3 <= y2 + 4; y3++)
+                                                {
+                                                    var tileType = Main.tile[x3, y3].TileType;
+                                                    if (tileType == TileID.Traps || tileType == TileID.RollingCactus || tileType == TileID.Spikes || tileType == TileID.WoodenSpikes || tileType == TileID.PressurePlates || tileType == TileID.Detonator || tileType == TileID.WeightedPressurePlate || tileType == TileID.ProjectilePressurePad)
+                                                    {
+                                                        dangerousTile = true;
+                                                        goto getout;
+                                                    }
+                                                }
+                                            }
+
+                                            getout:
+
                                             if (validPosition && !dangerousTile && WorldGen.SolidTile(x2, y2 + 3))
                                                 return new Vector2(x2 * 16, y2 * 16);
                                         }
@@ -1254,10 +1270,10 @@ namespace ChangedSpecialMod.Utilities
             var spawnTileIsWater = spawnInfo.Water;
 
             // Don't spawn in water if it is not a fish or water type 
-            if (!npc.IsFish && npc.ElementType != ElementType.Water && spawnTileIsWater)
-                return false;
+            //if (!npc.IsFish && npc.ElementType != ElementType.Water && spawnTileIsWater)
+            //    return false;
             // Don't spawn fish type if there is no water
-            else if (npc.IsFish && !spawnTileIsWater)
+            /*else*/ if (npc.IsFish && !spawnTileIsWater)
                 return false;
 
             return true;

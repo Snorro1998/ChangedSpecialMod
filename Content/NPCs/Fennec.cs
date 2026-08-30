@@ -57,6 +57,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
+            changedNPC.GooColor = new Color(255, 255, 149);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -74,7 +75,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
                 return 0f;
 
-            var vanillaChance = spawnInfo.Player.ZoneDesert ? 0.2f : 0;
+            var vanillaChance = spawnInfo.Player.ZoneDesert && spawnInfo.Player.townNPCs < 3 ? 0.2f : 0;
             var changedChance = ChangedUtils.GetDesertSpawnChance(spawnInfo, changedNPC);
             return Math.Max(vanillaChance, changedChance);
         }
