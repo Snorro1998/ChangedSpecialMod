@@ -38,26 +38,6 @@ namespace ChangedSpecialMod.Backgrounds
 		public override int ChooseMiddleTexture() 
 		{
             return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid");
-            /*
-			if (++SurfaceFrameCounter > 12) 
-			{
-				SurfaceFrame = (SurfaceFrame + 1) % 4;
-				SurfaceFrameCounter = 0;
-			}
-			switch (SurfaceFrame) 
-			{
-				case 0:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid0");
-				case 1:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid1");
-				case 2:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid2");
-				case 3:
-					return BackgroundTextureLoader.GetBackgroundSlot("ChangedSpecialMod/Assets/Textures/Backgrounds/WhiteLatexSurfaceJungle/Mid3"); // You can use the full path version of GetBackgroundSlot too
-				default:
-					return -1;
-			}
-			*/
         }
 
 		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) 

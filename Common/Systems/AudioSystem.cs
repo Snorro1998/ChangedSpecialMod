@@ -25,6 +25,7 @@ namespace ChangedSpecialMod.Common.Systems
         {
             if (Main.netMode != NetmodeID.Server)
             {
+                // Normal music
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicCrystalZone), ModContent.ItemType<MusicBoxCrystalZone>(), ModContent.TileType<MusicBoxCrystalZoneTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicLabSlow), ModContent.ItemType<MusicBoxLabSlow>(), ModContent.TileType<MusicBoxLabSlowTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicLab), ModContent.ItemType<MusicBoxLab>(), ModContent.TileType<MusicBoxLabTile>());
@@ -38,6 +39,7 @@ namespace ChangedSpecialMod.Common.Systems
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicGreenhouse), ModContent.ItemType<MusicBoxGreenhouse>(), ModContent.TileType<MusicBoxGreenhouseTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicVents), ModContent.ItemType<MusicBoxVents>(), ModContent.TileType<MusicBoxVentsTile>());
 
+                // Boss music
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicWhiteTailChase2), ModContent.ItemType<MusicBoxWhiteTail>(), ModContent.TileType<MusicBoxWhiteTailTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicWolfKing), ModContent.ItemType<MusicBoxWolfKing>(), ModContent.TileType<MusicBoxWolfKingTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicBehemoth), ModContent.ItemType<MusicBoxBehemoth>(), ModContent.TileType<MusicBoxBehemothTile>());

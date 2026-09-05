@@ -8,11 +8,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.NPCs
+namespace ChangedSpecialMod.Content.NPCs.Drunk
 {
 	public class BrightLatex : ModNPC
 	{
-        public override string Texture => "ChangedSpecialMod/Content/NPCs/Drunk/BrightLatex";
         public override void SetStaticDefaults() 
 		{
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];

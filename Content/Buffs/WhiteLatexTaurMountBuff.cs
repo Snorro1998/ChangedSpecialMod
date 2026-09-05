@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Buffs
@@ -12,14 +7,14 @@ namespace ChangedSpecialMod.Content.Buffs
     {
         public override void SetStaticDefaults()
         {
-            Main.buffNoTimeDisplay[Type] = true; // The time remaining won't display on this buff
-            Main.buffNoSave[Type] = true; // This buff won't save when you exit the world
+            Main.buffNoTimeDisplay[Type] = true;
+            Main.buffNoSave[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
             player.mount.SetMount(ModContent.MountType<Mounts.WhiteLatexTaurMount>(), player);
-            player.buffTime[buffIndex] = 10; // reset buff time
+            player.buffTime[buffIndex] = 10;
         }
     }
 }

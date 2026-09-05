@@ -1,21 +1,18 @@
 using ChangedSpecialMod.Content.Biomes;
-using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.NPCs
+namespace ChangedSpecialMod.Content.NPCs.Drunk
 {
 	public class QuackLatex : ModNPC
 	{
-        public override string Texture => "ChangedSpecialMod/Content/NPCs/Drunk/QuackLatex";
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 10;

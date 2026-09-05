@@ -82,11 +82,12 @@ Other
 
 0.5.6.3
 
-This is a small update with a few changes.
+This is a small update with a few changes to NPCs.
 
 
 General
 - Added impact particles to projectiles shot by book weapons
+- The amount of crimson, corrupt, hallow and latex blocks in the world are counted twice per day. This is to determine if NPCs should talk about these biomes.
 
 NPCs
 - Small monsters will move very fast if the player is drunk
@@ -96,3 +97,5 @@ NPCs
 
 Fixes
 - Prototype would always spawn if the Behemoth despawned, even if you didn't defeat him
+- Fixed wrong drawing offsets for snow leopard
+- NPCs could still talk about the corruption and crimson if they were no longer there, unless you reloaded the world

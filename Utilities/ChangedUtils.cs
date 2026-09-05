@@ -4,6 +4,7 @@ using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;

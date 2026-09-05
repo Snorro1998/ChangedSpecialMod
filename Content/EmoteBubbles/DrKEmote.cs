@@ -1,5 +1,4 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Utilities;
 using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.ModLoader;

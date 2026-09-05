@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
 {
-	public class CityRuinsBiomeTileCount : ModSystem
+	public class TileCountSystem : ModSystem
 	{
 		public static int NBlocksNeeded = 800;
 

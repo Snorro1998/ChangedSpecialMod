@@ -93,9 +93,25 @@ namespace ChangedSpecialMod.Content.NPCs
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }
 
+        private void UpdateHatPosition(int frameHeight)
+        {
+            var changedNPC = NPC.Changed();
+            var frame = NPC.frame;
+            var fr = frame.Top / frameHeight;
+            var yOffset = -34;
+
+            if (fr == 1 || fr == 3)
+            {
+                yOffset -= 2;
+            }
+
+            changedNPC.HatYOffset = yOffset;
+        }
+
         public override void FindFrame(int frameHeight)
         {
             Animations.AnimRunner(NPC, frameHeight);
+            UpdateHatPosition(frameHeight);
         }
 
         public override bool PreAI()

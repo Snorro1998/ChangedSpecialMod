@@ -111,10 +111,17 @@ namespace ChangedSpecialMod.Common.Systems
         {
             if (mod == null)
                 return;
-            foreach (var (bossName, bossValue) in bosses)
+            try
             {
-                if ((bool)mod.Call(bossCheckMethodName, bossName))
-                    bossNumberList.Add(bossValue);
+                foreach (var (bossName, bossValue) in bosses)
+                {
+                    if ((bool)mod.Call(bossCheckMethodName, bossName))
+                        bossNumberList.Add(bossValue);
+                }
+            }
+            catch
+            {
+                // Mod call to external mod threw an exception.
             }
         }
 

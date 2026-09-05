@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Utilities;

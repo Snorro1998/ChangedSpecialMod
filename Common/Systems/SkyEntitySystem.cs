@@ -9,44 +9,46 @@ using Terraria.Utilities;
 
 namespace ChangedSpecialMod.Common.Systems
 {
+    // This system overwrites sky entities, which are moving, decorative objects you can sometimes see in the sky
+    // It can happen rarely in any biome, or always when inside a biome from this mod
     public class SkyEntitySystem : ModSystem
     {
         public override void Load()
         {
-            On_AmbientSky.BirdsPackSkyEntity.ctor += Hook_BirdsPackSkyEntity_ctor;
-            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor += Hook_SlimeBalloonGroupSkyEntity_ctor;
-            On_AmbientSky.AirshipSkyEntity.ctor += Hook_AirshipSkyEntity_ctor;
-            On_AmbientSky.WyvernSkyEntity.ctor += Hook_WyvernSkyEntity_ctor;
+            On_AmbientSky.BirdsPackSkyEntity.ctor += HookBirds;
+            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor += HookSlimeBalloon;
+            On_AmbientSky.AirshipSkyEntity.ctor += HookAirship;
+            On_AmbientSky.WyvernSkyEntity.ctor += HookWyvern;
         }
 
         public override void Unload()
         {
-            On_AmbientSky.BirdsPackSkyEntity.ctor -= Hook_BirdsPackSkyEntity_ctor;
-            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor -= Hook_SlimeBalloonGroupSkyEntity_ctor;
-            On_AmbientSky.AirshipSkyEntity.ctor -= Hook_AirshipSkyEntity_ctor;
-            On_AmbientSky.WyvernSkyEntity.ctor -= Hook_WyvernSkyEntity_ctor;
+            On_AmbientSky.BirdsPackSkyEntity.ctor -= HookBirds;
+            On_AmbientSky.SlimeBalloonGroupSkyEntity.ctor -= HookSlimeBalloon;
+            On_AmbientSky.AirshipSkyEntity.ctor -= HookAirship;
+            On_AmbientSky.WyvernSkyEntity.ctor -= HookWyvern;
         }
 
         #region SkyEntityHooks
-        private void Hook_BirdsPackSkyEntity_ctor(On_AmbientSky.BirdsPackSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        private void HookBirds(On_AmbientSky.BirdsPackSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
             RandomChanceReplaceSkyEntityTexture(self, player);
         }
 
-        private void Hook_SlimeBalloonGroupSkyEntity_ctor(On_AmbientSky.SlimeBalloonGroupSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        private void HookSlimeBalloon(On_AmbientSky.SlimeBalloonGroupSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
             RandomChanceReplaceSkyEntityTexture(self, player, 2);
         }
 
-        private void Hook_AirshipSkyEntity_ctor(On_AmbientSky.AirshipSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        private void HookAirship(On_AmbientSky.AirshipSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
             RandomChanceReplaceSkyEntityTexture(self, player);
         }
 
-        private void Hook_WyvernSkyEntity_ctor(On_AmbientSky.WyvernSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
+        private void HookWyvern(On_AmbientSky.WyvernSkyEntity.orig_ctor orig, object self, Player player, FastRandom random)
         {
             orig.Invoke(self, player, random);
             RandomChanceReplaceSkyEntityTexture(self, player, 1);
@@ -56,8 +58,8 @@ namespace ChangedSpecialMod.Common.Systems
         private void RandomChanceReplaceSkyEntityTexture(object self, Player player, int entityType = 0)
         {
             // entitytype:
-            //0 yufeng / white dragon: 4 frames
-            //1 yufeng / white dragon: 5 frames
+            //0 yufeng or white dragon: 4 frames
+            //1 yufeng or white dragon: 5 frames
             //2 plush balloon: 1 frame
 
             var inBlack = BiomeChecks.InBlackLatexBiome(player);

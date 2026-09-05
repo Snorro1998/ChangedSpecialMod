@@ -1,8 +1,6 @@
-﻿using ChangedSpecialMod.Assets;
-using ChangedSpecialMod.Backgrounds;
+﻿using ChangedSpecialMod.Backgrounds;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
-using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Capture;
@@ -10,8 +8,6 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Biomes
 {
-	// Shows setting up two basic biomes. For a more complicated example, please request.
-
     public class BlackLatexSurfaceBiome : ModBiome
 	{
         // I don't want a custom water style, so I made one as close as I could to vanilla
@@ -19,24 +15,19 @@ namespace ChangedSpecialMod.Content.Biomes
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<CityRuinsWaterStyle>();
 		public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<BlackLatexSurfaceBackgroundStyle>();
 		public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-
-		// Populate the Bestiary Filter
 		public override string BestiaryIcon => base.BestiaryIcon;
 		public override string BackgroundPath => base.BackgroundPath;
 		public override Color? BackgroundColor => base.BackgroundColor;
-		public override string MapBackground => BackgroundPath; // Re-uses Bestiary Background for Map Background
+		public override string MapBackground => BackgroundPath;
 
         public Player LastEnteredPlayer;
 
-		// Calculate when the biome is active.
 		public override bool IsBiomeActive(Player player)
         {
-            return CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.Black) && CityRuinsBiomeTileCount.ActiveBiomeType == BiomeType.Normal;
+            return TileCountSystem.BiomeActive(player, NPCs.GooType.Black) && TileCountSystem.ActiveBiomeType == BiomeType.Normal;
         }
 
-		public override SceneEffectPriority Priority => SceneEffectPriority.Environment; // Biomehigh
-
-        // Select music
+		public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
         public override int Music
         {
             get 
@@ -45,7 +36,6 @@ namespace ChangedSpecialMod.Content.Biomes
             }
         }
 
-        // Randomize music when entering the biome
         public override void OnEnter(Player player)
         {
             LastEnteredPlayer = player;

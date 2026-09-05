@@ -105,7 +105,7 @@ namespace ChangedSpecialMod.Content.Tiles.Pylons
             // based off of tile count, when this hook is called, you can simply check the tile threshold, like we do here. In the context of ExampleMod,
             // something is considered within the Example Surface/Underground biome if there are 40 or more example blocks at that location.
 
-            return CityRuinsBiomeTileCount.WhiteLatexBlockCount >= CityRuinsBiomeTileCount.NBlocksNeeded;
+            return TileCountSystem.WhiteLatexBlockCount >= TileCountSystem.NBlocksNeeded;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

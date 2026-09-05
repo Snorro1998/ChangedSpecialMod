@@ -1,4 +1,4 @@
-using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -20,7 +20,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             Main.tileNoAttach[Type] = true;
             Main.tileSolidTop[Type] = true;
             TileID.Sets.DisableSmartCursor[Type] = true;
-			TileID.Sets.IgnoredByNpcStepUp[Type] = true; // This line makes NPCs not try to step up this tile during their movement. Only use this for furniture with solid tops.
+            // This line makes NPCs not try to step up this tile during their movement. Only use this for furniture with solid tops.
+            TileID.Sets.IgnoredByNpcStepUp[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 4;

@@ -15,21 +15,18 @@ namespace ChangedSpecialMod.Content.Biomes
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<CityRuinsWaterStyle>();
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<WhiteLatexSurfaceBackgroundStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-
-        // Populate the Bestiary Filter
         public override string BestiaryIcon => base.BestiaryIcon;
         public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => base.BackgroundColor;
-        // Re-uses Bestiary Background for Map Background
         public override string MapBackground => BackgroundPath; 
         public Player LastEnteredPlayer;
 
 
         public override bool IsBiomeActive(Player player)
         {
-            return CityRuinsBiomeTileCount.BiomeActive(player, NPCs.GooType.White) && CityRuinsBiomeTileCount.ActiveBiomeType == BiomeType.Normal;
+            return TileCountSystem.BiomeActive(player, NPCs.GooType.White) && TileCountSystem.ActiveBiomeType == BiomeType.Normal;
         }
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment; // Biomehigh
+        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 
         public override int Music
         {

@@ -3,6 +3,7 @@ using ChangedSpecialMod.Content.Items.Placeable;
 using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
 using ChangedSpecialMod.Content.Items.Placeable.Latex.White;
 using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;

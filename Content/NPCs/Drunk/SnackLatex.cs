@@ -9,11 +9,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.NPCs
+namespace ChangedSpecialMod.Content.NPCs.Drunk
 {
 	public class SnackLatex : ModNPC
 	{
-        public override string Texture => "ChangedSpecialMod/Content/NPCs/Drunk/SnackLatex";
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 4;

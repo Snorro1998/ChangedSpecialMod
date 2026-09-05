@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.NPCs
+namespace ChangedSpecialMod.Content.NPCs.Drunk
 {
     // These three class showcase usage of the WormHead, WormBody and WormTail classes from Worm.cs
     internal class PuroWormHead : WormHead

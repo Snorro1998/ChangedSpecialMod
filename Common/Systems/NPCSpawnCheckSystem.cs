@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Utilities;
 using System;
 using System.Collections.Generic;

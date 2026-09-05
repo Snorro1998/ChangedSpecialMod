@@ -1,11 +1,4 @@
-﻿using ChangedSpecialMod.Content.Items.Weapons;
-using ChangedSpecialMod.Content.Projectiles;
-using ChangedSpecialMod.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ChangedSpecialMod.Content.Projectiles;
 using Terraria;
 using Terraria.ModLoader;
 

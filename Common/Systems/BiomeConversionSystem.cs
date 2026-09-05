@@ -1,5 +1,4 @@
 ﻿using ChangedSpecialMod.Content.Items.Ammo;
-using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
@@ -53,17 +52,7 @@ namespace ChangedSpecialMod.Common.Systems
         private sealed class MergeableTileGlobalTile : GlobalTile
         {
             public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
-            {
-                /*
-                // Custom plant framing
-                for (int k = 0; k < PlantTypes.Length; k++)
-                    if (type == PlantTypes[k])
-                    {
-                        PlantFrame(i, j);
-                        return false;
-                    }
-                */
-                
+            {                
                 if (type == ModContent.TileType<DryDirtPlant>())
                 {
                     PlantFrame(i, j);
@@ -106,8 +95,6 @@ namespace ChangedSpecialMod.Common.Systems
                 var belowTileType = (int)below.TileType;
                 if (belowTileType == ModContent.TileType<DryDirtGrassTile>())
                     return;
-                //if (PlantValidGrounds[plantType] is not null && PlantValidGrounds[plantType].Contains(belowTileType))
-                //    return;
 
                 var latexTiles = GetLatexBlocks();
                 if (latexTiles.Contains(belowTileType))
@@ -160,15 +147,6 @@ namespace ChangedSpecialMod.Common.Systems
                 else if (belowTileType == ModContent.TileType<DryDirtPlant>())
                 {
                     newPlantType = ModContent.TileType<DryDirtPlant>();
-                    /*
-                    var isShortPlant = plantType == TileID.Plants ||
-                        plantType == TileID.CorruptPlants ||
-                        plantType == TileID.CrimsonPlants ||
-                        plantType == TileID.HallowedPlants ||
-                        plantType == TileID.MushroomPlants ||
-                        plantType == TileID.JunglePlants;
-                    newPlantType = isShortPlant ? ModContent.TileType<DryDirtPlant>() : ModContent.TileType<DryDirtPlant>();
-                    */
                 }
                 #endregion
 
@@ -425,17 +403,6 @@ namespace ChangedSpecialMod.Common.Systems
                     ModContent.TileType<BlackLatexIceTile>(),
                     ModContent.TileType<WhiteLatexIceTile>(),
                     TileID.IceBlock),
-                /*
-                // Living wood
-                new BiomeConversion(
-                    TileID.LivingWood,
-                    TileID.LivingWood,
-                    TileID.LivingWood,
-                    TileID.LivingWood,
-                    ModContent.TileType<BlackLatexLivingWoodTile>(),
-                    ModContent.TileType<WhiteLatexLivingWoodTile>(),
-                    TileID.LivingWood)
-                */
             };
 
             wallConversions = new List<BiomeConversion>()
@@ -864,7 +831,6 @@ namespace ChangedSpecialMod.Common.Systems
             }
 
             // Manually add these tiles to get destroyed
-
             TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Purity, DestroyTile);
             TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Corruption, DestroyTile);
             TileLoader.RegisterConversion(ModContent.TileType<Content.Tiles.Furniture.CrystalRed>(), BiomeConversionID.Crimson, DestroyTile);

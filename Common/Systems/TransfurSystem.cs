@@ -7,7 +7,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace ChangedSpecialMod.Common.Systems
@@ -24,7 +23,6 @@ namespace ChangedSpecialMod.Common.Systems
     public class TransfurSystem
     {
         public static Dictionary<EvolutionLines, List<Transfur>> EvolutionsLines = new Dictionary<EvolutionLines, List<Transfur>>();
-
 
         public static Transfur GetTransfurByNPCType(int npcType)
         {
@@ -337,44 +335,6 @@ namespace ChangedSpecialMod.Common.Systems
             AddEvoLineWhite();
             AddEvoLineMisc();
             AddEvoLineAquatic();
-
-
-
-
-
-            /*
-            // Town NPCs
-            evolutionLine = new List<Transfur>();
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<Puro>(),
-                texturePath = $"{baseTexturePath}Puro",
-                gooType = GooType.Black,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<Scientist>(),
-                texturePath = $"{baseTexturePath}Scientist",
-                gooType = GooType.White,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-            });
-
-            evolutionLine.Add(new Transfur()
-            {
-                npcType = ModContent.NPCType<Prototype>(),
-                texturePath = $"{baseTexturePath}Prototype",
-                gooType = GooType.None,
-                lifeMultiplier = 1.25f,
-                extraDefense = 5,
-            });
-
-            EvolutionsLines.Add(EvolutionLines.TownNPC, evolutionLine);
-            */
         }
 
         public static void UntransfurPlayer(int playerIndex)

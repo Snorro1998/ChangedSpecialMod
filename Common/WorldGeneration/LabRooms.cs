@@ -181,7 +181,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
             true,
             // Don't add chairs or else it can be a valid house and NPCs will move in before you have found it
             // We could also remove the light from the room
-            [ModContent.TileType<LabTable>(), ModContent.TileType<StackOfBoxes>(), ModContent.TileType<Locker>()/*, ModContent.TileType<BlueOfficeChair>()*/],
+            [ModContent.TileType<LabTable>(), ModContent.TileType<StackOfBoxes>(), ModContent.TileType<Locker>()],
             singleDecor: -1,
             lanternStyle: 0,
             torchStyle: -1,
