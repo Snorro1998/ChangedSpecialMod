@@ -330,9 +330,9 @@ namespace ChangedSpecialMod.Content.NPCs
             if (Main.netMode == NetmodeID.MultiplayerClient)
                 return;
 
-            if (!NPC.AnyNPCs(ModContent.NPCType<Prototype>()))
+            if (!NPC.AnyNPCs(ModContent.NPCType<Prototype>()) && !NPC.AnyNPCs(ModContent.NPCType<PrototypeBound>()) && NPC.life <= 1)
             {
-                var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)NPC.Center.X, (int)NPC.Bottom.Y, ModContent.NPCType<Prototype>(), 0, 0);
+                var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)NPC.Center.X, (int)NPC.Bottom.Y, ModContent.NPCType<PrototypeBound>(), 0, 0);
 
                 if (Main.netMode == NetmodeID.Server && npcIndex != -1)
                     NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);

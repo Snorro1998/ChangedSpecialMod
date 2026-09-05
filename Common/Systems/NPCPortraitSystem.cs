@@ -41,6 +41,7 @@ namespace ChangedSpecialMod.Common.Systems
         {
             npcsWithPortraits = new List<int>();
             npcsWithPortraits.Add(ModContent.NPCType<Puro>());
+            npcsWithPortraits.Add(ModContent.NPCType<PrototypeBound>());
             npcsWithPortraits.Add(ModContent.NPCType<Prototype>());
             npcsWithPortraits.Add(ModContent.NPCType<Scientist>());
             npcsWithPortraits.Add(ModContent.NPCType<Colin>());
@@ -101,6 +102,10 @@ namespace ChangedSpecialMod.Common.Systems
             var talkNPC = Main.npc[Main.LocalPlayer.talkNPC];
             var npcName = talkNPC.ModNPC.GetType().Name;
 
+            // Use normal portraits for bound NPCs
+            if (npcName.ToLower().EndsWith("bound"))
+                npcName = npcName.Substring(0, npcName.Length - "bound".Length);
+
             string eventName = "Normal";
             if (BirthdayParty.PartyIsUp)
                 eventName = "Party";
@@ -129,7 +134,12 @@ namespace ChangedSpecialMod.Common.Systems
             if (portraitTexturePath == null)
                 return;
 
-            var portrait = ModContent.Request<Texture2D>(portraitTexturePath).Value;
+            var assetExists = ModContent.RequestIfExists(portraitTexturePath, out Asset<Texture2D> portraitAsset);
+
+            if (!assetExists)
+                return;
+
+            var portrait = portraitAsset.Value;
 
             var npcChatTopLeft = new Vector2(Main.screenWidth / 2 - 250, 100);
             var drawPos = npcChatTopLeft + new Vector2(-62, 62);

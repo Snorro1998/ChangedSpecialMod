@@ -16,8 +16,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public static List<int> PlantList = new List<int>
         {
             TileID.Saplings,
-            //TileID.Cactus,
-            //TileID.Trees,
             TileID.Pumpkins,
             TileID.Sunflower,
             TileID.ImmatureHerbs,
@@ -85,7 +83,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (flag)
             {
                 Point point = (npc.Bottom + Vector2.UnitY * -2f).ToTileCoordinates();
-                for (int i = 0; i < 200; i++)
+                for (int i = 0; i < Main.maxNPCs; i++)
                 {
                     if (Main.npc[i].active && Main.npc[i].aiStyle == NPCAIStyleID.Passive && Main.npc[i].townNPC && Main.npc[i].ai[0] == 5f && (Main.npc[i].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
                     {
@@ -407,18 +405,21 @@ namespace ChangedSpecialMod.Content.NPCs
         // 30: Watering plants
         public static void AI_007_TownEntities(NPC npc)
         {
-            // Chance he will water plants if walking near them
-            int waterPlantsChance = 75; //90
-            // Chance he will sit down if walking near a chair
-            int sitDownChance = 300;
+            // Chance the NPC will...
+            int waterPlantsChance = 75;     // Water plants if walking near them 
+            int sitDownChance = 300;        // Sit down if walking near a chair
+
+            // Check which npc it is
+            var isPrototype = npc.type == ModContent.NPCType<Prototype>();
+            var isDrK = npc.type == ModContent.NPCType<Scientist>();
+
+            // Abilities
+            var canWaterPlants = isPrototype;
+            var canThrowHealingSyringes = isDrK;
 
             bool shouldStayInside = Main.raining;
 
             NPC.ShimmeredTownNPCs[npc.type] = npc.IsShimmerVariant;
-            if (npc.type == NPCID.TaxCollector && npc.GivenName == "Andrew")
-            {
-                npc.defDefense = 200;
-            }
             if (npc.type == NPCID.TownDog || npc.type == NPCID.TownBunny || NPCID.Sets.IsTownSlime[npc.type])
             {
                 sitDownChance = 0;
@@ -518,73 +519,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.defense += 8;
                 }
                 NPCLoader.BuffTownNPC(ref num2, ref npc.defense);
-            }
-            if (npc.type == NPCID.SantaClaus && Main.netMode != NetmodeID.MultiplayerClient && !Main.xMas)
-            {
-                var hit = new NPC.HitInfo();
-                hit.Damage = 9999;
-                hit.Knockback = 0f;
-                npc.StrikeNPC(hit);
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, npc.whoAmI, 9999f);
-                }
-            }
-            if ((npc.type == NPCID.Penguin || npc.type == NPCID.PenguinBlack) && npc.localAI[0] == 0f)
-            {
-                npc.localAI[0] = Main.rand.Next(1, 5);
-            }
-            if (npc.type == NPCID.Mechanic)
-            {
-                int num3 = NPC.lazyNPCOwnedProjectileSearchArray[npc.whoAmI];
-                bool flag2 = false;
-                if (Main.projectile.IndexInRange(num3))
-                {
-                    Projectile projectile = Main.projectile[num3];
-                    if (projectile.active && projectile.type == 582 && projectile.ai[1] == (float)npc.whoAmI)
-                    {
-                        flag2 = true;
-                    }
-                }
-                npc.localAI[0] = flag2.ToInt();
-            }
-            // Switch to swimming variant when entering the water, which is a completely different npc
-            if ((npc.type == NPCID.Duck || npc.type == NPCID.DuckWhite || npc.type == NPCID.Seagull || npc.type == NPCID.Grebe) && Main.netMode != NetmodeID.MultiplayerClient && (npc.velocity.Y > 4f || npc.velocity.Y < -4f || npc.wet))
-            {
-                int num4 = npc.direction;
-                npc.Transform(npc.type + 1);
-                npc.TargetClosest();
-                npc.direction = num4;
-                npc.netUpdate = true;
-                return;
-            }
-
-            switch (npc.type)
-            {
-                case NPCID.Golfer:
-                    NPC.savedGolfer = true;
-                    break;
-                case NPCID.TaxCollector:
-                    NPC.savedTaxCollector = true;
-                    break;
-                case NPCID.GoblinTinkerer:
-                    NPC.savedGoblin = true;
-                    break;
-                case NPCID.Wizard:
-                    NPC.savedWizard = true;
-                    break;
-                case NPCID.Mechanic:
-                    NPC.savedMech = true;
-                    break;
-                case NPCID.Stylist:
-                    NPC.savedStylist = true;
-                    break;
-                case NPCID.Angler:
-                    NPC.savedAngler = true;
-                    break;
-                case NPCID.DD2Bartender:
-                    NPC.savedBartender = true;
-                    break;
             }
 
             npc.dontTakeDamage = false;
@@ -702,10 +636,7 @@ namespace ChangedSpecialMod.Content.NPCs
             int num6 = (int)(npc.position.X + (float)(npc.width / 2)) / 16;
             int num7 = (int)(npc.position.Y + (float)npc.height + 1f) / 16;
             AI_007_FindGoodRestingSpot(npc, num6, num7, out var floorX, out var floorY);
-            if (npc.type == NPCID.TaxCollector)
-            {
-                NPC.taxCollector = true;
-            }
+            
             npc.directionY = -1;
             if (npc.direction == 0)
             {
@@ -738,63 +669,14 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            // Kills the old man
+            // Kills the NPC
             if (npc.ai[3] == 1f)
             {
                 npc.life = -1;
                 npc.HitEffect();
                 npc.active = false;
                 npc.netUpdate = true;
-                if (npc.type == NPCID.OldMan)
-                {
-                    //SoundEngine.PlaySound(15, (int)npc.position.X, (int)npc.position.Y, 0);
-                }
                 return;
-            }
-            // Old man always gets killed when you have defeated skeletron
-            if (npc.type == NPCID.OldMan && Main.netMode != 1)
-            {
-                npc.UpdateHomeTileState(homeless: false, Main.dungeonX, Main.dungeonY);
-                if (NPC.downedBoss3)
-                {
-                    npc.ai[3] = 1f;
-                    npc.netUpdate = true;
-                }
-            }
-            if (npc.type == NPCID.TravellingMerchant)
-            {
-                npc.homeless = true;
-                if (!Main.dayTime)
-                {
-                    if (!npc.shimmering)
-                    {
-                        npc.UpdateHomeTileState(npc.homeless, (int)(npc.Center.X / 16f), (int)(npc.position.Y + (float)npc.height + 2f) / 16);
-                    }
-                    if (!talkingWithPlayer && npc.ai[0] == 0f)
-                    {
-                        npc.ai[0] = 1f;
-                        npc.ai[1] = 200f;
-                    }
-                    shouldStayInside = false;
-                }
-            }
-            // Angler walks away from the ocean if homeless and in the water
-            if (npc.type == NPCID.Angler && npc.homeless && npc.wet)
-            {
-                if (npc.Center.X / 16f < 380f || npc.Center.X / 16f > (float)(Main.maxTilesX - 380))
-                {
-                    npc.UpdateHomeTileState(npc.homeless, Main.spawnTileX, Main.spawnTileY);
-                    npc.ai[0] = 1f;
-                    npc.ai[1] = 200f;
-                }
-                if (npc.position.X / 16f < 300f)
-                {
-                    npc.direction = 1;
-                }
-                else if (npc.position.X / 16f > (float)(Main.maxTilesX - 300))
-                {
-                    npc.direction = -1;
-                }
             }
             if (!WorldGen.InWorld(num6, num7) || (Main.netMode == 1 && !Main.sectionManager.TileLoaded(num6, num7)))
             {
@@ -1031,10 +913,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
                 else
                 {
-                    if (isMouseOrRat)
-                    {
-                        npc.velocity.X *= 0.5f;
-                    }
                     if (npc.velocity.X > 0.1f)
                     {
                         npc.velocity.X -= 0.1f;
@@ -1212,46 +1090,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                     float movementSpeed = 1f;
                     float acceleration = 0.07f;
-                    if (npc.type == NPCID.ExplosiveBunny && enemyNearby)
-                    {
-                        movementSpeed = 1.5f;
-                        acceleration = 0.1f;
-                    }
-                    else if (npc.type == NPCID.Squirrel || npc.type == NPCID.SquirrelGold || npc.type == NPCID.SquirrelRed || (npc.type >= NPCID.GemSquirrelAmethyst && npc.type <= NPCID.GemSquirrelAmber))
-                    {
-                        movementSpeed = 1.5f;
-                    }
-                    else if (isTurtle)
-                    {
-                        if (npc.wet)
-                        {
-                            acceleration = 1f;
-                            movementSpeed = 2f;
-                        }
-                        else
-                        {
-                            acceleration = 0.07f;
-                            movementSpeed = 0.5f;
-                        }
-                    }
-                    if (npc.type == NPCID.SeaTurtle)
-                    {
-                        if (npc.wet)
-                        {
-                            acceleration = 1f;
-                            movementSpeed = 2.5f;
-                        }
-                        else
-                        {
-                            acceleration = 0.07f;
-                            movementSpeed = 0.2f;
-                        }
-                    }
-                    if (isMouseOrRat)
-                    {
-                        movementSpeed = 2f;
-                        acceleration = 1f;
-                    }
+ 
                     if (npc.friendly && (enemyNearby || flag17))
                     {
                         movementSpeed = 1.5f;
@@ -1678,142 +1517,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     npc.frameCounter = 0.0;
                     npc.localAI[3] = 0f;
                 }
-                if (npc.type == NPCID.Demolitionist)
-                {
-                    npcProjectileType = 30;
-                    num38 = 6f;
-                    num37 = 20;
-                    num39 = 10;
-                    num40 = 180;
-                    maxValue = 120;
-                    num41 = 16f;
-                    knockBack = 7f;
-                }
-                else if (npc.type == NPCID.BestiaryGirl)
-                {
-                    npcProjectileType = 880;
-                    num38 = 24f;
-                    num37 = 15;
-                    num39 = 1;
-                    num41 = 0f;
-                    knockBack = 7f;
-                    num40 = 15;
-                    maxValue = 10;
-                    if (npc.ShouldBestiaryGirlBeLycantrope())
-                    {
-                        npcProjectileType = 929;
-                        num37 = (int)((float)num37 * 1.5f);
-                    }
-                }
-                else if (npc.type == NPCID.DD2Bartender)
-                {
-                    npcProjectileType = 669;
-                    num38 = 6f;
-                    num37 = 24;
-                    num39 = 10;
-                    num40 = 120;
-                    maxValue = 60;
-                    num41 = 16f;
-                    knockBack = 9f;
-                }
-                else if (npc.type == NPCID.Golfer)
-                {
-                    npcProjectileType = 721;
-                    num38 = 8f;
-                    num37 = 15;
-                    num39 = 5;
-                    num40 = 20;
-                    maxValue = 10;
-                    num41 = 16f;
-                    knockBack = 9f;
-                }
-                else if (npc.type == NPCID.PartyGirl)
-                {
-                    npcProjectileType = 588;
-                    num38 = 6f;
-                    num37 = 30;
-                    num39 = 10;
-                    num40 = 60;
-                    maxValue = 120;
-                    num41 = 16f;
-                    knockBack = 6f;
-                }
-                else if (npc.type == NPCID.Merchant)
-                {
-                    npcProjectileType = 48;
-                    num38 = 9f;
-                    num37 = 12;
-                    num39 = 10;
-                    num40 = 60;
-                    maxValue = 60;
-                    num41 = 16f;
-                    knockBack = 1.5f;
-                }
-                else if (npc.type == NPCID.Angler)
-                {
-                    npcProjectileType = 520;
-                    num38 = 12f;
-                    num37 = 10;
-                    num39 = 10;
-                    num40 = 0;
-                    maxValue = 1;
-                    num41 = 16f;
-                    knockBack = 3f;
-                }
-                else if (npc.type == NPCID.SkeletonMerchant)
-                {
-                    npcProjectileType = 21;
-                    num38 = 14f;
-                    num37 = 14;
-                    num39 = 10;
-                    num40 = 0;
-                    maxValue = 1;
-                    num41 = 16f;
-                    knockBack = 3f;
-                }
-                else if (npc.type == NPCID.GoblinTinkerer)
-                {
-                    npcProjectileType = 24;
-                    num38 = 5f;
-                    num37 = 15;
-                    num39 = 10;
-                    num40 = 60;
-                    maxValue = 60;
-                    num41 = 16f;
-                    knockBack = 1f;
-                }
-                else if (npc.type == NPCID.Mechanic)
-                {
-                    npcProjectileType = 582;
-                    num38 = 10f;
-                    num37 = 11;
-                    num39 = 1;
-                    num40 = 30;
-                    maxValue = 30;
-                    knockBack = 3.5f;
-                }
-                else if (npc.type == NPCID.Nurse)
-                {
-                    npcProjectileType = 583;
-                    num38 = 8f;
-                    num37 = 8;
-                    num39 = 1;
-                    num40 = 15;
-                    maxValue = 10;
-                    knockBack = 2f;
-                    num41 = 10f;
-                }
-                else if (npc.type == NPCID.SantaClaus)
-                {
-                    npcProjectileType = 589;
-                    num38 = 7f;
-                    num37 = 22;
-                    num39 = 1;
-                    num40 = 10;
-                    maxValue = 1;
-                    knockBack = 2f;
-                    num41 = 10f;
-                }
                 NPCLoader.TownNPCAttackStrength(npc, ref num37, ref knockBack);
                 NPCLoader.TownNPCAttackCooldown(npc, ref num40, ref maxValue);
                 NPCLoader.TownNPCAttackProj(npc, ref npcProjectileType, ref num39);
@@ -1891,213 +1594,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     num52 = num12;
                 }
-                if (npc.type == NPCID.ArmsDealer)
-                {
-                    num45 = 14;
-                    num47 = 13f;
-                    num46 = 24;
-                    num49 = 14;
-                    maxValue2 = 4;
-                    knockBack2 = 3f;
-                    num48 = 1;
-                    num51 = 0.5f;
-                    if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
-                    {
-                        npc.frameCounter = 0.0;
-                        npc.localAI[3] = 0f;
-                    }
-                    if (Main.hardMode)
-                    {
-                        num46 = 15;
-                        if (npc.localAI[3] > (float)num48)
-                        {
-                            num48 = 10;
-                            flag24 = true;
-                        }
-                        if (npc.localAI[3] > (float)num48)
-                        {
-                            num48 = 20;
-                            flag24 = true;
-                        }
-                        if (npc.localAI[3] > (float)num48)
-                        {
-                            num48 = 30;
-                            flag24 = true;
-                        }
-                    }
-                }
-                else if (npc.type == NPCID.Painter)
-                {
-                    num45 = 587;
-                    num47 = 10f;
-                    num46 = 8;
-                    num49 = 10;
-                    maxValue2 = 1;
-                    knockBack2 = 1.75f;
-                    num48 = 1;
-                    num51 = 0.5f;
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 12;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 24;
-                        flag24 = true;
-                    }
-                    if (Main.hardMode)
-                    {
-                        num46 += 2;
-                    }
-                }
-                else if (npc.type == NPCID.TravellingMerchant)
-                {
-                    num45 = 14;
-                    num47 = 13f;
-                    num46 = 24;
-                    num49 = 12;
-                    maxValue2 = 5;
-                    knockBack2 = 2f;
-                    num48 = 1;
-                    num51 = 0.2f;
-                    if (Main.hardMode)
-                    {
-                        num46 = 30;
-                        num45 = 357;
-                    }
-                }
-                else if (npc.type == NPCID.Guide)
-                {
-                    num47 = 10f;
-                    num46 = 8;
-                    num48 = 1;
-                    if (Main.hardMode)
-                    {
-                        num45 = 2;
-                        num49 = 15;
-                        maxValue2 = 10;
-                        num46 += 6;
-                    }
-                    else
-                    {
-                        num45 = 1;
-                        num49 = 30;
-                        maxValue2 = 20;
-                    }
-                    knockBack2 = 2.75f;
-                    num50 = 4f;
-                    num51 = 0.7f;
-                }
-                else if (npc.type == NPCID.WitchDoctor)
-                {
-                    num45 = 267;
-                    num47 = 14f;
-                    num46 = 20;
-                    num48 = 1;
-                    num49 = 10;
-                    maxValue2 = 1;
-                    knockBack2 = 3f;
-                    num50 = 6f;
-                    num51 = 0.4f;
-                }
-                else if (npc.type == NPCID.Steampunker)
-                {
-                    num45 = 242;
-                    num47 = 13f;
-                    num46 = ((!Main.hardMode) ? 11 : 15);
-                    num49 = 10;
-                    maxValue2 = 1;
-                    knockBack2 = 2f;
-                    num48 = 1;
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 8;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 16;
-                        flag24 = true;
-                    }
-                    num51 = 0.3f;
-                }
-                else if (npc.type == NPCID.Pirate)
-                {
-                    num45 = 14;
-                    num47 = 14f;
-                    num46 = 24;
-                    num49 = 10;
-                    maxValue2 = 1;
-                    knockBack2 = 2f;
-                    num48 = 1;
-                    num51 = 0.7f;
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 16;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 24;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 32;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 40;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] > (float)num48)
-                    {
-                        num48 = 48;
-                        flag24 = true;
-                    }
-                    if (npc.localAI[3] == 0f && num52 != -1 && npc.Distance(Main.npc[num52].Center) < (float)NPCID.Sets.PrettySafe[npc.type])
-                    {
-                        num51 = 0.1f;
-                        num45 = 162;
-                        num46 = 50;
-                        knockBack2 = 10f;
-                        num47 = 24f;
-                    }
-                }
-                else if (npc.type == NPCID.Cyborg)
-                {
-                    num45 = Utils.SelectRandom<int>(Main.rand, 134, 133, 135);
-                    num48 = 1;
-                    switch (num45)
-                    {
-                        case 135:
-                            num47 = 12f;
-                            num46 = 30;
-                            num49 = 30;
-                            maxValue2 = 10;
-                            knockBack2 = 7f;
-                            num51 = 0.2f;
-                            break;
-                        case 133:
-                            num47 = 10f;
-                            num46 = 25;
-                            num49 = 10;
-                            maxValue2 = 1;
-                            knockBack2 = 6f;
-                            num51 = 0.2f;
-                            break;
-                        case 134:
-                            num47 = 13f;
-                            num46 = 20;
-                            num49 = 20;
-                            maxValue2 = 10;
-                            knockBack2 = 4f;
-                            num51 = 0.1f;
-                            break;
-                    }
-                }
+
                 NPCLoader.TownNPCAttackStrength(npc, ref num46, ref knockBack2);
                 NPCLoader.TownNPCAttackCooldown(npc, ref num49, ref maxValue2);
                 NPCLoader.TownNPCAttackProj(npc, ref num45, ref num48);
@@ -2205,60 +1702,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     num64 = num12;
                 }
-                if (npc.type == NPCID.Clothier)
-                {
-                    num55 = 585;
-                    num57 = 10f;
-                    attackDamage = 16;
-                    attackDelay = 30;
-                    num59 = 20;
-                    maxValue3 = 15;
-                    knockBack3 = 2f;
-                    num63 = 1f;
-                }
-                else if (npc.type == NPCID.Wizard)
-                {
-                    num55 = 15;
-                    num57 = 6f;
-                    attackDamage = 18;
-                    attackDelay = 15;
-                    num59 = 15;
-                    maxValue3 = 5;
-                    knockBack3 = 3f;
-                    num60 = 20f;
-                }
-                else if (npc.type == NPCID.Truffle)
-                {
-                    num55 = 590;
-                    attackDamage = 40;
-                    attackDelay = 15;
-                    num59 = 10;
-                    maxValue3 = 1;
-                    knockBack3 = 3f;
-                    for (; npc.localAI[3] > (float)attackDelay; attackDelay += 15)
-                    {
-                    }
-                }
-                else if (npc.type == NPCID.Princess)
-                {
-                    num55 = 950;
-                    attackDamage = ((!Main.hardMode) ? 15 : 20);
-                    attackDelay = 15;
-                    num59 = 0;
-                    maxValue3 = 0;
-                    knockBack3 = 3f;
-                    for (; npc.localAI[3] > (float)attackDelay; attackDelay += 10)
-                    {
-                    }
-                }
-                else if (npc.type == NPCID.Dryad)
-                {
-                    num55 = 586;
-                    attackDelay = 24;
-                    num59 = 10;
-                    maxValue3 = 1;
-                    knockBack3 = 3f;
-                }
+
                 NPCLoader.TownNPCAttackStrength(npc, ref attackDamage, ref knockBack3);
                 NPCLoader.TownNPCAttackCooldown(npc, ref num59, ref maxValue3);
                 NPCLoader.TownNPCAttackProj(npc, ref num55, ref attackDelay);
@@ -2285,61 +1729,9 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                     vec4 *= num57;
                     vec4 += Utils.RandomVector2(Main.rand, 0f - num63, num63);
-                    if (npc.type == NPCID.Wizard)
-                    {
-                        int num65 = Utils.SelectRandom<int>(Main.rand, 1, 1, 1, 1, 2, 2, 3);
-                        for (int num66 = 0; num66 < num65; num66++)
-                        {
-                            Vector2 vector3 = Utils.RandomVector2(Main.rand, -3.4f, 3.4f);
-                            int num67 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec4.X + vector3.X, vec4.Y + vector3.Y, num55, attackDamage, knockBack3, Main.myPlayer, 0f, 0f, npc.townNpcVariationIndex);
-                            Main.projectile[num67].npcProj = true;
-                            Main.projectile[num67].noDropItem = true;
-                        }
-                    }
-                    else if (npc.type == NPCID.Truffle)
-                    {
-                        if (num64 != -1)
-                        {
-                            Vector2 vector4 = Main.npc[num64].position - Main.npc[num64].Size * 2f + Main.npc[num64].Size * Utils.RandomVector2(Main.rand, 0f, 1f) * 5f;
-                            int num68 = 10;
-                            while (num68 > 0 && WorldGen.SolidTile(Framing.GetTileSafely((int)vector4.X / 16, (int)vector4.Y / 16)))
-                            {
-                                num68--;
-                                vector4 = Main.npc[num64].position - Main.npc[num64].Size * 2f + Main.npc[num64].Size * Utils.RandomVector2(Main.rand, 0f, 1f) * 5f;
-                            }
-                            int num69 = Projectile.NewProjectile(npc.GetSource_FromAI(), vector4.X, vector4.Y, 0f, 0f, num55, attackDamage, knockBack3, Main.myPlayer, 0f, 0f, npc.townNpcVariationIndex);
-                            Main.projectile[num69].npcProj = true;
-                            Main.projectile[num69].noDropItem = true;
-                        }
-                    }
-                    else if (npc.type == NPCID.Princess)
-                    {
-                        if (num64 != -1)
-                        {
-                            Vector2 vector5 = Main.npc[num64].position + Main.npc[num64].Size * Utils.RandomVector2(Main.rand, 0f, 1f) * 1f;
-                            int num70 = 5;
-                            while (num70 > 0 && WorldGen.SolidTile(Framing.GetTileSafely((int)vector5.X / 16, (int)vector5.Y / 16)))
-                            {
-                                num70--;
-                                vector5 = Main.npc[num64].position + Main.npc[num64].Size * Utils.RandomVector2(Main.rand, 0f, 1f) * 1f;
-                            }
-                            int num71 = Projectile.NewProjectile(npc.GetSource_FromAI(), vector5.X, vector5.Y, 0f, 0f, num55, attackDamage, knockBack3, Main.myPlayer, 0f, 0f, npc.townNpcVariationIndex);
-                            Main.projectile[num71].npcProj = true;
-                            Main.projectile[num71].noDropItem = true;
-                        }
-                    }
-                    else if (npc.type == NPCID.Dryad)
-                    {
-                        int num72 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec4.X, vec4.Y, num55, attackDamage, knockBack3, Main.myPlayer, 0f, npc.whoAmI, npc.townNpcVariationIndex);
-                        Main.projectile[num72].npcProj = true;
-                        Main.projectile[num72].noDropItem = true;
-                    }
-                    else
-                    {
-                        int num73 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec4.X, vec4.Y, num55, attackDamage, knockBack3, Main.myPlayer);
-                        Main.projectile[num73].npcProj = true;
-                        Main.projectile[num73].noDropItem = true;
-                    }
+                    int num73 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec4.X, vec4.Y, num55, attackDamage, knockBack3, Main.myPlayer);
+                    Main.projectile[num73].npcProj = true;
+                    Main.projectile[num73].noDropItem = true;
                 }
                 if (num62 > 0f)
                 {
@@ -2377,36 +1769,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     _ = npc.spriteDirection;
                 }
-                if (npc.type == NPCID.DyeTrader)
-                {
-                    num75 = 11;
-                    num77 = (num78 = 32);
-                    num74 = 12;
-                    maxValue4 = 6;
-                    num76 = 4.25f;
-                }
-                else if (npc.type == NPCID.TaxCollector)
-                {
-                    num75 = 9;
-                    num77 = (num78 = 28);
-                    num74 = 9;
-                    maxValue4 = 3;
-                    num76 = 3.5f;
-                    if (npc.GivenName == "Andrew")
-                    {
-                        num75 *= 2;
-                        num76 *= 2f;
-                    }
-                }
-                else if (npc.type == NPCID.Stylist)
-                {
-                    num75 = 10;
-                    num77 = (num78 = 32);
-                    num74 = 15;
-                    maxValue4 = 8;
-                    num76 = 5f;
-                }
-                else if (NPCID.Sets.IsTownPet[npc.type])
+                if (NPCID.Sets.IsTownPet[npc.type])
                 {
                     num75 = 10;
                     num77 = (num78 = 32);
@@ -2587,23 +1950,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     flag27 = false;
                 }
-                if (flag27 && npc.type == NPCID.Mechanic && npc.localAI[0] == 1f)
-                {
-                    flag27 = false;
-                }
-                if (flag27 && npc.type == NPCID.Dryad)
-                {
-                    flag27 = false;
-                    for (int npcIndex = 0; npcIndex < 200; npcIndex++)
-                    {
-                        NPC nPC3 = Main.npc[npcIndex];
-                        if (nPC3.active && nPC3.townNPC && !(npc.Distance(nPC3.Center) > 1200f) && nPC3.FindBuffIndex(BuffID.DryadsWard) == -1)
-                        {
-                            flag27 = true;
-                            break;
-                        }
-                    }
-                }
                 // Talk to another npc if near them
                 if (npc.CanTalk && noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(300) == 0)
                 {
@@ -2686,26 +2032,6 @@ namespace ChangedSpecialMod.Content.NPCs
                         }
                     }
                 }
-                // Bartender holding beer
-                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && npc.type == NPCID.DD2Bartender)
-                {
-                    int num104 = 300;
-                    int num105 = 150;
-                    for (int num106 = 0; num106 < 255; num106++)
-                    {
-                        Player player2 = Main.player[num106];
-                        if (player2.active && !player2.dead && player2.Distance(npc.Center) < (float)num105 && Collision.CanHitLine(npc.Top, 0, 0, player2.Top, 0, 0))
-                        {
-                            int num107 = (npc.position.X < player2.position.X).ToDirectionInt();
-                            npc.ai[0] = 18f;
-                            npc.ai[1] = num104;
-                            npc.ai[2] = num106;
-                            npc.direction = num107;
-                            npc.netUpdate = true;
-                            break;
-                        }
-                    }
-                }
                 else if (!NPCID.Sets.IsTownPet[npc.type] && noEnemyNearbyAndNotWet && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1800) == 0)
                 {
                     npc.ai[0] = 2f;
@@ -2738,7 +2064,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
                 // Our new code. Randomly try to water plants
-                else if (noEnemyNearbyAndNotWet && npc.ai[0] == 1f && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
+                else if (canWaterPlants && noEnemyNearbyAndNotWet && npc.ai[0] == 1f && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
                 {
                     Point point = (npc.Bottom + Vector2.UnitX * npc.direction * 24 + Vector2.UnitY * -2f).ToTileCoordinates();
                     bool isPlant = WorldGen.InWorld(point.X, point.Y, 1);
@@ -2754,16 +2080,13 @@ namespace ChangedSpecialMod.Content.NPCs
                             npc.ai[1] = wateringTime;
                             npc.netUpdate = true;
 
-                            //if (Main.rand.NextBool(2))
-                            {
-                                bool growSuccess = WorldGen.GrowTree(point.X, point.Y);
-                                bool isPlayerNear = WorldGen.PlayerLOS(point.X, point.Y);
+                            bool growSuccess = WorldGen.GrowTree(point.X, point.Y);
+                            bool isPlayerNear = WorldGen.PlayerLOS(point.X, point.Y);
 
-                                // If growing the tree was a success and the player is near, show growing effects
-                                if (growSuccess && isPlayerNear)
-                                {
-                                    WorldGen.TreeGrowFXCheck(point.X, point.Y);
-                                }
+                            // If growing the tree was a success and the player is near, show growing effects
+                            if (growSuccess && isPlayerNear)
+                            {
+                                WorldGen.TreeGrowFXCheck(point.X, point.Y);
                             }
                         }
                     }
@@ -2839,8 +2162,8 @@ namespace ChangedSpecialMod.Content.NPCs
                         npc.netUpdate = true;
                     }
                 }
-                // Check if nurse should throw healing needles to other town npcs
-                if (Main.netMode != 1 && npc.ai[0] < 2f && npc.velocity.Y == 0f && npc.type == NPCID.Nurse && npc.breath > 0)
+                // Throw healing syringes to injured NPCs like the nurse can do
+                if (Main.netMode != 1 && npc.ai[0] < 2f && npc.velocity.Y == 0f && canThrowHealingSyringes && npc.breath > 0)
                 {
                     int num114 = -1;
                     for (int num115 = 0; num115 < 200; num115++)
@@ -2871,10 +2194,6 @@ namespace ChangedSpecialMod.Content.NPCs
                         num117 = ((num118 == -1 || !Collision.CanHit(npc.Center, 0, 0, Main.npc[num118].Center, 0, 0)) ? (-1) : num118);
                     }
                     bool flag32 = num117 != -1;
-                    if (flag32 && npc.type == 633)
-                    {
-                        flag32 = Vector2.Distance(npc.Center, Main.npc[num117].Center) <= 50f;
-                    }
                     if (flag32)
                     {
                         npc.localAI[2] = npc.ai[0];

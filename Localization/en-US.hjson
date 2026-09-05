@@ -134,7 +134,7 @@ Mods: {
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oooh a shiny balloon! Can I hold it please?"
 					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress human. You look kinda cute in it hehehe."
 					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah human, who is that cat? She is huge!"
-					Valentine1: "{Valentine}What do you think, human? Do I look cute with this Valentine hair pin?"
+					Valentine1: "{Valentine}What do you think, human? Do I look cute with this Valentine's Day hair pin?"
 					Valentine2: "{Valentine}A bouquet is nice, but if you want to win my heart then you have to bring me a booklet!"
 					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
@@ -215,10 +215,13 @@ Mods: {
 					Normal9: Do you want to know something interesting? Did you know that I don't have side sprites in my original game?
 					Normal10: It's good to see that you are not the only human who survived the pale virus.
 					Normal11: With so many different latex beasts it became difficult to name them all. So that's why we came up with very scientific names like 'Squid Dog' for a Squid and Dog amalgamation or 'Purrpurr' for a purple purring cat.
-					Crimson1: "{Crimson}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Crimson."
+					Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
+					Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Crimson1: "{SingleWorldEvil}{Crimson}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Crimson."
 					Crimson2: "{Crimson}There is a massive red beast roaming around the Crimson. If you value your life, you should stay away from him."
-					Corruption1: "{Corruption}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Corruption."
+					Corruption1: "{SingleWorldEvil}{Corruption}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Corruption."
 					Corruption2: "{Corruption}Have you seen that large purple cat near the Corruption? Trust me, if you haven't, you should keep it that way."
+					BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
 					Thunder1: "{Thunder}The weather is perfect for a crazy scientist like me!"
 					Thunder2: "{Thunder}How fitting, the lightning just struck the Thunder Science building."
 					Windy1: "{Windy}Who left the window open? Now all my notes are scattered on the floor!"
@@ -226,7 +229,7 @@ Mods: {
 					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Why are you wearing a wedding dress? Are you going to get married to your black jelly wolf buddy?"
 					PlayerHasPurrpurr: "{PlayerHasPurrpurr} What? Did you befriend that giant cat? Okay I have to admit that is impressive."
 					Valentine1: "{Valentine}Love is like chemistry. It has unexpected results and things can get really hot."
-					Valentine2: "{Valentine}What? Don't tell me you wanted to ask me on a date for Valentine. I have more important things to do."
+					Valentine2: "{Valentine}What? Don't tell me you wanted to ask me on a date for Valentine's Day. I have more important things to do."
 					Oktoberfest1: "{Oktoberfest}I am going to... *hic* ...make excellent decisions today."
 					Oktoberfest2: "{Oktoberfest}Come on test subject. Let's do some drunk science!"
 					Oktoberfest3: "{Oktoberfest}Only the dose makes the poison, so I can have another beer!"
@@ -712,6 +715,21 @@ Mods: {
 			Fennec: {
 				DisplayName: Fennec
 				Description: Foxxo
+			}
+
+			PrototypeBound: {
+				DisplayName: Prototype Bound
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
 			}
 		}
 

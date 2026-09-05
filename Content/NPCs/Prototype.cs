@@ -205,7 +205,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override bool CanTownNPCSpawn(int numTownNPCs) 
 		{
-			return DownedBossSystem.DownedBehemoth;
+			return DownedBossSystem.DownedBehemoth && !NPC.AnyNPCs(ModContent.NPCType<PrototypeBound>());
 		}
 
         public override ITownNPCProfile TownNPCProfile() 
@@ -827,7 +827,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     int num324 = Main.rand.Next(4);
                     for (int m = 0; m < 3 + num324; m++)
                     {
-                        int num325 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, 216, -NPC.direction, 1f);
+                        int num325 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, DustID.PirateStaff, -NPC.direction, 1f);
                         Main.dust[num325].velocity /= 2f;
                         Main.dust[num325].scale = 0.8f;
                     }
@@ -1360,7 +1360,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         {
                             num361 = nFramesWithoutAttackAnim - 5;
                         }
-                        else if (NPC.frameCounter == 40.0 && Main.netMode != 1)
+                        else if (NPC.frameCounter == 40.0 && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             num362 = 45;
                         }
@@ -1388,7 +1388,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         {
                             num361 = nFramesWithoutAttackAnim - 5;
                         }
-                        else if (NPC.frameCounter == 100.0 && Main.netMode != 1)
+                        else if (NPC.frameCounter == 100.0 && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             num362 = 45;
                         }
@@ -1416,7 +1416,7 @@ namespace ChangedSpecialMod.Content.NPCs
                         {
                             num361 = nFramesWithoutAttackAnim - 5;
                         }
-                        else if (NPC.frameCounter != 160.0 || Main.netMode == 1)
+                        else if (NPC.frameCounter != 160.0 || Main.netMode == NetmodeID.MultiplayerClient)
                         {
                             num361 = ((NPC.frameCounter < 220.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 226.0) ? (nFramesWithoutAttackAnim - 5) : 0));
                         }

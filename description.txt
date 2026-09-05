@@ -80,18 +80,19 @@ Other
 --------- Changelog ---------
 
 
-0.5.6.2
+0.5.6.3
 
-This is a small update that adds three magic weapons and a painting.
+This is a small update with a few changes.
 
 
 General
-- Added the first three magic weapons: "Green Crystal Staff", "Red Crystal Staff" and "White Crystal Staff"
-- Added "Water Battle" painting
+- Added impact particles to projectiles shot by book weapons
 
 NPCs
-- Changed death sound of Wendigo and Bloodstripe
-- Black latex beasts drop their mask when killed
+- Small monsters will move very fast if the player is drunk
+- Prototype will spawn stuck in goo after defeating the Behemoth and you have to rescue him
+- Dr K can throw syringes to heal injured NPCs like the nurse can
+- Dr K has a few more dialogue options
 
 Fixes
-- Every latex beast with gootype none created black particles when hit
+- Prototype would always spawn if the Behemoth despawned, even if you didn't defeat him

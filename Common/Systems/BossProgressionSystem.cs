@@ -26,7 +26,7 @@ namespace ChangedSpecialMod.Common.Systems
                 hasChecked = false;
         }
 
-        public override void OnWorldLoad()
+        public override void PostWorldLoad()
         {
             UpdateBossProgressionNumber();
         }

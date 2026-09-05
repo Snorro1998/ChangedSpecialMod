@@ -215,10 +215,13 @@ Mods: {
 					Normal9: Quer saber algo interessante? Sabia que não há nenhuma imagem em que eu esteja olhando para os lados no meu jogo original?
 					Normal10: Que bom saber que você não é o único humano que sobreviveu ao vírus da palidez.
 					Normal11: With so many different latex beasts it became difficult to name them all. So that's why we came up with very scientific names like 'Squid Dog' for a Squid and Dog amalgamation or 'Purrpurr' for a purple purring cat.
+					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
+					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
 					Crimson1: "{Crimson}Ótimo, salvei o mundo de um vírus mortal e agora ele está sendo destruído pelo Carmim."
 					Crimson2: "{Crimson}Há uma enorme besta vermelha vagando por Carmim. Se você preza pela sua vida, é melhor ficar longe dela."
 					Corruption1: "{Corruption}Ótimo, salvei o mundo de um vírus mortal e agora ele está sendo destruído pela Corrupção."
 					Corruption2: "{Corruption}Você viu aquele gato roxo enorme perto da Corrupção? Acredite em mim, se não viu, é melhor que continue assim."
+					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
 					Thunder1: "{Thunder}O tempo está perfeito para um cientista maluco como eu!"
 					Thunder2: "{Thunder}Que coincidência, o raio acabou de atingir o prédio do Departamento de Ciências do Trovão."
 					Windy1: "{Windy}Quem deixou a janela aberta? Agora todas as minhas anotações estão espalhadas pelo chão!"
@@ -712,6 +715,21 @@ Mods: {
 			Fennec: {
 				DisplayName: Fennec
 				Description: Foxxo
+			}
+
+			PrototypeBound: {
+				// DisplayName: Prototype Bound
+
+				TownNPCMood: {
+					// Content: I am content.
+					// NoHome: I hate not having a home.
+					// FarFromHome: I am too far from home.
+					// LoveSpace: I love having so much space.
+					// DislikeCrowded: I dislike how crowded I am.
+					// HateCrowded: I hate how crowded I am.
+					// LikeNPC_Princess: I like {NPCName}.
+					// Princess_LovesNPC: I like {NPCName}.
+				}
 			}
 		}
 

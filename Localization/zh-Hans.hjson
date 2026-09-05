@@ -215,10 +215,13 @@ Mods: {
 					Normal9: 想知道一件有趣的事吗？你知道我的原版游戏中没有侧边精灵图吗？
 					Normal10: 很高兴看到你不是唯一一个从苍白病毒中幸存下来的人。
 					Normal11: 由于史莱姆种类繁多，给它们全部命名变得很困难。所以我们才想出了一些非常科学的名字，比如把鱿鱼和狗的混合体叫做“鱿鱼狗”，把会发出呼噜声的紫色猫咪叫做“紫呼噜猫”。
+					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
+					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
 					Crimson1: "{Crimson}太好了，我拯救了世界免于致命病毒的侵袭，现在它却要被猩红军团摧毁。"
 					Crimson2: "{Crimson}绯红之地游荡着一头巨大的红色野兽。如果你珍惜自己的性命，就应该远离它。"
 					Corruption1: "{Corruption}太好了，我拯救了世界免于致命病毒的侵袭，现在它却要被腐败摧毁。"
 					Corruption2: "{Corruption}你见过腐化之地附近那只紫色的大猫吗？相信我，如果你没见过，最好还是别见它。"
+					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
 					Thunder1: "{Thunder}这样的天气简直太适合我这种疯狂的科学家了！"
 					Thunder2: "{Thunder}真是巧合，闪电刚刚击中了雷霆科学大楼。"
 					Windy1: "{Windy}谁忘了关窗户？我的笔记全散落在地上了！"
@@ -712,6 +715,21 @@ Mods: {
 			Fennec: {
 				DisplayName: 耳廓狐
 				Description: Foxxo
+			}
+
+			PrototypeBound: {
+				// DisplayName: Prototype Bound
+
+				TownNPCMood: {
+					// Content: I am content.
+					// NoHome: I hate not having a home.
+					// FarFromHome: I am too far from home.
+					// LoveSpace: I love having so much space.
+					// DislikeCrowded: I dislike how crowded I am.
+					// HateCrowded: I hate how crowded I am.
+					// LikeNPC_Princess: I like {NPCName}.
+					// Princess_LovesNPC: I like {NPCName}.
+				}
 			}
 		}
 

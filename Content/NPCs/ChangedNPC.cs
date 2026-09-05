@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Assets;
-using ChangedSpecialMod.Common.Configs;
+﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items;
@@ -10,7 +9,6 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoMod.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -741,9 +739,24 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             // World evil
-            AddIf(WorldGen.tBlood > 0, "Crimson");
-            AddIf(WorldGen.tEvil > 0, "Corruption");
-            AddIf(WorldGen.tGood > 0, "Hallow");
+            var hasCrimson = WorldBlockAmounts.nCrimson > 0;
+            var hasCorruption = WorldBlockAmounts.nCorrupt > 0;
+            var bothWorldEvils = hasCrimson && hasCorruption;
+
+            AddIf(hasCrimson, "Crimson");
+            AddIf(hasCorruption, "Corruption");
+            AddIf(bothWorldEvils, "BothWorldEvils1");
+            AddIf(!bothWorldEvils, "SingleWorldEvil");
+
+            var hasLatex = WorldBlockAmounts.nLatex > 0;
+            AddIf(hasLatex, "Latex");
+            AddIf(!hasLatex, "NoLatex");
+
+            AddIf(WorldBlockAmounts.nHallow > 0, "Hallow");
+            AddIf(WorldBlockAmounts.WorldIsPure(), "Pure");
+            //AddIf(WorldGen.tBlood > 0, "Crimson");
+            //AddIf(WorldGen.tEvil > 0, "Corruption");
+            //AddIf(WorldGen.tGood > 0, "Hallow");
 
             // Weather
             AddIf(Main.IsItRaining, "Rain");

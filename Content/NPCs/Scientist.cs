@@ -81,12 +81,15 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("Normal9"),
                 new DialogueElement("Normal10"),
                 new DialogueElement("Normal11"),
+                new DialogueElement("Normal12"),
+                new DialogueElement("Normal13"),
 
                 // World Evil
                 new DialogueElement("Crimson1", "Tired"),
                 new DialogueElement("Crimson2"),
                 new DialogueElement("Corruption1", "Tired"),
                 new DialogueElement("Corruption2"),
+                new DialogueElement("BothWorldEvils1", "Tired"),
 
                 //Thunder
                 new DialogueElement("Thunder1"),
@@ -609,6 +612,12 @@ namespace ChangedSpecialMod.Content.NPCs
         public bool IsSitting()
         {
             return NPC.ai[0] == 5f;
+        }
+
+        public override bool PreAI()
+        {
+            AI_TownEntity.AI_007_TownEntities(NPC);
+            return false;
         }
 
         // This is the vanilla code with unnecessary conditions removed (like pets and town slimes)

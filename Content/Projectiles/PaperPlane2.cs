@@ -1,9 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ChangedSpecialMod.Content.NPCs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.Graphics.Renderers;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -109,8 +111,14 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-			SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
             base.OnKill(timeLeft);
+            SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
+
+            for (int i = 0; i < 10; i++)
+            {
+                var dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0, 0, 1, default(Color), Main.rand.NextFloat(1.0f, 2.0f));
+                dust.noGravity = true;
+            }
         }
 	}
 }
