@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Watering Can
+	DisplayName: Watering Can (Placeable)
 }
 
 MusicBoxPuro: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: White Crystal Staff
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Toy Block
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Watering Can
+	Tooltip: Right-click to throw
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Black Latex Cub Banner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Sweeper Banner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: White Latex Cub Banner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Feng Yu Banner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Tiger Shark Banner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

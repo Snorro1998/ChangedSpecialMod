@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: 喷壶
+	DisplayName: 喷壶 (可放置)
 }
 
 MusicBoxPuro: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: 白水晶法杖
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: 积木玩具
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: 喷壶
+	Tooltip: 右键投掷
+}
+
+DarkLatexCubBanner: {
+	DisplayName: 黑色粘液小狗横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: 扫地机器人横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: 白色粘液小狗横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: 锋与横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: 虎鲨横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

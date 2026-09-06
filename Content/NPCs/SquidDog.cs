@@ -1,4 +1,3 @@
-using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.Projectiles;
@@ -23,8 +22,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -43,7 +42,6 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
 
             NPC.waterMovementSpeed = 1f;
 
@@ -61,7 +59,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.ChangeHatPosition(ItemID.Fez, new int[] { 2, 2 });
             changedNPC.ChangeHatPosition(ItemID.JackOLanternMask, new int[] { 0, 3 });
 
-            // Even though he is white, he should appear everywhere
             changedNPC.GooType = GooType.None;
             changedNPC.ElementType = ElementType.Water;
             changedNPC.DefaultOnHitPlayer = true;
@@ -74,7 +71,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.Rain,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.SquidDog.Description")),
             });
         }
@@ -83,12 +80,20 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mollash>(), 10));
             npcLoot.Add(ItemDropRule.Common(ItemID.BlackInk, 2));
+            npcLoot.Add(ItemDropRule.Common(ItemID.JellyfishNecklace, 50));
         }
 
+        // Maybe add a config option for the old logic?
+        // ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            var spawnTileIsWater = spawnInfo.Water;
+            
+            if (spawnInfo.Player.ZoneBeach && spawnTileIsWater && ChangedUtils.CanSpawn(changedNPC.spawnRequirement))
+                return 0.2f;
+
+            return 0f;
         }
 
         private void UpdateHatPosition(int frameHeight)

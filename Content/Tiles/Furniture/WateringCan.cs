@@ -1,4 +1,6 @@
-﻿using Terraria;
+﻿using ChangedSpecialMod.Content.Items.Weapons;
+using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -16,5 +18,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			TileObjectData.addTile(Type);
 			DustType = DustID.WoodFurniture;
 		}
+
+        public override IEnumerable<Item> GetItemDrops(int i, int j)
+        {
+            yield return new Item(ModContent.ItemType<WateringCanWeapon>());
+        }
     }
 }

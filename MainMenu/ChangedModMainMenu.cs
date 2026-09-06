@@ -9,6 +9,8 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.MainMenu
 {
+    // This was present in the original ChangedMod, so I kept it in.
+    // It is a modified version of Calamity's main menu style
     public class ChangedSpecialModMainMenu : ModMenu
     {
         public class Cinder

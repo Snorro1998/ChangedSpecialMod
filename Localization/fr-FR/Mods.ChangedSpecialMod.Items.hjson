@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Arrosoir
+	DisplayName: Arrosoir (déplaçable)
 }
 
 MusicBoxPuro: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: Sceptre de cristal blanc
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Bloc de Jeu
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Arrosoir
+	Tooltip: Clic droit pour lancer
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Bannière de Petit Gelée Noire
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Bannière de Robot de Balayage
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Bannière de Petit Gelée Blanche
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Bannière de Feng Yu
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Bannière de Requin-Tigre
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

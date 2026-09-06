@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: Gostaria de saber o que aconteceu com {NameZoologist}. Será que ela só foi transformada parcialmente?
 					Normal1: Momento perfeito. Eu precisava justamente de um voluntário para meu próximo experimento.
 					Normal2: Olá, sujeito de teste. Você poderia segurar isso para mim, por favor? Está bem difícil fazer isso sozinho agora que tenho patas grandes e peludas.
-					Normal3: Se meus colegas tivessem seguido os protocolos, não teríamos monstros vagando fora do laboratório.
+					Normal3: Sabe, todos aqueles monstros de gosma ainda estariam contidos se aqueles manifestantes estúpidos não tivessem invadido o laboratório.
 					Normal4: Agora que não preciso mais trabalhar na cura do vírus, posso me concentrar em criar a gosma mais fofa!
 					Normal5: "{PuroPresent}Essa gosma preta é... única. Nunca vi uma criatura da sua espécie tão apegada aos humanos."
 					Normal6: Você achava que o Cauda Branca era mau? Espere até ver de que monstro ele já foi parte.
@@ -214,14 +214,14 @@ Mods: {
 					Normal8: Você pode ter ficado mais forte, mas as criaturas de gosma também. Então, no fim... nada mudou.
 					Normal9: Quer saber algo interessante? Sabia que não há nenhuma imagem em que eu esteja olhando para os lados no meu jogo original?
 					Normal10: Que bom saber que você não é o único humano que sobreviveu ao vírus da palidez.
-					Normal11: With so many different latex beasts it became difficult to name them all. So that's why we came up with very scientific names like 'Squid Dog' for a Squid and Dog amalgamation or 'Purrpurr' for a purple purring cat.
-					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
-					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Normal11: Com tantas criaturas viscosas diferentes, ficou difícil nomeá-las todas. Por isso, criamos nomes bem científicos, como "Cachorro-Lula", para uma mistura de lula e cachorro, ou "Roxoronando", para um gato roxo que ronrona.
+					Normal12: Você sabia que os laboratórios já foram alugados por uma empresa de robótica? Eles desenvolveram aqueles práticos robôs varredores.
+					Normal13: Talvez eu tenha contribuído para a criação de muitos desses monstros de gosma, mas tenho pouco controle sobre eles. Provavelmente porque não tenho um doutorado em comportamento animal.
 					Crimson1: "{Crimson}Ótimo, salvei o mundo de um vírus mortal e agora ele está sendo destruído pelo Carmim."
 					Crimson2: "{Crimson}Há uma enorme besta vermelha vagando por Carmim. Se você preza pela sua vida, é melhor ficar longe dela."
 					Corruption1: "{Corruption}Ótimo, salvei o mundo de um vírus mortal e agora ele está sendo destruído pela Corrupção."
 					Corruption2: "{Corruption}Você viu aquele gato roxo enorme perto da Corrupção? Acredite em mim, se não viu, é melhor que continue assim."
-					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+					BothWorldEvils1: "{BothWorldEvils1}Ótimo, salvei o mundo de um vírus mortal e agora ele está sendo destruído pela Corrupção e pelo Carmim."
 					Thunder1: "{Thunder}O tempo está perfeito para um cientista maluco como eu!"
 					Thunder2: "{Thunder}Que coincidência, o raio acabou de atingir o prédio do Departamento de Ciências do Trovão."
 					Windy1: "{Windy}Quem deixou a janela aberta? Agora todas as minhas anotações estão espalhadas pelo chão!"
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: Preparados para um truque de festa incrível? Olha só, eu consigo transformar papel higiênico em aguardente!
 						Party6: Essa festa está sem fogos de artifício. Quer que eu resolva isso?
+						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				// DisplayName: Prototype Bound
+				DisplayName: Robô preso
 
 				TownNPCMood: {
 					// Content: I am content.

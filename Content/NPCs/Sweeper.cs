@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Utilities;
 using System;
 using System.Linq;
@@ -46,6 +47,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type,
                 ModContent.GetInstance<CityRuinsSurfaceBiome>().Type 
             };
+
+            Banner = Type;
+            BannerItem = ModContent.ItemType<SweeperBanner>();
+
             var changedNPC = NPC.Changed();
             changedNPC.GooType = GooType.None;
         }

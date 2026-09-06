@@ -44,3 +44,6 @@ FakeCloudProjectile.DisplayName: Fake Cloud Projectile
 // GreenCrystalMagicWeaponProjectile.DisplayName: Green Crystal Magic Weapon Projectile
 // RedCrystalMagicWeaponProjectile.DisplayName: Red Crystal Magic Weapon Projectile
 // WhiteCrystalMagicWeaponProjectile.DisplayName: White Crystal Magic Weapon Projectile
+// ToyBlockProjectile.DisplayName: Toy Block Projectile
+// WateringCanWeaponProjectile.DisplayName: Watering Can Weapon Projectile
+// WateringCanProjectile.DisplayName: Watering Can Projectile

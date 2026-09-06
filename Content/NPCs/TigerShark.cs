@@ -1,4 +1,4 @@
-using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -20,8 +20,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 0.7f,
-                PortraitScale = 1 / NPC.scale * 0.7f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -40,12 +40,12 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.GoblinScout;
             AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
-
             NPC.waterMovementSpeed = 1f;
 
+            Banner = Type;
+            BannerItem = ModContent.ItemType<TigerSharkBanner>();
+
             var changedNPC = NPC.Changed();
-            changedNPC.BaseScaleMultiplier = 0.7f;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.HatXOffset = 0;
@@ -64,7 +64,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.Rain,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.TigerShark.Description")),
             });
         }
@@ -73,13 +73,21 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.SharkFin, 5));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SharkPlush>(), 20));
+            npcLoot.Add(ItemDropRule.Common(ItemID.DivingHelmet, 20));
             npcLoot.Add(ItemDropRule.Common(ItemID.SharkBait, 20));
         }
 
+        // Maybe add a config option for the old logic?
+        // ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            return ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            var spawnTileIsWater = spawnInfo.Water;
+
+            if (spawnInfo.Player.ZoneBeach && spawnTileIsWater && ChangedUtils.CanSpawn(changedNPC.spawnRequirement))
+                return 0.2f;
+
+            return 0f;
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

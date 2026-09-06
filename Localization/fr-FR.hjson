@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: Je me demande ce qui est arrivé à {NameZoologist}. N'a-t-elle été transformée que partiellement ?
 					Normal1: Ça tombe à pic. J'avais justement besoin d'un volontaire pour ma prochaine expérience.
 					Normal2: Bonjour sujet de test. Pourriez-vous tenir ceci pour moi ? C’est assez difficile à faire moi-même maintenant que j’ai de grandes pattes poilues.
-					Normal3: Si seulement mes collègues avaient respecté les protocoles, nous n'aurions pas de monstres errant aux alentours du laboratoire.
+					Normal3: Vous savez, tous ces monstres seraient restés contenus si ces imbéciles d'émeutiers n'avaient pas pris d'assaut le laboratoire.
 					Normal4: Maintenant que je n'ai plus à travailler sur un remède contre le virus, je peux me concentrer sur la création de la plus mignonne des bêtes gelées!
 					Normal5: "{PuroPresent}Cette gelée noire est... unique. Je n'en ai jamais vu une aussi friande d'humains."
 					Normal6: Vous pensiez que la Queue Blanche était terrible ? Attendez de voir le monstre dont elle faisait autrefois partie.
@@ -215,13 +215,13 @@ Mods: {
 					Normal9: Vous voulez savoir quelque chose d'intéressant? Savez-vous qu'il n'y a aucune image où je regarde sur les côtés dans mon jeu original?
 					Normal10: C'est rassurant de voir que vous n'êtes pas le seul humain à avoir survécu au virus pâle.
 					Normal11: Avec autant de créatures visqueuses différentes, il devenait difficile de toutes les nommer. C’est pourquoi nous avons inventé des noms très scientifiques comme « Chien-calamar » pour un croisement entre un calmar et un chien, ou « Vioronron » pour un chat violet ronronnant.
-					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
-					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Normal12: Saviez-vous que ces laboratoires étaient loués par une entreprise de robotique par le passé ? C’est elle qui a développé ces robots balayeurs si pratiques.
+					Normal13: J'ai peut-être contribué à la création de bon nombre de ces monstres, mais je n'ai guère de contrôle sur eux. Sans doute parce que je ne suis pas docteur en éthologie.
 					Crimson1: "{Crimson}Super, j'ai sauvé le monde d'un virus mortel et maintenant il est en train d'être détruit par le carmin."
 					Crimson2: "{Crimson}Une bête rouge gigantesque rôde dans le carmin. Si vous tenez à la vie, tenez-vous à l'écart."
 					Corruption1: "{Corruption}Super, j'ai sauvé le monde d'un virus mortel et maintenant il est en train d'être détruit par la corruption."
 					Corruption2: "{Corruption}Avez-vous vu ce gros chat violet près de la Corruption ? Croyez-moi, si vous ne l'avez pas vu, vous devriez le laisser là."
-					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+					BothWorldEvils1: "{BothWorldEvils1}Super, j'ai sauvé le monde d'un virus mortel et maintenant il est en train d'être détruit par la corruption et le carmin."
 					Thunder1: "{Thunder}La météo est parfaite pour une scientifique foue comme moi!"
 					Thunder2: "{Thunder}Quelle coïncidence, la foudre vient de frapper le bâtiment de Science du Tonnerre."
 					Windy1: "{Windy}Qui a laissé la fenêtre ouverte ? Toutes mes notes sont éparpillées par terre!"
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: Prêts pour un tour de magie impressionnant ? Regardez, je peux transformer du papier toilette en alcool de contrebande!
 						Party6: Cette fête manque feux d'artifice. Voulez-vous que j'y remédie?
+						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				// DisplayName: Prototype Bound
+				DisplayName: Robot coincé
 
 				TownNPCMood: {
 					// Content: I am content.

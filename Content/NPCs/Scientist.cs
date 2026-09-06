@@ -6,6 +6,7 @@ using ChangedSpecialMod.Content.Items.Ammo;
 using ChangedSpecialMod.Content.Items.Debug;
 using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.Items.Syringes;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -616,7 +617,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool PreAI()
         {
-            AI_TownEntity.AI_007_TownEntities(NPC);
+            AIPassive.Update(NPC);
             return false;
         }
 

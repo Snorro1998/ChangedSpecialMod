@@ -32,6 +32,7 @@ ChangedSpecialModClientConfig: {
 		WorldGeneration: "[c/ffeb6e:World Generation]"
 		Transfur: "[c/ffeb6e:Transfur]"
 		Npc: "[c/ffeb6e:NPC]"
+		Evolution: "[c/ffeb6e:Evolution]"
 	}
 
 	NumberOfLabs: {
@@ -82,7 +83,12 @@ ChangedSpecialModClientConfig: {
 
 	Evolution: {
 		Label: Evolution
-		Tooltip: Latex beasts will grow bigger and stronger with every boss defeated
+		Tooltip: Latex beasts will grow stronger with every boss defeated.
+	}
+
+	EvolutionSize: {
+		Label: Growth
+		Tooltip: Latex beasts will also grow bigger.
 	}
 
 	DialoguePortraits: {

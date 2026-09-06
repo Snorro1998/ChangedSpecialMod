@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -132,7 +133,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void AI()
         {
-            AI_Fighter.AI_003_Fighter(NPC);
+            AIFighter.Update(NPC);
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
+﻿using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -9,7 +8,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
 	public class Blocks : ModTile
 	{
-		public override void SetStaticDefaults() {
+		public override void SetStaticDefaults() 
+		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileID.Sets.FramesOnKillWall[Type] = true;
@@ -17,5 +17,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			TileObjectData.addTile(Type);
 			DustType = DustID.WoodFurniture;
 		}
+
+        public override IEnumerable<Item> GetItemDrops(int i, int j)
+        {
+            yield return new Item(ModContent.ItemType<Items.Weapons.ToyBlock>(), 50);
+        }
     }
 }

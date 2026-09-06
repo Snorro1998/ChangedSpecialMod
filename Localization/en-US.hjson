@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: I wonder what happened to {NameZoologist}. Did she only get partially transfurred?
 					Normal1: Perfect timing. I just needed a volunteer for my next experiment.
 					Normal2: Hello test subject. Could you please hold this for me? It is rather difficult to do it myself now that I have big, furry paws.
-					Normal3: If only my colleagues had followed the protocols, we wouldn't have monsters roaming outside the laboratory.
+					Normal3: You know, all those latex beasts would still have been contained if those stupid rioters hadn't stormed the laboratory.
 					Normal4: Now that I don't have to work on a cure for the virus anymore, I can focus on creating the cutest latex beast!
 					Normal5: "{PuroPresent}That black sample is... unique. I have never seen one of his kind so fond of humans."
 					Normal6: You thought the White Tail was bad? Wait until you see what monster he was once a part of.
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: Are you ready for a cool party trick? Look, I can turn toilet paper into moonshine!
 						Party6: This party is lacking fireworks. Do you want me to fix that?
+						Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				DisplayName: Prototype Bound
+				DisplayName: Stuck robot
 
 				TownNPCMood: {
 					Content: I am content.

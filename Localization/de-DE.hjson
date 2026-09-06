@@ -193,7 +193,7 @@ Mods: {
 						Party6: Was? Ich bin doch kein Vielfraß. Ich bin nur ein großes, starkes Tier, das viel Futter braucht, um in Form zu bleiben.
 						Party7: Glaubst du, sie werden sauer sein, wenn ich alles aufesse und sie es herausfinden?
 						Party8: *Manf* *Schlürf* Mmm, das Essen ist so lecker! *Manf*
-						Party9: "{PlayerIsWearingBalloon}Ja! Genau das, was diese Party noch brauchte. Mehr Luftballons! Neunundneunzig Luftballons!"
+						Party9: "{PlayerIsWearingBalloon}Ja! Genau das, was diese Party noch brauchte. Mehr Ballons! Neunundneunzig Luftballons!"
 						Party10: Ich bin ein schwarzes Schleimmonster, und mein Maul ist ein schwarzes Loch für leckeres Essen!
 						Party11: Mmm, diese fluffigen Orangen-Cupcakes sind so lecker, aber ich habe schon so viele gegessen... Vielleicht nur noch einen.
 						Party12: Wollen wir zusammen tanzen, Mensch? Denn ich fühle mich wie ein Partytier!
@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: Ich frage mich, was mit {NameZoologist} passiert ist. Wurde sie nur teilweise verwandelt?
 					Normal1: Perfektes Timing. Ich brauchte gerade einen Freiwilligen für mein nächstes Experiment.
 					Normal2: Hallo Testperson. Könnten Sie das bitte für mich halten? Es ist ziemlich schwierig für mich selbst, jetzt, wo ich große, pelzige Pfoten habe.
-					Normal3: Wenn meine Kollegen sich nur an die Vorgaben gehalten hätten, würden jetzt keine Monster außerhalb des Labors herumstreifen.
+					Normal3: Weißt du, all diese Schleimmonster wären noch immer eingedämmt, wenn diese dummen Randalierer das Labor nicht gestürmt hätten.
 					Normal4: Da ich nun nicht mehr an einem Heilmittel für das Virus arbeiten muss, kann ich mich darauf konzentrieren, das niedlichste Schleimmonster zu erschaffen!
 					Normal5: "{PuroPresent}Dieser schwarze Schleim ist... einzigartig. Ich habe noch nie einen seiner Artgenossen gesehen, der so menschenfreundlich ist."
 					Normal6: Du dachtest, der Weißschwanz wäre schlimm? Warte, bis du siehst, zu welchem Monster er einst gehörte.
@@ -215,13 +215,13 @@ Mods: {
 					Normal9: Möchtest du etwas Interessantes erfahren? In meinem Originalspiel gibt es keine Bilder, auf denen ich zur Seite schaue.
 					Normal10: Es ist gut zu sehen, dass Sie nicht der einzige Mensch sind, der das blasse Virus überlebt hat.
 					Normal11: Bei so vielen verschiedenen Schleimwesen war es schwierig, sie alle zu benennen. Deshalb haben wir uns sehr wissenschaftliche Namen ausgedacht, wie zum Beispiel „Tintenfischhund“ für eine Mischung aus Tintenfisch und Hund oder „Schnurrlila“ für eine lila schnurrende Katze.
-					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
-					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Normal12: Weißt du, dass die Labore früher von einem Robotikunternehmen gemietet wurden? Die Firma hat diese praktischen Kehrroboter entwickelt.
+					Normal13: Ich mag zwar zur Entstehung vieler dieser Schleimmonster beigetragen haben, aber ich habe wenig Kontrolle über sie. Wahrscheinlich, weil ich keinen Doktortitel in Tierverhalten habe.
 					Crimson1: "{Crimson}Toll, ich habe die Welt vor einem tödlichen Virus gerettet und jetzt wird sie von den Purpurnen zerstört."
 					Crimson2: "{Crimson}Ein riesiges rotes Ungeheuer treibt sich in der purpurnen Landschaft herum. Wenn dir dein Leben lieb ist, solltest du dich von ihm fernhalten."
 					Corruption1: "{Corruption}Toll, ich habe die Welt vor einem tödlichen Virus gerettet und jetzt wird sie von der Korruption zerstört."
 					Corruption2: "{Corruption}Hast du die große lila Katze in der Nähe der Korruption gesehen? Glaub mir, wenn nicht, solltest du das auch so beibehalten."
-					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+					BothWorldEvils1: "{BothWorldEvils1}Toll, ich habe die Welt vor einem tödlichen Virus gerettet und jetzt wird sie von der Korruption und den Purpurnen zerstört."
 					Thunder1: "{Thunder}Das Wetter ist perfekt für einen verrückten Wissenschaftler wie mich!"
 					Thunder2: "{Thunder}Wie passend, dass der Blitz genau in das Donner-Wissenschaftsgebäude eingeschlagen ist."
 					Windy1: "{Windy}Wer hat das Fenster offen gelassen? Jetzt liegen alle meine Notizen verstreut auf dem Boden!"
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: Seid ihr bereit für einen coolen Partytrick? Seht her, ich kann Toilettenpapier in Schwarzgebrannten verwandeln!
 						Party6: Diese Party braucht Feuerwerk. Soll ich dafür sorgen?
+						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				// DisplayName: Prototype Bound
+				DisplayName: Feststeckender Roboter
 
 				TownNPCMood: {
 					// Content: I am content.

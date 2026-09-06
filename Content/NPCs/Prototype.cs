@@ -4,6 +4,7 @@ using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Items.Placeable.Seeds;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -467,7 +468,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay) 
         {
-			projType = ModContent.ProjectileType<PotProjectile>();
+			projType = ModContent.ProjectileType<WateringCanProjectile>();
 			attackDelay = 1;
 		}
 
@@ -688,7 +689,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool PreAI()
         {
-            AI_TownEntity.AI_007_TownEntities(NPC);
+            AIPassive.Update(NPC);
             return false;
         }
 
@@ -853,15 +854,31 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private void FindFrameWaterPlants(int frameHeight)
         {
+
+            var player = ChangedUtils.GetClosestPlayer((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16);
+            var drunk = ChangedUtils.IsDrunk(player);
+
             var frame = 24;
             NPC.frame.Y = frameHeight * frame;
             var waterParticle = Dust.dustWater();
             var screenPos = Main.screenPosition;
-            var position = NPC.Center + new Vector2(NPC.direction * 25f, -8);
+            var dustXOffset = NPC.direction == -1 ? -2 : -4;
+            var position = NPC.Center + new Vector2(NPC.direction * 25f + dustXOffset, -8);
             int particleID = Dust.NewDust(position, 0, 0, waterParticle, 0, 5, 0, default(Color), 1.2f);
             if (particleID != -1)
             {
-                Main.dust[particleID].scale = (0.7f + Main.rand.NextFloat() * 0.3f) * 1.5f;
+                var dust = Main.dust[particleID];
+                dust.scale = (0.7f + Main.rand.NextFloat() * 0.3f) * 1.5f;
+                if (!drunk)
+                {
+                    var xSpeed = Main.rand.NextFloat(-1, 1);
+                    dust.velocity = new Vector2(xSpeed, 2.2f);
+                    dust.noGravity = true;
+                }
+                else
+                {
+                    dust.scale *= 2;
+                }
             }
         }
 

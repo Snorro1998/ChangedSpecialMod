@@ -20,6 +20,13 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Slimer];
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
+            {
+                //Velocity = 1f,
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
 		public override void SetDefaults() 

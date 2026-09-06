@@ -1,4 +1,6 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,8 +20,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -39,6 +41,9 @@ namespace ChangedSpecialMod.Content.NPCs
             AIType = NPCID.None;
             AnimationType = NPCID.Zombie;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
+
+            Banner = Type;
+            BannerItem = ModContent.ItemType<WhiteLatexCubBanner>();
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
@@ -98,7 +103,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void AI()
         {
-            AI_Fighter.AI_003_Fighter(NPC);
+            AIFighter.Update(NPC);
         }
     }
 }

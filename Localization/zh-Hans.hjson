@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: 我想知道{NameZoologist}发生了什么事。她是不是只发生了部分变化？
 					Normal1: 真是太巧了。我正需要一位志愿者来做下一个实验。
 					Normal2: 你好，测试对象。你能帮我拿着这个吗？我现在爪子又大又毛茸茸的，自己拿有点困难。
-					Normal3: 如果我的同事们当初遵守了规程，就不会有怪物在实验室外游荡了。
+					Normal3: 你知道吗，如果不是那些愚蠢的暴徒冲进实验室，所有那些黏液怪物现在仍然会被控制住。
 					Normal4: 既然我不用再研究病毒的治疗方法了，我可以专注于制作最可爱的史莱姆了！
 					Normal5: "{PuroPresent}那种黑色黏液……真是独一无二。我从未见过它们离人类这么近。"
 					Normal6: 你以为白尾厉害？等着瞧瞧它曾经是哪个怪物的一部分吧。
@@ -215,13 +215,13 @@ Mods: {
 					Normal9: 想知道一件有趣的事吗？你知道我的原版游戏中没有侧边精灵图吗？
 					Normal10: 很高兴看到你不是唯一一个从苍白病毒中幸存下来的人。
 					Normal11: 由于史莱姆种类繁多，给它们全部命名变得很困难。所以我们才想出了一些非常科学的名字，比如把鱿鱼和狗的混合体叫做“鱿鱼狗”，把会发出呼噜声的紫色猫咪叫做“紫呼噜猫”。
-					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
-					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Normal12: 你知道吗？这些实验室以前是一家机器人公司租用的。他们开发了那些方便的清扫机器人。
+					Normal13: 我或许参与创造了许多黏液怪物，但我对它们却几乎无能为力。大概是因为我没有动物行为学博士学位吧。
 					Crimson1: "{Crimson}太好了，我拯救了世界免于致命病毒的侵袭，现在它却要被猩红军团摧毁。"
 					Crimson2: "{Crimson}绯红之地游荡着一头巨大的红色野兽。如果你珍惜自己的性命，就应该远离它。"
 					Corruption1: "{Corruption}太好了，我拯救了世界免于致命病毒的侵袭，现在它却要被腐败摧毁。"
 					Corruption2: "{Corruption}你见过腐化之地附近那只紫色的大猫吗？相信我，如果你没见过，最好还是别见它。"
-					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+					BothWorldEvils1: "{BothWorldEvils1}太好了，我拯救了世界免于致命病毒的侵袭，现在它却要被腐败和猩红军团摧毁。"
 					Thunder1: "{Thunder}这样的天气简直太适合我这种疯狂的科学家了！"
 					Thunder2: "{Thunder}真是巧合，闪电刚刚击中了雷霆科学大楼。"
 					Windy1: "{Windy}谁忘了关窗户？我的笔记全散落在地上了！"
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: 准备好见识一下我的炫酷派对绝技了吗？瞧，我可以把卫生纸变成私酿酒！
 						Party6: 这场派对缺少烟火。你想让我来弥补一下吗？
+						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				// DisplayName: Prototype Bound
+				DisplayName: 被困机器人
 
 				TownNPCMood: {
 					// Content: I am content.

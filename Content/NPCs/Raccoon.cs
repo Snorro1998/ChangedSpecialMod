@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,16 +15,14 @@ namespace ChangedSpecialMod.Content.NPCs
 {
 	public class Raccoon : ModNPC
 	{
-        private float rotationValue = 0;
-
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 1;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -53,8 +52,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.RemoveAllHats();
             changedNPC.DoOnSpawnExtra = true;
             changedNPC.GooColor = new Color(148, 148, 148);
-
-            rotationValue = NPC.rotation;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -86,7 +83,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool PreAI()
         {
-            AI_Unicorn.AI_026_Unicorns(NPC);
+            AIUnicorn.Update(NPC);
             NPC.rotation += (float)(Math.PI * 2 / 60.0f * NPC.velocity.X * 0.5f);
             return false;
         }

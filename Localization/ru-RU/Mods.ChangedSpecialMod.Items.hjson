@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Лейка
+	DisplayName: Лейка (Размещаемый)
 }
 
 MusicBoxPuro: {
@@ -490,7 +490,7 @@ Locker: {
 
 Blocks: {
 	Tooltip: ""
-	DisplayName: Кубики
+	DisplayName: Игрушечные кубики
 }
 
 MusicBoxBehemoth: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: Белый хрустальный посох
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Игрушечный кубик
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Лейка
+	Tooltip: Щелкните правой кнопкой мыши, чтобы бросить
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Знамя черный слизистый щенок
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Знамя робот-уборщик
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Знамя белый слизистый щенок
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Знамя фэнаю
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Знамя Тигровая акула
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

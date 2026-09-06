@@ -32,6 +32,7 @@ ChangedSpecialModClientConfig: {
 		WorldGeneration: "[c/ffeb6e:Generazione mondiale]"
 		Transfur: "[c/ffeb6e:Trasformazione]"
 		Npc: "[c/ffeb6e:Caratteri]"
+		Evolution: "[c/ffeb6e:Evoluzione]"
 	}
 
 	NumberOfLabs: {
@@ -83,7 +84,12 @@ ChangedSpecialModClientConfig: {
 
 	Evolution: {
 		Label: Evoluzione
-		Tooltip: Le bestie di melma diventeranno più grandi e più forti con ogni boss sconfitto.
+		Tooltip: Le bestie di melma diventeranno più forti con ogni boss sconfitto.
+	}
+
+	EvolutionSize: {
+		Label: Crescita
+		Tooltip: Le bestie di melma diventeranno più grandi.
 	}
 
 	DialoguePortraits: {

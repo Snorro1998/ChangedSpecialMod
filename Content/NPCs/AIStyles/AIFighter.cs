@@ -5,15 +5,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.NPCs
+namespace ChangedSpecialMod.Content.NPCs.AIStyles
 {
-    public static class AI_Fighter
+    // Cleaned up version of vanilla Fighter AI, with unnecessary parts removed
+    // This allows us to define things such as custom movement speeds for NPCs using fighter AI
+    public static class AIFighter
     {
-        public static void AI_003_Fighter(NPC npc)
+        public static void Update(NPC npc)
         {
-            // Set this to true to debug which code is executed. It will rapidly flip the sprite
-            bool testflag = false;
-
             // Check which npc it is
             var isBlackCub = npc.type == ModContent.NPCType<DarkLatexCub>();
             var isWhiteCub = npc.type == ModContent.NPCType<WhiteLatexCub>();
@@ -470,8 +469,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 npc.ai[1] = 0f;
                 npc.ai[2] = 0f;
             }
-            if (testflag)
-                npc.spriteDirection *= -1;
         }
     }
 }

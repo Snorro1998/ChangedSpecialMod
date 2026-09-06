@@ -3,14 +3,13 @@ using System;
 using Terraria;
 using Terraria.ID;
 
-namespace ChangedSpecialMod.Content.NPCs
+namespace ChangedSpecialMod.Content.NPCs.AIStyles
 {
-    public static class AI_Unicorn
+    // Vanilla unicorn AI with a few changes so It won't jump around as much
+    public static class AIUnicorn
     {
-        public static void AI_026_Unicorns(NPC npc)
+        public static void Update(NPC npc)
         {
-            bool testflag = false;
-
             int num = 30;
             int num2 = 10;
             bool flag = false;
@@ -90,7 +89,7 @@ namespace ChangedSpecialMod.Content.NPCs
             float num12 = 0.07f;
             if (!flag && (npc.velocity.Y == 0f || npc.wet || (npc.velocity.X <= 0f && npc.direction < 0) || (npc.velocity.X >= 0f && npc.direction > 0)))
             {
-                if (npc.type == 155)
+                if (npc.type == NPCID.Wolf)
                 {
                     if (npc.velocity.X > 0f && npc.direction < 0)
                     {
@@ -140,28 +139,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 vector8.X += npc.velocity.X;
                 int num15 = (int)((vector8.X + (float)(npc.width / 2) + (float)((npc.width / 2 + 1) * num14)) / 16f);
                 int num16 = (int)((vector8.Y + (float)npc.height - 1f) / 16f);
-                /*
-                if (Main.tile[num15, num16] == null)
-                {
-                    Main.tile[num15, num16] = default(Tile);
-                }
-                if (Main.tile[num15, num16 - 1] == null)
-                {
-                    Main.tile[num15, num16 - 1] = default(Tile);
-                }
-                if (Main.tile[num15, num16 - 2] == null)
-                {
-                    Main.tile[num15, num16 - 2] = default(Tile);
-                }
-                if (Main.tile[num15, num16 - 3] == null)
-                {
-                    Main.tile[num15, num16 - 3] = default(Tile);
-                }
-                if (Main.tile[num15, num16 + 1] == null)
-                {
-                    Main.tile[num15, num16 + 1] = default(Tile);
-                }
-                */
+
                 if ((float)(num15 * 16) < vector8.X + (float)npc.width && (float)(num15 * 16 + 16) > vector8.X && ((Main.tile[num15, num16].HasUnactuatedTile && !Main.tile[num15, num16].TopSlope && !Main.tile[num15, num16 - 1].TopSlope && Main.tileSolid[Main.tile[num15, num16].TileType] && !Main.tileSolidTop[Main.tile[num15, num16].TileType]) || (Main.tile[num15, num16 - 1].IsHalfBlock && Main.tile[num15, num16 - 1].HasUnactuatedTile)) && (!Main.tile[num15, num16 - 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num15, num16 - 1].TileType] || Main.tileSolidTop[Main.tile[num15, num16 - 1].TileType] || (Main.tile[num15, num16 - 1].IsHalfBlock && (!Main.tile[num15, num16 - 4].HasUnactuatedTile || !Main.tileSolid[Main.tile[num15, num16 - 4].TileType] || Main.tileSolidTop[Main.tile[num15, num16 - 4].TileType]))) && (!Main.tile[num15, num16 - 2].HasUnactuatedTile || !Main.tileSolid[Main.tile[num15, num16 - 2].TileType] || Main.tileSolidTop[Main.tile[num15, num16 - 2].TileType]) && (!Main.tile[num15, num16 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num15, num16 - 3].TileType] || Main.tileSolidTop[Main.tile[num15, num16 - 3].TileType]) && (!Main.tile[num15 - num14, num16 - 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num15 - num14, num16 - 3].TileType]))
                 {
                     float num17 = num16 * 16;
@@ -253,15 +231,12 @@ namespace ChangedSpecialMod.Content.NPCs
                             && (!Main.tile[num22 + npc.direction, num23 + 3].HasUnactuatedTile || !Main.tileSolid[Main.tile[num22 + npc.direction, num23 + 3].TileType])
                         )
                         {
-                            //testflag = true;
                             npc.velocity.Y = -8f;
                             npc.netUpdate = true;
                         }
                     }
                 }
             }
-            //if (testflag)
-            //    npc.rotation = Main.rand.NextFloat((float)Math.PI * 2);
         }
     }
 }

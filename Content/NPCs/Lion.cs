@@ -1,12 +1,11 @@
-using ChangedSpecialMod.Common.Systems;
-using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -23,8 +22,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -43,13 +42,9 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.aiStyle = NPCAIStyleID.Unicorn;
 			AIType = NPCID.Unicorn;
             AnimationType = -1;
-            SpawnModBiomes = new int[] 
-            {
-                ModContent.GetInstance<BlackLatexSurfaceDesertBiome>().Type,
-                ModContent.GetInstance<WhiteLatexSurfaceDesertBiome>().Type
-            };
 
-            ItemID.Sets.KillsToBanner[BannerItem] = 25;
+            Banner = Type;
+            BannerItem = ModContent.ItemType<LionBanner>();
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
@@ -106,7 +101,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool PreAI()
         {
-            AI_Unicorn.AI_026_Unicorns(NPC);
+            AIUnicorn.Update(NPC);
             return false;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Items.Food;
+using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using Microsoft.Xna.Framework;
@@ -914,8 +915,59 @@ namespace ChangedSpecialMod.Utilities
                                     if (chestIndex >= 0)
                                     {
                                         var chest = Main.chest[chestIndex];
-                                        var amount = 1;
+                                        //var amount = 1;
 
+                                        var items = new List<int>();
+                                        var itemAmounts = new List<int>();
+
+                                        var primaryItems = new List<int>()
+                                        {
+                                            ItemID.Extractinator,
+                                            ItemID.BandofRegeneration,
+                                            ItemID.MagicMirror,
+                                            ItemID.CloudinaBottle,
+                                            ItemID.HermesBoots,
+                                            ItemID.Mace,
+                                            ItemID.ShoeSpikes
+                                        };
+
+                                        items.Add(Utils.SelectRandom(WorldGen.genRand, primaryItems.ToArray()));
+                                        itemAmounts.Add(1);
+
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.SuspiciousLookingEye, 5, 1, 1);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.Dynamite, 3, 1, 1);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.JestersArrow, 4, 25, 50);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.Topaz, 3, 1, 4);
+                                        WorldGenerator.AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.SilverBar, ItemID.TungstenBar }, 2, 3, 10);
+                                        WorldGenerator.AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.GoldBar, ItemID.PlatinumBar }, 2, 3, 10);
+                                        WorldGenerator.AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.FlamingArrow, ItemID.ThrowingKnife }, 2, 25, 50);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.HealingPotion, 2, 3, 5);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.OrangeTorch, 2, 15, 30);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ModContent.ItemType<BasketballWeapon>(), 3, 1, 1);
+                                        WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.GolfBallDyedOrange, 3, 1, 1);
+
+                                        for (int j = items.Count; j < 40; j++)
+                                        {
+                                            if (Main.rand.NextBool(3))
+                                            {
+                                                items.Add(ItemID.BloodOrange);
+                                                itemAmounts.Add(1);
+                                            }
+                                            else
+                                            {
+                                                items.Add(ModContent.ItemType<Orange>());
+                                                itemAmounts.Add(1);
+                                            }
+                                        }
+
+                                        for (int j = 0; j < 40; j++)
+                                        {
+                                            var item = items[j];
+                                            chest.item[j].SetDefaults(item, false);
+                                            chest.item[j].stack = itemAmounts[j];
+                                        }
+
+                                        /*
                                         var items = new List<int>
                                         {
                                             ItemID.OrangeTorch,
@@ -935,26 +987,9 @@ namespace ChangedSpecialMod.Utilities
                                             ItemID.GoldBar,
                                             ItemID.GoldBar,
                                         };
-                                        /*
-                                        var items = new List<int>
-                                        {
-                                            ItemID.OrangeandBlackDye,
-                                            ItemID.OrangeandSilverDye,
-                                            ItemID.OrangeBloodroot,
-                                            ItemID.OrangeDragonfly,
-                                            ItemID.OrangeDye,
-                                            ItemID.OrangePaint,
-                                            ItemID.OrangePressurePlate,
-                                            ItemID.OrangeStainedGlass,
-                                            ItemID.OrangeString,
-                                            ItemID.OrangeTorch,
-                                            ItemID.BloodOrange,
-                                            ItemID.BrightOrangeDye,
-                                            ItemID.DeepOrangePaint,
-                                            ItemID.GolfBallDyedOrange
-                                        };
                                         */
 
+                                        /*
                                         for (int j = items.Count; j < 40; j++)
                                         {
                                             items.Add(ModContent.ItemType<Orange>());
@@ -968,6 +1003,7 @@ namespace ChangedSpecialMod.Utilities
                                             chest.item[j].SetDefaults(item, false);
                                             chest.item[j].stack = amount;
                                         }
+                                        */
                                     }
 
                                     continue;

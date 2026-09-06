@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: Mi chiedo cosa sia successo a {NameZoologist}. Si è trasformata solo parzialmente?
 					Normal1: Tempismo perfetto. Mi serviva proprio un volontario per il mio prossimo esperimento.
 					Normal2: Salve, soggetto del test. Potrebbe tenermelo, per favore? È piuttosto difficile farlo da solo ora che ho delle zampe grandi e pelose.
-					Normal3: Se solo i miei colleghi avessero seguito i protocolli, non avremmo mostri che si aggirano fuori dal laboratorio.
+					Normal3: Sai, tutti quei mostri di melma sarebbero stati ancora tenuti a bada se quegli stupidi rivoltosi non avessero preso d'assalto il laboratorio.
 					Normal4: Ora che non devo più lavorare a una cura per il virus, posso concentrarmi sulla creazione della bestia di melma più carina!
 					Normal5: "{PuroPresent}Quella melma nera è... unica. Non ho mai visto uno della sua specie così affezionato agli umani."
 					Normal6: Pensavate che la Coda Bianca fosse cattiva? Aspettate di vedere in quale mostro si è trasformato una volta.
@@ -215,13 +215,13 @@ Mods: {
 					Normal9: Vuoi sapere una cosa interessante? Lo sapevi che nel mio gioco originale non ci sono sprite che mi ritraggono mentre guardo di lato?
 					Normal10: È un sollievo sapere che non sei l'unico essere umano ad essere sopravvissuto al virus della pelle pallida.
 					Normal11: Con così tante creature melmose diverse, è diventato difficile nominarle tutte. Ecco perché abbiamo inventato nomi molto scientifici come "Cane calamaro" per una fusione tra un calamaro e un cane o "Viofalefusa" per un gatto viola che fa le fusa.
-					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
-					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Normal12: Lo sapevate che in passato i laboratori erano stati affittati da un'azienda di robotica? Lì hanno sviluppato quei pratici robot spazzatrici.
+					Normal13: Potrei aver contribuito alla creazione di molti di quei mostri, ma ho poco controllo su di loro. Probabilmente perché non ho un dottorato in etologia.
 					Crimson1: "{Crimson}Fantastico, ho salvato il mondo da un virus mortale e ora viene distrutto dai Cremisi."
 					Crimson2: "{Crimson}Una bestia rossa gigantesca si aggira per la zona cremisi. Se tieni alla tua vita, dovresti starle alla larga."
 					Corruption1: "{Corruption}Fantastico, ho salvato il mondo da un virus mortale e ora viene distrutto dalla Corruzione."
 					Corruption2: "{Corruption}Avete visto quel grosso gatto viola vicino alla Corruzione? Credetemi, se non l'avete visto, fareste meglio a non notarlo."
-					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+					BothWorldEvils1: "{BothWorldEvils1}Fantastico, ho salvato il mondo da un virus mortale e ora viene distrutto dalla Corruzione e dai Cremisi."
 					Thunder1: "{Thunder}Il tempo è perfetto per uno scienziato pazzo come me!"
 					Thunder2: "{Thunder}Che coincidenza, il fulmine ha appena colpito l'edificio dedicato alla 'scienza dei fulmini'."
 					Windy1: "{Windy}Chi ha lasciato la finestra aperta? Ora tutti i miei appunti sono sparsi sul pavimento!"
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: Siete pronti per un trucco da festa davvero fantastico? Guardate, posso trasformare la carta igienica in liquore di contrabbando!
 						Party6: A questa festa mancano i fuochi d'artificio. Vuoi che ci pensi io?
+						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				// DisplayName: Prototype Bound
+				DisplayName: Robot bloccato
 
 				TownNPCMood: {
 					// Content: I am content.

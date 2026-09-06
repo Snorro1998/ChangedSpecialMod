@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Konewka
+	DisplayName: Konewka (można umieścić)
 }
 
 MusicBoxPuro: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: Biały Kryształowy Kostur
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Klocek zabawkowy
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Konewka
+	Tooltip: Kliknij prawym przyciskiem myszy, aby rzucić
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Sztandar szczeniak czarnego szlamu
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Sztandar Robot zamiatający
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Sztandar szczeniak białego szlamu
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Sztandar Feng Yu
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Sztandar Rekin tygrysi
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

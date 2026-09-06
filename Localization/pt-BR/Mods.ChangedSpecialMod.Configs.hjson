@@ -32,6 +32,7 @@ ChangedSpecialModClientConfig: {
 		WorldGeneration: "[c/ffeb6e:Geração Mundial]"
 		Transfur: "[c/ffeb6e:Transformação]"
 		Npc: "[c/ffeb6e:Personagens]"
+		Evolution: "[c/ffeb6e:Evolução]"
 	}
 
 	NumberOfLabs: {
@@ -82,7 +83,12 @@ ChangedSpecialModClientConfig: {
 
 	Evolution: {
 		Label: Evolução
-		Tooltip: As criaturas de gosma ficarão maiores e mais fortes a cada chefe derrotado.
+		Tooltip: As criaturas de gosma ficarão mais fortes a cada chefe derrotado.
+	}
+
+	EvolutionSize: {
+		Label: Crescimento
+		Tooltip: As criaturas de gosma também ficarão maiores.
 	}
 
 	DialoguePortraits: {

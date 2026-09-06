@@ -206,7 +206,7 @@ Mods: {
 					NPCZoologist: Me pregunto qué le habrá pasado a {NameZoologist}. ¿Solo se transformó parcialmente?
 					Normal1: Justo a tiempo. Necesitaba un voluntario para mi próximo experimento.
 					Normal2: Hola, sujeto de prueba. ¿Podrías sujetar esto por mí? Me resulta bastante difícil hacerlo yo solo ahora que tengo patas grandes y peludas.
-					Normal3: Si mis compañeros hubieran seguido los protocolos, no tendríamos monstruos merodeando fuera del laboratorio.
+					Normal3: Ya sabes, todos esos monstruos habrían permanecido contenidos si esos estúpidos alborotadores no hubieran irrumpido en el laboratorio.
 					Normal4: Ahora que ya no tengo que trabajar en una cura para el virus, ¡puedo concentrarme en crear la bestia de látex más adorable!
 					Normal5: "{PuroPresent}Ese látex negro es... único. Nunca había visto a uno de su especie tan cariñoso con los humanos."
 					Normal6: ¿Creías que el Cola Blanca era malo? Espera a ver de qué monstruo formó parte.
@@ -215,13 +215,13 @@ Mods: {
 					Normal9: ¿Quieres saber algo interesante? ¿Sabías que no tengo sprites laterales en mi juego original?
 					Normal10: Me alegra ver que no eres el único ser humano que sobrevivió al virus de la palidez.
 					Normal11: Con tantas criaturas de látex diferentes, se nos hizo difícil ponerles nombre a todas. Por eso, se nos ocurrieron nombres muy científicos como 'Perro Calamar' para una fusión entre calamar y perro, o 'Gatomorado' para un gato morado que ronronea.
-					// Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
-					// Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+					Normal12: ¿Sabías que los laboratorios fueron alquilados en el pasado por una empresa de robótica? Ellos desarrollaron esos prácticos robots barredores.
+					Normal13: Puede que haya contribuido a la creación de muchos de esos monstruos, pero tengo poco control sobre ellos. Probablemente porque no tengo un doctorado en comportamiento animal.
 					Crimson1: "{Crimson}¡Genial! He salvado al mundo de un virus mortal y ahora está siendo destruido por el Carmesí."
 					Crimson2: "{Crimson}Una enorme bestia roja merodea por el Carmesí. Si valoras tu vida, mantente alejado de ella."
 					Corruption1: "{Corruption}¡Genial! He salvado al mundo de un virus mortal y ahora la corrupción lo está destruyendo."
 					Corruption2: "{Corruption}¿Has visto a ese gato morado grande cerca de la Corrupción? Créeme, si no lo has visto, deberías dejar de verlo así."
-					// BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+					BothWorldEvils1: "{BothWorldEvils1}¡Genial! He salvado al mundo de un virus mortal y ahora está siendo destruido por la corrupción y el Carmesí."
 					Thunder1: "{Thunder}¡El tiempo es perfecto para una científica loca como yo!"
 					Thunder2: "{Thunder}Qué apropiado, justo ahora un rayo cayó sobre el edificio de Ciencias del Trueno."
 					Windy1: "{Windy}¿Quién dejó la ventana abierta? ¡Ahora todas mis notas están esparcidas por el suelo!"
@@ -276,6 +276,7 @@ Mods: {
 						# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 						Party5: ¿Estás listo para un truco de fiesta genial? ¡Mira, puedo convertir papel higiénico en licor!
 						Party6: A esta fiesta le faltan fuegos artificiales. ¿Quieres que lo solucione?
+						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 					}
 				}
 
@@ -718,7 +719,7 @@ Mods: {
 			}
 
 			PrototypeBound: {
-				// DisplayName: Prototype Bound
+				DisplayName: Robot atascado
 
 				TownNPCMood: {
 					// Content: I am content.

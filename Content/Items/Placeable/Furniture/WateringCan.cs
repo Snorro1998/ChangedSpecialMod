@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Content.Items.Weapons;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,13 +19,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
 		public override void AddRecipes() 
 		{
 			CreateRecipe()
-				.AddIngredient(ItemID.LeadBar, 2)
-				.AddTile(TileID.Anvils)
-				.Register();
-
-            CreateRecipe()
-				.AddIngredient(ItemID.IronBar, 2)
-				.AddTile(TileID.Anvils)
+				.AddIngredient(ModContent.ItemType<WateringCanWeapon>(), 1)
 				.Register();
 		}
 	}

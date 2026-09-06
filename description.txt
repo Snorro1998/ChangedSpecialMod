@@ -80,22 +80,39 @@ Other
 --------- Changelog ---------
 
 
-0.5.6.3
+0.5.6.4
 
-This is a small update with a few changes to NPCs.
+This update adds two new weapons and makes some changes to NPCs.
 
 
 General
+- The chest in a citrus shrine contains more useful items, instead of only oranges
+- The amount of crimson, corrupt, hallow and latex blocks in the world are counted twice per day. This is to determine if NPCs should talk about these biomes
+- Increased the amount of iron bars needed to make a watering can, because it can now be used as a weapon
+
+Weapons
+- Turned the watering can into a magic weapon. You can use it as an early aqua scepter, or right click to throw it.
+- Toy block towers now drop individual blocks when picked up. These can be used as a ranged weapon
 - Added impact particles to projectiles shot by book weapons
-- The amount of crimson, corrupt, hallow and latex blocks in the world are counted twice per day. This is to determine if NPCs should talk about these biomes.
 
 NPCs
+- All NPCs are no longer drawn slightly bigger in the bestiary
+- NPCs no longer grow bigger from evolution by default. You can re-enable it in the config if desired
+- Added banners for: Black Latex Cub, White Latex Cub, Tiger Shark, Feng-Yu and Sweeper
+- Squid dog, Squid Dog Cub and Tiger shark can now only be found in the ocean
+- Squid Dog and Squid Dog Cub can drop jellyfish necklace
+- Tiger Shark can drop diving helmet
 - Small monsters will move very fast if the player is drunk
+- Reduced water spray effect when Prototype is watering plants
 - Prototype will spawn stuck in goo after defeating the Behemoth and you have to rescue him
 - Dr K can throw syringes to heal injured NPCs like the nurse can
 - Dr K has a few more dialogue options
 
+Resprited
+- Squid Dog Cub
+- Tiger shark
+
 Fixes
-- Prototype would always spawn if the Behemoth despawned, even if you didn't defeat him
 - Fixed wrong drawing offsets for snow leopard
+- Prototype would always spawn if the Behemoth despawned, even if you didn't defeat him
 - NPCs could still talk about the corruption and crimson if they were no longer there, unless you reloaded the world

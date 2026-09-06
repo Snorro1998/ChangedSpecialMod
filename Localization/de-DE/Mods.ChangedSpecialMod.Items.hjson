@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Gießkanne
+	DisplayName: Gießkanne (Platzierbar)
 }
 
 MusicBoxPuro: {
@@ -682,8 +682,8 @@ SummonShark: {
 }
 
 SweeperItem: {
-	DisplayName: Sweeper
-	Tooltip: Scrubber specialist
+	DisplayName: Kehrroboter
+	Tooltip: Scheuersaugmaschinenspezialist
 }
 
 SweeperPuroItem: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: Weißer Kristallstab
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Spielzeugbaustein
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Gießkanne
+	Tooltip: Rechtsklick zum Werfen
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Schwarzer Schleimwelpebanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Kehrroboterbanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Weißer Schleimwelpebanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Feng Yu Banner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Tigerhaibanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

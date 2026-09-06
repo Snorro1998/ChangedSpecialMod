@@ -63,9 +63,13 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(6)]
         public int LatexSpreadChance { get; set; }
 
-        [Header("Misc")]
+        [Header("Evolution")]
         [DefaultValue(true)]
         public bool Evolution { get; set; }
+        [DefaultValue(false)]
+        public bool EvolutionSize { get; set; }
+
+        [Header("Misc")]
         [DefaultValue(true)]
         public bool CustomDryadWorldStatus { get; set; }
 

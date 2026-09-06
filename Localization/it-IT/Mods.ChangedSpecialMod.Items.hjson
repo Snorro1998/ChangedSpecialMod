@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Annaffiatoio
+	DisplayName: Annaffiatoio (Posizionabile)
 }
 
 MusicBoxPuro: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: Bastone di cristallo bianco
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Blocco giocattolo
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Annaffiatoio
+	Tooltip: Fai clic con il pulsante destro del mouse per lanciare
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Stendardo cucciolo di melma nera
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Stendardo Robot spazzatrice
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Stendardo cucciolo di melma bianca
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Stendardo Feng Yu
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Stendardo Squalo tigre
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

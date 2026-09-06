@@ -992,6 +992,11 @@ namespace ChangedSpecialMod.Content.NPCs
             npc.defense = (int)tmpDef;
             npc.knockBackResist = (float)Math.Max(1.0f - tmpKnockbackResistance, 0.0f);
             npc.scale *= (float)tmpSize * BaseScaleMultiplier;
+
+            if (!ChangedSpecialModClientConfig.Instance.EvolutionSize)
+            {
+                npc.scale = BaseScaleMultiplier;
+            }
         }
 
         public void PickHat(NPC npc)

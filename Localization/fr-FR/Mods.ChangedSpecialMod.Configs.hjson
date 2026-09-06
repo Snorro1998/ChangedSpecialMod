@@ -32,6 +32,7 @@ ChangedSpecialModClientConfig: {
 		WorldGeneration: "[c/ffeb6e:Génération mondiale]"
 		Transfur: "[c/ffeb6e:Transformation]"
 		Npc: "[c/ffeb6e:Personnages]"
+		Evolution: "[c/ffeb6e:Évolution]"
 	}
 
 	NumberOfLabs: {
@@ -82,7 +83,12 @@ ChangedSpecialModClientConfig: {
 
 	Evolution: {
 		Label: Évolution
-		Tooltip: Les monstres de gelée deviendront plus grands et plus forts à chaque boss vaincu.
+		Tooltip: Les monstres de gelée deviendront plus forts à chaque boss vaincu.
+	}
+
+	EvolutionSize: {
+		Label: Croissance
+		Tooltip: Les monstres grandissent aussi.
 	}
 
 	DialoguePortraits: {
@@ -90,7 +96,7 @@ ChangedSpecialModClientConfig: {
 		Tooltip:
 			'''
 			Si les habitants de la ville dans ce mod ont des portraits lorsque vous leur parlez.
-			Si vous utilisez « Boulder » Backport, ce paramètre est ignoré et son option 
+			Si vous utilisez « Boulder Backport », ce paramètre est ignoré et son option 
 			« Modded Town NPC Portraits » est utilisée à la place.
 			'''
 	}

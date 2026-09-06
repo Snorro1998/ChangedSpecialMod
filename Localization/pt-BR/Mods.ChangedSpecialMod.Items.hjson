@@ -330,7 +330,7 @@ BookBarrage: {
 
 WateringCan: {
 	Tooltip: ""
-	DisplayName: Regador
+	DisplayName: Regador (Posicionável)
 }
 
 MusicBoxPuro: {
@@ -962,4 +962,39 @@ Painting20: {
 WhiteCrystalStaff: {
 	DisplayName: Cajado de Cristal branco
 	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Bloco de brinquedo
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Regador
+	Tooltip: Clique com o botão direito para arremessar
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Bandeira do Filhote de Gosma Preta
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Bandeira do Robô de Varredura
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Bandeira do Filhote de Gosma Branca
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Bandeira da Feng Yu
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Bandeira do Tubarão Tigre
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }

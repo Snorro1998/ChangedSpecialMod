@@ -25,8 +25,8 @@ namespace ChangedSpecialMod.Content.NPCs.Drunk
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 1.25f,
-                PortraitScale = 1 / NPC.scale * 1.25f,
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale,
                 Position = new Vector2(0, 32)
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);

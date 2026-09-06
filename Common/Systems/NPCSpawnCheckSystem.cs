@@ -35,7 +35,7 @@ namespace ChangedSpecialMod.Common.Systems
 
             List<float> playerChanges = new List<float>();
 
-            for (int i = 0; i < 255; i++)
+            for (int i = 0; i < Main.maxPlayers; i++)
             {
                 var player = Main.player[i];
                 if (!player.active || !BiomeChecks.InChangedSurfaceBiome(player))

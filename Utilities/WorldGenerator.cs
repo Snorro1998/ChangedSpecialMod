@@ -12,6 +12,7 @@ using ChangedSpecialMod.Content.Walls.Latex.White;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Channels;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
@@ -495,6 +496,24 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
+        public static void AddToPool(ref List<int> items, ref List<int> itemAmounts, int item, int chance, int amountMin, int amountMax, bool inverse = false)
+        {
+            if (WorldGen.genRand.NextBool(chance) && !inverse)
+            {
+                items.Add(item);
+                itemAmounts.Add(WorldGen.genRand.Next(amountMin, amountMax + 1));
+            }
+        }
+
+        public static void AddRandomToPool(ref List<int> items, ref List<int> itemAmounts, int[] options, int chance, int amountMin, int amountMax, bool inverse = false)
+        {
+            if (WorldGen.genRand.NextBool(chance) && !inverse)
+            {
+                items.Add(Utils.SelectRandom(WorldGen.genRand, options));
+                itemAmounts.Add(WorldGen.genRand.Next(amountMin, amountMax));
+            }
+        }
+
         public static void FillChest(Chest chest)
         {
             var items = new List<int>();
@@ -517,53 +536,35 @@ namespace ChangedSpecialMod.Utilities
             items.Add(Utils.SelectRandom(WorldGen.genRand, primaryItems.ToArray()));
             itemAmounts.Add(1);
 
-            void AddRandomToPool(int[] options, int chance, int amountMin, int amountMax, bool inverse = false)
-            {
-                if (WorldGen.genRand.NextBool(chance) && !inverse)
-                {
-                    items.Add(Utils.SelectRandom(WorldGen.genRand, options));
-                    itemAmounts.Add(WorldGen.genRand.Next(amountMin, amountMax));
-                }   
-            }
-
-            void AddToPool(int item, int chance, int amountMin, int amountMax, bool inverse = false)
-            {
-                if (WorldGen.genRand.NextBool(chance) && !inverse)
-                {
-                    items.Add(item);
-                    itemAmounts.Add(WorldGen.genRand.Next(amountMin, amountMax));
-                }
-            }
-
-            AddToPool(ItemID.Glowstick, 6, 40, 75);
-            AddToPool(ItemID.ThrowingKnife, 6, 150, 300);
-            AddToPool(ItemID.HerbBag, 6, 1, 4);
-            AddToPool(ItemID.CanOfWorms, 4, 1, 4);
-            AddToPool(ItemID.Grenade, 3, 3, 5);
+            AddToPool(ref items, ref itemAmounts, ItemID.Glowstick, 6, 40, 75);
+            AddToPool(ref items, ref itemAmounts, ItemID.ThrowingKnife, 6, 150, 300);
+            AddToPool(ref items, ref itemAmounts, ItemID.HerbBag, 6, 1, 4);
+            AddToPool(ref items, ref itemAmounts, ItemID.CanOfWorms, 4, 1, 4);
+            AddToPool(ref items, ref itemAmounts, ItemID.Grenade, 3, 3, 5);
             
             // Bars
-            AddRandomToPool(new int[] { ItemID.CopperBar, ItemID.TinBar }, 2, 3, 10);
-            AddRandomToPool(new int[] { ItemID.IronBar, ItemID.LeadBar }, 2, 3, 10);
+            AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.CopperBar, ItemID.TinBar }, 2, 3, 10);
+            AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.IronBar, ItemID.LeadBar }, 2, 3, 10);
 
-            AddToPool(ModContent.ItemType<Orange>(), 1, 1, 4);
+            AddToPool(ref items, ref itemAmounts, ModContent.ItemType<Orange>(), 1, 1, 4);
 
-            AddToPool(ItemID.Rope, 2, 50, 100);
-            AddRandomToPool(new int[] { ItemID.WoodenArrow, ItemID.Shuriken }, 3, 25, 50, true);
+            AddToPool(ref items, ref itemAmounts, ItemID.Rope, 2, 50, 100);
+            AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.WoodenArrow, ItemID.Shuriken }, 3, 25, 50, true);
             
             // Potions
-            AddToPool(ItemID.LesserHealingPotion, 2, 3, 5);
-            AddToPool(ItemID.RecallPotion, 3, 3, 5);
-            AddRandomToPool(new int[] 
+            AddToPool(ref items, ref itemAmounts, ItemID.LesserHealingPotion, 2, 3, 5);
+            AddToPool(ref items, ref itemAmounts, ItemID.RecallPotion, 3, 3, 5);
+            AddRandomToPool(ref items, ref itemAmounts, new int[] 
             { 
                 ItemID.IronskinPotion, ItemID.ShinePotion, ItemID.NightOwlPotion, 
                 ItemID.SwiftnessPotion, ItemID.MiningPotion, ItemID.BuilderPotion 
             }, 3, 1, 2, true);
 
-            AddRandomToPool(new int[] { ModContent.ItemType<BlackGoo>(), ModContent.ItemType<WhiteGoo>() }, 1, 10, 30);
+            AddRandomToPool(ref items, ref itemAmounts, new int[] { ModContent.ItemType<BlackGoo>(), ModContent.ItemType<WhiteGoo>() }, 1, 10, 30);
 
-            AddRandomToPool(new int[] { ItemID.Torch, ItemID.Bottle }, 2, 10, 20);
-            AddToPool(ItemID.SilverCoin, 2, 10, 29);
-            AddToPool(ItemID.Wood, 2, 50, 99);
+            AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.Torch, ItemID.Bottle }, 2, 10, 20);
+            AddToPool(ref items, ref itemAmounts, ItemID.SilverCoin, 2, 10, 29);
+            AddToPool(ref items, ref itemAmounts, ItemID.Wood, 2, 50, 99);
 
             for (int i = 0; i < items.Count; i++)
             {

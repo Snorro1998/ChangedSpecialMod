@@ -32,6 +32,7 @@ ChangedSpecialModClientConfig: {
 		WorldGeneration: "[c/ffeb6e:世界世代]"
 		Transfur: "[c/ffeb6e:转型]"
 		Npc: "[c/ffeb6e:人物]"
+		Evolution: "[c/ffeb6e:进化]"
 	}
 
 	NumberOfLabs: {
@@ -82,7 +83,12 @@ ChangedSpecialModClientConfig: {
 
 	Evolution: {
 		Label: 进化
-		Tooltip: 每击败一个 Boss，史莱姆就会变得更大更强。
+		Tooltip: 每击败一个 Boss，史莱姆就会变更强。
+	}
+
+	EvolutionSize: {
+		Label: 的成长
+		Tooltip: 史莱姆就会变大。
 	}
 
 	DialoguePortraits: {

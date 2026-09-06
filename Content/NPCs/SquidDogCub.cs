@@ -1,4 +1,4 @@
-using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using System;
 using Terraria;
@@ -15,6 +15,13 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
 			Main.npcFrameCount[Type] = 4;
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
+            {
+                Velocity = 1f,
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
 
 		public override void SetDefaults() 
@@ -29,14 +36,12 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
             NPC.aiStyle = -1;
-            AIType = 0;
+            AIType = NPCID.None;
             AnimationType = NPCID.None;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-            // Even though he is white, he should appear everywhere
             changedNPC.GooType = GooType.None;
             changedNPC.ElementType = ElementType.Water;
             changedNPC.IsFish = true;
@@ -49,6 +54,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.SquidDogCub.Description")),
             });
         }
@@ -56,12 +62,20 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot) 
 		{
 			npcLoot.Add(ItemDropRule.Common(ItemID.BlackInk, 2));
-		}
+            npcLoot.Add(ItemDropRule.Common(ItemID.JellyfishNecklace, 100));
+        }
 
+        // Maybe add a config option for the old logic?
+        // return ChangedUtils.GetFishSpawnChance(spawnInfo, changedNPC, NPC.type);
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            return ChangedUtils.GetFishSpawnChance(spawnInfo, changedNPC, NPC.type);
+            var spawnTileIsWater = spawnInfo.Water;
+
+            if (spawnInfo.Player.ZoneBeach && spawnTileIsWater && ChangedUtils.CanSpawn(changedNPC.spawnRequirement))
+                return 0.3f;
+
+            return 0f;
         }
 
         // Squid animation logic
@@ -114,7 +128,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void AI()
         {
             NPC.noGravity = true;
-            ChangedUtils.AI_018_JellyFish(NPC);
+            AIJellyFish.Update(NPC);
         }
     }
 }
