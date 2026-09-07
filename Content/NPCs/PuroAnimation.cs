@@ -449,11 +449,11 @@ namespace ChangedSpecialMod.Content.NPCs
                     {
                         if (NPC.frameCounter == 60.0)
                         {
-                            EmoteBubble.NewBubble(87, new WorldUIAnchor(NPC), 60);
+                            EmoteBubble.NewBubble(EmoteID.EmoteConfused, new WorldUIAnchor(NPC), 60);
                         }
                         if (NPC.frameCounter == 150.0)
                         {
-                            EmoteBubble.NewBubble(3, new WorldUIAnchor(NPC), 90);
+                            EmoteBubble.NewBubble(EmoteID.EmotionAlert, new WorldUIAnchor(NPC), 90);
                         }
                         if (NPC.frameCounter >= 240.0)
                         {
