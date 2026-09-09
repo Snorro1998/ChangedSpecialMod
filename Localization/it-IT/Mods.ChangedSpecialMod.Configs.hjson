@@ -113,7 +113,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: I mostri possono indossare cappelli.
+		Tooltip: Quando questa opzione è attiva, i mostri possono indossare cappelli a determinate condizioni. Ad esempio, quando piove o durante una festa.
 	}
 }

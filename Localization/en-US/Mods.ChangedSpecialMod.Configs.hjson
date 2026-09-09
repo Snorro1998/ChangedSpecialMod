@@ -113,6 +113,6 @@ ChangedSpecialModClientConfig: {
 
 	MonstersCanWearHats: {
 		Label: Monsters Can Wear Hats
-		Tooltip: ""
+		Tooltip: When this option is enabled, monsters can wear hats under certain conditions. For example, when it is raining or during a party.
 	}
 }

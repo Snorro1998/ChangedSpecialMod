@@ -102,7 +102,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 npc.wet = false;
                 npc.lavaWet = false;
                 npc.honeyWet = false;
-                if (npc.ai[1] == 0f && Main.netMode == 1)
+                if (npc.ai[1] == 0f && Main.netMode == NetmodeID.MultiplayerClient)
                 {
                     return;
                 }
@@ -139,7 +139,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 Lighting.AddLight(npc.Center, Main.hslToRgb((float)Main.timeForVisualEffects / 360f % 1f, 0.6f, 0.65f).ToVector3() * Utils.Remap(npc.ai[1], 30f, 90f, 0f, 0.7f));
                 if (Main.rand.NextFloat() > Utils.Remap(npc.ai[1], 30f, 60f, 1f, 0.5f))
                 {
-                    Dust.NewDustPerfect(Main.rand.NextVector2FromRectangle(hitbox) + Main.rand.NextVector2Circular(8f, 0f) + new Vector2(0f, 4f), 309, new Vector2(0f, -2f).RotatedBy(num5 * ((float)Math.PI * 2f) * 0.11f), 0, default(Color), 1.7f - Math.Abs(num5) * 1.3f);
+                    Dust.NewDustPerfect(Main.rand.NextVector2FromRectangle(hitbox) + Main.rand.NextVector2Circular(8f, 0f) + new Vector2(0f, 4f), DustID.ShimmerSpark, new Vector2(0f, -2f).RotatedBy(num5 * ((float)Math.PI * 2f) * 0.11f), 0, default(Color), 1.7f - Math.Abs(num5) * 1.3f);
                 }
                 if (npc.ai[1] > 60f && Main.rand.Next(15) == 0)
                 {
@@ -169,7 +169,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.localAI[3] = 0f;
                     npc.netUpdate = true;
                     npc.townNpcVariationIndex = ((npc.townNpcVariationIndex != 1) ? 1 : 0);
-                    NetMessage.SendData(56, -1, -1, null, npc.whoAmI);
+                    NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, npc.whoAmI);
                     npc.Teleport(npc.position, 12);
                     ParticleOrchestrator.BroadcastParticleSpawn(ParticleOrchestraType.ShimmerTownNPC, new ParticleOrchestraSettings
                     {
@@ -178,7 +178,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 }
                 return;
             }
-            if (npc.type >= 0 && NPCID.Sets.TownCritter[npc.type] && npc.target == 255)
+            if (npc.type >= NPCID.None && NPCID.Sets.TownCritter[npc.type] && npc.target == 255)
             {
                 npc.TargetClosest();
                 if (npc.position.X < Main.player[npc.target].position.X)
@@ -245,12 +245,12 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 return;
             }
 
-            if (!WorldGen.InWorld(num6, num7) || (Main.netMode == 1 && !Main.sectionManager.TileLoaded(num6, num7)))
+            if (!WorldGen.InWorld(num6, num7) || (Main.netMode == NetmodeID.MultiplayerClient && !Main.sectionManager.TileLoaded(num6, num7)))
             {
                 return;
             }
 
-            if (!npc.homeless && Main.netMode != NetmodeID.MultiplayerClient && npc.townNPC && (shouldStayIndoors || (npc.type == 37 && Main.tileDungeon[Main.tile[num6, num7].TileType])) && !AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY))
+            if (!npc.homeless && Main.netMode != NetmodeID.MultiplayerClient && npc.townNPC && (shouldStayIndoors || (npc.type == NPCID.OldMan && Main.tileDungeon[Main.tile[num6, num7].TileType])) && !AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY))
             {
                 bool flag4 = true;
                 for (int k = 0; k < 2; k++)
@@ -304,7 +304,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             {
                 for (int m = 0; m < 200; m++)
                 {
-                    if (!Main.npc[m].active || Main.npc[m].friendly || Main.npc[m].damage <= 0 || !(Main.npc[m].Distance(npc.Center) < dangerDetectionRange) || (npc.type == 453 && NPCID.Sets.Skeletons[Main.npc[m].type]) || (!Main.npc[m].noTileCollide && !Collision.CanHit(npc.Center, 0, 0, Main.npc[m].Center, 0, 0)) || !NPCLoader.CanHitNPC(Main.npc[m], npc))
+                    if (!Main.npc[m].active || Main.npc[m].friendly || Main.npc[m].damage <= 0 || !(Main.npc[m].Distance(npc.Center) < dangerDetectionRange) || (npc.type == NPCID.SkeletonMerchant && NPCID.Sets.Skeletons[Main.npc[m].type]) || (!Main.npc[m].noTileCollide && !Collision.CanHit(npc.Center, 0, 0, Main.npc[m].Center, 0, 0)) || !NPCLoader.CanHitNPC(Main.npc[m], npc))
                     {
                         continue;
                     }
@@ -403,7 +403,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.localAI[3] -= 1f;
                 }
                 int num16 = 120;
-                if (npc.type == 638)
+                if (npc.type == NPCID.TownDog)
                 {
                     num16 = 60;
                 }
@@ -615,7 +615,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                             if (WorldGen.CloseDoor(npc.doorX, npc.doorY))
                             {
                                 npc.closeDoor = false;
-                                NetMessage.SendData(19, -1, -1, null, 1, npc.doorX, npc.doorY, npc.direction);
+                                NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 1, npc.doorX, npc.doorY, npc.direction);
                             }
                             if ((npc.position.X + (float)(npc.width / 2)) / 16f > (float)(npc.doorX + 4) || (npc.position.X + (float)(npc.width / 2)) / 16f < (float)(npc.doorX - 4) || (npc.position.Y + (float)(npc.height / 2)) / 16f > (float)(npc.doorY + 4) || (npc.position.Y + (float)(npc.height / 2)) / 16f < (float)(npc.doorY - 4))
                             {
@@ -796,7 +796,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         Tile tileSafely4 = Framing.GetTileSafely(num20, num21 - 1);
                         Tile tileSafely5 = Framing.GetTileSafely(num20, num21 - 2);
                         bool flag21 = npc.height / 16 < 3;
-                        if ((npc.townNPC || NPCID.Sets.AllowDoorInteraction[npc.type]) && tileSafely5.HasUnactuatedTile && (TileLoader.IsClosedDoor(tileSafely5) || tileSafely5.TileType == 388) && (Main.rand.Next(openDoorChance) == 0 || shouldStayIndoors))
+                        if ((npc.townNPC || NPCID.Sets.AllowDoorInteraction[npc.type]) && tileSafely5.HasUnactuatedTile && (TileLoader.IsClosedDoor(tileSafely5) || tileSafely5.TileType == TileID.TallGateClosed) && (Main.rand.Next(openDoorChance) == 0 || shouldStayIndoors))
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
@@ -1054,80 +1054,9 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             {
                 StateAttackThrowProjectile.Update(npc, enemyNearby, damageMultiplier, num11, num12, num13);
             }
-            else if (npc.ai[0] == 12f)
+            else if (AIState == States.AttackShoot)
             {
-                int num45 = 0;
-                int num46 = 0;
-                float num47 = 0f;
-                int num48 = 0;
-                int num49 = 0;
-                int maxValue2 = 0;
-                float knockBack2 = 0f;
-                float num50 = 0f;
-                bool flag24 = false;
-                float num51 = 0f;
-                if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
-                {
-                    npc.frameCounter = 0.0;
-                    npc.localAI[3] = 0f;
-                }
-                int num52 = -1;
-                if (num11 == 1 && npc.spriteDirection == 1)
-                {
-                    num52 = num13;
-                }
-                if (num11 == -1 && npc.spriteDirection == -1)
-                {
-                    num52 = num12;
-                }
-
-                NPCLoader.TownNPCAttackStrength(npc, ref num46, ref knockBack2);
-                NPCLoader.TownNPCAttackCooldown(npc, ref num49, ref maxValue2);
-                NPCLoader.TownNPCAttackProj(npc, ref num45, ref num48);
-                NPCLoader.TownNPCAttackProjSpeed(npc, ref num47, ref num50, ref num51);
-                NPCLoader.TownNPCAttackShoot(npc, ref flag24);
-                if (Main.expertMode)
-                {
-                    num46 = (int)((float)num46 * Main.GameModeInfo.TownNPCDamageMultiplier);
-                }
-                num46 = (int)((float)num46 * damageMultiplier);
-                npc.velocity.X *= 0.8f;
-                npc.ai[1] -= 1f;
-                npc.localAI[3] += 1f;
-                if (npc.localAI[3] == (float)num48 && Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    Vector2 vec2 = Vector2.Zero;
-                    if (num52 != -1)
-                    {
-                        vec2 = npc.DirectionTo(Main.npc[num52].Center + new Vector2(0f, 0f - num50));
-                    }
-                    if (vec2.HasNaNs() || Math.Sign(vec2.X) != npc.spriteDirection)
-                    {
-                        vec2 = new Vector2(npc.spriteDirection, 0f);
-                    }
-                    vec2 *= num47;
-                    vec2 += Utils.RandomVector2(Main.rand, 0f - num51, num51);
-                    int num53 = 1000;
-                    num53 = ((npc.type != 227) ? Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec2.X, vec2.Y, num45, num46, knockBack2, Main.myPlayer) : Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec2.X, vec2.Y, num45, num46, knockBack2, Main.myPlayer, 0f, (float)Main.rand.Next(12) / 6f));
-                    Main.projectile[num53].npcProj = true;
-                    Main.projectile[num53].noDropItem = true;
-                }
-                if (npc.localAI[3] == (float)num48 && flag24 && num52 != -1)
-                {
-                    Vector2 vector2 = npc.DirectionTo(Main.npc[num52].Center);
-                    if (vector2.Y <= 0.5f && vector2.Y >= -0.5f)
-                    {
-                        npc.ai[2] = vector2.Y;
-                    }
-                }
-                if (npc.ai[1] <= 0f)
-                {
-                    npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
-                    npc.ai[1] = num49 + Main.rand.Next(maxValue2);
-                    npc.ai[2] = 0f;
-                    npc.localAI[1] = (npc.localAI[3] = num49 / 2 + Main.rand.Next(maxValue2));
-                    npc.netUpdate = true;
-                }
+                StateAttackShoot.Update(npc, enemyNearby, damageMultiplier, num11, num12, num13);
             }
             else if (npc.ai[0] == 13f)
             {
@@ -1146,7 +1075,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         vec3 = new Vector2(npc.spriteDirection, -1f);
                     }
                     vec3 *= 8f;
-                    int num54 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec3.X, vec3.Y, 584, 0, 0f, Main.myPlayer, npc.ai[2]);
+                    int num54 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec3.X, vec3.Y, ProjectileID.NurseSyringeHeal, 0, 0f, Main.myPlayer, npc.ai[2]);
                     Main.projectile[num54].npcProj = true;
                     Main.projectile[num54].noDropItem = true;
                 }
@@ -1232,143 +1161,13 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.netUpdate = true;
                 }
             }
-            else if (npc.ai[0] == 15f)
+            else if (AIState == States.AttackMeleeSwing)
             {
-                int num74 = 0;
-                int maxValue4 = 0;
-                if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
-                {
-                    npc.frameCounter = 0.0;
-                    npc.localAI[3] = 0f;
-                }
-                int num75 = 0;
-                float num76 = 0f;
-                int num77 = 0;
-                int num78 = 0;
-                if (num11 == 1)
-                {
-                    _ = npc.spriteDirection;
-                }
-                if (num11 == -1)
-                {
-                    _ = npc.spriteDirection;
-                }
-                if (npc.type == 207)
-                {
-                    num75 = 11;
-                    num77 = (num78 = 32);
-                    num74 = 12;
-                    maxValue4 = 6;
-                    num76 = 4.25f;
-                }
-                else if (NPCID.Sets.IsTownPet[npc.type])
-                {
-                    num75 = 10;
-                    num77 = (num78 = 32);
-                    num74 = 15;
-                    maxValue4 = 8;
-                    num76 = 3f;
-                }
-                NPCLoader.TownNPCAttackStrength(npc, ref num75, ref num76);
-                NPCLoader.TownNPCAttackCooldown(npc, ref num74, ref maxValue4);
-                NPCLoader.TownNPCAttackSwing(npc, ref num77, ref num78);
-                if (Main.expertMode)
-                {
-                    num75 = (int)((float)num75 * Main.GameModeInfo.TownNPCDamageMultiplier);
-                }
-                num75 = (int)((float)num75 * damageMultiplier);
-                npc.velocity.X *= 0.8f;
-                npc.ai[1] -= 1f;
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    Tuple<Vector2, float> swingStats = npc.GetSwingStats(NPCID.Sets.AttackTime[npc.type] * 2, (int)npc.ai[1], npc.spriteDirection, num77, num78);
-                    Rectangle itemRectangle = new Rectangle((int)swingStats.Item1.X, (int)swingStats.Item1.Y, num77, num78);
-                    if (npc.spriteDirection == -1)
-                    {
-                        itemRectangle.X -= num77;
-                    }
-                    itemRectangle.Y -= num78;
-                    npc.TweakSwingStats(NPCID.Sets.AttackTime[npc.type] * 2, (int)npc.ai[1], npc.spriteDirection, ref itemRectangle);
-                    int myPlayer = Main.myPlayer;
-                    for (int num79 = 0; num79 < 200; num79++)
-                    {
-                        NPC nPC2 = Main.npc[num79];
-                        if (nPC2.active && nPC2.immune[myPlayer] == 0 && !nPC2.dontTakeDamage && !nPC2.friendly && nPC2.damage > 0 && itemRectangle.Intersects(nPC2.Hitbox) && (nPC2.noTileCollide || Collision.CanHit(npc.position, npc.width, npc.height, nPC2.position, nPC2.width, nPC2.height)))
-                        {
-                            var hit = new NPC.HitInfo();
-                            hit.Damage = num75;
-                            hit.Knockback = num76;
-                            hit.HitDirection = npc.spriteDirection;
-                            if (Main.netMode != 0)
-                            {
-                                NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, num79, num75, num76, npc.spriteDirection);
-                            }
-                            nPC2.netUpdate = true;
-                            nPC2.immune[myPlayer] = (int)npc.ai[1] + 2;
-                        }
-                    }
-                }
-                if (npc.ai[1] <= 0f)
-                {
-                    bool flag25 = false;
-                    if (enemyNearby)
-                    {
-                        int num80 = -num11;
-                        if (!Collision.CanHit(npc.Center, 0, 0, npc.Center + Vector2.UnitX * num80 * 32f, 0, 0) || npc.localAI[2] == 8f)
-                        {
-                            flag25 = true;
-                        }
-                        if (flag25)
-                        {
-                            int num81 = NPCID.Sets.AttackTime[npc.type];
-                            int num82 = ((num11 == 1) ? num13 : num12);
-                            int num83 = ((num11 == 1) ? num12 : num13);
-                            if (num82 != -1 && !Collision.CanHit(npc.Center, 0, 0, Main.npc[num82].Center, 0, 0))
-                            {
-                                num82 = ((num83 == -1 || !Collision.CanHit(npc.Center, 0, 0, Main.npc[num83].Center, 0, 0)) ? (-1) : num83);
-                            }
-                            if (num82 != -1)
-                            {
-                                npc.ai[0] = 15f;
-                                npc.ai[1] = num81;
-                                npc.ai[2] = 0f;
-                                npc.localAI[3] = 0f;
-                                npc.direction = ((npc.position.X < Main.npc[num82].position.X) ? 1 : (-1));
-                                npc.netUpdate = true;
-                            }
-                            else
-                            {
-                                flag25 = false;
-                            }
-                        }
-                    }
-                    if (!flag25)
-                    {
-                        npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
-                        npc.ai[1] = num74 + Main.rand.Next(maxValue4);
-                        npc.ai[2] = 0f;
-                        npc.localAI[1] = (npc.localAI[3] = num74 / 2 + Main.rand.Next(maxValue4));
-                        npc.netUpdate = true;
-                    }
-                }
+                State15.Update(npc, enemyNearby, damageMultiplier, num11, num12, num13);
             }
-            else if (npc.ai[0] == 24f)
+            else if (AIState == States.Shimmering)
             {
-                npc.velocity.X *= 0.8f;
-                npc.ai[1] -= 1f;
-                npc.localAI[3] += 1f;
-                npc.direction = 1;
-                npc.spriteDirection = 1;
-                Vector3 vector7 = npc.GetMagicAuraColor().ToVector3();
-                Lighting.AddLight(npc.Center, vector7.X, vector7.Y, vector7.Z);
-                if (npc.ai[1] <= 0f)
-                {
-                    npc.ai[0] = 0f;
-                    npc.ai[1] = 480f;
-                    npc.ai[2] = 0f;
-                    npc.localAI[1] = 480f;
-                    npc.netUpdate = true;
-                }
+                StateShimmering.Update(npc);
             }
             if (flag11 && npc.wet)
             {
@@ -1438,23 +1237,6 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 {
                     flag27 = false;
                 }
-                if (flag27 && npc.type == 124 && npc.localAI[0] == 1f)
-                {
-                    flag27 = false;
-                }
-                if (flag27 && npc.type == 20)
-                {
-                    flag27 = false;
-                    for (int num89 = 0; num89 < 200; num89++)
-                    {
-                        NPC nPC3 = Main.npc[num89];
-                        if (nPC3.active && nPC3.townNPC && !(npc.Distance(nPC3.Center) > 1200f) && nPC3.FindBuffIndex(165) == -1)
-                        {
-                            flag27 = true;
-                            break;
-                        }
-                    }
-                }
                 if (npc.CanTalk && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(300) == 0)
                 {
                     int num90 = 420;
@@ -1513,7 +1295,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         }
                     }
                 }
-                else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0 && (npc.type == 208 || (BirthdayParty.PartyIsUp && NPCID.Sets.AttackType[npc.type] == NPCID.Sets.AttackType[208])))
+                else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0 && (npc.type == NPCID.PartyGirl || (BirthdayParty.PartyIsUp && NPCID.Sets.AttackType[npc.type] == NPCID.Sets.AttackType[NPCID.PartyGirl])))
                 {
                     int num100 = 300;
                     int num101 = 150;
@@ -1590,7 +1372,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     {
                         for (int num112 = 0; num112 < 200; num112++)
                         {
-                            if (Main.npc[num112].active && Main.npc[num112].aiStyle == 7 && Main.npc[num112].townNPC && Main.npc[num112].ai[0] == 5f && (Main.npc[num112].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
+                            if (Main.npc[num112].active && Main.npc[num112].aiStyle == NPCAIStyleID.Passive && Main.npc[num112].townNPC && Main.npc[num112].ai[0] == 5f && (Main.npc[num112].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
                             {
                                 flag30 = false;
                                 break;
@@ -1609,7 +1391,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     {
                         Tile tile2 = Main.tile[point.X, point.Y];
                         flag30 = TileID.Sets.CanBeSatOnForNPCs[tile2.TileType];
-                        if (flag30 && tile2.TileType == 15 && tile2.TileFrameY >= 1080 && tile2.TileFrameY <= 1098)
+                        if (flag30 && tile2.TileType == TileID.Chairs && tile2.TileFrameY >= 1080 && tile2.TileFrameY <= 1098)
                         {
                             flag30 = false;
                         }

@@ -112,7 +112,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: Potwory mogą nosić kapelusze.
+		Tooltip: Gdy ta opcja jest włączona, potwory mogą nosić kapelusze w określonych warunkach – na przykład podczas deszczu lub imprezy.
 	}
 }

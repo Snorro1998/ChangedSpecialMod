@@ -8,7 +8,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
 {
     public static class StateAttackShoot
     {
-        public static void Update(NPC npc, bool enemyNearby, float num2, int num11, int num12, int num13)
+        public static void Update(NPC npc, bool enemyNearby, float damageMultiplier, int num11, int num12, int num13)
         {
             int num45 = 0;
             int num46 = 0;
@@ -44,7 +44,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
             {
                 num46 = (int)((float)num46 * Main.GameModeInfo.TownNPCDamageMultiplier);
             }
-            num46 = (int)((float)num46 * num2);
+            num46 = (int)((float)num46 * damageMultiplier);
             npc.velocity.X *= 0.8f;
             npc.ai[1] -= 1f;
             npc.localAI[3] += 1f;

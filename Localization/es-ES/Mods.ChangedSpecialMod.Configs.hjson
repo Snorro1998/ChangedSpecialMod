@@ -112,7 +112,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: Los monstruos pueden usar sombreros.
+		Tooltip: Cuando esta opción está activada, los monstruos pueden llevar sombreros bajo ciertas condiciones. Por ejemplo, cuando llueve o durante una fiesta.
 	}
 }

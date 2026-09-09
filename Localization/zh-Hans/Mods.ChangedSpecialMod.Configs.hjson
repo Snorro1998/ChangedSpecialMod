@@ -112,7 +112,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: 怪物可以戴帽子。
+		Tooltip: 启用此选项后，怪物在特定条件下可以戴上帽子。例如，在下雨时或举办派对期间。
 	}
 }

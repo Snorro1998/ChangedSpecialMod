@@ -112,7 +112,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: Monster können Hüte tragen.
+		Tooltip: Wenn diese Option aktiviert ist, können Monster unter bestimmten Bedingungen Hüte tragen – zum Beispiel, wenn es regnet oder während einer Party.
 	}
 }

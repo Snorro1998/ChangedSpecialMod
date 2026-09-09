@@ -112,7 +112,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: Monstros podem usar chapéus.
+		Tooltip: Quando essa opção está ativada, os monstros podem usar chapéus sob certas condições. Por exemplo, quando está chovendo ou durante uma festa.
 	}
 }

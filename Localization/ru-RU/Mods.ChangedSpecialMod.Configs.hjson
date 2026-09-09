@@ -114,7 +114,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	MonstersCanWearHats: {
-		// Label: Monsters Can Wear Hats
-		// Tooltip: ""
+		Label: Монстры могут носить шляпы.
+		Tooltip: Когда эта опция включена, монстры могут носить головные уборы при определенных условиях — например, во время дождя или вечеринки.
 	}
 }

@@ -115,6 +115,7 @@ Weapons
 NPCs
 [list]
 	[*]All NPCs are no longer drawn slightly bigger in the bestiary
+	[*]NPCs will no longer wear hats, unless you re-enable this with the new config option
 	[*]NPCs no longer grow bigger from evolution by default. You can re-enable it in the config if desired
 	[*]Added banners for: Black Latex Cub, White Latex Cub, Tiger Shark, Feng-Yu and Sweeper
 	[*]Squid Dog, Squid Dog Cub and Tiger shark can now only be found in the ocean

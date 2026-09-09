@@ -8,7 +8,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
 {
     public static class State15
     {
-        public static void Update(NPC npc, bool enemyNearby, float num2, int num11, int num12, int num13)
+        public static void Update(NPC npc, bool enemyNearby, float damageMultiplier, int num11, int num12, int num13)
         {
             int num74 = 0;
             int maxValue4 = 0;
@@ -37,7 +37,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
             {
                 num75 = (int)((float)num75 * Main.GameModeInfo.TownNPCDamageMultiplier);
             }
-            num75 = (int)((float)num75 * num2);
+            num75 = (int)((float)num75 * damageMultiplier);
             npc.velocity.X *= 0.8f;
             npc.ai[1] -= 1f;
             if (Main.netMode != NetmodeID.MultiplayerClient)
