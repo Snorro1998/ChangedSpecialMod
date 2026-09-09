@@ -998,6 +998,9 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public void PickHat(NPC npc)
         {
+            if (!ChangedSpecialModClientConfig.Instance.MonstersCanWearHats)
+                return;
+
             var player = Main.LocalPlayer;
             Drunk = ChangedUtils.IsDrunk(player);
             var WornHatType = HatType.None;

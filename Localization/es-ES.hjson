@@ -770,6 +770,8 @@ Mods: {
 				SignText1: No te quedes aquí mucho tiempo. Hay monstruos cerca.
 				SignText2: En caso de un corte de luz, puede reiniciar el generador que se encuentra en el sótano.
 			}
+
+			Elevator: Ascensor
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidad

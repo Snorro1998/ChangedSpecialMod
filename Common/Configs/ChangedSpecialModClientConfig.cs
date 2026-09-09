@@ -32,6 +32,9 @@ namespace ChangedSpecialMod.Common.Configs
 
         [DefaultValue(true)]
         public bool DialoguePortraits { get; set; }
+        
+        [DefaultValue(false)]
+        public bool MonstersCanWearHats { get; set; }
 
         [Header("Transfur")]
         [DefaultValue(false)]

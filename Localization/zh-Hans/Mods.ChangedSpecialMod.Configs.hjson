@@ -110,4 +110,9 @@ ChangedSpecialModClientConfig: {
 		Label: 额外世界状态信息
 		Tooltip: 树精还可以告诉你世界上有多少黏液。
 	}
+
+	MonstersCanWearHats: {
+		// Label: Monsters Can Wear Hats
+		// Tooltip: ""
+	}
 }

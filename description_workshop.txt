@@ -93,7 +93,7 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 This is a small update that adds three magic weapons and a painting.
 
 
-[h3]0.5.6.3[/h3]
+[h3]0.5.7[/h3]
 
 This update adds two new weapons and makes some changes to NPCs.
 

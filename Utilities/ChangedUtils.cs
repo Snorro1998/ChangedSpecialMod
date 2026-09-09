@@ -984,14 +984,14 @@ namespace ChangedSpecialMod.Utilities
             var isRaining = Main.IsItRaining;
             var isWindy = IsItWindy();
 
-            if (elementType == ElementType.Water)
-                return isRaining ? 2 : 0.8f;
+            //if (elementType == ElementType.Water)
+            //    return isRaining ? 2 : 0.8f;
 
             if (elementType == ElementType.Wind)
-                return isWindy ? 4 : 1;
+                return isWindy ? 3 : 1; //4 : 1
 
-            if (elementType == ElementType.Normal)
-                return (isRaining || isWindy) ? 0.8f : 1;
+            //if (elementType == ElementType.Normal)
+            //    return (isRaining || isWindy) ? 0.8f : 1;
 
             return 1;
         }
@@ -1068,7 +1068,7 @@ namespace ChangedSpecialMod.Utilities
                 return 0;
 
             var environmentSpawnChance = GetSurfaceEnvironmentSpawnChance(spawnInfo, changedNPC);
-            var weatherSpawnChance = 1f;// GetWeatherSpawnChance(changedNPC.ElementType);
+            var weatherSpawnChance = GetWeatherSpawnChance(changedNPC.ElementType);
             return environmentSpawnChance * weatherSpawnChance;
         }
 

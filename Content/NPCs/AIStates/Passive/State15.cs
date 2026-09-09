@@ -29,14 +29,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
             {
                 _ = npc.spriteDirection;
             }
-            if (NPCID.Sets.IsTownPet[npc.type])
-            {
-                num75 = 10;
-                num77 = (num78 = 32);
-                num74 = 15;
-                maxValue4 = 8;
-                num76 = 3f;
-            }
+
             NPCLoader.TownNPCAttackStrength(npc, ref num75, ref num76);
             NPCLoader.TownNPCAttackCooldown(npc, ref num74, ref maxValue4);
             NPCLoader.TownNPCAttackSwing(npc, ref num77, ref num78);
@@ -67,8 +60,6 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                         hit.Damage = num75;
                         hit.Knockback = num76;
                         hit.HitDirection = npc.spriteDirection;
-                        nPC2.StrikeNPC(hit);
-
                         if (Main.netMode != NetmodeID.SinglePlayer)
                         {
                             NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, num79, num75, num76, npc.spriteDirection);
@@ -97,7 +88,6 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                         {
                             num82 = ((num83 == -1 || !Collision.CanHit(npc.Center, 0, 0, Main.npc[num83].Center, 0, 0)) ? (-1) : num83);
                         }
-                        // switch to melee attack
                         if (num82 != -1)
                         {
                             npc.ai[0] = 15f;

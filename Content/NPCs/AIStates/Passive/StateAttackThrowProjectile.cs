@@ -10,7 +10,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
     {
         public static void Update(NPC npc, bool enemyNearby, float num2, int num11, int num12, int num13)
         {
-            int npcProjectileType = 0;
+            int num36 = 0;
             int num37 = 0;
             float knockBack = 0f;
             float num38 = 0f;
@@ -25,9 +25,10 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                 npc.frameCounter = 0.0;
                 npc.localAI[3] = 0f;
             }
+
             NPCLoader.TownNPCAttackStrength(npc, ref num37, ref knockBack);
             NPCLoader.TownNPCAttackCooldown(npc, ref num40, ref maxValue);
-            NPCLoader.TownNPCAttackProj(npc, ref npcProjectileType, ref num39);
+            NPCLoader.TownNPCAttackProj(npc, ref num36, ref num39);
             NPCLoader.TownNPCAttackProjSpeed(npc, ref num38, ref num41, ref num43);
             if (Main.expertMode)
             {
@@ -55,16 +56,9 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                 vec *= num38;
                 vec += Utils.RandomVector2(Main.rand, 0f - num43, num43);
                 int num44 = 1000;
-                num44 = ((npc.type == NPCID.Mechanic) ?
-                    Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec.X, vec.Y, npcProjectileType, num37, knockBack, Main.myPlayer, 0f, npc.whoAmI, npc.townNpcVariationIndex)
-                    : ((npc.type != NPCID.SantaClaus) ? Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec.X, vec.Y, npcProjectileType, num37, knockBack, Main.myPlayer)
-                    : Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec.X, vec.Y, npcProjectileType, num37, knockBack, Main.myPlayer, 0f, Main.rand.Next(5))));
+                num44 = ((npc.type == 124) ? Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec.X, vec.Y, num36, num37, knockBack, Main.myPlayer, 0f, npc.whoAmI, npc.townNpcVariationIndex) : ((npc.type != 142) ? Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec.X, vec.Y, num36, num37, knockBack, Main.myPlayer) : Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec.X, vec.Y, num36, num37, knockBack, Main.myPlayer, 0f, Main.rand.Next(5))));
                 Main.projectile[num44].npcProj = true;
                 Main.projectile[num44].noDropItem = true;
-                if (npc.type == NPCID.Golfer)
-                {
-                    Main.projectile[num44].timeLeft = 480;
-                }
             }
             if (npc.ai[1] <= 0f)
             {

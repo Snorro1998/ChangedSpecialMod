@@ -770,6 +770,8 @@ Mods: {
 				SignText1: Não fique aqui por muito tempo. Há monstros por perto.
 				SignText2: Em caso de queda de energia, você pode reiniciar o gerador no porão.
 			}
+
+			Elevator: Elevador
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Habilidade

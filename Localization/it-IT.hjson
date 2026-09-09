@@ -770,6 +770,8 @@ Mods: {
 				SignText1: Non restare qui troppo a lungo. Ci sono dei mostri nelle vicinanze.
 				SignText2: In caso di interruzione di corrente, è possibile riavviare il generatore nel seminterrato.
 			}
+
+			Elevator: Ascensore
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Capacità

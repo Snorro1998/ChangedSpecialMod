@@ -770,6 +770,8 @@ Mods: {
 				SignText1: Ne restez pas ici trop longtemps. Il y a des monstres dans les parages.
 				SignText2: En cas de panne de courant, vous pouvez redémarrer le générateur situé au sous-sol.
 			}
+
+			Elevator: Ascenseur
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Capacité

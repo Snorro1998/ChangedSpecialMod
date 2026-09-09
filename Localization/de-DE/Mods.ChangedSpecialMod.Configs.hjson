@@ -110,4 +110,9 @@ ChangedSpecialModClientConfig: {
 		Label: Zusätzliche Weltstatusinformationen
 		Tooltip: Die Dryade kann auch sagen, wie viel Schleim es in der Welt gibt.
 	}
+
+	MonstersCanWearHats: {
+		// Label: Monsters Can Wear Hats
+		// Tooltip: ""
+	}
 }

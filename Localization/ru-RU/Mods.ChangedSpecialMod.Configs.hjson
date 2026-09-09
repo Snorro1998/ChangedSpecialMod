@@ -112,4 +112,9 @@ ChangedSpecialModClientConfig: {
 		Label: Дополнительная информация о состоянии мира
 		Tooltip: Дриада также может рассказать вам, сколько слизи существует в мире.
 	}
+
+	MonstersCanWearHats: {
+		// Label: Monsters Can Wear Hats
+		// Tooltip: ""
+	}
 }

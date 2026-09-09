@@ -770,6 +770,8 @@ Mods: {
 				SignText1: Nie siedź tu zbyt długo. W pobliżu są potwory.
 				SignText2: W przypadku zaniku zasilania istnieje możliwość ponownego uruchomienia generatora w piwnicy.
 			}
+
+			Elevator: Winda
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Umiejętność

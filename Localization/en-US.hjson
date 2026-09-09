@@ -770,6 +770,8 @@ Mods: {
 				SignText1: Don't stay here too long. There are monsters nearby.
 				SignText2: In the event of a power outage, you can restart the generator in the basement.
 			}
+
+			Elevator: Elevator
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Ability

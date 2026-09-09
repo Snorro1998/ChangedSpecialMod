@@ -770,6 +770,8 @@ Mods: {
 				SignText1: Bleib nicht zu lange hier. In der Nähe sind Monster.
 				SignText2: Im Falle eines Stromausfalls können Sie den Generator im Keller wieder in Betrieb nehmen.
 			}
+
+			Elevator: Aufzug
 		}
 
 		Keybinds.TransfurAttack.DisplayName: Fähigkeit

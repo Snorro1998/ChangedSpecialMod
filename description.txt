@@ -84,7 +84,7 @@ Other
 --------- Changelog ---------
 
 
-0.5.6.3
+0.5.7
 
 This update adds two new weapons and makes some changes to NPCs.
 

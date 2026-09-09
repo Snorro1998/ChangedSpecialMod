@@ -110,4 +110,9 @@ ChangedSpecialModClientConfig: {
 		Label: Información adicional sobre el estado mundial
 		Tooltip: La dríada también puede decirte cuánto limo hay en el mundo.
 	}
+
+	MonstersCanWearHats: {
+		// Label: Monsters Can Wear Hats
+		// Tooltip: ""
+	}
 }

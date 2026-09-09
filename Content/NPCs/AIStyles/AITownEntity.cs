@@ -32,7 +32,9 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             AttackMagicProjectile = 14,
             AttackMeleeSwing = 15,
             HoldBeer = 18,
+            // Figure out what the difference is between them
             Shimmering = 24,
+            Shimmering2 = 25,
 
             // Custom states
             WateringPlants = 30,
@@ -50,32 +52,45 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             State23 = 23,
         }
 
+        // TODO: Seperate more logic from this
+        // It used to be more cleaned up, but then something broke and I had to revert it to an older version
         public static void Update(NPC npc)
         {
             var AIState = (States)npc.ai[0];
 
             // Chance the NPC will...
-            int waterPlantsChance = 75;     // Water plants if walking near them 
-            int sitDownChance = 300;        // Sit down if walking near a chair
+            int waterPlantsChance = 0;  // If walking near a potted plant, sapling or mushroom, water it
+            int sitDownChance = 300;    // Sit down if walking near a chair
+            int openDoorChance = 10;    // Chance to open a door. If he should stay inside, he will always open doors
 
             // Check which npc it is
             var isPrototype = npc.type == ModContent.NPCType<Prototype>();
             var isDrK = npc.type == ModContent.NPCType<Scientist>();
-            // Puro uses standard passive AI and only has custom animation logic
+            // Puro uses standard passive AI and only has custom animation logic for wiggling
+            // his head while sitting and looking scared when chased by a strong enemy
 
             // Abilities
             var canBreatheUnderwater = false;
-            var canWaterPlants = isPrototype;
-            var canThrowHealingSyringes = isDrK; // Nurse can throw healing syringes
-            var canSnooze = false; // The pirate can snooze and shit himself. Why is this a thing in vanilla?! 
-            var canHoldBeer = false; // Tavernkeep can hold a beer if the player is close
+            var canHeal = false;        // Nurse can throw healing syringes
+            var canSnooze = false;      // Pirate can snooze and shit himself. Why is this a thing in vanilla?! 
+            var canHoldBeer = false;    // Tavernkeep can hold a beer if the player is nearby
 
-            bool shouldStayInside = Main.raining || !Main.dayTime || Main.eclipse || Main.slimeRain;
-            float num2 = 1f;
+            if (isPrototype)
+            {
+                waterPlantsChance = 75;
+                openDoorChance = 2;     // Higher chance to open doors because he likes to wander around
+            }
+            else if (isDrK)
+            {
+                canHeal = true;
+            }
 
-            AIMethodsPassive.CalculateDefenseAndAttackMultiplier(npc, ref num2);
-
+            NPC.ShimmeredTownNPCs[npc.type] = npc.IsShimmerVariant;
+            bool shouldStayIndoors = Main.raining || !Main.dayTime || Main.eclipse || Main.slimeRain;
+            float damageMultiplier = 1f;
+            AIMethodsPassive.CalculateDefenseAndAttackMultiplier(npc, ref damageMultiplier);
             npc.dontTakeDamage = false;
+
             if (npc.ai[0] == 25f)
             {
                 npc.dontTakeDamage = true;
@@ -140,7 +155,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 }
                 npc.TargetClosest();
                 NPCAimedTarget targetData = npc.GetTargetData();
-                if (npc.ai[1] >= 75f && npc.shimmerTransparency <= 0f && Main.netMode != 1)
+                if (npc.ai[1] >= 75f && npc.shimmerTransparency <= 0f && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     npc.ai[0] = 0f;
                     npc.ai[1] = 0f;
@@ -154,7 +169,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.localAI[3] = 0f;
                     npc.netUpdate = true;
                     npc.townNpcVariationIndex = ((npc.townNpcVariationIndex != 1) ? 1 : 0);
-                    NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, npc.whoAmI);
+                    NetMessage.SendData(56, -1, -1, null, npc.whoAmI);
                     npc.Teleport(npc.position, 12);
                     ParticleOrchestrator.BroadcastParticleSpawn(ParticleOrchestraType.ShimmerTownNPC, new ParticleOrchestraSettings
                     {
@@ -163,7 +178,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 }
                 return;
             }
-            if (npc.type >= NPCID.None && NPCID.Sets.TownCritter[npc.type] && npc.target == 255)
+            if (npc.type >= 0 && NPCID.Sets.TownCritter[npc.type] && npc.target == 255)
             {
                 npc.TargetClosest();
                 if (npc.position.X < Main.player[npc.target].position.X)
@@ -185,17 +200,17 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             {
                 npc.UpdateHomeTileState(npc.homeless, (int)npc.Center.X / 16, (int)(npc.position.Y + (float)npc.height + 4f) / 16);
             }
+
             bool flag3 = false;
-            int myTileX = (int)(npc.position.X + (float)(npc.width / 2)) / 16;
-            int myTileY = (int)(npc.position.Y + (float)npc.height + 1f) / 16;
-            AIMethodsPassive.FindGoodRestingSpot(npc, myTileX, myTileY, out var floorX, out var floorY);
+            int num6 = (int)(npc.position.X + (float)(npc.width / 2)) / 16;
+            int num7 = (int)(npc.position.Y + (float)npc.height + 1f) / 16;
+            AIMethodsPassive.FindGoodRestingSpot(npc, num6, num7, out var floorX, out var floorY);
 
             npc.directionY = -1;
             if (npc.direction == 0)
             {
                 npc.direction = 1;
             }
-            // Not shimmering
             if (npc.ai[0] != 24f)
             {
                 for (int j = 0; j < Main.maxPlayers; j++)
@@ -230,18 +245,17 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 return;
             }
 
-            // NPC is outside the world, or the tile is not loaded in multiplayer
-            if (!WorldGen.InWorld(myTileX, myTileY) || (Main.netMode == NetmodeID.MultiplayerClient && !Main.sectionManager.TileLoaded(myTileX, myTileY)))
+            if (!WorldGen.InWorld(num6, num7) || (Main.netMode == 1 && !Main.sectionManager.TileLoaded(num6, num7)))
             {
                 return;
             }
 
-            if (!npc.homeless && Main.netMode != NetmodeID.MultiplayerClient && npc.townNPC && (shouldStayInside || (npc.type == NPCID.OldMan && Main.tileDungeon[Main.tile[myTileX, myTileY].TileType])) && !AIMethodsPassive.IsInAGoodRestingSpot(npc, myTileX, myTileY, floorX, floorY))
+            if (!npc.homeless && Main.netMode != NetmodeID.MultiplayerClient && npc.townNPC && (shouldStayIndoors || (npc.type == 37 && Main.tileDungeon[Main.tile[num6, num7].TileType])) && !AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY))
             {
-                bool notOnAnyPlayersScreen = true;
+                bool flag4 = true;
                 for (int k = 0; k < 2; k++)
                 {
-                    if (!notOnAnyPlayersScreen)
+                    if (!flag4)
                     {
                         break;
                     }
@@ -250,33 +264,34 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     {
                         rectangle = new Rectangle(floorX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, floorY * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
                     }
-                    for (int playerIndex = 0; playerIndex < Main.maxPlayers; playerIndex++)
+                    for (int l = 0; l < 255; l++)
                     {
-                        var tmpPlayer = Main.player[playerIndex];
-                        if (tmpPlayer.active && new Rectangle((int)tmpPlayer.position.X, (int)tmpPlayer.position.Y, tmpPlayer.width, tmpPlayer.height).Intersects(rectangle))
+                        if (Main.player[l].active && new Rectangle((int)Main.player[l].position.X, (int)Main.player[l].position.Y, Main.player[l].width, Main.player[l].height).Intersects(rectangle))
                         {
-                            notOnAnyPlayersScreen = false;
+                            flag4 = false;
                             break;
                         }
                     }
                 }
-                if (notOnAnyPlayersScreen)
+                if (flag4)
+                {
                     AIMethodsPassive.TeleportToHome(npc, floorX, floorY);
+                }
             }
-
+            bool isMouseOrRat = npc.type == NPCID.Mouse || npc.type == NPCID.GoldMouse || npc.type == NPCID.Rat;
             bool isTurtle = npc.type == NPCID.Turtle || npc.type == NPCID.TurtleJungle || npc.type == NPCID.SeaTurtle;
             bool isFrogOrYellowTownSlime = npc.type == NPCID.Frog || npc.type == NPCID.GoldFrog || npc.type == NPCID.BoundTownSlimeYellow;
             bool flag8 = NPCID.Sets.IsTownSlime[npc.type];
+            _ = NPCID.Sets.IsTownPet[npc.type];
             bool flag10 = isTurtle || isFrogOrYellowTownSlime;
             bool flag11 = flag8;
             bool flag12 = flag8;
-            float dangerDetectRange = 200f;
+            float dangerDetectionRange = 200f;
 
             if (NPCID.Sets.DangerDetectRange[npc.type] != -1)
             {
-                dangerDetectRange = NPCID.Sets.DangerDetectRange[npc.type];
+                dangerDetectionRange = NPCID.Sets.DangerDetectRange[npc.type];
             }
-
             bool enemyNearby = false;
             bool flag14 = false;
             float num9 = -1f;
@@ -285,19 +300,18 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             int num12 = -1;
             int num13 = -1;
             bool keepwalking;
-
-            if (!isTurtle && Main.netMode != 1 && !flag3)
+            if (!isTurtle && Main.netMode != NetmodeID.MultiplayerClient && !flag3)
             {
-                for (int m = 0; m < Main.maxNPCs; m++)
+                for (int m = 0; m < 200; m++)
                 {
-                    if (!Main.npc[m].active || Main.npc[m].friendly || Main.npc[m].damage <= 0 || !(Main.npc[m].Distance(npc.Center) < dangerDetectRange) || (npc.type == 453 && NPCID.Sets.Skeletons[Main.npc[m].type]) || (!Main.npc[m].noTileCollide && !Collision.CanHit(npc.Center, 0, 0, Main.npc[m].Center, 0, 0)) || !NPCLoader.CanHitNPC(Main.npc[m], npc))
+                    if (!Main.npc[m].active || Main.npc[m].friendly || Main.npc[m].damage <= 0 || !(Main.npc[m].Distance(npc.Center) < dangerDetectionRange) || (npc.type == 453 && NPCID.Sets.Skeletons[Main.npc[m].type]) || (!Main.npc[m].noTileCollide && !Collision.CanHit(npc.Center, 0, 0, Main.npc[m].Center, 0, 0)) || !NPCLoader.CanHitNPC(Main.npc[m], npc))
                     {
                         continue;
                     }
                     bool flag15 = Main.npc[m].CanBeChasedBy(npc);
                     enemyNearby = true;
                     float num14 = Main.npc[m].Center.X - npc.Center.X;
-                    
+
                     if (num14 < 0f && (num9 == -1f || num14 > num9))
                     {
                         num9 = num14;
@@ -350,7 +364,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                             int tileX = (int)((npc.position.X + (float)(npc.width / 2) + (float)(15 * npc.direction)) / 16f);
                             int tileY = (int)((npc.position.Y + (float)npc.height - 16f) / 16f);
                             bool currentlyDrowning = npc.wet && !canBreatheUnderwater;
-                            AIMethodsPassive.GetWalkPrediction(npc, myTileX, floorX, canBreatheUnderwater, currentlyDrowning, tileX, tileY, out keepwalking, out var avoidFalling);
+                            AIMethodsPassive.GetWalkPrediction(npc, num6, floorX, canBreatheUnderwater, currentlyDrowning, tileX, tileY, out keepwalking, out var avoidFalling);
                             if (!avoidFalling)
                             {
                                 if (npc.ai[0] == 3f || npc.ai[0] == 4f || npc.ai[0] == 16f || npc.ai[0] == 17f)
@@ -389,7 +403,10 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.localAI[3] -= 1f;
                 }
                 int num16 = 120;
-
+                if (npc.type == 638)
+                {
+                    num16 = 60;
+                }
                 if ((isFrogOrYellowTownSlime || flag8) && npc.wet)
                 {
                     npc.ai[0] = 1f;
@@ -398,11 +415,11 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.localAI[3] = 0f;
                     npc.netUpdate = true;
                 }
-                else if (shouldStayInside && !flag3 && !NPCID.Sets.TownCritter[npc.type])
+                else if (shouldStayIndoors && !flag3 && !NPCID.Sets.TownCritter[npc.type])
                 {
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        if (myTileX == floorX && myTileY == floorY)
+                        if (num6 == floorX && num7 == floorY)
                         {
                             if (npc.velocity.X != 0f)
                             {
@@ -428,7 +445,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         }
                         else
                         {
-                            if (myTileX > floorX)
+                            if (num6 > floorX)
                             {
                                 npc.direction = -1;
                             }
@@ -446,6 +463,10 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 }
                 else
                 {
+                    if (isMouseOrRat)
+                    {
+                        npc.velocity.X *= 0.5f;
+                    }
                     if (npc.velocity.X > 0.1f)
                     {
                         npc.velocity.X -= 0.1f;
@@ -458,7 +479,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     {
                         npc.velocity.X = 0f;
                     }
-                    if (Main.netMode != 1)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (!flag3 && NPCID.Sets.IsTownPet[npc.type] && npc.ai[1] >= 100f && npc.ai[1] <= 150f)
                         {
@@ -472,7 +493,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         int tileX2 = (int)((npc.position.X + (float)(npc.width / 2) + (float)(15 * npc.direction)) / 16f);
                         int tileY2 = (int)((npc.position.Y + (float)npc.height - 16f) / 16f);
                         bool currentlyDrowning2 = npc.wet && !canBreatheUnderwater;
-                        AIMethodsPassive.GetWalkPrediction(npc, myTileX, floorX, canBreatheUnderwater, currentlyDrowning2, tileX2, tileY2, out keepwalking, out var avoidFalling2);
+                        AIMethodsPassive.GetWalkPrediction(npc, num6, floorX, canBreatheUnderwater, currentlyDrowning2, tileX2, tileY2, out keepwalking, out var avoidFalling2);
                         if (npc.wet && !canBreatheUnderwater)
                         {
                             bool currentlyDrowning3 = Collision.DrownCollision(npc.position, npc.width, npc.height, 1f, includeSlopes: true);
@@ -516,18 +537,18 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         }
                     }
                 }
-                if (Main.netMode != 1 && (!shouldStayInside || AIMethodsPassive.IsInAGoodRestingSpot(npc, myTileX, myTileY, floorX, floorY)))
+                if (Main.netMode != NetmodeID.MultiplayerClient && (!shouldStayIndoors || AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY)))
                 {
-                    if (myTileX < floorX - 25 || myTileX > floorX + 25)
+                    if (num6 < floorX - 25 || num6 > floorX + 25)
                     {
                         if (npc.localAI[3] == 0f)
                         {
-                            if (myTileX < floorX - 50 && npc.direction == -1)
+                            if (num6 < floorX - 50 && npc.direction == -1)
                             {
                                 npc.direction = 1;
                                 npc.netUpdate = true;
                             }
-                            else if (myTileX > floorX + 50 && npc.direction == 1)
+                            else if (num6 > floorX + 50 && npc.direction == 1)
                             {
                                 npc.direction = -1;
                                 npc.netUpdate = true;
@@ -542,23 +563,435 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     }
                 }
             }
+            // Walking
             else if (npc.ai[0] == 1f)
             {
-                StateWalking.Update(npc, shouldStayInside, floorX, floorY, enemyNearby, isFrogOrYellowTownSlime, flag8, flag11, flag12, isFrogOrYellowTownSlime, myTileX, myTileY, canBreatheUnderwater, isTurtle);
+                if (Main.netMode != NetmodeID.MultiplayerClient && shouldStayIndoors && AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY) && !NPCID.Sets.TownCritter[npc.type])
+                {
+                    npc.ai[0] = 0f;
+                    npc.ai[1] = 200 + Main.rand.Next(200);
+                    npc.localAI[3] = 60f;
+                    npc.netUpdate = true;
+                }
+                else
+                {
+                    bool flag17 = !canBreatheUnderwater && Collision.DrownCollision(npc.position, npc.width, npc.height, 1f, includeSlopes: true);
+                    if (!flag17)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient && !npc.homeless && !Main.tileDungeon[Main.tile[num6, num7].TileType] && (num6 < floorX - 35 || num6 > floorX + 35))
+                        {
+                            if (npc.position.X < (float)(floorX * 16) && npc.direction == -1)
+                            {
+                                npc.ai[1] -= 5f;
+                            }
+                            else if (npc.position.X > (float)(floorX * 16) && npc.direction == 1)
+                            {
+                                npc.ai[1] -= 5f;
+                            }
+                        }
+                        npc.ai[1] -= 1f;
+                    }
+                    if (npc.ai[1] <= 0f)
+                    {
+                        npc.ai[0] = 0f;
+                        npc.ai[1] = 300 + Main.rand.Next(300);
+                        npc.ai[2] = 0f;
+                        if (NPCID.Sets.TownCritter[npc.type])
+                        {
+                            npc.ai[1] -= Main.rand.Next(100);
+                        }
+                        else
+                        {
+                            npc.ai[1] += Main.rand.Next(900);
+                        }
+                        npc.localAI[3] = 60f;
+                        npc.netUpdate = true;
+                    }
+                    if (npc.closeDoor && ((npc.position.X + (float)(npc.width / 2)) / 16f > (float)(npc.doorX + 2) || (npc.position.X + (float)(npc.width / 2)) / 16f < (float)(npc.doorX - 2)))
+                    {
+                        Tile tileSafely = Framing.GetTileSafely(npc.doorX, npc.doorY);
+                        if (TileLoader.CloseDoorID(tileSafely) >= 0)
+                        {
+                            if (WorldGen.CloseDoor(npc.doorX, npc.doorY))
+                            {
+                                npc.closeDoor = false;
+                                NetMessage.SendData(19, -1, -1, null, 1, npc.doorX, npc.doorY, npc.direction);
+                            }
+                            if ((npc.position.X + (float)(npc.width / 2)) / 16f > (float)(npc.doorX + 4) || (npc.position.X + (float)(npc.width / 2)) / 16f < (float)(npc.doorX - 4) || (npc.position.Y + (float)(npc.height / 2)) / 16f > (float)(npc.doorY + 4) || (npc.position.Y + (float)(npc.height / 2)) / 16f < (float)(npc.doorY - 4))
+                            {
+                                npc.closeDoor = false;
+                            }
+                        }
+                        else if (tileSafely.TileType == TileID.TallGateOpen)
+                        {
+                            if (WorldGen.ShiftTallGate(npc.doorX, npc.doorY, closing: true))
+                            {
+                                npc.closeDoor = false;
+                                NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 5, npc.doorX, npc.doorY);
+                            }
+                            if ((npc.position.X + (float)(npc.width / 2)) / 16f > (float)(npc.doorX + 4) || (npc.position.X + (float)(npc.width / 2)) / 16f < (float)(npc.doorX - 4) || (npc.position.Y + (float)(npc.height / 2)) / 16f > (float)(npc.doorY + 4) || (npc.position.Y + (float)(npc.height / 2)) / 16f < (float)(npc.doorY - 4))
+                            {
+                                npc.closeDoor = false;
+                            }
+                        }
+                        else
+                        {
+                            npc.closeDoor = false;
+                        }
+                    }
+
+                    float movementSpeed = 1f;
+                    float num18 = 0.07f;
+                    if (isTurtle)
+                    {
+                        if (npc.wet)
+                        {
+                            num18 = 1f;
+                            movementSpeed = 2f;
+                        }
+                        else
+                        {
+                            num18 = 0.07f;
+                            movementSpeed = 0.5f;
+                        }
+                    }
+                    if (isMouseOrRat)
+                    {
+                        movementSpeed = 2f;
+                        num18 = 1f;
+                    }
+                    if (npc.friendly && (enemyNearby || flag17))
+                    {
+                        movementSpeed = 1.5f;
+                        float num19 = 1f - (float)npc.life / (float)npc.lifeMax;
+                        movementSpeed += num19 * 0.9f;
+                        num18 = 0.1f;
+                    }
+                    if (flag11 && npc.wet)
+                    {
+                        movementSpeed = 2f;
+                        num18 = 0.2f;
+                    }
+                    if (isFrogOrYellowTownSlime && npc.wet)
+                    {
+                        if (Math.Abs(npc.velocity.X) < 0.05f && Math.Abs(npc.velocity.Y) < 0.05f)
+                        {
+                            npc.velocity.X += movementSpeed * 10f * (float)npc.direction;
+                        }
+                        else
+                        {
+                            npc.velocity.X *= 0.9f;
+                        }
+                    }
+                    else if (npc.velocity.X < 0f - movementSpeed || npc.velocity.X > movementSpeed)
+                    {
+                        if (npc.velocity.Y == 0f)
+                        {
+                            npc.velocity *= 0.8f;
+                        }
+                    }
+                    else if (npc.velocity.X < movementSpeed && npc.direction == 1)
+                    {
+                        npc.velocity.X += num18;
+                        if (npc.velocity.X > movementSpeed)
+                        {
+                            npc.velocity.X = movementSpeed;
+                        }
+                    }
+                    else if (npc.velocity.X > 0f - movementSpeed && npc.direction == -1)
+                    {
+                        npc.velocity.X -= num18;
+                        if (npc.velocity.X > movementSpeed)
+                        {
+                            npc.velocity.X = movementSpeed;
+                        }
+                    }
+                    bool flag18 = true;
+                    if ((float)(npc.homeTileY * 16 - 32) > npc.position.Y)
+                    {
+                        flag18 = false;
+                    }
+                    if (!flag18 && npc.velocity.Y == 0f)
+                    {
+                        Collision.StepDown(ref npc.position, ref npc.velocity, npc.width, npc.height, ref npc.stepSpeed, ref npc.gfxOffY);
+                    }
+                    if (npc.velocity.Y >= 0f)
+                    {
+                        Collision.StepUp(ref npc.position, ref npc.velocity, npc.width, npc.height, ref npc.stepSpeed, ref npc.gfxOffY, 1, flag18, 1);
+                    }
+                    if (npc.velocity.Y == 0f)
+                    {
+                        int num20 = (int)((npc.position.X + (float)(npc.width / 2) + (float)(15 * npc.direction)) / 16f);
+                        int num21 = (int)((npc.position.Y + (float)npc.height - 16f) / 16f);
+                        int num22 = 180;
+                        AIMethodsPassive.GetWalkPrediction(npc, num6, floorX, canBreatheUnderwater, flag17, num20, num21, out var keepwalking3, out var avoidFalling3);
+                        bool flag19 = false;
+                        bool flag20 = false;
+                        if (npc.wet && !canBreatheUnderwater && npc.townNPC && (flag20 = AIMethodsPassive.CheckIfWillDrown(flag17)) && npc.localAI[3] <= 0f)
+                        {
+                            avoidFalling3 = true;
+                            npc.localAI[3] = num22;
+                            int num23 = 0;
+                            for (int n = 0; n <= 10 && Framing.GetTileSafely(num20 - npc.direction, num21 - n).LiquidAmount != 0; n++)
+                            {
+                                num23++;
+                            }
+                            float num24 = 0.3f;
+                            float num25 = (float)Math.Sqrt((float)(num23 * 16 + 16) * 2f * num24);
+                            if (num25 > 26f)
+                            {
+                                num25 = 26f;
+                            }
+                            npc.velocity.Y = 0f - num25;
+                            npc.localAI[3] = npc.position.X;
+                            flag19 = true;
+                        }
+                        if (avoidFalling3 && !flag19)
+                        {
+                            int num26 = (int)((npc.position.X + (float)(npc.width / 2)) / 16f);
+                            int num27 = 0;
+                            for (int num28 = -1; num28 <= 1; num28++)
+                            {
+                                Tile tileSafely2 = Framing.GetTileSafely(num26 + num28, num21 + 1);
+                                if (tileSafely2.HasUnactuatedTile && Main.tileSolid[tileSafely2.TileType])
+                                {
+                                    num27++;
+                                }
+                            }
+                            if (num27 <= 2)
+                            {
+                                if (npc.velocity.X != 0f)
+                                {
+                                    npc.netUpdate = true;
+                                }
+                                keepwalking3 = (avoidFalling3 = false);
+                                npc.ai[0] = 0f;
+                                npc.ai[1] = 50 + Main.rand.Next(50);
+                                npc.ai[2] = 0f;
+                                npc.localAI[3] = 40f;
+                            }
+                        }
+                        if (npc.position.X == npc.localAI[3] && !flag19)
+                        {
+                            npc.direction *= -1;
+                            npc.netUpdate = true;
+                            npc.localAI[3] = num22;
+                        }
+                        if (flag17 && !flag19)
+                        {
+                            if (npc.localAI[3] > (float)num22)
+                            {
+                                npc.localAI[3] = num22;
+                            }
+                            if (npc.localAI[3] > 0f)
+                            {
+                                npc.localAI[3] -= 1f;
+                            }
+                        }
+                        else
+                        {
+                            npc.localAI[3] = -1f;
+                        }
+                        Tile tileSafely3 = Framing.GetTileSafely(num20, num21);
+                        Tile tileSafely4 = Framing.GetTileSafely(num20, num21 - 1);
+                        Tile tileSafely5 = Framing.GetTileSafely(num20, num21 - 2);
+                        bool flag21 = npc.height / 16 < 3;
+                        if ((npc.townNPC || NPCID.Sets.AllowDoorInteraction[npc.type]) && tileSafely5.HasUnactuatedTile && (TileLoader.IsClosedDoor(tileSafely5) || tileSafely5.TileType == 388) && (Main.rand.Next(openDoorChance) == 0 || shouldStayIndoors))
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                if (WorldGen.OpenDoor(num20, num21 - 2, npc.direction))
+                                {
+                                    npc.closeDoor = true;
+                                    npc.doorX = num20;
+                                    npc.doorY = num21 - 2;
+                                    NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 0, num20, num21 - 2, npc.direction);
+                                    npc.netUpdate = true;
+                                    npc.ai[1] += 80f;
+                                }
+                                else if (WorldGen.OpenDoor(num20, num21 - 2, -npc.direction))
+                                {
+                                    npc.closeDoor = true;
+                                    npc.doorX = num20;
+                                    npc.doorY = num21 - 2;
+                                    NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 0, num20, num21 - 2, -npc.direction);
+                                    npc.netUpdate = true;
+                                    npc.ai[1] += 80f;
+                                }
+                                else if (WorldGen.ShiftTallGate(num20, num21 - 2, closing: false))
+                                {
+                                    npc.closeDoor = true;
+                                    npc.doorX = num20;
+                                    npc.doorY = num21 - 2;
+                                    NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 4, num20, num21 - 2);
+                                    npc.netUpdate = true;
+                                    npc.ai[1] += 80f;
+                                }
+                                else
+                                {
+                                    npc.direction *= -1;
+                                    npc.netUpdate = true;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if ((npc.velocity.X < 0f && npc.direction == -1) || (npc.velocity.X > 0f && npc.direction == 1))
+                            {
+                                bool flag22 = false;
+                                bool flag23 = false;
+                                if (tileSafely5.HasUnactuatedTile && Main.tileSolid[tileSafely5.TileType] && !Main.tileSolidTop[tileSafely5.TileType] && (!flag21 || (tileSafely4.HasUnactuatedTile && Main.tileSolid[tileSafely4.TileType] && !Main.tileSolidTop[tileSafely4.TileType])))
+                                {
+                                    if (!Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 5, num21 - 1) && !Collision.SolidTiles(num20, num20, num21 - 5, num21 - 3))
+                                    {
+                                        npc.velocity.Y = -6f;
+                                        npc.netUpdate = true;
+                                    }
+                                    else if (isMouseOrRat)
+                                    {
+                                        if (WorldGen.SolidTile((int)(npc.Center.X / 16f) + npc.direction, (int)(npc.Center.Y / 16f)))
+                                        {
+                                            npc.direction *= -1;
+                                            npc.velocity.X *= 0f;
+                                            npc.netUpdate = true;
+                                        }
+                                    }
+                                    else if (enemyNearby)
+                                    {
+                                        flag23 = true;
+                                        flag22 = true;
+                                    }
+                                    else if (!flag20)
+                                    {
+                                        flag22 = true;
+                                    }
+                                }
+                                else if (tileSafely4.HasUnactuatedTile && Main.tileSolid[tileSafely4.TileType] && !Main.tileSolidTop[tileSafely4.TileType])
+                                {
+                                    if (!Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 4, num21 - 1) && !Collision.SolidTiles(num20, num20, num21 - 4, num21 - 2))
+                                    {
+                                        npc.velocity.Y = -5f;
+                                        npc.netUpdate = true;
+                                    }
+                                    else if (enemyNearby)
+                                    {
+                                        flag23 = true;
+                                        flag22 = true;
+                                    }
+                                    else
+                                    {
+                                        flag22 = true;
+                                    }
+                                }
+                                else if (npc.position.Y + (float)npc.height - (float)(num21 * 16) > 20f && tileSafely3.HasUnactuatedTile && Main.tileSolid[tileSafely3.TileType] && !tileSafely3.TopSlope)
+                                {
+                                    if (!Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20, num21 - 3, num21 - 1))
+                                    {
+                                        npc.velocity.Y = -4.4f;
+                                        npc.netUpdate = true;
+                                    }
+                                    else if (enemyNearby)
+                                    {
+                                        flag23 = true;
+                                        flag22 = true;
+                                    }
+                                    else
+                                    {
+                                        flag22 = true;
+                                    }
+                                }
+                                else if (avoidFalling3)
+                                {
+                                    if (!flag20)
+                                    {
+                                        flag22 = true;
+                                    }
+                                    if (enemyNearby)
+                                    {
+                                        flag23 = true;
+                                    }
+                                }
+                                else if (flag12 && !Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 2, num21 - 1))
+                                {
+                                    npc.velocity.Y = -5f;
+                                    npc.netUpdate = true;
+                                }
+                                if (flag23)
+                                {
+                                    keepwalking3 = false;
+                                    npc.velocity.X = 0f;
+                                    npc.ai[0] = 8f;
+                                    npc.ai[1] = 240f;
+                                    npc.netUpdate = true;
+                                }
+                                if (flag22)
+                                {
+                                    npc.direction *= -1;
+                                    npc.velocity.X *= -1f;
+                                    npc.netUpdate = true;
+                                }
+                                if (keepwalking3)
+                                {
+                                    npc.ai[1] = 90f;
+                                    npc.netUpdate = true;
+                                }
+                                if (npc.velocity.Y < 0f)
+                                {
+                                    npc.localAI[3] = npc.position.X;
+                                }
+                            }
+                            if (npc.velocity.Y < 0f && npc.wet)
+                            {
+                                npc.velocity.Y *= 1.2f;
+                            }
+                            if (npc.velocity.Y < 0f && NPCID.Sets.TownCritter[npc.type] && !isMouseOrRat)
+                            {
+                                npc.velocity.Y *= 1.2f;
+                            }
+                        }
+                    }
+                    else if (flag12 && !npc.wet)
+                    {
+                        int num29 = (int)(npc.Center.X / 16f);
+                        int num30 = (int)((npc.position.Y + (float)npc.height - 16f) / 16f);
+                        int num31 = 0;
+                        for (int num32 = -1; num32 <= 1; num32++)
+                        {
+                            for (int num33 = 1; num33 <= 6; num33++)
+                            {
+                                Tile tileSafely6 = Framing.GetTileSafely(num29 + num32, num30 + num33);
+                                if (tileSafely6.LiquidAmount > 0 || (tileSafely6.HasUnactuatedTile && Main.tileSolid[tileSafely6.TileType]))
+                                {
+                                    num31++;
+                                }
+                            }
+                        }
+                        if (num31 <= 2)
+                        {
+                            if (npc.velocity.X != 0f)
+                            {
+                                npc.netUpdate = true;
+                            }
+                            npc.velocity.X *= 0.2f;
+                            npc.ai[0] = 0f;
+                            npc.ai[1] = 50 + Main.rand.Next(50);
+                            npc.ai[2] = 0f;
+                            npc.localAI[3] = 40f;
+                        }
+                    }
+                }
             }
             else if (AIState == States.Blink || AIState == States.Snooze)
             {
                 StateBlinkSnooze.Update(npc);
             }
             else if (AIState == States.TalkedToByOtherNPC || AIState == States.TalkingToOtherNPC ||
-                AIState == States.Sitting || AIState == States.RunFromEnemy || AIState == States.State9 || 
-                npc.ai[0] == 16f || npc.ai[0] == 17f || npc.ai[0] == 20f || npc.ai[0] == 21f || 
-                npc.ai[0] == 22f || npc.ai[0] == 23f || AIState == States.WateringPlants)
+                AIState == States.Sitting || npc.ai[0] == 8f || npc.ai[0] == 9f || npc.ai[0] == 16f || 
+                npc.ai[0] == 17f || npc.ai[0] == 20f || npc.ai[0] == 21f || npc.ai[0] == 22f || 
+                npc.ai[0] == 23f || AIState == States.WateringPlants)
             {
                 npc.velocity.X *= 0.8f;
                 npc.ai[1] -= 1f;
-
-                // Keep running if enemy is still nearby
                 if (npc.ai[0] == 8f && npc.ai[1] < 60f && enemyNearby)
                 {
                     npc.ai[1] = 180f;
@@ -577,7 +1010,6 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         Main.sittingManager.AddNPC(npc.whoAmI, coords);
                     }
                 }
-                // Switch back to idle
                 if (npc.ai[1] <= 0f)
                 {
                     npc.ai[0] = 0f;
@@ -587,8 +1019,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.netUpdate = true;
                 }
             }
-            else if (AIState == States.State6 || AIState == States.State7 || 
-                AIState == States.HoldBeer || AIState == States.State19)
+            else if (npc.ai[0] == 6f || npc.ai[0] == 7f || npc.ai[0] == 18f || npc.ai[0] == 19f)
             {
                 if (npc.ai[0] == 18f && (npc.localAI[3] < 1f || npc.localAI[3] > 2f))
                 {
@@ -620,18 +1051,325 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 }
             }
             else if (AIState == States.AttackThrowProjectile)
-                StateAttackThrowProjectile.Update(npc, enemyNearby, num2, num11, num12, num13);
-            else if (AIState == States.AttackShoot)
-                StateAttackShoot.Update(npc, enemyNearby, num2, num11, num12, num13);
-            else if (AIState == States.HealingSyringe)
-                StateHealingSyringe.Update(npc);
-            else if (AIState == States.AttackMagicProjectile)
-                StateAttackMagicProjectile.Update(npc, enemyNearby, num2, num11, num12, num13);
-            else if (AIState == States.AttackMeleeSwing)
-                State15.Update(npc, enemyNearby, num2, num11, num12, num13);
-            else if (AIState == States.Shimmering)
-                StateShimmering.Update(npc);
+            {
+                StateAttackThrowProjectile.Update(npc, enemyNearby, damageMultiplier, num11, num12, num13);
+            }
+            else if (npc.ai[0] == 12f)
+            {
+                int num45 = 0;
+                int num46 = 0;
+                float num47 = 0f;
+                int num48 = 0;
+                int num49 = 0;
+                int maxValue2 = 0;
+                float knockBack2 = 0f;
+                float num50 = 0f;
+                bool flag24 = false;
+                float num51 = 0f;
+                if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
+                {
+                    npc.frameCounter = 0.0;
+                    npc.localAI[3] = 0f;
+                }
+                int num52 = -1;
+                if (num11 == 1 && npc.spriteDirection == 1)
+                {
+                    num52 = num13;
+                }
+                if (num11 == -1 && npc.spriteDirection == -1)
+                {
+                    num52 = num12;
+                }
 
+                NPCLoader.TownNPCAttackStrength(npc, ref num46, ref knockBack2);
+                NPCLoader.TownNPCAttackCooldown(npc, ref num49, ref maxValue2);
+                NPCLoader.TownNPCAttackProj(npc, ref num45, ref num48);
+                NPCLoader.TownNPCAttackProjSpeed(npc, ref num47, ref num50, ref num51);
+                NPCLoader.TownNPCAttackShoot(npc, ref flag24);
+                if (Main.expertMode)
+                {
+                    num46 = (int)((float)num46 * Main.GameModeInfo.TownNPCDamageMultiplier);
+                }
+                num46 = (int)((float)num46 * damageMultiplier);
+                npc.velocity.X *= 0.8f;
+                npc.ai[1] -= 1f;
+                npc.localAI[3] += 1f;
+                if (npc.localAI[3] == (float)num48 && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    Vector2 vec2 = Vector2.Zero;
+                    if (num52 != -1)
+                    {
+                        vec2 = npc.DirectionTo(Main.npc[num52].Center + new Vector2(0f, 0f - num50));
+                    }
+                    if (vec2.HasNaNs() || Math.Sign(vec2.X) != npc.spriteDirection)
+                    {
+                        vec2 = new Vector2(npc.spriteDirection, 0f);
+                    }
+                    vec2 *= num47;
+                    vec2 += Utils.RandomVector2(Main.rand, 0f - num51, num51);
+                    int num53 = 1000;
+                    num53 = ((npc.type != 227) ? Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec2.X, vec2.Y, num45, num46, knockBack2, Main.myPlayer) : Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec2.X, vec2.Y, num45, num46, knockBack2, Main.myPlayer, 0f, (float)Main.rand.Next(12) / 6f));
+                    Main.projectile[num53].npcProj = true;
+                    Main.projectile[num53].noDropItem = true;
+                }
+                if (npc.localAI[3] == (float)num48 && flag24 && num52 != -1)
+                {
+                    Vector2 vector2 = npc.DirectionTo(Main.npc[num52].Center);
+                    if (vector2.Y <= 0.5f && vector2.Y >= -0.5f)
+                    {
+                        npc.ai[2] = vector2.Y;
+                    }
+                }
+                if (npc.ai[1] <= 0f)
+                {
+                    npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
+                    npc.ai[1] = num49 + Main.rand.Next(maxValue2);
+                    npc.ai[2] = 0f;
+                    npc.localAI[1] = (npc.localAI[3] = num49 / 2 + Main.rand.Next(maxValue2));
+                    npc.netUpdate = true;
+                }
+            }
+            else if (npc.ai[0] == 13f)
+            {
+                npc.velocity.X *= 0.8f;
+                if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
+                {
+                    npc.frameCounter = 0.0;
+                }
+                npc.ai[1] -= 1f;
+                npc.localAI[3] += 1f;
+                if (npc.localAI[3] == 1f && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    Vector2 vec3 = npc.DirectionTo(Main.npc[(int)npc.ai[2]].Center + new Vector2(0f, -20f));
+                    if (vec3.HasNaNs() || Math.Sign(vec3.X) == -npc.spriteDirection)
+                    {
+                        vec3 = new Vector2(npc.spriteDirection, -1f);
+                    }
+                    vec3 *= 8f;
+                    int num54 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec3.X, vec3.Y, 584, 0, 0f, Main.myPlayer, npc.ai[2]);
+                    Main.projectile[num54].npcProj = true;
+                    Main.projectile[num54].noDropItem = true;
+                }
+                if (npc.ai[1] <= 0f)
+                {
+                    npc.ai[0] = 0f;
+                    npc.ai[1] = 10 + Main.rand.Next(10);
+                    npc.ai[2] = 0f;
+                    npc.localAI[3] = 5 + Main.rand.Next(10);
+                    npc.netUpdate = true;
+                }
+            }
+
+            else if (npc.ai[0] == 14f)
+            {
+                int num55 = 0;
+                int num56 = 0;
+                float num57 = 0f;
+                int attackDelay = 0;
+                int num59 = 0;
+                int maxValue3 = 0;
+                float knockBack3 = 0f;
+                float num60 = 0f;
+                float num61 = NPCID.Sets.DangerDetectRange[npc.type];
+                float num62 = 1f;
+                float num63 = 0f;
+                if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
+                {
+                    npc.frameCounter = 0.0;
+                    npc.localAI[3] = 0f;
+                }
+                int num64 = -1;
+                if (num11 == 1 && npc.spriteDirection == 1)
+                {
+                    num64 = num13;
+                }
+                if (num11 == -1 && npc.spriteDirection == -1)
+                {
+                    num64 = num12;
+                }
+
+                NPCLoader.TownNPCAttackStrength(npc, ref num56, ref knockBack3);
+                NPCLoader.TownNPCAttackCooldown(npc, ref num59, ref maxValue3);
+                NPCLoader.TownNPCAttackProj(npc, ref num55, ref attackDelay);
+                NPCLoader.TownNPCAttackProjSpeed(npc, ref num57, ref num60, ref num63);
+                NPCLoader.TownNPCAttackMagic(npc, ref num62);
+                if (Main.expertMode)
+                {
+                    num56 = (int)((float)num56 * Main.GameModeInfo.TownNPCDamageMultiplier);
+                }
+                num56 = (int)((float)num56 * damageMultiplier);
+                npc.velocity.X *= 0.8f;
+                npc.ai[1] -= 1f;
+                npc.localAI[3] += 1f;
+                if (npc.localAI[3] == (float)attackDelay && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    Vector2 vec4 = Vector2.Zero;
+                    if (num64 != -1)
+                    {
+                        vec4 = npc.DirectionTo(Main.npc[num64].Center + new Vector2(0f, (0f - num60) * MathHelper.Clamp(npc.Distance(Main.npc[num64].Center) / num61, 0f, 1f)));
+                    }
+                    if (vec4.HasNaNs() || Math.Sign(vec4.X) != npc.spriteDirection)
+                    {
+                        vec4 = new Vector2(npc.spriteDirection, 0f);
+                    }
+                    vec4 *= num57;
+                    vec4 += Utils.RandomVector2(Main.rand, 0f - num63, num63);
+                    int num73 = Projectile.NewProjectile(npc.GetSource_FromAI(), npc.Center.X + (float)(npc.spriteDirection * 16), npc.Center.Y - 2f, vec4.X, vec4.Y, num55, num56, knockBack3, Main.myPlayer);
+                    Main.projectile[num73].npcProj = true;
+                    Main.projectile[num73].noDropItem = true;
+                }
+                if (num62 > 0f)
+                {
+                    Vector3 vector6 = npc.GetMagicAuraColor().ToVector3() * num62;
+                    Lighting.AddLight(npc.Center, vector6.X, vector6.Y, vector6.Z);
+                }
+                if (npc.ai[1] <= 0f)
+                {
+                    npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
+                    npc.ai[1] = num59 + Main.rand.Next(maxValue3);
+                    npc.ai[2] = 0f;
+                    npc.localAI[1] = (npc.localAI[3] = num59 / 2 + Main.rand.Next(maxValue3));
+                    npc.netUpdate = true;
+                }
+            }
+            else if (npc.ai[0] == 15f)
+            {
+                int num74 = 0;
+                int maxValue4 = 0;
+                if ((float)NPCID.Sets.AttackTime[npc.type] == npc.ai[1])
+                {
+                    npc.frameCounter = 0.0;
+                    npc.localAI[3] = 0f;
+                }
+                int num75 = 0;
+                float num76 = 0f;
+                int num77 = 0;
+                int num78 = 0;
+                if (num11 == 1)
+                {
+                    _ = npc.spriteDirection;
+                }
+                if (num11 == -1)
+                {
+                    _ = npc.spriteDirection;
+                }
+                if (npc.type == 207)
+                {
+                    num75 = 11;
+                    num77 = (num78 = 32);
+                    num74 = 12;
+                    maxValue4 = 6;
+                    num76 = 4.25f;
+                }
+                else if (NPCID.Sets.IsTownPet[npc.type])
+                {
+                    num75 = 10;
+                    num77 = (num78 = 32);
+                    num74 = 15;
+                    maxValue4 = 8;
+                    num76 = 3f;
+                }
+                NPCLoader.TownNPCAttackStrength(npc, ref num75, ref num76);
+                NPCLoader.TownNPCAttackCooldown(npc, ref num74, ref maxValue4);
+                NPCLoader.TownNPCAttackSwing(npc, ref num77, ref num78);
+                if (Main.expertMode)
+                {
+                    num75 = (int)((float)num75 * Main.GameModeInfo.TownNPCDamageMultiplier);
+                }
+                num75 = (int)((float)num75 * damageMultiplier);
+                npc.velocity.X *= 0.8f;
+                npc.ai[1] -= 1f;
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    Tuple<Vector2, float> swingStats = npc.GetSwingStats(NPCID.Sets.AttackTime[npc.type] * 2, (int)npc.ai[1], npc.spriteDirection, num77, num78);
+                    Rectangle itemRectangle = new Rectangle((int)swingStats.Item1.X, (int)swingStats.Item1.Y, num77, num78);
+                    if (npc.spriteDirection == -1)
+                    {
+                        itemRectangle.X -= num77;
+                    }
+                    itemRectangle.Y -= num78;
+                    npc.TweakSwingStats(NPCID.Sets.AttackTime[npc.type] * 2, (int)npc.ai[1], npc.spriteDirection, ref itemRectangle);
+                    int myPlayer = Main.myPlayer;
+                    for (int num79 = 0; num79 < 200; num79++)
+                    {
+                        NPC nPC2 = Main.npc[num79];
+                        if (nPC2.active && nPC2.immune[myPlayer] == 0 && !nPC2.dontTakeDamage && !nPC2.friendly && nPC2.damage > 0 && itemRectangle.Intersects(nPC2.Hitbox) && (nPC2.noTileCollide || Collision.CanHit(npc.position, npc.width, npc.height, nPC2.position, nPC2.width, nPC2.height)))
+                        {
+                            var hit = new NPC.HitInfo();
+                            hit.Damage = num75;
+                            hit.Knockback = num76;
+                            hit.HitDirection = npc.spriteDirection;
+                            if (Main.netMode != 0)
+                            {
+                                NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, num79, num75, num76, npc.spriteDirection);
+                            }
+                            nPC2.netUpdate = true;
+                            nPC2.immune[myPlayer] = (int)npc.ai[1] + 2;
+                        }
+                    }
+                }
+                if (npc.ai[1] <= 0f)
+                {
+                    bool flag25 = false;
+                    if (enemyNearby)
+                    {
+                        int num80 = -num11;
+                        if (!Collision.CanHit(npc.Center, 0, 0, npc.Center + Vector2.UnitX * num80 * 32f, 0, 0) || npc.localAI[2] == 8f)
+                        {
+                            flag25 = true;
+                        }
+                        if (flag25)
+                        {
+                            int num81 = NPCID.Sets.AttackTime[npc.type];
+                            int num82 = ((num11 == 1) ? num13 : num12);
+                            int num83 = ((num11 == 1) ? num12 : num13);
+                            if (num82 != -1 && !Collision.CanHit(npc.Center, 0, 0, Main.npc[num82].Center, 0, 0))
+                            {
+                                num82 = ((num83 == -1 || !Collision.CanHit(npc.Center, 0, 0, Main.npc[num83].Center, 0, 0)) ? (-1) : num83);
+                            }
+                            if (num82 != -1)
+                            {
+                                npc.ai[0] = 15f;
+                                npc.ai[1] = num81;
+                                npc.ai[2] = 0f;
+                                npc.localAI[3] = 0f;
+                                npc.direction = ((npc.position.X < Main.npc[num82].position.X) ? 1 : (-1));
+                                npc.netUpdate = true;
+                            }
+                            else
+                            {
+                                flag25 = false;
+                            }
+                        }
+                    }
+                    if (!flag25)
+                    {
+                        npc.ai[0] = ((npc.localAI[2] == 8f && enemyNearby) ? 8 : 0);
+                        npc.ai[1] = num74 + Main.rand.Next(maxValue4);
+                        npc.ai[2] = 0f;
+                        npc.localAI[1] = (npc.localAI[3] = num74 / 2 + Main.rand.Next(maxValue4));
+                        npc.netUpdate = true;
+                    }
+                }
+            }
+            else if (npc.ai[0] == 24f)
+            {
+                npc.velocity.X *= 0.8f;
+                npc.ai[1] -= 1f;
+                npc.localAI[3] += 1f;
+                npc.direction = 1;
+                npc.spriteDirection = 1;
+                Vector3 vector7 = npc.GetMagicAuraColor().ToVector3();
+                Lighting.AddLight(npc.Center, vector7.X, vector7.Y, vector7.Z);
+                if (npc.ai[1] <= 0f)
+                {
+                    npc.ai[0] = 0f;
+                    npc.ai[1] = 480f;
+                    npc.ai[2] = 0f;
+                    npc.localAI[1] = 480f;
+                    npc.netUpdate = true;
+                }
+            }
             if (flag11 && npc.wet)
             {
                 int num84 = (int)(npc.Center.X / 16f);
@@ -688,7 +1426,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.velocity.Y -= 0.2f;
                 }
             }
-            if (Main.netMode != 1 && npc.isLikeATownNPC && !flag3)
+            if (Main.netMode != NetmodeID.MultiplayerClient && npc.isLikeATownNPC && !flag3)
             {
                 bool flag26 = npc.ai[0] < 2f && !enemyNearby && !npc.wet;
                 bool flag27 = (npc.ai[0] < 2f || npc.ai[0] == 8f) && (enemyNearby || flag14);
@@ -699,6 +1437,23 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                 if (npc.localAI[1] > 0f)
                 {
                     flag27 = false;
+                }
+                if (flag27 && npc.type == 124 && npc.localAI[0] == 1f)
+                {
+                    flag27 = false;
+                }
+                if (flag27 && npc.type == 20)
+                {
+                    flag27 = false;
+                    for (int num89 = 0; num89 < 200; num89++)
+                    {
+                        NPC nPC3 = Main.npc[num89];
+                        if (nPC3.active && nPC3.townNPC && !(npc.Distance(nPC3.Center) > 1200f) && nPC3.FindBuffIndex(165) == -1)
+                        {
+                            flag27 = true;
+                            break;
+                        }
+                    }
                 }
                 if (npc.CanTalk && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(300) == 0)
                 {
@@ -758,7 +1513,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         }
                     }
                 }
-                else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0 && (npc.type == NPCID.PartyGirl || (BirthdayParty.PartyIsUp && NPCID.Sets.AttackType[npc.type] == NPCID.Sets.AttackType[208])))
+                else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1200) == 0 && (npc.type == 208 || (BirthdayParty.PartyIsUp && NPCID.Sets.AttackType[npc.type] == NPCID.Sets.AttackType[208])))
                 {
                     int num100 = 300;
                     int num101 = 150;
@@ -777,7 +1532,6 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         }
                     }
                 }
-                // Holding a beer
                 else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && canHoldBeer)
                 {
                     int num104 = 300;
@@ -797,17 +1551,15 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         }
                     }
                 }
-                // Blink
                 else if (!NPCID.Sets.IsTownPet[npc.type] && flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(1800) == 0)
                 {
-                    npc.ai[0] = (float)States.Blink;
+                    npc.ai[0] = 2f;
                     npc.ai[1] = 45 * Main.rand.Next(1, 2);
                     npc.netUpdate = true;
                 }
-                // Snooze
                 else if (flag26 && npc.ai[0] == 0f && npc.velocity.Y == 0f && Main.rand.Next(600) == 0 && canSnooze && !flag14)
                 {
-                    npc.ai[0] = (float)States.Snooze;
+                    npc.ai[0] = 11f;
                     npc.ai[1] = 30 * Main.rand.Next(1, 4);
                     npc.netUpdate = true;
                 }
@@ -838,7 +1590,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     {
                         for (int num112 = 0; num112 < 200; num112++)
                         {
-                            if (Main.npc[num112].active && Main.npc[num112].aiStyle == NPCAIStyleID.Passive && Main.npc[num112].townNPC && Main.npc[num112].ai[0] == 5f && (Main.npc[num112].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
+                            if (Main.npc[num112].active && Main.npc[num112].aiStyle == 7 && Main.npc[num112].townNPC && Main.npc[num112].ai[0] == 5f && (Main.npc[num112].Bottom + Vector2.UnitY * -2f).ToTileCoordinates() == point)
                             {
                                 flag30 = false;
                                 break;
@@ -857,7 +1609,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     {
                         Tile tile2 = Main.tile[point.X, point.Y];
                         flag30 = TileID.Sets.CanBeSatOnForNPCs[tile2.TileType];
-                        if (flag30 && tile2.TileType == TileID.Chairs && tile2.TileFrameY >= 1080 && tile2.TileFrameY <= 1098)
+                        if (flag30 && tile2.TileType == 15 && tile2.TileFrameY >= 1080 && tile2.TileFrameY <= 1098)
                         {
                             flag30 = false;
                         }
@@ -896,9 +1648,9 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     }
                 }
                 // New code. Randomly try to water plants
-                else if (canWaterPlants && flag26 && AIState == States.Walking && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
+                else if (flag26 && AIState == States.Walking && npc.velocity.Y == 0f && waterPlantsChance > 0 && Main.rand.Next(waterPlantsChance) == 0)
                     StateTryWaterPlants.Update(npc);
-                if (Main.netMode != 1 && npc.ai[0] < 2f && npc.velocity.Y == 0f && canThrowHealingSyringes && npc.breath > 0)
+                if (Main.netMode != NetmodeID.MultiplayerClient && npc.ai[0] < 2f && npc.velocity.Y == 0f && canHeal && npc.breath > 0)
                 {
                     int num114 = -1;
                     for (int num115 = 0; num115 < 200; num115++)
@@ -929,6 +1681,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                         num117 = ((num118 == -1 || !Collision.CanHit(npc.Center, 0, 0, Main.npc[num118].Center, 0, 0)) ? (-1) : num118);
                     }
                     bool flag32 = num117 != -1;
+
                     if (flag32)
                     {
                         npc.localAI[2] = npc.ai[0];
