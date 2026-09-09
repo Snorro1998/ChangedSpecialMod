@@ -1,5 +1,5 @@
 ﻿﻿[h1]Changed Special Mod[/h1]
-This Terraria mod is about the game Changed by DragonSnow. It adds laboratories on the surface where you will find Latex beasts. They are quite strong and grow stronger with every boss defeated.
+This Terraria mod is about the game Changed by DragonSnow. It adds laboratories on the surface where you will find goo monsters, also know as latex beasts. They are quite strong and grow stronger with every boss you defeat.
 
 [h2]Contents[/h2]
 [list]
@@ -26,7 +26,7 @@ This mod has built-in support for:
 	[*]Wikithis
 [/list]
 
-Additionally, town npcs can sell fruits and herbs from these mods:
+Additionally, town npcs can sell items from these mods:
 [list]
 	[*]Calamity
 	[*]Spirit and Spirit Reforged
@@ -60,6 +60,8 @@ https://github.com/Snorro1998/ChangedSpecialMod
 
 
 [h2]Credits[/h2]
+This mod is a continuation of the old abandoned "ChangedMod" which had two monsters, one biome and some furniture items. It was programmed by xethogd#1874 and the sprites were made by Hayden. Unfortunately, it can no longer be found in the mod browser.
+
 [b]Art[/b]
 [list]
 	[*]DragonSnow     <[url=https://x.com/DragonSnow4] Twitter [/url]>
@@ -70,7 +72,8 @@ https://github.com/Snorro1998/ChangedSpecialMod
 [b]Programming[/b]
 [list]
 	[*]Snorro
-	[*]The code for the main menu style was copied and altered from the Calamity mod
+	[*]ExampleMod was used to figure things out.
+	[*]The main menu style uses modified code from the Calamity mod
 [/list]
 [b]Music[/b]
 [list]
@@ -90,21 +93,52 @@ https://github.com/Snorro1998/ChangedSpecialMod
 This is a small update that adds three magic weapons and a painting.
 
 
-[h3]0.5.6.2[/h3]
+[h3]0.5.6.3[/h3]
+
+This update adds two new weapons and makes some changes to NPCs.
+
 
 [b]General[/b]
 [list]
-	[*]Added the first three magic weapons: "Green Crystal Staff", "Red Crystal Staff" and "White Crystal Staff"
-	[*]Added "Water Battle" painting
+	[*]The chest in a citrus shrine contains more useful items, instead of only oranges
+	[*]The amount of crimson, corrupt, hallow and latex blocks in the world are counted twice per day. This is to determine if NPCs should talk about these biomes
+	[*]Increased the amount of iron bars needed to make a watering can, because it can now be used as a weapon
 [/list]
 
-[b]NPCs[/b]
+Weapons
 [list]
-	[*]Changed death sound of Wendigo and Bloodstripe
-	[*]Black latex beasts drop their mask when killed
+	[*]Turned the watering can into a magic weapon. You can use it as an early aqua scepter, or right click to throw it.
+	[*]Toy block towers now drop individual blocks when picked up. These can be used as a ranged weapon
+	[*]Added impact particles to projectiles shot by book weapons
 [/list]
 
-[b]Fixes[/b]
+NPCs
 [list]
-	[*]Every latex beast with gootype none created black particles when hit
+	[*]All NPCs are no longer drawn slightly bigger in the bestiary
+	[*]NPCs no longer grow bigger from evolution by default. You can re-enable it in the config if desired
+	[*]Added banners for: Black Latex Cub, White Latex Cub, Tiger Shark, Feng-Yu and Sweeper
+	[*]Squid Dog, Squid Dog Cub and Tiger shark can now only be found in the ocean
+	[*]Squid Dog and Tiger Shark no longer require the White Tail to be defeated to spawn
+	[*]Squid Dog and Squid Dog Cub can drop jellyfish necklace
+	[*]Tiger Shark can drop diving helmet
+	[*]Small monsters will move very fast if the player is drunk
+	[*]Reduced water spray effect when Prototype is watering plants
+	[*]Prototype will spawn stuck in goo after defeating the Behemoth and you have to rescue him
+	[*]Dr K can throw syringes to heal injured NPCs like the nurse can
+	[*]Dr K has a few more dialogue options
+[/list]
+
+Resprited
+[list]
+	[*]Biome backgrounds used in the minimap and the bestiary
+	[*]Squid Dog Cub
+	[*]Tiger shark
+[/list]
+
+Fixes
+[list]
+	[*]Fixed wrong drawing offsets for snow leopard
+	[*]Wrong biome percentages in the dryad's status report
+	[*]Prototype would always spawn if the Behemoth despawned, even if you didn't defeat him
+	[*]NPCs could still talk about the corruption and crimson if they were no longer there, unless you reloaded the world
 [/list]

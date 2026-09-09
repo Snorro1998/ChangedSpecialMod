@@ -73,7 +73,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var spawnTileIsWater = spawnInfo.Water;
 
             if (spawnInfo.Player.ZoneBeach && spawnTileIsWater && ChangedUtils.CanSpawn(changedNPC.spawnRequirement))
-                return 0.3f;
+                return 0.35f;
 
             return 0f;
         }

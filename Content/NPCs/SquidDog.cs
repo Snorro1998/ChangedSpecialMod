@@ -64,7 +64,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
-            changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
+            //changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -91,7 +91,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var spawnTileIsWater = spawnInfo.Water;
             
             if (spawnInfo.Player.ZoneBeach && spawnTileIsWater && ChangedUtils.CanSpawn(changedNPC.spawnRequirement))
-                return 0.2f;
+                return 0.25f;
 
             return 0f;
         }

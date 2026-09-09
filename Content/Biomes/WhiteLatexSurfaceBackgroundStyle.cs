@@ -22,32 +22,18 @@ namespace ChangedSpecialMod.Backgrounds
 			}
 		}
 
-		public override int ChooseFarTexture() {
+		public override int ChooseFarTexture() 
+		{
 			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurface/Far");
 		}
 
-		private static int SurfaceFrameCounter;
-		private static int SurfaceFrame;
-		public override int ChooseMiddleTexture() {
-			if (++SurfaceFrameCounter > 12) {
-				SurfaceFrame = (SurfaceFrame + 1) % 4;
-				SurfaceFrameCounter = 0;
-			}
-			switch (SurfaceFrame) {
-				case 0:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurface/Mid0");
-				case 1:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurface/Mid1");
-				case 2:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurface/Mid2");
-				case 3:
-					return BackgroundTextureLoader.GetBackgroundSlot("ChangedSpecialMod/Assets/Textures/Backgrounds/WhiteLatexSurface/Mid3"); // You can use the full path version of GetBackgroundSlot too
-				default:
-					return -1;
-			}
-		}
+		public override int ChooseMiddleTexture() 
+		{
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurface/Mid");
+        }
 
-		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) {
+		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) 
+		{
 			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/WhiteLatexSurface/Close");
 		}
 	}

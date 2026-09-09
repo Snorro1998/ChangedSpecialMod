@@ -33,8 +33,6 @@ namespace ChangedSpecialMod.Backgrounds
 			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurfaceJungle/Far");
 		}
 
-		private static int SurfaceFrameCounter;
-		private static int SurfaceFrame;
 		public override int ChooseMiddleTexture() 
 		{
             return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexSurfaceJungle/Mid");

@@ -14,7 +14,9 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			Main.tileLavaDeath[Type] = true;
 			TileID.Sets.FramesOnKillWall[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-			TileObjectData.addTile(Type);
+            TileObjectData.newTile.RandomStyleRange = 4;
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.addTile(Type);
 			DustType = DustID.WoodFurniture;
 		}
 

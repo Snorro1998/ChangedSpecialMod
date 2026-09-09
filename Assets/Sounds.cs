@@ -29,9 +29,6 @@ namespace ChangedSpecialMod.Assets
         public static readonly string MusicHappyBirthday = Music("BirthdaySong");
         public static readonly string MusicPuroDance = Music("PuroDance");
 
-        // Drunk
-        public static readonly string MusicWideLatex = Music("SongForDenise");
-
         // Vents chase sequence
         public static readonly string MusicRun = Music("Run");
 
@@ -43,10 +40,6 @@ namespace ChangedSpecialMod.Assets
         public static readonly string MusicSquidDog = Music("SquidDog");
 
         public static readonly string Music30 = Music("Music30");
-
-        // Minecraft Changed Addon
-        // Not used at the moment because I am not sure if we are allowed.
-        public static readonly string MusicMeaninglessStrafe = Music("MeaninglessStrafe");
 
         // Sounds
         public static readonly SoundStyle SoundTransfur = new(Sound("Poison"));       // Transfur

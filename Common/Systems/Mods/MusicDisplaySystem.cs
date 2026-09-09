@@ -65,9 +65,6 @@ namespace ChangedSpecialMod.Common.Systems.Mods
             // Upcoming, unknown song names
             AddTrack(changedMod, modName, author, Sounds.Music30, "Music30", defaultColors);
 
-            // Changed Minecraft addon
-            // Need to ask for permission, so don't use it anywhere now. It sounds very different from most songs
-            AddTrack(changedMod, modName, authorHaise, Sounds.MusicMeaninglessStrafe, "MusicMeaninglessStrafe", defaultColors);
         }
     }
 }

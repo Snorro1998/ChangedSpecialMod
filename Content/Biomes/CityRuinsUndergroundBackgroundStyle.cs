@@ -6,10 +6,10 @@ namespace ChangedSpecialMod.Backgrounds
 	{
 		public override void FillTextureArray(int[] textureSlots) 
 		{
-			textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeUnderground0");
-			textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeUnderground1");
-			textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeUnderground2");
-			textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeUnderground3");
+			textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/0");
+			textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/1");
+			textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/2");
+			textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/BlackLatexUnderground/3");
 		}
 	}
 }

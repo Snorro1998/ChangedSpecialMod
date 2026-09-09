@@ -14,6 +14,37 @@ namespace ChangedSpecialMod.Content.NPCs.AIMethods
 {
     public static class AIMethodsPassive
     {
+        public static void TeleportHomeCheck(NPC npc, bool shouldStayInside, int floorX, int floorY, int num6, int num7)
+        {
+            if (!npc.homeless && Main.netMode != NetmodeID.MultiplayerClient && npc.townNPC && (shouldStayInside || (npc.type == NPCID.OldMan && Main.tileDungeon[Main.tile[num6, num7].TileType])) && !AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY))
+            {
+                bool notOnAnyPlayersScreen = true;
+                for (int k = 0; k < 2; k++)
+                {
+                    if (!notOnAnyPlayersScreen)
+                    {
+                        break;
+                    }
+                    Rectangle rectangle = new Rectangle((int)(npc.position.X + (float)(npc.width / 2) - (float)(NPC.sWidth / 2) - (float)NPC.safeRangeX), (int)(npc.position.Y + (float)(npc.height / 2) - (float)(NPC.sHeight / 2) - (float)NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+                    if (k == 1)
+                    {
+                        rectangle = new Rectangle(floorX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, floorY * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+                    }
+                    for (int playerIndex = 0; playerIndex < Main.maxPlayers; playerIndex++)
+                    {
+                        var tmpPlayer = Main.player[playerIndex];
+                        if (tmpPlayer.active && new Rectangle((int)tmpPlayer.position.X, (int)tmpPlayer.position.Y, tmpPlayer.width, tmpPlayer.height).Intersects(rectangle))
+                        {
+                            notOnAnyPlayersScreen = false;
+                            break;
+                        }
+                    }
+                }
+                if (notOnAnyPlayersScreen)
+                    AIMethodsPassive.TeleportToHome(npc, floorX, floorY);
+            }
+        }
+
         public static void TryPickRandomAction(NPC npc, bool noEnemyNearbyAndNotWet, States AIState, bool canSnooze, bool canWaterPlants, bool flag14, int sitDownChance, int waterPlantsChance)
         {
             // Talk to another npc if near them

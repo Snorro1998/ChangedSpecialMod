@@ -9,6 +9,5 @@ namespace ChangedSpecialMod.Content.Scenes
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override int NPCType => ModContent.NPCType<Experiment009>();
         public override string SceneMusic => Sounds.Music30;
-        //public override string SceneMusic => Sounds.MusicMeaninglessStrafe;
     }
 }

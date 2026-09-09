@@ -12,7 +12,6 @@ using ChangedSpecialMod.Content.Walls.Latex.White;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Channels;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;

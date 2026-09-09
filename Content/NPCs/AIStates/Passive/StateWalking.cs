@@ -8,7 +8,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
 {
     public static class StateWalking
     {
-        public static void Update(NPC npc, bool shouldStayInside, int floorX, int floorY, bool enemyNearby, bool flag9, bool flag11, bool flag12, bool isFrogOrYellowTownSlime, int num6, int num7)
+        public static void Update(NPC npc, bool shouldStayInside, int floorX, int floorY, bool enemyNearby, bool flag7, bool flag9, bool flag11, bool flag12, bool isFrogOrYellowTownSlime, int num6, int num7, bool canBreatheUnderwater, bool isTurtle)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient && shouldStayInside && AIMethodsPassive.IsInAGoodRestingSpot(npc, num6, num7, floorX, floorY) && !NPCID.Sets.TownCritter[npc.type])
             {
@@ -19,7 +19,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
             }
             else
             {
-                bool flag17 = !flag9 && Collision.DrownCollision(npc.position, npc.width, npc.height, 1f, includeSlopes: true);
+                bool flag17 = !canBreatheUnderwater && Collision.DrownCollision(npc.position, npc.width, npc.height, 1f, includeSlopes: true);
                 if (!flag17)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient && !npc.homeless && !Main.tileDungeon[Main.tile[num6, num7].TileType] && (num6 < floorX - 35 || num6 > floorX + 35))
@@ -85,6 +85,19 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                 }
                 float movementSpeed = 1f;
                 float acceleration = 0.07f;
+                if (isTurtle)
+                {
+                    if (npc.wet)
+                    {
+                        acceleration = 1f;
+                        movementSpeed = 2f;
+                    }
+                    else
+                    {
+                        acceleration = 0.07f;
+                        movementSpeed = 0.5f;
+                    }
+                }
 
                 if (npc.friendly && (enemyNearby || flag17))
                 {
@@ -98,7 +111,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                     movementSpeed = 2f;
                     acceleration = 0.2f;
                 }
-                if (isFrogOrYellowTownSlime && npc.wet)
+                if (flag7 && npc.wet)
                 {
                     if (Math.Abs(npc.velocity.X) < 0.05f && Math.Abs(npc.velocity.Y) < 0.05f)
                     {
@@ -150,10 +163,10 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                     int num20 = (int)((npc.position.X + (float)(npc.width / 2) + (float)(15 * npc.direction)) / 16f);
                     int num21 = (int)((npc.position.Y + (float)npc.height - 16f) / 16f);
                     int num22 = 180;
-                    AIMethodsPassive.GetWalkPrediction(npc, num6, floorX, flag9, flag17, num20, num21, out var keepwalking3, out var avoidFalling3);
+                    AIMethodsPassive.GetWalkPrediction(npc, num6, floorX, canBreatheUnderwater, flag17, num20, num21, out var keepwalking3, out var avoidFalling3);
                     bool flag19 = false;
                     bool flag20 = false;
-                    if (npc.wet && !flag9 && npc.townNPC && (flag20 = AIMethodsPassive.CheckIfWillDrown(flag17)) && npc.localAI[3] <= 0f)
+                    if (npc.wet && !canBreatheUnderwater && npc.townNPC && (flag20 = AIMethodsPassive.CheckIfWillDrown(flag17)) && npc.localAI[3] <= 0f)
                     {
                         avoidFalling3 = true;
                         npc.localAI[3] = num22;
@@ -222,16 +235,16 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                     Tile tileSafely4 = Framing.GetTileSafely(num20, num21 - 1);
                     Tile tileSafely5 = Framing.GetTileSafely(num20, num21 - 2);
                     bool flag21 = npc.height / 16 < 3;
-                    if ((npc.townNPC || NPCID.Sets.AllowDoorInteraction[npc.type]) && tileSafely5.HasUnactuatedTile && (TileLoader.IsClosedDoor(tileSafely5) || tileSafely5.TileType == TileID.TallGateClosed) && (Main.rand.Next(10) == 0 || shouldStayInside))
+                    if ((npc.townNPC || NPCID.Sets.AllowDoorInteraction[npc.type]) && tileSafely5.HasUnactuatedTile && (TileLoader.IsClosedDoor(tileSafely5) || tileSafely5.TileType == 388) && (Main.rand.Next(10) == 0 || shouldStayInside))
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != 1)
                         {
                             if (WorldGen.OpenDoor(num20, num21 - 2, npc.direction))
                             {
                                 npc.closeDoor = true;
                                 npc.doorX = num20;
                                 npc.doorY = num21 - 2;
-                                NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 0, num20, num21 - 2, npc.direction);
+                                NetMessage.SendData(19, -1, -1, null, 0, num20, num21 - 2, npc.direction);
                                 npc.netUpdate = true;
                                 npc.ai[1] += 80f;
                             }
@@ -240,7 +253,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 npc.closeDoor = true;
                                 npc.doorX = num20;
                                 npc.doorY = num21 - 2;
-                                NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 0, num20, num21 - 2, -npc.direction);
+                                NetMessage.SendData(19, -1, -1, null, 0, num20, num21 - 2, -npc.direction);
                                 npc.netUpdate = true;
                                 npc.ai[1] += 80f;
                             }
@@ -249,7 +262,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 npc.closeDoor = true;
                                 npc.doorX = num20;
                                 npc.doorY = num21 - 2;
-                                NetMessage.SendData(MessageID.ToggleDoorState, -1, -1, null, 4, num20, num21 - 2);
+                                NetMessage.SendData(19, -1, -1, null, 4, num20, num21 - 2);
                                 npc.netUpdate = true;
                                 npc.ai[1] += 80f;
                             }
@@ -265,7 +278,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                         if ((npc.velocity.X < 0f && npc.direction == -1) || (npc.velocity.X > 0f && npc.direction == 1))
                         {
                             bool flag22 = false;
-                            bool runFromEnemy = false;
+                            bool flag23 = false;
                             if (tileSafely5.HasUnactuatedTile && Main.tileSolid[tileSafely5.TileType] && !Main.tileSolidTop[tileSafely5.TileType] && (!flag21 || (tileSafely4.HasUnactuatedTile && Main.tileSolid[tileSafely4.TileType] && !Main.tileSolidTop[tileSafely4.TileType])))
                             {
                                 if (!Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 5, num21 - 1) && !Collision.SolidTiles(num20, num20, num21 - 5, num21 - 3))
@@ -275,7 +288,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 }
                                 else if (enemyNearby)
                                 {
-                                    runFromEnemy = true;
+                                    flag23 = true;
                                     flag22 = true;
                                 }
                                 else if (!flag20)
@@ -292,7 +305,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 }
                                 else if (enemyNearby)
                                 {
-                                    runFromEnemy = true;
+                                    flag23 = true;
                                     flag22 = true;
                                 }
                                 else
@@ -309,7 +322,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 }
                                 else if (enemyNearby)
                                 {
-                                    runFromEnemy = true;
+                                    flag23 = true;
                                     flag22 = true;
                                 }
                                 else
@@ -325,7 +338,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 }
                                 if (enemyNearby)
                                 {
-                                    runFromEnemy = true;
+                                    flag23 = true;
                                 }
                             }
                             else if (flag12 && !Collision.SolidTilesVersatile(num20 - npc.direction * 2, num20 - npc.direction, num21 - 2, num21 - 1))
@@ -333,7 +346,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStates.Passive
                                 npc.velocity.Y = -5f;
                                 npc.netUpdate = true;
                             }
-                            if (runFromEnemy)
+                            if (flag23)
                             {
                                 keepwalking3 = false;
                                 npc.velocity.X = 0f;

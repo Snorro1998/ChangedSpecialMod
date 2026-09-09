@@ -56,7 +56,7 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
             changedNPC.DoOnSpawnExtra = true;
-            changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
+            //changedNPC.spawnRequirement = SpawnRequirement.WhiteTail;
             changedNPC.GooColor = new Color(150, 150, 150);
         }
 
@@ -85,7 +85,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var spawnTileIsWater = spawnInfo.Water;
 
             if (spawnInfo.Player.ZoneBeach && spawnTileIsWater && ChangedUtils.CanSpawn(changedNPC.spawnRequirement))
-                return 0.2f;
+                return 0.25f;
 
             return 0f;
         }

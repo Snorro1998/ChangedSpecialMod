@@ -135,10 +135,6 @@ namespace ChangedSpecialMod.Utilities
 
                 tasks.Insert(taskIndex + 2, new PassLegacy("ChangedOrangeShrines", (progress, config) =>
                 {
-                    //8400 X 2400   20160000
-                    //6400 X 1800   11520000 X 1.75
-                    //4200 X 1200   5040000 X 2.285714285714286
-
                     progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.OrangeShrines"); //"Building shrines";
                     var nSucces = 0;
                     var nShrines = 5;
@@ -227,8 +223,6 @@ namespace ChangedSpecialMod.Utilities
                         return;
 
                     var poolType = placedPools < maxPools / 2 ? GooType.Black : GooType.White;
-                    //var liquidType = poolType == GooType.Black ? LiquidLoader.LiquidType<BlackLatexLiquid>() : LiquidLoader.LiquidType<WhiteLatexLiquid>();
-
                     var x = possibleLocations[i].x;
                     var y = possibleLocations[i].y;
 
@@ -257,14 +251,6 @@ namespace ChangedSpecialMod.Utilities
                         }
                     }
 
-                    /*
-                    foreach (var (tx, ty) in waterTiles)
-                    {
-                        var tile = Main.tile[tx, ty];
-                        tile.LiquidType = liquidType;
-                    }
-                    */
-
                     //padding 20 15
                     MakeBiomeAroundPool(bounds, 30, 25, poolType);
                     placedPositions.Add((x, y));
@@ -285,11 +271,9 @@ namespace ChangedSpecialMod.Utilities
             float centerX = bounds.Center.X;
             float centerY = bounds.Center.Y;
 
-            // --------------------------------------------------------------------
-            // Generate an irregular outline.
-            // --------------------------------------------------------------------
 
-            const int Samples = 180; // One sample every 2 degrees.
+            // Generate an irregular outline. One sample every 2 degrees.
+            const int Samples = 180;
 
             float[] offsets = new float[Samples];
 
@@ -314,10 +298,7 @@ namespace ChangedSpecialMod.Utilities
                 offsets = temp;
             }
 
-            // --------------------------------------------------------------------
             // Fill inside the irregular ellipse.
-            // --------------------------------------------------------------------
-
             int minX = Math.Max(0, (int)Math.Floor(centerX - radiusX * 1.3f));
             int maxX = Math.Min(Main.maxTilesX - 1, (int)Math.Ceiling(centerX + radiusX * 1.3f));
             int minY = Math.Max(0, (int)Math.Floor(centerY - radiusY * 1.3f));
@@ -406,51 +387,14 @@ namespace ChangedSpecialMod.Utilities
             }
 
             Rectangle bounds = new Rectangle(
-                minX - 2, // 0
-                minY - 2, // 0
-                maxX - minX + 3, // + 1
-                maxY - minY + 3); // + 1
+                minX - 2,
+                minY - 2,
+                maxX - minX + 3,
+                maxY - minY + 3);
 
             return (bounds, waterTiles);
         }
-        /*
-        private static void FloodFillLiquid(int startX, int startY)
-        {
-            Queue<(int x, int y)> queue = new();
-            HashSet<(int x, int y)> visited = new();
 
-            queue.Enqueue((startX, startY));
-
-            while (queue.Count > 0)
-            {
-                // Stop if it is a large body of water, like the ocean or something from another mod
-                if (visited.Count > 300)
-                    break;
-
-                var (x, y) = queue.Dequeue();
-
-                if (!visited.Add((x, y)))
-                    continue;
-
-                if (x < 0 || x >= Main.maxTilesX ||
-                    y < 0 || y >= Main.maxTilesY)
-                    continue;
-
-                Tile tile = Main.tile[x, y];
-
-                if (tile.LiquidAmount == 0 ||
-                    tile.LiquidType != LiquidID.Water)
-                    continue;
-
-                tile.LiquidType = LiquidLoader.LiquidType<BlackLatexLiquid>();
-
-                queue.Enqueue((x + 1, y));
-                queue.Enqueue((x - 1, y));
-                queue.Enqueue((x, y + 1));
-                queue.Enqueue((x, y - 1));
-            }
-        }
-        */
         private void HandleSpecialSeeds(ref List<GenPass> tasks, int taskIndex)
         {
             var worldSeedName = WorldGen.currentWorldSeed.ToLower();
@@ -880,8 +824,6 @@ namespace ChangedSpecialMod.Utilities
                         // Place the blocks
                         else
                         {
-                            //if (tile != i.ToString()[0])
-                            //    continue;
                             switch (tile)
                             {
                                 case ' ':
@@ -915,8 +857,6 @@ namespace ChangedSpecialMod.Utilities
                                     if (chestIndex >= 0)
                                     {
                                         var chest = Main.chest[chestIndex];
-                                        //var amount = 1;
-
                                         var items = new List<int>();
                                         var itemAmounts = new List<int>();
 
@@ -966,44 +906,6 @@ namespace ChangedSpecialMod.Utilities
                                             chest.item[j].SetDefaults(item, false);
                                             chest.item[j].stack = itemAmounts[j];
                                         }
-
-                                        /*
-                                        var items = new List<int>
-                                        {
-                                            ItemID.OrangeTorch,
-                                            ItemID.OrangeTorch,
-                                            ItemID.OrangeTorch,
-                                            ItemID.OrangeTorch,
-                                            ItemID.OrangeTorch,
-                                            ItemID.BloodOrange,
-                                            ItemID.BloodOrange,
-                                            ItemID.BloodOrange,
-                                            ItemID.GolfBallDyedOrange,
-
-                                            ItemID.Topaz,
-                                            ItemID.Topaz,
-                                            ItemID.GoldBar,
-                                            ItemID.GoldBar,
-                                            ItemID.GoldBar,
-                                            ItemID.GoldBar,
-                                        };
-                                        */
-
-                                        /*
-                                        for (int j = items.Count; j < 40; j++)
-                                        {
-                                            items.Add(ModContent.ItemType<Orange>());
-                                        }
-
-                                        items = items.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
-
-                                        for (int j = 0; j < 40; j++)
-                                        {
-                                            var item = items[j];
-                                            chest.item[j].SetDefaults(item, false);
-                                            chest.item[j].stack = amount;
-                                        }
-                                        */
                                     }
 
                                     continue;

@@ -20,7 +20,6 @@ using Terraria.GameContent.Events;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace ChangedSpecialMod
 {
@@ -193,36 +192,6 @@ namespace ChangedSpecialMod
                 packet.Send();
             }
         }
-
-        /*
-        public void SetTransfur(Transfur transfur)
-        {
-            // Only spawn dust particles on the client
-            if (Main.netMode != NetmodeID.Server)
-            {
-                var dustTransfur = TransfurTypeCurrent;
-                if (dustTransfur == null)
-                    dustTransfur = transfur;
-
-                if (dustTransfur != null)
-                {
-                    var dustType = dustTransfur.gooType == GooType.Black ? DustID.Asphalt : DustID.SnowSpray;
-                    var nParticles = 40;
-                    for (int i = 0; i < nParticles; i++)
-                    {
-                        var dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, 0, 0, 1);
-                        dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
-                        dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
-                    }
-                }
-            }
-
-            if (transfur != null)
-                AudioSystem.PlayTransfurSound(Player.Center);
-
-            TransfurTypeCurrent = transfur;
-        }
-        */
 
         public override void ModifyDrawInfo(ref PlayerDrawSet drawInfo)
         {
@@ -458,29 +427,7 @@ namespace ChangedSpecialMod
             TransfurTypeCurrent = null;
             _npcType = -1;
         }
-        /*
-        public override void CopyClientState(ModPlayer targetCopy)
-        {
-            var clone = (ChangedSpecialModPlayer)targetCopy;
-            clone._npcType = _npcType;
-        }
-
-        public override void SendClientChanges(ModPlayer clientPlayer)
-        {
-            var oldPlayer = (ChangedSpecialModPlayer)clientPlayer;
-
-            if (oldPlayer._npcType == _npcType)
-                return;
-
-            ModPacket packet = ModContent.GetInstance<ChangedSpecialMod>().GetPacket();
-
-            packet.Write((byte)MessageType.SyncTransfurPlayer);
-            packet.Write((byte)Player.whoAmI);
-            packet.Write(_npcType);
-
-            packet.Send();
-        }
-        */
+        
         public void SetTransfur(Transfur transfur)
         {
             if (transfur == null)
@@ -494,14 +441,8 @@ namespace ChangedSpecialMod
 
         private void ApplyUntransfur()
         {
-            //if (TransfurTypeCurrent != null && TransfurTypeCurrent.npcType == ModContent.NPCType<Purrpurr>() && Player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<WhiskerStaff>()) != null)
-            //    Player.DelBuff(ModContent.BuffType<WhiskerStaffBuff>());
-
             TransfurVisuals();
             TransfurTypeCurrent = null;
-
-            // Undo any persistent effects here.
-            // Reset visuals, body parts, animation state, etc.
         }
 
         private int _npcType = -1;
@@ -586,18 +527,6 @@ namespace ChangedSpecialMod
             if (TransfurTypeCurrent != null)
                 AudioSystem.PlayTransfurSound(Player.Center);
         }
-
-        /*
-        public override void SaveData(TagCompound tag)
-        {
-            tag["TransfurNpcType"] = _npcType;
-        }
-
-        public override void LoadData(TagCompound tag)
-        {
-            NpcType = tag.GetInt("TransfurNpcType");
-        }
-        */
 
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
         {

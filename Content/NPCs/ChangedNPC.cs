@@ -739,8 +739,8 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             // World evil
-            var hasCrimson = WorldBlockAmounts.nCrimson > 0;
-            var hasCorruption = WorldBlockAmounts.nCorrupt > 0;
+            var hasCrimson = WorldGen.tBlood > 0;
+            var hasCorruption = WorldGen.tEvil > 0;
             var bothWorldEvils = hasCrimson && hasCorruption;
 
             AddIf(hasCrimson, "Crimson");
@@ -748,15 +748,12 @@ namespace ChangedSpecialMod.Content.NPCs
             AddIf(bothWorldEvils, "BothWorldEvils1");
             AddIf(!bothWorldEvils, "SingleWorldEvil");
 
-            var hasLatex = WorldBlockAmounts.nLatex > 0;
+            var hasLatex = WorldTileCountSystem.tLatex > 0;
             AddIf(hasLatex, "Latex");
             AddIf(!hasLatex, "NoLatex");
 
-            AddIf(WorldBlockAmounts.nHallow > 0, "Hallow");
-            AddIf(WorldBlockAmounts.WorldIsPure(), "Pure");
-            //AddIf(WorldGen.tBlood > 0, "Crimson");
-            //AddIf(WorldGen.tEvil > 0, "Corruption");
-            //AddIf(WorldGen.tGood > 0, "Hallow");
+            AddIf(WorldGen.tGood > 0, "Hallow");
+            AddIf(WorldTileCountSystem.WorldIsPure(), "Pure");
 
             // Weather
             AddIf(Main.IsItRaining, "Rain");

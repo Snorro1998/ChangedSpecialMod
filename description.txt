@@ -10,7 +10,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 - 5 upgradeable weapons
 - 3 mounts
 - Many furniture items
-- Transformation mechanic (WIP)
+- Transformation mechanic
 
 
 ------- Mod support -------
@@ -23,7 +23,7 @@ This mod has built-in support for:
 - Music Display
 - Wikithis
 
-Additionally, town npcs can sell fruits and herbs from these mods:
+Additionally, town npcs can sell items from these mods:
 - Calamity
 - Spirit and Spirit Reforged
 - Thorium
@@ -57,6 +57,9 @@ https://github.com/Snorro1998/ChangedSpecialMod
 
 --------- Credits ---------
 
+This mod is a continuation of the old abandoned "ChangedMod" which had two monsters, one biome and some furniture items.
+It was programmed by xethogd#1874 and the sprites were made by Hayden. Unfortunately, it can no longer be found in the mod browser.
+
 Art
 - DragonSnow4	       <Twitter>
 - Hayden_FencFoxo  <Twitter>
@@ -65,7 +68,8 @@ Art
 
 Programming
 - Snorro
-- The code for the main menu style was copied and altered from the Calamity mod
+- ExampleMod was used to figure things out.
+- The main menu style uses modified code from the Calamity mod
 
 Music
 - ShiZi
@@ -80,7 +84,7 @@ Other
 --------- Changelog ---------
 
 
-0.5.6.4
+0.5.6.3
 
 This update adds two new weapons and makes some changes to NPCs.
 
@@ -89,6 +93,7 @@ General
 - The chest in a citrus shrine contains more useful items, instead of only oranges
 - The amount of crimson, corrupt, hallow and latex blocks in the world are counted twice per day. This is to determine if NPCs should talk about these biomes
 - Increased the amount of iron bars needed to make a watering can, because it can now be used as a weapon
+- Removed unused assets to reduce file size
 
 Weapons
 - Turned the watering can into a magic weapon. You can use it as an early aqua scepter, or right click to throw it.
@@ -99,7 +104,8 @@ NPCs
 - All NPCs are no longer drawn slightly bigger in the bestiary
 - NPCs no longer grow bigger from evolution by default. You can re-enable it in the config if desired
 - Added banners for: Black Latex Cub, White Latex Cub, Tiger Shark, Feng-Yu and Sweeper
-- Squid dog, Squid Dog Cub and Tiger shark can now only be found in the ocean
+- Squid Dog, Squid Dog Cub and Tiger shark can now only be found in the ocean
+- Squid Dog and Tiger Shark no longer require the White Tail to be defeated to spawn
 - Squid Dog and Squid Dog Cub can drop jellyfish necklace
 - Tiger Shark can drop diving helmet
 - Small monsters will move very fast if the player is drunk
@@ -109,10 +115,12 @@ NPCs
 - Dr K has a few more dialogue options
 
 Resprited
+- Biome backgrounds used in the minimap and the bestiary
 - Squid Dog Cub
 - Tiger shark
 
 Fixes
 - Fixed wrong drawing offsets for snow leopard
+- Wrong biome percentages in the dryad's status report
 - Prototype would always spawn if the Behemoth despawned, even if you didn't defeat him
 - NPCs could still talk about the corruption and crimson if they were no longer there, unless you reloaded the world

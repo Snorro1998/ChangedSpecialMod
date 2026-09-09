@@ -158,7 +158,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
             wallPaint: PaintID.None,
             hasPainting: true,
             hasChest: false,
-            decor: [ModContent.TileType<Basketball>(), ModContent.TileType<PuroPlush>(), ModContent.TileType<SharkPlush>(), ModContent.TileType<FennecPlush>(), ModContent.TileType<Blocks>()],
+            decor: [/*ModContent.TileType<Basketball>(), ModContent.TileType<PuroPlush>(), ModContent.TileType<SharkPlush>(), ModContent.TileType<FennecPlush>(),*/ ModContent.TileType<Blocks>()],
             singleDecor: -1,
             lanternStyle: -1, //20
             torchStyle: -1,

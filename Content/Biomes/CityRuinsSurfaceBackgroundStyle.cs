@@ -28,38 +28,19 @@ namespace ChangedSpecialMod.Backgrounds
 			}
 		}
 
-		public override int ChooseFarTexture() 
-		{
-			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeSurfaceFar");
-		}
+        public override int ChooseFarTexture()
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsSurface/Far");
+        }
 
-		private static int SurfaceFrameCounter;
-		private static int SurfaceFrame;
-		public override int ChooseMiddleTexture() 
-		{
-			if (++SurfaceFrameCounter > 12) 
-			{
-				SurfaceFrame = (SurfaceFrame + 1) % 4;
-				SurfaceFrameCounter = 0;
-			}
-			switch (SurfaceFrame) 
-			{
-				case 0:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeSurfaceMid0");
-				case 1:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeSurfaceMid1");
-				case 2:
-					return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeSurfaceMid2");
-				case 3:
-					return BackgroundTextureLoader.GetBackgroundSlot("ChangedSpecialMod/Assets/Textures/Backgrounds/CityRuinsBiomeSurfaceMid3"); // You can use the full path version of GetBackgroundSlot too
-				default:
-					return -1;
-			}
-		}
+        public override int ChooseMiddleTexture()
+        {
+            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsSurface/Mid");
+        }
 
-		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) 
+        public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) 
 		{
-			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsBiomeSurfaceClose");
+			return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/CityRuinsSurface/Close");
 		}
 	}
 }

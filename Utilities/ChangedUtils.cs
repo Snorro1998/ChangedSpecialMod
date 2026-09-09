@@ -3,6 +3,7 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Placeable.Latex.White;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Content.Projectiles;
@@ -24,6 +25,7 @@ using Terraria.GameContent.UI.States;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 using static ChangedSpecialMod.ChangedSpecialMod;
 
 
@@ -60,7 +62,7 @@ namespace ChangedSpecialMod.Utilities
         }
 
         public static Vector2 TileDrawOffset => Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
-
+        
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
         {
             var config = ModContent.GetInstance<ChangedSpecialModClientConfig>();
@@ -68,124 +70,14 @@ namespace ChangedSpecialMod.Utilities
             if (!config.CustomDryadWorldStatus)
                 return orig(out worldIsEntirelyPure);
 
-            // Force to recalculate
-            WorldGen.AddUpAlignmentCounts(true);
+            WorldTileCountSystem.RecalculateTileCounts();
 
             string text = "";
             worldIsEntirelyPure = false;
-            
-            var nTotalBlocks = 0;
-            var nGood = 0;
-            var nEvil = 0;
-            var nBlood = 0;
-            var nLatex = 0;
-
-            BiomeType[] TileLookup = new BiomeType[TileLoader.TileCount];
-
-            HashSet<int> LatexCountCollection =
-            [
-
-            ];
-
-            var blocks = BiomeConversionSystem.GetLatexBlocks();
-
-            foreach (var block in blocks)
-            {
-                LatexCountCollection.Add(block);
-            }
-
-            HashSet<ushort> CorruptCountCollection =
-            [
-                TileID.CorruptGrass,
-                TileID.CorruptPlants,
-                TileID.Ebonstone,
-                TileID.CorruptThorns, 
-                TileID.Ebonsand, 
-                TileID.CorruptIce, 
-                TileID.CorruptHardenedSand, 
-                TileID.CorruptSandstone, 
-                TileID.CorruptVines,
-                TileID.CorruptJungleGrass
-            ];
-
-            HashSet<ushort> CrimsonCountCollection =
-            [
-                TileID.CrimsonGrass,
-                TileID.FleshIce,
-                TileID.CrimsonPlants,
-                TileID.Crimstone,
-                TileID.CrimsonVines,
-                TileID.Crimsand,
-                TileID.CrimsonThorns,
-                TileID.CrimsonHardenedSand,
-                TileID.CrimsonSandstone,
-                TileID.CrimsonJungleGrass
-            ];
-
-            HashSet<ushort> HallowCountCollection =
-            [
-                TileID.HallowedGrass,
-                TileID.HallowedPlants,
-                TileID.HallowedPlants2,
-                TileID.HallowedVines,
-                TileID.Pearlsand,
-                TileID.Pearlstone,  
-                TileID.HallowedIce, 
-                TileID.HallowHardenedSand, 
-                TileID.HallowSandstone
-            ];
-
-            foreach (ushort id in CorruptCountCollection)
-                TileLookup[id] = BiomeType.Corrupt;
-
-            foreach (ushort id in CrimsonCountCollection)
-                TileLookup[id] = BiomeType.Crimson;
-
-            foreach (ushort id in HallowCountCollection)
-                TileLookup[id] = BiomeType.Hallow;
-
-            foreach (int id in LatexCountCollection)
-                TileLookup[id] = BiomeType.Latex;
-
-            for (var x = 0; x < Main.maxTilesX; x++)
-            {
-                for (var y = 0; y < Main.maxTilesY; y++)
-                {
-                    var tile = Main.tile[x, y];
-                    if (!tile.HasTile)
-                        continue;
-                    nTotalBlocks++;
-
-                    switch (TileLookup[tile.TileType])
-                    {
-                        case BiomeType.Latex:
-                            nLatex++;
-                            break;
-                        case BiomeType.Corrupt:
-                            nEvil++;
-                            break;
-                        case BiomeType.Crimson:
-                            nBlood++;
-                            break;
-                        case BiomeType.Hallow:
-                            nGood++;
-                            break;
-                    }
-                }
-            }
-
-            int tGood = (byte)Math.Round((double)nGood / (double)WorldGen.totalSolid * 100.0);// WorldGen.tGood;
-            if (tGood == 0 && nGood > 0)
-                tGood = 1;
-            int tEvil = (byte)Math.Round((double)nEvil / (double)WorldGen.totalSolid * 100.0);// WorldGen.tEvil;
-            if (tEvil == 0 && nEvil > 0)
-                tEvil = 1;
-            int tBlood = (byte)Math.Round((double)nBlood / (double)WorldGen.totalSolid * 100.0);// WorldGen.tBlood;
-            if (tBlood == 0 && nBlood > 0)
-                tBlood = 1;
-            int tLatex = (byte)Math.Round((double)nLatex / (double)WorldGen.totalSolid * 100.0);
-            if (tLatex == 0 && nLatex > 0)
-                tLatex = 1;
+            int tGood = WorldGen.tGood;
+            int tEvil = WorldGen.tEvil;
+            int tBlood = WorldGen.tBlood;
+            int tLatex = WorldTileCountSystem.tLatex;
 
             var baseTextPath = "Mods.ChangedSpecialMod.ExtraDialogue.Dryad.WorldStatus.";
 
@@ -303,7 +195,7 @@ namespace ChangedSpecialMod.Utilities
 
             return text + " " + arg;
         }
-
+        
         public static Vector2 GetInfectionBlockPosition(BiomeType biomeType)
         {
             BiomeType[] TileLookup = new BiomeType[TileLoader.TileCount];
@@ -549,6 +441,7 @@ namespace ChangedSpecialMod.Utilities
             { ModContent.TileType<CrystalGreen>(), 4 },
             { ModContent.TileType<CrystalRed>(), 4 },
             { ModContent.TileType<PillarWhite>(), 4 },
+            { ModContent.TileType<Blocks>(), 4 },
         };
 
         public static int GetNumberOfStylesPerItem(int itemId)
@@ -771,10 +664,8 @@ namespace ChangedSpecialMod.Utilities
                 // Crystal wolves
                 ModContent.NPCType<CrystalWolfBlue>(),
                 ModContent.NPCType<CrystalWolfGreen>(),
-                //ModContent.NPCType<CrystalWolfOrange>(),
                 ModContent.NPCType<CrystalWolfPurple>(),
                 ModContent.NPCType<CrystalWolfRed>(),
-                //ModContent.NPCType<CrystalWolfWhite>(),
 
                 // White
                 ModContent.NPCType<WhiteGoop>(),
