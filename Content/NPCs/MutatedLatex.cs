@@ -73,8 +73,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 0.2f,
-                PortraitScale = 1 / NPC.scale * 0.2f
+                Scale = 1 / NPC.scale * 0.15f,
+                PortraitScale = 1 / NPC.scale * 0.15f
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }

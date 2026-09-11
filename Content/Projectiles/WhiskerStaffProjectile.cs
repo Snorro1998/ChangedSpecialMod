@@ -28,6 +28,7 @@ namespace ChangedSpecialMod.Content.Projectiles
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 15;
             Projectile.DamageType = DamageClass.Summon;
+            Projectile.ArmorPenetration = 10;
         }
         public override bool MinionContactDamage()
         {

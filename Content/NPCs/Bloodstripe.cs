@@ -42,7 +42,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.rarity = 2;
             AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
+            //SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
             
             Banner = Type;
             BannerItem = ModContent.ItemType<Items.Placeable.Banners.BloodstripeBanner>();
@@ -70,8 +70,21 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || NPC.AnyNPCs(ModContent.NPCType<Bloodstripe>()))
+                return 0;
+
+            var spawnTileType = spawnInfo.SpawnTileType;
+            if (TileID.Sets.CrimsonCountCollection.Contains(spawnTileType))
+                return 0.1f;
+
+            return 0;
+        }
+        /*
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
             return ChangedUtils.GetWorldEvilSpawnChance(spawnInfo, NPC, ModContent.NPCType<Bloodstripe>(), true);
         }
+        */
 
         private void UpdateHatPosition(int frameHeight)
         {
@@ -108,6 +121,7 @@ namespace ChangedSpecialMod.Content.NPCs
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
                 new NPCPortraitInfoElement(3),
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Bloodstripe.Description")),
             });
         }

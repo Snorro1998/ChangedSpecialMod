@@ -998,3 +998,8 @@ TigerSharkBanner: {
 	DisplayName: 虎鲨横幅
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
 }
+
+SweeperPuroCage: {
+	// DisplayName: Sweeper Puro Cage
+	// Tooltip: ""
+}

@@ -2,6 +2,7 @@
 using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.TownPets;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.OS;
@@ -97,7 +98,49 @@ namespace ChangedSpecialMod.Common.Systems
         private static int indexTitleMessageMin = 1;
         private static int indexTitleMessageMax = 5;
 
+        public static float sweeperPuroCageAnimationFrameCounter = 0;
+        public static int sweeperPuroCageAnimationFrameIndex = 0;
+        public static bool sweeperPuroCageAnimate = true;
+
+        public static float[] sweeperPuroCageAnimationFrameCounters = new float[24];
+        public static int[] sweeperPuroCageAnimationFrameIndexs = new int[24];
+        public static float[] sweeperPuroCageAnimationSpeeds = new float[24];
+        public static bool[] sweeperPuroCageAnimates = new bool[24];
+
         public static List<ExternalModData> externalModsData;
+
+        public override void PostUpdateWorld()
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                if (Main.rand.NextBool(300))
+                {
+                    sweeperPuroCageAnimates[i] = !sweeperPuroCageAnimates[i];
+                    sweeperPuroCageAnimationSpeeds[i] = ChangedUtils.Choose(1, 2);
+                    if (Main.rand.NextBool(20))
+                        sweeperPuroCageAnimationSpeeds[i] = 4;
+                }
+
+                if (sweeperPuroCageAnimates[i])
+                {
+                    var animSpeed = sweeperPuroCageAnimationSpeeds[i];
+                    sweeperPuroCageAnimationFrameCounters[i] += animSpeed;
+                    sweeperPuroCageAnimationFrameIndexs[i] = (int)(sweeperPuroCageAnimationFrameCounters[i] / 8) % 24;
+                }
+            }
+            /*
+            if (Main.rand.NextBool(300))
+            {
+                sweeperPuroCageAnimate = !sweeperPuroCageAnimate;
+            }
+
+            if (sweeperPuroCageAnimate)
+            {
+                sweeperPuroCageAnimationFrameCounter++;
+                sweeperPuroCageAnimationFrameIndex = (int)(sweeperPuroCageAnimationFrameCounter / 8) % 24;
+            }
+            */
+        }
 
         public override void Load()
         {

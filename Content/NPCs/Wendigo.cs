@@ -18,8 +18,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 0.6f,
-                PortraitScale = 1 / NPC.scale * 0.6f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale 
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -27,7 +27,7 @@ namespace ChangedSpecialMod.Content.NPCs
 		public override void SetDefaults() 
         {
 			NPC.width = 40;
-			NPC.height = 96;
+			NPC.height = 80;
             NPC.damage = 40;
             NPC.defense = 12;
             NPC.lifeMax = 300;
@@ -47,7 +47,7 @@ namespace ChangedSpecialMod.Content.NPCs
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
             var changedNPC = NPC.Changed();
-            changedNPC.BaseScaleMultiplier = 0.7f;
+            //changedNPC.BaseScaleMultiplier = 0.7f;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.GooType = GooType.Black;
@@ -67,7 +67,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0;
 
             var changedNPC = NPC.Changed();
-            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            return 0.1f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

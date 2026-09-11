@@ -66,12 +66,12 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 [list]
 	[*]DragonSnow     <[url=https://x.com/DragonSnow4] Twitter [/url]>
 	[*]Hayden         <[url=https://x.com/Hayden_FencFoxo] Twitter [/url]>
-	[*]xethogd#1874
 	[*]Snorro
 [/list]
 [b]Programming[/b]
 [list]
 	[*]Snorro
+	[*]xethogd#1874
 	[*]ExampleMod was used to figure things out.
 	[*]The main menu style uses modified code from the Calamity mod
 [/list]

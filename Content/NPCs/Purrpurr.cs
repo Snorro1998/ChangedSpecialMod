@@ -44,14 +44,14 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.rarity = 2;
             AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
+            //SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
             
             Banner = Type;
             BannerItem = ModContent.ItemType<Items.Placeable.Banners.PurrpurrBanner>();
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
             var changedNPC = NPC.Changed();
-            changedNPC.BaseScaleMultiplier = 0.9f;
+            //changedNPC.BaseScaleMultiplier = 0.9f;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
             changedNPC.HatYOffset = -34;
@@ -69,14 +69,19 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            var nChest = Main.chest.Length;
-
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiskerStaff>(), 5));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return ChangedUtils.GetWorldEvilSpawnChance(spawnInfo, NPC, ModContent.NPCType<Purrpurr>(), false);
+            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || NPC.AnyNPCs(ModContent.NPCType<Purrpurr>()))
+                return 0;
+
+            var spawnTileType = spawnInfo.SpawnTileType;
+            if (TileID.Sets.CorruptCountCollection.Contains(spawnTileType))
+                return 0.1f;
+
+            return 0;
         }
 
         private void UpdateHatPosition(int frameHeight)
@@ -111,6 +116,7 @@ namespace ChangedSpecialMod.Content.NPCs
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
                 new NPCPortraitInfoElement(3),
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Purrpurr.Description")),
             });
         }
