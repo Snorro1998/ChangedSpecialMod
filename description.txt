@@ -86,23 +86,27 @@ Other
 
 0.5.7.1
 
-This updates makes some changes to the "strong" latex beasts (Bloodstripe, Purrpurr and Wendigo)
+This updates makes some changes to the spawning behaviour of monsters
 
 Items
 - Added Puroomba cage
+- Added Music Boxes: Tiger Shark, Squid Dog, Run and White Tail Chase pt 1
+- Renamed White Tail Music Box to The White Tail Chase pt. 2 
 
 NPCs
 - Bloodstripe can now only spawn in the crimson
 - Purrpurr can now only spawn in the corruption.
-- Raccoon can now only spawn in the forest at night
+- Raccoon can now only spawn in the forest during the night
 - German Shepherd can now only spawn in the forest during the day
 - Reduced spawn chance of Wendigo
 
 Resprited
 - Bloodstripe
+- Maintenance Robot
 - Purrpurr
 - Wendigo
 
 Fixed
 - Toy room could only contain toy blocks as furniture, so no plushies or other things. This was for testing, but I forgot to revert it
 - TileCountSystem did not count latex mud blocks. This meant you needed much more other latex blocks in the jungle to be considered inside a latex biome.
+- Some tiles had a wrong highlight for the smart cursor

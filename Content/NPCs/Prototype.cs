@@ -3,6 +3,7 @@ using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox;
 using ChangedSpecialMod.Content.Items.Placeable.Seeds;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Content.Projectiles;
@@ -322,9 +323,13 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ModContent.ItemType<MusicBoxVents>())
                 .Add(ModContent.ItemType<MusicBoxHappyBirthday>())
 
+                .Add(ModContent.ItemType<MusicBoxWhiteTail1>())
                 .Add(ModContent.ItemType<MusicBoxWhiteTail>())
                 .Add(ModContent.ItemType<MusicBoxWolfKing>())
                 .Add(ModContent.ItemType<MusicBoxBehemoth>())
+                .Add(ModContent.ItemType<MusicBoxShark>())
+                .Add(ModContent.ItemType<MusicBoxSquidDog>())
+                .Add(ModContent.ItemType<MusicBoxRun>())
                 .Register();
         }
 

@@ -1,8 +1,8 @@
 ﻿using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Configs;
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox;
 using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.MusicBoxes;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -40,9 +40,13 @@ namespace ChangedSpecialMod.Common.Systems
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicVents), ModContent.ItemType<MusicBoxVents>(), ModContent.TileType<MusicBoxVentsTile>());
 
                 // Boss music
+                MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicWhiteTailChase1), ModContent.ItemType<MusicBoxWhiteTail1>(), ModContent.TileType<MusicBoxWhiteTailTile1>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicWhiteTailChase2), ModContent.ItemType<MusicBoxWhiteTail>(), ModContent.TileType<MusicBoxWhiteTailTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicWolfKing), ModContent.ItemType<MusicBoxWolfKing>(), ModContent.TileType<MusicBoxWolfKingTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicBehemoth), ModContent.ItemType<MusicBoxBehemoth>(), ModContent.TileType<MusicBoxBehemothTile>());
+                MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicShark), ModContent.ItemType<MusicBoxShark>(), ModContent.TileType<MusicBoxSharkTile>());
+                MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicSquidDog), ModContent.ItemType<MusicBoxSquidDog>(), ModContent.TileType<MusicBoxSquidDogTile>());
+                MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicRun), ModContent.ItemType<MusicBoxRun>(), ModContent.TileType<MusicBoxRunTile>());
             }
         }
 

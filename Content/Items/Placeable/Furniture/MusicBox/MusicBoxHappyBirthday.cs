@@ -1,11 +1,11 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.MusicBoxes;
 
-namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
+namespace ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox
 {
-	public class MusicBoxBlackLatexZone1 : ModItem
+	public class MusicBoxHappyBirthday : ModItem
 	{
         public override void SetStaticDefaults()
         {
@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
 
 		public override void SetDefaults()
         {
-            Item.DefaultToMusicBox(ModContent.TileType<MusicBoxBlackLatexZone1Tile>(), 0);
+            Item.DefaultToMusicBox(ModContent.TileType<MusicBoxHappyBirthdayTile>(), 0);
             Item.value = Item.buyPrice(0, 5);
         }
 	}

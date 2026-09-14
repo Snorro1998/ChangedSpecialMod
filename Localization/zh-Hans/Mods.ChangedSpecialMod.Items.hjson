@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: 八音盒 (白尾)
+	DisplayName: 八音盒 (白尾追逐第二部分)
 	Tooltip: 噬子
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: 普羅吸尘器笼
 	Tooltip: 因其罪行而被监禁。
+}
+
+MusicBoxRun: {
+	DisplayName: 八音盒 (逃跑)
+	Tooltip: 噬子
+}
+
+MusicBoxShark: {
+	DisplayName: 八音盒 (鲨鱼)
+	Tooltip: 噬子
+}
+
+MusicBoxSquidDog: {
+	DisplayName: 八音盒 (鱿鱼狗)
+	Tooltip: 噬子
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: 八音盒 (白尾追逐第一部分)
+	Tooltip: 噬子
 }

@@ -56,6 +56,7 @@ namespace ChangedSpecialMod.Common.Systems.Mods
             AddTrack(changedMod, modName, author, Sounds.MusicRun, "MusicRun", defaultColors);
 
             // Bosses
+            AddTrack(changedMod, modName, author, Sounds.MusicWhiteTailChase1, "MusicWhiteTailChase1", defaultColors);
             AddTrack(changedMod, modName, author, Sounds.MusicWhiteTailChase2, "MusicWhiteTailChase2", defaultColors);
             AddTrack(changedMod, modName, author, Sounds.MusicWolfKing, "MusicWolfKing", defaultColors);
             AddTrack(changedMod, modName, author, Sounds.MusicBehemoth, "MusicBehemoth", defaultColors);

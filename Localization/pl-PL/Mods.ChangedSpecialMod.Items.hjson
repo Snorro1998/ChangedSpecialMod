@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Pozytywka (Biały ogon)
+	DisplayName: Pozytywka (biały ogon polujący cz. 2)
 	Tooltip: Przez ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Klatka dla Puroomba
 	Tooltip: Uwięziony za swoje zbrodnie
+}
+
+MusicBoxRun: {
+	DisplayName: Pozytywka (UCIEC)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Pozytywka (Rekin)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Pozytywka (Pies-kałamarnica)
+	Tooltip: Przez ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Pozytywka (biały ogon polujący cz. 1)
+	Tooltip: Przez ShiZi
 }

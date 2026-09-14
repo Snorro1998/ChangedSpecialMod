@@ -7,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.MusicBoxes
 {
     public abstract class BaseMusicBoxTile : ModTile
     {

@@ -6,25 +6,26 @@ Authors: {
 }
 
 Music: {
-	MusicBlackLatexZone: Black Goo Zone
-	MusicBlackLatexZone2: Scarlet Crystal Mine
-	MusicCrystalZone: Crystal Zone
-	MusicWhiteLatexZone: White Goo Jungle
-	MusicLibrary: Library
-	MusicLabSlow: Laboratory (slow)
-	MusicLab: Laboratory
-	MusicVents: Vent Pipe
-	MusicPuro: Puro The Black Goo
-	MusicGreenhouse: Greenhouse
-	MusicHappyBirthday: Birthday Song
-	MusicPuroDance: Puro Dance
-	MusicRun: RUN
-	MusicWhiteTailChase2: The White Tail Chase pt.2
+	MusicBlackLatexZone: Zona de limo negro
+	MusicBlackLatexZone2: Mina de cristal escarlata
+	MusicCrystalZone: Zona Cristalina
+	MusicWhiteLatexZone: Jungla de limo blanco
+	MusicLibrary: Biblioteca
+	MusicLabSlow: Laboratorio (lento)
+	MusicLab: Laboratorio
+	MusicVents: Ventilador
+	MusicPuro: Puro el Látex Negro
+	MusicGreenhouse: Invernadero
+	MusicHappyBirthday: Feliz cumpleaños
+	MusicPuroDance: Danza Puro
+	MusicRun: HUIR
+	MusicWhiteTailChase1: Cola Blanco parte 1
+	MusicWhiteTailChase2: Cola Blanco parte 2
 	# Not 100% sure, because they have no names
-	MusicWolfKing: The Wolf King
-	MusicBehemoth: The Behemoth
-	MusicShark: The Shark
-	MusicSquidDog: Squid Dog
+	MusicWolfKing: Rey Lobo
+	MusicBehemoth: El Behemot
+	MusicShark: El Tiburón
+	MusicSquidDog: Perro Calamar
 	Music30: 30.wav
 	MusicMeaninglessStrafe: Meaningless Strafe
 }

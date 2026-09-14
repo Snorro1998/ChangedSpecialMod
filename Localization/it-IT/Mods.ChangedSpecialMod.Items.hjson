@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Carillon (Coda bianca)
+	DisplayName: Carillon (Coda Bianca da Caccia, parte 2)
 	Tooltip: Di ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Gabbia con Puroomba
 	Tooltip: Imprigionato per i suoi crimini
+}
+
+MusicBoxRun: {
+	DisplayName: Carillon (FUGGIRE)
+	Tooltip: Di ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Carillon (Lo Squalo)
+	Tooltip: Di ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Carillon (Cane-calamaro)
+	Tooltip: Di ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Carillon (Coda Bianca da Caccia, parte 1)
+	Tooltip: Di ShiZi
 }

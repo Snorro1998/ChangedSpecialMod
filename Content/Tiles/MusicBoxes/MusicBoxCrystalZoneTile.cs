@@ -1,7 +1,7 @@
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox;
 using Terraria.ModLoader;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.MusicBoxes
 {
     public class MusicBoxCrystalZoneTile : BaseMusicBoxTile
     {

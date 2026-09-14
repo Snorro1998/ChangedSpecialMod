@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Music Box (White Tail)
+	DisplayName: Music Box (The White Tail Chase pt.2)
 	Tooltip: By ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Puroomba Cage
 	Tooltip: Imprisoned for his crimes
+}
+
+MusicBoxRun: {
+	DisplayName: Music Box (RUN)
+	Tooltip: By ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Music Box (The Shark)
+	Tooltip: By ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Music Box (Squid Dog)
+	Tooltip: By ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Music Box (The White Tail Chase pt.1)
+	Tooltip: By ShiZi
 }

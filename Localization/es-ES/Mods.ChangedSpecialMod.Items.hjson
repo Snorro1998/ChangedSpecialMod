@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Caja de música (Cola Blanco)
+	DisplayName: Caja de música (Cola Blanco parte 2)
 	Tooltip: Por ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Jaula de Puroomba
 	Tooltip: Encarcelado por sus crímenes
+}
+
+MusicBoxRun: {
+	DisplayName: Caja de música (HUIR)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Caja de música (El Tiburón)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Caja de música (Perro Calamar)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Caja de música (Cola Blanco parte 1)
+	Tooltip: Por ShiZi
 }

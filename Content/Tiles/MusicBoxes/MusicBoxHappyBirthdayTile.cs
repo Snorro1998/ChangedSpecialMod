@@ -1,11 +1,11 @@
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox;
 
-namespace ChangedSpecialMod.Content.Tiles
+namespace ChangedSpecialMod.Content.Tiles.MusicBoxes
 {
     public class MusicBoxHappyBirthdayTile : BaseMusicBoxTile
     {

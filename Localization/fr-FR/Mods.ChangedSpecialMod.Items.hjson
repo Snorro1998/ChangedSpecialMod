@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Boîte à Musique (Queue Blanche)
+	DisplayName: Boîte à Musique (La Queue Blanche de Chasse, partie 2)
 	Tooltip: Par ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Puroomba en cage
 	Tooltip: Emprisonné pour ses crimes
+}
+
+MusicBoxRun: {
+	DisplayName: Boîte à Musique (FUYEZ)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Boîte à Musique (Le Requin)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Boîte à Musique (Chien-calamar)
+	Tooltip: Par ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Boîte à Musique (La Queue Blanche de Chasse, partie 1)
+	Tooltip: Par ShiZi
 }

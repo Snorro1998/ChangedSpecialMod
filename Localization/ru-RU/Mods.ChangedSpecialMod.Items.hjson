@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Музыкальная шкатулка (Белый хвост)
+	DisplayName: Музыкальная шкатулка (охотничий белый хвост, часть 2)
 	Tooltip: Шизи
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Клетка с Пурумба
 	Tooltip: Заключен в тюрьму за свои преступления
+}
+
+MusicBoxRun: {
+	DisplayName: Музыкальная шкатулка (БЕЖАТЬ)
+	Tooltip: Шизи
+}
+
+MusicBoxShark: {
+	DisplayName: Музыкальная шкатулка (Акула)
+	Tooltip: Шизи
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Музыкальная шкатулка (Собака-кальмар)
+	Tooltip: Шизи
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Музыкальная шкатулка (охотничий белый хвост, часть 1)
+	Tooltip: Шизи
 }

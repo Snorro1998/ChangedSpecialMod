@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Caixinha de Música (Cauda Branca)
+	DisplayName: Caixinha de Música (A Cauda Branca Caçador parte 2)
 	Tooltip: Por ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Gaiola para Puroomba
 	Tooltip: Aprisionado por seus crimes
+}
+
+MusicBoxRun: {
+	DisplayName: Caixinha de Música (FUGIR)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Caixinha de Música (O Tubarão)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Caixinha de Música (Cachorro-Lula)
+	Tooltip: Por ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Caixinha de Música (A Cauda Branca Caçador parte 1)
+	Tooltip: Por ShiZi
 }

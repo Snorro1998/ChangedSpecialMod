@@ -1,11 +1,11 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.MusicBoxes;
 
-namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
+namespace ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox
 {
-	public class MusicBoxLibrary : ModItem
+	public class MusicBoxLabSlow : ModItem
 	{
         public override void SetStaticDefaults()
         {
@@ -13,9 +13,9 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
-		public override void SetDefaults()
+		public override void SetDefaults() 
         {
-            Item.DefaultToMusicBox(ModContent.TileType<MusicBoxLibraryTile>(), 0);
+            Item.DefaultToMusicBox(ModContent.TileType<MusicBoxLabSlowTile>(), 0);
             Item.value = Item.buyPrice(0, 5);
         }
 	}

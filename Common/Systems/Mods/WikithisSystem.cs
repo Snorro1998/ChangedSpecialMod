@@ -7,6 +7,7 @@ using ChangedSpecialMod.Content.Items.Placeable;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.Items.Placeable.Crystals;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox;
 using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
 using ChangedSpecialMod.Content.Items.Placeable.Latex.White;
 using ChangedSpecialMod.Content.Items.Placeable.Pylons;

@@ -549,7 +549,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Spieluhr (Weißschwanz)
+	DisplayName: Spieluhr (Jagender Weißschwanz, Teil 2)
 	Tooltip: Von ShiZi
 }
 
@@ -1002,4 +1002,24 @@ TigerSharkBanner: {
 SweeperPuroCage: {
 	DisplayName: Puroombakäfig
 	Tooltip: Wegen seiner Verbrechen inhaftiert
+}
+
+MusicBoxRun: {
+	DisplayName: Spieluhr (FLIEH)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Spieluhr (Der Hai)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Spieluhr (Tintenfischhund)
+	Tooltip: Von ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Spieluhr (Jagender Weißschwanz, Teil 1)
+	Tooltip: Von ShiZi
 }

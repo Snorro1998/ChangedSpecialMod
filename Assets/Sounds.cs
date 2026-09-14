@@ -33,6 +33,7 @@ namespace ChangedSpecialMod.Assets
         public static readonly string MusicRun = Music("Run");
 
         // Bosses
+        public static readonly string MusicWhiteTailChase1 = Music("TheWhiteTailChasePart1");
         public static readonly string MusicWhiteTailChase2 = Music("TheWhiteTailChasePart2");
         public static readonly string MusicWolfKing = Music("WolfKing");
         public static readonly string MusicBehemoth = Music("Behemoth");
