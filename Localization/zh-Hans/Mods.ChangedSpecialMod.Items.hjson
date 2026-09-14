@@ -1000,6 +1000,6 @@ TigerSharkBanner: {
 }
 
 SweeperPuroCage: {
-	// DisplayName: Sweeper Puro Cage
-	// Tooltip: ""
+	DisplayName: 普羅吸尘器笼
+	Tooltip: 因其罪行而被监禁。
 }

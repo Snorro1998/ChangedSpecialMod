@@ -1,15 +1,19 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
+using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -41,7 +45,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.aiStyle = NPCAIStyleID.Unicorn;
 			AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.None;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
+            //SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
@@ -56,10 +60,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
-            bestiaryEntry.Info.RemoveAt(2);
+            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                new NPCPortraitInfoElement(3),
+                //new NPCPortraitInfoElement(3),
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Raccoon.Description")),
             });
         }
@@ -72,8 +78,46 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            var correctTime = !Main.IsItDay();
+            if (!correctTime || NPC.AnyNPCs(ModContent.NPCType<Raccoon>()))
+                return 0;
+
+            //var nShep = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<GermanShepherd>());
+            //var nRac = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<Raccoon>());
+            var spawnChance = 0.1f;
+
+            //if (nRac > nShep)
+            //    spawnChance *= 0.5f;
+
+            var spawnTileType = spawnInfo.SpawnTileType;
+            var player = spawnInfo.Player;
+            var validTileTypes = new List<int>()
+            {
+                TileID.Grass,
+                ModContent.TileType<DryDirtGrassTile>()
+            };
+
+            if (validTileTypes.Contains(spawnTileType))
+            {
+                if (BiomeChecks.InChangedBiome(player))
+                {
+                    return spawnChance;
+                }
+                else if (spawnInfo.Player.townNPCs <= 2)
+                {
+                    return spawnChance;
+                }
+            }
+
+
+            return 0;
+            /*
+            var c = SpawnCondition.OverworldNight.Chance;
+            var b = spawnInfo.Player.ZoneForest;
+
             var changedNPC = NPC.Changed();
             return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            */
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

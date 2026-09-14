@@ -1000,6 +1000,6 @@ TigerSharkBanner: {
 }
 
 SweeperPuroCage: {
-	// DisplayName: Sweeper Puro Cage
-	// Tooltip: ""
+	DisplayName: Klatka dla Puroomba
+	Tooltip: Uwięziony za swoje zbrodnie
 }

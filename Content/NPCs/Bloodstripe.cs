@@ -20,8 +20,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 0.6f,
-                PortraitScale = 1 / NPC.scale * 0.6f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -29,7 +29,7 @@ namespace ChangedSpecialMod.Content.NPCs
 		public override void SetDefaults() 
         {
 			NPC.width = 25;
-			NPC.height = 84;
+			NPC.height = 68;
             NPC.damage = 40;
             NPC.defense = 12;
             NPC.lifeMax = 300;
@@ -49,10 +49,10 @@ namespace ChangedSpecialMod.Content.NPCs
             ItemID.Sets.KillsToBanner[BannerItem] = 25;
 
             var changedNPC = NPC.Changed();
-            changedNPC.BaseScaleMultiplier = 0.7f;
+            //changedNPC.BaseScaleMultiplier = 0.7f;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-            changedNPC.HatYOffset = -50;
+            changedNPC.HatYOffset = -28;
             changedNPC.GooType = GooType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
@@ -75,7 +75,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             var spawnTileType = spawnInfo.SpawnTileType;
             if (TileID.Sets.CrimsonCountCollection.Contains(spawnTileType))
-                return 0.1f;
+                return 0.15f;
 
             return 0;
         }
@@ -90,13 +90,9 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             int frameNumber = NPC.frame.Y / frameHeight;
             var changedNPC = NPC.Changed();
-            var hatYOffset = -50;
+            var hatYOffset = -28;
 
-            if (frameNumber == 1 || frameNumber == 3)
-            {
-                hatYOffset -= 1;
-            }
-            else if (frameNumber == 2)
+            if (frameNumber == 2)
             {
                 hatYOffset -= 2;
             }

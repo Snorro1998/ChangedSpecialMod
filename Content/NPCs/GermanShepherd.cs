@@ -1,8 +1,10 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
+using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -40,7 +42,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.GoblinScout;
             AnimationType = NPCID.Zombie;
-            SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
+            //SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
 
             Banner = Type;
             BannerItem = ModContent.ItemType<GermanShepherdBanner>();
@@ -62,8 +64,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
+            //bestiaryEntry.Info.RemoveAt(2);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
+                //new NPCPortraitInfoElement(3),
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.DayTime,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.GermanShepherd.Description")),
             });
         }
@@ -78,8 +84,43 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            var changedNPC = NPC.Changed();
-            return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            var correctTime = Main.IsItDay() || Main.remixWorld;
+            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || !correctTime || NPC.AnyNPCs(ModContent.NPCType<GermanShepherd>()))
+                return 0;
+
+            
+            //var nShep = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<GermanShepherd>());
+            //var nRac = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<Raccoon>());
+            var spawnChance = 0.08f;
+
+            //if (nShep > nRac)
+            //    spawnChance *= 0.5f;
+            
+
+            var spawnTileType = spawnInfo.SpawnTileType;
+            var player = spawnInfo.Player;
+            var validTileTypes = new List<int>()
+            {
+                TileID.Grass,
+                ModContent.TileType<DryDirtGrassTile>()
+            };
+
+            if (validTileTypes.Contains(spawnTileType))
+            {
+                if (BiomeChecks.InChangedBiome(player))
+                {
+                    return spawnChance;
+                }
+                else if (spawnInfo.Player.townNPCs <= 2)
+                {
+                    return spawnChance;
+                }
+            }
+
+            return 0;
+
+            //var changedNPC = NPC.Changed();
+            //return 0.3f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

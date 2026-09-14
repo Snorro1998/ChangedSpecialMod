@@ -55,7 +55,7 @@ namespace ChangedSpecialMod
             var scale = 1f;
             if (transfurCurrent != null)
             {
-                scale = transfurCurrent.baseScaleMultiplier;
+                //scale = transfurCurrent.baseScaleMultiplier;
                 texturePath = transfurCurrent.GetTexturePath();
                 nFrames = transfurCurrent.nFrames;
 

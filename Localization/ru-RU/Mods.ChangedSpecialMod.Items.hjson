@@ -687,7 +687,7 @@ SweeperItem: {
 }
 
 SweeperPuroItem: {
-	DisplayName: Puroomba
+	DisplayName: Пурумба
 	Tooltip: Он — настоящий скоростной дьявол.
 }
 
@@ -1000,6 +1000,6 @@ TigerSharkBanner: {
 }
 
 SweeperPuroCage: {
-	// DisplayName: Sweeper Puro Cage
-	// Tooltip: ""
+	DisplayName: Клетка с Пурумба
+	Tooltip: Заключен в тюрьму за свои преступления
 }

@@ -10,6 +10,7 @@ namespace ChangedSpecialMod.Content.Items.Placeable.Furniture
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.SquirrelCage);
+            Item.rare = ItemRarityID.Blue;
             Item.createTile = ModContent.TileType<Tiles.Furniture.SweeperPuroCage>();
         }
 

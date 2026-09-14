@@ -86,8 +86,7 @@ Other
 
 0.5.7.1
 
-Description
-
+This updates makes some changes to the "strong" latex beasts (Bloodstripe, Purrpurr and Wendigo)
 
 Items
 - Added Puroomba cage
@@ -95,8 +94,15 @@ Items
 NPCs
 - Bloodstripe can now only spawn in the crimson
 - Purrpurr can now only spawn in the corruption.
+- Raccoon can now only spawn in the forest at night
+- German Shepherd can now only spawn in the forest during the day
 - Reduced spawn chance of Wendigo
 
 Resprited
+- Bloodstripe
 - Purrpurr
 - Wendigo
+
+Fixed
+- Toy room could only contain toy blocks as furniture, so no plushies or other things. This was for testing, but I forgot to revert it
+- TileCountSystem did not count latex mud blocks. This meant you needed much more other latex blocks in the jungle to be considered inside a latex biome.

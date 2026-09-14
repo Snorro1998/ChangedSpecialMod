@@ -178,30 +178,19 @@ namespace ChangedSpecialMod.Common.Systems
 			var otherBlockCount1 = -1;
 			var otherBlockCount2 = -1;
 
+            var targetBlocksBlack = BiomeConversionSystem.GetBlackLatexBlocks();
+            var targetBlocksWhite = BiomeConversionSystem.GetWhiteLatexBlocks();
+
 			switch(gooType)
 			{
 				case GooType.Black:
-                    targetBlockIDs = new List<int>
-                    {
-                        ModContent.TileType<BlackLatexTile>(),
-                        ModContent.TileType<BlackLatexSandTile>(),
-                        ModContent.TileType<BlackLatexStoneTile>(),
-                        ModContent.TileType<BlackLatexIceTile>(),
-                        ModContent.TileType<BlackLatexSnowTile>()
-                    };
+                    targetBlockIDs = targetBlocksBlack;
                     targetBlockCount = BlackLatexBlockCount;
 					otherBlockCount1 = WhiteLatexBlockCount;
 					otherBlockCount2 = DryDirtBlockCount;
                     break;
                 case GooType.White:
-                    targetBlockIDs = new List<int>
-                    {
-                        ModContent.TileType<WhiteLatexTile>(),
-                        ModContent.TileType<WhiteLatexSandTile>(),
-                        ModContent.TileType<WhiteLatexStoneTile>(),
-                        ModContent.TileType<WhiteLatexIceTile>(),
-                        ModContent.TileType<WhiteLatexSnowTile>()
-                    };
+                    targetBlockIDs = targetBlocksWhite;
                     targetBlockCount = WhiteLatexBlockCount;
 					otherBlockCount1 = BlackLatexBlockCount;
 					otherBlockCount2 = DryDirtBlockCount;

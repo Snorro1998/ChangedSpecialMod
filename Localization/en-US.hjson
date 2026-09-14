@@ -732,6 +732,13 @@ Mods: {
 					Princess_LovesNPC: I like {NPCName}.
 				}
 			}
+
+			SquidDogTentacleSegment.DisplayName: Squid Dog Tentacle Segment
+			SquidDogTentacleTail.DisplayName: Squid Dog Tentacle Tail
+			SquidDogTentacleTip.DisplayName: Squid Dog Tentacle Tip
+			SquidDogTentacleBody.DisplayName: Squid Dog Tentacle Body
+			SquidDogBoss.DisplayName: Squid Dog Boss
+			SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 		}
 
 		Emotes: {

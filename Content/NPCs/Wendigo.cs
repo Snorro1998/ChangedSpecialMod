@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Utilities;
@@ -63,11 +64,19 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Wendigo>()))
+            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || NPC.AnyNPCs(ModContent.NPCType<Wendigo>()))
                 return 0;
 
-            var changedNPC = NPC.Changed();
-            return 0.1f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
+            var spawnTileType = spawnInfo.SpawnTileType;
+            var spawnTileIsBlack = BiomeConversionSystem.GetBlackLatexBlocks().Contains(spawnTileType);
+            var playerInBlackBiome = BiomeChecks.InBlackLatexSurfaceBiome(spawnInfo.Player);
+            if (spawnTileIsBlack || playerInBlackBiome)
+                return 0.3f;
+
+            return 0;
+
+            //var changedNPC = NPC.Changed();
+            //return 0.2f * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

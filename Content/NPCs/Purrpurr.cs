@@ -22,8 +22,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
-                Scale = 1 / NPC.scale * 0.9f,
-                PortraitScale = 1 / NPC.scale * 0.9f
+                Scale = 1 / NPC.scale,
+                PortraitScale = 1 / NPC.scale
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
         }
@@ -54,7 +54,7 @@ namespace ChangedSpecialMod.Content.NPCs
             //changedNPC.BaseScaleMultiplier = 0.9f;
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
-            changedNPC.HatYOffset = -34;
+            changedNPC.HatYOffset = -28;
             changedNPC.GooType = GooType.None;
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
@@ -79,7 +79,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             var spawnTileType = spawnInfo.SpawnTileType;
             if (TileID.Sets.CorruptCountCollection.Contains(spawnTileType))
-                return 0.1f;
+                return 0.15f;
 
             return 0;
         }
@@ -88,11 +88,11 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             int frameNumber = NPC.frame.Y / frameHeight;
             var changedNPC = NPC.Changed();
-            var hatYOffset = -34;
+            var hatYOffset = -28;
 
-            if (frameNumber == 1 || frameNumber == 3)
+            if (frameNumber > 0)
             {
-                hatYOffset++;
+                hatYOffset += 2;
             }
 
             changedNPC.HatYOffset = hatYOffset;
