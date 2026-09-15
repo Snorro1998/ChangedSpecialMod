@@ -107,73 +107,15 @@ namespace ChangedSpecialMod.Content.NPCs
             base.OnHitPlayer(target, hurtInfo);
         }
 
-        // This draws the npc sprite in segments of 32 so the lightning doesn't get messed up when it enters the ground.
-        // This is a problem in vanilla, but you don't notice it because all worms are small and thin.
-        public static bool CommonPreDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            SpriteEffects spriteEffects = SpriteEffects.None;
-
-            Texture2D mainTexture = TextureAssets.Npc[npc.type].Value;
-            Rectangle drawingFrame = npc.frame;
-
-            int segmentSize = (int)(16 / npc.scale);
-
-            // World draw center
-            Vector2 drawCenter = npc.Center - screenPos + new Vector2(0f, npc.gfxOffY);
-
-            // Frame center (used as rotation pivot)
-            Vector2 frameCenter = new Vector2(drawingFrame.Width / 2f, drawingFrame.Height / 2f);
-
-            for (int y = 0; y < drawingFrame.Height; y += segmentSize)
-            {
-                for (int x = 0; x < drawingFrame.Width; x += segmentSize)
-                {
-                    int segmentWidth = Math.Min(segmentSize, drawingFrame.Width - x);
-                    int segmentHeight = Math.Min(segmentSize, drawingFrame.Height - y);
-
-                    Rectangle segmentFrame = new Rectangle(
-                        drawingFrame.X + x,
-                        drawingFrame.Y + y,
-                        segmentWidth,
-                        segmentHeight
-                    );
-
-                    // Segment center in local frame space
-                    Vector2 segmentCenter = new Vector2(
-                        x + segmentWidth / 2f,
-                        y + segmentHeight / 2f
-                    );
-
-                    // Offset from frame center -> rotated
-                    Vector2 localOffset = (segmentCenter - frameCenter) * npc.scale;
-                    Vector2 rotatedOffset = localOffset.RotatedBy(npc.rotation);
-
-                    Vector2 drawPositionInWorld = drawCenter + rotatedOffset + screenPos;
-                    Color tmpColor = Lighting.GetColor((int)drawPositionInWorld.X / 16, (int)(drawPositionInWorld.Y / 16f));
-
-                    spriteBatch.Draw(
-                        mainTexture,
-                        drawCenter + rotatedOffset,
-                        segmentFrame,
-                        npc.GetAlpha(tmpColor),
-                        npc.rotation,
-                        new Vector2(segmentWidth / 2f, segmentHeight / 2f),
-                        npc.scale,
-                        spriteEffects,
-                        0f
-                    );
-                }
-            }
-
-            return false;
-        }
-
-        /*
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            return CommonPreDraw(NPC, spriteBatch, screenPos, drawColor);
+            if (NPC.ai[2] > 300)
+            {
+                NPC.rotation = NPC.rotation;
+            }
+
+            return base.PreDraw(spriteBatch, screenPos, drawColor);
         }
-        */
     }
 
     internal class SquidDogTentacleBody : WormBody2
@@ -193,7 +135,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.CloneDefaults(NPCID.DiggerBody);
             NPC.width = 58;
-            NPC.height = 58;
+            NPC.height = 36;
             NPC.aiStyle = -1;
             NPC.npcSlots = 0;
             NPC.damage = 25;
@@ -245,7 +187,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.CloneDefaults(NPCID.DiggerTail);
             NPC.width = 58;
-            NPC.height = 58;
+            NPC.height = 36;
             NPC.aiStyle = -1;
             NPC.npcSlots = 0;
             NPC.damage = 20;

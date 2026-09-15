@@ -803,6 +803,28 @@ namespace ChangedSpecialMod.Utilities
             return copper + 100 * silver + 10000 * gold + 1000000 * platinum;
         }
 
+        public static Projectile GetClosestProjectile(float x, float y, int projectileType)
+        {
+            Projectile result = null;
+            float minDistanceSquared = float.MaxValue;
+            var position = new Vector2(x, y);
+
+            foreach (var projectile in Main.projectile)
+            {
+                if (!projectile.active || projectile.type != projectileType)
+                    continue;
+
+                var distSquared = Vector2.DistanceSquared(position, projectile.Center);
+                if (distSquared < minDistanceSquared)
+                {
+                    minDistanceSquared = distSquared;
+                    result = projectile;
+                }
+            }
+
+            return result;
+        }
+
         public static Player GetClosestPlayer(int x, int y, bool includeDead = false)
         {
             float distance = float.MaxValue;

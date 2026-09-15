@@ -47,3 +47,7 @@ WhiteCrystalMagicWeaponProjectile.DisplayName: White Crystal Magic Weapon Projec
 ToyBlockProjectile.DisplayName: Toy Block Projectile
 WateringCanWeaponProjectile.DisplayName: Watering Can Weapon Projectile
 WateringCanProjectile.DisplayName: Watering Can Projectile
+SquidDogTentacleBodyProjectile.DisplayName: Squid Dog Tentacle Body Projectile
+SquidDogTentacleHeadProjectile.DisplayName: Squid Dog Tentacle Head Projectile
+SquidDogTentacleTailProjectile.DisplayName: Squid Dog Tentacle Tail Projectile
+WavePatternProjectile.DisplayName: Wave Pattern Projectile

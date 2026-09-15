@@ -3,6 +3,7 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Content.Projectiles;
+using ChangedSpecialMod.Content.Projectiles.Patterns;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -29,11 +30,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public double imageSpeed = 5D;
         public int imageIndex = 0;
 
-        public int[] animation = new int[] { 4 };
-        public int[] animIdle = new int[] { 4 };
-        public int[] animSnap = new int[] { 5, 6, 7 };
-        public int[] animShock = new int[] { 8 };
-        public int[] animStand = new int[] { 9 };
+        public int[] animation = new int[] { 0 };
+        public int[] animIdle = new int[] { 0 };
 
         public int ImageLength => animation.Length;
         public bool Loop = false;
@@ -54,12 +52,11 @@ namespace ChangedSpecialMod.Content.NPCs
         public ref float AISpikeWaveDirection => ref NPC.ai[2];
         public ref float AISpikeWaveIndex => ref NPC.ai[3];
 
-        private Rectangle RoomBounds = Rectangle.Empty;
         public int maxFollowDistance = 120 * 16;
 
         public override void SetStaticDefaults() 
         {
-            Main.npcFrameCount[Type] = 10;
+            Main.npcFrameCount[Type] = 1;
         }
 
 		public override void SetDefaults() 
@@ -196,14 +193,22 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (AITimer == 1)
             {
-                var player = ChangedUtils.GetClosestPlayer((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16, true);
-
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    var xPos = (int)player.Center.X;
-                    var yPos = (int)player.Center.Y + 30 * 16;
+                    var player = ChangedUtils.GetClosestPlayer((int)NPC.Center.X / 16, (int)NPC.Center.Y / 16, true);
 
-                    int npcIndex = NPC.NewNPC(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<SquidDogTentacleHead>());
+                    var xPos = (int)player.Center.X;
+                    var yPos = (int)player.Center.Y + 20 * 16;
+
+                    var proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SquidDogTentacleHeadProjectile>(), 5, 5, -1);
+
+                    proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), new Vector2(xPos, yPos), Vector2.Zero, ModContent.ProjectileType<SquidDogTentacleHeadProjectile>(), 5, 5, -1);
+
+                    //experimental
+                    //var proj2 = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -1), ModContent.ProjectileType<WavePatternProjectile>(), 1, 1, -1);
+                    //var proj3 = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SquidDogTentacleHeadProjectile>(), 5, 5, -1, 0, 0, -1);
+
+                    //int npcIndex = NPC.NewNPC(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<SquidDogTentacleHead>());
                 }
             }
 
