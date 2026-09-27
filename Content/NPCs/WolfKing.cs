@@ -1,6 +1,7 @@
 using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.Trophies;
 using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
@@ -159,6 +160,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BlackSyringe>()));
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WolfKingTrophy>()));
         }
 
         public override void FindFrame(int frameHeight)
