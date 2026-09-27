@@ -715,7 +715,7 @@ WhiteLatexCubLicense: {
 
 Calendar: {
 	DisplayName: Calendrier
-	Tooltip: Permet de changer la saison en cours
+	Tooltip: Vous permet de modifier le jour férié actuel.
 }
 
 SombreroHat: {
@@ -936,7 +936,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Gâteau de fête
-	Tooltip: Merci à tous pour plus de 800 téléchargements!
+	Tooltip: Merci à tous pour plus de 900 téléchargements!
 }
 
 WhiteLatexLantern: {
@@ -1022,4 +1022,44 @@ MusicBoxSquidDog: {
 MusicBoxWhiteTail1: {
 	DisplayName: Boîte à Musique (La Queue Blanche de Chasse, partie 1)
 	Tooltip: Par ShiZi
+}
+
+Painting21: {
+	DisplayName: Kraken de Cracovie
+	Tooltip: ""
+}
+
+DebugItem: {
+	// DisplayName: Debug Item
+	// Tooltip: ""
+}
+
+WhiteTailTrophy: {
+	// DisplayName: White Tail Trophy
+	// Tooltip: ""
+}
+
+DisguiseSetHelmet: {
+	// DisplayName: Disguise Set Helmet
+	// Tooltip: ""
+}
+
+DisguiseSetBreastplate: {
+	// DisplayName: Disguise Set Breastplate
+	// Tooltip: ""
+}
+
+WhiteTailRelic: {
+	// DisplayName: White Tail Relic
+	// Tooltip: ""
+}
+
+BehemothTrophy: {
+	// DisplayName: Behemoth Trophy
+	// Tooltip: ""
+}
+
+BehemothRelic: {
+	// DisplayName: Behemoth Relic
+	// Tooltip: ""
 }

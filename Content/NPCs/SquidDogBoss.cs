@@ -1,16 +1,12 @@
-using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Content.Projectiles;
-using ChangedSpecialMod.Content.Projectiles.Patterns;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.DataStructures;
-using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -57,6 +53,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
             Main.npcFrameCount[Type] = 1;
+            ChangedUtils.HideFromBestiary(this);
         }
 
 		public override void SetDefaults() 
@@ -110,14 +107,6 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WolfKing.Description")),
-            });
-        }
-
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return 0;
@@ -158,10 +147,15 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void OnSpawn(IEntitySource source)
         {
+            NPC.active = false;
+            /*
+            Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WIPBossFight"));
+
             if (Main.netMode == NetmodeID.SinglePlayer)
                 Main.NewText(Language.GetTextValue("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
             if (Main.netMode == NetmodeID.Server)
                 ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", NPC.FullName), new Color(175, 75, 255));
+            */
         }
 
         private void SwitchAnimation(int[] newAnimation)

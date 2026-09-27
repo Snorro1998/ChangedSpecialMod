@@ -85,7 +85,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var correctTime = Main.IsItDay() || Main.remixWorld;
-            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || !correctTime || NPC.AnyNPCs(ModContent.NPCType<GermanShepherd>()))
+            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || !correctTime || Main.eclipse || NPC.AnyNPCs(ModContent.NPCType<GermanShepherd>()))
                 return 0;
 
             

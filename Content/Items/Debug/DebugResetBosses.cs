@@ -22,14 +22,6 @@ namespace ChangedSpecialMod.Content.Items.Debug
 
         public override bool? UseItem(Player player)
         {
-            var nWormHead = Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<SquidDogTentacleHeadProjectile>()).ToList().Count;
-            var nWormBody = Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<SquidDogTentacleBodyProjectile>()).ToList().Count;
-            var nWormTail = Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<SquidDogTentacleTailProjectile>()).ToList().Count;
-
-            Main.NewText($"{nWormHead}, {nWormBody}, {nWormTail}");
-
-            return true;
-
             Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.BossProgressionReset"));
             DownedBossSystem.DownedWolfKing = false;
             DownedBossSystem.DownedWhiteTail = false;

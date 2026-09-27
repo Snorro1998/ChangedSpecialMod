@@ -40,6 +40,7 @@ Mods: {
 			BehemothCanSpawn: Coś porusza się w strefie białego szlamu...
 			ColinCanSpawn: Ktoś jest w drodze do Ciebie...
 			WIPBossFight: Ta walka z bossem jest wciąż rozwijana, więc na razie nie spodziewaj się wiele.
+			CalendarUsedNoHolidays: Ten element nie działa, dopóki nie włączysz opcji konfiguracyjnej święta państwowe.
 		}
 
 		WorldGenerationPasses: {
@@ -89,22 +90,24 @@ Mods: {
 					NPCMerchant: Gdyby {NameMerchant} sprzedawał sok pomarańczowy, byłby bogaty!
 					NPCTavernKeep: Powiedziałam {NameTavernKeep}, żeby rozszerzył swoje menu o napoje i dania pomarańczowe! Pomyślcie o tych wszystkich pysznych możliwościach, takich jak sałatka cytrusowa, ciasto pomarańczowe, sok pomarańczowy, no i mimosa! Mniam, mimosa...
 					NPCNurse: "{NameNurse} powiedziała, że ​​jedzenie dwóch owoców dziennie jest dobre dla zdrowia. Powiedziałem jej, że jem dziesięć pomarańczy dziennie!"
-					NPCTaxCollector: Człowieku, co to są „podatki”? {NameTaxCollector} był bardzo zrzędliwy i powiedział, że powinienem je zapłacić.
+					NPCTaxCollector: "{PlayerRace}, co to są „podatki”? {NameTaxCollector} był bardzo zrzędliwy i powiedział, że powinienem je zapłacić."
 					NPCZoologist: "{NameZoologist} jest taka słodka z tymi swoimi dużymi uszami i puszystym ogonkiem. Ale nie tak słodka jak ty, hehehe..."
 					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} opowiadał mi mnóstwo rzeczy o „magii”, ale ja chciałem się tylko dowiedzieć, czy można z niej zrobić pomarańcze."
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} ma wiele butów, ale wszystkie są za małe na moje łapy."
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Nie rozumiem, dlaczego {NameStarsModPackFarmer} nie ma nasion drzewa pomarańczowego. Każdy rolnik powinien je mieć."
-					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Człowieku, wiesz dlaczego {NameStarsModPackScrapyardGeek} zawsze tak gada?"
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, wiesz dlaczego {NameStarsModPackScrapyardGeek} zawsze tak gada?"
+					// TerraGuardianBlue: "{TerraGuardianBluePresent} Big blue dog"
+					// TerraGuardianIch: "{TerraGuardianBluePresent} {TerraGuardianIchName} Big cat"
 					Book1: Oceniam książki tak, jak oceniam pomarańcze. Według tego, jak satysfakcjonujące są aż do ostatniej strony lub ostatniego kawałka.
-					Book2: Cześć człowieku! Widziałeś moją książkę?
+					Book2: Cześć {PlayerRace}! Widziałeś moją książkę?
 					Book3: Pomożesz mi zbudować największą wieżę z książek?
-					Book4: Człowieku! Spójrz, jaką niesamowitą książkę właśnie znalazłem!
+					Book4: "{PlayerRace}! Spójrz, jaką niesamowitą książkę właśnie znalazłem!"
 					Book5: Pewnego dnia napiszę książkę o niesamowitych przygodach {NamePlayer}!
-					Book6: Wczoraj znalazłam książkę kucharską z mnóstwem pysznie wyglądających przepisów. Masz ochotę upiec coś razem, człowieku?
+					Book6: Wczoraj znalazłam książkę kucharską z mnóstwem pysznie wyglądających przepisów. Masz ochotę upiec coś razem, {PlayerRace}?
 					# Globglobgabgalab
 					Book7: Jestem lepką glabgalab i kocham książki.
 					Orange1: Jaki jest twój ulubiony kolor? Mój ulubiony kolor to pomarańczowy.
-					Orange2: Mmmm *chrup* pomarańcza *chrup* O, cześć człowieku.
+					Orange2: Mmmm *chrup* pomarańcza *chrup* O, cześć {PlayerRace}.
 					Orange3: Nie mam ulubionego dziecka, ale gdybym miała, byłoby to to pomarańczowe.
 					Orange4: Wczoraj w nocy śniło mi się, że jestem w basenie z piłeczkami pełnym pomarańczy.
 					Orange5: Jeśli chcesz mnie uszczęśliwić, daj mi idealnie dojrzałą pomarańczę.
@@ -123,18 +126,18 @@ Mods: {
 					Rain2: "{Rain}Otrząsnęłam się ze swojego futerka, żeby się osuszyć i teraz jestem bardzo puszysta!"
 					Thunder1: "{Thunder}Nie boję się piorunów. Całe moje ciało jest zbudowane ze szlamu, więc nawet gdyby mnie trafił, nic by mi nie było!"
 					Thunder2: "{Thunder}Przy tych wszystkich jasnych błyskach nie potrzebuję prawie żadnej lampy, żeby czytać książki."
-					Windy1: "{Windy}Czy chciałbyś latać ze mną latawcem, człowieku?"
+					Windy1: "{Windy}Czy chciałbyś latać ze mną latawcem, {PlayerRace}?"
 					Windy2: "{Windy}Dzisiaj wiatr był tak silny, że całe moje futro się potargało."
 					Windy3: "{Windy}Chciałbym mieć skrzydła, abym mógł latać i zabrać cię wszędzie."
-					PlayerHasOrange: "{PlayerHasOrange}*Sniff* Człowieku, masz soczyste pomarańcze? Mogę prosić?"
-					PlayerHasBook: "{PlayerHasBook}Czy to jest książka, którą masz, człowieku? Czy chcielibyście ją przeczytać razem?"
+					PlayerHasOrange: "{PlayerHasOrange}*Sniff* {PlayerRace}, masz soczyste pomarańcze? Mogę prosić?"
+					PlayerHasBook: "{PlayerHasBook}Czy to jest książka, którą masz, {PlayerRace}? Czy chcielibyście ją przeczytać razem?"
 					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}Co to jest? „Księga Czaszek”? Heh, okładka trochę przypomina moją maskę."
 					PlayerHasWaterBolt: "{PlayerHasWaterBolt}Co tam masz? Magiczna książka, która pryska wodą? Mam nadzieję, że nie zrobi tego, kiedy spróbuję ją przeczytać."
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Och, przyniosłeś mi kolejną książkę? Ej, dlaczego nazywa się „Złoty deszcz”?"
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Och, błyszczący balonik! Mogę go potrzymać?"
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Piękna sukienka, człowieku. Wyglądasz w niej całkiem uroczo, hehehe."
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr}O rany, człowieku, kim jest ten kot? Jest ogromny!"
-					Valentine1: "{Valentine}Co o tym myślisz, człowieku? Czy wyglądam uroczo z tą walentynkową spinką do włosów?"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Piękna sukienka, {PlayerRace}. Wyglądasz w niej całkiem uroczo, hehehe."
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr}O rany, {PlayerRace}, kim jest ten kot? Jest ogromny!"
+					Valentine1: "{Valentine}Co o tym myślisz, {PlayerRace}? Czy wyglądam uroczo z tą walentynkową spinką do włosów?"
 					Valentine2: "{Valentine}Bukiet to miły gest, ale jeśli chcesz zdobyć moje serce, musisz mi przynieść książkę!"
 					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
@@ -148,7 +151,7 @@ Mods: {
 					Halloween3: "{Halloween}BUUU! Hehe, wystraszyłem cię, prawda?"
 					Halloween4: "{Halloween}Grrrr! Jestem złym Wilczym Czarodziejem. Zamienię cię w soczystą pomarańczę i połknę w całości!"
 					Halloween5: "{Halloween}Zamierzam wszystkich wystraszyć i zabrać im cukierki!"
-					Xmas1: "{Xmas}Ho ho ho! Cześć człowieku!"
+					Xmas1: "{Xmas}Ho ho ho! Cześć {PlayerRace}!"
 					Xmas2: "{Xmas}O co powinienem prosić Świętego Mikołaja? O więcej książek czy o więcej pomarańczy?"
 					Xmas3: "{Xmas}Wesołych Świąt!"
 					Xmas4: "{Xmas}Czy chciałbyś mi pomóc udekorować moją choinkę pomarańczową ozdobami świątecznymi?"
@@ -156,7 +159,7 @@ Mods: {
 					Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 					BloodMoon: {
-						BloodMoon1: Trzymaj się ode mnie z daleka, człowieku. Nie czuję się dziś sobą.
+						BloodMoon1: Trzymaj się ode mnie z daleka, {PlayerRace}. Nie czuję się dziś sobą.
 						BloodMoon2: Witaj soczysta pomarańczo, przywitaj się z moje usta.
 						BloodMoon3: Grrrr... potrzebuję... więcej... pomarańczy!
 						BloodMoon4: Chcesz, żebym cię przemienił?
@@ -175,17 +178,17 @@ Mods: {
 					Martians: {
 						Martians1: Stworzenia z innego świata? Najpierw dowiaduję się, że poza laboratorium istnieje cały świat, a teraz mówisz mi, że istnieje jeszcze jeden?
 						Martians2: Chcę jeden z tych marsjańskich zapperów, żebym mógł być pew pew Puro!
-						Martians3: Człowieku, co to jest UFO?
+						Martians3: "{PlayerRace}, co to jest UFO?"
 					}
 
 					Eclipse: {
-						Eclipse1: Człowieku! Proszę, nie wychodź dziś na zewnątrz. To zbyt niebezpieczne!
+						Eclipse1: "{PlayerRace}! Proszę, nie wychodź dziś na zewnątrz. To zbyt niebezpieczne!"
 						Eclipse2: Myślę, że zostanę w domu i poczytam trochę książek, dopóki nie wzejdzie słońce.
 						Eclipse3: Próbowałem dziś zerwać pomarańcze, ale jest po prostu za ciemno.
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}Człowieku! Gdzie jest twój imprezowy kapelusz?"
+						Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Gdzie jest twój imprezowy kapelusz?"
 						Party2: Potrzymaj mi talerz. Nie, czekaj, daj mi też swój.
 						Party3: Jeśli ktoś szuka pomarańczowego ciasta funtowego... ech, nie. Zjadłem całe.
 						Party4: Chcę zrobić zwierzątko z balonu, które będzie wyglądać jak ty. Słodkie i mięciutkie!
@@ -196,7 +199,7 @@ Mods: {
 						Party9: "{PlayerIsWearingBalloon}Tak! Właśnie tego potrzebowała ta impreza. Więcej balonów!"
 						Party10: Jestem czarną, śluzowatą bestią, a moje usta to czarna dziura pełna pysznego jedzenia!
 						Party11: Mmm, te puszyste pomarańczowe babeczki są takie pyszne, ale zjadłam ich już tak wiele... Może jeszcze jedną.
-						Party12: Zatańczymy razem, człowieku? Bo czuję się jak imprezowicz!
+						Party12: Zatańczymy razem, {PlayerRace}? Bo czuję się jak imprezowicz!
 					}
 				}
 
@@ -844,6 +847,82 @@ Mods: {
 			RocketScienceAchievement: {
 				Description: Spraw, by butla z gazem odleciała.
 				FriendlyName: Nauka o rakietach
+			}
+		}
+
+		Races: {
+			Animals: {
+				// Bee: Bee
+				// Bunny: Bunny
+				// Cat: Cat
+				// Chicken: Chicken
+				// Dog: Dog
+				// Dragon: Dragon
+				// Fox: Fox
+				// Hedgehog: Hedgehog
+				// Hyena: Hyena
+				// Mouse: Mouse
+				// Otter: Otter
+				// Panda: Panda
+				// Shark: Shark
+				// Tiger: Tiger
+				// Wolf: Wolf
+			}
+
+			Furry: {
+				// Avali: Avali
+				// Expie: Expie
+				// Protogen: Protogen
+			}
+
+			# Need to read through bulbapedia for the translated names
+			Pokemon: {
+				Absol: Absol
+				Charizard: Charizard
+				Eevee: Eevee
+				Espeon: Espeon
+				Flareon: Flareon
+				Glaceon: Glaceon
+				Jolteon: Jolteon
+				Leafeon: Leafeon
+				Lucario: Lucario
+				// Lugia: Lugia
+				Sylveon: Sylveon
+				Umbreon: Umbreon
+				Vaporeon: Vaporeon
+				Zeraora: Zeraora
+				Zoroark: Zoroark
+			}
+
+			Fantasy: {
+				// Derpkin: Derpkin
+				// Fluftrodon: Fluftrodon
+				// Goblin: Goblin
+				// Kenku: Kenku
+				// Kobold: Kobold
+				// Lihzahrd: Lihzahrd
+				// Lycan: Lycan
+				// MerfolkFemale: Mermaid
+				// MerfolkMale: Merman
+				// MushfolkFemale: Mushmaid
+				// MushfolkMale: Mushman
+				// Serpent: Serpent
+				// Skeleton: Skeleton
+				// Soulbeast: Soulbeast
+				// Tabaxi: Tabaxi
+				// Unicorn: Unicorn
+				// Vampire: Vampire
+				// Werewolf: Werewolf
+			}
+
+			Other: {
+				Human: Człowieku
+				// Fishron: Fishron
+				// LavaShark: Lava Shark
+				// Raptor: Raptor
+				// SandShark: Sand Shark
+				// Sharkron: Sharkron
+				// StormDrake: Storm Drake
 			}
 		}
 	}

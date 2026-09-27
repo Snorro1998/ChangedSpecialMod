@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChangedSpecialMod.Common.Configs;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Localization;
@@ -88,6 +89,16 @@ namespace ChangedSpecialMod.Common.Systems
         /// <param name="overWriteSeason"></param>
         public static void SetSeason(SeasonalEvent overWriteSeason = SeasonalEvent.Invalid, bool announce = false)
         {
+            if (!ChangedSpecialModClientConfig.Instance.Holidays)
+            {
+                if (announce)
+                {
+                    Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.CalendarUsedNoHolidays"));
+                }
+
+                return;
+            }
+
             string eventName = null;
 
             // Overwriting the season
@@ -112,54 +123,59 @@ namespace ChangedSpecialMod.Common.Systems
                 //return;
             }
 
-            // Getting the season normally
-            if (Main.halloween)
-                season = SeasonalEvent.Halloween;
-            else if (Main.xMas)
-                season = SeasonalEvent.XMas;
             else
             {
-                DateTime today = DateTime.Today;
-                List<SeasonalEventObject> seasonalEvents = new List<SeasonalEventObject>();
-
-                // Me and DragonSnow have the same birthday
-                seasonalEvents.Add(new SeasonalEventObject(
-                    SeasonalEvent.Birthday,
-                    new DateTime(today.Year, (int)Month.January, 14),
-                    new DateTime(today.Year, (int)Month.January, 14)
-                    )
-                );
-
-                seasonalEvents.Add(new SeasonalEventObject(
-                    SeasonalEvent.Valentine,
-                    new DateTime(today.Year, (int)Month.February, 1),
-                    new DateTime(today.Year, (int)Month.February, 28)
-                    )
-                );
-
-                seasonalEvents.Add(new SeasonalEventObject(
-                    SeasonalEvent.Easter,
-                    new DateTime(today.Year, (int)Month.April, 1),
-                    new DateTime(today.Year, (int)Month.April, 30)
-                    )
-                );
-
-                seasonalEvents.Add(new SeasonalEventObject(
-                    SeasonalEvent.Oktoberfest,
-                    new DateTime(today.Year, (int)Month.September, 20),
-                    new DateTime(today.Year, (int)Month.October, 9)
-                    )
-                );
-
-                foreach (var seasonalEvent in seasonalEvents)
+                // Getting the season normally
+                if (Main.halloween)
+                    season = SeasonalEvent.Halloween;
+                else if (Main.xMas)
+                    season = SeasonalEvent.XMas;
+                else
                 {
-                    if (seasonalEvent.IsActive())
+                    DateTime today = DateTime.Today;
+                    List<SeasonalEventObject> seasonalEvents = new List<SeasonalEventObject>();
+
+                    // Me and DragonSnow have the same birthday
+                    seasonalEvents.Add(new SeasonalEventObject(
+                        SeasonalEvent.Birthday,
+                        new DateTime(today.Year, (int)Month.January, 14),
+                        new DateTime(today.Year, (int)Month.January, 14)
+                        )
+                    );
+
+                    seasonalEvents.Add(new SeasonalEventObject(
+                        SeasonalEvent.Valentine,
+                        new DateTime(today.Year, (int)Month.February, 1),
+                        new DateTime(today.Year, (int)Month.February, 28)
+                        )
+                    );
+
+                    seasonalEvents.Add(new SeasonalEventObject(
+                        SeasonalEvent.Easter,
+                        new DateTime(today.Year, (int)Month.April, 1),
+                        new DateTime(today.Year, (int)Month.April, 30)
+                        )
+                    );
+
+                    seasonalEvents.Add(new SeasonalEventObject(
+                        SeasonalEvent.Oktoberfest,
+                        new DateTime(today.Year, (int)Month.September, 20),
+                        new DateTime(today.Year, (int)Month.October, 9)
+                        )
+                    );
+
+                    foreach (var seasonalEvent in seasonalEvents)
                     {
-                        season = seasonalEvent.EventType;
-                        break;
+                        if (seasonalEvent.IsActive())
+                        {
+                            season = seasonalEvent.EventType;
+                            break;
+                        }
                     }
                 }
             }
+
+            
 
             Dictionary<SeasonalEvent, string> eventNames = new Dictionary<SeasonalEvent, string>
             {

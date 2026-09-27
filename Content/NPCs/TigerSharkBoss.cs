@@ -106,6 +106,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void OnSpawn(IEntitySource source)
         {
+            NPC.active = false;
+            /*
             Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WIPBossFight"));
             NPC.TargetClosest(false);
             ProjectileOptionsFirstPhase = new int[] 
@@ -120,6 +122,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 ModContent.ProjectileType<SharkProjectile>(),
                 ModContent.ProjectileType<OrcaProjectile>()
             };
+            */
         }
 
         private void SwitchState(ActionState newState)

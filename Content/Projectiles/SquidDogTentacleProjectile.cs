@@ -1,10 +1,8 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Projectiles
 {
-    // These three class showcase usage of the WormHead, WormBody and WormTail classes from Worm.cs
     internal class SquidDogTentacleHeadProjectile : WormHeadProjectile
     {
         public override string Texture => "ChangedSpecialMod/Content/NPCs/SquidDogTentacleHead";
@@ -33,8 +31,8 @@ namespace ChangedSpecialMod.Content.Projectiles
 
         internal static void CommonWormInit(WormProjectile worm)
         {
-            worm.MoveSpeed = 8.5f; //5.5
-            worm.Acceleration = 0.08f; //0.045
+            worm.MoveSpeed = 8.5f;
+            worm.Acceleration = 0.08f;
             worm.ReverseAfterTime = 600;
             worm.MaxEntendDistance = 512;
         }

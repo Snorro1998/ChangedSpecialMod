@@ -115,4 +115,9 @@ ChangedSpecialModClientConfig: {
 		Label: 怪物可以戴帽子。
 		Tooltip: 启用此选项后，怪物在特定条件下可以戴上帽子。例如，在下雨时或举办派对期间。
 	}
+
+	Holidays: {
+		Label: 公共假期
+		Tooltip: 镇民在节日期间会戴上帽子，并有独特的对话。
+	}
 }

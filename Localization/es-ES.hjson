@@ -40,6 +40,7 @@ Mods: {
 			BehemothCanSpawn: Algo se agita en la Zona de Látex Blanco...
 			ColinCanSpawn: Alguien está de camino hacia ti...
 			WIPBossFight: Esta batalla contra el jefe aún está en desarrollo, así que no esperen mucho por ahora.
+			CalendarUsedNoHolidays: Este elemento no hace nada, a menos que actives la opción de configuración de días festivos.
 		}
 
 		WorldGenerationPasses: {
@@ -89,22 +90,24 @@ Mods: {
 					NPCMerchant: ¡Si {NameMerchant} vendiera zumo de naranja, sería rico!
 					NPCTavernKeep: Le dije a {NameTavernKeep} que debería ampliar su menú con bebidas y platos de naranja. Piensa en todas las deliciosas posibilidades: ensalada de cítricos, bizcocho de naranja, zumo de naranja... ¡y mimosa! Mmm, mimosa...
 					NPCNurse: "{NameNurse} dijo que es bueno para la salud comer dos piezas de fruta al día. ¡Yo le dije que como diez naranjas al día!"
-					NPCTaxCollector: Humano, ¿qué son los 'impuestos'? {NameTaxCollector} estaba muy gruñón y dijo que tenía que pagarlos.
+					NPCTaxCollector: "{PlayerRace}, ¿qué son los 'impuestos'? {NameTaxCollector} estaba muy gruñón y dijo que tenía que pagarlos."
 					NPCZoologist: "{NameZoologist} es tan linda con sus grandes orejas y su cola esponjosa. Pero no tan linda como tú, jejeje..."
 					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} me contó todo tipo de cosas sobre la 'magia', pero lo único que quería saber era si se pueden hacer naranjas con ella."
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} tiene muchísimos zapatos, pero todos son demasiado pequeños para mis patas."
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}No entiendo por qué {NameStarsModPackFarmer} no tiene semillas de naranjo. Todo agricultor debería tenerlas."
-					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Humano, ¿sabes por qué {NameStarsModPackScrapyardGeek} zsiempre zhabla zasí?"
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, ¿sabes por qué {NameStarsModPackScrapyardGeek} zsiempre zhabla zasí?"
+					// TerraGuardianBlue: "{TerraGuardianBluePresent} Big blue dog"
+					// TerraGuardianIch: "{TerraGuardianBluePresent} {TerraGuardianIchName} Big cat"
 					Book1: Yo juzgo los libros como juzgo las naranjas: por lo satisfactorios que resultan hasta la última página o la última rodaja.
-					Book2: ¡Hola humano! ¿Has visto mi libro?
+					Book2: ¡Hola {PlayerRace}! ¿Has visto mi libro?
 					Book3: ¿Me ayudarías a construir la torre de libros más grande?
-					Book4: ¡Humano! ¡Mira este libro increíble que acabo de encontrar!
+					Book4: ¡{PlayerRace}! ¡Mira este libro increíble que acabo de encontrar!
 					Book5: ¡Algún día escribiré un libro sobre las increíbles aventuras de {NamePlayer}!
-					Book6: Ayer encontré un libro de cocina con muchísimas recetas que se ven deliciosas. ¿Te gustaría hornear algo juntos, humano?
+					Book6: Ayer encontré un libro de cocina con muchísimas recetas que se ven deliciosas. ¿Te gustaría hornear algo juntos, {PlayerRace}?
 					# Globglobgabgalab
 					Book7: Soy la pegajosa glabgalab, y me encantan los libros.
 					Orange1: ¿Cuál es tu color favorito? Mi color favorito es el naranja.
-					Orange2: Mmmm *ñam* naranja *ñam* Oh hola humano.
+					Orange2: Mmmm *ñam* naranja *ñam* Oh hola {PlayerRace}.
 					Orange3: No tengo un hijo favorito, pero si lo tuviera, sería esta naranja.
 					Orange4: Anoche soñé que estaba en una piscina de bolas llena de naranjas.
 					Orange5: Si quieres hacerme feliz, solo dame una naranja perfectamente madura.
@@ -117,27 +120,27 @@ Mods: {
 					Changed1: ¿Has visto mis dibujos en el laboratorio? ¿Te gustaría que te hiciera un dibujo?
 					Changed2: "{Behemoth}Quiero llegar a ser tan grande como el Behemot, para poder sostenerte entre mis patas como a una muñeca y mantenerte a salvo."
 					Normal1: ¡No necesito equipo para protegerme, porque tengo grandes garras, patas y una gran boca!
-					Normal2: ¡Hola! ¿Cómo está mi humano favorito hoy?
+					Normal2: ¡Hola! ¿Cómo está mi {PlayerRace} favorito hoy?
 					// TransfurCub: "{TransfurCub}Hello little puppy. You are so small and cute! Can I hold you please?"
 					Rain1: "{Rain}Si tienes frío por la lluvia y quieres entrar en calor, ¡puedes acurrucarte en mi suave pelaje!"
 					Rain2: "{Rain}¡Me sacudí el pelaje para secarme y ahora estoy súper esponjoso!"
 					Thunder1: "{Thunder}No le tengo miedo a los rayos. ¡Todo mi cuerpo está hecho de goma, así que incluso si me cayera uno, estaría perfectamente bien!"
 					Thunder2: "{Thunder}Con todos esos destellos brillantes, casi no necesito una lámpara para leer mis libros."
-					Windy1: "{Windy}¿Te gustaría volar una cometa conmigo humano?"
+					Windy1: "{Windy}¿Te gustaría volar una cometa conmigo {PlayerRace}?"
 					Windy2: "{Windy}Hoy hace tanto viento que mi pelaje se ha despeinado por completo."
 					Windy3: "{Windy}Ojalá tuviera alas para poder volar y llevarte a todas partes."
-					PlayerHasOrange: "{PlayerHasOrange}*Snif* Humano, ¿llevas naranjas jugosas? ¿Me das una, por favor?"
-					PlayerHasBook: "{PlayerHasBook}¿Tienes un libro ahí, humano? ¿Te gustaría leerlo juntos?"
+					PlayerHasOrange: "{PlayerHasOrange}*Snif* {PlayerRace}, ¿llevas naranjas jugosas? ¿Me das una, por favor?"
+					PlayerHasBook: "{PlayerHasBook}¿Tienes un libro ahí, {PlayerRace}? ¿Te gustaría leerlo juntos?"
 					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}¿Qué es eso? ¿'Libro de las Calaveras'? Je, la portada se parece un poco a mi máscara."
 					PlayerHasWaterBolt: "{PlayerHasWaterBolt}¿Qué tienes ahí? ¿Un libro mágico que lanza agua? Espero que no haga eso si intento leerlo."
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oh, ¿me trajiste otro libro? Eh, ¿por qué se llama 'Ducha Dorada'?"
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}¡Oh, un globo brillante! ¿Puedo sostenerlo, por favor?"
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Qué vestido tan elegante, humano. Te ves bastante lindo con él, jejeje."
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr} Vaya, humano. ¿Quién es ese gato? ¡Es enorme!"
-					Valentine1: "{Valentine}¿Qué opinas, humano? ¿Me veo linda con esta horquilla de San Valentín?"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Qué vestido tan elegante, {PlayerRace}. Te ves bastante lindo con él, jejeje."
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr} Vaya, {PlayerRace}. ¿Quién es ese gato? ¡Es enorme!"
+					Valentine1: "{Valentine}¿Qué opinas, {PlayerRace}? ¿Me veo linda con esta horquilla de San Valentín?"
 					Valentine2: "{Valentine}Un ramo de flores está bien, pero si quieres ganarte mi corazón, ¡tienes que traerme un libro!"
 					# Easter is not implemented yet
-					// Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+					// Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
 					// Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 					Oktoberfest1: "{Oktoberfest}¡Es esa época del año para mucha cerveza! ¡Salud!"
 					Oktoberfest2: "{Oktoberfest}Humanaaa, ¿es por la cerveza o siempre has sido tan guapa?"
@@ -148,7 +151,7 @@ Mods: {
 					Halloween3: "{Halloween}¡BU! Jeje, te asusté, ¿verdad?"
 					Halloween4: "{Halloween}¡Grrr! Soy el malvado Mago Lobo. ¡Te convertiré en una jugosa naranja y te tragaré entero!"
 					Halloween5: "{Halloween}¡Voy a asustar a todos y a robarles sus caramelos!"
-					Xmas1: "{Xmas}¡Ho ho ho! ¡Hola humano!"
+					Xmas1: "{Xmas}¡Ho ho ho! ¡Hola {PlayerRace}!"
 					Xmas2: "{Xmas}¿Qué debería pedirle a Papá Noel? ¿Más libros o más naranjas?"
 					Xmas3: "{Xmas}Navidad, Navidad, hoy es Navidad!"
 					Xmas4: "{Xmas}¿Te gustaría ayudarme a decorar mi naranjo con adornos navideños?"
@@ -156,7 +159,7 @@ Mods: {
 					Fiesta1: "{Siesta1}Hola, me has Atrapado en medio suavemente."
 
 					BloodMoon: {
-						BloodMoon1: Aléjate de mí, humano. Hoy no me siento yo mismo.
+						BloodMoon1: Aléjate de mí, {PlayerRace}. Hoy no me siento yo mismo.
 						BloodMoon2: Hola naranja jugosa, saluda a mi boca.
 						BloodMoon3: Grrrr... ¡necesito... más... naranjas!
 						BloodMoon4: ¿Quieres transformarte?
@@ -175,17 +178,17 @@ Mods: {
 					Martians: {
 						Martians1: ¿Criaturas de otro mundo? Primero descubro que hay todo un mundo fuera del laboratorio, ¿y ahora me dices que hay otro mundo ahí fuera?
 						Martians2: ¡Quiero uno de esos zappers marcianos para poder ser pew pew Puro!
-						Martians3: Humano, ¿qué es un OVNI?
+						Martians3: "{PlayerRace}, ¿qué es un OVNI?"
 					}
 
 					Eclipse: {
-						Eclipse1: ¡Humano! Por favor, no salgas hoy. ¡Es demasiado peligroso!
+						Eclipse1: ¡{PlayerRace}! Por favor, no salgas hoy. ¡Es demasiado peligroso!
 						Eclipse2: Creo que me quedaré en casa leyendo algunos libros hasta que vuelva a salir el sol.
 						Eclipse3: Hoy intenté recoger algunas naranjas, pero está demasiado oscuro.
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}¡Humano! ¿Dónde está tu gorro de fiesta?"
+						Party1: "{PlayerHasNoPartyHat}¡{PlayerRace}! ¿Dónde está tu gorro de fiesta?"
 						Party2: Sujétame el plato. No, espera, dame el tuyo también.
 						Party3: Si alguien está buscando el bizcocho de naranja... mejor no lo busquen. Me lo comí entero.
 						Party4: Quiero hacer un animalito de globos que se parezca a ti. ¡Lindo y blandito!
@@ -196,7 +199,7 @@ Mods: {
 						Party9: "{PlayerIsWearingBalloon}¡Sí! Justo lo que necesitaba esta fiesta. ¡Más globos!"
 						Party10: ¡Soy un limo negro, y mi boca es un agujero negro para la comida deliciosa!
 						Party11: Mmm, estos esponjosos magdalenas de naranja están tan ricos, pero ya me comí muchos... Quizás solo uno más.
-						Party12: ¿Bailamos juntos, humano? Porque me siento como un animal fiestero!
+						Party12: ¿Bailamos juntos, {PlayerRace}? Porque me siento como un animal fiestero!
 					}
 				}
 
@@ -844,6 +847,82 @@ Mods: {
 			RocketScienceAchievement: {
 				Description: Haz que un cilindro de gas salga volando.
 				FriendlyName: Ciencia de cohetes
+			}
+		}
+
+		Races: {
+			Animals: {
+				// Bee: Bee
+				Bunny: Conejo
+				Cat: Gato
+				// Chicken: Chicken
+				Dog: Perro
+				Dragon: Dragón
+				Fox: Zorro
+				// Hedgehog: Hedgehog
+				// Hyena: Hyena
+				// Mouse: Mouse
+				// Otter: Otter
+				// Panda: Panda
+				Shark: Tiburón
+				// Tiger: Tiger
+				Wolf: Lobo
+			}
+
+			Furry: {
+				// Avali: Avali
+				// Expie: Expie
+				// Protogen: Protogen
+			}
+
+			# Need to read through bulbapedia for the translated names
+			Pokemon: {
+				Absol: Absol
+				Charizard: Charizard
+				Eevee: Eevee
+				Espeon: Espeon
+				Flareon: Flareon
+				Glaceon: Glaceon
+				Jolteon: Jolteon
+				Leafeon: Leafeon
+				Lucario: Lucario
+				// Lugia: Lugia
+				Sylveon: Sylveon
+				Umbreon: Umbreon
+				Vaporeon: Vaporeon
+				Zeraora: Zeraora
+				Zoroark: Zoroark
+			}
+
+			Fantasy: {
+				// Derpkin: Derpkin
+				// Fluftrodon: Fluftrodon
+				Goblin: Duende
+				// Kenku: Kenku
+				// Kobold: Kobold
+				// Lihzahrd: Lihzahrd
+				Lycan: Licán
+				MerfolkFemale: Sirena
+				MerfolkMale: Tritón
+				MushfolkFemale: Mujer-hongo
+				MushfolkMale: Hombre-hongo
+				Serpent: Serpiente
+				Skeleton: Esqueleto
+				Soulbeast: Bestia del Alma
+				// Tabaxi: Tabaxi
+				Unicorn: Unicornio
+				Vampire: Vampiro
+				Werewolf: Hombre-lobo
+			}
+
+			Other: {
+				Human: Humano
+				// Fishron: Fishron
+				LavaShark: Tiburón de lava
+				// Raptor: Raptor
+				SandShark: Tiburón de arena
+				// Sharkron: Sharkron
+				// StormDrake: Storm Drake
 			}
 		}
 	}

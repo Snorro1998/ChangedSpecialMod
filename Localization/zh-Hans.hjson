@@ -40,6 +40,7 @@ Mods: {
 			BehemothCanSpawn: 白色粘液区似乎有什么东西正在蠢蠢欲动……
 			ColinCanSpawn: 有人正在赶往你那里……
 			WIPBossFight: 这个 Boss 战还在开发中，所以暂时不要抱太大期望。
+			CalendarUsedNoHolidays: 除非您启用了“公共假期”配置选项，否则此项不起作用。
 		}
 
 		WorldGenerationPasses: {
@@ -89,22 +90,24 @@ Mods: {
 					NPCMerchant: 如果{NameMerchant}卖橙汁的话，他早就发财了！
 					NPCTavernKeep: 我跟{NameTavernKeep}说他应该在菜单上增加一些橙子口味的饮品和菜肴！想想看，柑橘沙拉、橙子磅蛋糕、橙汁，还有含羞草鸡尾酒，想想就让人垂涎欲滴！嗯……含羞草鸡尾酒……
 					NPCNurse: "{NameNurse}说每天吃两个水果对身体好。我告诉她我一天吃十个橙子！"
-					NPCTaxCollector: 人类，什么是《税》？{NameTaxCollector}很不高兴，说我应该交税。
+					NPCTaxCollector: "{PlayerRace}，什么是《税》？{NameTaxCollector}很不高兴，说我应该交税。"
 					NPCZoologist: "{NameZoologist}长着大耳朵和毛茸茸的尾巴，真是太可爱了。不过，她还是没有你可爱，嘿嘿嘿……"
 					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot}跟我讲了很多关于“魔能”的事情，但我只想知道能不能用它做出橘子。"
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}我不明白为什么{NameStarsModPackFarmer}没有橘子树种子。每个农民都应该有。"
-					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}人类，你知道{NameStarsModPackScrapyardGeek}为什么总是那样说话吗？"
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}，你知道{NameStarsModPackScrapyardGeek}为什么总是那样说话吗？"
+					// TerraGuardianBlue: "{TerraGuardianBluePresent} Big blue dog"
+					// TerraGuardianIch: "{TerraGuardianBluePresent} {TerraGuardianIchName} Big cat"
 					Book1: 我评判一本书的方式就像评判一个橘子一样：看它从头到尾，直到最后一页或最后一片，是否都令人满意。
-					Book2: 你好，人类!你找到我的书了吗?
+					Book2: 你好，{PlayerRace}!你找到我的书了吗?
 					Book3: 你愿意帮我搭建最高的书塔吗?
-					Book4: 人类!快看我刚发现的这本超棒的书!
+					Book4: "{PlayerRace}!快看我刚发现的这本超棒的书!"
 					Book5: 总有一天我会写一本关于{NamePlayer}的奇妙冒险故事的书!
-					Book6: 昨天我找到一本食谱，里面有很多看起来超美味的菜谱。你想一起烤点什么吗，人类?
+					Book6: 昨天我找到一本食谱，里面有很多看起来超美味的菜谱。你想一起烤点什么吗，{PlayerRace}?
 					# Globglobgabgalab
 					Book7: 我是一团黏糊糊的史莱姆，我热爱书籍。
 					Orange1: 你最喜欢的颜色是什么?我最喜欢的颜色是橙色。
-					Orange2: 嗯 *吧唧* 橙子 *吧唧* 哦，你好，人类。
+					Orange2: 嗯 *吧唧* 橙子 *吧唧* 哦，你好，{PlayerRace}。
 					Orange3: 我没有最喜欢的孩子，但如果非要选一个的话，那就是这个橘子。
 					Orange4: 昨晚我梦见自己在一个装满橘子的球池里。
 					Orange5: 如果你想让我开心，就给我一个完全成熟的橙子。
@@ -123,18 +126,18 @@ Mods: {
 					Rain2: "{Rain}我抖了抖毛把自己弄干，现在我浑身毛茸茸的！"
 					Thunder1: "{Thunder}我不怕闪电。我的全身都是黏液做的，所以就算被闪电击中，我也完全没事！"
 					Thunder2: "{Thunder}有了这么多明亮的闪光灯，我几乎不需要台灯就能看书了。"
-					Windy1: "{Windy}人类，你愿意和我一起放风筝吗?"
+					Windy1: "{Windy}{PlayerRace}，你愿意和我一起放风筝吗?"
 					Windy2: "{Windy}今天风太大了，我的毛皮都被吹乱了。"
 					Windy3: "{Windy}我真希望自己有翅膀，这样就能飞翔，带你去任何地方。"
-					PlayerHasOrange: "{PlayerHasOrange}*嗅嗅* 人类，你带着多汁的橙子吗？我可以要一个吗？"
-					PlayerHasBook: "{PlayerHasBook}你手里拿着的是一本书吗，人类？你想一起读吗？"
+					PlayerHasOrange: "{PlayerHasOrange}*嗅嗅* {PlayerRace}，你带着多汁的橙子吗？我可以要一个吗？"
+					PlayerHasBook: "{PlayerHasBook}你手里拿着的是一本书吗，{PlayerRace}？你想一起读吗？"
 					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}那是什么？《骷髅头法书》？呵呵，封面看起来有点像我的面具。"
 					PlayerHasWaterBolt: "{PlayerHasWaterBolt}你手里拿的是什么？一本会喷水的魔法书吗？我希望我读的时候它不会喷水。"
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}哦，你又给我带了一本书？呃，为什么它叫《黄金雨》？"
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}哇！好闪亮的气球！我可以抱抱它吗？"
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}人类，你穿的这件裙子真漂亮。你穿起来还挺可爱的，呵呵。"
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr} 哇，人类，那只猫是谁？它好大啊！"
-					Valentine1: "{Valentine}你觉得怎么样，人类？我戴着这款情人节发夹是不是很可爱？"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PlayerRace}，你穿的这件裙子真漂亮。你穿起来还挺可爱的，呵呵。"
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr} 哇，{PlayerRace}，那只猫是谁？它好大啊！"
+					Valentine1: "{Valentine}你觉得怎么样，{PlayerRace}？我戴着这款情人节发夹是不是很可爱？"
 					Valentine2: "{Valentine}鲜花固然美好，但如果你想赢得我的芳心，那就得送我一本小册子。"
 					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
@@ -148,7 +151,7 @@ Mods: {
 					Halloween3: "{Halloween}吼！吓你一跳！呵呵，吓到你了吧？"
 					Halloween4: "{Halloween}吼！我是邪恶的巫师狼。我要把你变成一个多汁的橙子，然后一口吞掉！"
 					Halloween5: "{Halloween}我要吓唬所有人，抢走他们的糖果！"
-					Xmas1: "{Xmas}嚯嚯嚯！你好，人类！"
+					Xmas1: "{Xmas}嚯嚯嚯！你好，{PlayerRace}！"
 					Xmas2: "{Xmas}我应该向圣诞老人许什么愿呢？多送本书还是多送橘子？"
 					Xmas3: "{Xmas}叮叮当，叮叮当，铃儿响叮当！"
 					Xmas4: "{Xmas}你愿意帮我用圣诞装饰品装点我的橘子树吗？"
@@ -156,7 +159,7 @@ Mods: {
 					Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 					BloodMoon: {
-						BloodMoon1: 离我远点，人类。我今天感觉不太对劲。
+						BloodMoon1: 离我远点，{PlayerRace}。我今天感觉不太对劲。
 						BloodMoon2: 你好，多汁的橙子，跟我的嘴巴打个招呼吧。
 						BloodMoon3: 嗷呜……我需要……更多……橙子！
 						BloodMoon4: 你想让我同化你吗？
@@ -175,17 +178,17 @@ Mods: {
 					Martians: {
 						Martians1: 来自另一个世界的生物？我先是发现实验室外还有一个完整的世界，现在你又告诉我外面还有另一个世界？
 						Martians2: 我想要一个火星人用的那种激光枪，这样我就可以变成“砰砰砰”普罗！
-						Martians3: 人类，什么是飞碟？
+						Martians3: "{PlayerRace}，什么是飞碟？"
 					}
 
 					Eclipse: {
-						Eclipse1: 人类！今天千万别出门，太危险了！
+						Eclipse1: "{PlayerRace}！今天千万别出门，太危险了！"
 						Eclipse2: 我想我会待在室内看书，直到太阳再次升起。
 						Eclipse3: 我今天想摘些橙子，但是天太黑了。
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}人类！你的派对帽呢？"
+						Party1: "{PlayerHasNoPartyHat}{PlayerRace}！你的派对帽呢？"
 						Party2: 请帮我拿着这个盘子。等等，你也把你的给我吧。
 						Party3: 如果有人在找橙子磅蛋糕……呃，别找了。我把它全吃光了。
 						Party4: 我想做一个跟你长得一模一样的气球动物。可爱又软乎乎的！
@@ -196,7 +199,7 @@ Mods: {
 						Party9: "{PlayerIsWearingBalloon}没错！这正是这场派对所需要的。更多气球！"
 						Party10: 我是一只黑色的黏液怪物，我的嘴巴是一个吞噬美味食物的黑洞！
 						Party11: 嗯，这些蓬松的橙子纸杯蛋糕真好吃，但我已经吃了很多了……也许就再吃一个吧。
-						Party12: 人类，我们一起跳舞好吗？因为我感觉自己像个派对动物！
+						Party12: "{PlayerRace}，我们一起跳舞好吗？因为我感觉自己像个派对动物！"
 					}
 				}
 
@@ -844,6 +847,82 @@ Mods: {
 			RocketScienceAchievement: {
 				Description: 让煤气罐飞走。
 				FriendlyName: 火箭科学
+			}
+		}
+
+		Races: {
+			Animals: {
+				// Bee: Bee
+				Bunny: 兔子
+				Cat: 猫
+				// Chicken: Chicken
+				Dog: 狗
+				Dragon: 龙
+				Fox: 狐狸
+				// Hedgehog: Hedgehog
+				// Hyena: Hyena
+				// Mouse: Mouse
+				// Otter: Otter
+				// Panda: Panda
+				Shark: 鲨鱼
+				// Tiger: Tiger
+				Wolf: 狼
+			}
+
+			Furry: {
+				Avali: 阿瓦利
+				Expie: 实验兽
+				Protogen: 普罗托根
+			}
+
+			# Need to read through bulbapedia for the translated names
+			Pokemon: {
+				Absol: 阿勃梭魯
+				Charizard: 噴火龍
+				Eevee: 伊布
+				Espeon: 太陽伊布
+				Flareon: 火伊布
+				Glaceon: 冰伊布
+				Jolteon: 雷伊布
+				Leafeon: 葉伊布
+				Lucario: 路卡利歐
+				// Lugia: Lugia
+				Sylveon: 仙子伊布
+				Umbreon: 月亮伊布
+				Vaporeon: 水伊布
+				Zeraora: 捷拉奧拉
+				Zoroark: 索羅亞克
+			}
+
+			Fantasy: {
+				Derpkin: 跳跳兽族
+				Fluftrodon: 弗拉夫特罗登
+				Goblin: 哥布林
+				Kenku: 乌鸦
+				Kobold: 狗头人
+				Lihzahrd: 丛林蜥蜴
+				Lycan: 狼人
+				MerfolkFemale: 美人鱼
+				MerfolkMale: 美人鱼
+				MushfolkFemale: 蘑菇女
+				MushfolkMale: 蘑菇人
+				Serpent: 蛇
+				Skeleton: 骨骼
+				Soulbeast: 灵兽
+				Tabaxi: 塔巴克西
+				Unicorn: 独角兽
+				Vampire: 吸血鬼
+				Werewolf: 狼人
+			}
+
+			Other: {
+				Human: 人类
+				Fishron: 猪龙鱼
+				LavaShark: 熔岩鲨
+				Raptor: 迅猛龙
+				SandShark: 沙鲨
+				Sharkron: 鲨鱼龙
+				StormDrake: 风暴龙
 			}
 		}
 	}

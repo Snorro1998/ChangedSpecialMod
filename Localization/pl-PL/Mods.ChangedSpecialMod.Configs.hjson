@@ -115,4 +115,9 @@ ChangedSpecialModClientConfig: {
 		Label: Potwory mogą nosić kapelusze.
 		Tooltip: Gdy ta opcja jest włączona, potwory mogą nosić kapelusze w określonych warunkach – na przykład podczas deszczu lub imprezy.
 	}
+
+	Holidays: {
+		Label: Święta państwowe
+		Tooltip: Mieszkańcy noszą nakrycia głowy podczas świąt i mają unikalne kwestie dialogowe.
+	}
 }

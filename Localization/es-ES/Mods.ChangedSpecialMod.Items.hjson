@@ -715,7 +715,7 @@ WhiteLatexCubLicense: {
 
 Calendar: {
 	DisplayName: Calendario
-	Tooltip: Te permite cambiar la temporada actual.
+	Tooltip: Le permite cambiar el día festivo actual.
 }
 
 SombreroHat: {
@@ -936,7 +936,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Pastel de celebración
-	Tooltip: Gracias a todos por las más de 800 descargas.
+	Tooltip: Gracias a todos por las más de 900 descargas.
 }
 
 WhiteLatexLantern: {
@@ -1022,4 +1022,44 @@ MusicBoxSquidDog: {
 MusicBoxWhiteTail1: {
 	DisplayName: Caja de música (Cola Blanco parte 1)
 	Tooltip: Por ShiZi
+}
+
+Painting21: {
+	DisplayName: Kraken de Cracovia
+	Tooltip: ""
+}
+
+DebugItem: {
+	// DisplayName: Debug Item
+	// Tooltip: ""
+}
+
+WhiteTailTrophy: {
+	// DisplayName: White Tail Trophy
+	// Tooltip: ""
+}
+
+DisguiseSetHelmet: {
+	// DisplayName: Disguise Set Helmet
+	// Tooltip: ""
+}
+
+DisguiseSetBreastplate: {
+	// DisplayName: Disguise Set Breastplate
+	// Tooltip: ""
+}
+
+WhiteTailRelic: {
+	// DisplayName: White Tail Relic
+	// Tooltip: ""
+}
+
+BehemothTrophy: {
+	// DisplayName: Behemoth Trophy
+	// Tooltip: ""
+}
+
+BehemothRelic: {
+	// DisplayName: Behemoth Relic
+	// Tooltip: ""
 }

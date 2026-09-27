@@ -37,12 +37,12 @@ Most other mods should work fine. The only problem that you can run into is when
 
 ------- Multiplayer -------
 
-Most things should work fine in multiplayer. In rare cases, you might encounter desycing of player transfurs. This means that they are transfurred, but you can't see it. A possible indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any of the combined syringes (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+This mod should work fine most of the time in multiplayer. In rare cases, you might see other players jittering while moving. This can mean that they are transfurred, but that it isn't visible for you. To fix this, they can use any syringe that makes the selection screen pop up. Syringes that don't do this can't fix this issue.
 
 
 ---------- Other ----------
 
-Most items and NPCs used to have scaled down sprites from Changed as placeholders. A lot of them have since been updated, but not all of them. You may come accross things that clash with Terraria's art style.
+Most items and NPCs used to have scaled down sprites from Changed as placeholders. A lot of them have since been updated, but not all of them (like bosses). You may come accross things that clash with Terraria's art style.
 
 
 ---------- Links ----------
@@ -57,8 +57,7 @@ https://github.com/Snorro1998/ChangedSpecialMod
 
 --------- Credits ---------
 
-This mod is a continuation of the old abandoned "ChangedMod" which had two monsters, one biome and some furniture items.
-It was programmed by xethogd#1874 and the sprites were made by Hayden. Unfortunately, it can no longer be found in the mod browser.
+This mod is a continuation of the old abandoned "ChangedMod" which had two monsters, one biome and some furniture items. The sprites of this mod were made by Hayden. Unfortunately, it can no longer be found in the mod browser.
 
 Art
 - DragonSnow4	       <Twitter>
@@ -67,7 +66,6 @@ Art
 
 Programming
 - Snorro
-- xethogd#1874
 - ExampleMod was used to figure things out.
 - The main menu style uses modified code from the Calamity mod
 
@@ -84,29 +82,16 @@ Other
 --------- Changelog ---------
 
 
-0.5.7.1
+0.5.7.4
 
-This updates makes some changes to the spawning behaviour of monsters
+General
+- If you play with a race mod installed, Puro will address the player by the race name instead of 'human'.
 
 Items
-- Added Puroomba cage
-- Added Music Boxes: Tiger Shark, Squid Dog, Run and White Tail Chase pt 1
-- Renamed White Tail Music Box to The White Tail Chase pt. 2 
-
-NPCs
-- Bloodstripe can now only spawn in the crimson
-- Purrpurr can now only spawn in the corruption.
-- Raccoon can now only spawn in the forest during the night
-- German Shepherd can now only spawn in the forest during the day
-- Reduced spawn chance of Wendigo
-
-Resprited
-- Bloodstripe
-- Maintenance Robot
-- Purrpurr
-- Wendigo
+- Added thropies for all bosses
+- Added relics for all bosses
+- Added disguise set
 
 Fixed
-- Toy room could only contain toy blocks as furniture, so no plushies or other things. This was for testing, but I forgot to revert it
-- TileCountSystem did not count latex mud blocks. This meant you needed much more other latex blocks in the jungle to be considered inside a latex biome.
-- Some tiles had a wrong highlight for the smart cursor
+- German Shepherd could spawn during an eclipse
+- Debug item for resetting boss progression now works again and doesn't just print numbers

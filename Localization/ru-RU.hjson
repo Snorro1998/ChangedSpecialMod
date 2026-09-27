@@ -40,6 +40,7 @@ Mods: {
 			BehemothCanSpawn: В зоне белой слизи что-то шевелится...
 			ColinCanSpawn: К вам уже едет кто-то...
 			WIPBossFight: Этот бой с боссом всё ещё находится в разработке, поэтому пока не стоит ожидать от него многого.
+			CalendarUsedNoHolidays: Этот элемент не выполняет никаких действий, если не включить параметр конфигурации государственные праздники.
 		}
 
 		WorldGenerationPasses: {
@@ -89,22 +90,24 @@ Mods: {
 					NPCMerchant: Если бы {NameMerchant} продавал апельсиновый сок, он был бы богат!
 					NPCTavernKeep: Я сказал {NameTavernKeep}, что ему следует расширить меню апельсиновыми напитками и блюдами! Только представьте, сколько восхитительных возможностей откроется: цитрусовый салат, апельсиновый кекс, апельсиновый сок, а еще мимоза! Мммм, мимоза...
 					NPCNurse: "{NameNurse} сказала, что для здоровья полезно съедать два фрукта в день. А я ей ответила, что съедаю десять апельсинов в день!"
-					NPCTaxCollector: Человек, что такое «налоги»? {NameTaxCollector} был очень ворчлив и сказал, что я должен их заплатить.
+					NPCTaxCollector: "{PlayerRace}, что такое «налоги»? {NameTaxCollector} был очень ворчлив и сказал, что я должен их заплатить."
 					NPCZoologist: "{NameZoologist} такая милая со своими большими ушками и пушистым хвостиком. Но не такая милая, как ты, хе-хе..."
 					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} рассказал мне всякое про 'магию', но меня интересовало только одно: можно ли из нее делать апельсины."
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} очень много обуви, но вся она мне мала."
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Я не понимаю, почему у {NameStarsModPackFarmer} нет семян апельсиновых деревьев. Они должны быть у каждого фермера."
-					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Человек, ты знаешь, почему {NameStarsModPackScrapyardGeek} всегда так говорит?"
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, ты знаешь, почему {NameStarsModPackScrapyardGeek} всегда так говорит?"
+					// TerraGuardianBlue: "{TerraGuardianBluePresent} Big blue dog"
+					// TerraGuardianIch: "{TerraGuardianBluePresent} {TerraGuardianIchName} Big cat"
 					Book1: Я оцениваю книги так же, как и апельсины. По тому, насколько они доставляют удовольствие до последней страницы или последнего ломтика.
-					Book2: Привет, человек! Ты видел мою книгу?
+					Book2: Привет, {PlayerRace}! Ты видел мою книгу?
 					Book3: Поможешь мне построить самую большую книжную башню?
-					Book4: Человек! Посмотрите на эту потрясающую книгу, которую я только что нашел!
+					Book4: "{PlayerRace}! Посмотрите на эту потрясающую книгу, которую я только что нашел!"
 					Book5: Однажды я напишу книгу об удивительных приключениях {NamePlayer}!
-					Book6: Вчера я нашла кулинарную книгу с таким количеством аппетитных рецептов. Не хочешь ли что-нибудь испечь вместе, Человек?
+					Book6: Вчера я нашла кулинарную книгу с таким количеством аппетитных рецептов. Не хочешь ли что-нибудь испечь вместе, {PlayerRace}?
 					# Globglobgabgalab
 					Book7: Я — липкий глабгалаб, и я люблю книги.
 					Orange1: Какой твой любимый цвет? Мой любимый цвет — оранжевый.
-					Orange2: Ммм *ням* апельсин *ням* О, привет, человек.
+					Orange2: Ммм *ням* апельсин *ням* О, привет, {PlayerRace}.
 					Orange3: У меня нет любимого ребёнка, но если бы он был, то это был бы этот оранжевый.
 					Orange4: Прошлой ночью мне приснилось, что я нахожусь в бассейне с шариками, наполненном апельсинами.
 					Orange5: Если хочешь меня осчастливить, просто подари мне идеально спелый апельсин.
@@ -117,30 +120,30 @@ Mods: {
 					Changed1: Вы видели мои рисунки в лаборатории? Хотите, чтобы я нарисовал вас?
 					Changed2: "{Behemoth}Я хочу стать таким же огромным, как Бегемот, чтобы держать тебя в лапах, как куклу, и оберегать тебя."
 					Normal1: Мне не нужна защита, потому что у меня большие когти, лапы и огромная пасть!
-					Normal2: Привет! Как дела сегодня, человек?
+					Normal2: Привет! Как дела сегодня, {PlayerRace}?
 					TransfurCub: "{TransfurCub}Привет, маленький щенок. Ты такой маленький и милый! Можно я тебя подержу?"
 					Rain1: "{Rain}Если вам холодно после дождя и вы хотите согреться, можете зарыться в мой пушистый мех!"
 					Rain2: "{Rain}Я встряхнула шерсть, чтобы высохнуть, и теперь я стала ещё пушистее!"
 					Thunder1: "{Thunder}Я не боюсь молнии. Всё моё тело сделано из резины, так что даже если меня ею ударит, со мной всё будет в порядке!"
 					Thunder2: "{Thunder}При всех этих ярких вспышках мне едва ли нужна лампа, чтобы читать книги."
-					Windy1: "{Windy}Хочешь запустить со мной воздушного змея, человек?"
+					Windy1: "{Windy}Хочешь запустить со мной воздушного змея, {PlayerRace}?"
 					Windy2: "{Windy}Сегодня такой сильный ветер, что моя шерсть вся растрепалась."
 					Windy3: "{Windy}Как бы мне хотелось иметь крылья, чтобы летать и брать тебя с собой повсюду."
-					PlayerHasOrange: "{PlayerHasOrange}*шмыг* Человек, ты несёшь сочные апельсины? Можно мне один, пожалуйста?"
-					PlayerHasBook: "{PlayerHasBook}Это у тебя там книга, человек? Хочешь почитать её вместе?"
+					PlayerHasOrange: "{PlayerHasOrange}*шмыг* {PlayerRace}, ты несёшь сочные апельсины? Можно мне один, пожалуйста?"
+					PlayerHasBook: "{PlayerHasBook}Это у тебя там книга, {PlayerRace}? Хочешь почитать её вместе?"
 					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}Что это? «Книга черепов»? Хех, обложка немного похожа на мою маску."
 					PlayerHasWaterBolt: "{PlayerHasWaterBolt}Что у тебя там? Волшебная книга, которая разбрызгивает воду? Надеюсь, она этого не сделает, если я попытаюсь её прочитать."
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}О, ты принесла мне ещё одну книгу? А почему она называется «Золотой душ»?"
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Ого, блестящий воздушный шарик! Можно я его подержу?"
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Какое у тебя красивое платье, человек! Ты в нём очень мило выглядишь, хе-хе."
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Ого, человек, кто эта кошка? Она огромная!"
-					Valentine1: "{Valentine}Что ты думаешь, человек? Подойдет ли мне эта заколка для волос ко Дню святого Валентина?"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Какое у тебя красивое платье, {PlayerRace}! Ты в нём очень мило выглядишь, хе-хе."
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Ого, {PlayerRace}, кто эта кошка? Она огромная!"
+					Valentine1: "{Valentine}Что ты думаешь, {PlayerRace}? Подойдет ли мне эта заколка для волос ко Дню святого Валентина?"
 					Valentine2: "{Valentine}Букет — это хорошо, но если ты хочешь завоевать моё сердце, то должен принести мне буклет!"
 					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
 					Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 					Oktoberfest1: "{Oktoberfest}Настало то самое время года, когда можно выпить много пива! Ура!"
-					Oktoberfest2: "{Oktoberfest}Человек... Это из-за пива или ты всегда была такой красивой?"
+					Oktoberfest2: "{Oktoberfest}{PlayerRace}... Это из-за пива или ты всегда была такой красивой?"
 					Oktoberfest3: "{Oktoberfest}Ммм. Это пиво — просто объедение."
 					Oktoberfest4: "{Oktoberfest}Со мной всё в порядке. Дайте мне ещё одну кружку пива."
 					Halloween1: "{Halloween}Цитрусовый шар с соком и семенами, даруй мне тепло в час нужды. Кислое убегает, а сладкое остается, цитрусовые защищают от всякого зла!"
@@ -148,7 +151,7 @@ Mods: {
 					Halloween3: "{Halloween}БУ! Хе-хе, я тебя напугал, да?"
 					Halloween4: "{Halloween}Гррр! Я — злой волшебник-волшебник Волк. И я превращу тебя в сочный апельсин и проглочу целиком!"
 					Halloween5: "{Halloween}Я всех напугаю и заберу у них конфеты!"
-					Xmas1: "{Xmas}Хо-хо-хо! Привет, человек!"
+					Xmas1: "{Xmas}Хо-хо-хо! Привет, {PlayerRace}!"
 					Xmas2: "{Xmas}Что мне попросить у Санты? Больше книг или больше апельсинов?"
 					Xmas3: "{Xmas}С Рождеством!"
 					Xmas4: "{Xmas}Не хотите ли помочь мне украсить мою апельсиновую елку рождественскими игрушками?"
@@ -156,7 +159,7 @@ Mods: {
 					Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 					BloodMoon: {
-						BloodMoon1: Держись от меня подальше, человек. Сегодня я плохо себя чувствую.
+						BloodMoon1: Держись от меня подальше, {PlayerRace}. Сегодня я плохо себя чувствую.
 						BloodMoon2: Привет, сочный апельсин, передай привет моему рту.
 						BloodMoon3: Гррр... нужно... больше... апельсинов!
 						BloodMoon4: Хочешь, чтобы я тебя преобразил?
@@ -175,17 +178,17 @@ Mods: {
 					Martians: {
 						Martians1: Существа из другого мира? Сначала я узнал, что существует целый мир за пределами лаборатории, а теперь вы говорите, что есть ещё один мир за её пределами?
 						Martians2: Я хочу себе один из этих марсианских электрошокеров, чтобы я мог быть «пиу-пиу Пуро»!
-						Martians3: Человек, что такое НЛО?
+						Martians3: "{PlayerRace}, что такое НЛО?"
 					}
 
 					Eclipse: {
-						Eclipse1: Человек! Пожалуйста, не выходи сегодня на улицу. Это слишком опасно!
+						Eclipse1: "{PlayerRace}! Пожалуйста, не выходи сегодня на улицу. Это слишком опасно!"
 						Eclipse2: Думаю, я останусь дома и почитаю книги, пока не выглянет солнце.
 						Eclipse3: Сегодня я пыталась собрать апельсины, но на улице слишком темно.
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}Человек! Где твоя праздничная шляпа?"
+						Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Где твоя праздничная шляпа?"
 						Party2: Подержи мою тарелку. Нет, подожди, дай мне и свою тоже.
 						Party3: Если кто-то ищет апельсиновый кекс... ну, не стоит. Я съел его целиком.
 						Party4: Я хочу сделать фигурку из воздушного шарика, которая будет выглядеть точно как ты. Милую и мягкую!
@@ -196,7 +199,7 @@ Mods: {
 						Party9: "{PlayerIsWearingBalloon}Да! Это как раз то, чего не хватало этой вечеринке. Больше воздушных шаров!"
 						Party10: Я — чёрное слизистое чудовище, а мой рот — чёрная дыра для вкуснейшей еды!
 						Party11: Ммм, эти воздушные апельсиновые кексы такие вкусные, но я уже их столько съела... Может, еще один?
-						Party12: Потанцуем вместе, человек? Потому что я чувствую себя настоящим тусовщиком!
+						Party12: Потанцуем вместе, {PlayerRace}? Потому что я чувствую себя настоящим тусовщиком!
 					}
 				}
 
@@ -846,6 +849,82 @@ Mods: {
 				FriendlyName: Ракетостроение
 			}
 		}
+
+		Races: {
+			Animals: {
+				// Bee: Bee
+				Bunny: Кролик
+				Cat: Кот
+				// Chicken: Chicken
+				Dog: Собака
+				Dragon: Дракон
+				Fox: Лиса
+				// Hedgehog: Hedgehog
+				// Hyena: Hyena
+				// Mouse: Mouse
+				// Otter: Otter
+				// Panda: Panda
+				Shark: Акула
+				// Tiger: Tiger
+				Wolf: Волк
+			}
+
+			Furry: {
+				Avali: Авали
+				Expie: Экспй
+				Protogen: Протоген
+			}
+
+			# Need to read through bulbapedia for the translated names
+			Pokemon: {
+				Absol: Абсол
+				Charizard: Чаризард
+				Eevee: Иви
+				Espeon: Эспеон
+				Flareon: Флареон
+				Glaceon: Глейсеон
+				Jolteon: Джолтеон
+				Leafeon: Лифеон
+				Lucario: Лукарио
+				// Lugia: Lugia
+				Sylveon: Сильвеон
+				Umbreon: Амбреон
+				Vaporeon: Вапореон
+				Zeraora: Зераора
+				Zoroark: Зороарк
+			}
+
+			Fantasy: {
+				Derpkin: Рак-отшельник
+				Fluftrodon: Флафтродон
+				Goblin: Гоблин
+				Kenku: Кенку
+				Kobold: Кобольд
+				Lihzahrd: Ящщер
+				Lycan: Ликан
+				MerfolkFemale: Русалка
+				MerfolkMale: Русал
+				MushfolkFemale: Женщина-гриб
+				MushfolkMale: Мужчина-гриб
+				Serpent: Змей
+				Skeleton: Скелет
+				Soulbeast: Зверь душ
+				Tabaxi: Табакси
+				Unicorn: Единорог
+				Vampire: Вампир
+				Werewolf: Оборотень
+			}
+
+			Other: {
+				Human: Человек
+				Fishron: Рыброн
+				LavaShark: Лавовая акула
+				Raptor: Раптор
+				SandShark: Песчаная акула
+				Sharkron: Акулон
+				StormDrake: Штормовой дракон
+			}
+		}
 	}
 }
 
@@ -854,10 +933,10 @@ Mods: {
 # or 1 in 712
 # 885 entries in vanilla
 RandomWorldName_Noun_Custom: {
-	DragonSnow: DragonSnow
-	Hayden: Hayden
-	Shizi: ShiZi
-	Snorro: Snorro
+	DragonSnow: Драгонсноу
+	Hayden: Хейден
+	Shizi: Шицзы
+	Snorro: Снорро
 	WhiteTail: Белый хвост
 	WolfKing: Король Волков
 }

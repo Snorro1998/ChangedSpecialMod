@@ -1,12 +1,12 @@
-using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Food;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.Relics;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.Trophies;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
@@ -124,7 +124,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 20));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiteTailTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<WhiteTailRelic>()));
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

@@ -73,6 +73,8 @@ namespace ChangedSpecialMod.Common.Configs
         public bool EvolutionSize { get; set; }
 
         [Header("Misc")]
+        [DefaultValue(false)]
+        public bool Holidays { get; set; }
         [DefaultValue(true)]
         public bool CustomDryadWorldStatus { get; set; }
 

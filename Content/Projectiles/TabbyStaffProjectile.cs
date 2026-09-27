@@ -19,7 +19,7 @@ namespace ChangedSpecialMod.Content.Projectiles
         public override void SetDefaults()
         {
             Projectile.width = 32;
-            Projectile.height = 70;
+            Projectile.height = 50;
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.minionSlots = 1f;

@@ -30,7 +30,7 @@ namespace ChangedSpecialMod.Content.Projectiles
             Projectile.DamageType = DamageClass.Summon;
             // Enemies have grown bigger and stronger by the time you can create this weapon
             // So make the cat spawned by this weapon bigger as well
-            Projectile.scale = 1.3f;
+            //Projectile.scale = 1.3f;
         }
         public override bool MinionContactDamage()
         {

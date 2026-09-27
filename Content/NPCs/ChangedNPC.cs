@@ -11,7 +11,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
@@ -623,14 +626,204 @@ namespace ChangedSpecialMod.Content.NPCs
             return npcIdentifiers;
         }
 
+
+        public static string RemoveColorTag(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return text;
+
+            return Regex.Replace(text, @"\[c/[0-9A-Fa-f]{6}:(.*?)\]", "$1");
+        }
+
+        public static string RemovePrefix(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return name;
+
+            // Clean up names used in Turtlerens
+            // Would be cleaner if we replaced all ' characters, but maybe other race mods use them too
+            // Examples:
+            // l'il dragon
+            // t'iny raptor
+            // b'ig dragon
+            // big fuzzy bunny
+            return name
+                .Replace("l'il ", "")
+                .Replace("t'iny ", "")
+                .Replace("b'ig ", "")
+                .Replace("big ", "")
+                .Replace("fuzzy ", "");
+        }
+
+        // Converts a string like 'lava shark' to 'LavaShark'
+        public static string ToPascalCase(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return null;
+
+            return string.Concat(
+                input.Split(new[] { ' ', '_', '-', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                     .Select(word => char.ToUpperInvariant(word[0]) + word.Substring(1).ToLowerInvariant())
+            );
+        }
+
+        public static string DetermineRaceName(Player player, string name)
+        {
+            if (name == null)
+                return null;
+
+            // Remove color tag so the text doesn't appear in a different color
+            name = RemoveColorTag(name);
+            name = name.ToLower();
+            name = RemovePrefix(name);
+            name = name.Trim();
+
+            switch (name)
+            {
+                case "buzzling":
+                    name = "bee";
+                    break;
+                case "hyenid":
+                    name = "hyena";
+                    break;
+                case "mausling":
+                    name = "mouse";
+                    break;
+                case "merfolk":
+                    name = player.Male ? "merfolk male" : "merfolk female";
+                    break;
+                case "mushfolk":
+                    name = player.Male ? "mushfolk male" : "mushfolk female";
+                    break;
+                case "Otterian":
+                    name = "otter";
+                    break;
+                case "serpentfolk":
+                    name = "serpent";
+                    break;
+                case "betsy":
+                    name = "dragon";
+                    break;
+                case "fenrir":
+                    name = "wolf";
+                    break;
+                default:
+                    break;
+            }
+
+            var localizationName = ToPascalCase(name);
+            if (localizationName != null)
+            {
+                var categories = new List<string>()
+                {
+                    "Animals",
+                    "Furry",
+                    "Pokemon",
+                    "Fantasy",
+                    "Other"
+                };
+
+                foreach (var category in categories)
+                {
+                    var path = $"Mods.ChangedSpecialMod.Races.{category}.{localizationName}";
+                    if (Language.Exists(path))
+                    {
+                        name = Language.GetTextValue(path);
+                        break;
+                    }
+                }
+            }
+
+            return name;
+        }
+
+        public static string GetMrPlaguesRaceDisplayName(Player player)
+        {
+            var modMrPlagueRaces = ModSupportSystem.modMrPlagueRaces;
+
+            if (modMrPlagueRaces == null)
+                return "nomrplagues";
+
+            try
+            {
+                Type modPlayerType = ModSupportSystem.modMrPlagueRaces.Code.GetType("MrPlagueRaces.MrPlagueRacesPlayer");
+
+                if (modPlayerType == null)
+                    return null;
+
+                // Find MrPlaguesRaces' PlayerMod attached to this player.
+                ModPlayer modPlayer = null;
+
+                foreach (ModPlayer mp in player.ModPlayers)
+                {
+                    if (mp.GetType() == modPlayerType)
+                    {
+                        modPlayer = mp;
+                        break;
+                    }
+                }
+
+                // Get the race field
+                FieldInfo raceField = modPlayerType.GetField(
+                    "race",
+                    BindingFlags.Public | BindingFlags.Instance
+                );
+
+                object race = raceField?.GetValue(modPlayer);
+
+                if (race == null)
+                    return null;
+
+                // Get the RaceDisplayName property of the race
+                FieldInfo displayNameProperty = race.GetType().GetField(
+                    "DisplayName",
+                    BindingFlags.Public | BindingFlags.Instance
+                );
+
+                if (displayNameProperty == null)
+                    return null;
+
+                var result = displayNameProperty?.GetValue(race) as string;
+
+                if (result != null)
+                {
+                    result = DetermineRaceName(player, result);
+                }
+                // Check the name field of the race if displayname is empty (which is true for ZeraoraRace mod)
+                else
+                {
+                    // Get the RaceDisplayName property
+                    PropertyInfo nameProperty = race.GetType().GetProperty(
+                        "Name",
+                        BindingFlags.Public | BindingFlags.Instance
+                    );
+
+                    if (nameProperty == null)
+                        return null;
+
+                    result = nameProperty?.GetValue(race) as string;
+                    result = DetermineRaceName(player, result);
+                }
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public Dictionary<string, string> GetChatKeyWords()
         {
             var keyWords = new Dictionary<string, string>() { };
             var npcIdentifiers = GetNPCIdentifiers();
 
+            // It is a bit silly to call this with the condition to true, but
+            // there was once a bug that the chatbox would not appear, because
+            // it tried to insert a duplicate key, making it crash
             void AddIf(bool condition, string key, string value = "")
             {
-                if (condition)
+                if (condition && !keyWords.ContainsKey(key))
                     keyWords.Add(key, value);
             }
 
@@ -643,19 +836,44 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     var npcIdentifier = npcIdentifiers[npcID];
                     var tmpNPC = Main.npc[npcIndex];
-                    keyWords.Add($"Name{npcIdentifier}", tmpNPC.GivenName);
-                    keyWords.Add($"{npcIdentifier}Present", string.Empty);
+                    AddIf(true, $"Name{npcIdentifier}", tmpNPC.GivenName);
+                    AddIf(true, $"{npcIdentifier}Present", string.Empty);
+                }
+            }
+
+            // If playing with TerraGuardian, also get the guardians following the player.
+            // Should find a way to include all of them in the world
+            var companions = GetTerraGuardianKeywords();
+            if (companions.Count > 0)
+            {
+                AddIf(true, $"PlayerHasTerraGuardian", string.Empty);
+
+                foreach (var companion in companions)
+                {
+                    var companionName = companion.Key;
+                    var companionNickName = companion.Value;
+
+                    AddIf(true, $"TerraGuardian{companionName}Present", string.Empty);
+                    AddIf(true, $"TerraGuardian{companionName}Name", companionNickName);
                 }
             }
 
             // Bosses slain
-            if (DownedBossSystem.DownedBehemoth) keyWords.Add("Behemoth", string.Empty);
+            if (DownedBossSystem.DownedBehemoth)
+                AddIf(true, "Behemoth", string.Empty);
 
             var player = Main.LocalPlayer;
             if (player != null)
             {
+                // Check if playing with any race from MrPlagues mod, or a race mod dependant from it.
+                // If so, call the player by the race name, instead of 'human'
+                var raceName = GetMrPlaguesRaceDisplayName(player);
+                if (raceName == null)
+                    raceName = Language.GetTextValue("Mods.ChangedSpecialMod.Races.Other.Human");
+                AddIf(true, "PlayerRace", raceName);
+
                 var changedPlayer = player.ChangedPlayer();
-                keyWords.Add("NamePlayer", player.name);
+                AddIf(true, "NamePlayer", player.name);
 
                 var hasNormalBook = player.HasItem(ItemID.Book);
                 var hasBookOfSkulls = player.HasItem(ItemID.BookofSkulls);
@@ -675,9 +893,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 var orangeItem = player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<Orange>());
                 if (orangeItem != null)
                 {
-                    keyWords.Add("PlayerHasOrange", string.Empty);
+                    AddIf(true, "PlayerHasOrange", string.Empty);
                     if (orangeItem.stack >= 20)
-                        keyWords.Add("PlayerHasManyOranges", string.Empty);
+                        AddIf(true, "PlayerHasManyOranges", string.Empty);
                 }
 
                 AddIf(hasAnyBook, "PlayerHasBook");
@@ -687,11 +905,11 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 var wearingPartyHat = player.armor.Any(item => item.type == ItemID.PartyHat);
                 if (!wearingPartyHat)
-                    keyWords.Add("PlayerHasNoPartyHat", string.Empty);
+                    AddIf(true, "PlayerHasNoPartyHat", string.Empty);
                 if (ChangedUtils.PlayerIsWearingBalloon(player))
-                    keyWords.Add("PlayerIsWearingBalloon", string.Empty);
+                    AddIf(true, "PlayerIsWearingBalloon", string.Empty);
                 if (ChangedUtils.PlayerIsWearingWeddingDress(player))
-                    keyWords.Add("PlayerIsWearingWeddingDress", string.Empty);
+                    AddIf(true, "PlayerIsWearingWeddingDress", string.Empty);
 
                 AddIf(NPC.boughtDog, "HasDogLicense");
 
@@ -707,23 +925,23 @@ namespace ChangedSpecialMod.Content.NPCs
 
                     if (transfurBlackGoop)
                     {
-                        keyWords.Add("TransfurGoop", string.Empty);
-                        keyWords.Add("TransfurBlackGoop", string.Empty);
+                        AddIf(true, "TransfurGoop", string.Empty);
+                        AddIf(true, "TransfurBlackGoop", string.Empty);
                     }
                     else if (transfurWhiteGoop)
                     {
-                        keyWords.Add("TransfurGoop", string.Empty);
-                        keyWords.Add("TransfurWhiteGoop", string.Empty);
+                        AddIf(true, "TransfurGoop", string.Empty);
+                        AddIf(true, "TransfurWhiteGoop", string.Empty);
                     }
                     else if (transfurBlackCub)
                     {
-                        keyWords.Add("TransfurCub", string.Empty);
-                        keyWords.Add("TransfurBlackCub", string.Empty);
+                        AddIf(true, "TransfurCub", string.Empty);
+                        AddIf(true, "TransfurBlackCub", string.Empty);
                     }
                     else if (transfurWhiteCub)
                     {
-                        keyWords.Add("TransfurCub", string.Empty);
-                        keyWords.Add("TransfurWhiteCub", string.Empty);
+                        AddIf(true, "TransfurCub", string.Empty);
+                        AddIf(true, "TransfurWhiteCub", string.Empty);
                     }
                 }
 
@@ -732,7 +950,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 {
                     if (projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>() && projectile.owner == Main.myPlayer)
                     {
-                        keyWords.Add("PlayerHasPurrpurr", string.Empty);
+                        AddIf(true, "PlayerHasPurrpurr", string.Empty);
                         break;
                     }
                 }
@@ -761,32 +979,148 @@ namespace ChangedSpecialMod.Content.NPCs
             AddIf(ChangedUtils.IsItWindy(), "Windy");
 
             // Seasons
-            string seasonKeyWord = null;
-            switch (SeasonSystem.season)
+            if (ChangedSpecialModClientConfig.Instance.Holidays)
             {
-                case SeasonalEvent.Valentine:
-                    seasonKeyWord = "Valentine";
-                    break;
-                case SeasonalEvent.Easter:
-                    seasonKeyWord = "Easter";
-                    break;
-                case SeasonalEvent.Oktoberfest:
-                    seasonKeyWord = "Oktoberfest";
-                    break;
-                case SeasonalEvent.Halloween:
-                    seasonKeyWord = "Halloween";
-                    break;
-                case SeasonalEvent.XMas:
-                    seasonKeyWord = "Xmas";
-                    break;
-            }
-            if (seasonKeyWord != null)
-            {
-                keyWords.Add(seasonKeyWord, string.Empty);
+                string seasonKeyWord = null;
+                switch (SeasonSystem.season)
+                {
+                    case SeasonalEvent.Valentine:
+                        seasonKeyWord = "Valentine";
+                        break;
+                    case SeasonalEvent.Easter:
+                        seasonKeyWord = "Easter";
+                        break;
+                    case SeasonalEvent.Oktoberfest:
+                        seasonKeyWord = "Oktoberfest";
+                        break;
+                    case SeasonalEvent.Halloween:
+                        seasonKeyWord = "Halloween";
+                        break;
+                    case SeasonalEvent.XMas:
+                        seasonKeyWord = "Xmas";
+                        break;
+                }
+                if (seasonKeyWord != null)
+                {
+                    AddIf(true, seasonKeyWord, string.Empty);
+                }
             }
 
             return keyWords;
         }
+
+        private Dictionary<string, string> GetTerraGuardianKeywords()
+        {
+            // Checks terraguardians modplayer (PlayerMod) if he has any companions
+            // Companion is an extended player class and can be used to retrieve
+            // info like the name, nickname and scale.
+            // The names can be used in chats and scale can be used to determine if they are big
+            // Terraguardian doesnt check the scale as far as I know
+            // For example, Leona can call the player "shortie" even if you shrunk her
+            // It could also be intentional, because normally she is much larger than the player
+            // The companions are stored int the SummonedCompanions array
+
+            var result = new Dictionary<string, string>();  
+
+            if (ModSupportSystem.modTerraGuardians == null)
+                return result;
+
+            // NPC chats are only done locally, so this is okay to do
+            var player = Main.LocalPlayer;
+
+            try
+            {
+                Type playerModType = ModSupportSystem.modTerraGuardians.Code.GetType("terraguardians.PlayerMod");
+
+                if (playerModType == null)
+                    return result;
+
+                // Find TerraGuardians' PlayerMod attached to this player.
+                ModPlayer modPlayer = null;
+
+                foreach (ModPlayer mp in player.ModPlayers)
+                {
+                    if (mp.GetType() == playerModType)
+                    {
+                        modPlayer = mp;
+                        break;
+                    }
+                }
+
+                if (modPlayer == null)
+                    return result;
+
+                // Get the private SummonedCompanions field.
+                var field = playerModType.GetField(
+                    "SummonedCompanions",
+                    System.Reflection.BindingFlags.Instance |
+                    System.Reflection.BindingFlags.NonPublic
+                );
+
+                if (field == null)
+                    return result;
+
+                Array companions = field.GetValue(modPlayer) as Array;
+
+                if (companions == null)
+                    return result;
+
+                // Check whether any companion is actually present.
+                for (int i = 0; i < companions.Length; i++)
+                {
+                    var companion = companions.GetValue(i);
+                    if (companion != null)
+                    {
+                        var nameField = playerModType.GetField(
+                            "SummonedCompanions",
+                            System.Reflection.BindingFlags.Instance |
+                            System.Reflection.BindingFlags.NonPublic
+                        );
+
+                        var nameProperty = companion.GetType().GetProperty("GetRealName");
+                        var scaleField = companion.GetType().GetField("Scale");
+
+                        if (nameProperty != null)
+                        {
+                            string name = nameProperty.GetValue(companion) as string;
+                            if (name != null)
+                            {
+                                var nickname = name;
+                                var companionPlayer = companion as Player;
+
+                                if (companionPlayer != null)
+                                {
+                                    nickname = companionPlayer.name;
+                                }
+
+                                /*
+                                if (scaleField != null)
+                                {
+                                    object scaleObject = scaleField.GetValue(companion);
+                                    if (scaleObject != null)
+                                    {
+                                        var scale = (float)scaleObject;
+                                        name += $", scale {scale}";
+                                    }
+                                }
+                                */
+                                if (!result.ContainsKey(name))
+                                {
+                                    result.Add(name, nickname);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result;
+            }
+        }
+
 
         public void SetNPCName(NPC npc, string overwriteName = null)
         {

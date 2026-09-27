@@ -115,4 +115,9 @@ ChangedSpecialModClientConfig: {
 		Label: Los monstruos pueden usar sombreros.
 		Tooltip: Cuando esta opción está activada, los monstruos pueden llevar sombreros bajo ciertas condiciones. Por ejemplo, cuando llueve o durante una fiesta.
 	}
+
+	Holidays: {
+		Label: Días festivos
+		Tooltip: Los habitantes del pueblo llevan sombreros durante las festividades y tienen diálogos únicos.
+	}
 }

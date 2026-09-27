@@ -40,6 +40,7 @@ Mods: {
 			BehemothCanSpawn: Something stirs in the White Goo zone...
 			ColinCanSpawn: Someone is on their way to you...
 			WIPBossFight: This boss fight is still being developed, so don't expect much for now.
+			CalendarUsedNoHolidays: This item does nothing, unless you enable the holidays configuration option.
 		}
 
 		WorldGenerationPasses: {
@@ -89,22 +90,24 @@ Mods: {
 					NPCMerchant: If only {NameMerchant} sold orange juice, he would be rich!
 					NPCTavernKeep: I told {NameTavernKeep} he should expand his menu with orange drinks and dishes! Think of all the delicious possibilities like citrus salad, orange pound cake, orange juice, oh and mimosa! Mmmmm mimosa...
 					NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
-					NPCTaxCollector: Human, what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them.
+					NPCTaxCollector: "{PlayerRace}, what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them."
 					NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
 					NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} told me all kinds of things about 'magike', but all I wanted to know is if you can make oranges from it."
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} has so many shoes, but they are all too small for my paws."
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}I don't understand why {NameStarsModPackFarmer} doesn't have orange tree seeds. Every farmer should have them."
-					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}Human, do you know why {NameStarsModPackScrapyardGeek} iz alwaz talking like zat?"
+					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, do you know why {NameStarsModPackScrapyardGeek} iz alwaz talking like zat?"
+					TerraGuardianBlue: "{TerraGuardianBluePresent} Big blue dog"
+					TerraGuardianIch: "{TerraGuardianBluePresent} {TerraGuardianIchName} Big cat"
 					Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
-					Book2: Hello human! Have you seen my book?
+					Book2: Hello {PlayerRace}! Have you seen my book?
 					Book3: Will you help me make the biggest book tower?
-					Book4: Human! Look at this amazing book I just found!
+					Book4: "{PlayerRace}! Look at this amazing book I just found!"
 					Book5: One day I will write a book about the amazing adventures of {NamePlayer}!
-					Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together human?
+					Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together {PlayerRace}?
 					# Globglobgabgalab
 					Book7: I am the gooey glabgalab, and I love books.
 					Orange1: What's your favorite color? My favorite color is orange.
-					Orange2: Mmmm *munch* orange *munch* Oh, hello human.
+					Orange2: Mmmm *munch* orange *munch* Oh, hello {PlayerRace}.
 					Orange3: I don't have a favorite child but if I did, it would be this orange.
 					Orange4: Last night I dreamt I was in a ball pit filled with oranges.
 					Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
@@ -117,27 +120,27 @@ Mods: {
 					Changed1: Have you seen my drawings in the lab? Would you like me to make a drawing of you?
 					Changed2: "{Behemoth}I want to become as big as the Behemoth, so I can hold you in my paws like a doll and keep you safe."
 					Normal1: I don't need gear to protect myself, because I've got big claws, paws and a big maw!
-					Normal2: Hello! How's my favorite human today?
+					Normal2: Hello! How's my favorite {PlayerRace} today?
 					TransfurCub: "{TransfurCub}Hello little puppy. You are so small and cute! Can I hold you please?"
 					Rain1: "{Rain}If you are cold from the rain and want to warm up, you can bury yourself in my fluffy fur!"
 					Rain2: "{Rain}I shook my fur to dry myself off and now I am extra floofy!"
 					Thunder1: "{Thunder}I am not afraid of lightning. My whole body is made out of rubber so even if I got struck by it, I would be totally fine!"
 					Thunder2: "{Thunder}With all those bright flashes I hardly need a lamp to read my books."
-					Windy1: "{Windy}Would you like to fly a kite with me, human?"
+					Windy1: "{Windy}Would you like to fly a kite with me, {PlayerRace}?"
 					Windy2: "{Windy}The wind is so strong today that my fur got all messed up."
 					Windy3: "{Windy}I wish I had wings so I could fly and take you everywhere."
-					PlayerHasOrange: "{PlayerHasOrange}*Sniff* Human, are you carrying juicy oranges? Can I have one please?"
-					PlayerHasBook: "{PlayerHasBook}Is that a book you have there human? Would you like to read it together?"
+					PlayerHasOrange: "{PlayerHasOrange}*Sniff* {PlayerRace}, are you carrying juicy oranges? Can I have one please?"
+					PlayerHasBook: "{PlayerHasBook}Is that a book you have there {PlayerRace}? Would you like to read it together?"
 					PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}What is that? 'Book of Skulls?' Heh, the cover looks a bit like my mask."
 					PlayerHasWaterBolt: "{PlayerHasWaterBolt}What do you have there? A magical book that sprays water? I hope it doesn't do that if I try to read it."
 					PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oooh you brought me another book? Eh, why is it called 'Golden Shower'?"
 					PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oooh a shiny balloon! Can I hold it please?"
-					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress human. You look kinda cute in it hehehe."
-					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah human, who is that cat? She is huge!"
-					Valentine1: "{Valentine}What do you think, human? Do I look cute with this Valentine's Day hair pin?"
+					PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress {PlayerRace}. You look kinda cute in it hehehe."
+					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah {PlayerRace}, who is that cat? She is huge!"
+					Valentine1: "{Valentine}What do you think, {PlayerRace}? Do I look cute with this Valentine's Day hair pin?"
 					Valentine2: "{Valentine}A bouquet is nice, but if you want to win my heart then you have to bring me a booklet!"
 					# Easter is not implemented yet
-					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+					Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
 					Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 					Oktoberfest1: "{Oktoberfest}It is that time of the year for lots of beer! PROST!"
 					Oktoberfest2: "{Oktoberfest}Hooooman... Is it the beer or have you always looked so pretty?"
@@ -148,15 +151,15 @@ Mods: {
 					Halloween3: "{Halloween}BOO! Hehe I scared you didn't I?"
 					Halloween4: "{Halloween}Grrrr! I am the evil Wizard Wolf. And I will turn you into a juicy orange and swallow you whole!"
 					Halloween5: "{Halloween}I am going to scare everybody and take their candy!"
-					Xmas1: "{Xmas}Ho ho ho! Hello human!"
+					Xmas1: "{Xmas}Ho ho ho! Hello {PlayerRace}!"
 					Xmas2: "{Xmas}What should I ask from Santa? More books or more oranges?"
-					Xmas3: "{Xmas}Jingle bells, Puro smells, human on a sleigh!"
+					Xmas3: "{Xmas}Jingle bells, Puro smells, {PlayerRace} on a sleigh!"
 					Xmas4: "{Xmas}Would you like to help me decorate my orange tree with Christmas ornaments?"
 					Xmas5: "{Xmas}Silent night, citrus bright. All is calm, peel held tight. Round orange, golden and sweet. Spoiled rotten, with such a nice treat."
 					Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 					BloodMoon: {
-						BloodMoon1: Stay away from me human. I am not feeling like myself today.
+						BloodMoon1: Stay away from me {PlayerRace}. I am not feeling like myself today.
 						BloodMoon2: Hello juicy orange, say hi to my mouth.
 						BloodMoon3: Grrrr.. need... more... oranges!
 						BloodMoon4: Do you want to be transfurred?
@@ -175,17 +178,17 @@ Mods: {
 					Martians: {
 						Martians1: Creatures from another world? First I find out there is a whole world outside the lab and now you are telling me there is another world out there?
 						Martians2: I want one of those martian zappers so I can be pew pew Puro!
-						Martians3: Human, what's a U.F.O? An Unbelievably Fruity Orange?
+						Martians3: "{PlayerRace}, what's a U.F.O? An Unbelievably Fruity Orange?"
 					}
 
 					Eclipse: {
-						Eclipse1: Human! Please don't go outside today. It is way too dangerous!
+						Eclipse1: "{PlayerRace}! Please don't go outside today. It is way too dangerous!"
 						Eclipse2: I think I will stay inside and read some books until the sun gets back.
 						Eclipse3: I tried to pick some oranges today, but it is just way too dark.
 					}
 
 					Party: {
-						Party1: "{PlayerHasNoPartyHat}Human! Where is your party hat?"
+						Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Where is your party hat?"
 						Party2: Hold my plate. No wait actually, give me yours too.
 						Party3: If anybody is looking for the orange pound cake.. eh, don't. I ate the whole thing.
 						Party4: I want to make a balloon animal that looks just like you. Cute and squishy!
@@ -196,7 +199,7 @@ Mods: {
 						Party9: "{PlayerIsWearingBalloon}Yes! Just what this party needed. More balloons!"
 						Party10: I am a black latex beast, and my mouth is a black hole for delicious food!
 						Party11: Mmmm these fluffy orange cupcakes are so good, but I already had so many.. Perhaps just one more.
-						Party12: Shall we dance together human? Because I feel like a party animal!
+						Party12: Shall we dance together {PlayerRace}? Because I feel like a party animal!
 					}
 				}
 
@@ -844,6 +847,82 @@ Mods: {
 			RocketScienceAchievement: {
 				Description: Make a gas cylinder fly away.
 				FriendlyName: Rocket Science
+			}
+		}
+
+		Races: {
+			Animals: {
+				Bee: Bee
+				Bunny: Bunny
+				Cat: Cat
+				Chicken: Chicken
+				Dog: Dog
+				Dragon: Dragon
+				Fox: Fox
+				Hedgehog: Hedgehog
+				Hyena: Hyena
+				Mouse: Mouse
+				Otter: Otter
+				Panda: Panda
+				Shark: Shark
+				Tiger: Tiger
+				Wolf: Wolf
+			}
+
+			Furry: {
+				Avali: Avali
+				Expie: Expie
+				Protogen: Protogen
+			}
+
+			# Need to read through bulbapedia for the translated names
+			Pokemon: {
+				Absol: Absol
+				Charizard: Charizard
+				Eevee: Eevee
+				Espeon: Espeon
+				Flareon: Flareon
+				Glaceon: Glaceon
+				Jolteon: Jolteon
+				Leafeon: Leafeon
+				Lucario: Lucario
+				Lugia: Lugia
+				Sylveon: Sylveon
+				Umbreon: Umbreon
+				Vaporeon: Vaporeon
+				Zeraora: Zeraora
+				Zoroark: Zoroark
+			}
+
+			Fantasy: {
+				Derpkin: Derpkin
+				Fluftrodon: Fluftrodon
+				Goblin: Goblin
+				Kenku: Kenku
+				Kobold: Kobold
+				Lihzahrd: Lihzahrd
+				Lycan: Lycan
+				MerfolkFemale: Mermaid
+				MerfolkMale: Merman
+				MushfolkFemale: Mushmaid
+				MushfolkMale: Mushman
+				Serpent: Serpent
+				Skeleton: Skeleton
+				Soulbeast: Soulbeast
+				Tabaxi: Tabaxi
+				Unicorn: Unicorn
+				Vampire: Vampire
+				Werewolf: Werewolf
+			}
+
+			Other: {
+				Human: Human
+				Fishron: Fishron
+				LavaShark: Lava Shark
+				Raptor: Raptor
+				SandShark: Sand Shark
+				Sharkron: Sharkron
+				StormDrake: Storm Drake
 			}
 		}
 	}

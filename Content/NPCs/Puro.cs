@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
@@ -255,6 +256,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<Items.Placeable.Furniture.Painting18>()
                 .Add<Items.Placeable.Furniture.Painting19>()
                 .Add<Items.Placeable.Furniture.Painting20>()
+                .Add<Items.Placeable.Furniture.Painting21>()
 
                 // Big paintings
                 .Add<Items.Placeable.Furniture.Painting6>()
@@ -357,7 +359,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 hatId = ItemID.BuccaneerBandana;
             }
-            else
+            else if (ChangedSpecialModClientConfig.Instance.Holidays)
             {
                 switch (SeasonSystem.season)
                 {

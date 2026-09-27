@@ -21,6 +21,7 @@ namespace ChangedSpecialMod.Content.Items.Weapons
             Item.crit = 2;
             Item.value = Item.buyPrice(0, 2, 0, 0);
             Item.UseSound = SoundID.Item1;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<WhiskerStaff>();
         }
     }
 }

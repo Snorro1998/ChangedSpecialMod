@@ -35,6 +35,7 @@ namespace ChangedSpecialMod.Content.Items.Weapons
             Item.DamageType = DamageClass.Summon;
             Item.buffType = ModContent.BuffType<Buffs.WhiskerStaffBuff>();
             Item.shoot = ModContent.ProjectileType<WhiskerStaffProjectile>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<TigerPaw>();
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

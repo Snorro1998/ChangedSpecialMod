@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
@@ -638,7 +639,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 hatId = ItemID.BuccaneerBandana;
             }
-            else
+            else if (ChangedSpecialModClientConfig.Instance.Holidays)
             {
                 switch (SeasonSystem.season)
                 {

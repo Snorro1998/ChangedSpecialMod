@@ -4,10 +4,7 @@ using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
-using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -23,14 +20,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetStaticDefaults()
         {
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            {
-                Velocity = 1f,
-                Scale = 1 / NPC.scale,
-                PortraitScale = 1 / NPC.scale,
-                Position = new Vector2(0, 32)
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, value);
+            ChangedUtils.HideFromBestiary(this);
         }
 
         public override void SetDefaults()
@@ -58,14 +48,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HitEffectScale = 3;
             changedNPC.RemoveAllHats();
             changedNPC.spawnDepth = SpawnDepth.Everywhere;
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.PuroWormHead.Description")),
-            });
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

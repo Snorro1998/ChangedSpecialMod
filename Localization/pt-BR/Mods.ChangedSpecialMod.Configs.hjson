@@ -115,4 +115,9 @@ ChangedSpecialModClientConfig: {
 		Label: Monstros podem usar chapéus.
 		Tooltip: Quando essa opção está ativada, os monstros podem usar chapéus sob certas condições. Por exemplo, quando está chovendo ou durante uma festa.
 	}
+
+	Holidays: {
+		Label: Feriados bancários
+		Tooltip: Os habitantes da cidade usam chapéus durante os feriados e têm diálogos únicos.
+	}
 }

@@ -393,8 +393,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add<DebugSpawnAllNPCs>()
                 .Add<DebugResetBosses>()
                 .Add<DebugSpawnColin>()
-                .Add<SummonShark>()
-                .Add<SummonExperiment009>()
+                //.Add<SummonShark>()
+                //.Add<SummonExperiment009>()
                 .Register();
         }
 
@@ -548,9 +548,8 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.HatYOffset = hatYOffset;
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        private void DetermineHat(ChangedNPC changedNPC)
         {
-            var changedNPC = NPC.Changed();
             var hatId = -1;
             string modHat = null;
             changedNPC.HasBeer = false;
@@ -563,7 +562,7 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 hatId = ItemID.BuccaneerBandana;
             }
-            else
+            else if (ChangedSpecialModClientConfig.Instance.Holidays)
             {
                 switch (SeasonSystem.season)
                 {
@@ -600,7 +599,12 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 changedNPC.RemoveHat();
             }
+        }
 
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            var changedNPC = NPC.Changed();
+            DetermineHat(changedNPC);
             changedNPC.PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }

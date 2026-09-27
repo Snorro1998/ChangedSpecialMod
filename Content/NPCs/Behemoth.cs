@@ -1,5 +1,7 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.Relics;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture.Trophies;
 using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -142,6 +144,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WhiteSyringe>()));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BehemothTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<BehemothRelic>()));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -85,14 +85,15 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modSpirit = null;
         public static Mod modSpiritReforged = null;
         public static Mod modCoralite = null;
-        public static Mod modStarsModPack = null;
 
         // Race
         public static Mod modMrPlagueRaces = null;
 
         // Other
         public static Mod modBoulderBackport = null;
+        public static Mod modStarsModPack = null;
         // Don't need to do anything for Biome Titles
+        public static Mod modTerraGuardians = null;
 
         // The min and max indecis for the extra title message added in the hjson
         private static int indexTitleMessageMin = 1;
@@ -126,6 +127,7 @@ namespace ChangedSpecialMod.Common.Systems
             // Other
             modBoulderBackport = GetMod("BoulderBackport");
             modStarsModPack = GetMod("StarsModPack");
+            modTerraGuardians = GetMod("terraguardians");
 
             externalModsData = new List<ExternalModData>();
         }
@@ -162,6 +164,7 @@ namespace ChangedSpecialMod.Common.Systems
             // Other
             modBoulderBackport = null;
             modStarsModPack = null;
+            modTerraGuardians = null;
 
             externalModsData = null;
 
