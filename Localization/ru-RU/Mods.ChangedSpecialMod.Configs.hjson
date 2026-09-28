@@ -122,4 +122,9 @@ ChangedSpecialModClientConfig: {
 		Label: государственные праздники
 		Tooltip: Во время праздников горожане носят головные уборы, и у них есть уникальные реплики.
 	}
+
+	FilterProfanity: {
+		// Label: Filter Profanity
+		// Tooltip: ""
+	}
 }

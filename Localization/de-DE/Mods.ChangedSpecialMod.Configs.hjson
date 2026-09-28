@@ -120,4 +120,9 @@ ChangedSpecialModClientConfig: {
 		Label: Feiertage
 		Tooltip: Die Stadtbewohner tragen an Feiertagen Hüte und haben einzigartige Dialoge.
 	}
+
+	FilterProfanity: {
+		// Label: Filter Profanity
+		// Tooltip: ""
+	}
 }

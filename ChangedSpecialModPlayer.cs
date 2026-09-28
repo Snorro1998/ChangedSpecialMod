@@ -3,6 +3,7 @@ using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Buffs;
+using ChangedSpecialMod.Content.Items.Armor;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
@@ -314,6 +315,15 @@ namespace ChangedSpecialMod
             }
         }
 
+        public bool HasDisguiseSet()
+        {
+            var helmet = Player.armor[0];
+            var breastplate = Player.armor[1];
+            var hasDisguiseHelmet = helmet != null && helmet.type == ModContent.ItemType<DisguiseSetHelmet>();
+            var hasDisguiseBreastplate = breastplate != null && breastplate.type == ModContent.ItemType<DisguiseSetBreastplate>();
+            return hasDisguiseHelmet && hasDisguiseBreastplate;
+        }
+
         public override bool CanBeHitByNPC(NPC npc, ref int cooldownSlot)
         {
             var changedNPC = npc.Changed();
@@ -322,6 +332,11 @@ namespace ChangedSpecialMod
                 return false;
 
             if (TransfurTypeCurrent != null && changedNPC.GooType == TransfurTypeCurrent.gooType)
+                return false;
+
+            var hasDisguiseSet = HasDisguiseSet();
+
+            if (hasDisguiseSet && changedNPC.GooType != GooType.Invalid && !npc.boss)
                 return false;
 
             return base.CanBeHitByNPC(npc, ref cooldownSlot);

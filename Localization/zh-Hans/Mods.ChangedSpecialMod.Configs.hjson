@@ -120,4 +120,9 @@ ChangedSpecialModClientConfig: {
 		Label: 公共假期
 		Tooltip: 镇民在节日期间会戴上帽子，并有独特的对话。
 	}
+
+	FilterProfanity: {
+		// Label: Filter Profanity
+		// Tooltip: ""
+	}
 }

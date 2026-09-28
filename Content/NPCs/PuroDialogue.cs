@@ -27,11 +27,16 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 // Stars mod
                 new DialogueElement("NPCStarsModPackFarmer", "Question"),
-                new DialogueElement("NPCStarsModPackScrapyardGeek", "Question"),
+                //new DialogueElement("NPCStarsModPackScrapyardGeek", "Question"),
 
                 // Terra Guardians
+                new DialogueElement("PlayerHasTerraGuardian"),
+                new DialogueElement("TerraGuardianAlex", "Shocked"),
                 new DialogueElement("TerraGuardianBlue"),
                 new DialogueElement("TerraGuardianIch"),
+                new DialogueElement("TerraGuardianLeona"),
+                new DialogueElement("TerraGuardianRococo"),
+                new DialogueElement("TerraGuardianScaleforth", "Shocked"),
                 
 				// Books
 				new DialogueElement("Book1"),

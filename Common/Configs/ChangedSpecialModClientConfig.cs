@@ -77,8 +77,9 @@ namespace ChangedSpecialMod.Common.Configs
         public bool Holidays { get; set; }
         [DefaultValue(true)]
         public bool CustomDryadWorldStatus { get; set; }
-
         [DefaultValue(false)]
         public bool DebugItems { get; set; }
+        [DefaultValue(true)]
+        public bool FilterProfanity { get; set; }
     }
 }

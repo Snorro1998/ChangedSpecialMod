@@ -84,8 +84,11 @@ Other
 
 0.5.7.4
 
-General
-- If you play with a race mod installed, Puro will address the player by the race name instead of 'human'.
+This update adds more loot to bosses and makes some changes to dialogue.
+
+NPCs
+- If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
+- If you play with the Terra guardians mod, Puro and Dr K can say things about them.
 
 Items
 - Added thropies for all bosses

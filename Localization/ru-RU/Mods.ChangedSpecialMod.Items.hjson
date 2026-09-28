@@ -1063,3 +1063,13 @@ BehemothRelic: {
 	// DisplayName: Behemoth Relic
 	// Tooltip: ""
 }
+
+WolfKingRelic: {
+	// DisplayName: Wolf King Relic
+	// Tooltip: ""
+}
+
+WolfKingTrophy: {
+	// DisplayName: Wolf King Trophy
+	// Tooltip: ""
+}

@@ -121,4 +121,9 @@ ChangedSpecialModClientConfig: {
 		Label: Giorni festivi
 		Tooltip: Gli abitanti indossano cappelli durante le festività e hanno dialoghi unici.
 	}
+
+	FilterProfanity: {
+		// Label: Filter Profanity
+		// Tooltip: ""
+	}
 }

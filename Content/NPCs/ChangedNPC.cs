@@ -9,9 +9,10 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -116,6 +117,40 @@ namespace ChangedSpecialMod.Content.NPCs
             HType = hType;
             Offset = offset;
             ModHatTexture = modHatTexture;
+        }
+    }
+
+    public class TerraGuardianCompanion
+    {
+        public string name;
+        public string nickname;
+        public float scale;
+        public bool male;
+        public bool inPlayerParty;
+        public bool IsFurry()
+        {
+            var nonFurryList = new List<string>()
+            {
+                "michelle",
+                "nemesis"
+            };
+
+            return !nonFurryList.Contains(name.ToLower());
+        }
+
+        public bool IsSmall()
+        {
+            return scale < 0.8f;
+        }
+
+        public bool IsNormalSized()
+        {
+            return scale >= 0.8f;
+        }
+
+        public bool IsMacro()
+        {
+            return scale >= 3;
         }
     }
 
@@ -717,9 +752,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 var categories = new List<string>()
                 {
                     "Animals",
-                    "Furry",
-                    "Pokemon",
                     "Fantasy",
+                    "Furry",
+                    "Minecraft",
+                    "Pokemon",
                     "Other"
                 };
 
@@ -827,6 +863,9 @@ namespace ChangedSpecialMod.Content.NPCs
                     keyWords.Add(key, value);
             }
 
+            AddIf(ChangedSpecialModClientConfig.Instance.FilterProfanity, "Safe", string.Empty);
+            AddIf(!ChangedSpecialModClientConfig.Instance.FilterProfanity, "Unsafe", string.Empty);
+
             // Check which NPCs on the list are present and add keywords for them
             var npcIDs = npcIdentifiers.Keys.ToList();
             foreach (var npcID in npcIDs)
@@ -841,22 +880,90 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
             }
 
-            // If playing with TerraGuardian, also get the guardians following the player.
-            // Should find a way to include all of them in the world
-            var companions = GetTerraGuardianKeywords();
-            if (companions.Count > 0)
+            // If playing with TerraGuardian, get the names of all companions in the world.
+            if (ModSupportSystem.modTerraGuardians != null)
             {
-                AddIf(true, $"PlayerHasTerraGuardian", string.Empty);
+                var companions = GetTerraGuardianCompanions();
+                var companionNamesInParty = GetCompanionNamesInPlayerParty();
+                var companionsInParty = companions.Where(x => companionNamesInParty.Contains(x.name));
+                var companionsNotInParty = companions.Where(x => !companionNamesInParty.Contains(x.name));
 
-                foreach (var companion in companions)
+                if (companionsInParty.Count() > 0)
                 {
-                    var companionName = companion.Key;
-                    var companionNickName = companion.Value;
+                    AddIf(true, $"PlayerHasTerraGuardian", string.Empty);
+                    var nCompanionsInParty = companionsInParty.Count();
+                    var furries = companionsInParty.Where(x => x.IsFurry());
+                    var nFurries = furries.Count();
+                    
+                    var bigFurries = furries.Where(x => x.IsNormalSized());
+                    var bigFurryMen = bigFurries.Where(x => x.male);
+                    var bigFurryWomen = bigFurries.Where(x => !x.male);
 
-                    AddIf(true, $"TerraGuardian{companionName}Present", string.Empty);
-                    AddIf(true, $"TerraGuardian{companionName}Name", companionNickName);
+                    var nBigFurries = bigFurries.Count();
+                    var nBigFurryMen = bigFurryMen.Count();
+                    var nBigFurryWomen = bigFurryWomen.Count();
+
+                    var smallFurries = furries.Where(x => x.IsSmall());
+                    var smallFurryMen = smallFurries.Where(x => x.male);
+                    var smallFurryWomen = smallFurries.Where(x => !x.male);
+
+                    var nSmallFurries = smallFurries.Count();
+                    var nSmallFurryMen = smallFurryMen.Count();
+                    var nSmallFurryWomen = smallFurryWomen.Count();
+
+                    // You like furries, dont you?
+                    if (nFurries > 2)
+                    {
+                        // Big furries
+                        if (nBigFurries >= nSmallFurries)
+                        {
+                            if (nBigFurryMen >= 2 * nBigFurryWomen && nBigFurryMen > 2)
+                                AddIf(true, "PlayerPartyBigFurryMen", string.Empty);
+                            else if (nBigFurryWomen >= 2 * nBigFurryMen && nBigFurryWomen > 2)
+                                AddIf(true, "PlayerPartyBigFurryWomen", string.Empty);
+                            else
+                                AddIf(true, "PlayerPartyBigFurries", string.Empty);
+                        }
+                        // Small furries
+                        else
+                        {
+                            if (nSmallFurryMen >= 2 * nSmallFurryWomen && nSmallFurryMen > 2)
+                                AddIf(true, "PlayerPartySmallFurryMen", string.Empty);
+                            else if (nSmallFurryWomen >= 2 * nSmallFurryMen && nSmallFurryWomen > 2)
+                                AddIf(true, "PlayerPartySmallFurryWomen", string.Empty);
+                            else
+                                AddIf(true, "PlayerPartySmallFurries", string.Empty);
+
+                            if (nSmallFurries == nFurries)
+                                AddIf(true, "PlayerPartyAllShrunkenFurries", string.Empty);
+                        }
+                    }
+                }
+
+                if (companions.Count > 0)
+                {
+                    foreach (var companion in companions)
+                    {
+                        var companionName = companion.name;
+                        var companionNickName = companion.nickname;
+
+                        if (companion.IsFurry())
+                        {
+                            var macroFurryMan = companion.IsMacro() && companion.male;
+                            var macroFurryWoman = companion.IsMacro() && !companion.male;
+
+                            AddIf(macroFurryMan, "MacroFurryManPresent", string.Empty);
+                            AddIf(macroFurryWoman, "MacroFurryWomanPresent", string.Empty);
+                            AddIf(macroFurryMan || macroFurryWoman, "MacroTerraGuardianName", companionNickName);
+                        }
+
+                        AddIf(true, $"TerraGuardian{companionName}Present", string.Empty);
+                        AddIf(true, $"TerraGuardian{companionName}Name", companionNickName);
+                    }
                 }
             }
+
+            
 
             // Bosses slain
             if (DownedBossSystem.DownedBehemoth)
@@ -1009,6 +1116,160 @@ namespace ChangedSpecialMod.Content.NPCs
             return keyWords;
         }
 
+        private List<TerraGuardianCompanion> GetTerraGuardianCompanions()
+        {
+            var result = new List<TerraGuardianCompanion>();
+
+            if (ModSupportSystem.modTerraGuardians == null)
+                return result;
+
+            try
+            {
+                Type worldModType = ModSupportSystem.modTerraGuardians.Code.GetType("terraguardians.WorldMod");
+
+                FieldInfo companionNPCsfield = worldModType.GetField(
+                    "CompanionNPCs",
+                    BindingFlags.Public | BindingFlags.Static
+                );
+
+                if (companionNPCsfield != null)
+                {
+                    var companions = companionNPCsfield.GetValue(null) as System.Collections.IList;
+
+                    if (companions == null)
+                        return result;
+                    
+                    for (int i = 0; i < companions.Count; i++)
+                    {
+                        var companion = companions[i];
+                        if (companion != null)
+                        {
+                            var hasBeenMetProperty = companion.GetType().GetProperty("HasBeenMet");
+                            bool hasBeenMet = (bool)(hasBeenMetProperty?.GetValue(companion) ?? false);
+
+                            if (!hasBeenMet)
+                                continue;
+
+                            var nameProperty = companion.GetType().GetProperty("GetRealName");
+                            if (nameProperty != null)
+                            {
+                                string name = nameProperty.GetValue(companion) as string;
+                                if (name != null)
+                                {
+                                    var nickname = name;
+                                    var companionPlayer = companion as Player;
+
+                                    if (companionPlayer != null)
+                                        nickname = companionPlayer.name;
+
+                                    var scaleField = companion.GetType().GetField("Scale");
+                                    float scale = (float)(scaleField?.GetValue(companion) ?? 1f);
+
+                                    int gender = 0;
+                                    var genderProperty = companion.GetType().GetProperty("Genders");
+                                    if (genderProperty != null)
+                                    {
+                                        object genderObject = genderProperty.GetValue(companion);
+                                        gender = Convert.ToInt32(genderObject);
+                                    }
+
+                                    var companionObj = new TerraGuardianCompanion()
+                                    {
+                                        name = name,
+                                        nickname = nickname,
+                                        scale = scale,
+                                        male = gender == 0
+                                    };
+
+                                    result.Add(companionObj);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch
+            {
+                return result;
+            }
+        }
+
+        private List<string> GetCompanionNamesInPlayerParty()
+        {
+            var result = new List<string>();
+
+            if (ModSupportSystem.modTerraGuardians == null)
+                return result;
+
+            // NPC chats are only done locally, so this is okay to do
+            var player = Main.LocalPlayer;
+
+            try
+            {
+                Type playerModType = ModSupportSystem.modTerraGuardians.Code.GetType("terraguardians.PlayerMod");
+
+                if (playerModType == null)
+                    return result;
+
+                // Find TerraGuardians' PlayerMod attached to this player.
+                ModPlayer modPlayer = null;
+
+                foreach (ModPlayer mp in player.ModPlayers)
+                {
+                    if (mp.GetType() == playerModType)
+                    {
+                        modPlayer = mp;
+                        break;
+                    }
+                }
+
+                if (modPlayer == null)
+                    return result;
+
+                // Get the private SummonedCompanions field.
+                var field = playerModType.GetField(
+                    "SummonedCompanions",
+                    System.Reflection.BindingFlags.Instance |
+                    System.Reflection.BindingFlags.NonPublic
+                );
+
+                if (field == null)
+                    return result;
+
+                Array companions = field.GetValue(modPlayer) as Array;
+
+                if (companions == null)
+                    return result;
+
+                // Check whether any companion is actually present.
+                for (int i = 0; i < companions.Length; i++)
+                {
+                    var companion = companions.GetValue(i);
+                    if (companion != null)
+                    {
+                        var nameProperty = companion.GetType().GetProperty("GetRealName");
+
+                        if (nameProperty != null)
+                        {
+                            string name = nameProperty.GetValue(companion) as string;
+                            if (name != null)
+                            {
+                                result.Add(name);
+                            }
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result;
+            }
+        }
+
         private Dictionary<string, string> GetTerraGuardianKeywords()
         {
             // Checks terraguardians modplayer (PlayerMod) if he has any companions
@@ -1071,12 +1332,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     var companion = companions.GetValue(i);
                     if (companion != null)
                     {
-                        var nameField = playerModType.GetField(
-                            "SummonedCompanions",
-                            System.Reflection.BindingFlags.Instance |
-                            System.Reflection.BindingFlags.NonPublic
-                        );
-
                         var nameProperty = companion.GetType().GetProperty("GetRealName");
                         var scaleField = companion.GetType().GetField("Scale");
 
@@ -1586,15 +1841,22 @@ namespace ChangedSpecialMod.Content.NPCs
         private void DoRandomEmote(NPC npc)
         {
             var chancedNPC = npc.Changed();
-            if (chancedNPC != null && chancedNPC.GooType != GooType.Invalid && npc.HasValidTarget && npc.HasBuff(BuffID.Lovestruck))
+            if (chancedNPC != null && chancedNPC.GooType != GooType.Invalid && npc.HasValidTarget)
             {
-                int emoteLove = 0;
-                int emoteKiss = 88;
-                var emoteId = ChangedUtils.Choose(emoteLove, emoteKiss);
                 var player = Main.player[npc.target];
+                var modPlayer = player.GetModPlayer<ChangedSpecialModPlayer>();
                 if (player.Distance(npc.Center) < 160 && Main.rand.NextBool(200))
                 {
-                    EmoteBubble.NewBubble(emoteId, new WorldUIAnchor(npc), 90);
+                    var emoteId = -1;
+
+                    if (npc.HasBuff(BuffID.Lovestruck))
+                        emoteId = ChangedUtils.Choose(0, 88);   // 0 = love, 88 = kiss
+
+                    else if (modPlayer.HasDisguiseSet())
+                        emoteId = 87; // confused
+
+                    if (emoteId != -1)
+                        EmoteBubble.NewBubble(emoteId, new WorldUIAnchor(npc), 90);
                 }
             }
         }

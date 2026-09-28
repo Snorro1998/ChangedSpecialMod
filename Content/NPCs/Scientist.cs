@@ -4,7 +4,6 @@ using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Ammo;
 using ChangedSpecialMod.Content.Items.Debug;
-using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
@@ -69,6 +68,32 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCNurse"),
                 new DialogueElement("NPCAngler", "Happy"),
                 new DialogueElement("NPCZoologist"),
+
+                // Teasing the player for having many normal sized furries in his party (which is much bigger than the player)
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurries", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurryMenSafe", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurryMenUnsafe", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurryWomenSafe", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurryWomenUnsafe", "Naughty"),
+
+                // Teasing the player for having many shrunken furries in his party (which is the same size as the player)
+                new DialogueElement("TerraGuardian.PlayerPartySmallFurries", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartySmallFurryMen", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartySmallFurryWomen", "Naughty"),
+
+                new DialogueElement("TerraGuardian.PlayerPartyAllShrunkenFurriesSafe"),
+                new DialogueElement("TerraGuardian.PlayerPartyAllShrunkenFurriesUnsafe", "Naughty"),
+
+                new DialogueElement("TerraGuardian.MacroFurryManPresentSafe", "Naughty"),
+                new DialogueElement("TerraGuardian.MacroFurryManPresentUnsafe", "Naughty"),
+                new DialogueElement("TerraGuardian.MacroFurryWomanPresentSafe", "Naughty"),
+                new DialogueElement("TerraGuardian.MacroFurryWomanPresentUnsafe", "Naughty"),
+
+                // Terra Guardians
+                new DialogueElement("TerraGuardian.Alex", "Angry"),
+                new DialogueElement("TerraGuardian.Blue"),
+                new DialogueElement("TerraGuardian.Rococo"),
+                new DialogueElement("TerraGuardian.Scaleforth"),
                 
 				// Normal
                 new DialogueElement("Normal1", "Happy"),
@@ -176,7 +201,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("Party3"),
                 new DialogueElement("Party4", "Happy"),
                 new DialogueElement("Party5", "Happy"),
-                new DialogueElement("Party6", "Naughty")
+                new DialogueElement("Party6", "Naughty"),
+                //new DialogueElement("Party7", "Happy")
             }
         );
 

@@ -96,15 +96,22 @@ Mods: {
 					NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} hat so viele Schuhe, aber sie sind alle zu klein für meine Pfoten."
 					NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Ich verstehe nicht, warum {NameStarsModPackFarmer} keine Orangenbaumsamen hat. Jeder Bauer sollte welche haben."
 					NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, weißt du, warum {NameStarsModPackScrapyardGeek} immerz zso redetz?"
-					// TerraGuardianBlue: "{TerraGuardianBluePresent} Big blue dog"
-					// TerraGuardianIch: "{TerraGuardianBluePresent} {TerraGuardianIchName} Big cat"
+					// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+					// TerraGuardianAlex: "{TerraGuardianAlexPresent}I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk."
+					// TerraGuardianAlexander: TODO
+					// TerraGuardianBlue: "{TerraGuardianBluePresent}The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen."
+					// TerraGuardianBrutus: TODO
+					// TerraGuardianIch: "{TerraGuardianIchPresent}I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much."
+					// TerraGuardianLeona: "{TerraGuardianLeonaPresent}{TerraGuardianLeonaName} is so cool! A royal guard from the Ether Realm... I don't even know what that is, but is sounds awesome!"
+					// TerraGuardianMonica: TODO
+					// TerraGuardianRococo: "{TerraGuardianRococoPresent}{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
+					// TerraGuardianScaleforth: "{TerraGuardianScaleforthPresent}I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire."
 					Book1: Ich beurteile Bücher wie Orangen: danach, wie befriedigend sie bis zur letzten Seite oder dem letzten Stück sind.
 					Book2: Hallo {PlayerRace}! Hast du mein Buch gesehen?
 					Book3: Hilfst du mir, den größten Bücherturm zu bauen?
 					Book4: "{PlayerRace}! Schau dir dieses fantastische Buch an, das ich gerade gefunden habe!"
 					Book5: Eines Tages werde ich ein Buch über die unglaublichen Abenteuer von {NamePlayer} schreiben!
 					Book6: Gestern habe ich ein Kochbuch mit so vielen lecker aussehenden Rezepten gefunden. Hättest du Lust, mit mir zusammen etwas zu backen, {PlayerRace}?
-					# Globglobgabgalab
 					Book7: Ich bin der klebrige Glabgalab und ich liebe Bücher.
 					Orange1: Was ist deine Lieblingsfarbe? Meine Lieblingsfarbe ist Orange.
 					Orange2: Mmm *mampf* Orange *mampf* Oh, hallo {PlayerRace}.
@@ -112,8 +119,8 @@ Mods: {
 					Orange4: Letzte Nacht träumte ich, ich wäre in einem Bällebad voller Orangen.
 					Orange5: Wenn du mich glücklich machen willst, gib mir einfach eine perfekt reife Orange.
 					Orange6: Ich kenne mich bestens mit Orangen aus, man könnte also sagen, ich bin ein Zitrusfrucht-Kenner!
-					# TF2
 					Orange7: Ich habe drei Tage lang nichts anderes getan, als Orangen zu teleportieren.
+					# TF2
 					Crimson1: "{Crimson}Wusstest du, dass in Crimson einige Bäume Blutorangen tragen? Könntest du mir vielleicht eine besorgen?"
 					Crimson2: "{Crimson}Seid vorsichtig in der Nähe des Labors beim Crimson. Ich habe dort einen riesigen, muskulösen Tiger gesehen."
 					Corruption1: "{Corruption}Sei vorsichtig im Labor in der Nähe der Korruption. Ich habe dort eine riesige, lila Katze gesehen."
@@ -139,8 +146,8 @@ Mods: {
 					PlayerHasPurrpurr: "{PlayerHasPurrpurr}Wow, {PlayerRace}, wer ist denn diese Katze? Die ist ja riesig!"
 					Valentine1: "{Valentine}Was meinst du, {PlayerRace}? Sehe ich mit dieser Valentinstags-Haarspange süß aus?"
 					Valentine2: "{Valentine}Ein Blumenstrauß ist schön, aber wenn du mein Herz gewinnen willst, dann musst du mir ein Büchlein mitbringen!"
-					# Easter is not implemented yet
 					Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+					# Easter is not implemented yet
 					Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 					Oktoberfest1: "{Oktoberfest}Es ist die Zeit des Jahres für viel Bier! PROST!"
 					Oktoberfest2: "{Oktoberfest}Menschhhh... Liegt es am Bier oder sahst du schon immer so hübsch aus?"
@@ -280,6 +287,35 @@ Mods: {
 						Party5: Seid ihr bereit für einen coolen Partytrick? Seht her, ich kann Toilettenpapier in Schwarzgebrannten verwandeln!
 						Party6: Diese Party braucht Feuerwerk. Soll ich dafür sorgen?
 						// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
+					}
+
+					TerraGuardian: {
+						// PlayerHasTerraGuardian: TODO
+						// PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
+						// PlayerPartyBigFurryMenSafe: "{PlayerPartyBigFurryMen}{Safe}You really like big, furry men huh?"
+						// PlayerPartyBigFurryMenUnsafe: "{PlayerPartyBigFurryMen}{Unsafe}You really like big, furry men huh? Do you like how their huge, muscular bodies tower over you and make you feel small?"
+						// PlayerPartyBigFurryWomenSafe: "{PlayerPartyBigFurryWomen}{Safe}You really like big, furry women huh?"
+						// PlayerPartyBigFurryWomenUnsafe: "{PlayerPartyBigFurryWomen}{Unsafe}You really like big, furry women huh? Don't worry, I won't judge you for having impeccable taste."
+						// PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
+						// PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
+						// PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
+						// PlayerPartyAllShrunkenFurriesSafe: "{PlayerPartyAllShrunkenFurries}{Safe}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
+						// PlayerPartyAllShrunkenFurriesUnsafe: "{PlayerPartyAllShrunkenFurries}{Unsafe}Did you shrink all those guardians? Were their big, strong bodies too much for you too handle?"
+						# Macro
+						// MacroFurryManPresentSafe: "{MacroFurryManPresent}{Safe}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
+						// MacroFurryManPresentUnsafe: "{MacroFurryManPresent}{Unsafe}You should be careful around {MacroTerraGuardianName} so he doesn't step on you... unless you are into that."
+						// MacroFurryWomanPresentSafe: "{MacroFurryWomanPresent}{Safe}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
+						// MacroFurryWomanPresentUnsafe: "{MacroFurryWomanPresent}{Unsafe}You should be careful around {MacroTerraGuardianName} so she doesn't step on you... unless you are into that."
+						# Guardians
+						// Alex: "{TerraGuardianAlexPresent}Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+						// Alexander: TODO
+						// Blue: "{TerraGuardianBluePresent}{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
+						// Brutus: TODO
+						// Ich: TODO
+						// Leona: TODO
+						// Monica: TODO
+						// Rococo: "{TerraGuardianRococoPresent}I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
+						// Scaleforth: "{TerraGuardianScaleforthPresent}I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
 					}
 				}
 
@@ -869,31 +905,6 @@ Mods: {
 				Wolf: Wolf
 			}
 
-			Furry: {
-				// Avali: Avali
-				// Expie: Expie
-				// Protogen: Protogen
-			}
-
-			# Need to read through bulbapedia for the translated names
-			Pokemon: {
-				Absol: Absol
-				Charizard: Glurak
-				Eevee: Evoli
-				Espeon: Psiana
-				Flareon: Flamara
-				Glaceon: Glaziola
-				Jolteon: Blitza
-				Leafeon: Folipurba
-				Lucario: Lucario
-				// Lugia: Lugia
-				Sylveon: Feelinara
-				Umbreon: Nachtara
-				Vaporeon: Aquana
-				Zeraora: Zeraora
-				Zoroark: Zoroark
-			}
-
 			Fantasy: {
 				// Derpkin: Derpkin
 				// Fluftrodon: Fluftrodon
@@ -913,6 +924,36 @@ Mods: {
 				Unicorn: Einhorn
 				Vampire: Vampir
 				Werewolf: Werwolf
+			}
+
+			Furry: {
+				// Avali: Avali
+				// Expie: Expie
+				// Protogen: Protogen
+			}
+
+			Minecraft: {
+				// Creeper: Creeper
+				// Enderman: Enderman
+			}
+
+			# Need to read through bulbapedia for the translated names
+			Pokemon: {
+				Absol: Absol
+				Charizard: Glurak
+				Eevee: Evoli
+				Espeon: Psiana
+				Flareon: Flamara
+				Glaceon: Glaziola
+				Jolteon: Blitza
+				Leafeon: Folipurba
+				Lucario: Lucario
+				// Lugia: Lugia
+				Sylveon: Feelinara
+				Umbreon: Nachtara
+				Vaporeon: Aquana
+				Zeraora: Zeraora
+				Zoroark: Zoroark
 			}
 
 			Other: {
