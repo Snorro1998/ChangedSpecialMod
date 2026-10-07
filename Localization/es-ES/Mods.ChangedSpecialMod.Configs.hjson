@@ -7,7 +7,7 @@ ChangedSpecialModClientConfig: {
 	}
 
 	WhipCrackSound: {
-		Tooltip: Si el 'Látigo de Molusco' y sus mejoras deber�an reproducir un sonido de chasquido de látigo.
+		Tooltip: Si el 'Látigo de Molusco' y sus mejoras deberían reproducir un sonido de chasquido de látigo.
 		Label: Sonido de chasquido de látigo
 	}
 

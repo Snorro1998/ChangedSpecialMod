@@ -12,6 +12,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.White
             base.SetStaticDefaults();
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
+            TileID.Sets.IcesSnow[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<WhiteLatexIceTile>());
             Main.tileLavaDeath[Type] = true;
             Main.tileBlockLight[Type] = true;

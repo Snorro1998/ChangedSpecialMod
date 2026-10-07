@@ -69,25 +69,21 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCAngler", "Happy"),
                 new DialogueElement("NPCZoologist"),
 
-                // Teasing the player for having many normal sized furries in his party (which is much bigger than the player)
+                // Teasing the player for having many normal sized furries in his party
+                // (which is much bigger than the player)
                 new DialogueElement("TerraGuardian.PlayerPartyBigFurries", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurryMenSafe", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurryMenUnsafe", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurryWomenSafe", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurryWomenUnsafe", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurryMen", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyBigFurryWomen", "Naughty"),
 
-                // Teasing the player for having many shrunken furries in his party (which is the same size as the player)
+                // Teasing the player for having many shrunken furries in his party
+                // (which is the same size as the player)
                 new DialogueElement("TerraGuardian.PlayerPartySmallFurries", "Naughty"),
                 new DialogueElement("TerraGuardian.PlayerPartySmallFurryMen", "Naughty"),
                 new DialogueElement("TerraGuardian.PlayerPartySmallFurryWomen", "Naughty"),
 
-                new DialogueElement("TerraGuardian.PlayerPartyAllShrunkenFurriesSafe"),
-                new DialogueElement("TerraGuardian.PlayerPartyAllShrunkenFurriesUnsafe", "Naughty"),
-
-                new DialogueElement("TerraGuardian.MacroFurryManPresentSafe", "Naughty"),
-                new DialogueElement("TerraGuardian.MacroFurryManPresentUnsafe", "Naughty"),
-                new DialogueElement("TerraGuardian.MacroFurryWomanPresentSafe", "Naughty"),
-                new DialogueElement("TerraGuardian.MacroFurryWomanPresentUnsafe", "Naughty"),
+                new DialogueElement("TerraGuardian.PlayerPartyAllShrunkenFurries"),
+                new DialogueElement("TerraGuardian.MacroFurryManPresent", "Naughty"),
+                new DialogueElement("TerraGuardian.MacroFurryWomanPresent", "Naughty"),
 
                 // Terra Guardians
                 new DialogueElement("TerraGuardian.Alex", "Angry"),

@@ -11,6 +11,7 @@ namespace ChangedSpecialMod.Content.Tiles.Latex.Black
         {
             base.SetStaticDefaults();
             Main.tileMergeDirt[Type] = true;
+            TileID.Sets.IcesSnow[Type] = true;
             ChangedUtils.SetTileMerge(ModContent.TileType<BlackLatexSnowTile>());
             HitSound = SoundID.Item48;
             TileID.Sets.Conversion.Grass[Type] = true;

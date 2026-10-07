@@ -2,14 +2,19 @@ using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
+using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Channels;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
@@ -22,6 +27,20 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
+    public class QuestReward
+    {
+        public int id = 0;
+        public int stack = 1;
+        public float chance = 1;
+
+        public QuestReward(int ID, int stack, float chance)
+        {
+            id = ID;
+            this.stack = stack;
+            this.chance = chance;
+        }
+    }
+
 	[AutoloadHead]
 	public partial class Puro : ModNPC
 	{
@@ -40,6 +59,7 @@ namespace ChangedSpecialMod.Content.NPCs
             new ShopData("First Shop", "Shop"),
             new ShopData("Second Shop", "Paintings"),
             new ShopData("Third Shop", "Pictures"),
+            new ShopData("Fourth Shop", "Books"),
         };
 
 		//private static int ShimmerHeadIndex;
@@ -48,6 +68,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         // This should add up to 1 or it will break (so don't use something like 0.3)
         public float animationSpeed = 1.0f;
+
+        public bool questBookButtonVisible = false;
 
 		public override void SetStaticDefaults() 
 		{
@@ -185,6 +207,7 @@ namespace ChangedSpecialMod.Content.NPCs
             button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
             var currentShop = Shops[shopIndex];
             button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
+            questBookButtonVisible = currentShop.DisplayKey == "Books";
             UpdatePortraitOnHappinessButtonClicked();
         }
 
@@ -212,10 +235,106 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
+        private List<QuestReward> GetRandomRewards()
+        {
+            var rewards = new List<QuestReward>();
+            var possibleRewards = new List<QuestReward>();
+
+            possibleRewards.Add(new QuestReward(ItemID.LifeCrystal, 1, 0.2f));
+
+            // crates
+            possibleRewards.Add(new QuestReward(ItemID.WoodenCrate, 1, 0.6f));
+            possibleRewards.Add(new QuestReward(ItemID.IronCrate, 1, 0.3f));
+
+            // food
+            var foodID = ChangedUtils.Choose(
+                ItemID.Apple,
+                ItemID.Lemon,
+                ModContent.ItemType<Orange>(), 
+                ItemID.Coconut);
+            possibleRewards.Add(new QuestReward(foodID, 3, 0.6f));
+
+            // potions
+            var potionIDs = new List<int>
+            {
+                ItemID.ArcheryPotion,
+                ItemID.BattlePotion,
+                ItemID.CalmingPotion,
+                ItemID.CratePotion
+            };
+
+            foreach (var potionID in potionIDs)
+            {
+                possibleRewards.Add(new QuestReward(potionID, 3, 0.2f));
+            }
+
+            foreach (var possibleReward in possibleRewards)
+            {
+                if (Main.rand.NextFloat() <= possibleReward.chance)
+                {
+                    rewards.Add(possibleReward);
+                }
+            }
+
+            if (rewards.Count == 0)
+            {
+                var maxChance = possibleRewards.OrderByDescending(x => x.chance).First().chance;
+                foreach (var possibleReward in possibleRewards)
+                {
+                    if (Main.rand.NextFloat() * maxChance <= possibleReward.chance)
+                    {
+                        rewards.Add(possibleReward);
+                    }
+                }
+            }
+
+            return rewards;
+        }
+
+        private void QuestBookLogic()
+        {
+            var player = Main.LocalPlayer;
+            var index = -1;
+
+            for (int i = 0; i < player.inventory.Length; i++)
+            {
+                var item = player.inventory[i];
+                if (item != null && item.type == ModContent.ItemType<QuestBook>())
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index != -1)
+            {
+                player.inventory[index].SetDefaults(ItemID.None, false);
+                Main.npcChatText = "Thank you for the book, human";
+                var rewards = GetRandomRewards();
+                if (rewards.Any())
+                {
+                    foreach (var reward in rewards)
+                    {
+                        player.QuickSpawnItem(new EntitySource_Gift(NPC), reward.id, reward.stack);
+                        //Item.NewItem(new EntitySource_Gift(NPC), NPC.Hitbox, reward.id, reward.stack);
+                    }
+                }
+            }
+            else
+            {
+                Main.npcChatText = "You have no book";
+            }
+        }
+
         public override void OnChatButtonClicked(bool firstButton, ref string shop)
         {
             if (firstButton)
-                shop = Shops[shopIndex].InternalName;
+            {
+                if (questBookButtonVisible)
+                    QuestBookLogic();
+                else
+                    shop = Shops[shopIndex].InternalName;
+            }
             else
                 shopIndex = (shopIndex + 1) % Shops.Count;
         }

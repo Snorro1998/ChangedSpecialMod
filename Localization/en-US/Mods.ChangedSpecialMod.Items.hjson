@@ -1040,12 +1040,12 @@ WhiteTailTrophy: {
 }
 
 DisguiseSetHelmet: {
-	DisplayName: Disguise Set Helmet
+	DisplayName: Disguise Mask
 	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	DisplayName: Disguise Set Breastplate
+	DisplayName: Disguise Shirt
 	Tooltip: ""
 }
 
@@ -1072,4 +1072,39 @@ WolfKingRelic: {
 WolfKingTrophy: {
 	DisplayName: Wolf King Trophy
 	Tooltip: ""
+}
+
+BehemothTreasureBag: {
+	DisplayName: Treasure Bag (Behemoth)
+	Tooltip: Right Click to open
+}
+
+WhiteTailTreasureBag: {
+	DisplayName: Treasure Bag (White Tail)
+	Tooltip: Right Click to open
+}
+
+WolfKingTreasureBag: {
+	DisplayName: Treasure Bag (Wolf King)
+	Tooltip: Right Click to open
+}
+
+WhiteTailWeapon: {
+	DisplayName: White Tail Weapon
+	Tooltip: ""
+}
+
+BehemothWeapon: {
+	DisplayName: Gooey Grabber
+	Tooltip: ""
+}
+
+WhiteTailMountItem: {
+	DisplayName: Hairball
+	Tooltip: ""
+}
+
+QuestBook: {
+	DisplayName: Lost Book
+	Tooltip: Puro might be interested in this
 }

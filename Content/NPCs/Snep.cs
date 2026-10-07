@@ -1,9 +1,12 @@
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -75,7 +78,10 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
-            var vanillaChance = (spawnInfo.Player.ZoneSnow && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.3f : 0;
+            var spawnTileType = spawnInfo.SpawnTileType;
+            var correctTileType = TileID.Sets.IcesSnow[spawnTileType];
+
+            var vanillaChance = (correctTileType/*spawnInfo.Player.ZoneSnow*/ && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.3f : 0;
             var changedChance = ChangedUtils.GetSnowSpawnChance(spawnInfo, changedNPC);
             return Math.Max(vanillaChance, changedChance);
         }

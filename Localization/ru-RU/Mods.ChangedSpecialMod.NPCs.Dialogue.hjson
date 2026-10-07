@@ -1,0 +1,277 @@
+# This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
+Puro: {
+	# NPCs
+	NPCAngler: "{NameAngler} такой безрассудный.. Вчера, во время рыбалки, его чуть не утащила в воду собака-кальмар."
+	// NPCArmsDealer: TODO
+	// NPCClothier: TODO
+	// NPCCyborg: TODO
+	// NPCDemolitionist: TODO
+	NPCDryad: Интересно, умеет ли {NameDryad} выращивать апельсиновое дерево?
+	// NPCDyeTrader: TODO
+	// NPCGoblinTinkerer: TODO
+	// NPCGolfer: TODO
+	NPCGuide: Как вы думаете, сможет ли {NameGuide} подсказать, что еще можно приготовить из апельсинов, помимо напитков и блюд?
+	// NPCMechanic: TODO
+	NPCMerchant: Если бы {NameMerchant} продавал апельсиновый сок, он был бы богат!
+	NPCNurse: "{NameNurse} сказала, что для здоровья полезно съедать два фрукта в день. А я ей ответила, что съедаю десять апельсинов в день!"
+	// NPCOldMan: TODO
+	// NPCPainter: Should I ask {NamePainter} to paint my room orange? Or should I ask him to put up wallpaper with oranges?
+	// NPCPartyGirl: TODO
+	// NPCPirate: Why does {NamePirate} keep calling me blackbeard? I don't even have a beard.
+	// NPCPrincess: TODO
+	// NPCSantaClaus: TODO
+	// NPCSkeletonMerchant: TODO
+	// NPCSteampunker: TODO
+	// NPCStylist: TODO
+	NPCTavernKeep: Я сказал {NameTavernKeep}, что ему следует расширить меню апельсиновыми напитками и блюдами! Только представьте, сколько восхитительных возможностей откроется: цитрусовый салат, апельсиновый кекс, апельсиновый сок, а еще мимоза! Мммм, мимоза...
+	NPCTaxCollector: "{PlayerRace}, что такое «налоги»? {NameTaxCollector} был очень ворчлив и сказал, что я должен их заплатить."
+	// NPCTravellingMerchant: TODO
+	// NPCTruffle: TODO
+	// NPCWitchDoctor: TODO
+	// NPCWizard: I don't understand why {NameWizard} doesn't let me read his books. It's not like I will damage them with my soft paws.
+	NPCZoologist: "{NameZoologist} такая милая со своими большими ушками и пушистым хвостиком. Но не такая милая, как ты, хе-хе..."
+	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} рассказал мне всякое про 'магию', но меня интересовало только одно: можно ли из нее делать апельсины."
+	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} очень много обуви, но вся она мне мала."
+	NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Я не понимаю, почему у {NameStarsModPackFarmer} нет семян апельсиновых деревьев. Они должны быть у каждого фермера."
+	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, ты знаешь, почему {NameStarsModPackScrapyardGeek} всегда так говорит?"
+	// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+	// TerraGuardianAlex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+	// TerraGuardianAlexander: TODO
+	// TerraGuardianBlue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+	// TerraGuardianBrutus: TODO
+	// TerraGuardianIch: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
+	// TerraGuardianLeona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+	// TerraGuardianMonica: TODO
+	// TerraGuardianRococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
+	// TerraGuardianScaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
+	Book1: Я оцениваю книги так же, как и апельсины. По тому, насколько они доставляют удовольствие до последней страницы или последнего ломтика.
+	Book2: Привет, {PlayerRace}! Ты видел мою книгу?
+	Book3: Поможешь мне построить самую большую книжную башню?
+	Book4: "{PlayerRace}! Посмотрите на эту потрясающую книгу, которую я только что нашел!"
+	Book5: Однажды я напишу книгу об удивительных приключениях {NamePlayer}!
+	Book6: Вчера я нашла кулинарную книгу с таким количеством аппетитных рецептов. Не хочешь ли что-нибудь испечь вместе, {PlayerRace}?
+	Book7: Я — липкий глабгалаб, и я люблю книги.
+	Orange1: Какой твой любимый цвет? Мой любимый цвет — оранжевый.
+	Orange2: Ммм *ням* апельсин *ням* О, привет, {PlayerRace}.
+	Orange3: У меня нет любимого ребёнка, но если бы он был, то это был бы этот оранжевый.
+	Orange4: Прошлой ночью мне приснилось, что я нахожусь в бассейне с шариками, наполненном апельсинами.
+	Orange5: Если хочешь меня осчастливить, просто подари мне идеально спелый апельсин.
+	Orange6: Я знаю об апельсинах всё, так что можно сказать, я настоящий знаток цитрусовых!
+	Orange7: Я три дня только и делал, что телепортировал апельсины.
+	# TF2
+	Crimson1: "{Crimson}А вы знали, что в Багрянец растут кроваво-красные апельсины? Не могли бы вы достать мне один?"
+	Crimson2: "{Crimson}Будьте осторожны возле лаборатории в Багрянец. Я видел там огромного, здоровенного тигра."
+	Corruption1: "{Corruption}Будьте осторожны возле лаборатории в Порча. Я видел там огромную фиолетовую кошку."
+	Changed1: Вы видели мои рисунки в лаборатории? Хотите, чтобы я нарисовал вас?
+	Changed2: "{Behemoth}Я хочу стать таким же огромным, как Бегемот, чтобы держать тебя в лапах, как куклу, и оберегать тебя."
+	Normal1: Мне не нужна защита, потому что у меня большие когти, лапы и огромная пасть!
+	Normal2: Привет! Как дела сегодня, {PlayerRace}?
+	TransfurCub: "{TransfurCub}Привет, маленький щенок. Ты такой маленький и милый! Можно я тебя подержу?"
+	Rain1: "{Rain}Если вам холодно после дождя и вы хотите согреться, можете зарыться в мой пушистый мех!"
+	Rain2: "{Rain}Я встряхнула шерсть, чтобы высохнуть, и теперь я стала ещё пушистее!"
+	Thunder1: "{Thunder}Я не боюсь молнии. Всё моё тело сделано из резины, так что даже если меня ею ударит, со мной всё будет в порядке!"
+	Thunder2: "{Thunder}При всех этих ярких вспышках мне едва ли нужна лампа, чтобы читать книги."
+	Windy1: "{Windy}Хочешь запустить со мной воздушного змея, {PlayerRace}?"
+	Windy2: "{Windy}Сегодня такой сильный ветер, что моя шерсть вся растрепалась."
+	Windy3: "{Windy}Как бы мне хотелось иметь крылья, чтобы летать и брать тебя с собой повсюду."
+	PlayerHasOrange: "{PlayerHasOrange}*шмыг* {PlayerRace}, ты несёшь сочные апельсины? Можно мне один, пожалуйста?"
+	PlayerHasBook: "{PlayerHasBook}Это у тебя там книга, {PlayerRace}? Хочешь почитать её вместе?"
+	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}Что это? «Книга черепов»? Хех, обложка немного похожа на мою маску."
+	PlayerHasWaterBolt: "{PlayerHasWaterBolt}Что у тебя там? Волшебная книга, которая разбрызгивает воду? Надеюсь, она этого не сделает, если я попытаюсь её прочитать."
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}О, ты принесла мне ещё одну книгу? А почему она называется «Золотой душ»?"
+	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Ого, блестящий воздушный шарик! Можно я его подержу?"
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Какое у тебя красивое платье, {PlayerRace}! Ты в нём очень мило выглядишь, хе-хе."
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Ого, {PlayerRace}, кто эта кошка? Она огромная!"
+	Valentine1: "{Valentine}Что ты думаешь, {PlayerRace}? Подойдет ли мне эта заколка для волос ко Дню святого Валентина?"
+	Valentine2: "{Valentine}Букет — это хорошо, но если ты хочешь завоевать моё сердце, то должен принести мне буклет!"
+	Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+	# Easter is not implemented yet
+	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
+	Oktoberfest1: "{Oktoberfest}Настало то самое время года, когда можно выпить много пива! Ура!"
+	Oktoberfest2: "{Oktoberfest}{PlayerRace}... Это из-за пива или ты всегда была такой красивой?"
+	Oktoberfest3: "{Oktoberfest}Ммм. Это пиво — просто объедение."
+	Oktoberfest4: "{Oktoberfest}Со мной всё в порядке. Дайте мне ещё одну кружку пива."
+	Halloween1: "{Halloween}Цитрусовый шар с соком и семенами, даруй мне тепло в час нужды. Кислое убегает, а сладкое остается, цитрусовые защищают от всякого зла!"
+	Halloween2: "{Halloween}Уууу! Я Бу-ро!"
+	Halloween3: "{Halloween}БУ! Хе-хе, я тебя напугал, да?"
+	Halloween4: "{Halloween}Гррр! Я — злой волшебник-волшебник Волк. И я превращу тебя в сочный апельсин и проглочу целиком!"
+	Halloween5: "{Halloween}Я всех напугаю и заберу у них конфеты!"
+	Xmas1: "{Xmas}Хо-хо-хо! Привет, {PlayerRace}!"
+	Xmas2: "{Xmas}Что мне попросить у Санты? Больше книг или больше апельсинов?"
+	Xmas3: "{Xmas}С Рождеством!"
+	Xmas4: "{Xmas}Не хотите ли помочь мне украсить мою апельсиновую елку рождественскими игрушками?"
+	Xmas5: "{Xmas}На улице идёт снег, и мне очень хочется апельсинов."
+	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+
+	BloodMoon: {
+		BloodMoon1: Держись от меня подальше, {PlayerRace}. Сегодня я плохо себя чувствую.
+		BloodMoon2: Привет, сочный апельсин, передай привет моему рту.
+		BloodMoon3: Гррр... нужно... больше... апельсинов!
+		BloodMoon4: Хочешь, чтобы я тебя преобразил?
+		# Great Mighty Poo - Conkers Bad Fur Day
+		BloodMoon5: Я — Великий Могучий Слизняк, и я собираюсь бросить в тебя свои книги!
+	}
+
+	Pirates: {
+		Pirates1: АРРГ! Я капитан Пуро! И я иду за вашими апельсинами!
+		Pirates2: Яр! Держись поближе к капитану Пуро, мой дорогой. Я защищу тебя от этих трюмных крыс!
+		Pirates3: Нет! Не заряжайте пушки моими драгоценными апельсинами!
+		Pirates4: Бойтесь могучего Пуро и моей команды пиратов!
+		Pirates5: Вы готовы отправиться в плавание по семи морям апельсинового сока?
+	}
+
+	Martians: {
+		Martians1: Существа из другого мира? Сначала я узнал, что существует целый мир за пределами лаборатории, а теперь вы говорите, что есть ещё один мир за её пределами?
+		Martians2: Я хочу себе один из этих марсианских электрошокеров, чтобы я мог быть «пиу-пиу Пуро»!
+		Martians3: "{PlayerRace}, что такое НЛО?"
+	}
+
+	Eclipse: {
+		Eclipse1: "{PlayerRace}! Пожалуйста, не выходи сегодня на улицу. Это слишком опасно!"
+		Eclipse2: Думаю, я останусь дома и почитаю книги, пока не выглянет солнце.
+		Eclipse3: Сегодня я пыталась собрать апельсины, но на улице слишком темно.
+	}
+
+	Party: {
+		Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Где твоя праздничная шляпа?"
+		Party2: Подержи мою тарелку. Нет, подожди, дай мне и свою тоже.
+		Party3: Если кто-то ищет апельсиновый кекс... ну, не стоит. Я съел его целиком.
+		Party4: Я хочу сделать фигурку из воздушного шарика, которая будет выглядеть точно как ты. Милую и мягкую!
+		Party5: Да, я бы с удовольствием выпил! И чтобы мне его долили. А может, и еще и долили.
+		Party6: Что? Я не обжора. Я просто большой, сильный зверь, которому нужно много еды, чтобы оставаться в форме.
+		Party7: Думаешь, они рассердятся, если я всё съем, и они узнают?
+		Party8: *ням* *хлюп* Мммм, еда такая вкусная! *хрум*
+		Party9: "{PlayerIsWearingBalloon}Да! Это как раз то, чего не хватало этой вечеринке. Больше воздушных шаров!"
+		Party10: Я — чёрное слизистое чудовище, а мой рот — чёрная дыра для вкуснейшей еды!
+		Party11: Ммм, эти воздушные апельсиновые кексы такие вкусные, но я уже их столько съела... Может, еще один?
+		Party12: Потанцуем вместе, {PlayerRace}? Потому что я чувствую себя настоящим тусовщиком!
+	}
+}
+
+DrK: {
+	NPCAngler: "{NameAngler} постоянно на улице ловит рыбу, а я постоянно в лаборатории жду результатов."
+	NPCNurse: Хорошо, что {NameNurse} здесь, потому что у меня заканчивались шприцы.
+	NPCZoologist: Интересно, что случилось с {NameZoologist}? Она преобразилась лишь частично?
+	Normal1: Как раз вовремя. Мне как раз нужен был доброволец для следующего эксперимента.
+	Normal2: Здравствуйте, испытуемый. Не могли бы вы подержать это для меня? Сейчас мне довольно сложно сделать это самой, так как у меня большие пушистые лапы.
+	Normal3: Знаете, всех этих слизистых монстров всё равно бы удалось удержать под контролем, если бы эти тупые бунтовщики не ворвались в лабораторию.
+	Normal4: Теперь, когда мне больше не нужно работать над лекарством от вируса, я могу сосредоточиться на создании самого милого слизистого чудовища!
+	Normal5: "{PuroPresent}Эта чёрная слизь... уникальна. Я никогда не видел, чтобы кто-то из его вида так любил людей."
+	Normal6: Думали, Белый хвост был плохим? Подождите, пока не увидите, частью какого монстра он когда-то был.
+	Normal7: Успокойтесь! Если этот эксперимент провалится, снесёт только половину здания.
+	Normal8: Вы, возможно, стали сильнее, но и слизистые твари тоже. Так что в итоге... ничего не изменилось.
+	Normal9: Хотите узнать кое-что интересное? А вы знали, что в моей оригинальной игре нет спрайтов, где я смотрю в стороны?
+	Normal10: Приятно видеть, что вы не единственный человек, переживший «бледный вирус».
+	Normal11: Из-за огромного разнообразия слизистых существ стало сложно дать им всем названия. Поэтому мы придумали очень научные названия, такие как «Собака-кальмар» гибрид кальмара и собаки, или «фиолетомурлыка» фиолетовый мурлыкающий кот.
+	Normal12: А вы знали, что раньше эти лаборатории арендовала компания, занимающаяся робототехникой? Именно они разработали эти удобные роботы-подметальщики.
+	Normal13: Возможно, я и внес свой вклад в создание многих из этих слизистых монстров, но я мало что могу над ними контролировать. Вероятно, потому что у меня нет докторской степени по поведению животных.
+	Crimson1: "{Crimson}Отлично, я спас мир от смертельного вируса, а теперь его уничтожает Багрянец."
+	Crimson2: "{Crimson}В Багрянец бродит огромное красное чудовище. Если вы дорожите своей жизнью, держитесь от него подальше."
+	Corruption1: "{Corruption}Отлично, я спас мир от смертельного вируса, а теперь его уничтожает Порча."
+	Corruption2: "{Corruption}Вы видели того большого фиолетового кота возле Порча? Поверьте, если нет, то вам следует оставить его в покое."
+	BothWorldEvils1: "{BothWorldEvils1}Отлично, я спас мир от смертельного вируса, а теперь его уничтожает Порча и Багрянец."
+	Thunder1: "{Thunder}Погода идеально подходит для такого сумасшедшего учёного, как я!"
+	Thunder2: "{Thunder}Каковы шансы? Молния только что ударила в здание «Гром Наука»."
+	Windy1: "{Windy}Кто оставил окно открытым? Теперь все мои записи разбросаны по полу!"
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Пожалуйста, не открывайте здесь свою книгу 'Золотой душ'."
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Почему ты в свадебном платье? Ты собираешься выйти замуж за своего приятеля, черного желейного волка?"
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr} Что? Ты подружился с этим гигантским котом? Ладно, должен признать, это впечатляет."
+	Valentine1: "{Valentine}Любовь похожа на химию. Она приводит к неожиданным результатам, и чувства могут стать очень теплыми."
+	Valentine2: "{Valentine}Что? Только не говори, что ты хотел пригласить меня на свидание в День святого Валентина. У меня есть дела поважнее."
+	Oktoberfest1: "{Oktoberfest}Я собираюсь... *ик* ...принять сегодня отличные решения."
+	Oktoberfest2: "{Oktoberfest}Давай, испытуемый. Устроим немного пьяной науки!"
+	Oktoberfest3: "{Oktoberfest}Яд определяется только дозой, так что я могу выпить ещё пива!"
+	Oktoberfest4: "{Oktoberfest}В худшем случае мне придётся повторить этот эксперимент заново."
+	# Spooky Scary Skeletons
+	Halloween1: "{Halloween}Жуткие и страшные ученые будут преследовать вас во снах!"
+	Halloween2: "{Halloween}Я — чудовище под твоей кроватью. Мои зубы острые, а глаза светятся красным."
+	Halloween3: "{Halloween}Если вдохнуть пары из этой колбы, вы будете выглядеть страшнее, чем в любом костюме на Хэллоуин."
+	Halloween4: "{Halloween}Чтобы стать успешным врачом, как я, нужно обладать... мозги! мозги!"
+	Xmas1: "{Xmas}Список желаний для Санты? Нет, я в него не верю. Я верю в науку."
+	Xmas2: "{Xmas}Что вы думаете об этой химической смеси? Разве она не прекрасна? Ее цвета даже ярче, чем у рождественской елки!"
+	Xmas3: "{Xmas}С Рождеством!"
+	Xmas4: "{Xmas}Если бы у меня вместо носа была морковка, меня бы приняли за снеговика."
+
+	BloodMoon: {
+		BloodMoon1: Иди сюда, подопытный! Мне нужно провести над тобой несколько тестов!
+		# Dr Nefario
+		BloodMoon2: Ты хочешь взорваться?
+		BloodMoon3: Муахаха! Я тебя достану и превращу в одного из нас!
+	}
+
+	Pirates: {
+		Pirates1: Если эти жестокие, безмозглые воры уничтожат мое оборудование, они пожалеют об этом!
+		Pirates2: Пираты настолько материалистичны, что не понимают, что знания гораздо ценнее золота.
+		Pirates3: Я был на пороге прорыва, прежде чем эти проклятые бандиты ворвались ко мне в дверь.
+	}
+
+	Martians: {
+		Martians1: Если вам удастся найти какой-нибудь марсианский прибор, не могли бы вы, пожалуйста, принести его мне? Я бы очень хотел изучить их технологии.
+		Martians2: Здесь никогда не бывает скучно, правда?
+	}
+
+	Eclipse: {
+		Eclipse1: Может, я и безумный учёный, но даже я бы не стал создавать таких монстров.
+		Eclipse2: Сегодня лучше остаться дома, так что для меня это обычный день.
+		Eclipse3: Пожалуйста, останься в живых, потому что я не смогу сшить тебя обратно, если ты погибнешь. В конце концов, я доктор К., а не доктор Франкенштейн.
+	}
+
+	Party: {
+		Party1: "{PlayerHasNoPartyHat}Ну же, испытуемый, где твоя праздничная шляпа? Они думают, что я скучный, но даже я её ношу!"
+		Party2: По моим подсчетам, на вечеринке никогда не бывает достаточно еды, чтобы утолить голод черной слизи.
+		Party3: Между этими воздушными шарами легко можно не заметить слизистого монстра. В конце концов, они сделаны из одного и того же материала.
+		Party4: Хотите потанцевать? Хорошо, тогда я покажу вам "Ученый вихрь"!
+		# The very verbose chemist from YouTube (actually, precisely, arbitrary)
+		Party5: Готовы к крутому фокусу? Смотрите, я могу превратить туалетную бумагу в самогон!
+		Party6: На этой вечеринке не хватает фейерверков. Хотите, я это исправлю?
+		// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
+	}
+
+	TerraGuardian: {
+		// PlayerHasTerraGuardian: TODO
+		// PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
+		// PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
+		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}{Safe}You really like big, furry women huh?"
+		// PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
+		// PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
+		// PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
+		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}{Safe}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
+		# Macro
+		// MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
+		// MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
+		# Guardians
+		// Alex: "{TerraGuardianAlexPresent}Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+		// Alexander: TODO
+		// Blue: "{TerraGuardianBluePresent}{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
+		// Brutus: TODO
+		// Ich: TODO
+		// Leona: TODO
+		// Monica: TODO
+		// Rococo: "{TerraGuardianRococoPresent}I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
+		// Scaleforth: "{TerraGuardianScaleforthPresent}I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
+	}
+}
+
+Prototype: {
+	Emotion1: Beep :)
+	Emotion2: ... :o
+	Emotion3: Boop :3
+	Emotion4: Vrrrp :D
+	Emotion5: Bzzz :p
+	Emotion6: Whrrr >:D
+
+	Injured: {
+		Injured1: Drrrr :S
+		Injured2: Fzzzt :|
+		Injured3: Eeeee ;(
+	}
+
+	NearlyDead: {
+		NearlyDead1: Kzzzt X(
+		NearlyDead2: Aaaaa XO
+		# SOS in morse code
+		NearlyDead3: ... --- ...
+	}
+}
+
+PuroWorm.Dialogue1: Ммм апельсин

@@ -1,29 +1,39 @@
 WhiteLatexTaurMountBuff: {
-	Description: Blanco y r�pido
-	DisplayName: Centauro L�tex Blanco
+	Description: Blanco y rápido
+	DisplayName: Centauro Látex Blanco
 }
 
 FlyingDarkLatexMountBuff: {
-	Description: Desliz�ndose sobre l�tex
+	Description: Deslizándose sobre látex
 	DisplayName: Yufeng
 }
 
 WhiskerStaffBuff: {
-	Description: El gato luchar� por ti.
+	Description: El gato luchará por ti.
 	DisplayName: Gato Ming
 }
 
 PurrpurrStaffBuff: {
-	Description: �No te metas con ella!
+	Description: ¡No te metas con ella!
 	DisplayName: Gatomorado
 }
 
 TabbyStaffBuff: {
-	Description: El gato luchar� por ti.
+	Description: El gato luchará por ti.
 	DisplayName: Gato atigrado
 }
 
 LatexMothMountBuff: {
-	Description: Desliz�ndose sobre l�tex
+	Description: Deslizándose sobre látex
 	DisplayName: Polilla de lodo
+}
+
+BehemothWeaponBuff: {
+	// DisplayName: Behemoth Weapon Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+}
+
+WhiteTailMountBuff: {
+	// DisplayName: White Tail Mount Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
 }

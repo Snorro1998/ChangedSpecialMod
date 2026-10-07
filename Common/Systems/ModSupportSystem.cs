@@ -2,7 +2,6 @@
 using ChangedSpecialMod.Content.Items.Summons;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.TownPets;
-using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.OS;

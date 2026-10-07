@@ -89,12 +89,18 @@ This update adds more loot to bosses and makes some changes to dialogue.
 NPCs
 - If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
 - If you play with the Terra guardians mod, Puro and Dr K can say things about them.
+- All NPCs have a small chance to drop lost books. You can give (not sell) them to Puro for a reward.
 
-Items
-- Added thropies for all bosses
-- Added relics for all bosses
-- Added disguise set
+Items added
+- Boss trophies
+- Treasure bags (expert mode)
+- Boss relics (master mode)
+- Disguise set. It makes the player immune to all latex beasts.
+- Gooey grabber. Summons the behemoth's hand as a minion.
+- Hairball. Summons a white tail mount, which can dash.	
 
 Fixed
+- Fixed broken buff translations in many languages
+- Fixed broken German translations of NPC dialogue
 - German Shepherd could spawn during an eclipse
 - Debug item for resetting boss progression now works again and doesn't just print numbers

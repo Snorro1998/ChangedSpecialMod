@@ -259,6 +259,18 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
+        public override void OnKill(NPC npc)
+        {
+            base.OnKill(npc);
+            var puroPresent = NPC.AnyNPCs(ModContent.NPCType<Puro>());
+            var isCritter = npc.lifeMax == 5;
+            var dropChance = 200;
+
+            if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(dropChance) &&
+                puroPresent && !isCritter)
+                Item.NewItem(new EntitySource_Gift(npc), npc.Hitbox, ModContent.ItemType<QuestBook>(), 1);
+        }
+
         // If the NPC is already big, we can change this value to make statscaling increase his size less
         public float BaseScaleMultiplier { get; set; } = 1.0f;
 
@@ -1783,7 +1795,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             base.HitEffect(npc, hit);
             var changedNPC = npc.Changed();
-            if (changedNPC == null || !changedNPC.DefaultHitEffect)
+            if (changedNPC == null || !changedNPC.DefaultHitEffect || changedNPC.GooType == GooType.Invalid)
                 return;
 
             var dustType = DustID.TintableDust;

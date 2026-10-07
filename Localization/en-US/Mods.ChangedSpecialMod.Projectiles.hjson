@@ -51,3 +51,7 @@ SquidDogTentacleBodyProjectile.DisplayName: Squid Dog Tentacle Body Projectile
 SquidDogTentacleHeadProjectile.DisplayName: Squid Dog Tentacle Head Projectile
 SquidDogTentacleTailProjectile.DisplayName: Squid Dog Tentacle Tail Projectile
 WavePatternProjectile.DisplayName: Wave Pattern Projectile
+WhiteTailProjectile.DisplayName: White Tail Projectile
+CrawlerProjectile.DisplayName: Crawler Projectile
+BehemothWeaponProjectile.DisplayName: Behemoth Weapon Projectile
+WhiteLatexProjectileFriendly.DisplayName: White Latex Projectile Friendly

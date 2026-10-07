@@ -15,8 +15,11 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCGuide", "Question"),
                 new DialogueElement("NPCNurse", "Happy"),
                 new DialogueElement("NPCMerchant", "Happy"),
+                new DialogueElement("NPCPainter", "Question"),
+                new DialogueElement("NPCPirate", "Question"),
                 new DialogueElement("NPCTavernKeep"),
                 new DialogueElement("NPCTaxCollector", "Question"),
+                new DialogueElement("NPCWizard", "Question"),
                 new DialogueElement("NPCZoologist", "Happy"),
 
                 // Coralite

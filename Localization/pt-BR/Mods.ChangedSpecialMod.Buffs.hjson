@@ -1,6 +1,6 @@
 WhiteLatexTaurMountBuff: {
-	Description: Branco e r�pido!
-	DisplayName: Centauro de gosma branca
+	Description: Branco e rápido!
+	DisplayName: Centauro de Gosma Branca
 }
 
 FlyingDarkLatexMountBuff: {
@@ -9,21 +9,31 @@ FlyingDarkLatexMountBuff: {
 }
 
 WhiskerStaffBuff: {
-	Description: O gato lutar� por voc�.
+	Description: O gato lutará por você.
 	DisplayName: Gato Ming
 }
 
 PurrpurrStaffBuff: {
-	Description: N�o se meta com ela!
+	Description: Não se meta com ela!
 	DisplayName: Roxoronando
 }
 
 TabbyStaffBuff: {
-	Description: O gato lutar� por voc�.
-	DisplayName: Gato malhado
+	Description: O gato lutará por você.
+	DisplayName: Gato Malhado
 }
 
 LatexMothMountBuff: {
 	Description: Voando em uma gosma!
 	DisplayName: Mariposa viscosa
+}
+
+BehemothWeaponBuff: {
+	// DisplayName: Behemoth Weapon Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+}
+
+WhiteTailMountBuff: {
+	// DisplayName: White Tail Mount Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
 }

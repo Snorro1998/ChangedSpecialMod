@@ -1,10 +1,10 @@
 WhiteLatexTaurMountBuff: {
 	Description: Blanc et rapide!
-	DisplayName: Centaure de Gel�e Blanche
+	DisplayName: Centaure de Gelée Blanche
 }
 
 FlyingDarkLatexMountBuff: {
-	Description: Voler sur de la gel�e!
+	Description: Voler sur de la gelée!
 	DisplayName: Yufeng
 }
 
@@ -20,10 +20,20 @@ PurrpurrStaffBuff: {
 
 TabbyStaffBuff: {
 	Description: Le chat se battra pour vous
-	DisplayName: Chat tigr�
+	DisplayName: Chat tigré
 }
 
 LatexMothMountBuff: {
-	Description: Invoque un papillon de nuit de gel�e � chevaucher
-	DisplayName: Papillon de nuit de gel�e
+	Description: Invoque un papillon de nuit de gelée à chevaucher
+	DisplayName: Papillon de nuit de gelée 
+}
+
+BehemothWeaponBuff: {
+	// DisplayName: Behemoth Weapon Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+}
+
+WhiteTailMountBuff: {
+	// DisplayName: White Tail Mount Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
 }

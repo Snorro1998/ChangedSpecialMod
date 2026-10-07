@@ -9,7 +9,7 @@ FlyingDarkLatexMountBuff: {
 }
 
 WhiskerStaffBuff: {
-	Description: Il gatto combatter� per te
+	Description: Il gatto combatterà per te
 	DisplayName: Gatto ming
 }
 
@@ -19,11 +19,21 @@ PurrpurrStaffBuff: {
 }
 
 TabbyStaffBuff: {
-	Description: Il gatto combatter� per te
+	Description: Il gatto combatterà per te
 	DisplayName: Gatto tigrato
 }
 
 LatexMothMountBuff: {
 	Description: Volare sulla melma!
 	DisplayName: Falena melmosa
+}
+
+BehemothWeaponBuff: {
+	// DisplayName: Behemoth Weapon Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+}
+
+WhiteTailMountBuff: {
+	// DisplayName: White Tail Mount Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
 }

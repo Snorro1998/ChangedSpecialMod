@@ -27,3 +27,13 @@ LatexMothMountBuff: {
 	Description: Gliding on goo!
 	DisplayName: Slime moth
 }
+
+BehemothWeaponBuff: {
+	DisplayName: Behemoth Weapon Buff
+	Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+}
+
+WhiteTailMountBuff: {
+	DisplayName: White Tail Mount Buff
+	Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
+}

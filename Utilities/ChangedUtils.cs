@@ -3,7 +3,6 @@ using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items;
-using ChangedSpecialMod.Content.Items.Placeable.Latex.White;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Content.Projectiles;
@@ -25,7 +24,6 @@ using Terraria.GameContent.UI.States;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.WorldBuilding;
 using static ChangedSpecialMod.ChangedSpecialMod;
 
 
@@ -746,7 +744,7 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-        public static void DrawProjectileCentered(Projectile proj, Color lightColor, Texture2D texture = null, bool drawCentered = true)
+        public static void DrawProjectileCentered(Projectile proj, Color lightColor, Texture2D texture = null, bool drawCentered = true, float yOffset = 0)
         {
             if (texture is null)
                 texture = TextureAssets.Projectile[proj.type].Value;
@@ -765,6 +763,7 @@ namespace ChangedSpecialMod.Utilities
 
             Vector2 startPos = drawCentered ? proj.Center : proj.position;
             Vector2 drawPos = startPos - Main.screenPosition + new Vector2(0f, proj.gfxOffY);
+            drawPos.Y += yOffset;
 
             Main.spriteBatch.Draw(texture, drawPos, rectangle, proj.GetAlpha(lightColor), rotation, origin, scale, spriteEffects, 0f);
 
@@ -1420,10 +1419,13 @@ namespace ChangedSpecialMod.Utilities
             bool isTabbyOrPurrpurr = 
                 projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>() || 
                 projectile.type == ModContent.ProjectileType<TabbyStaffProjectile>();
+            bool isWhiteTail = projectile.type == ModContent.ProjectileType<WhiteTailProjectile>();
             int targetingRange = 450;
 
             var playerPosition = player.position;
             var playerCenter = player.Center;
+
+            bool spinWhenFlyingToPlayer = isTabbyOrPurrpurr;
 
             bool testFlag = false;
 
@@ -1438,11 +1440,17 @@ namespace ChangedSpecialMod.Utilities
             float flyDistance = 500f;
             float walkDistance = 300f;
 
-            // vector is the position when standing next to the player
+            if (isWhiteTail)
+            {
+                targetingRange = 900;
+                //flyDistance *= 2;
+                //walkDistance *= 2;
+            }
+
+            // vector is the target position
             Vector2 vector = playerCenter;
             vector.X -= (45 + player.width / 2) * player.direction;
             vector.X -= projectile.minionPos * 30 * player.direction;
-
 
             projectile.shouldFallThrough = playerPosition.Y + (float)player.height - 12f > projectile.position.Y + (float)projectile.height;
             projectile.friendly = false;
@@ -1548,7 +1556,8 @@ namespace ChangedSpecialMod.Utilities
                     projectile.frame = 2;
                 }
                 // Spin
-                projectile.rotation = projectile.rotation.AngleTowards(projectile.rotation + 0.25f * (float)projectile.spriteDirection, 0.25f);
+                if (spinWhenFlyingToPlayer)
+                    projectile.rotation = projectile.rotation.AngleTowards(projectile.rotation + 0.25f * (float)projectile.spriteDirection, 0.25f);
             }
             if (projectile.ai[0] == 2f && projectile.ai[1] < 0f)
             {
@@ -1700,50 +1709,61 @@ namespace ChangedSpecialMod.Utilities
                     }
                 }
                 projectile.tileCollide = true;
-                float num34 = 0.5f;
-                float num35 = 4f;
-                float num36 = 4f;
-                float num37 = 0.1f;
+                float acceleration2 = 0.5f;
+                float xSpeedMax2 = 4f;
+                float xSpeedMax = 4f;
+                float slowAcceleration = 0.1f;
                 if (attackTarget != -1)
                 {
-                    num34 = 0.65f;
-                    num35 = 5.5f;
-                    num36 = 5.5f;
+                    acceleration2 = 0.65f;
+                    xSpeedMax2 = 5.5f;
+                    xSpeedMax = 5.5f;
                 }
-                if (num36 < Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y))
+
+                if (isWhiteTail)
                 {
-                    num36 = Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y);
-                    num34 = 0.7f;
+                    acceleration2 *= 1.5f;
+                    slowAcceleration *= 1.5f;
+                    xSpeedMax *= 2;
+                    xSpeedMax2 *= 2;
+                }
+
+                if (xSpeedMax < Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y))
+                {
+                    xSpeedMax = Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y);
+                    acceleration2 = 0.7f;
                 }
 
                 int num39 = 0;
                 bool flag13 = false;
-                float num40 = vector.X - projectile.Center.X;
+                float xDistToTarget = vector.X - projectile.Center.X;
                 Vector2 vector13 = vector - projectile.Center;
-                if (Math.Abs(num40) > 5f)
+                if (Math.Abs(xDistToTarget) > 5f)
                 {
-                    if (num40 < 0f)
+                    // Target to the left
+                    if (xDistToTarget < 0f)
                     {
                         num39 = -1;
-                        if (projectile.velocity.X > 0f - num35)
+                        if (projectile.velocity.X > 0f - xSpeedMax2)
                         {
-                            projectile.velocity.X -= num34;
+                            projectile.velocity.X -= acceleration2;
                         }
                         else
                         {
-                            projectile.velocity.X -= num37;
+                            projectile.velocity.X -= slowAcceleration;
                         }
                     }
+                    // Target to the right
                     else
                     {
                         num39 = 1;
-                        if (projectile.velocity.X < num35)
+                        if (projectile.velocity.X < xSpeedMax2)
                         {
-                            projectile.velocity.X += num34;
+                            projectile.velocity.X += acceleration2;
                         }
                         else
                         {
-                            projectile.velocity.X += num37;
+                            projectile.velocity.X += slowAcceleration;
                         }
                     }
 
@@ -1758,7 +1778,7 @@ namespace ChangedSpecialMod.Utilities
                 else
                 {
                     projectile.velocity.X *= 0.9f;
-                    if (Math.Abs(projectile.velocity.X) < num34 * 2f)
+                    if (Math.Abs(projectile.velocity.X) < acceleration2 * 2f)
                     {
                         projectile.velocity.X = 0f;
                     }
@@ -1889,13 +1909,13 @@ namespace ChangedSpecialMod.Utilities
                         }
                     }
                 }
-                if (projectile.velocity.X > num36)
+                if (projectile.velocity.X > xSpeedMax)
                 {
-                    projectile.velocity.X = num36;
+                    projectile.velocity.X = xSpeedMax;
                 }
-                if (projectile.velocity.X < 0f - num36)
+                if (projectile.velocity.X < -xSpeedMax)
                 {
-                    projectile.velocity.X = 0f - num36;
+                    projectile.velocity.X = -xSpeedMax;
                 }
                 if (projectile.velocity.X < 0f)
                 {
@@ -1909,11 +1929,11 @@ namespace ChangedSpecialMod.Utilities
                 {
                     projectile.direction = ((playerCenter.X > projectile.Center.X) ? 1 : (-1));
                 }
-                if (projectile.velocity.X > num34 && num39 == 1)
+                if (projectile.velocity.X > acceleration2 && num39 == 1)
                 {
                     projectile.direction = 1;
                 }
-                if (projectile.velocity.X < 0f - num34 && num39 == -1)
+                if (projectile.velocity.X < 0f - acceleration2 && num39 == -1)
                 {
                     projectile.direction = -1;
                 }

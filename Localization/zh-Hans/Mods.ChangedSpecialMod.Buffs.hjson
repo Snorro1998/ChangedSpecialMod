@@ -27,3 +27,13 @@ LatexMothMountBuff: {
 	Description: 乘着黏液飞行
 	DisplayName: 黏糊糊的蛾子
 }
+
+BehemothWeaponBuff: {
+	// DisplayName: Behemoth Weapon Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+}
+
+WhiteTailMountBuff: {
+	// DisplayName: White Tail Mount Buff
+	// Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
+}

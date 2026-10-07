@@ -1,0 +1,277 @@
+# This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
+Puro: {
+	# NPCs
+	NPCAngler: "{NameAngler} is so reckless. Yesterday he nearly got pulled into the water by a Squid Dog while he was fishing."
+	NPCArmsDealer: TODO
+	NPCClothier: TODO
+	NPCCyborg: TODO
+	NPCDemolitionist: TODO
+	NPCDryad: I wonder if {NameDryad} knows how to grow an orange tree.
+	NPCDyeTrader: TODO
+	NPCGoblinTinkerer: TODO
+	NPCGolfer: TODO
+	NPCGuide: Do you think {NameGuide} can tell me what else I can make from my oranges besides drinks and dishes?
+	NPCMechanic: TODO
+	NPCMerchant: If only {NameMerchant} sold orange juice, he would be rich!
+	NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
+	NPCOldMan: TODO
+	NPCPainter: Should I ask {NamePainter} to paint my room orange? Or should I ask him to put up wallpaper with oranges?
+	NPCPartyGirl: TODO
+	NPCPirate: Why does {NamePirate} keep calling me blackbeard? I don't even have a beard.
+	NPCPrincess: TODO
+	NPCSantaClaus: TODO
+	NPCSkeletonMerchant: TODO
+	NPCSteampunker: TODO
+	NPCStylist: TODO
+	NPCTavernKeep: I told {NameTavernKeep} he should expand his menu with orange drinks and dishes! Think of all the delicious possibilities like citrus salad, orange pound cake, orange juice, oh and mimosa! Mmmmm mimosa...
+	NPCTaxCollector: "{PlayerRace}, what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them."
+	NPCTravellingMerchant: TODO
+	NPCTruffle: TODO
+	NPCWitchDoctor: TODO
+	NPCWizard: I don't understand why {NameWizard} doesn't let me read his books. It's not like I will damage them with my soft paws.
+	NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
+	NPCCoraliteCrystalRobot: "{NameCoraliteCrystalRobot} told me all kinds of things about 'magike', but all I wanted to know is if you can make oranges from it."
+	NPCThoriumCobbler: "{NameThoriumCobbler} has so many shoes, but they are all too small for my paws."
+	NPCStarsModPackFarmer: I'm sure {NameStarsModPackFarmer} can help me grow even more oranges!
+	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, do you know why {NameStarsModPackScrapyardGeek} iz alwaz talking like zat?"
+	PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+	TerraGuardianAlex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+	TerraGuardianAlexander: TODO
+	TerraGuardianBlue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+	TerraGuardianBrutus: TODO
+	TerraGuardianIch: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
+	TerraGuardianLeona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+	TerraGuardianMonica: TODO
+	TerraGuardianRococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
+	TerraGuardianScaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
+	Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
+	Book2: Hello {PlayerRace}! Have you seen my book?
+	Book3: Will you help me make the biggest book tower?
+	Book4: "{PlayerRace}! Look at this amazing book I just found!"
+	Book5: One day I will write a book about the amazing adventures of {NamePlayer}!
+	Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together {PlayerRace}?
+	Book7: I am the gooey glabgalab, and I love books.
+	Orange1: What's your favorite color? My favorite color is orange.
+	Orange2: Mmmm *munch* orange *munch* Oh, hello {PlayerRace}.
+	Orange3: I don't have a favorite child but if I did, it would be this orange.
+	Orange4: Last night I dreamt I was in a ball pit filled with oranges.
+	Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
+	Orange6: I know everything about oranges, so you could say I am a citrus connoisseur!
+	Orange7: I have done nothing but teleport oranges for 3 days.
+	# TF2
+	Crimson1: "{Crimson}Did you know that some trees in the Crimson grow blood oranges? Do you think you could get me one?"
+	Crimson2: "{Crimson}Be careful around the lab near the Crimson. I saw a huge, hulking tiger there."
+	Corruption1: "{Corruption}Be careful around the lab near the Corruption. I saw a massive, purple cat there."
+	Changed1: Have you seen my drawings in the lab? Would you like me to make a drawing of you?
+	Changed2: "{Behemoth}I want to become as big as the Behemoth, so I can hold you in my paws like a doll and keep you safe."
+	Normal1: I don't need gear to protect myself, because I've got big claws, paws and a big maw!
+	Normal2: Hello! How's my favorite {PlayerRace} today?
+	TransfurCub: "{TransfurCub}Hello little puppy. You are so small and cute! Can I hold you please?"
+	Rain1: "{Rain}If you are cold from the rain and want to warm up, you can bury yourself in my fluffy fur!"
+	Rain2: "{Rain}I shook my fur to dry myself off and now I am extra floofy!"
+	Thunder1: "{Thunder}I am not afraid of lightning. My whole body is made out of rubber so even if I got struck by it, I would be totally fine!"
+	Thunder2: "{Thunder}With all those bright flashes I hardly need a lamp to read my books."
+	Windy1: "{Windy}Would you like to fly a kite with me, {PlayerRace}?"
+	Windy2: "{Windy}The wind is so strong today that my fur got all messed up."
+	Windy3: "{Windy}I wish I had wings so I could fly and take you everywhere."
+	PlayerHasOrange: "{PlayerHasOrange}*Sniff* {PlayerRace}, are you carrying juicy oranges? Can I have one please?"
+	PlayerHasBook: "{PlayerHasBook}Is that a book you have there {PlayerRace}? Would you like to read it together?"
+	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}What is that? 'Book of Skulls?' Heh, the cover looks a bit like my mask."
+	PlayerHasWaterBolt: "{PlayerHasWaterBolt}What do you have there? A magical book that sprays water? I hope it doesn't do that if I try to read it."
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oooh you brought me another book? Eh, why is it called 'Golden Shower'?"
+	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oooh a shiny balloon! Can I hold it please?"
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress {PlayerRace}. You look kinda cute in it hehehe."
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah {PlayerRace}, who is that cat? She is huge!"
+	Valentine1: "{Valentine}What do you think, {PlayerRace}? Do I look cute with this Valentine's Day hair pin?"
+	Valentine2: "{Valentine}A bouquet is nice, but if you want to win my heart then you have to bring me a booklet!"
+	Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
+	# Easter is not implemented yet
+	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
+	Oktoberfest1: "{Oktoberfest}It is that time of the year for lots of beer! PROST!"
+	Oktoberfest2: "{Oktoberfest}Hooooman... Is it the beer or have you always looked so pretty?"
+	Oktoberfest3: "{Oktoberfest}Mmmm. This beerrr ish some good shtuff."
+	Oktoberfest4: "{Oktoberfest}I'm fineeeee. Just give me one more steinnn."
+	Halloween1: "{Halloween}Citrus orb of juice and seed, grant me warmth in hour of need. Sour flee and sweet remain, Citrus ward against all bane!"
+	Halloween2: "{Halloween}Wooooh! I am Boo-ro!"
+	Halloween3: "{Halloween}BOO! Hehe I scared you didn't I?"
+	Halloween4: "{Halloween}Grrrr! I am the evil Wizard Wolf. And I will turn you into a juicy orange and swallow you whole!"
+	Halloween5: "{Halloween}I am going to scare everybody and take their candy!"
+	Xmas1: "{Xmas}Ho ho ho! Hello {PlayerRace}!"
+	Xmas2: "{Xmas}What should I ask from Santa? More books or more oranges?"
+	Xmas3: "{Xmas}Jingle bells, Puro smells, {PlayerRace} on a sleigh!"
+	Xmas4: "{Xmas}Would you like to help me decorate my orange tree with Christmas ornaments?"
+	Xmas5: "{Xmas}Silent night, citrus bright. All is calm, peel held tight. Round orange, golden and sweet. Spoiled rotten, with such a nice treat."
+	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+
+	BloodMoon: {
+		BloodMoon1: Stay away from me {PlayerRace}. I am not feeling like myself today.
+		BloodMoon2: Hello juicy orange, say hi to my mouth.
+		BloodMoon3: Grrrr.. need... more... oranges!
+		BloodMoon4: Do you want to be transfurred?
+		# Great Mighty Poo - Conkers Bad Fur Day
+		BloodMoon5: I... am... the Great Mighty Goo, and I'm going to throw my books at you!
+	}
+
+	Pirates: {
+		Pirates1: ARRRG! I am Captain Puro! And I am coming for yer oranges!
+		Pirates2: Yar! Stay close to Captain Puro me hearty. I will protect ya from those bilge rats!
+		Pirates3: No! Don't load the cannons with me precious oranges!
+		Pirates4: Fear the Mighty Puro and me crew of Bookkaneers!
+		Pirates5: Arrr ye ready to sail the seven seas of orange juice?
+	}
+
+	Martians: {
+		Martians1: Creatures from another world? First I find out there is a whole world outside the lab and now you are telling me there is another world out there?
+		Martians2: I want one of those martian zappers so I can be pew pew Puro!
+		Martians3: "{PlayerRace}, what's a U.F.O? An Unbelievably Fruity Orange?"
+	}
+
+	Eclipse: {
+		Eclipse1: "{PlayerRace}! Please don't go outside today. It is way too dangerous!"
+		Eclipse2: I think I will stay inside and read some books until the sun gets back.
+		Eclipse3: I tried to pick some oranges today, but it is just way too dark.
+	}
+
+	Party: {
+		Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Where is your party hat?"
+		Party2: Hold my plate. No wait actually, give me yours too.
+		Party3: If anybody is looking for the orange pound cake.. eh, don't. I ate the whole thing.
+		Party4: I want to make a balloon animal that looks just like you. Cute and squishy!
+		Party5: Yes, I'd love a drink! And a refill on that. And maybe a refill on the refill.
+		Party6: What? I am not a glutton. I am just a big, strong beast who needs lots of food to stay in shape.
+		Party7: Do you think they will be mad if I eat everything and they find out?
+		Party8: *Nom* *Glrk* Mmmmm the food is so good! *Munch*
+		Party9: "{PlayerIsWearingBalloon}Yes! Just what this party needed. More balloons!"
+		Party10: I am a black latex beast, and my mouth is a black hole for delicious food!
+		Party11: Mmmm these fluffy orange cupcakes are so good, but I already had so many.. Perhaps just one more.
+		Party12: Shall we dance together {PlayerRace}? Because I feel like a party animal!
+	}
+}
+
+DrK: {
+	NPCAngler: "{NameAngler} is always outside catching fish, and I am always inside the lab fishing for results."
+	NPCNurse: It is good to have {NameNurse} around here, because I was running out of syringes.
+	NPCZoologist: I wonder what happened to {NameZoologist}. Did she only get partially transfurred?
+	Normal1: Perfect timing. I just needed a volunteer for my next experiment.
+	Normal2: Hello test subject. Could you please hold this for me? It is rather difficult to do it myself now that I have big, furry paws.
+	Normal3: You know, all those latex beasts would still have been contained if those stupid rioters hadn't stormed the laboratory.
+	Normal4: Now that I don't have to work on a cure for the virus anymore, I can focus on creating the cutest latex beast!
+	Normal5: "{PuroPresent}That black sample is... unique. I have never seen one of his kind so fond of humans."
+	Normal6: You thought the White Tail was bad? Wait until you see what monster he was once a part of.
+	Normal7: Relax! If this experiment blows up, only half the building will be gone.
+	Normal8: You may have grown stronger but so did the latex beasts. So in the end... nothing has Changed.
+	Normal9: Do you want to know something interesting? Did you know that I don't have side sprites in my original game?
+	Normal10: It's good to see that you are not the only human who survived the pale virus.
+	Normal11: With so many different latex beasts it became difficult to name them all. So that's why we came up with very scientific names like 'Squid Dog' for a Squid and Dog amalgamation or 'Purrpurr' for a purple purring cat.
+	Normal12: Did you know that the laboratories were rented by a robotics company in the past? They developed those handy sweeper robots.
+	Normal13: I may have contributed to the creation of many of those latex beasts, but I have little control over them. Probably because I don't have a PhD in animal behavior.
+	Crimson1: "{SingleWorldEvil}{Crimson}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Crimson."
+	Crimson2: "{Crimson}There is a massive red beast roaming around the Crimson. If you value your life, you should stay away from him."
+	Corruption1: "{SingleWorldEvil}{Corruption}Great, I have saved the world from a deadly virus and now it is getting destroyed by the Corruption."
+	Corruption2: "{Corruption}Have you seen that large purple cat near the Corruption? Trust me, if you haven't, you should keep it that way."
+	BothWorldEvils1: "{BothWorldEvils1}Great, I have saved the world from a deadly virus and now it is getting destroyed by both the Corruption and the Crimson."
+	Thunder1: "{Thunder}The weather is perfect for a crazy scientist like me!"
+	Thunder2: "{Thunder}How fitting, the lightning just struck the Thunder Science building."
+	Windy1: "{Windy}Who left the window open? Now all my notes are scattered on the floor!"
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Please don't open that 'Golden Shower' book of yours around here."
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Why are you wearing a wedding dress? Are you going to get married to your black jelly wolf buddy?"
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr} What? Did you befriend that giant cat? Okay I have to admit that is impressive."
+	Valentine1: "{Valentine}Love is like chemistry. It has unexpected results and things can get really hot."
+	Valentine2: "{Valentine}What? Don't tell me you wanted to ask me on a date for Valentine's Day. I have more important things to do."
+	Oktoberfest1: "{Oktoberfest}I am going to... *hic* ...make excellent decisions today."
+	Oktoberfest2: "{Oktoberfest}Come on test subject. Let's do some drunk science!"
+	Oktoberfest3: "{Oktoberfest}Only the dose makes the poison, so I can have another beer!"
+	Oktoberfest4: "{Oktoberfest}In the Bratwurst-case scenario, I have to do this experiment all over again."
+	# Spooky Scary Skeletons
+	Halloween1: "{Halloween}Spooky scary scientists will haunt you in your dreams!"
+	Halloween2: "{Halloween}I am the monster under your bed. My teeth are sharp, and my eyes glow red."
+	Halloween3: "{Halloween}If you inhale the fumes from this beaker, you'll look more terrifying than in any Halloween costume."
+	Halloween4: "{Halloween}To be a successful doctor like me you need to have... Brainz! BRAINZZZ!"
+	Xmas1: "{Xmas}A wishlist for Santa? No, I don't believe in him. I believe in science."
+	Xmas2: "{Xmas}What do you think of this chemical mixture? Isn't it beautiful? Its colors are even more vibrant than a Christmas tree!"
+	Xmas3: "{Xmas}Outside there is some snow, my beaker starts to glow. It's getting really hot. But we carry on, why not! It blew up in my face, and wrecked my own workplace. But the resulting goo is a massive breakthrough!"
+	Xmas4: "{Xmas}If I had a carrot for a nose, they would mistake me for a snowman."
+
+	BloodMoon: {
+		BloodMoon1: Get here test subject! I have to run a few tests on you!
+		# Dr Nefario
+		BloodMoon2: Do you want to explode?
+		BloodMoon3: Muahaha! I am going to get you and turn you into one of us!
+	}
+
+	Pirates: {
+		Pirates1: If those violent, mindless thieves destroy my equipment they will regret it!
+		Pirates2: Pirates are so materialistic and don't realize that knowledge is much more valuable than some gold.
+		Pirates3: I was on the verge of a breakthrough before those blasted bandits kicked in my door.
+	}
+
+	Martians: {
+		Martians1: If you manage to find a piece of martian equipment, could you please bring it to me? I would love to study their technology.
+		Martians2: It's never a dull day around here huh?
+	}
+
+	Eclipse: {
+		Eclipse1: I may be a mad scientist, but even I wouldn't create such monsters.
+		Eclipse2: It is better to stay inside today, so it is just like any other day for me.
+		Eclipse3: Please stay alive, because I can't stitch you back together if you perish. After all, I am Dr K, not Dr Frankenstein.
+	}
+
+	Party: {
+		Party1: "{PlayerHasNoPartyHat}Come on, test subject, where's your party hat? They think I'm boring, but even I wear one!"
+		Party2: According to my calculations, there is never enough food at a party to satisfy the hunger of a black latex.
+		Party3: You could easily miss a latex beast between those balloons. After all, they are made of the same material.
+		Party4: Do you want to dance? Okay, let me show you the scientist swirl!
+		# The very verbose chemist from YouTube (actually, precisely, arbitrary)
+		Party5: Are you ready for a cool party trick? Look, I can turn toilet paper into moonshine!
+		Party6: This party is lacking fireworks. Do you want me to fix that?
+		Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
+	}
+
+	TerraGuardian: {
+		PlayerHasTerraGuardian: TODO
+		PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
+		PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
+		PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}{Safe}You really like big, furry women huh?"
+		PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
+		PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
+		PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
+		PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}{Safe}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
+		# Macro
+		MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
+		MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
+		# Guardians
+		Alex: "{TerraGuardianAlexPresent}Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+		Alexander: TODO
+		Blue: "{TerraGuardianBluePresent}{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
+		Brutus: TODO
+		Ich: TODO
+		Leona: TODO
+		Monica: TODO
+		Rococo: "{TerraGuardianRococoPresent}I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
+		Scaleforth: "{TerraGuardianScaleforthPresent}I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
+	}
+}
+
+Prototype: {
+	Emotion1: Beep :)
+	Emotion2: ... :o
+	Emotion3: Boop :3
+	Emotion4: Vrrrp :D
+	Emotion5: Bzzz :p
+	Emotion6: Whrrr >:D
+
+	Injured: {
+		Injured1: Drrrr :S
+		Injured2: Fzzzt :|
+		Injured3: Eeeee ;(
+	}
+
+	NearlyDead: {
+		NearlyDead1: Kzzzt X(
+		NearlyDead2: Aaaaa XO
+		# SOS in morse code
+		NearlyDead3: ... --- ...
+	}
+}
+
+PuroWorm.Dialogue1: Mmm orange
