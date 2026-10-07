@@ -1,10 +1,11 @@
 ﻿using ChangedSpecialMod.Common.Systems.ObjectLists;
+using ChangedSpecialMod.Common.Systems.TagObjects;
 using ChangedSpecialMod.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using ChangedSpecialMod.Common.Systems.TagObjects;
+using Terraria.Localization;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -450,8 +451,268 @@ namespace ChangedSpecialMod.Common.Systems
 
         public static int countNumber = 0;
 
+        public static string GetBookNameGerman()
+        {
+            // Setup
+            var tagsFruit = new FruitTagObjectList();
+            tagsFruit.Init();
+            var tagsVegetable = new VegetableTagObjectList();
+            tagsVegetable.Init();
+            var tagsVehicles = new VehicleTagObjectList();
+            tagsVehicles.Init();
+            var tagsCountry = new CountryTagObjectList();
+            tagsCountry.Init();
+            var tagsAnimals = new AnimalTagObjectList();
+            tagsAnimals.Init();
+
+            var number1 = (Main.rand.Next(1, 20) * 100).ToString();
+            var number2 = (Main.rand.Next(1, 10) * 10).ToString();
+            var fruit1 = tagsFruit.PickRandom().GetName();
+
+            var vegetableTag1 = tagsVegetable.PickRandom();
+            var vegetable1 = vegetableTag1.GetName();
+            var vegetables1 = vegetableTag1.GetPlural();
+
+            var listPlanets = new List<string>()
+            {
+                "Jupiter",
+                "Mars",
+                "Merkur",
+                "Neptun",
+                "Pluto",
+                "Saturn",
+                "Uranus",
+                "Venus"
+            };
+
+            var listApplicancesWithInside = new List<string>()
+            {
+                "Spülmaschine",
+                "Wäschetrockner",
+                "Mikrowelle",
+                "Backofen",
+                "Toaster",
+                "Kühlschrank",
+                "Waschmaschine"
+            };
+
+            var listApplicancesWithoutInside = new List<string>()
+            {
+                "Grill",
+                "Mischer",
+                "Kocher"
+            };
+
+            var listAppliances = new List<string>();
+            listAppliances.AddRange(listApplicancesWithInside);
+            listAppliances.AddRange(listApplicancesWithoutInside);
+
+            var deviceBrandName1 = Choose(
+                "Hau",      // Hua Huawei
+                "Sum",      // Sam Samsung
+                "Sa",       // So Sony
+                "Motshi",   // Mithsi Mitshubishi
+                "Ko",
+                "Sua",      // Suavemente
+                "Ca"
+            );
+
+            var deviceBrandName2 = Choose(
+                "wie",
+                "sing",
+                "ny",
+                "bi",
+                "na",
+                "men",
+                "co"
+            );
+
+            var deviceBrandName = $"{deviceBrandName1}{deviceBrandName2}";
+
+            var deviceModelName = Choose(
+                "Maxi",
+                "Mini",
+                "Super",
+                "Turbo",
+                "Variotech"
+            );
+
+            var placeToGrowFood = Choose(
+                "ein Gewächshaus",
+                "kalte Umgebungen",
+                "warme Umgebungen"
+            );
+
+            var fieldOfStudy = Choose(
+                "Alchimie",
+                "Astronomie",
+                "Kalligraphie",
+                "Kartographie",
+                "Kochen",
+                "Diplomatie",
+                "Elektronik",
+                "Gartenarbeit",
+                "Hydraulik",
+                "Navigation",
+                "Verhandlung",
+                "Origami",
+                "Malerei",
+                "Überzeugung",
+                "Fotografie",
+                "Poesie",
+                "Bildhauerei",
+                "Geschichtenerzählen",
+                "Unterricht",
+                "Holzbearbeitung"
+            );
+
+            var thingToKnit = Choose(
+                "ein Schal",
+                "eine Strickmütze",
+                "Socken",
+                "Fäustlinge",
+                "ein Pullover",
+                "Puppenkleidung"
+            );
+
+            var brandAndModelName = $"{deviceBrandName} {deviceModelName} {number1}";
+
+            var animalTag1 = tagsAnimals.PickRandom();
+            var animal1 = animalTag1.GetName();
+            var animals1 = animalTag1.GetPlural();
+            var animalWithFur1 = PickRandom(tagsAnimals.elements.Where(x => x.hasFur).ToList()).GetName();
+
+            var vehicleTag1 = tagsVehicles.PickRandom();
+            var vehicleWithAdj1 = $"{vehicleTag1.GetAdjective()} {vehicleTag1.GetName()}";
+
+            // keywords
+            var city1 = PickRandom(CityObjectList.GetElements()).name;
+            var country1 = tagsCountry.PickRandom().GetName();
+            var country2 = tagsCountry.PickRandom(new List<string>() { country1 }).GetName();
+            var countryEurope = PickRandom(tagsCountry.countriesEurope).GetName();
+            var countryAfrica = PickRandom(tagsCountry.countriesAfrica).GetName();
+            var countryAsia = PickRandom(tagsCountry.countriesAsia).GetName();
+            var planet1 = PickRandom(listPlanets);
+            var applianceWithInside1 = PickRandom(listApplicancesWithInside);
+            var appliance1 = PickRandom(listAppliances);
+
+            var nameMan = PickRandom(optionsNameMan);
+            var nameWoman = PickRandom(optionsNameWoman);
+            var nameManWoman = Choose(nameMan, nameWoman);
+
+            var options = new List<string>() 
+            {
+                // Animals
+                Choose(
+                    $"Die Reise eines {animal1}",
+                    $"Wie man einen {animal1} aufzieht",
+                    $"Der sehr hungrige {animal1}",
+                    $"Planet der {animals1}",
+                    Choose(
+                        $"Der {animal1}, der in einem {applianceWithInside1} stecken blieb",
+                        $"Der {animal1}, der nach {city1} ging"
+                    )
+                ),
+
+                // Fruits and vegetables
+                Choose(
+                    $"{number1} {vegetable1}rezepte",
+                    $"Warum {vegetables1} gut für die Gesundheit sind",
+                    $"So bereitet man {vegetable1}-Smoothies zu",
+                    $"Wie man einen {fruit1}baum anbaut",
+                    $"Anbau von {vegetables1} in {placeToGrowFood}"
+                ),
+
+                // City
+                Choose(
+                    $"{number1} Orte, die Sie in {city1} besuchen sollten",
+                    Choose(
+                        $"Die Geheimnisse {city1}s",
+                        $"Die Minen von {city1}",
+                        $"Die Katakomben von {city1}",
+                        $"Die Schlacht um {city1}"
+                    )
+                ),
+
+                // Countries
+                Choose(
+                    $"Der Kampf um {country1}",
+                    $"Der {number2}-jährige Krieg zwischen {country1} und {country2}",
+                    Choose(
+                        $"Länder Europas: {countryEurope}",
+                        $"Länder Afrikas: {countryAfrica}",
+                        $"Länder Asiens: {countryAsia}",
+                        $"Länder der Welt: {country1}"
+                    )
+                ),
+
+                // Possessive
+                Choose(
+                    $"{nameManWoman}'s Tagebuch",
+                    $"{nameManWoman}'s {animal1}",
+                    $"{nameManWoman}'s {vehicleWithAdj1}"
+                ),
+
+                // Practical
+                $"Bedienungsanleitung für den {brandAndModelName} {appliance1}",
+                $"Die Kunst der {fieldOfStudy}",
+
+                // Crafts
+                Choose(
+                    $"Wie du aus {animalWithFur1}fell niedliche Plüschtiere machen kannst",
+                    $"Wie man einen {thingToKnit} strickt",
+                    $"Wie man einen Origami-{animal1} faltet"
+                ),
+
+                // Travel
+                Choose(
+                    $"Die Reisen von {nameManWoman}",
+                    $"die Weltraumexpedition zum {planet1}",
+                    $"Der lange Weg nach {city1}"
+                ),
+
+                /*
+                // Misc
+                Choose(
+                    $"the battle for the {vegetables1}"
+                )
+                */
+            };
+
+            countNumber++;
+            countNumber = countNumber % options.Count;
+            var sentence = options[countNumber];
+            // Make first letter uppercase
+            if (sentence != null && sentence.Length > 0)
+                sentence = sentence.Substring(0, 1).ToUpper() + sentence.Substring(1);
+            return sentence;
+        }
+
         public static string GetBookName()
         {
+            var culture = Language.ActiveCulture.Name;
+            switch (culture)
+            {
+                //case "en-US":
+                //    return name;
+                case "de-DE":
+                    return GetBookNameGerman();
+                    /*
+                case "fr-FR":
+                    return nameFrench ?? name;
+                case "es-ES":
+                    return nameSpanish ?? name;
+                case "it-IT":
+                    return nameItalian ?? name;
+                case "pt-BR":
+                    return nameBrazilianPortuguese ?? name;
+                case "ru-RU":
+                    return nameRussian ?? name;
+                case "zh-Hans":
+                    return nameChinese ?? name;
+                    */
+            }
+
             // Setup
             var tagsFruit = new FruitTagObjectList();
             tagsFruit.Init();
@@ -491,7 +752,7 @@ namespace ChangedSpecialMod.Common.Systems
                 "microwave",
                 "oven",
                 "toaster",
-                "refridgerator",
+                "refrigerator",
                 "washing machine"
             };
 
@@ -542,12 +803,6 @@ namespace ChangedSpecialMod.Common.Systems
                 "warm environments"
             );
 
-            var goodForYour = Choose(
-                "body",
-                "eyes",
-                "heart"
-            );
-
             var fieldOfStudy = Choose(
                 "alchemy",
                 "astronomy",
@@ -569,16 +824,6 @@ namespace ChangedSpecialMod.Common.Systems
                 "storytelling",
                 "teaching",
                 "woodworking"
-            /*
-            "astronomy",
-            "cartography",
-            "ceramics",
-            "electronics",
-            "hydraulics",
-            "mechanics",
-            "robotics",
-            "typography"
-            */
             );
 
             var thingToKnit = Choose(
@@ -667,7 +912,7 @@ namespace ChangedSpecialMod.Common.Systems
                     $"{nameManWoman}'s {animal1}",
                     $"{nameManWoman}'s {vehicleWithAdj1}"
                 ),
-                /*
+
                 // Practical
                 $"Instruction manual for the {brandAndModelName} {appliance1}",
                 $"the art of {fieldOfStudy}",

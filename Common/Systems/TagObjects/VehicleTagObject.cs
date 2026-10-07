@@ -4,8 +4,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 {
     public class VehicleTagObject : TagObject
     {
-        public string category = "vehicle";
-
         public bool isShip = false;
 
         public bool hasWheels = false;
@@ -14,6 +12,8 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
         public bool canFly = false;
         public bool canRide = false;
+
+        public VehicleTagObject() : base() { tagCategory = "Vehicle"; }
     }
 
     public class VehicleTagObjectList : TagObjectList<VehicleTagObject>
@@ -28,7 +28,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VehicleTagObject()
                 {
                     name = "steam locomotive",
-                    category = "train",
                     isMetal = true
                 }
             };
@@ -42,7 +41,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VehicleTagObject()
                 {
                     name = "bike",
-                    category = "bike",
                     isMetal = true,
                     canRide = true,
                     canPickColor = true
@@ -50,66 +48,56 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VehicleTagObject()
                 {
                     name = "bus",
-                    category = "bus",
                     isMetal = true,
                     canPickColor = true
                 },
                 new VehicleTagObject()
                 {
                     name = "car",
-                    category = "car",
                     isMetal = true,
                     canPickColor = true
                 },
                 new VehicleTagObject()
                 {
                     name = "double-decker bus",
-                    category = "bus",
                     isMetal = true
                 },
                 new VehicleTagObject()
                 {
                     name = "dump truck",
-                    category = "truck",
                     isMetal = true
                 },
                 new VehicleTagObject()
                 {
                     name = "forklift",
-                    category = "forklift",
                     isMetal = true
                 },
                 new VehicleTagObject()
                 {
                     name = "moped",
-                    category = "bike",
                     isMetal = true,
                     canRide = true
                 },
                 new VehicleTagObject()
                 {
                     name = "motorcycle",
-                    category = "motorcycle",
                     isMetal = true,
                     canRide = true
                 },
                 new VehicleTagObject()
                 {
                     name = "steam tractor",
-                    category = "tractor",
                     isMetal = true
                 },
                 new VehicleTagObject()
                 {
                     name = "tractor",
-                    category = "tractor",
                     isMetal = true,
                     canPickColor = true
                 },
                 new VehicleTagObject()
                 {
                     name = "truck",
-                    category = "truck",
                     isMetal = true,
                     canPickColor = true
                 },
@@ -127,21 +115,18 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VehicleTagObject()
                 {
                     name = "bulldozer",
-                    category = "bulldozer",
                     isMetal = true,
                     canPickColor = true
                 },
                 new VehicleTagObject()
                 {
                     name = "excavator",
-                    category = "excavator",
                     isMetal = true,
                     canPickColor = true
                 },
                 new VehicleTagObject()
                 {
                     name = "tank",
-                    category = "tank",
                     isMetal = true
                 },
             };
@@ -222,32 +207,27 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
             {
                 new VehicleTagObject()
                 {
-                    name = "airplane",
-                    category = "airplane"
+                    name = "airplane"
                 },
 
                 new VehicleTagObject()
                 {
-                    name = "blimp",
-                    category = "blimp"
+                    name = "blimp"
                 },
 
                 new VehicleTagObject()
                 {
-                    name = "biplane",
-                    category = "biplane"
+                    name = "biplane"
                 },
 
                 new VehicleTagObject()
                 {
-                    name = "hot air balloon",
-                    category = "hot air balloon"
+                    name = "hot air balloon"
                 },
 
                 new VehicleTagObject()
                 {
-                    name = "zeppelin",
-                    category = "zeppelin"
+                    name = "zeppelin"
                 }
             };
 

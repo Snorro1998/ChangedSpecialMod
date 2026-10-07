@@ -26,8 +26,9 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
         public bool hasFur = false;
         public bool hasEgg = false;
 
-        public AnimalTagObject()
+        public AnimalTagObject() : base()
         {
+            tagCategory = "Animal";
             hasPersonality = true;
         }
 
@@ -140,13 +141,11 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
             {
                 new AnimalTagObject()
                 {
-                    name = "jellyfish",
-                    nameGerman = "Qualle"
+                    name = "jellyfish"
                 },
                 new AnimalTagObject()
                 {
-                    name = "squid",
-                    nameGerman = "Tintenfisch"
+                    name = "squid"
                 }
             };
 
@@ -161,7 +160,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "bunny",
-                    nameGerman = "Hase",
                     regionForest = true,
                     hasFur = true
                 },
@@ -169,7 +167,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "squirrel",
-                    nameGerman = "Eichhörnchen",
                     regionForest = true,
                     hasFur = true
                 },
@@ -180,7 +177,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "crab",
-                    nameGerman = "Krabbe",
                     regionWater = true,
                     hasPincers = true,
                 },
@@ -188,14 +184,12 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "lobster",
-                    nameGerman = "Hummer",
                     regionWater = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "scorpion",
-                    nameGerman = "Skorpion",
                     regionDesert = true,
                     hasStinger = true
                 },
@@ -211,7 +205,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "dodo",
-                    nameGerman = "Dodo",
                     namePlural = "dodos",
                     regionRainforest = true,
                 },
@@ -219,14 +212,12 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "penguin",
-                    nameGerman = "Pinguin",
                     regionPolar = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "vulture",
-                    nameGerman = "Geier",
                     regionDesert = true,
                 },
             };
@@ -242,35 +233,30 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "baboon",
-                    nameGerman = "Pavian",
                     regionRainforest = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "gorilla",
-                    nameGerman = "Gorilla",
                     regionRainforest = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "mandrill",
-                    nameGerman = "Mandrill",
                     regionRainforest = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "monkey",
-                    nameGerman = "Affe",
                     regionRainforest = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "orangutan",
-                    nameGerman = "Orang-Utan",
                     regionRainforest = true,
                 },
             };
@@ -286,14 +272,12 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "fox",
-                    nameGerman = "Fuchs",
                     regionForest = true,
                 },
 
                 new AnimalTagObject()
                 {
                     name = "wolf",
-                    nameGerman = "Wolf",
                     regionForest = true,
                 }
             };

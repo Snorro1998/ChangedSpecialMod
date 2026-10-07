@@ -21,6 +21,7 @@
 	  <Folder Include="Assets\Textures\AmbientEntities\" />
 	  <Folder Include="Content\NPCs\Gores\" />
 	  <Folder Include="Lib\" />
+	  <Folder Include="Localization\en-US\Tags\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="ModLiquidLib">

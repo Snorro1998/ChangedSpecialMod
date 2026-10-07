@@ -33,33 +33,33 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
         public bool hasPersonality = false;
 
+        public string tagCategory = null;
+
         public string GetName()
         {
-            var culture = Language.ActiveCulture.Name;
-            switch(culture)
-            {
-                case "en-US":
-                    return name;
-                case "de-DE":
-                    return nameGerman ?? name;
-                case "fr-FR":
-                    return nameFrench ?? name;
-                case "es-ES":
-                    return nameSpanish ?? name;
-                case "it-IT":
-                    return nameItalian ?? name;
-                case "pt-BR":
-                    return nameBrazilianPortuguese ?? name;
-                case "ru-RU":
-                    return nameRussian ?? name;
-                case "zh-Hans":
-                    return nameChinese ?? name;
-            }
-            return $"{culture} {name}";
+            if (tagCategory == null)
+                return name;
+
+            var nname = ChangedUtils.ToPascalCase(name);
+            var path = $"Mods.ChangedSpecialMod.Tags.{tagCategory}.{nname}";
+            if (Language.Exists(path))
+                return Language.GetTextValue(path);
+
+            return name;
         }
 
         public string GetPlural()
         {
+            // Check if there is an entry in localization files
+            // If not, continue with the old logic after this block
+            if (tagCategory != null)
+            {
+                var nname = ChangedUtils.ToPascalCase(name) + "s";
+                var path = $"Mods.ChangedSpecialMod.Tags.{tagCategory}.{nname}";
+                if (Language.Exists(path))
+                    return Language.GetTextValue(path);
+            }
+
             // Explicit override
             if (!string.IsNullOrEmpty(namePlural))
                 return namePlural;
@@ -198,6 +198,21 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
         public virtual string GetAdjective()
         {
+            var culture = Language.ActiveCulture.Name;
+
+            // If german, only pick colors for now
+            if (culture == "de-DE")
+            {
+                return PickRandom(new List<string>()
+                {
+                    "roter",
+                    "blauer",
+                    "grüner",
+                    "gelber",
+                    "violetter"
+                });
+            }
+
             var list = new List<string>() { };
 
             // Material

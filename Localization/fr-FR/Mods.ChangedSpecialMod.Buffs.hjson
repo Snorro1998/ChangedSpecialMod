@@ -25,7 +25,7 @@ TabbyStaffBuff: {
 
 LatexMothMountBuff: {
 	Description: Invoque un papillon de nuit de gelée à chevaucher
-	DisplayName: Papillon de nuit de gelée 
+	DisplayName: Papillon de nuit de gelée
 }
 
 BehemothWeaponBuff: {

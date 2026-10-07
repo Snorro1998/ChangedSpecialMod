@@ -4,6 +4,7 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 {
     public class VegetableTagObject : TagObject
     {
+        public VegetableTagObject() : base() { tagCategory = "Vegetable"; }
     }
 
     public class VegetableTagObjectList : TagObjectList<VegetableTagObject>
@@ -16,17 +17,17 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VegetableTagObject() { name = "bean" },
                 new VegetableTagObject() { name = "beetroot" },
                 new VegetableTagObject() { name = "bell pepper" },
-                new VegetableTagObject() { name = "broccoli", namePlural = "broccoli" }, // heads of broccoli
+                new VegetableTagObject() { name = "broccoli" },
                 new VegetableTagObject() { name = "cabbage" },
                 new VegetableTagObject() { name = "carrot" },
                 new VegetableTagObject() { name = "cauliflower" },
-                new VegetableTagObject() { name = "corn", namePlural = "corn" },
+                new VegetableTagObject() { name = "corn" },
                 new VegetableTagObject() { name = "cucumber" },
                 new VegetableTagObject() { name = "eggplant" },
-                new VegetableTagObject() { name = "garlic", namePlural = "garlic" }, //garlic cloves
-                new VegetableTagObject() { name = "kale", namePlural = "kale" },
+                new VegetableTagObject() { name = "garlic" },
+                new VegetableTagObject() { name = "kale" },
                 new VegetableTagObject() { name = "leek" },
-                new VegetableTagObject() { name = "lettuce", namePlural = "lettuce" }, // heads of lettuce
+                new VegetableTagObject() { name = "lettuce" },
                 new VegetableTagObject() { name = "mushroom" },
                 new VegetableTagObject() { name = "onion" },
                 new VegetableTagObject() { name = "parsnip" },
@@ -36,10 +37,10 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VegetableTagObject() { name = "pumpkin" },
                 new VegetableTagObject() { name = "radish" },
                 new VegetableTagObject() { name = "rhubarb" },
-                new VegetableTagObject() { name = "spinach", namePlural = "spinach" }, //spinach leaves
+                new VegetableTagObject() { name = "spinach" },
                 new VegetableTagObject() { name = "tomato" },
                 new VegetableTagObject() { name = "turnip" },
-                new VegetableTagObject() { name = "wasabi", namePlural = "wasabi plants" },
+                new VegetableTagObject() { name = "wasabi" },
             };
 
             foreach (var noun in elements)

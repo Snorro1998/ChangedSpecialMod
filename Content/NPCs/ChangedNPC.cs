@@ -702,18 +702,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Replace("fuzzy ", "");
         }
 
-        // Converts a string like 'lava shark' to 'LavaShark'
-        public static string ToPascalCase(string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-                return null;
-
-            return string.Concat(
-                input.Split(new[] { ' ', '_', '-', '\t' }, StringSplitOptions.RemoveEmptyEntries)
-                     .Select(word => char.ToUpperInvariant(word[0]) + word.Substring(1).ToLowerInvariant())
-            );
-        }
-
         public static string DetermineRaceName(Player player, string name)
         {
             if (name == null)
@@ -758,7 +746,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     break;
             }
 
-            var localizationName = ToPascalCase(name);
+            var localizationName = ChangedUtils.ToPascalCase(name);
             if (localizationName != null)
             {
                 var categories = new List<string>()

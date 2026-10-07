@@ -2305,5 +2305,17 @@ namespace ChangedSpecialMod.Utilities
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.SyncNPC, number: npc.whoAmI);
         }
+
+        // Converts a string like 'lava shark' to 'LavaShark'
+        public static string ToPascalCase(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return null;
+
+            return string.Concat(
+                input.Split(new[] { ' ', '_', '-', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                     .Select(word => char.ToUpperInvariant(word[0]) + word.Substring(1).ToLowerInvariant())
+            );
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 {
     public class FruitTagObject : TagObject
     {
+        public FruitTagObject() : base() { tagCategory = "Fruit"; }
     }
 
     public class FruitTagObjectList : TagObjectList<FruitTagObject>

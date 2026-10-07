@@ -18,40 +18,146 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
         {
             countriesEurope = new List<CountryTagObject>()
             {
-                new CountryTagObject() { name = "Austria", nationalityName = "Austrian" },
-                new CountryTagObject() { name = "Belgium", nationalityName = "Belgian" },
-                new CountryTagObject() { name = "Denmark", nationalityName = "Danish" },
-                new CountryTagObject() { name = "France", nationalityName = "French" },
-                new CountryTagObject() { name = "Hungary", nationalityName = "Hungarian" },
-                new CountryTagObject() { name = "Germany", nationalityName = "German" },
-                new CountryTagObject() { name = "Greenland", nationalityName = "Greenlandic" },
-                new CountryTagObject() { name = "Italy", nationalityName = "Italian" },
+                new CountryTagObject() 
+                { 
+                    name = "Austria", 
+                    nameGerman = "Österreich",
+                    nationalityName = "Austrian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Belgium",
+                    nameGerman = "Belgien", 
+                    nationalityName = "Belgian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Denmark",
+                    nameGerman = "Dänemark", 
+                    nationalityName = "Danish" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "France",
+                    nameGerman = "Frankreich", 
+                    nationalityName = "French" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Hungary",
+                    nameGerman = "Ungarn", 
+                    nationalityName = "Hungarian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Germany", 
+                    nameGerman = "Deutschland",
+                    nationalityName = "German" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Greenland",
+                    nameGerman = "Grönland", 
+                    nationalityName = "Greenlandic" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Italy",
+                    nameGerman = "Italien", 
+                    nationalityName = "Italian" 
+                },
             };
 
             countriesAfrica = new List<CountryTagObject>()
             {
                 // this will not work for "from the congo"
-                new CountryTagObject() { name = "Congo", nationalityName = "Congolese" },
-                new CountryTagObject() { name = "Egypt", nationalityName = "Egyptian" },
-                new CountryTagObject() { name = "Ethiopia", nationalityName = "Ethiopian" },
+                new CountryTagObject() 
+                { 
+                    name = "Congo", 
+                    nameGerman = "Kongo",
+                    nationalityName = "Congolese" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Egypt",
+                    nameGerman = "Ägypten", 
+                    nationalityName = "Egyptian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Ethiopia",
+                    nameGerman = "Äthiopien", 
+                    nationalityName = "Ethiopian" 
+                },
             };
 
             countriesAsia = new List<CountryTagObject>()
             {
-                new CountryTagObject() { name = "China", nationalityName = "Chinese" },
-                new CountryTagObject() { name = "India", nationalityName = "Indian" },
-                new CountryTagObject() { name = "Indonesia", nationalityName = "Indonesian" },
+                new CountryTagObject() 
+                { 
+                    name = "China",
+                    nameGerman = "China", 
+                    nationalityName = "Chinese" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "India",
+                    nameGerman = "Indien", 
+                    nationalityName = "Indian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Indonesia", 
+                    nameGerman = "Indonesien", 
+                    nationalityName = "Indonesian" 
+                },
             };
 
             countriesOther = new List<CountryTagObject>()
             {
-                new CountryTagObject() { name = "Afghanistan", nationalityName = "Afghan" },
-                new CountryTagObject() { name = "Algeria", nationalityName = "Algerian" },
-                new CountryTagObject() { name = "America", nationalityName = "American" },
-                new CountryTagObject() { name = "Angola", nationalityName = "Angolan" },
-                new CountryTagObject() { name = "Antarctica", nationalityName = "Antarctican" },
-                new CountryTagObject() { name = "Argentina", nationalityName = "Argentinian" },
-                new CountryTagObject() { name = "Aruba", nationalityName = "Aruban" },
+                new CountryTagObject() 
+                { 
+                    name = "Afghanistan",
+                    nameGerman = "Afghanistan", 
+                    nationalityName = "Afghan" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Algeria",
+                    nameGerman = "Algerien", 
+                    nationalityName = "Algerian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "America",
+                    nameGerman = "Amerika", 
+                    nationalityName = "American" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Angola",
+                    nameGerman = "Angola", 
+                    nationalityName = "Angolan" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Antarctica",
+                    nameGerman = "Antarktis", 
+                    nationalityName = "Antarctican" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Argentina", 
+                    nameGerman = "Argentinien", 
+                    nationalityName = "Argentinian" 
+                },
+                new CountryTagObject() 
+                { 
+                    name = "Aruba",
+                    nameGerman = "Aruba", 
+                    nationalityName = "Aruban" 
+                },
+                /*
                 new CountryTagObject() { name = "Australia", nationalityName = "Australian" },
                 new CountryTagObject() { name = "Bolivia", nationalityName = "Bolivian" },
                 new CountryTagObject() { name = "Brazil", nationalityName = "Brazilian" },
@@ -64,7 +170,7 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new CountryTagObject() { name = "Iran", nationalityName = "Iranian" },
                 new CountryTagObject() { name = "Mongolia", nationalityName = "Mongolian" },
 
-                /*
+
                 "Myanmar",
                 "Pakistan",
                 "Peru",
@@ -89,24 +195,58 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 "Turkey",
                 "Venezuela",
                 "Zambia",
-
+                */
                 // Pokemon
-                "Kanto",
-                "Johto",
-                "Hoenn",
-                "Sinnoh",
-                "Unova",
-                "Kalos",
-                "Alola",
-                "Galar",
-                "Paldea",
+                new CountryTagObject()
+                {
+                    name = "Kanto",
+                },
+                new CountryTagObject()
+                {
+                    name = "Johto",
+                },
+                new CountryTagObject()
+                {
+                    name = "Hoenn",
+                },
+                new CountryTagObject()
+                {
+                    name = "Sinnoh",
+                },
+                new CountryTagObject()
+                {
+                    name = "Unova",
+                },
+                new CountryTagObject()
+                {
+                    name = "Kalos",
+                },
+                new CountryTagObject()
+                {
+                    name = "Alola",
+                },
+                new CountryTagObject()
+                {
+                    name = "Galar",
+                },
+                new CountryTagObject()
+                {
+                    name = "Paldea",
+                },
 
                 // Digimon
-                "the Digital World",
+                new CountryTagObject()
+                {
+                    name = "the Digital World",
+                    nameGerman = "die Digitale Welt",
+                },
 
                 // Narnia
-                "Narnia",
-
+                new CountryTagObject()
+                {
+                    name = "Narnia",
+                },
+                /*
                 // Marvel
                 "Wakanda",
                 "Latveria",
