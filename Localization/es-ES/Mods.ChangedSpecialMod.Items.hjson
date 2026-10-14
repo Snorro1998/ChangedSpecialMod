@@ -1108,3 +1108,8 @@ QuestBook: {
 	// DisplayName: Lost Book
 	// Tooltip: Puro might be interested in this
 }
+
+DebugPickaxe: {
+	// DisplayName: Debug Pickaxe
+	// Tooltip: ""
+}

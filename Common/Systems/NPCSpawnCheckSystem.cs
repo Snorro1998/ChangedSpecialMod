@@ -1,13 +1,16 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Utilities;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -23,6 +26,138 @@ namespace ChangedSpecialMod.Common.Systems
             WhiteTailSpawnCheck();
             WolfKingSpawnCheck();
             BehemothSpawnCheck();
+            //if (Main.netMode != 2)
+            //    SandstormCheck();
+        }
+
+        public static bool ShouldSandstormDustPersist()
+        {
+            if (Sandstorm.Happening && Main.player[Main.myPlayer].ZoneSandstorm && (Main.bgStyle == 2 || Main.bgStyle == 5))
+            {
+                return Main.bgDelay < 50;
+            }
+            return false;
+        }
+
+        private static void SandstormCheck()
+        {
+
+            if (Main.gamePaused)
+            {
+                return;
+            }
+            int sandTileCount = Main.SceneMetrics.SandTileCount;
+            Player player = Main.player[Main.myPlayer];
+            bool flag = true;// Sandstorm.ShouldSandstormDustPersist();
+            Sandstorm.HandleEffectAndSky(flag && Main.UseStormEffects);
+            if (sandTileCount < 100 || (double)player.position.Y > Main.worldSurface * 16.0 || player.ZoneBeach)
+            {
+                return;
+            }
+            int maxValue = 1;
+            if (!flag || Main.rand.Next(maxValue) != 0)
+            {
+                return;
+            }
+            int num = Math.Sign(Main.windSpeedCurrent);
+            float num2 = Math.Abs(Main.windSpeedCurrent);
+            if (num2 < 0.01f)
+            {
+                return;
+            }
+            float num3 = (float)num * MathHelper.Lerp(0.9f, 1f, num2);
+            float num4 = 2000f / (float)sandTileCount;
+            float value = 3f / num4;
+            value = MathHelper.Clamp(value, 0.77f, 1f);
+            int num5 = (int)num4;
+            float num6 = (float)Main.screenWidth / (float)Main.maxScreenW;
+            int num7 = (int)(1000f * num6);
+            float num8 = 20f * Sandstorm.Severity;
+            float num9 = (float)num7 * (Main.gfxQuality * 0.5f + 0.5f) + (float)num7 * 0.1f - (float)Dust.SandStormCount;
+            if (num9 <= 0f)
+            {
+                return;
+            }
+            float num10 = (float)Main.screenWidth + 1000f;
+            float num11 = Main.screenHeight;
+            Vector2 vector = Main.screenPosition + player.velocity;
+            WeightedRandom<Color> weightedRandom = new WeightedRandom<Color>();
+            weightedRandom.Add(new Color(200, 160, 20, 180), Main.SceneMetrics.GetTileCount(53) + Main.SceneMetrics.GetTileCount(396) + Main.SceneMetrics.GetTileCount(397));
+            weightedRandom.Add(new Color(103, 98, 122, 180), Main.SceneMetrics.GetTileCount(112) + Main.SceneMetrics.GetTileCount(400) + Main.SceneMetrics.GetTileCount(398));
+            weightedRandom.Add(new Color(135, 43, 34, 180), Main.SceneMetrics.GetTileCount(234) + Main.SceneMetrics.GetTileCount(401) + Main.SceneMetrics.GetTileCount(399));
+            weightedRandom.Add(new Color(213, 196, 197, 180), Main.SceneMetrics.GetTileCount(116) + Main.SceneMetrics.GetTileCount(403) + Main.SceneMetrics.GetTileCount(402));
+            float num12 = MathHelper.Lerp(0.2f, 0.35f, Sandstorm.Severity);
+            float num13 = MathHelper.Lerp(0.5f, 0.7f, Sandstorm.Severity);
+            float amount = (value - 0.77f) / 0.23000002f;
+            int maxValue2 = (int)MathHelper.Lerp(1f, 10f, amount);
+            for (int i = 0; (float)i < num8; i++)
+            {
+                if (Main.rand.Next(num5 / 4) != 0)
+                {
+                    continue;
+                }
+                Vector2 position = new Vector2(Main.rand.NextFloat() * num10 - 500f, Main.rand.NextFloat() * -50f);
+                if (Main.rand.Next(3) == 0 && num == 1)
+                {
+                    position.X = Main.rand.Next(500) - 500;
+                }
+                else if (Main.rand.Next(3) == 0 && num == -1)
+                {
+                    position.X = Main.rand.Next(500) + Main.screenWidth;
+                }
+                if (position.X < 0f || position.X > (float)Main.screenWidth)
+                {
+                    position.Y += Main.rand.NextFloat() * num11 * 0.9f;
+                }
+                position += vector;
+                int num14 = (int)position.X / 16;
+                int num15 = (int)position.Y / 16;
+                if (!WorldGen.InWorld(num14, num15, 10) || Main.tile[num14, num15] == null)
+                {
+                    continue;
+                }
+                Tile tile = Main.tile[num14, num15];
+                if (tile.WallType != 0)
+                {
+                    continue;
+                }
+                for (int j = 0; j < 1; j++)
+                {
+                    Dust dust = Main.dust[Dust.NewDust(position, 10, 10, 268)];
+                    dust.velocity.Y = 2f + Main.rand.NextFloat() * 0.2f;
+                    dust.velocity.Y *= dust.scale;
+                    dust.velocity.Y *= 0.35f;
+                    dust.velocity.X = num3 * 5f + Main.rand.NextFloat() * 1f;
+                    dust.velocity.X += num3 * num13 * 20f;
+                    dust.fadeIn += num13 * 0.2f;
+                    dust.velocity *= 1f + num12 * 0.5f;
+                    dust.color = weightedRandom;
+                    dust.velocity *= 1f + num12;
+                    dust.velocity *= value;
+                    dust.scale = 0.9f;
+                    num9 -= 1f;
+                    if (num9 <= 0f)
+                    {
+                        break;
+                    }
+                    if (Main.rand.Next(maxValue2) != 0)
+                    {
+                        j--;
+                        position += Utils.RandomVector2(Main.rand, -10f, 10f) + dust.velocity * -1.1f;
+                        num14 = (int)position.X / 16;
+                        num15 = (int)position.Y / 16;
+                        if (WorldGen.InWorld(num14, num15, 10) && Main.tile[num14, num15] != null)
+                        {
+                            tile = Main.tile[num14, num15];
+                            //_ = ref tile.wall;
+                        }
+                    }
+                }
+                if (num9 <= 0f)
+                {
+                    break;
+                }
+            }
         }
 
         private static void WhiteTailSpawnCheck()
@@ -208,10 +343,10 @@ namespace ChangedSpecialMod.Common.Systems
                 return;
 
             foreach (var player in Main.ActivePlayers)
-            {
+            {                
                 int minRangeFromPlayer = 80;
                 int maxRange = 120;                         // Same range as the clentaminator, so probably enough to be off-screen
-                int blockCheckSpacing = 8;                  // Only check every 8 blocks for performance
+                int blockCheckSpacing = 6;                  // Only check every 8 blocks for performance
                 var xPos = (int)(player.position.X / 16);
                 var yPos = (int)(player.position.Y / 16);
 

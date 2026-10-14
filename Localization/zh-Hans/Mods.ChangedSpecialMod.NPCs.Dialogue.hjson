@@ -191,6 +191,7 @@ DrK: {
 	Xmas2: "{Xmas}你觉得这种化学混合物怎么样？是不是很漂亮？它的颜色比圣诞树还要丰富多彩！"
 	Xmas3: "{Xmas}圣诞快乐"
 	Xmas4: "{Xmas}如果我的鼻子是胡萝卜，他们会把我误认为是雪人。"
+	// ModRedemption1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
 
 	BloodMoon: {
 		BloodMoon1: 实验对象，过来！我要对你做几个测试！

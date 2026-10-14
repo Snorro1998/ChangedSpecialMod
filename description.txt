@@ -86,6 +86,14 @@ Other
 
 This update adds more loot to bosses and makes some changes to dialogue.
 
+General
+- Reduced drop change of oranges
+- Well fed buff from oranges increased from 1 to 5 minutes
+
+Config
+- Added option to display 'retro' sprites of blocks and furniture found in the labs
+- Added option to display 'retro' sprites of NPCs
+
 NPCs
 - If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
 - If you play with the Terra guardians mod, Puro and Dr K can say things about them.
@@ -99,7 +107,17 @@ Items added
 - Gooey grabber. Summons the behemoth's hand as a minion.
 - Hairball. Summons a white tail mount, which can dash.	
 
+Resprited
+- Lab door
+- Elevator
+- Mount bookest
+- Crystals
+
 Fixed
+- It no longer rains in infected snow biomes
+- Infected desert biomes did not use the heat distortion effect (sandstorms still don't work)
+- Behemoth would not always spawn if the room had the lowest ceiling possible
+- Walls in labs would not always connect between rooms
 - Fixed broken buff translations in many languages
 - Fixed broken German translations of NPC dialogue
 - German Shepherd could spawn during an eclipse

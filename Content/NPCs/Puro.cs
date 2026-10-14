@@ -322,7 +322,7 @@ namespace ChangedSpecialMod.Content.NPCs
             }
             else
             {
-                Main.npcChatText = "You have no book";
+                Main.npcChatText = "Sorry human, but you don't have a book that I am looking for.";
             }
         }
 

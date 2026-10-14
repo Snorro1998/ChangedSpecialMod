@@ -35,6 +35,11 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
         public string tagCategory = null;
 
+        public override string ToString()
+        {
+            return GetName();
+        }
+
         public string GetName()
         {
             if (tagCategory == null)

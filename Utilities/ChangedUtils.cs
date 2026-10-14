@@ -60,7 +60,140 @@ namespace ChangedSpecialMod.Utilities
         }
 
         public static Vector2 TileDrawOffset => Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
-        
+
+        private static List<Dust> SnowDustsPreviousFrame = new List<Dust>();
+
+        public static void Snowing()
+        {
+            if (Main.netMode == NetmodeID.Server)
+                return;
+
+            var player = Main.LocalPlayer;
+
+            var nSnowBlack = TileCountSystem.BlackLatexSnowBlockCount;
+            var nSnowWhite = TileCountSystem.WhiteLatexSnowBlockCount;
+            var nSnowNormal = Main.SceneMetrics.SnowTileCount;
+
+            if (player.InModBiome<BlackLatexSurfaceSnowBiome>() || nSnowBlack > nSnowWhite + nSnowNormal)
+            {
+                if (SnowDustsPreviousFrame == null)
+                    SnowDustsPreviousFrame = new List<Dust>();
+
+                var snowDusts = Main.dust.Where(x => x.active && x.type == DustID.Snow).ToList();
+                var snowDustsSpawned = snowDusts.Where(x => !SnowDustsPreviousFrame.Contains(x)).ToList();
+                
+                if (snowDustsSpawned.Count > 0)
+                {
+                    foreach (var snowDust in snowDustsSpawned)
+                    {
+                        snowDust.color = Color.Black;
+                    }
+                }
+
+                SnowDustsPreviousFrame = snowDusts;
+            }
+            /*
+            if (Main.remixWorld || Main.netMode == NetmodeID.Server)
+            {
+                return;
+            }
+            Vector2 scaledSize = Main.Camera.ScaledSize;
+            Vector2 scaledPosition = Main.Camera.ScaledPosition;
+
+            var nSnowBlack = TileCountSystem.BlackLatexSnowBlockCount;
+            //var nSnowWhite = TileCountSystem.WhiteLatexSnowBlockCount;
+            //var nSnowVanilla = Main.SceneMetrics.SnowTileCount;
+            //var nSnowTotal = nSnowBlack + nSnowWhite;// + nSnowVanilla;
+            //var mostOccuringSnow = 0; // 0: vanilla, 1: black, 2: white
+            var color = Color.Black;
+
+            //if (nSnowBlack >= nSnowWhite)
+            //    color = Color.Black;
+
+            if (Main.gamePaused || nSnowBlack <= 0 || (!((double)Main.player[Main.myPlayer].position.Y < Main.worldSurface * 16.0) && (!Main.remixWorld || !((double)Main.player[Main.myPlayer].position.Y > Main.worldSurface * 16.0))))
+            {
+                return;
+            }
+            float num = (float)nSnowBlack / (float)SceneMetrics.SnowTileMax;
+            num *= num;
+            num *= num;
+            float num2 = Main.Camera.ScaledSize.X / (float)Main.maxScreenW;
+            int num3 = (int)(500f * num2);
+            num3 = (int)((float)num3 * (1f + 2f * Main.cloudAlpha));
+            float num4 = 1f + 50f * Main.cloudAlpha;
+            bool flag = NPC.IsADeerclopsNearScreen();
+            if (flag)
+            {
+                num /= 20f;
+                num3 /= 3;
+            }
+            for (int i = 0; (float)i < num4; i++)
+            {
+                try
+                {
+                    if (!((float)Main.snowDust < (float)num3 * (Main.gfxQuality / 2f + 0.5f) + (float)num3 * 0.1f))
+                    {
+                        break;
+                    }
+                    if (!(Main.rand.NextFloat() < num))
+                    {
+                        continue;
+                    }
+                    int num5 = Main.rand.Next((int)scaledSize.X + 1500) - 750;
+                    int num6 = (int)scaledPosition.Y - Main.rand.Next(50);
+                    if (Main.player[Main.myPlayer].velocity.Y > 0f)
+                    {
+                        num6 -= (int)Main.player[Main.myPlayer].velocity.Y;
+                    }
+                    if (Main.rand.Next(5) == 0)
+                    {
+                        num5 = Main.rand.Next(500) - 500;
+                    }
+                    else if (Main.rand.Next(5) == 0)
+                    {
+                        num5 = Main.rand.Next(500) + (int)scaledSize.X;
+                    }
+                    if (num5 < 0 || (float)num5 > scaledSize.X)
+                    {
+                        num6 += Main.rand.Next((int)((double)scaledSize.Y * 0.8)) + (int)((double)scaledSize.Y * 0.1);
+                    }
+                    num5 += (int)scaledPosition.X;
+                    int num7 = num5 / 16;
+                    int num8 = num6 / 16;
+                    if (WorldGen.InWorld(num7, num8) && Main.tile[num7, num8] != null && !Main.tile[num7, num8].HasUnactuatedTile && Main.tile[num7, num8].WallType == WallID.None)
+                    {
+                        int num9 = Dust.NewDust(new Vector2(num5, num6), 10, 10, DustID.Snow);
+                        var dust = Main.dust[num9];
+                        dust.scale += Main.cloudAlpha * 0.2f;
+                        dust.color = color;
+                        dust.velocity.Y = 3f + (float)Main.rand.Next(30) * 0.1f;
+                        dust.velocity.Y *= dust.scale;
+                        if (!Main.raining)
+                        {
+                            dust.velocity.X = Main.windSpeedCurrent + (float)Main.rand.Next(-10, 10) * 0.1f;
+                            dust.velocity.X += Main.windSpeedCurrent * 15f;
+                        }
+                        else
+                        {
+                            dust.velocity.X = (float)Math.Sqrt(Math.Abs(Main.windSpeedCurrent)) * (float)Math.Sign(Main.windSpeedCurrent) * (Main.cloudAlpha + 0.5f) * 10f + Main.rand.NextFloat() * 0.2f - 0.1f;
+                            dust.velocity.Y *= 0.5f;
+                        }
+                        dust.velocity.Y *= 1f + 0.3f * Main.cloudAlpha;
+                        dust.scale += Main.cloudAlpha * 0.2f;
+                        if (flag)
+                        {
+                            dust.scale -= 0.5f;
+                        }
+                        dust.velocity *= 1f + Main.cloudAlpha * 0.5f;
+                    }
+                }
+                catch
+                {
+                }
+            }
+            */
+        }
+
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
         {
             var config = ModContent.GetInstance<ChangedSpecialModClientConfig>();

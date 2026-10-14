@@ -273,7 +273,9 @@ namespace ChangedSpecialMod.Utilities
                 {
                     var height = roomHeights[y];
                     var rr = layout[newRoomIndex % layout.Length];
-                    if (rr != (int)RoomType.None)
+                    var hasRoom = rr != (int)RoomType.None;
+
+                    if (hasRoom)
                     {
                         var floorHeight = nVer - y;
                         var tmpRooms = WorldGenerator.Rooms;
@@ -283,6 +285,7 @@ namespace ChangedSpecialMod.Utilities
 
                         Room room = null;
                         var leftSideOpen = false;
+                        var hasRoomOnRight = newRoomIndex + nVer < layout.Length && layout[newRoomIndex + nVer] != (int)RoomType.None;
 
                         if (rr == (int)RoomType.Normal)
                         {
@@ -314,7 +317,7 @@ namespace ChangedSpecialMod.Utilities
                         if (isLowFloor && room is not RoomElevator)
                             flooded = Utils.NextBool(WorldGen.genRand, 2);
 
-                        WorldGenerator.MakeBox(xCurrent, yCurrent, width, height, room.FloorType, room.GetWallType(), (byte)room.FloorPaint, (byte)room.WallPaint, leftSideOpen);
+                        WorldGenerator.MakeBox(xCurrent, yCurrent, width, height, room.FloorType, room.GetWallType(), (byte)room.FloorPaint, (byte)room.WallPaint, true, hasRoomOnRight, leftSideOpen);
 
                         if (flooded)
                         {

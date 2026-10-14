@@ -8,14 +8,14 @@ namespace ChangedSpecialMod.Content.Items.Food
     {
         public override void SetDefaults()
         {
-            Item.DefaultToFood(40, 40, BuffID.WellFed, 60 * 60 * 2);
+            Item.DefaultToFood(40, 40, BuffID.WellFed, 60 * 60 * 5);
             Item.value = Item.buyPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Blue;
         }
 
         public override void OnConsumeItem(Player player)
         {
-            player.AddBuff(BuffID.WellFed, 3600);
+            player.AddBuff(BuffID.WellFed, 60 * 60 * 5);
         }
     }
 }

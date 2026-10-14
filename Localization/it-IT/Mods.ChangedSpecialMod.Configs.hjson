@@ -33,6 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Trasformazione]"
 		Npc: "[c/ffeb6e:Caratteri]"
 		Evolution: "[c/ffeb6e:Evoluzione]"
+		// Visuals: Visuals Header
 	}
 
 	NumberOfLabs: {
@@ -124,6 +125,21 @@ ChangedSpecialModClientConfig: {
 
 	FilterProfanity: {
 		// Label: Filter Profanity
+		// Tooltip: ""
+	}
+
+	RetroVisuals: {
+		// Label: Retro Visuals
+		// Tooltip: ""
+	}
+
+	RetroVisualsTiles: {
+		// Label: Retro Visuals Tiles
+		// Tooltip: ""
+	}
+
+	RetroVisualsNPCs: {
+		// Label: Retro Visuals N P Cs
 		// Tooltip: ""
 	}
 }

@@ -131,6 +131,10 @@ namespace ChangedSpecialMod.Common.Systems
             GetBlackTileCount(tileCounts);
             GetWhiteTileCount(tileCounts);
             DryDirtBlockCount = tileCounts[ModContent.TileType<DryDirt>()] + tileCounts[ModContent.TileType<DryDirtGrassTile>()];
+            Main.SceneMetrics.SnowTileCount += BlackLatexSnowBlockCount;
+            Main.SceneMetrics.SnowTileCount += WhiteLatexSnowBlockCount;
+            Main.SceneMetrics.SandTileCount += BlackLatexDesertBlockCount;
+            Main.SceneMetrics.SandTileCount += WhiteLatexDesertBlockCount;
         }
 
         public static bool BlockNearby(Player player, List<int> tileIDs, int radius)

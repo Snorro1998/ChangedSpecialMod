@@ -1,8 +1,12 @@
-﻿using ChangedSpecialMod.Content.Items;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Content.Items;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -11,6 +15,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
 	public class CrystalGreen : ModTile
 	{
+        public static string retroTexturePath = "ChangedSpecialMod/Content/Tiles/Furniture/CrystalGreenRetro";
         public override void SetStaticDefaults()
         {
             Main.tileShine[Type] = 2400;
@@ -45,6 +50,39 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             }
 
             base.EmitParticles(i, j, tile, tileFrameX, tileFrameY, tileLight, visible);
+        }
+
+        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            if (ChangedSpecialModClientConfig.Instance.RetroVisualsTiles)
+            {
+                RetroDraw(i, j, spriteBatch);
+                return false;
+            }
+            return base.PreDraw(i, j, spriteBatch);
+        }
+
+        private void RetroDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            Tile tile = Main.tile[i, j];
+
+            if (tile.IsTileInvisible && !Main.ShouldShowInvisibleWalls())
+                return;
+
+            Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+            zero.Y += 2;
+            int height = 16;
+            int frameYOffset = 0;
+
+            var texture = TextureAssets.Tile[Type].Value;
+            if (ModContent.RequestIfExists(retroTexturePath, out Asset<Texture2D> retroTexture))
+                texture = retroTexture.Value;
+
+            spriteBatch.Draw(
+                texture,
+                new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero,
+                new Rectangle(tile.TileFrameX, tile.TileFrameY + frameYOffset, 16, height),
+                Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
         }
     }
 }

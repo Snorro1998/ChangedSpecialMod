@@ -70,6 +70,7 @@ namespace ChangedSpecialMod.Common.Systems
         public override void PostUpdateWorld()
         {
             sweeperPuroCageAnimation.Update();
+            ChangedUtils.Snowing();
         }
     }
 }

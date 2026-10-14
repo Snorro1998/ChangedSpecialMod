@@ -72,6 +72,11 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(false)]
         public bool EvolutionSize { get; set; }
 
+        [Header("Visuals")]
+        [DefaultValue(false)]
+        public bool RetroVisualsTiles { get; set; }
+        public bool RetroVisualsNPCs { get; set; }
+
         [Header("Misc")]
         [DefaultValue(false)]
         public bool Holidays { get; set; }
@@ -79,7 +84,5 @@ namespace ChangedSpecialMod.Common.Configs
         public bool CustomDryadWorldStatus { get; set; }
         [DefaultValue(false)]
         public bool DebugItems { get; set; }
-        [DefaultValue(true)]
-        public bool FilterProfanity { get; set; }
     }
 }

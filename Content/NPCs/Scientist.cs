@@ -145,7 +145,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 //Items
                 new DialogueElement("PlayerHasGoldenShower"),
                 new DialogueElement("PlayerIsWearingWeddingDress"),
-                new DialogueElement("PlayerHasPurrpurr")
+                new DialogueElement("PlayerHasPurrpurr"),
+
+                // Redemption
+                new DialogueElement("ModRedemption1")
             }
         );
 

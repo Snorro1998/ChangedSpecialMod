@@ -17,9 +17,13 @@ namespace ChangedSpecialMod.Common.Systems
     public class ExternalModData
     {
         public Mod mod;
+        // Tiles
         public Dictionary<string, int> tileTypes = new Dictionary<string, int>();
+        public List<int> tilesInfectedSnow = new List<int>();
+        public List<int> tilesAvoidedByOrangeShrines = new List<int>();
+
         public Dictionary<string, int> townNPCIds = new Dictionary<string, int>();
-        public List<int> avoidedByOrangeShrines = new List<int>();
+        
         public bool isActive => mod != null;
 
         public ExternalModData(Mod mod) 
@@ -27,7 +31,7 @@ namespace ChangedSpecialMod.Common.Systems
             this.mod = mod;
         }
 
-        public void AddTileType(string name, bool avoidedByOrangeShrine = false)
+        public void AddTileType(string name, bool avoidedByOrangeShrine = false, bool isInfectedSnow = false)
         {
             if (tileTypes == null)
                 tileTypes = new Dictionary<string, int>();
@@ -40,7 +44,9 @@ namespace ChangedSpecialMod.Common.Systems
                 var itemType = modTile.Type;
                 tileTypes.Add(name, itemType);
                 if (avoidedByOrangeShrine)
-                    avoidedByOrangeShrines.Add(itemType);
+                    tilesAvoidedByOrangeShrines.Add(itemType);
+                if (isInfectedSnow)
+                    tilesInfectedSnow.Add(itemType);
             }
         }
 
@@ -61,7 +67,7 @@ namespace ChangedSpecialMod.Common.Systems
 
         public bool ShouldAvoidTileType(int tileType)
         {
-            return avoidedByOrangeShrines.Contains(tileType);
+            return tilesAvoidedByOrangeShrines.Contains(tileType);
         }
     }
 
@@ -84,6 +90,7 @@ namespace ChangedSpecialMod.Common.Systems
         public static Mod modSpirit = null;
         public static Mod modSpiritReforged = null;
         public static Mod modCoralite = null;
+        public static Mod modRedemption = null;
 
         // Race
         public static Mod modMrPlagueRaces = null;
@@ -119,6 +126,7 @@ namespace ChangedSpecialMod.Common.Systems
             modSpirit = GetMod("SpiritMod");
             modSpiritReforged = GetMod("SpiritReforged");
             modCoralite = GetMod("Coralite");
+            modRedemption = GetMod("Redemption");
 
             // Race
             modMrPlagueRaces = GetMod("MrPlagueRaces");
@@ -156,6 +164,7 @@ namespace ChangedSpecialMod.Common.Systems
             modSpirit = null;
             modSpiritReforged = null;
             modCoralite = null;
+            modRedemption = null;
 
             // Race
             modMrPlagueRaces = null;
@@ -258,6 +267,19 @@ namespace ChangedSpecialMod.Common.Systems
                 externalModsData.Add(externalModData);
             }
 
+            if (modRedemption != null)
+            {
+                var externalModData = new ExternalModData(modRedemption);
+                
+                // Tiles
+                externalModData.AddTileType("IrradiatedSnowTile", false, true);
+
+                // Town NPCs
+                externalModData.AddTownNPC("TBot", "RedemptionTBot");
+
+                externalModsData.Add(externalModData);
+            }
+
             if (modStarsModPack != null)
             {
                 var externalModData = new ExternalModData(modStarsModPack);
@@ -280,7 +302,7 @@ namespace ChangedSpecialMod.Common.Systems
             if (externalModsData != null)
             {
                 foreach (var externalModData in  externalModsData)
-                    list.AddRange(externalModData.avoidedByOrangeShrines);
+                    list.AddRange(externalModData.tilesAvoidedByOrangeShrines);
             }
 
             return list;

@@ -250,7 +250,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             if (!ignoreTypes.Contains(npc.type) && (GooType == GooType.Black || GooType == GooType.White))
             {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 25));
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Orange>(), 50));
 
                 if (GooType == GooType.Black)
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BlackGoo>(), 4));
@@ -264,7 +264,7 @@ namespace ChangedSpecialMod.Content.NPCs
             base.OnKill(npc);
             var puroPresent = NPC.AnyNPCs(ModContent.NPCType<Puro>());
             var isCritter = npc.lifeMax == 5;
-            var dropChance = 200;
+            var dropChance = 500; // rod of disc is 1 in 500
 
             if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(dropChance) &&
                 puroPresent && !isCritter)
@@ -778,7 +778,7 @@ namespace ChangedSpecialMod.Content.NPCs
             var modMrPlagueRaces = ModSupportSystem.modMrPlagueRaces;
 
             if (modMrPlagueRaces == null)
-                return "nomrplagues";
+                return null;
 
             try
             {
@@ -863,8 +863,8 @@ namespace ChangedSpecialMod.Content.NPCs
                     keyWords.Add(key, value);
             }
 
-            AddIf(ChangedSpecialModClientConfig.Instance.FilterProfanity, "Safe", string.Empty);
-            AddIf(!ChangedSpecialModClientConfig.Instance.FilterProfanity, "Unsafe", string.Empty);
+            //AddIf(ChangedSpecialModClientConfig.Instance.FilterProfanity, "Safe", string.Empty);
+            //AddIf(!ChangedSpecialModClientConfig.Instance.FilterProfanity, "Unsafe", string.Empty);
 
             // Check which NPCs on the list are present and add keywords for them
             var npcIDs = npcIdentifiers.Keys.ToList();
@@ -878,6 +878,12 @@ namespace ChangedSpecialMod.Content.NPCs
                     AddIf(true, $"Name{npcIdentifier}", tmpNPC.GivenName);
                     AddIf(true, $"{npcIdentifier}Present", string.Empty);
                 }
+            }
+
+            // Dr K can talk about the underground lab (TeoChrome)
+            if (ModSupportSystem.modRedemption != null)
+            {
+                AddIf(true, "ModRedemption", string.Empty);
             }
 
             // If playing with TerraGuardian, get the names of all companions in the world.

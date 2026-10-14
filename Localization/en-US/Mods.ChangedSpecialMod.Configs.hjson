@@ -33,6 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Transfur]"
 		Npc: "[c/ffeb6e:NPC]"
 		Evolution: "[c/ffeb6e:Evolution]"
+		Visuals: "[c/ffeb6e:Visuals]"
 	}
 
 	NumberOfLabs: {
@@ -121,8 +122,13 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Town NPCs wear hats during holidays and have unique dialogue.
 	}
 
-	FilterProfanity: {
-		Label: Filter Profanity
-		Tooltip: ""
+	RetroVisualsTiles: {
+		Label: Retro Tiles
+		Tooltip: Use sprites from older versions for blocks and furniture
+	}
+
+	RetroVisualsNPCs: {
+		Label: Retro NPCs
+		Tooltip: Use sprites from older versions for NPCs
 	}
 }

@@ -251,7 +251,62 @@ namespace ChangedSpecialMod.Utilities
             }
         }
 
-        public static void MakeBox(int xPos, int yPos, int width, int height, int tType, int wType, byte tPaint = PaintID.None, byte wPaint = PaintID.None, bool leftSideOpen = false, bool isLeft = false, bool isTop = false)
+        public static void MakeBox(int xPos, int yPos, int width, int height, int tType, int wType, byte tPaint = PaintID.None, byte wPaint = PaintID.None, bool hasRoomBelow = false, bool hasRoomRight = false, bool leftSideOpen = false)
+        {
+            var bottom = yPos + height - 1;
+
+            var xLeftWall = xPos + 1;
+            var xRightWall = xPos + width - 1;
+            if (hasRoomRight)
+                xRightWall++;
+            var yBottomWall = yPos + height - 1;
+            if (hasRoomBelow)
+                yBottomWall++;
+
+            var blockRemoveX = xPos + 1;
+            var blockRemoveY = yPos + 1;
+
+            for (var y = yPos; y < yPos + height; y++)
+            {
+                for (var x = xPos; x < xPos + width; x++)
+                {
+                    if (x >= xLeftWall && x < xRightWall && y > yPos && y < bottom)
+                    {
+                        WorldGen.KillWall(x, y);
+                        WorldGen.PlaceWall(x, y, wType, true);
+                        if (wPaint != PaintID.None)
+                        {
+                            var tile = Main.tile[x, y];
+                            tile.WallColor = wPaint;
+                        }
+                    }
+
+                    /*
+                    // Remove wall from the room to the left
+                    if (leftSideOpen && x == xPos && y > yPos && y < bottom)
+                    {
+                        DestroyChestAtPosition(x, y);
+                        WorldGen.KillTile(x, y);
+                    }
+                    */
+
+                    // Remove right wall (tiles) from the room to the left
+                    if (leftSideOpen && x == xPos && y > yPos && y < bottom)
+                    {
+                        DestroyChestAtPosition(x, y);
+                        WorldGen.KillTile(x, y);
+                    }
+
+                    // Place tiles at the edge of the room
+                    else if (x == xPos || x == xPos + width - 1 || y == yPos || y == yPos + height - 1)
+                    {
+                        WorldGen.PlaceTile(x, y, tType, true);
+                    }
+                }
+            }
+        }
+
+        public static void MakeBoxOld(int xPos, int yPos, int width, int height, int tType, int wType, byte tPaint = PaintID.None, byte wPaint = PaintID.None, bool leftSideOpen = false, bool isLeft = false, bool isTop = false)
         {
             var right = xPos + width - 1;
             var bottom = yPos + height - 1;

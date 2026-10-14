@@ -2,8 +2,11 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.GameContent.Events;
 using Terraria.Graphics.Capture;
+using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Biomes
@@ -54,12 +57,25 @@ namespace ChangedSpecialMod.Content.Biomes
                     continue;
                 }
 
-                if (player.InModBiome<BlackLatexSurfaceBiome>())
+                if (player.InModBiome<BlackLatexSurfaceDesertBiome>())
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            /*
+            var point = player.Center.ToTileCoordinates();
+            var useHeatDistortion = Main.UseHeatDistortion && IsBiomeActive(player) && Main.IsItDay() && !Main.raining && !player.behindBackWall && (double)point.Y < Main.worldSurface && !Filters.Scene["Sandstorm"].IsActive();
+
+            // Only allow it to enable it, and not disable it
+            // Otherwise the normal desert won't have the heat distortion effect
+            if (useHeatDistortion)
+                player.ManageSpecialBiomeVisuals("HeatDistortion", true);
+            */
         }
     }
 }

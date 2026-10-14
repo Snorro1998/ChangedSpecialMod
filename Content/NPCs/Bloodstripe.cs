@@ -1,9 +1,12 @@
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -14,6 +17,7 @@ namespace ChangedSpecialMod.Content.NPCs
 {
 	public class Bloodstripe : ModNPC
 	{
+        public static string retroTexturePath = "ChangedSpecialMod/Content/NPCs/BloodstripeRetro";
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 4;
@@ -79,12 +83,6 @@ namespace ChangedSpecialMod.Content.NPCs
 
             return 0;
         }
-        /*
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return ChangedUtils.GetWorldEvilSpawnChance(spawnInfo, NPC, ModContent.NPCType<Bloodstripe>(), true);
-        }
-        */
 
         private void UpdateHatPosition(int frameHeight)
         {
@@ -120,6 +118,54 @@ namespace ChangedSpecialMod.Content.NPCs
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Bloodstripe.Description")),
             });
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            var changedNPC = NPC.Changed();
+            var drawRetro = ChangedSpecialModClientConfig.Instance.RetroVisualsNPCs;
+
+            if (drawRetro)
+            {
+                var texture = TextureAssets.Npc[Type].Value;
+                if (ModContent.RequestIfExists(retroTexturePath, out Asset<Texture2D> retroTexture))
+                    texture = retroTexture.Value;
+
+                Vector2 drawPos = NPC.Center - screenPos;
+                drawPos.Y += NPC.gfxOffY;
+                drawColor *= (1 - NPC.shimmerTransparency);
+
+                SpriteEffects effects = NPC.direction == 1
+                    ? SpriteEffects.FlipHorizontally
+                    : SpriteEffects.None;
+
+                var nFrames = Main.npcFrameCount[Type];
+                changedNPC.BaseScaleMultiplier = 0.7f;
+
+                // Height normal: 72
+                // Height retro: 99
+
+                Rectangle frame = new Rectangle(0, NPC.frame.Top / 72 * 99, 61, 99);
+
+                spriteBatch.Draw(
+                    texture,
+                    drawPos,
+                    frame,
+                    drawColor,
+                    NPC.rotation,
+                    new Vector2(texture.Size().X / 2, texture.Size().Y / nFrames / 2),
+                    NPC.scale * changedNPC.BaseScaleMultiplier,
+                    effects,
+                    0f
+                );
+
+                return false;
+            }
+            else
+            {
+                changedNPC.BaseScaleMultiplier = 1f;
+            }
+            return base.PreDraw(spriteBatch, screenPos, drawColor);
         }
     }
 }
