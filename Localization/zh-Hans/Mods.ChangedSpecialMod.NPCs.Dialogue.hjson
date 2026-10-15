@@ -34,24 +34,14 @@ Puro: {
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
 	NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}我不明白为什么{NameStarsModPackFarmer}没有橘子树种子。每个农民都应该有。"
 	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}，你知道{NameStarsModPackScrapyardGeek}为什么总是那样说话吗？"
-	// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
-	// TerraGuardianAlex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
-	// TerraGuardianAlexander: TODO
-	// TerraGuardianBlue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
-	// TerraGuardianBrutus: TODO
-	// TerraGuardianIch: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
-	// TerraGuardianLeona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
-	// TerraGuardianMonica: TODO
-	// TerraGuardianRococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
-	// TerraGuardianScaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
 	Book1: 我评判一本书的方式就像评判一个橘子一样：看它从头到尾，直到最后一页或最后一片，是否都令人满意。
-	Book2: 你好，{PlayerRace}!你找到我的书了吗?
-	Book3: 你愿意帮我搭建最高的书塔吗?
+	Book2: 你好，{PlayerRace}!你找到我的书了吗？
+	Book3: 你愿意帮我搭建最高的书塔吗？
 	Book4: "{PlayerRace}!快看我刚发现的这本超棒的书!"
 	Book5: 总有一天我会写一本关于{NamePlayer}的奇妙冒险故事的书!
-	Book6: 昨天我找到一本食谱，里面有很多看起来超美味的菜谱。你想一起烤点什么吗，{PlayerRace}?
+	Book6: 昨天我找到一本食谱，里面有很多看起来超美味的菜谱。你想一起烤点什么吗，{PlayerRace}？
 	Book7: 我是一团黏糊糊的史莱姆，我热爱书籍。
-	Orange1: 你最喜欢的颜色是什么?我最喜欢的颜色是橙色。
+	Orange1: 你最喜欢的颜色是什么？我最喜欢的颜色是橙色。
 	Orange2: 嗯 *吧唧* 橙子 *吧唧* 哦，你好，{PlayerRace}。
 	Orange3: 我没有最喜欢的孩子，但如果非要选一个的话，那就是这个橘子。
 	Orange4: 昨晚我梦见自己在一个装满橘子的球池里。
@@ -65,13 +55,13 @@ Puro: {
 	Changed1: 你在实验室里看过我的画作吗？你想让我为你画一幅肖像吗？
 	Changed2: "{Behemoth}我想变得像巨人一样高大，这样我就可以像抱着洋娃娃一样把你捧在手心里，保护你。"
 	Normal1: 我不需要装备来保护自己，因为我有锋利的爪子、巨大的爪子和一张大嘴巴！
-	Normal2: 你好!我最喜欢的人今天过得怎么样?
+	Normal2: 你好!我最喜欢的人今天过得怎么样？
 	TransfurCub: "{TransfurCub}你好小狗狗，你好可爱！我可以抱抱你吗？"
 	Rain1: "{Rain}如果你被雨淋冷了，想要暖和一下，你可以把自己埋进我蓬松的皮毛里！"
 	Rain2: "{Rain}我抖了抖毛把自己弄干，现在我浑身毛茸茸的！"
 	Thunder1: "{Thunder}我不怕闪电。我的全身都是黏液做的，所以就算被闪电击中，我也完全没事！"
 	Thunder2: "{Thunder}有了这么多明亮的闪光灯，我几乎不需要台灯就能看书了。"
-	Windy1: "{Windy}{PlayerRace}，你愿意和我一起放风筝吗?"
+	Windy1: "{Windy}{PlayerRace}，你愿意和我一起放风筝吗？"
 	Windy2: "{Windy}今天风太大了，我的毛皮都被吹乱了。"
 	Windy3: "{Windy}我真希望自己有翅膀，这样就能飞翔，带你去任何地方。"
 	PlayerHasOrange: "{PlayerHasOrange}*嗅嗅* {PlayerRace}，你带着多汁的橙子吗？我可以要一个吗？"
@@ -145,6 +135,19 @@ Puro: {
 		Party10: 我是一只黑色的黏液怪物，我的嘴巴是一个吞噬美味食物的黑洞！
 		Party11: 嗯，这些蓬松的橙子纸杯蛋糕真好吃，但我已经吃了很多了……也许就再吃一个吧。
 		Party12: "{PlayerRace}，我们一起跳舞好吗？因为我感觉自己像个派对动物！"
+	}
+
+	TerraGuardian: {
+		// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+		// Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+		// Alexander: TODO
+		// Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+		// Brutus: TODO
+		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
+		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		// Monica: TODO
+		// Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
+		// Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
 	}
 }
 
@@ -232,11 +235,11 @@ DrK: {
 		// PlayerHasTerraGuardian: TODO
 		// PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
 		// PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
-		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}{Safe}You really like big, furry women huh?"
+		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}You really like big, furry women huh?"
 		// PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
 		// PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
 		// PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
-		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}{Safe}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
+		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
 		# Macro
 		// MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
 		// MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."

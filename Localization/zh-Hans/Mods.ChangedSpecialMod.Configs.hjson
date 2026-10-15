@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:转型]"
 		Npc: "[c/ffeb6e:人物]"
 		Evolution: "[c/ffeb6e:进化]"
-		// Visuals: Visuals Header
+		// Visuals: "[c/ffeb6e:Visuals]"
 	}
 
 	NumberOfLabs: {
@@ -122,23 +122,13 @@ ChangedSpecialModClientConfig: {
 		Tooltip: 镇民在节日期间会戴上帽子，并有独特的对话。
 	}
 
-	FilterProfanity: {
-		// Label: Filter Profanity
-		// Tooltip: ""
-	}
-
-	RetroVisuals: {
-		// Label: Retro Visuals
-		// Tooltip: ""
-	}
-
 	RetroVisualsTiles: {
-		// Label: Retro Visuals Tiles
-		// Tooltip: ""
+		// Label: Retro Tiles
+		// Tooltip: Use sprites from older versions for blocks and furniture
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro Visuals N P Cs
-		// Tooltip: ""
+		// Label: Retro NPCs
+		// Tooltip: Use sprites from older versions for NPCs
 	}
 }

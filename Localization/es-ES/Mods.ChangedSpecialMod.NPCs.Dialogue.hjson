@@ -1,19 +1,19 @@
 # This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
 Puro: {
 	# NPCs
-	NPCAngler: "{NameAngler} est vraiment imprudent. Hier, il a failli se faire entraîner à l'eau par un Chien-calmar pendant qu'il pêchait."
+	NPCAngler: "{NameAngler} es muy imprudente. Ayer casi lo arrastra un perro calamar al agua mientras pescaba."
 	// NPCArmsDealer: TODO
 	// NPCClothier: TODO
 	// NPCCyborg: TODO
 	// NPCDemolitionist: TODO
-	NPCDryad: Je me demande si {NameDryad} sait comment faire pousser un oranger.
+	NPCDryad: Me pregunto si {NameDryad} sabe cómo cultivar un naranjo.
 	// NPCDyeTrader: TODO
 	// NPCGoblinTinkerer: TODO
 	// NPCGolfer: TODO
-	NPCGuide: Pensez-vous que {NameGuide} puisse me dire ce que je peux faire d'autre avec mes oranges, outre des boissons et des plats ?
+	NPCGuide: ¿Crees que {NameGuide} me puede decir qué más puedo hacer con mis naranjas además de bebidas y platos?
 	// NPCMechanic: TODO
-	NPCMerchant: Si {NameMerchant} vendait du jus d'orange, il serait riche !
-	NPCNurse: "{NameNurse} a dit que c'était bon pour la santé de manger deux fruits par jour. Je lui ai répondu que je mangeais dix oranges par jour !"
+	NPCMerchant: ¡Si {NameMerchant} vendiera zumo de naranja, sería rico!
+	NPCNurse: "{NameNurse} dijo que es bueno para la salud comer dos piezas de fruta al día. ¡Yo le dije que como diez naranjas al día!"
 	// NPCOldMan: TODO
 	// NPCPainter: Should I ask {NamePainter} to paint my room orange? Or should I ask him to put up wallpaper with oranges?
 	// NPCPartyGirl: TODO
@@ -23,208 +23,211 @@ Puro: {
 	// NPCSkeletonMerchant: TODO
 	// NPCSteampunker: TODO
 	// NPCStylist: TODO
-	NPCTavernKeep: J'ai dit à {NameTavernKeep} qu'il devrait étoffer sa carte avec des boissons et des plats à base d'orange ! Imagine toutes les délicieuses possibilités : salade d'agrumes, gâteau à l'orange, jus d'orange, et bien sûr, mimosa ! Mmm, mimosa...
-	NPCTaxCollector: "{PlayerRace}, c'est quoi les « impôts » ? {NameTaxCollector} était très grognon et a dit que je devais les payer."
+	NPCTavernKeep: Le dije a {NameTavernKeep} que debería ampliar su menú con bebidas y platos de naranja. Piensa en todas las deliciosas posibilidades: ensalada de cítricos, bizcocho de naranja, zumo de naranja... ¡y mimosa! Mmm, mimosa...
+	NPCTaxCollector: "{PlayerRace}, ¿qué son los 'impuestos'? {NameTaxCollector} estaba muy gruñón y dijo que tenía que pagarlos."
 	// NPCTravellingMerchant: TODO
 	// NPCTruffle: TODO
 	// NPCWitchDoctor: TODO
 	// NPCWizard: I don't understand why {NameWizard} doesn't let me read his books. It's not like I will damage them with my soft paws.
-	NPCZoologist: "{NameZoologist} est trop mignonne avec ses grandes oreilles et sa queue touffue. Mais pas autant que toi, hehehe..."
-	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} m'a raconté plein de choses sur la « magie », mais tout ce que je voulais savoir, c'est si on pouvait en faire des oranges."
-	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} a tellement de chaussures, mais elles sont toutes trop petites pour mes pattes."
-	NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Je ne comprends pas pourquoi {NameStarsModPackFarmer} n'a pas de graines d'oranger. Tous les agriculteurs devraient en avoir."
-	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, sais-tu pourquoi {NameStarsModPackScrapyardGeek} parle toujours comme ça ?"
-	// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
-	// TerraGuardianAlex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
-	// TerraGuardianAlexander: TODO
-	// TerraGuardianBlue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
-	// TerraGuardianBrutus: TODO
-	// TerraGuardianIch: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
-	// TerraGuardianLeona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
-	// TerraGuardianMonica: TODO
-	// TerraGuardianRococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
-	// TerraGuardianScaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
-	Book1: Je juge les livres comme je juge les oranges : selon le plaisir qu’ils procurent jusqu’à la dernière page ou la dernière tranche.
-	Book2: Salut {PlayerRace}! As-tu vu mon livre?
-	Book3: Voulez-vous m'aider à construire la plus grande tour de livres?
-	Book4: "{PlayerRace}! Regarde ce livre incroyable que je viens de trouver!"
-	Book5: Un jour, j'écrirai un livre sur les aventures extraordinaires de {NamePlayer}!
-	Book6: Hier, j'ai trouvé un livre de cuisine avec plein de recettes qui ont l'air délicieuses. Ça te dirait de cuisiner quelque chose ensemble?
-	Book7: Je suis le glabgalab gluant, et j'adore les livres.
-	Orange1: Quelle est ta couleur préférée? Ma couleur préférée est l'orange.
-	Orange2: Mmmm *mâche* orange *mâche* Oh, bonjour {PlayerRace}.
-	Orange3: Je n'ai pas d'enfant préféré, mais si j'en avais un, ce serait cette orange.
-	Orange4: La nuit dernière, j'ai rêvé que j'étais dans une piscine à balles remplie d'oranges.
-	Orange5: Si vous voulez me faire plaisir, offrez-moi simplement une orange parfaitement mûre.
-	Orange6: Je connais tout sur les oranges, on peut donc dire que je suis un connaisseur de citrus!
-	Orange7: Je n'ai rien fait d'autre que téléporter des oranges pendant 3 jours.
+	NPCZoologist: "{NameZoologist} es tan linda con sus grandes orejas y su cola esponjosa. Pero no tan linda como tú, jejeje..."
+	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} me contó todo tipo de cosas sobre la 'magia', pero lo único que quería saber era si se pueden hacer naranjas con ella."
+	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} tiene muchísimos zapatos, pero todos son demasiado pequeños para mis patas."
+	NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}No entiendo por qué {NameStarsModPackFarmer} no tiene semillas de naranjo. Todo agricultor debería tenerlas."
+	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, ¿sabes por qué {NameStarsModPackScrapyardGeek} zsiempre zhabla zasí?"
+	Book1: Yo juzgo los libros como juzgo las naranjas: por lo satisfactorios que resultan hasta la última página o la última rodaja.
+	Book2: ¡Hola {PlayerRace}! ¿Has visto mi libro?
+	Book3: ¿Me ayudarías a construir la torre de libros más grande?
+	Book4: ¡{PlayerRace}! ¡Mira este libro increíble que acabo de encontrar!
+	Book5: ¡Algún día escribiré un libro sobre las increíbles aventuras de {NamePlayer}!
+	Book6: Ayer encontré un libro de cocina con muchísimas recetas que se ven deliciosas. ¿Te gustaría hornear algo juntos, {PlayerRace}?
+	Book7: Soy la pegajosa glabgalab, y me encantan los libros.
+	Orange1: ¿Cuál es tu color favorito? Mi color favorito es el naranja.
+	Orange2: Mmmm *ñam* naranja *ñam* Oh hola {PlayerRace}.
+	Orange3: No tengo un hijo favorito, pero si lo tuviera, sería esta naranja.
+	Orange4: Anoche soñé que estaba en una piscina de bolas llena de naranjas.
+	Orange5: Si quieres hacerme feliz, solo dame una naranja perfectamente madura.
+	Orange6: ¡Sé todo sobre las naranjas, así que se podría decir que soy un experto en cítricos!
+	Orange7: No he hecho más que teletransportar naranjas durante 3 días.
 	# TF2
-	Crimson1: "{Crimson}Saviez-vous que certains arbres de la région de Carmin produisent des oranges sanguines? Pourriez-vous m’en procurer une?"
-	Crimson2: "{Crimson}Faites attention aux alentours du laboratoire près du Carmin. J'y ai vu un tigre énorme et massif."
-	Corruption1: "{Corruption}Faites attention aux alentours du laboratoire près de la corruption. J'y ai vu un énorme chat violet."
-	Changed1: Avez-vous vu mes dessins au laboratoire? Souhaiteriez-vous que je fasse un dessin de vous?
-	Changed2: "{Behemoth}Je veux devenir aussi grand que le Béhémoth, pour pouvoir te tenir dans mes pattes comme une poupée et te protéger."
-	Normal1: Je n'ai pas besoin d'équipement pour me protéger, car j'ai de grosses griffes, de grosses pattes et une grosse gueule!
-	Normal2: Salut! Comment va mon {PlayerRace} préféré aujourd'hui?
-	TransfurCub: "{TransfurCub}Bonjour petit chiot. Tu es si petit et si mignon ! Puis-je te prendre dans mes bras, s'il te plaît?"
-	Rain1: "{Rain}Si tu as froid à cause de la pluie et que tu veux te réchauffer, tu peux te blottir dans ma fourrure moelleuse!"
-	Rain2: "{Rain}J'ai secoué ma fourrure pour me sécher et maintenant je suis tout duveteux!"
-	Thunder1: "{Thunder}Je n'ai pas peur de la foudre. Mon corps est entièrement fait de gelée, alors même si j'étais frappé par elle, je serais parfaitement indemne!"
-	Thunder2: "{Thunder}Avec tous ces flashs lumineux, je n'ai presque plus besoin de lampe pour lire mes livres."
-	Windy1: "{Windy}Veux-tu faire voler un cerf-volant avec moi, {PlayerRace}?"
-	Windy2: "{Windy}Le vent est si fort aujourd'hui que ma fourrure est toute décoiffée."
-	Windy3: "{Windy}Si seulement j'avais des ailes, je pourrais voler et t'emmener partout."
-	PlayerHasOrange: "{PlayerHasOrange}*Snif* {PlayerRace}, aurais-tu des oranges juteuses ? Puis-je en avoir une, s'il te plaît ?"
-	PlayerHasBook: "{PlayerHasBook}C'est un livre que tu as là, {PlayerRace} ? Aimerais-tu le lire ensemble ?"
-	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}Qu'est-ce que c'est? Le « Livre des Crânes » ? Heh, la couverture ressemble un peu à mon masque."
-	PlayerHasWaterBolt: "{PlayerHasWaterBolt}Qu'est-ce que tu as là? Un livre magique qui projette de l'eau? J'espère qu'il ne fera pas ça si j'essaie de le lire."
-	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oh, tu m'as apporté un autre livre? Euh, pourquoi s'appelle-t-il « Douche Dorée » ?"
-	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oh, un ballon brillant! Puis-je le tenir, s'il vous plaît?"
-	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}C'est une robe vraiment élégante, {PlayerRace}. Tu es plutôt mignon dedans, hehehe."
-	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Oh là là, {PlayerRace}, c'est qui ce chat? Elle est énorme!"
-	Valentine1: "{Valentine}Qu'en penses-tu, {PlayerRace}? Est-ce que je suis mignonne avec cette barrette de Saint-Valentin?"
-	Valentine2: "{Valentine}Un bouquet, c'est bien joli, mais si vous voulez conquérir mon cœur, il faut m'apporter un livret!"
-	Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+	Crimson1: "{Crimson}¿Sabías que en algunos árboles de Carmesí dan naranjas sanguinas? ¿Crees que podrías conseguirme una?"
+	Crimson2: "{Crimson}Ten cuidado cerca del laboratorio que está junto el Carmesí. Vi un tigre enorme y corpulento allí."
+	Corruption1: "{Corruption}Ten cuidado cerca del laboratorio, cerca de la corrupción. Vi un gato enorme y morado allí."
+	Changed1: ¿Has visto mis dibujos en el laboratorio? ¿Te gustaría que te hiciera un dibujo?
+	Changed2: "{Behemoth}Quiero llegar a ser tan grande como el Behemot, para poder sostenerte entre mis patas como a una muñeca y mantenerte a salvo."
+	Normal1: ¡No necesito equipo para protegerme, porque tengo grandes garras, patas y una gran boca!
+	Normal2: ¡Hola! ¿Cómo está mi {PlayerRace} favorito hoy?
+	// TransfurCub: "{TransfurCub}Hello little puppy. You are so small and cute! Can I hold you please?"
+	Rain1: "{Rain}Si tienes frío por la lluvia y quieres entrar en calor, ¡puedes acurrucarte en mi suave pelaje!"
+	Rain2: "{Rain}¡Me sacudí el pelaje para secarme y ahora estoy súper esponjoso!"
+	Thunder1: "{Thunder}No le tengo miedo a los rayos. ¡Todo mi cuerpo está hecho de goma, así que incluso si me cayera uno, estaría perfectamente bien!"
+	Thunder2: "{Thunder}Con todos esos destellos brillantes, casi no necesito una lámpara para leer mis libros."
+	Windy1: "{Windy}¿Te gustaría volar una cometa conmigo {PlayerRace}?"
+	Windy2: "{Windy}Hoy hace tanto viento que mi pelaje se ha despeinado por completo."
+	Windy3: "{Windy}Ojalá tuviera alas para poder volar y llevarte a todas partes."
+	PlayerHasOrange: "{PlayerHasOrange}*Snif* {PlayerRace}, ¿llevas naranjas jugosas? ¿Me das una, por favor?"
+	PlayerHasBook: "{PlayerHasBook}¿Tienes un libro ahí, {PlayerRace}? ¿Te gustaría leerlo juntos?"
+	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}¿Qué es eso? ¿'Libro de las Calaveras'? Je, la portada se parece un poco a mi máscara."
+	PlayerHasWaterBolt: "{PlayerHasWaterBolt}¿Qué tienes ahí? ¿Un libro mágico que lanza agua? Espero que no haga eso si intento leerlo."
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oh, ¿me trajiste otro libro? Eh, ¿por qué se llama 'Ducha Dorada'?"
+	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}¡Oh, un globo brillante! ¿Puedo sostenerlo, por favor?"
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Qué vestido tan elegante, {PlayerRace}. Te ves bastante lindo con él, jejeje."
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr} Vaya, {PlayerRace}. ¿Quién es ese gato? ¡Es enorme!"
+	Valentine1: "{Valentine}¿Qué opinas, {PlayerRace}? ¿Me veo linda con esta horquilla de San Valentín?"
+	Valentine2: "{Valentine}Un ramo de flores está bien, pero si quieres ganarte mi corazón, ¡tienes que traerme un libro!"
+	// Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
 	# Easter is not implemented yet
-	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
-	Oktoberfest1: "{Oktoberfest}C'est la saison des bières! À votre santé!"
-	Oktoberfest2: "{Oktoberfest}{PlayerRace}... Est-ce la bière ou as-tu toujours été si jolie ?"
-	Oktoberfest3: "{Oktoberfest}Mmm. Cette bière est vraiment bonne."
-	Oktoberfest4: "{Oktoberfest}Ça vaaa. Donnez-moi juste une autre bière."
-	Halloween1: "{Halloween}Cirtus, sphère de jus et de pépins, accorde-moi chaleur dans le besoin. Que l'amertume s'en aille et que la douceur demeure, Agrumes, protège de tout mal!"
-	Halloween2: "{Halloween}Woouuh! Je suis Bou-ro!"
-	Halloween3: "{Halloween}Bouh! Héhé, je t'ai fait peur, n'est-ce pas?"
-	Halloween4: "{Halloween}Grrr! Je suis le méchant Loup Sorcier. Et je vais te transformer en une orange juteuse et t'avaler tout rond!"
-	Halloween5: "{Halloween}Je vais faire peur à tout le monde et leur prendre leurs bonbons !"
-	Xmas1: "{Xmas}Ho ho ho! Bonjour {PlayerRace}!"
-	Xmas2: "{Xmas}Que devrais-je demander au Père Noël ? Plus de livres ou plus d'oranges ?"
-	Xmas3: "{Xmas}Vive le vent, vive le vent. Vive le vent d’hiver"
-	Xmas4: "{Xmas}Aimeriez-vous m'aider à décorer mon oranger avec des décorations de Noël ?"
-	Xmas5: "{Xmas}Noël nouvelet, Noël, chantons ici. Dévotes gens, disons à Dieu merci."
-	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+	// Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
+	Oktoberfest1: "{Oktoberfest}¡Es esa época del año para mucha cerveza! ¡Salud!"
+	Oktoberfest2: "{Oktoberfest}Humanaaa, ¿es por la cerveza o siempre has sido tan guapa?"
+	Oktoberfest3: "{Oktoberfest}Mmmm. Esta cerveza está buenísima."
+	Oktoberfest4: "{Oktoberfest}Estoy bien. Solo dame otra cerveza."
+	Halloween1: "{Halloween}Esfera cítrica de jugo y semilla, concédeme calor en la hora de la necesidad."
+	Halloween2: "{Halloween}Wuuuuh! Soy Bu-ro!"
+	Halloween3: "{Halloween}¡BU! Jeje, te asusté, ¿verdad?"
+	Halloween4: "{Halloween}¡Grrr! Soy el malvado Mago Lobo. ¡Te convertiré en una jugosa naranja y te tragaré entero!"
+	Halloween5: "{Halloween}¡Voy a asustar a todos y a robarles sus caramelos!"
+	Xmas1: "{Xmas}¡Ho ho ho! ¡Hola {PlayerRace}!"
+	Xmas2: "{Xmas}¿Qué debería pedirle a Papá Noel? ¿Más libros o más naranjas?"
+	Xmas3: "{Xmas}Navidad, Navidad, hoy es Navidad!"
+	Xmas4: "{Xmas}¿Te gustaría ayudarme a decorar mi naranjo con adornos navideños?"
+	Xmas5: "{Xmas}Oche de paz, noche de amor"
+	Fiesta1: "{Siesta1}Hola, me has Atrapado en medio suavemente."
 
 	BloodMoon: {
-		BloodMoon1: Reste loin de moi, {PlayerRace}. Je ne me sens pas bien aujourd'hui.
-		BloodMoon2: Bonjour orange juteuse, dis bonjour à ma bouche.
-		BloodMoon3: Grrrr.. il me faut... plus d'oranges!
-		BloodMoon4: Voulez-vous que je vous assimile ?
+		BloodMoon1: Aléjate de mí, {PlayerRace}. Hoy no me siento yo mismo.
+		BloodMoon2: Hola naranja jugosa, saluda a mi boca.
+		BloodMoon3: Grrrr... ¡necesito... más... naranjas!
+		BloodMoon4: ¿Quieres transformarte?
 		# Great Mighty Poo - Conkers Bad Fur Day
-		BloodMoon5: Je suis le Grand et Puissant Gelée, et je vais te lancer mes livres!
+		BloodMoon5: ¡Soy el Gran Poderoso Goo, y voy a lanzarte mis libros!
 	}
 
 	Pirates: {
-		Pirates1: ARRRGH! Je suis le capitaine Puro! Et je viens chercher vos oranges!
-		Pirates2: Yar! Reste près du capitaine Puro, mon pote. Je te protégerai de ces rats de cale!
-		Pirates3: Non! Ne chargez pas les canons avec mes précieuses oranges!
-		Pirates4: Craignez le puissant Puro et ma bande de pirates!
-		Pirates5: Êtes-vous prêt à naviguer sur les sept mers du jus d'orange?
+		Pirates1: ¡ARRG! ¡Soy el Capitán Puro! ¡Y voy a por vuestras naranjas!
+		Pirates2: ¡Yar! Quédate cerca del Capitán Puro, valiente mío. ¡Yo te protegeré de esas ratas de sentina!
+		Pirates3: ¡No! ¡No carguen los cañones con mis preciadas naranjas!
+		Pirates4: ¡Temed al poderoso Puro y a mi tripulación de bucaneros!
+		Pirates5: ¿Estás listo para navegar por los siete mares del jugo de naranja?
 	}
 
 	Martians: {
-		Martians1: Des créatures d'un autre monde? D'abord, j'apprends qu'il existe un monde entier en dehors du laboratoire, et maintenant vous me dites qu'il y a un autre monde là-bas?
-		Martians2: Je veux un de ces pistolets à impulsion martiens pour pouvoir faire pan pan Puro!
-		Martians3: "{PlayerRace}, c'est quoi un OVNI?"
+		Martians1: ¿Criaturas de otro mundo? Primero descubro que hay todo un mundo fuera del laboratorio, ¿y ahora me dices que hay otro mundo ahí fuera?
+		Martians2: ¡Quiero uno de esos zappers marcianos para poder ser pew pew Puro!
+		Martians3: "{PlayerRace}, ¿qué es un OVNI?"
 	}
 
 	Eclipse: {
-		Eclipse1: "{PlayerRace} ! S'il vous plaît, ne sortez pas aujourd'hui. C'est beaucoup trop dangereux !"
-		Eclipse2: Je pense que je vais rester à l'intérieur et lire quelques livres jusqu'au retour du soleil.
-		Eclipse3: J'ai essayé de cueillir des oranges aujourd'hui, mais il fait beaucoup trop sombre.
+		Eclipse1: ¡{PlayerRace}! Por favor, no salgas hoy. ¡Es demasiado peligroso!
+		Eclipse2: Creo que me quedaré en casa leyendo algunos libros hasta que vuelva a salir el sol.
+		Eclipse3: Hoy intenté recoger algunas naranjas, pero está demasiado oscuro.
 	}
 
 	Party: {
-		Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Où est ton chapeau de fête?"
-		Party2: Pouvez-vous tenir mon assiette? Non, attendez, donnez-moi la vôtre aussi.
-		Party3: Si quelqu'un cherche le gâteau à l'orange... eh bien, ne le cherchez pas. Je l'ai mangé en entier.
-		Party4: Je veux faire un animal en ballon qui te ressemble. Mignon et tout doux!
-		Party5: Oui, je prendrai un verre ! Et un deuxième. Et peut-être même un troisième.
-		Party6: Quoi? Je ne suis pas un glouton. Je suis juste une grosse bête forte qui a besoin de beaucoup de nourriture pour garder la forme.
-		Party7: Tu crois qu'ils vont être fâchés si je mange tout et qu'ils le découvrent?
-		Party8: *mâche* *mâche* Mmm, la nourriture est tellement bonne ! *mâche*
-		Party9: "{PlayerIsWearingBalloon}Oui! C'est exactement ce qu'il fallait à cette fête. Encore plus de ballons!"
-		Party10: Je suis une gelée noire, et ma bouche est un trou noir pour la nourriture délicieuse!
-		Party11: Mmm, ces petits gâteaux à l'orange moelleux sont tellement bons, mais j'en ai déjà mangé tellement... Peut-être juste un de plus.
-		Party12: On danse ensemble, {PlayerRace}? Parce que j'ai envie de fêtard!
+		Party1: "{PlayerHasNoPartyHat}¡{PlayerRace}! ¿Dónde está tu gorro de fiesta?"
+		Party2: Sujétame el plato. No, espera, dame el tuyo también.
+		Party3: Si alguien está buscando el bizcocho de naranja... mejor no lo busquen. Me lo comí entero.
+		Party4: Quiero hacer un animalito de globos que se parezca a ti. ¡Lindo y blandito!
+		Party5: ¡Sí, me encantaría tomar una copa! Y una recarga sobre eso. Y tal vez una recarga de la recarga.
+		Party6: ¿Qué? No soy un glotón. Solo soy una bestia grande y fuerte que necesita mucha comida para mantenerse en forma.
+		Party7: ¿Crees que estarán enojados si como todo y se enteran?
+		Party8: *ñam* *ñam* ¡Mmmmm, la comida está riquísima! *ñam*
+		Party9: "{PlayerIsWearingBalloon}¡Sí! Justo lo que necesitaba esta fiesta. ¡Más globos!"
+		Party10: ¡Soy un limo negro, y mi boca es un agujero negro para la comida deliciosa!
+		Party11: Mmm, estos esponjosos magdalenas de naranja están tan ricos, pero ya me comí muchos... Quizás solo uno más.
+		Party12: ¿Bailamos juntos, {PlayerRace}? Porque me siento como un animal fiestero!
+	}
+
+	TerraGuardian: {
+		// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+		// Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+		// Alexander: TODO
+		// Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+		// Brutus: TODO
+		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
+		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		// Monica: TODO
+		// Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
+		// Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
 	}
 }
 
 DrK: {
-	NPCAngler: "{NameAngler} est toujours dehors à pêcher, et moi je suis toujours à l'intérieur du laboratoire à la recherche de résultats."
-	NPCNurse: C'est bien que {NameNurse} soit là, parce que je n'avais presque plus de seringues.
-	NPCZoologist: Je me demande ce qui est arrivé à {NameZoologist}. N'a-t-elle été transformée que partiellement ?
-	Normal1: Ça tombe à pic. J'avais justement besoin d'un volontaire pour ma prochaine expérience.
-	Normal2: Bonjour sujet de test. Pourriez-vous tenir ceci pour moi ? C’est assez difficile à faire moi-même maintenant que j’ai de grandes pattes poilues.
-	Normal3: Vous savez, tous ces monstres seraient restés contenus si ces imbéciles d'émeutiers n'avaient pas pris d'assaut le laboratoire.
-	Normal4: Maintenant que je n'ai plus à travailler sur un remède contre le virus, je peux me concentrer sur la création de la plus mignonne des bêtes gelées!
-	Normal5: "{PuroPresent}Cette gelée noire est... unique. Je n'en ai jamais vu une aussi friande d'humains."
-	Normal6: Vous pensiez que la Queue Blanche était terrible ? Attendez de voir le monstre dont elle faisait autrefois partie.
-	Normal7: Détendez-vous! Si cette expérience explose, seule la moitié du bâtiment sera détruite.
-	Normal8: Vous avez peut-être gagné en force, mais les bêtes gelées aussi. Au final... rien n’a changé.
-	Normal9: Vous voulez savoir quelque chose d'intéressant? Savez-vous qu'il n'y a aucune image où je regarde sur les côtés dans mon jeu original?
-	Normal10: C'est rassurant de voir que vous n'êtes pas le seul humain à avoir survécu au virus pâle.
-	Normal11: Avec autant de créatures visqueuses différentes, il devenait difficile de toutes les nommer. C’est pourquoi nous avons inventé des noms très scientifiques comme « Chien-calamar » pour un croisement entre un calmar et un chien, ou « Vioronron » pour un chat violet ronronnant.
-	Normal12: Saviez-vous que ces laboratoires étaient loués par une entreprise de robotique par le passé ? C’est elle qui a développé ces robots balayeurs si pratiques.
-	Normal13: J'ai peut-être contribué à la création de bon nombre de ces monstres, mais je n'ai guère de contrôle sur eux. Sans doute parce que je ne suis pas docteur en éthologie.
-	Crimson1: "{Crimson}Super, j'ai sauvé le monde d'un virus mortel et maintenant il est en train d'être détruit par le carmin."
-	Crimson2: "{Crimson}Une bête rouge gigantesque rôde dans le carmin. Si vous tenez à la vie, tenez-vous à l'écart."
-	Corruption1: "{Corruption}Super, j'ai sauvé le monde d'un virus mortel et maintenant il est en train d'être détruit par la corruption."
-	Corruption2: "{Corruption}Avez-vous vu ce gros chat violet près de la Corruption ? Croyez-moi, si vous ne l'avez pas vu, vous devriez le laisser là."
-	BothWorldEvils1: "{BothWorldEvils1}Super, j'ai sauvé le monde d'un virus mortel et maintenant il est en train d'être détruit par la corruption et le carmin."
-	Thunder1: "{Thunder}La météo est parfaite pour une scientifique foue comme moi!"
-	Thunder2: "{Thunder}Quelle coïncidence, la foudre vient de frapper le bâtiment de Science du Tonnerre."
-	Windy1: "{Windy}Qui a laissé la fenêtre ouverte ? Toutes mes notes sont éparpillées par terre!"
-	PlayerHasGoldenShower: "{PlayerHasGoldenShower}S'il vous plaît, n'ouvrez pas votre livre sur la « Douche Dorée » ici."
-	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Pourquoi portes-tu une robe de mariée? Tu vas te marier avec ton copain loup en gelée noire?"
-	PlayerHasPurrpurr: "{PlayerHasPurrpurr} Quoi? Tu t'es lié d'amitié avec ce chat géant? Bon, je dois avouer que c'est impressionnant."
-	Valentine1: "{Valentine}L'amour, c'est comme la chimie. Il y a des résultats inattendus et les choses peuvent devenir chaudes."
-	Valentine2: "{Valentine}Quoi? Ne me dis pas que tu voulais m'inviter à sortir pour la Saint-Valentin. J'ai des choses plus importantes à faire."
-	Oktoberfest1: "{Oktoberfest}Je vais... *hic* ...prendre d'excellentes décisions aujourd'hui."
-	Oktoberfest2: "{Oktoberfest}Allez, cobaye ! Faisons un peu de science en état d'ivresse!"
-	Oktoberfest3: "{Oktoberfest}C'est la dose qui fait le poison, alors je peux bien prendre une autre bière !"
-	Oktoberfest4: "{Oktoberfest}Dans le pire des cas, je devrai recommencer toute l'expérience."
+	NPCAngler: "{NameAngler} siempre está afuera pescando, y yo siempre estoy adentro del laboratorio buscando resultados."
+	NPCNurse: Es bueno tener a {NameNurse} por aquí, porque me estaba quedando sin jeringas.
+	NPCZoologist: Me pregunto qué le habrá pasado a {NameZoologist}. ¿Solo se transformó parcialmente?
+	Normal1: Justo a tiempo. Necesitaba un voluntario para mi próximo experimento.
+	Normal2: Hola, sujeto de prueba. ¿Podrías sujetar esto por mí? Me resulta bastante difícil hacerlo yo solo ahora que tengo patas grandes y peludas.
+	Normal3: Ya sabes, todos esos monstruos habrían permanecido contenidos si esos estúpidos alborotadores no hubieran irrumpido en el laboratorio.
+	Normal4: Ahora que ya no tengo que trabajar en una cura para el virus, ¡puedo concentrarme en crear la bestia de látex más adorable!
+	Normal5: "{PuroPresent}Ese látex negro es... único. Nunca había visto a uno de su especie tan cariñoso con los humanos."
+	Normal6: ¿Creías que el Cola Blanca era malo? Espera a ver de qué monstruo formó parte.
+	Normal7: ¡Tranquilos! Si este experimento explota, solo la mitad del edificio desaparecerá.
+	Normal8: Puede que te hayas vuelto más fuerte, pero los monstruos de látex también. Así que, al final... nada ha cambiado.
+	Normal9: ¿Quieres saber algo interesante? ¿Sabías que no tengo sprites laterales en mi juego original?
+	Normal10: Me alegra ver que no eres el único ser humano que sobrevivió al virus de la palidez.
+	Normal11: Con tantas criaturas de látex diferentes, se nos hizo difícil ponerles nombre a todas. Por eso, se nos ocurrieron nombres muy científicos como 'Perro Calamar' para una fusión entre calamar y perro, o 'Gatomorado' para un gato morado que ronronea.
+	Normal12: ¿Sabías que los laboratorios fueron alquilados en el pasado por una empresa de robótica? Ellos desarrollaron esos prácticos robots barredores.
+	Normal13: Puede que haya contribuido a la creación de muchos de esos monstruos, pero tengo poco control sobre ellos. Probablemente porque no tengo un doctorado en comportamiento animal.
+	Crimson1: "{Crimson}¡Genial! He salvado al mundo de un virus mortal y ahora está siendo destruido por el Carmesí."
+	Crimson2: "{Crimson}Una enorme bestia roja merodea por el Carmesí. Si valoras tu vida, mantente alejado de ella."
+	Corruption1: "{Corruption}¡Genial! He salvado al mundo de un virus mortal y ahora la corrupción lo está destruyendo."
+	Corruption2: "{Corruption}¿Has visto a ese gato morado grande cerca de la Corrupción? Créeme, si no lo has visto, deberías dejar de verlo así."
+	BothWorldEvils1: "{BothWorldEvils1}¡Genial! He salvado al mundo de un virus mortal y ahora está siendo destruido por la corrupción y el Carmesí."
+	Thunder1: "{Thunder}¡El tiempo es perfecto para una científica loca como yo!"
+	Thunder2: "{Thunder}Qué apropiado, justo ahora un rayo cayó sobre el edificio de Ciencias del Trueno."
+	Windy1: "{Windy}¿Quién dejó la ventana abierta? ¡Ahora todas mis notas están esparcidas por el suelo!"
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Por favor, no abras tu libro 'Ducha Dorada' por aquí."
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}¿Por qué llevas un vestido de novia? ¿Te vas a casar con tu amigo lobo de gelatina negra?"
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr} ¿Qué? ¿Te hiciste amigo de ese gato gigante? Bueno, tengo que admitir que es impresionante."
+	Valentine1: "{Valentine}El amor es como la química. Tiene resultados inesperados y las cosas pueden ponerse muy caliente."
+	Valentine2: "{Valentine}¿Qué? No me digas que querías invitarme a salir por San Valentín. Tengo cosas más importantes que hacer."
+	Oktoberfest1: "{Oktoberfest}Hoy voy a tomar... *hipo* ...excelentes decisiones."
+	Oktoberfest2: "{Oktoberfest}¡Vamos, sujeto de prueba! ¡Hagamos un poco de ciencia borrachos!"
+	Oktoberfest3: "{Oktoberfest}Solo la dosis hace el veneno, así que puedo tomarme otra cerveza."
+	Oktoberfest4: "{Oktoberfest}En el peor de los casos, tendré que repetir todo el experimento."
 	# Spooky Scary Skeletons
-	Halloween1: "{Halloween}Des scientifiques effrayants vous hanteront dans vos rêves!"
-	Halloween2: "{Halloween}Je suis le monstre sous ton lit. Mes dents sont acérées et mes yeux rougeoient."
-	Halloween3: "{Halloween}Si vous inhalez les vapeurs de ce bécher, vous aurez l'air plus terrifiant que dans n'importe quel costume d'Halloween."
-	Halloween4: "{Halloween}Pour réussir en tant que scientifique comme moi, il faut avoir... Cerveaux! CERVAUX!"
-	Xmas1: "{Xmas}Une liste de souhaits pour le Père Noël? Non, je ne crois pas en lui. Je crois en la science."
-	Xmas2: "{Xmas}Que pensez-vous de ce mélange chimique? N'est-il pas magnifique? Ses couleurs sont encore plus éclatantes qu'un sapin de Noël!"
-	Xmas3: "{Xmas}Petit Papa Noël. Quand tu descendras du ciel."
-	Xmas4: "{Xmas}Si j'avais une carotte à la place du nez, on me prendrait pour un bonhomme de neige."
+	Halloween1: "{Halloween}¡Científicos espeluznantes te perseguirán en tus sueños!"
+	Halloween2: "{Halloween}Soy el monstruo que está debajo de tu cama. Mis dientes son afilados y mis ojos brillan rojos."
+	Halloween3: "{Halloween}Si inhalas los vapores de este vaso de precipitados, tendrás un aspecto más espantoso que con cualquier disfraz de Halloween."
+	Halloween4: "{Halloween}Para ser un médico exitoso como yo, necesitas tener... ¡CEREBROS!"
+	Xmas1: "{Xmas}¿Una lista de deseos para Papá Noel? No, no creo en él. Creo en la ciencia."
+	Xmas2: "{Xmas}¿Qué te parece este cóctel químico? ¿No es precioso? Tiene incluso más colores que un árbol de Navidad."
+	Xmas3: "{Xmas}Feliz navidad."
+	Xmas4: "{Xmas}Si tuviera una zanahoria por nariz, me confundirían con un muñeco de nieve."
 	// ModRedemption1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
 
 	BloodMoon: {
-		BloodMoon1: Viens ici, cobaye! Je dois te faire passer quelques tests!
+		BloodMoon1: ¡Ven aquí, sujeto de prueba! ¡Tengo que hacerte algunas pruebas!
 		# Dr Nefario
-		BloodMoon2: Tu veux exploser?
-		BloodMoon3: Mouahaha! Je vais t'attraper et faire de toi l'un des nôtres!
+		BloodMoon2: ¿Quieres explotar?
+		BloodMoon3: ¡Muajajaja! ¡Te voy a atrapar y te voy a convertir en uno de nosotros!
 	}
 
 	Pirates: {
-		Pirates1: Si ces voleurs violents et insensés détruisent mon matériel, ils le regretteront!
-		Pirates2: Les pirates sont tellement matérialistes qu'ils ne réalisent pas que le savoir est bien plus précieux que de l'or.
-		Pirates3: J'étais sur le point de faire une découverte capitale avant que ces satanés bandits ne défoncent ma porte.
+		Pirates1: ¡Si esos ladrones violentos y sin cerebro destruyen mi equipo, se arrepentirán!
+		Pirates2: Los piratas son tan materialistas que no se dan cuenta de que el conocimiento es mucho más valioso que el oro.
+		Pirates3: Estaba a punto de lograr un gran avance cuando esos malditos bandidos derribaron mi puerta.
 	}
 
 	Martians: {
-		Martians1: Si vous parvenez à trouver un objet martien, pourriez-vous me l'apporter ? J'aimerais beaucoup étudier leur technologie.
-		Martians2: Ici, on ne s'ennuie jamais, hein ?
+		Martians1: Si logras encontrar algún equipo marciano, ¿podrías traérmelo? Me encantaría estudiar su tecnología.
+		Martians2: Aquí nunca hay un día aburrido, ¿eh?
 	}
 
 	Eclipse: {
-		Eclipse1: Je suis peut-être un savant fou, mais même moi, je ne créerais pas de tels monstres.
-		Eclipse2: Il vaut mieux rester à l'intérieur aujourd'hui, donc c'est un jour comme les autres pour moi.
-		Eclipse3: S'il vous plaît, restez en vie, car je ne pourrai pas vous recoudre si vous périssez. Après tout, je suis le docteur K, pas le docteur Frankenstein.
+		Eclipse1: Puede que sea un científico loco, pero ni siquiera yo crearía semejantes monstruos.
+		Eclipse2: Es mejor quedarse en casa hoy, así que para mí es un día como cualquier otro.
+		Eclipse3: Por favor, mantente con vida, porque no podré reconstruirte si mueres. Después de todo, soy el Dr. K, no el Dr. Frankenstein.
 	}
 
 	Party: {
-		Party1: "{PlayerHasNoPartyHat}Allez, cobaye, où est ton chapeau de fête ? Ils me trouvent ennuyeux, mais même moi j'en porte un!"
-		Party2: D'après mes calculs, il n'y a jamais assez de nourriture à une fête pour satisfaire la faim d'une gelée noire
-		Party3: On pourrait facilement rater une bête gelée entre tous ces ballons. Après tout, ils sont faits de la même matière.
-		Party4: Tu veux danser ? Ok, laisse-moi te montrer la danse du scientifique!
+		Party1: "{PlayerHasNoPartyHat}Vamos, sujeto de prueba, ¿dónde está tu gorro de fiesta? ¡Creen que soy aburrido, pero hasta yo llevo uno!"
+		Party2: Según mis cálculos, en una fiesta nunca hay suficiente comida para saciar el hambre de un látex negro.
+		Party3: Podrías pasar por alto fácilmente una criatura de látex entre esos globos. Al fin y al cabo, están hechos del mismo material.
+		Party4: ¿Quieres bailar? ¡Vale, déjame enseñarte el remolino del científico!
 		# The very verbose chemist from YouTube (actually, precisely, arbitrary)
-		Party5: Prêts pour un tour de magie impressionnant ? Regardez, je peux transformer du papier toilette en alcool de contrebande!
-		Party6: Cette fête manque feux d'artifice. Voulez-vous que j'y remédie?
+		Party5: ¿Estás listo para un truco de fiesta genial? ¡Mira, puedo convertir papel higiénico en licor!
+		Party6: A esta fiesta le faltan fuegos artificiales. ¿Quieres que lo solucione?
 		// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 	}
 
@@ -232,11 +235,11 @@ DrK: {
 		// PlayerHasTerraGuardian: TODO
 		// PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
 		// PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
-		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}{Safe}You really like big, furry women huh?"
+		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}You really like big, furry women huh?"
 		// PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
 		// PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
 		// PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
-		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}{Safe}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
+		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
 		# Macro
 		// MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
 		// MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."

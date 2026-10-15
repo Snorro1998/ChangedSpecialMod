@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Трансформации]"
 		Npc: "[c/ffeb6e:Персонажи]"
 		Evolution: "[c/ffeb6e:Эволюция]"
-		// Visuals: Visuals Header
+		// Visuals: "[c/ffeb6e:Visuals]"
 	}
 
 	NumberOfLabs: {
@@ -124,23 +124,13 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Во время праздников горожане носят головные уборы, и у них есть уникальные реплики.
 	}
 
-	FilterProfanity: {
-		// Label: Filter Profanity
-		// Tooltip: ""
-	}
-
-	RetroVisuals: {
-		// Label: Retro Visuals
-		// Tooltip: ""
-	}
-
 	RetroVisualsTiles: {
-		// Label: Retro Visuals Tiles
-		// Tooltip: ""
+		// Label: Retro Tiles
+		// Tooltip: Use sprites from older versions for blocks and furniture
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro Visuals N P Cs
-		// Tooltip: ""
+		// Label: Retro NPCs
+		// Tooltip: Use sprites from older versions for NPCs
 	}
 }

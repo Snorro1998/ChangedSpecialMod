@@ -10,18 +10,21 @@
 	<ItemGroup>
 	  <AdditionalFiles Remove="Content\Items\Placeable\Paintings\**" />
 	  <AdditionalFiles Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <AdditionalFiles Remove="Localization\en-US\Tags\**" />
 	  <Compile Remove="Content\Items\Placeable\Paintings\**" />
 	  <Compile Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <Compile Remove="Localization\en-US\Tags\**" />
 	  <EmbeddedResource Remove="Content\Items\Placeable\Paintings\**" />
 	  <EmbeddedResource Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <EmbeddedResource Remove="Localization\en-US\Tags\**" />
 	  <None Remove="Content\Items\Placeable\Paintings\**" />
 	  <None Remove="Content\Tiles\Furniture\MusicBoxes\**" />
+	  <None Remove="Localization\en-US\Tags\**" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Assets\Textures\AmbientEntities\" />
 	  <Folder Include="Content\NPCs\Gores\" />
 	  <Folder Include="Lib\" />
-	  <Folder Include="Localization\en-US\Tags\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="ModLiquidLib">

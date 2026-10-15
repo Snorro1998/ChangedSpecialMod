@@ -1,0 +1,196 @@
+Country: {
+	Afghanistan: Afghanistan
+	Algeria: Algeria
+	Alola: Alola
+	America: America
+	Angola: Angola
+	Antarctica: Antarctica
+	Argentina: Argentina
+	Arrakis: Arrakis
+	Aruba: Aruba
+	Atlantis: Atlantis
+	Australia: Australia
+	Austria: Austria
+	Azeroth: Azeroth
+	Babylonia: Babylonia
+	Belgium: Belgium
+	Bolivia: Bolivia
+	Brazil: Brazil
+	Canada: Canada
+	Chad: Chad
+	Chile: Chile
+	China: China
+	Colombia: Colombia
+	Congo: Congo
+	Denmark: Denmark
+	Egypt: Egypt
+	Ethiopia: Ethiopia
+	France: France
+	Galar: Galar
+	Germany: Germany
+	Gondor: Gondor
+	Greenland: Greenland
+	Hell: Hell
+	Hoenn: Hoenn
+	Hungary: Hungary
+	// Hyrule: Hyrule
+	India: India
+	Indonesia: Indonesia
+	Iran: Iran
+	Italy: Italy
+	Johto: Johto
+	Kalos: Kalos
+	Kanto: Kanto
+	Kazakhstan: Kazakhstan
+	Latveria: Latveria
+	Libya: Libya
+	Macedonia: Macedonia
+	Mali: Mali
+	Mauritania: Mauritania
+	Mauritius: Mauritius
+	Mexico: Mexico
+	MiddleEarth: Middle-earth
+	Mongolia: Mongolia
+	Mordor: Mordor
+	Mozambique: Mozambique
+	Myanmar: Myanmar
+	Namibia: Namibia
+	Narnia: Narnia
+	Nigeria: Nigeria
+	Oz: Oz
+	Pakistan: Pakistan
+	Paldea: Paldea
+	Persia: Persia
+	Peru: Peru
+	Poland: Poland
+	Russia: Russia
+	SaudiArabia: Saudi Arabia
+	Sinnoh: Sinnoh
+	Somalia: Somalia
+	SouthAfrica: South Africa
+	Spain: Spain
+	Sudan: Sudan
+	Tamriel: Tamriel
+	Tanzania: Tanzania
+	TheDigitalWorld: the Digital World
+	Turkey: Turkey
+	Unova: Unova
+	Venezuela: Venezuela
+	Wakanda: Wakanda
+	Westeros: Westeros
+	Wonderland: Wonderland
+	Zambia: Zambia
+}
+
+City: {
+	// Aalborg: Aalborg
+	// Aarhus: Aarhus
+	// AbomeyCalavi: Abomey-Calavi
+	// Algiers: Algiers
+	// Amersfoort: Amersfoort
+	// Amsterdam: Amsterdam
+	// Annaba: Annaba
+	// Antwerp: Antwerp
+	// Athens: Athens
+	// Barcelona: Barcelona
+	// Benguela: Benguela
+	// Bergen: Bergen
+	// Berlin: Berlin
+	// Birmingham: Birmingham
+	// Brindisi: Brindisi
+	// Bruges: Bruges
+	// Brussels: Brussels
+	// Burgas: Burgas
+	// Charkov: Charkov
+	// Cologne: Cologne
+	// Constantine: Constantine
+	// Copenhagen: Copenhagen
+	// Cotonou: Cotonou
+	// Curepipe: Curepipe
+	// Dortmund: Dortmund
+	// Edinburgh: Edinburgh
+	// Espoo: Espoo
+	// Florence: Florence
+	// Francistown: Francistown
+	// Gaborone: Gaborone
+	// Gdansk: Gdansk
+	// Gibraltar: Gibraltar
+	// Glasgow: Glasgow
+	// Gothenburg: Gothenburg
+	// Gouda: Gouda
+	// Graz: Graz
+	// Hamburg: Hamburg
+	// Helsinki: Helsinki
+	// Heraklion: Heraklion
+	// Huambo: Huambo
+	// Kiev: Kiev
+	// Krakow: Krakow
+	// Linz: Linz
+	// Lissabon: Lissabon
+	// Liverpool: Liverpool
+	// Lobito: Lobito
+	// Lodz: Lodz
+	// London: London
+	// Luanda: Luanda
+	// Lubin: Lubin
+	// Lviv: Lviv
+	// Lyon: Lyon
+	// Madrid: Madrid
+	// Malaga: Malaga
+	// Malmo: Malmo
+	// Marseille: Marseille
+	// Maun: Maun
+	// Mechelen: Mechelen
+	// Milan: Milan
+	// Molepolole: Molepolole
+	// Moscow: Moscow
+	// Munich: Munich
+	// Naples: Naples
+	// Novosibirsk: Novosibirsk
+	// Odense: Odense
+	// Omsk: Omsk
+	// Oran: Oran
+	// Osijek: Osijek
+	// Oslo: Oslo
+	// Oulou: Oulou
+	// Palermo: Palermo
+	// Pamplona: Pamplona
+	// Parakou: Parakou
+	// Paris: Paris
+	// Patras: Patras
+	// Pisa: Pisa
+	// Plovdiv: Plovdiv
+	// PortLouis: Port Louis
+	// Porto: Porto
+	// PortoNovo: Porto-Novo
+	// Rijeka: Rijeka
+	// Rome: Rome
+	// RoseBelle: Rose-Belle
+	// Rotterdam: Rotterdam
+	// SaintPetersburg: Saint Petersburg
+	// Salzburg: Salzburg
+	// Seville: Seville
+	// Soesterberg: Soesterberg
+	// Sofia: Sofia
+	// Split: Split
+	// Stavanger: Stavanger
+	// Stockholm: Stockholm
+	// TheHague: The Hague
+	// Thessaloniki: Thessaloniki
+	// Toulouse: Toulouse
+	// Trondheim: Trondheim
+	// Tsjernobyl: Tsjernobyl
+	// Turin: Turin
+	// Turku: Turku
+	// Uppsala: Uppsala
+	// Utrecht: Utrecht
+	// VacoasPhoenix: Vacoas-Phoenix
+	// Valencia: Valencia
+	// Varna: Varna
+	// Venice: Venice
+	// Vienna: Vienna
+	// Warsaw: Warsaw
+	// Wroclaw: Wroclaw
+	// Yekaterinburg: Yekaterinburg
+	// Zagreb: Zagreb
+}

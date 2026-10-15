@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Common.Systems.ObjectLists;
+using ChangedSpecialMod.Common.Systems.QuestBook;
 using ChangedSpecialMod.Common.Systems.TagObjects;
 using ChangedSpecialMod.Utilities;
 using System;
@@ -406,24 +407,6 @@ namespace ChangedSpecialMod.Common.Systems
             "The Werewolves of Millers Hollow"
         };
 
-        private static List<string> optionsVideoGames = new List<string>()
-        {
-            "Age of Empires",
-            "Bubsy 3D",
-            "Changed",
-            "Diablo",
-            "Fortnite",
-            "Habbo Hotel",
-            "Minecraft",
-            "Roblox",
-            "Rollercoaster Tycoon",
-            "RuneScape",
-            "Spore",
-            "Stardew Valley",
-            "Terraria",
-            "World of Goo"
-        };
-
         private static List<string> optionsNamesOther = new List<string>()
         {
             // Minecraft
@@ -468,13 +451,6 @@ namespace ChangedSpecialMod.Common.Systems
             "years"
         };
 
-        private static List<string> optionsNounDevice = new List<string>()
-        {
-            "dishwasher",
-            "refrigerator",
-            "washing machine"
-        };
-
         private static T Choose<T>(params T[] items)
         {
             return ChangedUtils.Choose(items);
@@ -508,18 +484,6 @@ namespace ChangedSpecialMod.Common.Systems
             var vegetableTag1 = tagsVegetable.PickRandom();
             var vegetable1 = vegetableTag1.GetName();
             var vegetables1 = vegetableTag1.GetPlural();
-
-            var listPlanets = new List<string>()
-            {
-                "Jupiter",
-                "Mars",
-                "Merkur",
-                "Neptun",
-                "Pluto",
-                "Saturn",
-                "Uranus",
-                "Venus"
-            };
 
             var listApplicancesWithInside = new List<string>()
             {
@@ -628,7 +592,6 @@ namespace ChangedSpecialMod.Common.Systems
             var countryEurope = PickRandom(tagsCountry.countriesEurope).GetName();
             var countryAfrica = PickRandom(tagsCountry.countriesAfrica).GetName();
             var countryAsia = PickRandom(tagsCountry.countriesAsia).GetName();
-            var planet1 = PickRandom(listPlanets);
             var applianceWithInside1 = PickRandom(listApplicancesWithInside);
             var appliance1 = PickRandom(listAppliances);
 
@@ -705,7 +668,6 @@ namespace ChangedSpecialMod.Common.Systems
                 // Travel
                 Choose(
                     $"Die Reisen von {nameManWoman}",
-                    $"die Weltraumexpedition zum {planet1}",
                     $"Der lange Weg nach {city1}"
                 ),
 
@@ -726,15 +688,35 @@ namespace ChangedSpecialMod.Common.Systems
             return sentence;
         }
 
+        public sealed class BookTitleContext
+        {
+            public required AnimalTagObject Animal { get; init; }
+            public required string City { get; init; }
+            public required string Country { get; init; }
+            public required string Number { get; init; }
+        }
+
+        public sealed class BookTitleTagLists
+        {
+            public required AnimalTagObjectList AnimalTagObjectList { get; init; }
+            public required CountryTagObject CountryTagObject { get; init; }
+            public required FruitTagObjectList FruitTagObjectList { get; init; }
+            public required VegetableTagObjectList VegetableTagObjectList { get; init; }
+        }
+
         public static string GetBookName()
         {
+            BookSentenceBuilder builder = null;
+
             var culture = Language.ActiveCulture.Name;
             switch (culture)
             {
-                //case "en-US":
-                //    return name;
+                case "en-US":
+                    builder = new BookSentenceBuilderEnglish();
+                    break;
                 case "de-DE":
-                    return GetBookNameGerman();
+                    builder = new BookSentenceBuilderGerman();
+                    break;
                     /*
                 case "fr-FR":
                     return nameFrench ?? name;
@@ -751,6 +733,9 @@ namespace ChangedSpecialMod.Common.Systems
                     */
             }
 
+            if (builder == null)
+                return "lost book";
+
             // Setup
             var tagsFruit = new FruitTagObjectList();
             tagsFruit.Init();
@@ -762,6 +747,10 @@ namespace ChangedSpecialMod.Common.Systems
             tagsCountry.Init();
             var tagsAnimals = new AnimalTagObjectList();
             tagsAnimals.Init();
+            var tagsVideoGames = new VideoGameTagObjectList();
+            tagsVideoGames.Init();
+            var tagsCities = new CityTagObjectList();
+            tagsCities.Init();
 
             var number1 = (Main.rand.Next(1, 20) * 100).ToString();
             var number2 = (Main.rand.Next(1, 10) * 10).ToString();
@@ -770,19 +759,6 @@ namespace ChangedSpecialMod.Common.Systems
 
             var vegetable1 = tagsVegetable.PickRandom();
             var vegetables1 = vegetable1.GetPlural();
-
-            var listPlanets = new List<string>()
-            {
-                "Jupiter",
-                "Mars",
-                "Mercury",
-                "Neptune",
-                "Pluto",
-                "Saturn",
-                "Uranus",
-                "Venus",
-                "the Moon"
-            };
 
             var listApplicancesWithInside = new List<string>()
             {
@@ -813,7 +789,8 @@ namespace ChangedSpecialMod.Common.Systems
                 "Motshi",   // Mithsi Mitshubishi
                 "Ko",
                 "Sua",      // Suavemente
-                "Ca"
+                "Ca",
+                "Terra"
             );
 
             var deviceBrandName2 = Choose(
@@ -823,7 +800,8 @@ namespace ChangedSpecialMod.Common.Systems
                 "bi",
                 "na",
                 "men",
-                "co"
+                "co",
+                "tools"
             );
 
             var deviceBrandName = $"{deviceBrandName1}{deviceBrandName2}";
@@ -848,20 +826,20 @@ namespace ChangedSpecialMod.Common.Systems
                 "calligraphy",
                 "cartography",
                 "cooking",
-                "diplomacy",
-                "electronics",
+                //"diplomacy",
+                //"electronics",
                 "gardening",
-                "hydraulics",
-                "navigation",
-                "negotiation",
-                "origami",
+                //"hydraulics",
+                //"navigation",
+                //"negotiation",
+                //"origami",
                 "painting",
-                "persuasion",
+                //"persuasion",
                 "photography",
                 "poetry",
-                "sculpture",
-                "storytelling",
-                "teaching",
+                //"sculpture",
+                //"storytelling",
+                //"teaching",
                 "woodworking"
             );
 
@@ -892,19 +870,19 @@ namespace ChangedSpecialMod.Common.Systems
 
             var animal1 = tagsAnimals.PickRandom();
             var animals1 = animal1.GetPlural();
-            var animalWithFur1 = PickRandom(tagsAnimals.elements.Where(x => x.hasFur).ToList()).name;
+            var animalWithFur1 = PickRandom(tagsAnimals.elements.Where(x => x.hasFur).ToList()).GetName();
 
             var vehicleTag1 = tagsVehicles.PickRandom();
             var vehicleWithAdj1 = $"{vehicleTag1.GetAdjective()} {vehicleTag1.name}";
 
             // keywords
-            var city1 = PickRandom(CityObjectList.GetElements()).name;
-            var country1 = tagsCountry.PickRandom().name;
-            var country2 = tagsCountry.PickRandom(new List<string>() { country1 }).name;
-            var countryEurope = PickRandom(tagsCountry.countriesEurope).name;
-            var countryAfrica = PickRandom(tagsCountry.countriesAfrica).name;
-            var countryAsia = PickRandom(tagsCountry.countriesAsia).name;
-            var planet1 = PickRandom(listPlanets);
+            var city1 = tagsCities.PickRandom().GetName();
+            var countryObj1 = tagsCountry.PickRandom();
+            var country1 = countryObj1.GetName();
+            var country2 = tagsCountry.PickRandom(new List<string>() { countryObj1.name }).GetName();
+            var countryEurope = PickRandom(tagsCountry.countriesEurope).GetName();
+            var countryAfrica = PickRandom(tagsCountry.countriesAfrica).GetName();
+            var countryAsia = PickRandom(tagsCountry.countriesAsia).GetName();
             var applianceWithInside1 = PickRandom(listApplicancesWithInside);
             var appliance1 = PickRandom(listAppliances);
 
@@ -913,9 +891,8 @@ namespace ChangedSpecialMod.Common.Systems
             var nameManWoman = Choose(nameMan, nameWoman);
 
             var humanOrAnimalTribe = Choose(tribe, $"{animal1} tribe");
-            var videoGame = PickRandom(optionsVideoGames);
-
-            var profession1 = "a " + 
+            
+            var profession1 = 
             Choose(
                 "blacksmith",
                 "bus driver",
@@ -937,553 +914,34 @@ namespace ChangedSpecialMod.Common.Systems
 
             var tribeProfession = Choose(
                 "Chief",
+                "Oracle",
                 "Scout",
+                "Shaman",
                 "Warrior"
             );
 
-            var options = new List<string>() 
+            BookTitleContext bookContext = new BookTitleContext()
             {
-                // tribes
-                Choose(
-                    $"the first contact with the {humanOrAnimalTribe}",
-                    $"everything about the {humanOrAnimalTribe}",
-                    $"how the {humanOrAnimalTribe} live"
-                ),
+                Animal = animal1,
+                City = city1,
+                Country = country1,
+                Number = number1
+            };
 
-                // Likulau: Warrior of the Rukai (bestest boi)
-                $"{tribeWarrior}: {tribeProfession} of the {humanOrAnimalTribe}",
+            var options = new List<string>()
+            {
+                builder.GetSillyTitle(bookContext),
 
-                // Silly
-                Choose(
-                    $"Help! My sister turned herself into a {animal1}",
-                    $"the emotional support {animal1}",
-                    $"why is there a {animal1} in my kitchen?",
-                    $"I accidentally bought {number1} {animals1} on the internet",
-                    $"death, taxes and {nameWoman}"
-                ),
+                builder.GetSentenceCity(number1, city1),
+                builder.GetSentenceCountry(country1, countryEurope, countryAfrica, countryAsia),
 
-                // Crafts
-                Choose(
-                    $"how you can make adorable plushies from {animalWithFur1} fur",
-                    $"how to knit {thingToKnit}",
-                    $"how to fold an origami {animal1}"
-                ),
-
-                // Animals
-                Choose(
-                    $"the journey of a {animal1}",
-                    $"how to " +
-                    Choose(
-                        "pet",
-                        "raise",
-                        //"seduce",
-                        "take care of",
-                        "tame"
-                    ) + $" {animal1.GetArticle()} {animal1}",
-                    $"the very hungry {animal1}",
-                    $"planet of the {animals1}",
-                    $"life of {animal1.GetArticle()} {animal1}",
-                    $"the secret life of {animals1}",
-                    $"a day in the life of {animal1.GetArticle()} {animal1}",
-                    $"the adventures of {animal1.GetArticle()} {animal1}",
-                    $"the {animal1} who " +
-                    Choose(
-                        "saved the day",
-                        "became a hero",
-                        $"got stuck in a {applianceWithInside1}",
-                        $"went to {city1}",
-                        $"traveled to {country1}"
-                    ),
-                    $"the lost {animal1}",
-                    //$"why {animals1} behave the way they do",
-                    $"everything you need to know about {animals1}"
-                ),
-
-                // Fruits and vegetables
-                Choose(
-                    $"{number1} {vegetable1} recipes",
-                    $"why {vegetables1} are good for your health",
-                    $"how to make {vegetable1} smoothies",
-                    $"how to grow a {fruit1} tree",
-                    $"growing {vegetables1} in {placeToGrowFood}",
-                    $"{number1} ways to cook {vegetable1}",
-                    $"a guide to growing {vegetables1}",
-                    $"{number1} delicious things you can make with {fruit1}"
-                ),
-
-                // climbing and spelunking
-                Choose(
-                    // Going underground
-                    Choose("exploring the ", "going down into the ", "delving deeper into the ") +
-                    Choose(
-                        $"caves of {country1}",
-                        $"mines of {country1}",
-                        $"catacombs of {city1}",
-                        $"sewers beneath {city1}"
-                    ),
-
-                    // Mountain climbing
-                    Choose("climbing the ", "going up the ") +
-                    $"mountains of {country1}"
-                ),
-
-                // Video games
-                Choose(
-                    $"{number1} easter eggs in {videoGame}",
-                    $"{number1} speedrunning tricks for {videoGame}"
-                ),
-
-                // Space
-                Choose(
-                    $"the first expedition to {planet1}",
-                    $"life on {planet1}",
-                    $"the lost colony of {planet1}",
-                    $"the mysteries of {planet1}",
-                    $"the first astronaut on {planet1}",
-                    //$"{number1} things we know about space",
-                    $"the secret mission to {planet1}"
-                ),
-
-                // Countries
-                Choose(
-                    $"the fight for {country1}",
-                    $"the {number2} year war between {country1} and {country2}",
-                    Choose(
-                        $"Countries of Europe: {countryEurope}",
-                        $"Countries of Africa: {countryAfrica}",
-                        $"Countries of Asia: {countryAsia}",
-                        $"Countries of the world: {country1}"
-                    )
-                ),
-
-                // Possessive
-                Choose(
-                    $"{nameManWoman}'s diary",
-                    $"{nameManWoman}'s {animal1}",
-                    $"{nameManWoman}'s {vehicleWithAdj1}",
-                    $"{nameManWoman}'s secret",
-                    $"{nameManWoman}'s adventure",
-                    $"{nameManWoman}'s journey",
-                    //$"{nameManWoman}'s collection",
-                    $"{nameManWoman}'s mysterious house",
-                    $"{nameManWoman}'s greatest discoveries",
-                    $"the disappearance of {nameManWoman}",
-                    $"a letter from {nameManWoman}"
-                    //$"the strange case of {nameManWoman}"
-                ),
-
-                                // City
-                Choose(
-                    $"{number1} places you should visit in {city1}",
-                    $"the secrets of {city1}",
-                    $"the history of {city1}",
-                    //$"a walking tour of {city1}",
-                    //$"the hidden streets of {city1}",
-                    $"the strangest places in {city1}",
-                    $"the best food in {city1}",
-                    //$"a weekend in {city1}",
-                    //$"the rise and fall of {city1}",
-                    //$"the forgotten history of {city1}",
-                    $"the legends of {city1}",
-                    //$"the underground world of {city1}",
-                    $"the secrets of {city1}",
-                    $"the battle of {city1}",
-                    $"the ghosts of {city1}",
-                    $"the lost treasure of {city1}"
-                ),
-
-                /*
-
-
-                // Practical
-                Choose(
-                    $"Instruction manual for the {brandAndModelName} {appliance1}",
-                    $"the art of {fieldOfStudy}",
-                    $"a beginner's guide to {fieldOfStudy}",
-                    $"how to master {fieldOfStudy}",
-                    $"the complete guide to {fieldOfStudy}",
-                    $"common mistakes when learning {fieldOfStudy}",
-                    $"{number1} useful tips for {fieldOfStudy}",
-                    $"the history of {fieldOfStudy}",
-                    $"the science behind {fieldOfStudy}",
-                    $"a practical introduction to {fieldOfStudy}"
-                ),
-
-                // Travel
-                Choose(
-                    $"the travels of {nameManWoman}",
-                    $"the space expedition to {planet1}",
-                    $"the long road to {city1}",
-                    $"a journey across {country1}",
-                    $"{number1} places to see in {city1}",
-                    $"the ultimate adventure in {country1}",
-                    $"a traveler’s guide to {city1}",
-                    $"the road trip through {country1}",
-                    $"lost in {city1}",
-                    $"around the world in {number2} days",
-                    $"the journey beyond {planet1}",
-                    $"wandering through {city1}"
-                ),
-
-                // Food and cooking
-                Choose(
-                    $"forgotten {vegetable1} recipes",
-                    $"{number1} easy meals for beginners",
-                    $"how to cook the perfect {vegetable1}",
-                    $"the history of {fruit1}",
-                    $"recipes from {country1}",
-                    $"the ultimate {vegetable1} cookbook",
-                    $"the lost recipes of {country1}",
-                    $"{number1} foods you have to try"
-                ),
-
-                // History
-                Choose(
-                    $"the history of {city1}",
-                    $"the rise and fall of {country1}",
-                    //$"the forgotten kingdom of {country1}",
-                    $"the battle of {city1}"
-                    //$"{number2} years that changed {country1}",
-                    //$"the lost civilization of {country1}",
-                    //$"a history of {fieldOfStudy}",
-                    //$"{number1} historical mysteries that remain unsolved"
-                ),
-
-                // Science
-                Choose(
-                    $"the science of {fieldOfStudy}",
-                    $"how {fieldOfStudy} changed the world",
-                    $"the future of {fieldOfStudy}",
-                    $"a beginner's guide to {fieldOfStudy}",
-                    $"the mysteries of {planet1}",
-                    $"what we know about {planet1}",
-                    $"{number1} incredible facts about the universe"
-                ),
-
-                // Inventions and technology
-                Choose(
-                    $"the invention of the {appliance1}",
-                    $"how the {appliance1} changed the world",
-                    $"the future of {fieldOfStudy}",
-                    $"{number1} inventions that changed everyday life"
-                ),
-
-                // Mysteries
-                Choose(
-                    $"the mystery of {city1}",
-                    $"the mystery of the missing {animal1}",
-                    $"the secret of {nameManWoman}",
-                    $"the lost treasure of {country1}",
-                    $"the abandoned house in {city1}",
-                    $"the strange case of {nameManWoman}",
-                    $"the disappearance in {city1}",
-                    $"the secret beneath {city1}",
-                    $"the mysterious {animal1}",
-                    $"{number1} mysteries that have never been solved"
-                ),
-
-                // Adventure
-                Choose(
-                    $"the adventure of {nameManWoman}",
-                    $"the expedition to {planet1}",
-                    $"the lost treasure of {country1}",
-                    $"the journey through {city1}",
-                    $"the hunt for the missing {animal1}",
-                    $"the race across {country1}",
-                    $"the secret map of {city1}",
-                    $"the quest for the lost {thingToKnit}"
-                ),
-
-                // People and biography
-                Choose(
-                    $"the life of {nameManWoman}",
-                    $"the story of {nameManWoman}",
-                    $"a day in the life of {nameManWoman}",
-                    $"{nameManWoman}'s greatest achievement",
-                    $"{nameManWoman}'s journey to success",
-                    $"the secrets of {nameManWoman}",
-                    $"how {nameManWoman} changed the world",
-                    $"the rise of {nameManWoman}",
-                    $"the early life of {nameManWoman}",
-                    $"the greatest challenge faced by {nameManWoman}",
-                    $"what we can learn from {nameManWoman}"
-                ),
-
-                // Nature
-                Choose(
-                    $"the secret life of {animals1}",
-                    $"a journey through the forest",
-                    //$"the wild world of {animals1}",
-                    $"how {animals1} survive in the wild",
-                    $"{number1} incredible wonders of nature"
-                ),
-
-                // Fantasy
-                Choose(
-                    $"the dragon of {country1}",
-                    $"the {animal1} who could speak",
-                    $"the secret castle of {nameManWoman}",
-                    $"the wizard of {city1}",
-                    //$"the last dragon",
-                    $"the magical {animal1}",
-                    $"the crown of {country1}"
-                ),
-
-                // Survival
-                Choose(
-                    $"how to survive on {planet1}",
-                    $"how {animals1} survive in the wild",
-                    $"surviving alone in {country1}",
-                    $"{number1} essential survival skills",
-                    $"lost in {city1}: a survival guide"
-                ),
-
-                // Education
-                Choose(
-                    $"a beginner's guide to {fieldOfStudy}",
-                    $"{number1} things everyone should know about {fieldOfStudy}",
-                    $"how to learn {fieldOfStudy}",
-                    $"the history of {fieldOfStudy}",
-                    $"fun facts about {fieldOfStudy}",
-                    $"the science of {fieldOfStudy}",
-                    $"common mistakes in {fieldOfStudy}",
-                    $"the complete guide to {fieldOfStudy}",
-                    $"{fieldOfStudy} explained simply",
-                    $"everything you need to know about {fieldOfStudy}"
-                ),
-
-                // Collections / Lists
-                Choose(
-                    $"{number1} amazing {animals1}",
-                    $"{number1} places you should visit",
-                    $"{number1} things you didn't know about {country1}",
-                    $"{number1} facts about {animal1}",
-                    $"{number1} mysteries of the world",
-                    $"{number1} greatest inventions",
-                    $"{number1} strangest places on Earth",
-                    $"{number1} foods you have to try",
-                    $"{number1} unbelievable historical events",
-                    $"{number1} things to do in {city1}",
-                    $"{number1} reasons to visit {country1}"
-                ),
-
-                // Problems and How-To
-                Choose(
-                    $"how to fix a broken {appliance1}",
-                    $"how to grow {vegetables1}",
-                    $"how to prepare for a trip to {country1}",
-                    $"how to learn {fieldOfStudy}",
-                    $"how to survive in {city1}",
-                    $"how to make your own {thingToKnit}",
-                    $"how to become an expert in {fieldOfStudy}",
-                    $"how to avoid common mistakes in {fieldOfStudy}"
-                ),
-
-                // Professions
-                Choose(
-                    $"the battle between the {profession1}s",
-                    $"a day in the life of a {profession1}",
-                    $"how to become a {profession1}",
-                    //$"the secret life of {professions1}",
-                    //$"why {profession1}s never get enough sleep",
-                    $"the world's strangest {profession1}",
-                    //$"what happens when {profession1}s switch jobs",
-                    $"the {profession1} who accidentally saved the world",
-                    $"{number1} things nobody tells you about being a {profession1}"
-                ),
-
-                // Weather and Natural Disasters
-                Choose(
-                    //$"surviving a {weather1} without leaving your house",
-                    $"what to do when a {naturalDisaster1} hits {city1}",
-                    //$"the science behind {weather1}",
-                    //$"why {weather1} makes everyone act weird",
-                    //$"the world's most unusual weather phenomena",
-                    $"a day when it rained {fruit1}"
-                    //$"how {weather1} changed the history of {country1}"
-                    //$"what would happen if it never stopped raining"
-                ),
-                /*
-                // Mythology and Folklore
-                Choose(
-                    $"everything you need to know about {mythology1}",
-                    $"the secret history of the {mythicalCreature1}",
-                    $"why {mythicalCreatures1} disappeared from {country1}",
-                    $"how to train a {mythicalCreature1}",
-                    $"the {mythicalCreature1} who wanted to become a {profession1}",
-                    //$"what mythical creatures do on their day off",
-                    $"the world's strangest legends about {animals1}",
-                    $"how to accidentally summon a {mythicalCreature1}"
-                ),
-
-                // Magic and Superpowers
-                Choose(
-                    //$"how to use {superpower1} responsibly",
-                    //$"the disadvantages of having {superpower1}",
-                    //$"what happens when everyone gets {superpower1}",
-                    //$"how to hide a {magicalObject1} from your parents",
-                    //$"the {magicalObject1} that ruined {city1}",
-                    $"{number1} magical objects you should never touch",
-                    //$"why {magicalObject1} should come with an instruction manual",
-                    $"I accidentally gave {nameMan} a superpower"
-                ),
-
-                // Science and Technology
-                Choose(
-                    //$"how {technology1} will change {country1}",
-                    //$"the history of {invention1}",
-                    //$"what happens when {technology1} becomes self-aware",
-                    //$"how to build a {invention1} with household objects",
-                    //$"why {technology1} is secretly afraid of humans",
-                    //$"the world's most useless inventions",
-                    $"{number1} scientific discoveries that sound completely fake"
-                    //$"a beginner's guide to traveling through time",
-                    //$"the day {invention1} became illegal"
-                ),
-
-                // History
-                Choose(
-                    $"a day in the life of someone living during {historicalPeriod1}",
-                    $"the strangest laws in the history of {country1}",
-                    $"what people ate during {historicalPeriod1}",
-                    $"how {city1} looked {timePeriod1} ago",
-                    //$"the most ridiculous historical misunderstandings",
-                    $"what would happen if {nameMan} traveled back to {historicalPeriod1}",
-                    //$"the invention that accidentally changed the world",
-                    $"how {event1} changed the course of history"
-                ),
-
-                // Food and Cooking
-                Choose(
-                    $"how to make the perfect {dish1}",
-                    $"{number1} ways to improve {food1}",
-                    $"why {food1} tastes better at midnight",
-                    $"the history of {dish1}",
-                    $"how to survive a week eating only {food1}",
-                    $"the world's strangest food combinations",
-                    $"what your favorite {food1} says about you",
-                    $"the secret life of {food1}",
-                    $"how to cook {dish1} without starting a small fire",
-                    $"the ultimate guide to pairing {food1} with {drink1}"
-                ),
-
-                // Travel and Exploration
-                Choose(
-                    $"a travel guide to {city1} for {animals1}",
-                    $"how to survive a week in {country1} without a map",
-                    $"the hidden secrets of {placeWithArticle1}",
-                    $"{number1} places you should visit before you disappear",
-                    $"what happens when you get lost in {placeWithArticle1}",
-                    $"the world's most unusual tourist attractions",
-                    $"how to explore {building1} without waking anything up",
-                    $"a journey across {country1} using only {transport1}",
-                    $"the worst possible vacation in {city1}"
-                ),
-
-                // Hobbies and Sports
-                Choose(
-                    $"how to get started with {hobby1}",
-                    $"why {sport1} is more dangerous than it looks",
-                    $"the secret world of professional {hobby1}",
-                    $"how to become a champion at {sport1}",
-                    $"{number1} hobbies that sound made up",
-                    $"what happens when {nameMan} takes up {hobby1}",
-                    //$"the most competitive people in the world",
-                    $"how to turn {hobby1} into a full-time career"
-                ),
-
-                // Mysteries and Investigations
-                Choose(
-                    $"the mystery of {mystery1}",
-                    $"who stole all the {object1}s from {city1}?",
-                    $"the case of the missing {animal1}",
-                    //$"how to solve a mystery with absolutely no evidence",
-                    $"the strangest unsolved mysteries in {country1}",
-                    $"why everyone in {building1} is acting suspiciously",
-                    //$"the detective who couldn't remember their own name",
-                    $"what really happened during {event1}"
-                ),
-
-                // Everyday Life
-                Choose(
-                    $"how to survive a family dinner with {nameMan}",
-                    //$"why mornings should be illegal",
-                    //$"the art of avoiding responsibilities",
-                    //$"how to look busy when you're doing absolutely nothing",
-                    $"{number1} ways to ruin a perfectly normal day",
-                    $"why {object1} understands you better than people do",
-                    $"how to explain {emotion1} to a confused {animal1}",
-                    //$"the secret rules everyone follows but nobody explains"
-                ),
-
-                // Buildings and Architecture
-                Choose(
-                    $"the history of {building1}",
-                    $"how to build {building1} on a tiny budget",
-                    $"what happens inside {building1} after midnight",
-                    //$"the world's strangest buildings",
-                    $"why {placeWithArticle1} is impossible to find",
-                    $"how to renovate {building1} without angering its ghosts",
-                    //$"the architect who accidentally designed a maze",
-                    $"living in {building1} for {timePeriod1}"
-                ),
-
-                // Transportation
-                Choose(
-                    $"the history of the {transport1}",
-                    $"how to operate a {transport1} with no experience",
-                    $"why {transport1}s are much stranger than you think",
-                    $"the worst journey in the history of {transport1}",
-                    $"what happens when {transport1} breaks down in {country1}",
-                    $"how to commute to work using only {animals1}",
-                    $"the future of transportation in {city1}",
-                    $"the {transport1} that nobody remembers building"
-                ),
-
-                // Emotions and Psychology
-                Choose(
-                    $"why people experience {emotion1}",
-                    $"how to explain {emotion1} to an alien",
-                    $"the psychology of people who collect {object1}s",
-                    //$"why everyone makes terrible decisions when hungry",
-                    $"how to understand someone who loves {food1}",
-                    $"{number1} strange things the human brain does",
-                    //$"what happens when you stop worrying about everything",
-                    //$"the secret life of your inner monologue"
-                ),
-
-                // Organizations and Bureaucracy
-                Choose(
-                    $"a day inside {fictionalOrganization1}",
-                    $"the completely unnecessary rules of {fictionalOrganization1}",
-                    $"how to file a complaint against {nameMan}",
-                    $"why the government banned {object1}s",
-                    $"the paperwork required to adopt a {mythicalCreature1}",
-                    $"how to get promoted in {fictionalOrganization1}",
-                    $"the secret department responsible for lost {objects1}",
-                    $"what happens when {fictionalOrganization1} loses its own paperwork"
-                ),
-
-                // Laws and Rules
-                Choose(
-                    $"how {law1} affects everyday life",
-                    $"{number1} laws that make absolutely no sense",
-                    //$"why you should never trust a sign that says 'Do Not Press'",
-                    $"the consequences of breaking the rules of {fictionalOrganization1}",
-                    //$"what happens when everyone follows every rule literally",
-                    //$"how to write a law that nobody can understand",
-                    $"the trial of {animal1} versus {nameMan}",
-                    $"why {object1}s might be plotting against humanity"
-                )
-                */
-
-
-                /*
-                // Misc
-                Choose(
-                    $"the battle for the {vegetables1}"
-                )
-                */
+                builder.GetSentencePlanet(),
+                builder.GetSentenceConflict(country1, city1, number2, country2),
+                builder.GetSentenceVideoGame(number1, tagsVideoGames),
+                builder.GetSentenceHowTo(animalWithFur1, thingToKnit, animal1.GetName()),
+                builder.GetSentenceAnimal(animal1.GetName(), animals1, city1, country1),
+                builder.GetSentenceMythology(country1),
+                builder.GetSentenceFood(number1, vegetable1.GetName(), vegetable1.GetPlural(), country1, fruit1.GetPlural())
             };
 
             countNumber++;

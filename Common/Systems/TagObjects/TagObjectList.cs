@@ -19,7 +19,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
             if (blacklist != null && blacklist.Count > 0)
             {
                 list = list.Where(x => !blacklist.Contains(x.name)).ToList();
-                list = list.Where(x => !blacklist.Contains(x.nameGerman)).ToList();
             }
 
             return Utils.SelectRandom(Main.rand, list.ToArray());

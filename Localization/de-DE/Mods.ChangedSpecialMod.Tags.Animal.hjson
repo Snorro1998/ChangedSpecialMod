@@ -2,14 +2,26 @@ Baboon: Pavian
 Baboons: Paviane
 Bunny: Hase
 Bunnys: Hase
+// Capybara: capybara
+// Capybaras: capybaras
+// Cat: cat
+// Cats: cats
 Cheetah: Gepard
 Cheetahs: Geparden
 Crab: Krabbe
 Crabs: Krabben
 Dodo: Dodo
 Dodos: Dodos
+// Dog: dog
+// Dogs: dogs
+// Dolphin: dolphin
+// Dolphins: dolphins
+// Fennec: fennec
+// Fennecs: fennecs
 Fox: Fuchs
 Foxs: Füchse
+// Giraffe: giraffe
+// Giraffes: giraffes
 Gorilla: Gorilla
 Gorillas: Gorillas
 Jellyfish: Qualle
@@ -24,6 +36,8 @@ Mandrill: Mandrill
 Mandrills: Mandrills
 Monkey: Affe
 Monkeys: Affen
+// Octopus: octopus
+// Octopuss: octopuses
 Orangutan: Orang-Utan
 Orangutans: Orang-Utans
 Orca: Orca
@@ -50,3 +64,5 @@ Whale: Wale
 Whales: Wale
 Wolf: Wolf
 Wolfs: Wölfe
+// Zebra: zebra
+// Zebras: zebras

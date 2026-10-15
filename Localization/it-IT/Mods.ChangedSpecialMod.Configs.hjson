@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Trasformazione]"
 		Npc: "[c/ffeb6e:Caratteri]"
 		Evolution: "[c/ffeb6e:Evoluzione]"
-		// Visuals: Visuals Header
+		// Visuals: "[c/ffeb6e:Visuals]"
 	}
 
 	NumberOfLabs: {
@@ -123,23 +123,13 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Gli abitanti indossano cappelli durante le festività e hanno dialoghi unici.
 	}
 
-	FilterProfanity: {
-		// Label: Filter Profanity
-		// Tooltip: ""
-	}
-
-	RetroVisuals: {
-		// Label: Retro Visuals
-		// Tooltip: ""
-	}
-
 	RetroVisualsTiles: {
-		// Label: Retro Visuals Tiles
-		// Tooltip: ""
+		// Label: Retro Tiles
+		// Tooltip: Use sprites from older versions for blocks and furniture
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro Visuals N P Cs
-		// Tooltip: ""
+		// Label: Retro NPCs
+		// Tooltip: Use sprites from older versions for NPCs
 	}
 }

@@ -114,17 +114,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
     {
         public override void Init()
         {
-            /*
-            "capybara",
-            "cat",
-            "dog",
-            "dolphin",
-            "giraffe",
-            "octopus",
-            "squid",
-            "zebra"
-            */
-
             var animalsChanged = new List<AnimalTagObject>()
             {
                 new AnimalTagObject()
@@ -146,6 +135,10 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new AnimalTagObject()
                 {
                     name = "squid"
+                },
+                new AnimalTagObject()
+                {
+                    name = "octopus"
                 }
             };
 
@@ -271,6 +264,17 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
             {
                 new AnimalTagObject()
                 {
+                    name = "dog"
+                },
+
+                new AnimalTagObject()
+                {
+                    name = "fennec",
+                    regionDesert = true,
+                },
+
+                new AnimalTagObject()
+                {
                     name = "fox",
                     regionForest = true,
                 },
@@ -294,6 +298,11 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 {
                     name = "cheetah",
                     regionSavannah = true,
+                },
+
+                new AnimalTagObject()
+                {
+                    name = "cat"
                 },
 
                 new AnimalTagObject()
@@ -339,6 +348,12 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
             {
                 new AnimalTagObject()
                 {
+                    name = "dolphin",
+                    regionWater = true
+                },
+
+                new AnimalTagObject()
+                {
                     name = "orca",
                     regionWater = true
                 },
@@ -358,6 +373,25 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
             foreach (var animal in animalsFish)
                 animal.isFish = true;
+
+            var animalsOther = new List<AnimalTagObject>()
+            {
+                new AnimalTagObject()
+                {
+                    name = "capybara",
+                    hasFur = true
+                },
+
+                new AnimalTagObject()
+                {
+                    name = "giraffe"
+                },
+
+                new AnimalTagObject()
+                {
+                    name = "zebra"
+                },
+            };
 
             elements =
             [

@@ -201,7 +201,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("Party4", "Happy"),
                 new DialogueElement("Party5", "Happy"),
                 new DialogueElement("Party6", "Naughty"),
-                //new DialogueElement("Party7", "Happy")
+                new DialogueElement("Party7", "Happy")
             }
         );
 

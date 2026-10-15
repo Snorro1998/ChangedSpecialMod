@@ -34,16 +34,6 @@ Puro: {
 	NPCThoriumCobbler: "{NameThoriumCobbler} has so many shoes, but they are all too small for my paws."
 	NPCStarsModPackFarmer: I'm sure {NameStarsModPackFarmer} can help me grow even more oranges!
 	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, do you know why {NameStarsModPackScrapyardGeek} iz alwaz talking like zat?"
-	PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
-	TerraGuardianAlex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
-	TerraGuardianAlexander: TODO
-	TerraGuardianBlue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
-	TerraGuardianBrutus: TODO
-	TerraGuardianIch: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
-	TerraGuardianLeona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
-	TerraGuardianMonica: TODO
-	TerraGuardianRococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
-	TerraGuardianScaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
 	Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
 	Book2: Hello {PlayerRace}! Have you seen my book?
 	Book3: Will you help me make the biggest book tower?
@@ -146,6 +136,19 @@ Puro: {
 		Party11: Mmmm these fluffy orange cupcakes are so good, but I already had so many.. Perhaps just one more.
 		Party12: Shall we dance together {PlayerRace}? Because I feel like a party animal!
 	}
+
+	TerraGuardian: {
+		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+		Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+		Alexander: TODO
+		Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+		Brutus: TODO
+		Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
+		Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		Monica: TODO
+		Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
+		Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
+	}
 }
 
 DrK: {
@@ -232,11 +235,11 @@ DrK: {
 		PlayerHasTerraGuardian: TODO
 		PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
 		PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
-		PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}{Safe}You really like big, furry women huh?"
+		PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}You really like big, furry women huh?"
 		PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
 		PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
 		PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
-		PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}{Safe}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
+		PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
 		# Macro
 		MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
 		MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."

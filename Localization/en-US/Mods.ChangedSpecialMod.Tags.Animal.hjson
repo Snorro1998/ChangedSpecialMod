@@ -2,14 +2,26 @@ Baboon: baboon
 Baboons: baboons
 Bunny: bunny
 Bunnys: bunnies
+Capybara: capybara
+Capybaras: capybaras
+Cat: cat
+Cats: cats
 Cheetah: cheetah
 Cheetahs: cheetahs
 Crab: crab
 Crabs: crabs
 Dodo: dodo
 Dodos: dodos
+Dog: dog
+Dogs: dogs
+Dolphin: dolphin
+Dolphins: dolphins
+Fennec: fennec
+Fennecs: fennecs
 Fox: fox
 Foxs: foxes
+Giraffe: giraffe
+Giraffes: giraffes
 Gorilla: gorilla
 Gorillas: gorillas
 Jellyfish: jellyfish
@@ -24,6 +36,8 @@ Mandrill: mandrill
 Mandrills: mandrills
 Monkey: monkey
 Monkeys: monkeys
+Octopus: octopus
+Octopuss: octopuses
 Orangutan: orangutan
 Orangutans: orangutans
 Orca: orca
@@ -32,8 +46,8 @@ Panda: panda
 Pandas: pandas
 Penguin: penguin
 Penguins: penguins
-PolarBear: Polar bear
-PolarBears: Polar bears
+PolarBear: polar bear
+PolarBears: polar bears
 Scorpion: scorpion
 Scorpions: scorpions
 Shark: shark
@@ -50,3 +64,5 @@ Whale: whale
 Whales: whales
 Wolf: wolf
 Wolfs: wolves
+Zebra: zebra
+Zebras: zebras

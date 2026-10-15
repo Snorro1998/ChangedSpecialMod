@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Transformacja]"
 		Npc: "[c/ffeb6e:Postacie]"
 		Evolution: "[c/ffeb6e:Ewolucja]"
-		// Visuals: Visuals Header
+		// Visuals: "[c/ffeb6e:Visuals]"
 	}
 
 	NumberOfLabs: {
@@ -122,23 +122,13 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Mieszkańcy noszą nakrycia głowy podczas świąt i mają unikalne kwestie dialogowe.
 	}
 
-	FilterProfanity: {
-		// Label: Filter Profanity
-		// Tooltip: ""
-	}
-
-	RetroVisuals: {
-		// Label: Retro Visuals
-		// Tooltip: ""
-	}
-
 	RetroVisualsTiles: {
-		// Label: Retro Visuals Tiles
-		// Tooltip: ""
+		// Label: Retro Tiles
+		// Tooltip: Use sprites from older versions for blocks and furniture
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro Visuals N P Cs
-		// Tooltip: ""
+		// Label: Retro NPCs
+		// Tooltip: Use sprites from older versions for NPCs
 	}
 }

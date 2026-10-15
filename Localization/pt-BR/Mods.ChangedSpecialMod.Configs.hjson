@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Transformação]"
 		Npc: "[c/ffeb6e:Personagens]"
 		Evolution: "[c/ffeb6e:Evolução]"
-		// Visuals: Visuals Header
+		// Visuals: "[c/ffeb6e:Visuals]"
 	}
 
 	NumberOfLabs: {
@@ -122,23 +122,13 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Os habitantes da cidade usam chapéus durante os feriados e têm diálogos únicos.
 	}
 
-	FilterProfanity: {
-		// Label: Filter Profanity
-		// Tooltip: ""
-	}
-
-	RetroVisuals: {
-		// Label: Retro Visuals
-		// Tooltip: ""
-	}
-
 	RetroVisualsTiles: {
-		// Label: Retro Visuals Tiles
-		// Tooltip: ""
+		// Label: Retro Tiles
+		// Tooltip: Use sprites from older versions for blocks and furniture
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro Visuals N P Cs
-		// Tooltip: ""
+		// Label: Retro NPCs
+		// Tooltip: Use sprites from older versions for NPCs
 	}
 }

@@ -12,7 +12,6 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
         public string name = "object";
         public string namePlural = null;
 
-        public string nameGerman = null;
         public string nameFrench = null;
         public string nameSpanish = null;
         public string nameItalian = null;

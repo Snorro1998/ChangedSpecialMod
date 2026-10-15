@@ -2,11 +2,7 @@
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,6 +19,13 @@ namespace ChangedSpecialMod.Content.Items
             Item.rare = ItemRarityID.Green;
             Item.SetNameOverride(BookQuestSystem.GetBookName());
             textureName = ChangedUtils.Choose("QuestBook", "QuestBook1", "QuestBook2", "QuestBook3", "QuestBook4");
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            // Fortnite book
+            if (Item.Name.ToLower().Contains("cola trinken und"))
+                tooltips.Add(new(Mod, "ChangedExtraTooltip", "JIPPIEEEEEEEEE"));
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
