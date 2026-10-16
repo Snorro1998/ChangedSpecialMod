@@ -101,6 +101,7 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
         {
             var videoGame = tagsVideoGames.PickRandom();
             var videoGameSocial = PickRandom(tagsVideoGames.elements.Where(x => x.isSocialGame).ToList());
+            var videoGameNotSocial = PickRandom(tagsVideoGames.elements.Where(x => !x.isSocialGame).ToList());
             var videoGameRacer = PickRandom(tagsVideoGames.elements.Where(x => x.isRacingGame).ToList());
             var videoGameWithCharacters = PickRandom(tagsVideoGames.elements.Where(x => x.characterNames.Any()).ToList());
             var videoGameCharacter1 = PickRandom(videoGameWithCharacters.characterNames);
@@ -112,11 +113,14 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
 
             return Choose(
                 $"Wie man in {videoGameWithNeighbors} Freundschaften mit seinen Nachbarn knüpft",
-                $"Wie man in {videoGameSocial} neue Leute kennenlernt",
+                Choose(
+                    $"Wie man in {videoGameSocial} neue Leute kennenlernt",
+                    $"{number1} Dinge, die du in {videoGameSocial} gemeinsam mit anderen Spielern unternehmen kannst"
+                ),
                 $"Wie man das Rennen in {videoGameRacer} gewinnt",
                 $"Warum {videoGameCharacter1} der beste Charakter in {videoGameWithCharacters} ist",
                 $"{number1} verborgene Geheimnisse von {videoGame}",
-                $"{number1} Speedrunning-Tricks für {videoGame}",
+                $"{number1} Speedrunning-Tricks für {videoGameNotSocial}",
                 $"Die besten Waffen aus {videoGameShooter}",
                 $"Wie man {videoGameBoss} in {videoGameWithBoss} besiegt",
                 // Only in German. YIPEEEEE
@@ -124,28 +128,21 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
             );
         }
 
-        public override string GetSentencePlanet()
+        public override string GetSentencePlanet(PlanetTagObjectList planetTagObjectList)
         {
-            var planet1 = Choose(
-                "Jupiter",
-                "Mars",
-                "Merkur",
-                "Neptun",
-                "Pluto",
-                "Saturn",
-                "Uranus",
-                "Venus"
-                //"Mond"
-            );
+            var planet1 = planetTagObjectList.PickRandom();
+            var planetWithSolidSurface = PickRandom(planetTagObjectList.elements.Where(x => !x.isGasPlanet).ToList());
+            var planetWithMoons = PickRandom(planetTagObjectList.elements.Where(x => x.hasMoons).ToList());
 
             return Choose(
                 $"die Weltraumexpedition zum {planet1}",
                 $"Planeten jenseits des {planet1}",
-                $"Leben auf {planet1}",
+                $"Leben auf {planetWithSolidSurface}",
                 $"Die Geheimnisse des {planet1}",
-                $"Der erste Astronaut auf {planet1}",
+                $"Der erste Astronaut auf {planetWithSolidSurface}",
                 $"Was wir über {planet1} wissen",
-                $"Wie man auf dem {planet1} überlebt"
+                $"Wie man auf dem {planetWithSolidSurface} überlebt",
+                $"die Monde des {planetWithMoons}"
             );
         }
 
@@ -205,8 +202,17 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
             );
         }
 
-        public override string GetSentenceHowTo(string animalWithFur1, string thingToKnit, string animal1)
+        public override string GetSentenceHowTo(string animalWithFur1, string animal1)
         {
+            var thingToKnit = Choose(
+                "ein Schal",
+                "eine Mütze",
+                "Socken",
+                "Fäustlinge",
+                "ein Pullover",
+                "Puppenkleidung"
+            );
+
             var invention1 = Choose(
                 "Flugzeug",
                 "Computer",
@@ -217,7 +223,7 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
 
             return Choose(
                 $"Wie man aus {animalWithFur1}sfell entzückende Plüschtiere herstellt",
-                $"Wie man einen {thingToKnit} strickt",
+                $"Wie man {thingToKnit} strickt",
                 $"Wie man einen Origami-{animal1} faltet",
                 $"Wie man aus Haushaltsgegenständen ein {invention1} baut",
                 $"Wie man einen {animal1} " +
@@ -319,6 +325,37 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
             //$"{number1} easy meals for beginners",
             //$"the lost recipes of {country1}",
             //$"{number1} foods you have to try"
+            );
+        }
+
+        public override string GetSentenceTribe(string tribeWarrior, string tribe, string animal1)
+        {
+            var humanOrAnimalTribe = Choose(tribe, $"{animal1}sclan");
+
+            return Choose(
+                $"der erste Kontakt mit den {humanOrAnimalTribe}",
+                $"Alles über die {humanOrAnimalTribe}",
+                $"Wie der {humanOrAnimalTribe} lebt"
+            );
+        }
+
+        public override string GetSentencePerson(string nameManWoman, string tribeWarrior, string tribe1, string animal1)
+        {
+            var tribeProfession = Choose(
+                "Chief",
+                "Oracle",
+                "Scout",
+                "Shaman",
+                "Warrior"
+            );
+
+            var humanOrAnimalTribe = Choose(tribe1, $"{animal1} tribe");
+            var personName = Choose(nameManWoman, tribeWarrior);
+
+            return Choose(
+                // Likulau: Warrior of the Rukai (bestest boi)
+                $"{tribeWarrior}: {tribeProfession} der {humanOrAnimalTribe}",
+                $"{personName}s Tagebuch"
             );
         }
     }

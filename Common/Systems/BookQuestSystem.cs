@@ -1,14 +1,10 @@
-﻿using ChangedSpecialMod.Common.Systems.ObjectLists;
-using ChangedSpecialMod.Common.Systems.QuestBook;
+﻿using ChangedSpecialMod.Common.Systems.QuestBook;
 using ChangedSpecialMod.Common.Systems.TagObjects;
 using ChangedSpecialMod.Utilities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Localization;
-using Terraria.ModLoader;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -435,8 +431,10 @@ namespace ChangedSpecialMod.Common.Systems
             "Lyall",    // Lyre
             "Noakai",   // Moontouched
             "Ranok",    // FBTW
-            "Rheel",    // Kekswolf
+            "Rheel",
             "Roku",
+            "Tharuk",
+            "Vaelukan",
             "Vulgor",   // FBTW
             "Zuko"      // ATLA
         };
@@ -463,245 +461,12 @@ namespace ChangedSpecialMod.Common.Systems
 
         public static int countNumber = 0;
 
-        public static string GetBookNameGerman()
-        {
-            // Setup
-            var tagsFruit = new FruitTagObjectList();
-            tagsFruit.Init();
-            var tagsVegetable = new VegetableTagObjectList();
-            tagsVegetable.Init();
-            var tagsVehicles = new VehicleTagObjectList();
-            tagsVehicles.Init();
-            var tagsCountry = new CountryTagObjectList();
-            tagsCountry.Init();
-            var tagsAnimals = new AnimalTagObjectList();
-            tagsAnimals.Init();
-
-            var number1 = (Main.rand.Next(1, 20) * 100).ToString();
-            var number2 = (Main.rand.Next(1, 10) * 10).ToString();
-            var fruit1 = tagsFruit.PickRandom().GetName();
-
-            var vegetableTag1 = tagsVegetable.PickRandom();
-            var vegetable1 = vegetableTag1.GetName();
-            var vegetables1 = vegetableTag1.GetPlural();
-
-            var listApplicancesWithInside = new List<string>()
-            {
-                "Spülmaschine",
-                "Wäschetrockner",
-                "Mikrowelle",
-                "Backofen",
-                "Toaster",
-                "Kühlschrank",
-                "Waschmaschine"
-            };
-
-            var listApplicancesWithoutInside = new List<string>()
-            {
-                "Grill",
-                "Mischer",
-                "Kocher"
-            };
-
-            var listAppliances = new List<string>();
-            listAppliances.AddRange(listApplicancesWithInside);
-            listAppliances.AddRange(listApplicancesWithoutInside);
-
-            var deviceBrandName1 = Choose(
-                "Hau",      // Hua Huawei
-                "Sum",      // Sam Samsung
-                "Sa",       // So Sony
-                "Motshi",   // Mithsi Mitshubishi
-                "Ko",
-                "Sua",      // Suavemente
-                "Ca"
-            );
-
-            var deviceBrandName2 = Choose(
-                "wie",
-                "sing",
-                "ny",
-                "bi",
-                "na",
-                "men",
-                "co"
-            );
-
-            var deviceBrandName = $"{deviceBrandName1}{deviceBrandName2}";
-
-            var deviceModelName = Choose(
-                "Maxi",
-                "Mini",
-                "Super",
-                "Turbo",
-                "Variotech"
-            );
-
-            var placeToGrowFood = Choose(
-                "ein Gewächshaus",
-                "kalte Umgebungen",
-                "warme Umgebungen"
-            );
-
-            var fieldOfStudy = Choose(
-                "Alchimie",
-                "Astronomie",
-                "Kalligraphie",
-                "Kartographie",
-                "Kochen",
-                "Diplomatie",
-                "Elektronik",
-                "Gartenarbeit",
-                "Hydraulik",
-                "Navigation",
-                "Verhandlung",
-                "Origami",
-                "Malerei",
-                "Überzeugung",
-                "Fotografie",
-                "Poesie",
-                "Bildhauerei",
-                "Geschichtenerzählen",
-                "Unterricht",
-                "Holzbearbeitung"
-            );
-
-            var thingToKnit = Choose(
-                "ein Schal",
-                "eine Strickmütze",
-                "Socken",
-                "Fäustlinge",
-                "ein Pullover",
-                "Puppenkleidung"
-            );
-
-            var brandAndModelName = $"{deviceBrandName} {deviceModelName} {number1}";
-
-            var animalTag1 = tagsAnimals.PickRandom();
-            var animal1 = animalTag1.GetName();
-            var animals1 = animalTag1.GetPlural();
-            var animalWithFur1 = PickRandom(tagsAnimals.elements.Where(x => x.hasFur).ToList()).GetName();
-
-            var vehicleTag1 = tagsVehicles.PickRandom();
-            var vehicleWithAdj1 = $"{vehicleTag1.GetAdjective()} {vehicleTag1.GetName()}";
-
-            // keywords
-            var city1 = PickRandom(CityObjectList.GetElements()).name;
-            var country1 = tagsCountry.PickRandom().GetName();
-            var country2 = tagsCountry.PickRandom(new List<string>() { country1 }).GetName();
-            var countryEurope = PickRandom(tagsCountry.countriesEurope).GetName();
-            var countryAfrica = PickRandom(tagsCountry.countriesAfrica).GetName();
-            var countryAsia = PickRandom(tagsCountry.countriesAsia).GetName();
-            var applianceWithInside1 = PickRandom(listApplicancesWithInside);
-            var appliance1 = PickRandom(listAppliances);
-
-            var nameMan = PickRandom(optionsNameMan);
-            var nameWoman = PickRandom(optionsNameWoman);
-            var nameManWoman = Choose(nameMan, nameWoman);
-
-            var options = new List<string>() 
-            {
-                // Animals
-                Choose(
-                    $"Die Reise eines {animal1}",
-                    $"Wie man einen {animal1} aufzieht",
-                    $"Der sehr hungrige {animal1}",
-                    $"Planet der {animals1}",
-                    Choose(
-                        $"Der {animal1}, der in einem {applianceWithInside1} stecken blieb",
-                        $"Der {animal1}, der nach {city1} ging"
-                    )
-                ),
-
-                // Fruits and vegetables
-                Choose(
-                    $"{number1} {vegetable1}rezepte",
-                    $"Warum {vegetables1} gut für die Gesundheit sind",
-                    $"So bereitet man {vegetable1}-Smoothies zu",
-                    $"Wie man einen {fruit1}baum anbaut",
-                    $"Anbau von {vegetables1} in {placeToGrowFood}"
-                ),
-
-                // City
-                Choose(
-                    $"{number1} Orte, die Sie in {city1} besuchen sollten",
-                    Choose(
-                        $"Die Geheimnisse {city1}s",
-                        $"Die Minen von {city1}",
-                        $"Die Katakomben von {city1}",
-                        $"Die Schlacht um {city1}"
-                    )
-                ),
-
-                // Countries
-                Choose(
-                    $"Der Kampf um {country1}",
-                    $"Der {number2}-jährige Krieg zwischen {country1} und {country2}",
-                    Choose(
-                        $"Länder Europas: {countryEurope}",
-                        $"Länder Afrikas: {countryAfrica}",
-                        $"Länder Asiens: {countryAsia}",
-                        $"Länder der Welt: {country1}"
-                    )
-                ),
-
-                // Possessive
-                Choose(
-                    $"{nameManWoman}'s Tagebuch",
-                    $"{nameManWoman}'s {animal1}",
-                    $"{nameManWoman}'s {vehicleWithAdj1}"
-                ),
-
-                // Practical
-                Choose(
-                    $"Bedienungsanleitung für den {brandAndModelName} {appliance1}",
-                    $"Die Kunst der {fieldOfStudy}"
-                ),
-
-                // Crafts
-                Choose(
-                    $"Wie du aus {animalWithFur1}fell niedliche Plüschtiere machen kannst",
-                    $"Wie man einen {thingToKnit} strickt",
-                    $"Wie man einen Origami-{animal1} faltet"
-                ),
-
-                // Travel
-                Choose(
-                    $"Die Reisen von {nameManWoman}",
-                    $"Der lange Weg nach {city1}"
-                ),
-
-                /*
-                // Misc
-                Choose(
-                    $"the battle for the {vegetables1}"
-                )
-                */
-            };
-
-            countNumber++;
-            countNumber = countNumber % options.Count;
-            var sentence = options[countNumber];
-            // Make first letter uppercase
-            if (sentence != null && sentence.Length > 0)
-                sentence = sentence.Substring(0, 1).ToUpper() + sentence.Substring(1);
-            return sentence;
-        }
-
         public sealed class BookTitleContext
         {
             public required AnimalTagObject Animal { get; init; }
             public required string City { get; init; }
             public required string Country { get; init; }
             public required string Number { get; init; }
-        }
-
-        public sealed class BookTitleTagLists
-        {
-            public required AnimalTagObjectList AnimalTagObjectList { get; init; }
-            public required CountryTagObject CountryTagObject { get; init; }
-            public required FruitTagObjectList FruitTagObjectList { get; init; }
-            public required VegetableTagObjectList VegetableTagObjectList { get; init; }
         }
 
         public static string GetBookName()
@@ -717,24 +482,23 @@ namespace ChangedSpecialMod.Common.Systems
                 case "de-DE":
                     builder = new BookSentenceBuilderGerman();
                     break;
-                    /*
                 case "fr-FR":
-                    return nameFrench ?? name;
+                    builder = new BookSentenceBuilderFrench();
+                    break;
                 case "es-ES":
-                    return nameSpanish ?? name;
+                    return "Libro perdido";
                 case "it-IT":
-                    return nameItalian ?? name;
+                    return "Libro smarrito";
                 case "pt-BR":
-                    return nameBrazilianPortuguese ?? name;
+                    return "Livro perdido";
                 case "ru-RU":
-                    return nameRussian ?? name;
+                    return "Потерянная книга";
                 case "zh-Hans":
-                    return nameChinese ?? name;
-                    */
+                    return "丢失的书";
             }
 
             if (builder == null)
-                return "lost book";
+                return "Lost Book";
 
             // Setup
             var tagsFruit = new FruitTagObjectList();
@@ -751,6 +515,8 @@ namespace ChangedSpecialMod.Common.Systems
             tagsVideoGames.Init();
             var tagsCities = new CityTagObjectList();
             tagsCities.Init();
+            var tagsPlanets = new PlanetTagObjectList();
+            tagsPlanets.Init();
 
             var number1 = (Main.rand.Next(1, 20) * 100).ToString();
             var number2 = (Main.rand.Next(1, 10) * 10).ToString();
@@ -759,7 +525,7 @@ namespace ChangedSpecialMod.Common.Systems
 
             var vegetable1 = tagsVegetable.PickRandom();
             var vegetables1 = vegetable1.GetPlural();
-
+            /*
             var listApplicancesWithInside = new List<string>()
             {
                 "dishwasher",
@@ -777,10 +543,11 @@ namespace ChangedSpecialMod.Common.Systems
                 "mixer",
                 "stove"
             };
+            */
 
-            var listAppliances = new List<string>();
-            listAppliances.AddRange(listApplicancesWithInside);
-            listAppliances.AddRange(listApplicancesWithoutInside);
+            //var listAppliances = new List<string>();
+            //listAppliances.AddRange(listApplicancesWithInside);
+            //listAppliances.AddRange(listApplicancesWithoutInside);
 
             var deviceBrandName1 = Choose(
                 "Hau",      // Hua Huawei
@@ -843,15 +610,6 @@ namespace ChangedSpecialMod.Common.Systems
                 "woodworking"
             );
 
-            var thingToKnit = Choose(
-                "a scarf",
-                "a beanie",
-                "socks",
-                "mittens",
-                "a sweater",
-                "doll clothes"
-            );
-
             // Not all tribes, but to easily organize them
             var tribe = Choose(
                 "Awá",
@@ -863,7 +621,86 @@ namespace ChangedSpecialMod.Common.Systems
                 "Ayoreo",
                 "Tagaeri",
                 "Taromenane",
-                "Rukai"
+                "Rukai",
+
+                // Brazil
+                "Awá-Guajá",
+                "Akuntsu",
+                "Hi-Merimã",
+                "Kanoê",
+                "Katawixi",
+                "Pirititi",
+                "Zo’é",
+                "Kulina",
+                "Matsés",
+                "Marubo",
+                "Matis",
+                "Tukano",
+                //"Pirahã",
+                //"Waimiri-Atroari",
+                "Yanomami",
+
+                // Peru
+                "Mashco Piro",
+                "Isconahua",
+                "Murunahua",
+                "Chitonahua",
+                "Mastanahua",
+                "Nanti",
+                "Matsigenka",
+                "Amahuaca",
+                "Kakataibo",
+                "Yora",
+                "Yine",
+                "Sharanahua",
+                "Yaminahua",
+                "Kapanawa",
+                "Iquito",
+                "Arabela",
+                "Asháninka",
+
+                // Ecuador
+                "Waorani",
+                "Dugakaeri",
+
+                // Colombia
+                "Yuri",
+                "Carabayo",
+
+                // Bolivia
+                "Toromona",
+                "Pacahuara",
+                "Yuqui",
+                "Chacobo",
+                "Ese Ejja",
+                "Araona",
+                "Tsimane",
+                "Mosetén",
+
+                // Paraguay
+                "Mbyá Guaraní",
+                "Aché",
+
+                // Venezuela
+                "Hoti",
+                "Piaroa",
+
+                // Taiwan
+                "Amis",
+                "Atayal",
+                "Paiwan",
+                "Bunun",
+                "Tsou",
+                "Puyuma",
+                "Thao",
+                "Saisiyat",
+                "Tao",
+                "Kavalan",
+                "Truku",
+                "Rukai",
+                "Sakizaya",
+                "Seediq",
+                "Yami"
             );
 
             var brandAndModelName = $"{deviceBrandName} {deviceModelName} {number1}";
@@ -883,8 +720,8 @@ namespace ChangedSpecialMod.Common.Systems
             var countryEurope = PickRandom(tagsCountry.countriesEurope).GetName();
             var countryAfrica = PickRandom(tagsCountry.countriesAfrica).GetName();
             var countryAsia = PickRandom(tagsCountry.countriesAsia).GetName();
-            var applianceWithInside1 = PickRandom(listApplicancesWithInside);
-            var appliance1 = PickRandom(listAppliances);
+            //var applianceWithInside1 = PickRandom(listApplicancesWithInside);
+            //var appliance1 = PickRandom(listAppliances);
 
             var nameMan = PickRandom(optionsNameMan);
             var nameWoman = PickRandom(optionsNameWoman);
@@ -932,16 +769,19 @@ namespace ChangedSpecialMod.Common.Systems
             {
                 builder.GetSillyTitle(bookContext),
 
+                // Place
                 builder.GetSentenceCity(number1, city1),
                 builder.GetSentenceCountry(country1, countryEurope, countryAfrica, countryAsia),
+                builder.GetSentenceTribe(tribeWarrior, tribe, animal1.GetName()),
+                builder.GetSentencePlanet(tagsPlanets),
 
-                builder.GetSentencePlanet(),
                 builder.GetSentenceConflict(country1, city1, number2, country2),
                 builder.GetSentenceVideoGame(number1, tagsVideoGames),
-                builder.GetSentenceHowTo(animalWithFur1, thingToKnit, animal1.GetName()),
+                builder.GetSentenceHowTo(animalWithFur1, animal1.GetName()),
                 builder.GetSentenceAnimal(animal1.GetName(), animals1, city1, country1),
                 builder.GetSentenceMythology(country1),
-                builder.GetSentenceFood(number1, vegetable1.GetName(), vegetable1.GetPlural(), country1, fruit1.GetPlural())
+                builder.GetSentenceFood(number1, vegetable1.GetName(), vegetable1.GetPlural(), country1, fruit1.GetPlural()),
+                builder.GetSentencePerson(nameManWoman, tribeWarrior, tribe, animal1.GetName())
             };
 
             countNumber++;

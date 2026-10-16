@@ -27,13 +27,8 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
             /*
             "Bongo Cat",
             "Diablo",
-            "Elden Ring",
-            "Fall Guys",
-            "Grand Theft Auto 5",
-            "Hello Kitty Island Adventure",
             "Rollercoaster Tycoon",
             "Spore",
-            "Stardew Valley",
             // Bing bing wahoo is overrated
             //"Super Mario 64",
             */
@@ -58,6 +53,11 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VideoGameTagObject()
                 {
                     name = "Gran Turismo"
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "Grand Theft Auto V"
                 },
 
                 new VideoGameTagObject()
@@ -89,14 +89,52 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
                 new VideoGameTagObject()
                 {
+                    name = "Capybara Spa"
+                },
+
+                new VideoGameTagObject()
+                {
                     name = "Changed",
                     characterNames = new List<string>() { "Colin", "Puro", "Squid Dog", "Dr K", "Tiger Shark" }
                 },
 
                 new VideoGameTagObject()
                 {
+                    name = "Club Penguin",
+                    isSocialGame = true
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "Cookie Clicker"
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "Dark Souls III"
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "Elden Ring",
+                    characterNames = new List<string>() { "Blaidd" }
+                },
+
+                new VideoGameTagObject()
+                {
                     name = "Empire Earth",
                     isCivilizationGame = true
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "Fall Guys",
+                    isSocialGame = true
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "Farming Simulator 25"
                 },
 
                 new VideoGameTagObject()
@@ -119,6 +157,16 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                     characterNames = new List<string>() { "Alyx Vance", "Gordon Freeman", "G-Man" }
                 },
 
+                new VideoGameTagObject()
+                {
+                    name = "Hello Kitty Island Adventure"
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "League of Legends",
+                    isSocialGame = true
+                },
 
                 new VideoGameTagObject()
                 {
@@ -235,6 +283,20 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
                 new VideoGameTagObject()
                 {
+                    name = "Undertale",
+                    characterNames = new List<string>()
+                    {
+                        "Asgore",
+                        "Flowey",
+                        "Frisk",
+                        "Papyrus",
+                        "Sans",
+                        "Toriel"
+                    }
+                },
+
+                new VideoGameTagObject()
+                {
                     name = "VRChat",
                     isOnlineGame = true,
                     isSocialGame = true
@@ -243,6 +305,12 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
                 new VideoGameTagObject()
                 {
                     name = "World of Goo"
+                },
+
+                new VideoGameTagObject()
+                {
+                    name = "World of Warcraft",
+                    isSocialGame = true
                 },
             };
 

@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Common.Systems.ObjectLists;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace ChangedSpecialMod.Common.Systems.TagObjects
 {

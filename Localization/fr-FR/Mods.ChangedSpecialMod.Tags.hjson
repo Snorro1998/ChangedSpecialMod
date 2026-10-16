@@ -1,85 +1,85 @@
 Country: {
 	Afghanistan: Afghanistan
-	Algeria: Algeria
-	Alola: Alola
-	America: America
+	Algeria: Algérie
+	// Alola: Alola
+	America: Amérique
 	Angola: Angola
-	Antarctica: Antarctica
-	Argentina: Argentina
-	Arrakis: Arrakis
+	Antarctica: Antarctique
+	Argentina: Argentine
+	// Arrakis: Arrakis
 	Aruba: Aruba
-	Atlantis: Atlantis
-	Australia: Australia
-	Austria: Austria
-	Azeroth: Azeroth
-	Babylonia: Babylonia
-	Belgium: Belgium
-	Bolivia: Bolivia
-	Brazil: Brazil
+	Atlantis: Atlantide
+	Australia: Australie
+	Austria: Autriche
+	// Azeroth: Azeroth
+	Babylonia: Babylonie
+	Belgium: Belgique
+	Bolivia: Bolivie
+	Brazil: Brésil
 	Canada: Canada
-	Chad: Chad
-	Chile: Chile
-	China: China
-	Colombia: Colombia
-	Congo: Congo
-	Denmark: Denmark
-	Egypt: Egypt
-	Ethiopia: Ethiopia
+	// Chad: Chad
+	Chile: Chili
+	China: Chine
+	Colombia: Colombie
+	// Congo: Congo
+	Denmark: Danemark
+	Egypt: Egypte
+	Ethiopia: Ethiopie
 	France: France
-	Galar: Galar
-	Germany: Germany
-	Gondor: Gondor
-	Greenland: Greenland
-	Hell: Hell
-	Hoenn: Hoenn
-	Hungary: Hungary
+	// Galar: Galar
+	Germany: Allemagne
+	// Gondor: Gondor
+	Greenland: Groenland
+	// Hell: Hell
+	// Hoenn: Hoenn
+	Hungary: Hongrie
 	// Hyrule: Hyrule
-	India: India
-	Indonesia: Indonesia
-	Iran: Iran
-	Italy: Italy
-	Johto: Johto
-	Kalos: Kalos
-	Kanto: Kanto
+	India: Inde
+	// Indonesia: Indonesia
+	// Iran: Iran
+	Italy: Italie
+	// Johto: Johto
+	// Kalos: Kalos
+	// Kanto: Kanto
 	Kazakhstan: Kazakhstan
-	Latveria: Latveria
-	Libya: Libya
-	Macedonia: Macedonia
-	Mali: Mali
-	Mauritania: Mauritania
-	Mauritius: Mauritius
-	Mexico: Mexico
-	MiddleEarth: Middle-earth
-	Mongolia: Mongolia
-	Mordor: Mordor
+	// Latveria: Latveria
+	Libya: Libye
+	Macedonia: Macédoine
+	// Mali: Mali
+	Mauritania: Mauritanie
+	Mauritius: Île Maurice
+	// Mexico: Mexico
+	MiddleEarth: Terre du Milieu
+	// Mongolia: Mongolia
+	// Mordor: Mordor
 	Mozambique: Mozambique
-	Myanmar: Myanmar
-	Namibia: Namibia
-	Narnia: Narnia
-	Nigeria: Nigeria
-	Oz: Oz
-	Pakistan: Pakistan
-	Paldea: Paldea
-	Persia: Persia
-	Peru: Peru
-	Poland: Poland
-	Russia: Russia
-	SaudiArabia: Saudi Arabia
-	Sinnoh: Sinnoh
-	Somalia: Somalia
-	SouthAfrica: South Africa
-	Spain: Spain
-	Sudan: Sudan
-	Tamriel: Tamriel
-	Tanzania: Tanzania
-	TheDigitalWorld: the Digital World
-	Turkey: Turkey
-	Unova: Unova
+	// Myanmar: Myanmar
+	// Namibia: Namibia
+	// Narnia: Narnia
+	// Nigeria: Nigeria
+	// Oz: Oz
+	// Pakistan: Pakistan
+	// Paldea: Paldea
+	Persia: Perse
+	// Peru: Peru
+	Poland: Pologne
+	Russia: Russie
+	SaudiArabia: Arabie Saoudite
+	// Sinnoh: Sinnoh
+	Somalia: Somalie
+	SouthAfrica: Afrique du Sud
+	Spain: Espagne
+	// Sudan: Sudan
+	// Tamriel: Tamriel
+	// Tanzania: Tanzania
+	TheDigitalWorld: le monde numérique
+	Turkey: Turquie
+	// Unova: Unova
 	Venezuela: Venezuela
-	Wakanda: Wakanda
-	Westeros: Westeros
-	Wonderland: Wonderland
-	Zambia: Zambia
+	// Wakanda: Wakanda
+	// Westeros: Westeros
+	// Wonderland: Wonderland
+	// Zambia: Zambia
 }
 
 City: {
@@ -193,4 +193,15 @@ City: {
 	// Wroclaw: Wroclaw
 	// Yekaterinburg: Yekaterinburg
 	// Zagreb: Zagreb
+}
+
+Planet: {
+	Jupiter: Jupiter
+	Mars: Mars
+	Mercury: Mercure
+	Neptune: Neptune
+	Pluto: Pluton
+	Saturn: Saturne
+	Uranus: Uranus
+	Venus: Vénus
 }

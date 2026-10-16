@@ -1,4 +1,5 @@
 ﻿using ChangedSpecialMod.Common.Systems.TagObjects;
+using System.Diagnostics;
 using System.Linq;
 using Terraria;
 using static ChangedSpecialMod.Common.Systems.BookQuestSystem;
@@ -20,17 +21,17 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
             );
 
             var familyMemberMan = Choose(
-                "Brother",
-                "Father",
-                "Grandpa",
-                "Uncle"
+                "brother",
+                "father",
+                "grandpa",
+                "uncle"
             );
 
             var familyMemberWoman = Choose(
-                "Aunt",
-                "Grandma",
-                "Mother",
-                "Sister"
+                "aunt",
+                "grandma",
+                "mother",
+                "sister"
             );
 
             return Choose(
@@ -94,6 +95,7 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
         {
             var videoGame = tagsVideoGames.PickRandom();
             var videoGameSocial = PickRandom(tagsVideoGames.elements.Where(x => x.isSocialGame).ToList());
+            var videoGameNotSocial = PickRandom(tagsVideoGames.elements.Where(x => !x.isSocialGame).ToList());
             var videoGameRacer = PickRandom(tagsVideoGames.elements.Where(x => x.isRacingGame).ToList());
             var videoGameWithCharacters = PickRandom(tagsVideoGames.elements.Where(x => x.characterNames.Any()).ToList());
             var videoGameCharacter1 = PickRandom(videoGameWithCharacters.characterNames);
@@ -105,38 +107,34 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
 
             return Choose(
                 $"How to befriend your neighbors in {videoGameWithNeighbors}",
-                $"How to meet new people in {videoGameSocial}",
+                Choose(
+                    $"How to meet new people in {videoGameSocial}",
+                    $"{number1} things you can do with other players in {videoGameSocial}"
+                ),
                 $"How to win the race in {videoGameRacer}",
                 $"Why {videoGameCharacter1} is the best character in {videoGameWithCharacters}",
                 $"{number1} easter eggs in {videoGame}",
-                $"{number1} speedrunning tricks for {videoGame}",
+                $"{number1} speedrunning tricks for {videoGameNotSocial}",
                 $"The best weapons from {videoGameShooter}",
                 $"How to defeat {videoGameBoss} in {videoGameWithBoss}"
             );
         }
 
-        public override string GetSentencePlanet()
+        public override string GetSentencePlanet(PlanetTagObjectList planetTagObjectList)
         {
-            var planet1 = Choose(
-                "Jupiter",
-                "Mars",
-                "Mercury",
-                "Neptune",
-                "Pluto",
-                "Saturn",
-                "Uranus",
-                "Venus",
-                "the Moon"
-            );
+            var planet1 = planetTagObjectList.PickRandom();
+            var planetWithSolidSurface = PickRandom(planetTagObjectList.elements.Where(x => !x.isGasPlanet).ToList());
+            var planetWithMoons = PickRandom(planetTagObjectList.elements.Where(x => x.hasMoons).ToList());
 
             return Choose(
                 $"the space expedition to {planet1}",
                 $"planets beyond {planet1}",
-                $"life on {planet1}",
+                $"life on {planetWithSolidSurface}",
                 $"the mysteries of {planet1}",
-                $"the first astronaut on {planet1}",
+                $"the first astronaut on {planetWithSolidSurface}",
                 $"what we know about {planet1}",
-                $"how to survive on {planet1}"
+                $"how to survive on {planetWithSolidSurface}",
+                $"the moons of {planetWithMoons}"
             );
         }
 
@@ -193,8 +191,17 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
             );
         }
 
-        public override string GetSentenceHowTo(string animalWithFur1, string thingToKnit, string animal1)
+        public override string GetSentenceHowTo(string animalWithFur1, string animal1)
         {
+            var thingToKnit = Choose(
+                "a scarf",
+                "a beanie",
+                "socks",
+                "mittens",
+                "a sweater",
+                "doll clothes"
+            );
+
             var invention1 = Choose(
                 "airplane",
                 "computer",
@@ -308,6 +315,37 @@ namespace ChangedSpecialMod.Common.Systems.QuestBook
                 //$"{number1} easy meals for beginners",
                 //$"the lost recipes of {country1}",
                 //$"{number1} foods you have to try"
+            );
+        }
+
+        public override string GetSentenceTribe(string tribeWarrior, string tribe, string animal1)
+        {
+            var humanOrAnimalTribe = Choose(tribe, $"{animal1} tribe");
+
+            return Choose(
+                $"the first contact with the {humanOrAnimalTribe}",
+                $"everything about the {humanOrAnimalTribe}",
+                $"how the {humanOrAnimalTribe} lives"
+            );
+        }
+
+        public override string GetSentencePerson(string nameManWoman, string tribeWarrior, string tribe1, string animal1)
+        {
+            var tribeProfession = Choose(
+                "Chief",
+                "Oracle",
+                "Scout",
+                "Shaman",
+                "Warrior"
+            );
+
+            var humanOrAnimalTribe = Choose(tribe1, $"{animal1} tribe");
+            var personName = Choose(nameManWoman, tribeWarrior);
+
+            return Choose(
+                // Likulau: Warrior of the Rukai (bestest boi)
+                $"{tribeWarrior}: {tribeProfession} of the {humanOrAnimalTribe}",
+                $"{personName}s diary"
             );
         }
     }

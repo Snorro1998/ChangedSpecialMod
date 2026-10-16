@@ -149,6 +149,15 @@ Puro: {
 		// Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
 		// Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
 	}
+
+	QuestBook: {
+		NoBook1: Du hast kein Buch dabei, aber ich freue mich, dass du hier bist.
+		NoBook2: Hast du das Buch verloren? Du hast keines dabei.
+		WrongBook1: Ich sehe, du hast ein Buch, aber es ist nicht das, das ich suche.
+		WrongBook2: Das ist ein schönes Buch, aber es ist nicht das, das ich suche.
+		GiveBook1: Danke für das Buch, Mensch.
+		GiveBook2: Was für ein großartiger Mensch du bist! Ich wusste, dass du mein Buch finden würdest!
+	}
 }
 
 DrK: {

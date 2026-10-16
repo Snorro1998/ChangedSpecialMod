@@ -1,68 +1,68 @@
-Baboon: baboon
-// Baboons: baboons
-Bunny: bunny
-// Bunnys: bunnies
-// Capybara: capybara
-// Capybaras: capybaras
-// Cat: cat
-// Cats: cats
-Cheetah: cheetah
-// Cheetahs: cheetahs
-Crab: crab
-// Crabs: crabs
+Baboon: babouin
+Baboons: babouins
+Bunny: lapin
+Bunnys: lapereaux
+Capybara: capybara
+Capybaras: capybaras
+Cat: chat
+Cats: chats
+Cheetah: guépard
+Cheetahs: guépards
+Crab: crabe
+Crabs: crabes
 Dodo: dodo
-// Dodos: dodos
-// Dog: dog
-// Dogs: dogs
-// Dolphin: dolphin
-// Dolphins: dolphins
-// Fennec: fennec
-// Fennecs: fennecs
-Fox: fox
-// Foxs: foxes
-// Giraffe: giraffe
-// Giraffes: giraffes
-Gorilla: gorilla
-// Gorillas: gorillas
-Jellyfish: jellyfish
-// Jellyfishs: jellyfish
-Leopard: leopard
-// Leopards: leopards
+Dodos: dodos
+Dog: chien
+Dogs: chiens
+Dolphin: Dauphin
+Dolphins: Dauphins
+Fennec: fennec
+Fennecs: fennecs
+Fox: renard
+Foxs: renards
+Giraffe: girafe
+Giraffes: girafes
+Gorilla: gorille
+Gorillas: gorilles
+Jellyfish: méduse
+Jellyfishs: méduses
+Leopard: léopard
+Leopards: léopards
 Lion: lion
-// Lions: lions
-Lobster: lobster
-// Lobsters: lobsters
+Lions: lions
+Lobster: homard
+Lobsters: homards
 Mandrill: mandrill
-// Mandrills: mandrills
-Monkey: monkey
-// Monkeys: monkeys
-// Octopus: octopus
-// Octopuss: octopuses
-Orangutan: orangutan
-// Orangutans: orangutans
-Orca: orca
-// Orcas: orcas
+Mandrills: mandrills
+Monkey: singe
+Monkeys: singes
+Octopus: pieuvre
+Octopuss: pieuvres
+Orangutan: orang-outan
+Orangutans: orangs-outans
+Orca: orque
+Orcas: orques
 Panda: panda
-// Pandas: pandas
-Penguin: penguin
-// Penguins: penguins
-PolarBear: Polar bear
-// PolarBears: polar bears
+Pandas: pandas
+Penguin: manchot
+Penguins: manchots
+PolarBear: ours blanc
+PolarBears: ours polaires
 Scorpion: scorpion
-// Scorpions: scorpions
-Shark: shark
-// Sharks: sharks
-Squid: squid
-// Squids: squids
-SquidDog: Squid Dog
-// SquidDogs: Squid Dogs
-Squirrel: squirrel
-// Squirrels: squirrels
-Vulture: vulture
-// Vultures: vultures
-Whale: whale
-// Whales: whales
-Wolf: wolf
-// Wolfs: wolves
-// Zebra: zebra
-// Zebras: zebras
+Scorpions: scorpions
+Shark: requin
+Sharks: requins
+Squid: calmar
+Squids: calmars
+SquidDog: Chien-Calmar
+SquidDogs: Chien-Calmars
+Squirrel: écureuil
+Squirrels: écureuils
+Vulture: vautour
+Vultures: vautours
+Whale: baleine
+Whales: baleines
+Wolf: loup
+Wolfs: loups
+Zebra: zèbre
+Zebras: zèbres

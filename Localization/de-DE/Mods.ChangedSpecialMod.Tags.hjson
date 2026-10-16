@@ -194,3 +194,14 @@ City: {
 	// Yekaterinburg: Yekaterinburg
 	// Zagreb: Zagreb
 }
+
+Planet: {
+	Jupiter: Jupiter
+	Mars: Mars
+	Mercury: Merkur
+	Neptune: Neptun
+	Pluto: Pluto
+	Saturn: Saturn
+	Uranus: Uranus
+	Venus: Venus
+}

@@ -9,10 +9,8 @@ using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Channels;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -306,10 +304,13 @@ namespace ChangedSpecialMod.Content.NPCs
                 }
             }
 
+            var chatText = ChangedUtils.Choose("NoBook1", "NoBook2");
+
             if (index != -1)
             {
                 player.inventory[index].SetDefaults(ItemID.None, false);
-                Main.npcChatText = "Thank you for the book, human";
+                chatText = ChangedUtils.Choose("GiveBook1", "GiveBook2");
+                //Main.npcChatText = "Thank you for the book, human";
                 var rewards = GetRandomRewards();
                 if (rewards.Any())
                 {
@@ -320,10 +321,9 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
             }
-            else
-            {
-                Main.npcChatText = "Sorry human, but you don't have a book that I am looking for.";
-            }
+
+            var txt = Language.GetTextValue($"Mods.ChangedSpecialMod.NPCs.Dialogue.Puro.QuestBook.{chatText}");
+            Main.npcChatText = txt;
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shop)
