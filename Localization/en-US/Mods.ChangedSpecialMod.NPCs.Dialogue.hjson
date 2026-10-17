@@ -32,8 +32,7 @@ Puro: {
 	NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
 	NPCCoraliteCrystalRobot: "{NameCoraliteCrystalRobot} told me all kinds of things about 'magike', but all I wanted to know is if you can make oranges from it."
 	NPCThoriumCobbler: "{NameThoriumCobbler} has so many shoes, but they are all too small for my paws."
-	NPCStarsModPackFarmer: I'm sure {NameStarsModPackFarmer} can help me grow even more oranges!
-	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, do you know why {NameStarsModPackScrapyardGeek} iz alwaz talking like zat?"
+	NPCStarsModPackFarmer: Thanks to {NameStarsModPackFarmer}, I can now grow even more oranges!
 	Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
 	Book2: Hello {PlayerRace}! Have you seen my book?
 	Book3: Will you help me make the biggest book tower?
@@ -137,13 +136,13 @@ Puro: {
 		Party12: Shall we dance together {PlayerRace}? Because I feel like a party animal!
 	}
 
-	TerraGuardian: {
-		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
+	ModTerraGuardian: {
+		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, can I also become a Terra Guardian? I want to go on an adventure with you!"
 		Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
 		Alexander: TODO
 		Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
 		Brutus: TODO
-		Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
+		Ich: TODO
 		Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
 		Monica: TODO
 		Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
@@ -151,12 +150,12 @@ Puro: {
 	}
 
 	QuestBook: {
-		NoBook1: You don't have a book with you, but I’m glad you’re here.
+		NoBook1: You don't have a book with you, but I'm glad you're here.
 		NoBook2: Did you lose the book? You don't have one with you.
 		WrongBook1: I see you have a book, but it's not the one that I am looking for.
 		WrongBook2: That's a nice book, but it's not the one that I am looking for.
-		GiveBook1: Thank you for the book human.
-		GiveBook2: Such an excellent human you are! I knew you would find my book!
+		GiveBook1: Thank you for the book, {PlayerRace}.
+		GiveBook2: Such an excellent {PlayerRace} you are! I knew you would find my book!
 	}
 }
 
@@ -203,7 +202,6 @@ DrK: {
 	Xmas2: "{Xmas}What do you think of this chemical mixture? Isn't it beautiful? Its colors are even more vibrant than a Christmas tree!"
 	Xmas3: "{Xmas}Outside there is some snow, my beaker starts to glow. It's getting really hot. But we carry on, why not! It blew up in my face, and wrecked my own workplace. But the resulting goo is a massive breakthrough!"
 	Xmas4: "{Xmas}If I had a carrot for a nose, they would mistake me for a snowman."
-	ModRedemption1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
 
 	BloodMoon: {
 		BloodMoon1: Get here test subject! I have to run a few tests on you!
@@ -240,7 +238,12 @@ DrK: {
 		Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
 	}
 
-	TerraGuardian: {
+	ModRedemption: {
+		Lab1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
+		Lab2: "{ModRedemption}Are you saying that everyone at TeoChrome has been infected by the xenomite virus and turned into zombies? That sounds even worse than what happened to us at Thunder Science, because the latex beasts are at least cute."
+	}
+
+	ModTerraGuardian: {
 		PlayerHasTerraGuardian: TODO
 		PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
 		PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
@@ -253,15 +256,15 @@ DrK: {
 		MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
 		MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
 		# Guardians
-		Alex: "{TerraGuardianAlexPresent}Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+		Alex: "Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
 		Alexander: TODO
-		Blue: "{TerraGuardianBluePresent}{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
+		Blue: "{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
 		Brutus: TODO
 		Ich: TODO
 		Leona: TODO
 		Monica: TODO
-		Rococo: "{TerraGuardianRococoPresent}I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
-		Scaleforth: "{TerraGuardianScaleforthPresent}I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
+		Rococo: "I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
+		Scaleforth: "I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
 	}
 }
 

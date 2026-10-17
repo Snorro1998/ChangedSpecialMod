@@ -418,6 +418,7 @@ namespace ChangedSpecialMod.Common.Systems
 
         private static List<string> optionsNamesTribeWarrior = new List<string>()
         {
+            "Aang",     // ATLA
             "Aruk",
             "Aruvok",
             "Auralok",
@@ -426,6 +427,7 @@ namespace ChangedSpecialMod.Common.Systems
             "Drakanu",
             "Dravok",
             "Eyvind",
+            "Katara",   // ATLA
             "Kirik",    // Moontouched
             "Likulau",  // Nekojishi. Ofc we have to include the bestest boi
             "Lyall",    // Lyre
@@ -433,6 +435,7 @@ namespace ChangedSpecialMod.Common.Systems
             "Ranok",    // FBTW
             "Rheel",
             "Roku",
+            "Sokka",    // ATLA
             "Tharuk",
             "Vaelukan",
             "Vulgor",   // FBTW

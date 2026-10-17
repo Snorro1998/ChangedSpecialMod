@@ -91,8 +91,8 @@ General
 - Well fed buff from oranges increased from 1 to 5 minutes
 
 Config
-- Added option to display 'retro' sprites of blocks and furniture found in the labs
-- Added option to display 'retro' sprites of NPCs
+- Added option to display retro sprites of blocks and furniture found in the labs
+- Added option to display retro sprites of NPCs
 
 NPCs
 - If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
@@ -114,8 +114,8 @@ Resprited
 - Crystals
 
 Fixed
-- It no longer rains in infected snow biomes
-- Infected desert biomes did not use the heat distortion effect (sandstorms still don't work)
+- Infected snow biomes had rain instead of snow
+- Infected desert biomes did not use the heat distortion effect
 - Behemoth would not always spawn if the room had the lowest ceiling possible
 - Walls in labs would not always connect between rooms
 - Fixed broken buff translations in many languages

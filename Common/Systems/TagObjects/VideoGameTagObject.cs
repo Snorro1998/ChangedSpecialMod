@@ -177,6 +177,11 @@ namespace ChangedSpecialMod.Common.Systems.TagObjects
 
                 new VideoGameTagObject()
                 {
+                    name = "Okami"
+                },
+
+                new VideoGameTagObject()
+                {
                     name = "Palworld" ,
                     hasMonsterCatching = true,
                     hasBaseBuilding = true

@@ -310,19 +310,22 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 player.inventory[index].SetDefaults(ItemID.None, false);
                 chatText = ChangedUtils.Choose("GiveBook1", "GiveBook2");
-                //Main.npcChatText = "Thank you for the book, human";
                 var rewards = GetRandomRewards();
                 if (rewards.Any())
                 {
                     foreach (var reward in rewards)
                     {
                         player.QuickSpawnItem(new EntitySource_Gift(NPC), reward.id, reward.stack);
-                        //Item.NewItem(new EntitySource_Gift(NPC), NPC.Hitbox, reward.id, reward.stack);
                     }
                 }
             }
 
+            var changedNPC = NPC.Changed();
+            var keywords = changedNPC.GetChatKeyWords();
+            var playerRace = keywords.ContainsValue("PlayerRace") ? keywords["PlayerRace"] : "human";
+
             var txt = Language.GetTextValue($"Mods.ChangedSpecialMod.NPCs.Dialogue.Puro.QuestBook.{chatText}");
+            txt = txt.Replace("{PlayerRace}", playerRace);
             Main.npcChatText = txt;
         }
 

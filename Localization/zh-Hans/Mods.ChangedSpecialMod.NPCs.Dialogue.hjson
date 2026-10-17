@@ -15,9 +15,9 @@ Puro: {
 	NPCMerchant: 如果{NameMerchant}卖橙汁的话，他早就发财了！
 	NPCNurse: "{NameNurse}说每天吃两个水果对身体好。我告诉她我一天吃十个橙子！"
 	// NPCOldMan: TODO
-	// NPCPainter: Should I ask {NamePainter} to paint my room orange? Or should I ask him to put up wallpaper with oranges?
+	NPCPainter: 我是该让{NamePainter}把我的房间漆成橙色呢，还是让他贴上印有橙子图案的壁纸？
 	// NPCPartyGirl: TODO
-	// NPCPirate: Why does {NamePirate} keep calling me blackbeard? I don't even have a beard.
+	NPCPirate: "{NamePirate}为什么老是叫我“黑胡子”？我根本连胡子都没有。"
 	// NPCPrincess: TODO
 	// NPCSantaClaus: TODO
 	// NPCSkeletonMerchant: TODO
@@ -28,12 +28,11 @@ Puro: {
 	// NPCTravellingMerchant: TODO
 	// NPCTruffle: TODO
 	// NPCWitchDoctor: TODO
-	// NPCWizard: I don't understand why {NameWizard} doesn't let me read his books. It's not like I will damage them with my soft paws.
+	NPCWizard: 我不明白{NameWizard}为什么不让我读他的书。我又不会用我那双柔软的爪子把书弄坏。
 	NPCZoologist: "{NameZoologist}长着大耳朵和毛茸茸的尾巴，真是太可爱了。不过，她还是没有你可爱，嘿嘿嘿……"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot}跟我讲了很多关于“魔能”的事情，但我只想知道能不能用它做出橘子。"
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
-	NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}我不明白为什么{NameStarsModPackFarmer}没有橘子树种子。每个农民都应该有。"
-	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}，你知道{NameStarsModPackScrapyardGeek}为什么总是那样说话吗？"
+	NPCStarsModPackFarmer: "多亏了{NameStarsModPackFarmer}，我现在能种更多的橙子了！"
 	Book1: 我评判一本书的方式就像评判一个橘子一样：看它从头到尾，直到最后一页或最后一片，是否都令人满意。
 	Book2: 你好，{PlayerRace}!你找到我的书了吗？
 	Book3: 你愿意帮我搭建最高的书塔吗？
@@ -74,9 +73,9 @@ Puro: {
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr} 哇，{PlayerRace}，那只猫是谁？它好大啊！"
 	Valentine1: "{Valentine}你觉得怎么样，{PlayerRace}？我戴着这款情人节发夹是不是很可爱？"
 	Valentine2: "{Valentine}鲜花固然美好，但如果你想赢得我的芳心，那就得送我一本小册子。"
-	Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+	// Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
 	# Easter is not implemented yet
-	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
+	// Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 	Oktoberfest1: "{Oktoberfest}又到了畅饮啤酒的季节！干杯！"
 	Oktoberfest2: "{Oktoberfest}人类……是啤酒的缘故，还是你一直都这么漂亮？"
 	Oktoberfest3: "{Oktoberfest}嗯，这啤酒真不错。"
@@ -91,7 +90,7 @@ Puro: {
 	Xmas3: "{Xmas}叮叮当，叮叮当，铃儿响叮当！"
 	Xmas4: "{Xmas}你愿意帮我用圣诞装饰品装点我的橘子树吗？"
 	Xmas5: "{Xmas}圣诞前夜，圣夜"
-	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+	// Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 	BloodMoon: {
 		BloodMoon1: 离我远点，{PlayerRace}。我今天感觉不太对劲。
@@ -137,26 +136,26 @@ Puro: {
 		Party12: "{PlayerRace}，我们一起跳舞好吗？因为我感觉自己像个派对动物！"
 	}
 
-	TerraGuardian: {
-		// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
-		// Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+	ModTerraGuardian: {
+		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}，我也能成为“大地守护者”吗？我想和你一起去冒险！"
+		Alex: 我给{TerraGuardianAlexName}扔了根木棍，结果他带回来一截树干。
 		// Alexander: TODO
-		// Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+		Blue: 与{TerraGuardianBlueName}相比，狼王显得十分娇小。或许我们该叫她“狼后”。
 		// Brutus: TODO
 		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
 		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
 		// Monica: TODO
-		// Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
-		// Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
+		Rococo: "{TerraGuardianRococoName}想玩，结果却摔倒了，还把我压扁了。好在我这软乎乎的身体能自己恢复原状。"
+		Scaleforth: 我当时觉得冷，就问{TerraGuardianScaleforthName}能不能用他的“火息”帮我暖暖身子。结果，他差点把我的房子给点着了。
 	}
 
 	QuestBook: {
-		// NoBook1: You don't have a book with you, but I�m glad you�re here.
-		// NoBook2: Did you lose the book? You don't have one with you.
-		// WrongBook1: I see you have a book, but it's not the one that I am looking for.
-		// WrongBook2: That's a nice book, but it's not the one that I am looking for.
-		// GiveBook1: Thank you for the book human.
-		// GiveBook2: Such an excellent human you are! I knew you would find my book!
+		NoBook1: 你没带书，但我很高兴你在这里。
+		NoBook2: 你把书弄丢了吗？你身边没有书。
+		WrongBook1: 我看到你有一本书，但那并不是我在找的那本。
+		WrongBook2: 那本书不错，但并不是我在找的那本。
+		GiveBook1: 谢谢你给的书，{PlayerRace}。
+		GiveBook2: 你真是位出色的{PlayerRace}！我就知道你会找到我的书！
 	}
 }
 
@@ -203,7 +202,6 @@ DrK: {
 	Xmas2: "{Xmas}你觉得这种化学混合物怎么样？是不是很漂亮？它的颜色比圣诞树还要丰富多彩！"
 	Xmas3: "{Xmas}圣诞快乐"
 	Xmas4: "{Xmas}如果我的鼻子是胡萝卜，他们会把我误认为是雪人。"
-	// ModRedemption1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
 
 	BloodMoon: {
 		BloodMoon1: 实验对象，过来！我要对你做几个测试！
@@ -237,51 +235,56 @@ DrK: {
 		# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 		Party5: 准备好见识一下我的炫酷派对绝技了吗？瞧，我可以把卫生纸变成私酿酒！
 		Party6: 这场派对缺少烟火。你想让我来弥补一下吗？
-		// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
+		Party7: 我不知道为什么要办派对，但我完全赞成。
 	}
 
-	TerraGuardian: {
+	ModRedemption: {
+		Lab1: "{ModRedemption}如果你觉得“雷霆科学”实验室是个危险的地方，那等你见识过“西奥格罗姆”的地下研究设施后，就明白什么才叫真正的危险了。"
+		Lab2: "{ModRedemption}你是说“西奥格罗姆”的所有人都感染了“异形矿病毒”，变成了丧尸？这听起来比我们在“雷霆科学”遭遇的情况还要糟糕——毕竟那些黏液怪兽至少还挺可爱的。"
+	}
+
+	ModTerraGuardian: {
 		// PlayerHasTerraGuardian: TODO
-		// PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
-		// PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
-		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}You really like big, furry women huh?"
-		// PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
-		// PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
-		// PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
+		PlayerPartyBigFurries: "{PlayerPartyBigFurries}你真的很喜欢巨型獸迷，对吧？"
+		PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}你真的很喜欢巨型雄獸迷，对吧？"
+		PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}你真的很喜欢巨型雌獸迷，对吧？"
+		PlayerPartySmallFurries: "{PlayerPartySmallFurries}你真的很喜欢獸迷，对吧？"
+		PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}你真的很喜欢雄獸迷，对吧？"
+		PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}你真的很喜欢雌獸迷，对吧？"
 		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
 		# Macro
-		// MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
-		// MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
+		MacroFurryManPresent: "{MacroFurryManPresent}在{MacroTerraGuardianName}身边要小心，免得他踩到你。"
+		MacroFurryWomanPresent: "{MacroFurryWomanPresent}在{MacroTerraGuardianName}身边要小心，免得她踩到你。"
 		# Guardians
-		// Alex: "{TerraGuardianAlexPresent}Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+		Alex: "别让{TerraGuardianAlexName}那只狗靠近这儿！上次我可是花了整整几个小时，才把房间里它留下的泥脚印清理干净！"
 		// Alexander: TODO
-		// Blue: "{TerraGuardianBluePresent}{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
+		Blue: "{TerraGuardianBlueName}问我能不能给她身上的毛弄点护理液。我是能弄，但她体型那么大，需要的原料可就多了去了。"
 		// Brutus: TODO
 		// Ich: TODO
 		// Leona: TODO
 		// Monica: TODO
-		// Rococo: "{TerraGuardianRococoPresent}I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
-		// Scaleforth: "{TerraGuardianScaleforthPresent}I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
+		Rococo: "我真心希望{TerraGuardianRococoName}不会像其他浣熊那样到处打滚。要是他撞上什么东西，那造成的破坏可就大了。"
+		Scaleforth: "很高兴{TerraGuardianScaleforthName}搬了进来。他是个非常乐于助人的助手，甚至还能帮我加热烧杯。"
 	}
 }
 
 Prototype: {
-	Emotion1: Beep :)
-	Emotion2: ... :o
-	Emotion3: Boop :3
-	Emotion4: Vrrrp :D
-	Emotion5: Bzzz :p
-	Emotion6: Whrrr >:D
+	Emotion1: 哔 :)
+	Emotion2: …… :o
+	Emotion3: 啵 :3
+	Emotion4: 嗡—— :D
+	Emotion5: 滋滋 :p
+	Emotion6: 呼噜噜 >:D
 
 	Injured: {
-		Injured1: Drrrr :S
-		Injured2: Fzzzt :|
-		Injured3: Eeeee ;(
+		Injured1: 嘟噜噜 :S
+		Injured2: 滋啦 :|
+		Injured3: 咿—— ;(
 	}
 
 	NearlyDead: {
-		NearlyDead1: Kzzzt X(
-		NearlyDead2: Aaaaa XO
+		NearlyDead1: 咔滋 X(
+		NearlyDead2: 啊—— XO
 		# SOS in morse code
 		NearlyDead3: ... --- ...
 	}

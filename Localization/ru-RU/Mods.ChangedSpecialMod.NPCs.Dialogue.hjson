@@ -15,9 +15,9 @@ Puro: {
 	NPCMerchant: Если бы {NameMerchant} продавал апельсиновый сок, он был бы богат!
 	NPCNurse: "{NameNurse} сказала, что для здоровья полезно съедать два фрукта в день. А я ей ответила, что съедаю десять апельсинов в день!"
 	// NPCOldMan: TODO
-	// NPCPainter: Should I ask {NamePainter} to paint my room orange? Or should I ask him to put up wallpaper with oranges?
+	NPCPainter: Стоит ли попросить {NamePainter} покрасить мою комнату в оранжевый цвет? Или попросить его поклеить обои с изображением апельсинов?
 	// NPCPartyGirl: TODO
-	// NPCPirate: Why does {NamePirate} keep calling me blackbeard? I don't even have a beard.
+	NPCPirate: Почему {NamePirate} постоянно называет меня Чёрной Бородой? У меня ведь даже бороды нет.
 	// NPCPrincess: TODO
 	// NPCSantaClaus: TODO
 	// NPCSkeletonMerchant: TODO
@@ -28,12 +28,11 @@ Puro: {
 	// NPCTravellingMerchant: TODO
 	// NPCTruffle: TODO
 	// NPCWitchDoctor: TODO
-	// NPCWizard: I don't understand why {NameWizard} doesn't let me read his books. It's not like I will damage them with my soft paws.
+	NPCWizard: Не понимаю, почему {NameWizard} не разрешает мне читать его книги. Вряд ли я могу их испортить своими мягкими лапками.
 	NPCZoologist: "{NameZoologist} такая милая со своими большими ушками и пушистым хвостиком. Но не такая милая, как ты, хе-хе..."
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} рассказал мне всякое про 'магию', но меня интересовало только одно: можно ли из нее делать апельсины."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} очень много обуви, но вся она мне мала."
-	NPCStarsModPackFarmer: "{StarsModPackFarmerPresent}Я не понимаю, почему у {NameStarsModPackFarmer} нет семян апельсиновых деревьев. Они должны быть у каждого фермера."
-	NPCStarsModPackScrapyardGeek: "{StarsModPackScrapyardGeekPresent}{PlayerRace}, ты знаешь, почему {NameStarsModPackScrapyardGeek} всегда так говорит?"
+	NPCStarsModPackFarmer: "Благодаря {NameStarsModPackFarmer} я теперь могу выращивать ещё больше апельсинов!"
 	Book1: Я оцениваю книги так же, как и апельсины. По тому, насколько они доставляют удовольствие до последней страницы или последнего ломтика.
 	Book2: Привет, {PlayerRace}! Ты видел мою книгу?
 	Book3: Поможешь мне построить самую большую книжную башню?
@@ -74,9 +73,9 @@ Puro: {
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Ого, {PlayerRace}, кто эта кошка? Она огромная!"
 	Valentine1: "{Valentine}Что ты думаешь, {PlayerRace}? Подойдет ли мне эта заколка для волос ко Дню святого Валентина?"
 	Valentine2: "{Valentine}Букет — это хорошо, но если ты хочешь завоевать моё сердце, то должен принести мне буклет!"
-	Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+	// Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
 	# Easter is not implemented yet
-	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
+	// Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 	Oktoberfest1: "{Oktoberfest}Настало то самое время года, когда можно выпить много пива! Ура!"
 	Oktoberfest2: "{Oktoberfest}{PlayerRace}... Это из-за пива или ты всегда была такой красивой?"
 	Oktoberfest3: "{Oktoberfest}Ммм. Это пиво — просто объедение."
@@ -91,7 +90,7 @@ Puro: {
 	Xmas3: "{Xmas}С Рождеством!"
 	Xmas4: "{Xmas}Не хотите ли помочь мне украсить мою апельсиновую елку рождественскими игрушками?"
 	Xmas5: "{Xmas}На улице идёт снег, и мне очень хочется апельсинов."
-	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+	// Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 	BloodMoon: {
 		BloodMoon1: Держись от меня подальше, {PlayerRace}. Сегодня я плохо себя чувствую.
@@ -137,26 +136,26 @@ Puro: {
 		Party12: Потанцуем вместе, {PlayerRace}? Потому что я чувствую себя настоящим тусовщиком!
 	}
 
-	TerraGuardian: {
-		// PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}Human, can I also become a Terra Guardian? I want to go on an adventure with you!"
-		// Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+	ModTerraGuardian: {
+		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, а я тоже могу стать Терра-хранителем? Хочу отправиться с тобой в приключение!"
+		Alex: Я бросил {TerraGuardianAlexName} палку, а он вернулся с целым стволом дерева.
 		// Alexander: TODO
-		// Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+		Blue: Волчий король выглядит таким крошечным по сравнению с {TerraGuardianBlueName}. Может, стоит называть её Волчьей королевой?
 		// Brutus: TODO
 		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
 		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
 		// Monica: TODO
-		// Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
-		// Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
+		Rococo: "{TerraGuardianRococoName} хотел поиграть, но упал и сплющил меня. К счастью, моё податливое тело может просто принять прежнюю форму."
+		Scaleforth: Я замёрз и попросил {TerraGuardianScaleforthName} согреть меня своим огненным дыханием. Он чуть было не поджёг мой дом.
 	}
 
 	QuestBook: {
-		// NoBook1: You don't have a book with you, but I�m glad you�re here.
-		// NoBook2: Did you lose the book? You don't have one with you.
-		// WrongBook1: I see you have a book, but it's not the one that I am looking for.
-		// WrongBook2: That's a nice book, but it's not the one that I am looking for.
-		// GiveBook1: Thank you for the book human.
-		// GiveBook2: Such an excellent human you are! I knew you would find my book!
+		NoBook1: У тебя с собой нет книги, но я рад, что ты здесь.
+		NoBook2: Ты потерял книгу? У тебя её с собой нет.
+		WrongBook1: Вижу, у вас есть книга, но это не та, которую я ищу.
+		WrongBook2: Это хорошая книга, но не та, которую я ищу.
+		GiveBook1: Спасибо за книгу, {PlayerRace}.
+		GiveBook2: Какой же вы замечательный {PlayerRace}! Я знал, что вы найдете мою книгу!
 	}
 }
 
@@ -203,7 +202,6 @@ DrK: {
 	Xmas2: "{Xmas}Что вы думаете об этой химической смеси? Разве она не прекрасна? Ее цвета даже ярче, чем у рождественской елки!"
 	Xmas3: "{Xmas}С Рождеством!"
 	Xmas4: "{Xmas}Если бы у меня вместо носа была морковка, меня бы приняли за снеговика."
-	// ModRedemption1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
 
 	BloodMoon: {
 		BloodMoon1: Иди сюда, подопытный! Мне нужно провести над тобой несколько тестов!
@@ -237,51 +235,56 @@ DrK: {
 		# The very verbose chemist from YouTube (actually, precisely, arbitrary)
 		Party5: Готовы к крутому фокусу? Смотрите, я могу превратить туалетную бумагу в самогон!
 		Party6: На этой вечеринке не хватает фейерверков. Хотите, я это исправлю?
-		// Party7: So I'm finally here, performing for you. If you know the words, you can join in too. Huh! DK! Doctor K!
+		Party7: Понятия не имею, по какому поводу вечеринка, но я — только за.
 	}
 
-	TerraGuardian: {
+	ModRedemption: {
+		Lab1: "{ModRedemption}Если вы считаете лаборатории «Thunder Science» опасными местами, то подождите — вот увидите подземный исследовательский комплекс «TeoChrome»."
+		Lab2: "{ModRedemption}Хочешь сказать, что все в «TeoChrome» заразились вирусом «ксеномит» и превратились в зомби? Это звучит даже хуже того, что случилось с нами в «Thunder Science» — ведь те слизнеподобные твари хотя бы милые."
+	}
+
+	ModTerraGuardian: {
 		// PlayerHasTerraGuardian: TODO
-		// PlayerPartyBigFurries: "{PlayerPartyBigFurries}You really like big furries huh?"
-		// PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}You really like big, furry men huh?"
-		// PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}You really like big, furry women huh?"
-		// PlayerPartySmallFurries: "{PlayerPartySmallFurries}You really like furries, don't you?"
-		// PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}You really like furry men, don't you?"
-		// PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}You really like furry women, don't you?"
+		PlayerPartyBigFurries: "{PlayerPartyBigFurries}Тебе правда нравятся гигантские Фурры, да?"
+		PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}Тебе правда нравятся гигантские Фурры-самцы, да?"
+		PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}Тебе правда нравятся гигантские Фурры-самки, да?"
+		PlayerPartySmallFurries: "{PlayerPartySmallFurries}Тебе правда нравятся Фурры, да?"
+		PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}Тебе правда нравятся Фурры-самцы, да?"
+		PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}Тебе правда нравятся Фурры-самки, да?"
 		// PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}Thank you for shrinking those guardians. It would be cramped in here if you hadn't done that."
 		# Macro
-		// MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
-		// MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
+		MacroFurryManPresent: "{MacroFurryManPresent}Тебе стоит быть осторожнее рядом с {MacroTerraGuardianName}, чтобы он на тебя не наступил."
+		MacroFurryWomanPresent: "{MacroFurryWomanPresent}Тебе стоит быть осторожнее рядом с {MacroTerraGuardianName}, чтобы она на тебя не наступила."
 		# Guardians
-		// Alex: "{TerraGuardianAlexPresent}Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+		Alex: "Держите этого пса {TerraGuardianAlexName} подальше отсюда! В прошлый раз мне пришлось потратить целые часы, чтобы оттереть из комнаты следы его грязных лап!"
 		// Alexander: TODO
-		// Blue: "{TerraGuardianBluePresent}{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
+		Blue: "{TerraGuardianBlueName} спросила, не могла бы я приготовить лосьон для её шерсти. В принципе, могла бы, но для такого крупного существа потребовалось бы гораздо больше ингредиентов."
 		// Brutus: TODO
 		// Ich: TODO
 		// Leona: TODO
 		// Monica: TODO
-		// Rococo: "{TerraGuardianRococoPresent}I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
-		// Scaleforth: "{TerraGuardianScaleforthPresent}I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
+		Rococo: "Очень надеюсь, что {TerraGuardianRococoName} не будет кататься туда-сюда, как другие еноты. Если он во что-нибудь врежется, ущерб будет колоссальным."
+		Scaleforth: "Я рад, что {TerraGuardianScaleforthName} переехал сюда. Он очень полезный помощник — может даже подогреть мои химические стаканы."
 	}
 }
 
 Prototype: {
-	Emotion1: Beep :)
+	Emotion1: Бип :)
 	Emotion2: ... :o
-	Emotion3: Boop :3
-	Emotion4: Vrrrp :D
-	Emotion5: Bzzz :p
-	Emotion6: Whrrr >:D
+	Emotion3: Буп :3
+	Emotion4: Вжжж :D
+	Emotion5: Бззз :p
+	Emotion6: Жжжж >:D
 
 	Injured: {
-		Injured1: Drrrr :S
-		Injured2: Fzzzt :|
-		Injured3: Eeeee ;(
+		Injured1: Дрррр :S
+		Injured2: Фзззт :|
+		Injured3: Иииии ;(
 	}
 
 	NearlyDead: {
-		NearlyDead1: Kzzzt X(
-		NearlyDead2: Aaaaa XO
+		NearlyDead1: Крзззт X(
+		NearlyDead2: Ааааа XO
 		# SOS in morse code
 		NearlyDead3: ... --- ...
 	}
