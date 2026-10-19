@@ -78,10 +78,14 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             var changedNPC = NPC.Changed();
+            if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
+                return 0f;
+
             var spawnTileType = spawnInfo.SpawnTileType;
             var correctTileType = TileID.Sets.IcesSnow[spawnTileType];
+            var correctHeight = spawnInfo.Player.ZoneOverworldHeight;
 
-            var vanillaChance = (correctTileType/*spawnInfo.Player.ZoneSnow*/ && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.3f : 0;
+            var vanillaChance = (correctTileType && correctHeight && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.3f : 0;
             var changedChance = ChangedUtils.GetSnowSpawnChance(spawnInfo, changedNPC);
             return Math.Max(vanillaChance, changedChance);
         }

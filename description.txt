@@ -94,10 +94,12 @@ Config
 - Added option to display retro sprites of blocks and furniture found in the labs
 - Added option to display retro sprites of NPCs
 
-NPCs
+Mods
 - If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
-- If you play with the Terra guardians mod, Puro and Dr K can say things about them.
+- If you play with the Terra Guardians mod, Puro and Dr K can say things about them.
 - All NPCs have a small chance to drop lost books. You can give (not sell) them to Puro for a reward.
+- Dr K can talk about the underground 'TeoChrome' lab when playing with Mod of Redemption
+- Weapons have element types when playing with Mod of Redemption
 
 Items added
 - Boss trophies
@@ -107,6 +109,10 @@ Items added
 - Gooey grabber. Summons the behemoth's hand as a minion.
 - Hairball. Summons a white tail mount, which can dash.	
 
+NPC
+- Maintenance robot now only spawns in hardmode
+- Snow Leopard no longer spawns underground
+
 Resprited
 - Lab door
 - Elevator
@@ -114,11 +120,11 @@ Resprited
 - Crystals
 
 Fixed
+- Some monsters could spawn during events
 - Infected snow biomes had rain instead of snow
 - Infected desert biomes did not use the heat distortion effect
-- Behemoth would not always spawn if the room had the lowest ceiling possible
-- Walls in labs would not always connect between rooms
+- Behemoth could not always spawn if the room had the lowest ceiling possible
+- Labs did not have walls at doors between rooms
 - Fixed broken buff translations in many languages
 - Fixed broken German translations of NPC dialogue
-- German Shepherd could spawn during an eclipse
 - Debug item for resetting boss progression now works again and doesn't just print numbers

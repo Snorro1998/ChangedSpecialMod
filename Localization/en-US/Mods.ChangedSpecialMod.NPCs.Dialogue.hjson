@@ -143,7 +143,7 @@ Puro: {
 		Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
 		Brutus: TODO
 		Ich: TODO
-		Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		Leona: TODO
 		Monica: TODO
 		Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
 		Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
@@ -156,6 +156,16 @@ Puro: {
 		WrongBook2: That's a nice book, but it's not the one that I am looking for.
 		GiveBook1: Thank you for the book, {PlayerRace}.
 		GiveBook2: Such an excellent {PlayerRace} you are! I knew you would find my book!
+	}
+
+	Game: {
+		CookieClicker: "{HasGameCookieClicker}I like Cookie Clicker, but I wish there were an Orange Clicker too."
+		DragnWash: "{HasGameDragnWash}What is this Drag'n Wash game about? Does it revolve around Goku washing the Dragon Balls?"
+		GameFactory: I don't understand {GameNameFactory}. All I am trying to do is to build an orange factory.
+		GameFarming: Look, {PlayerRace}. I made the biggest orange farm in {GameNameFarming}!
+		GameHorror: Would you like to {GameNameHorror} together? I'm too scared to play it alone.
+		GameParty: Do you think we can get enough people together to play {GameNameParty}?
+		Nekojishi: "{HasGameNekojishi}Who is your favorite cat from Nekojishi? Mine is Likulau. He is just so cute."
 	}
 }
 
@@ -240,7 +250,7 @@ DrK: {
 
 	ModRedemption: {
 		Lab1: "{ModRedemption}If you think the Thunder Science laboratories are dangerous places, just wait until you discover TeoChrome's underground research facility."
-		Lab2: "{ModRedemption}Are you saying that everyone at TeoChrome has been infected by the xenomite virus and turned into zombies? That sounds even worse than what happened to us at Thunder Science, because the latex beasts are at least cute."
+		Lab2: "{ModRedemption}{ModRedemptionDownedJanitor}Are you saying that everyone at TeoChrome has been infected by the xenomite virus and turned into zombies? That sounds even worse than what happened to us at Thunder Science, because the latex beasts are at least cute."
 	}
 
 	ModTerraGuardian: {
@@ -256,15 +266,22 @@ DrK: {
 		MacroFurryManPresent: "{MacroFurryManPresent}You should be careful around {MacroTerraGuardianName} so he doesn't step on you."
 		MacroFurryWomanPresent: "{MacroFurryWomanPresent}You should be careful around {MacroTerraGuardianName} so she doesn't step on you."
 		# Guardians
-		Alex: "Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!"
+		Alex: Keep that mutt {TerraGuardianAlexName} away from here! Last time it took me hours to scrub off his muddy pawprints from the room!
 		Alexander: TODO
 		Blue: "{TerraGuardianBlueName} asked me if I could make a lotion for her fur. I mean I could, but I would need a lot more ingredients for someone so large."
 		Brutus: TODO
 		Ich: TODO
 		Leona: TODO
 		Monica: TODO
-		Rococo: "I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something."
-		Scaleforth: "I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers."
+		Rococo: I sure hope that {TerraGuardianRococoName} won't roll around like the other raccoons. The damage would be enormous if he crashed into something.
+		Scaleforth: I'm glad that {TerraGuardianScaleforthName} has moved in. He is a very helpful assistant and he can even heat my beakers.
+	}
+
+	Game: {
+		DragnWash: "{HasGameDragnWash}Oh my, Drag'n Wash... I had no idea you had such a good taste in videogames."
+		GameHorror: Do you think {GameNameHorror} is scary? What about Five Nights at Dr K, then?
+		GameParty: No I don't want to play {GameNameParty} together. What? I am not bad at it, I just don't like it.
+		PawpertyDamage: "{HasGamePawpertyDamage}Pawperty Damage? So you like giant furries crushing things underneath their paws?"
 	}
 }
 

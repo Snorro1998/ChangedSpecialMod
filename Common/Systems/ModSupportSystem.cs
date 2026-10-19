@@ -1,9 +1,5 @@
 ﻿using ChangedSpecialMod.Common.Systems.Mods;
-using ChangedSpecialMod.Content.Items.Summons;
-using ChangedSpecialMod.Content.NPCs;
-using ChangedSpecialMod.Content.NPCs.TownPets;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using ChangedSpecialMod.Common.Systems.ModSupport;
 using ReLogic.OS;
 using System;
 using System.Collections.Generic;
@@ -31,7 +27,7 @@ namespace ChangedSpecialMod.Common.Systems
             this.mod = mod;
         }
 
-        public void AddTileType(string name, bool avoidedByOrangeShrine = false, bool isInfectedSnow = false)
+        public void AddTileType(string name, bool avoidedByWorldGen = false)
         {
             if (tileTypes == null)
                 tileTypes = new Dictionary<string, int>();
@@ -43,10 +39,8 @@ namespace ChangedSpecialMod.Common.Systems
             {
                 var itemType = modTile.Type;
                 tileTypes.Add(name, itemType);
-                if (avoidedByOrangeShrine)
+                if (avoidedByWorldGen)
                     tilesAvoidedByOrangeShrines.Add(itemType);
-                if (isInfectedSnow)
-                    tilesInfectedSnow.Add(itemType);
             }
         }
 
@@ -76,28 +70,16 @@ namespace ChangedSpecialMod.Common.Systems
         public static ChangedSpecialMod changedMod = null;
 
         // Informational
-        public static Mod modBossChecklist = null;
-        public static Mod modMusicDisplay = null;
-        public static Mod modCensus = null;
         public static Mod modWikiThis = null;
-
-        // Shops
-        public static Mod modFargosMutant = null;
         
         // Content mods
-        public static Mod modThorium = null;
-        public static Mod modCalamity = null;
-        public static Mod modSpirit = null;
         public static Mod modSpiritReforged = null;
-        public static Mod modCoralite = null;
-        public static Mod modRedemption = null;
 
         // Race
         public static Mod modMrPlagueRaces = null;
 
         // Other
         public static Mod modBoulderBackport = null;
-        public static Mod modStarsModPack = null;
         // Don't need to do anything for Biome Titles
         public static Mod modTerraGuardians = null;
 
@@ -105,44 +87,71 @@ namespace ChangedSpecialMod.Common.Systems
         private static int indexTitleMessageMin = 1;
         private static int indexTitleMessageMax = 5;
 
-        public static List<ExternalModData> externalModsData;
+        public static List<ModSupportData> externalMods;
 
         public override void Load()
         {
             changedMod = ChangedSpecialMod.Instance;
+            externalMods = new List<ModSupportData>();
 
             // Informational
-            modBossChecklist = GetMod("BossChecklist");
-            modMusicDisplay = GetMod("MusicDisplay");
-            modCensus = GetMod("Census");
+            AddExternalModSupport("BossChecklist", (mod, name) => new ModSupportBossChecklist(mod, name));
+            AddExternalModSupport("MusicDisplay", (mod, name) => new ModSupportMusicDisplay(mod, name));
+            AddExternalModSupport("Census", (mod, name) => new ModSupportCensus(mod, name));
             modWikiThis = GetMod("Wikithis");
 
             // Shops
-            modFargosMutant = GetMod("Fargowiltas");
+            AddExternalModSupport("Fargowiltas", (mod, name) => new ModSupportFargosMutant(mod, name));
 
             // Content mods
-            modThorium = GetMod("ThoriumMod");
-            modCalamity = GetMod("CalamityMod");
-            modSpirit = GetMod("SpiritMod");
+            AddExternalModSupport("CalamityMod", (mod, name) => new ModSupportCalamity(mod, name));
+            AddExternalModSupport("Coralite", (mod, name) => new ModSupportCoralite(mod, name));
+            AddExternalModSupport("Redemption", (mod, name) => new ModSupportRedemption(mod, name));
+            AddExternalModSupport("SpiritMod", (mod, name) => new ModSupportSpirit(mod, name));
             modSpiritReforged = GetMod("SpiritReforged");
-            modCoralite = GetMod("Coralite");
-            modRedemption = GetMod("Redemption");
+            AddExternalModSupport("StarsModPack", (mod, name) => new ModSupportStarsModPack(mod, name));
+            AddExternalModSupport("ThoriumMod", (mod, name) => new ModSupportThorium(mod, name));
 
             // Race
             modMrPlagueRaces = GetMod("MrPlagueRaces");
 
             // Other
             modBoulderBackport = GetMod("BoulderBackport");
-            modStarsModPack = GetMod("StarsModPack");
             modTerraGuardians = GetMod("terraguardians");
 
-            externalModsData = new List<ExternalModData>();
+            //GameSupportSystem.LoadGames();
+
+            foreach (var mod in externalMods)
+            {
+                try
+                {
+                    mod.Init();
+                }
+                catch (Exception ex)
+                {
+                    var modName = mod.modName == null ? "Unknown mod" : mod.modName;
+                    Mod.Logger.Error($"{modName} Init Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void AddExternalModSupport<T>(string modName, Func<Mod, string, T> createSupport) where T : ModSupportData
+        {
+            var mod = GetMod(modName);
+
+            if (mod != null)
+                externalMods.Add(createSupport(mod, modName));
         }
 
         private static Mod GetMod(string name)
         {
             ModLoader.TryGetMod(name, out Mod mod);
-            return mod;
+                return mod;
+        }
+
+        public static bool IsModActive(string name)
+        {
+            return ModLoader.TryGetMod(name, out Mod result);
         }
 
         public override void Unload()
@@ -150,31 +159,19 @@ namespace ChangedSpecialMod.Common.Systems
             changedMod = null;
 
             // Informational
-            modBossChecklist = null;
-            modMusicDisplay = null;
-            modCensus = null;
             modWikiThis = null;
 
-            // Shops
-            modFargosMutant = null;
-
             // Content mods
-            modThorium = null;
-            modCalamity = null;
-            modSpirit = null;
             modSpiritReforged = null;
-            modCoralite = null;
-            modRedemption = null;
 
             // Race
             modMrPlagueRaces = null;
 
             // Other
             modBoulderBackport = null;
-            modStarsModPack = null;
             modTerraGuardians = null;
 
-            externalModsData = null;
+            externalMods = null;
 
             if (Platform.Current.Type == PlatformType.Windows)
                 RemoveExtraTitles();
@@ -182,13 +179,20 @@ namespace ChangedSpecialMod.Common.Systems
 
         public override void PostSetupContent()
         {
-            SetupBossChecklist();
-            SetupFargosMutant();
-            MusicDisplaySystem.Setup(changedMod, modMusicDisplay);
-            SetupCensus();
-            WikithisSystem.Setup(changedMod, modWikiThis);
+            foreach (var mod in externalMods)
+            {
+                try
+                {
+                    mod.PostSetupContent(Mod.Logger);
+                }
+                catch(Exception ex)
+                {
+                    var modName = mod.modName == null ? "Unknown mod" : mod.modName;
+                    Mod.Logger.Error($"{modName} PostSetupContent Error: " + ex.Message);
+                }
+            }
 
-            SetupExternalModData();
+            WikithisSystem.Setup(changedMod, modWikiThis);
 
             // This might fix a startup crash on MacOS, but I can't confirm this
             if (Platform.Current.Type == PlatformType.Windows)
@@ -198,128 +202,17 @@ namespace ChangedSpecialMod.Common.Systems
             }
         }
 
-        private static void SetupExternalModData()
-        {
-            if (modCalamity != null)
-            {
-                var externalModData = new ExternalModData(modCalamity);
-
-                // Draedon Lab
-                externalModData.AddTileType("LaboratoryPlating", true);
-
-                // Sunken sea
-                externalModData.AddTileType("EutrophicSand", true);
-                externalModData.AddTileType("Navystone", true);
-
-                // Sulphuric sea
-                externalModData.AddTileType("SulphurousSand", true);
-                externalModData.AddTileType("SulphurousSandstone", true);
-                externalModData.AddTileType("SulphurousShale", true);
-                externalModData.AddTileType("HardenedSulphurousSandstone", true);
-
-                // Abyss
-                externalModData.AddTileType("AbyssGravel", true);
-                externalModData.AddTileType("PyreMantle", true);
-                externalModData.AddTileType("Voidstone", true);
-
-                // Town NPCs
-                externalModData.AddTownNPC("DILF", "CalamityArchmage");
-                externalModData.AddTownNPC("THIEF", "CalamityBandit");
-                externalModData.AddTownNPC("SEAHOE", "CalamitySeaKing");
-                externalModData.AddTownNPC("WITCH", "CalamityBrimstoneWitch");
-
-                externalModsData.Add(externalModData);
-            }
-
-            if (modCoralite != null)
-            {
-                var externalModData = new ExternalModData(modCoralite);
-
-                // Crystal cave
-                externalModData.AddTileType("BasaltTile", true);
-                externalModData.AddTileType("CrystalBasaltTile", true);
-                externalModData.AddTileType("HardBasaltTile", true);
-                externalModData.AddTileType("MagicCrystalBrickTile", true);
-
-                // Town NPCs
-                externalModData.AddTownNPC("CrystalRobot", "CoraliteCrystalRobot");
-                externalModData.AddTownNPC("ElfRanger", "CoraliteElfRanger");
-
-                externalModsData.Add(externalModData);
-            }
-
-            if (modThorium != null)
-            {
-                var externalModData = new ExternalModData(modThorium);
-
-                // Town NPCs
-                externalModData.AddTownNPC("Blacksmith", "ThoriumBlacksmith");
-                externalModData.AddTownNPC("Cobbler", "ThoriumCobbler");
-                externalModData.AddTownNPC("ConfusedZombie", "ThoriumConfusedZombie");
-                externalModData.AddTownNPC("Cook", "ThoriumCook");
-                externalModData.AddTownNPC("DesertAcolyte", "ThoriumDesertAcolyte");
-                externalModData.AddTownNPC("Diverman", "ThoriumDiverman");
-                externalModData.AddTownNPC("Druid", "ThoriumDruid");
-                externalModData.AddTownNPC("Spiritualist", "ThoriumSpiritualist");
-                externalModData.AddTownNPC("Tracker", "ThoriumTracker");
-                externalModData.AddTownNPC("WeaponMaster", "ThoriumWeaponMaster");
-
-                externalModsData.Add(externalModData);
-            }
-
-            if (modRedemption != null)
-            {
-                var externalModData = new ExternalModData(modRedemption);
-                
-                // Tiles
-                externalModData.AddTileType("IrradiatedSnowTile", false, true);
-
-                // Town NPCs
-                externalModData.AddTownNPC("TBot", "RedemptionTBot");
-
-                externalModsData.Add(externalModData);
-            }
-
-            if (modStarsModPack != null)
-            {
-                var externalModData = new ExternalModData(modStarsModPack);
-
-                // Town NPCs
-                externalModData.AddTownNPC("Farmer", "StarsModPackFarmer");
-                externalModData.AddTownNPC("Jellybean", "StarsModPackJellybean");
-                externalModData.AddTownNPC("Scarfy", "StarsModPackScarfy");
-                externalModData.AddTownNPC("ScrapyardGeek", "StarsModPackScrapyardGeek");
-                externalModData.AddTownNPC("SubzeroSpecialist", "StarsModPackSubzeroSpecialist");
-
-                externalModsData.Add(externalModData);
-            }
-        }
-
         public static List<int> GetAvoidTiles()
         {
             var list = new List<int>();
 
-            if (externalModsData != null)
+            if (externalMods != null)
             {
-                foreach (var externalModData in  externalModsData)
-                    list.AddRange(externalModData.tilesAvoidedByOrangeShrines);
+                foreach (var mod in externalMods)
+                    list.AddRange(mod.tilesAvoidedByWorldGen);
             }
 
             return list;
-        }
-
-        public static bool CheckIfShouldAvoidTile(int tileType)
-        {
-            if (externalModsData == null)
-                return false;
-
-            foreach (var externalModData in externalModsData)
-            {
-                if (externalModData.ShouldAvoidTileType(tileType))
-                    return true;
-            }
-
-            return false;
         }
 
         private void TryUpdateTitle()
@@ -347,167 +240,6 @@ namespace ChangedSpecialMod.Common.Systems
                 if (gameTitleKeys.Contains($"Changed{i.ToString()}"))
                     gameTitleKeys.Remove($"Changed{i.ToString()}");
             }
-        }
-
-        private void SetupCensus()
-        {
-            if (changedMod == null || modCensus == null)
-                return;
-
-            try
-            {
-                modCensus.Call("TownNPCCondition", ModContent.NPCType<Puro>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Puro.Census.SpawnCondition"));
-                modCensus.Call("TownNPCCondition", ModContent.NPCType<Prototype>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Prototype.Census.SpawnCondition"));
-                modCensus.Call("TownNPCCondition", ModContent.NPCType<Scientist>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Scientist.Census.SpawnCondition"));
-                modCensus.Call("TownNPCCondition", ModContent.NPCType<Colin>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.Colin.Census.SpawnCondition"));
-                modCensus.Call("TownNPCCondition", ModContent.NPCType<DarkLatexCubTownPet>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.DarkLatexCubTownPet.Census.SpawnCondition"));
-                modCensus.Call("TownNPCCondition", ModContent.NPCType<WhiteLatexCubTownPet>(), Language.GetText("Mods.ChangedSpecialMod.NPCs.WhiteLatexCubTownPet.Census.SpawnCondition"));
-            }
-            catch(Exception ex)
-            {
-                Mod.Logger.Error("Census Call Error: " + ex.Message);
-            }
-        }
-
-        private void SetupFargosMutant()
-        {
-            if (modFargosMutant is null)
-                return;
-
-            void AddToMutantShop(string bossName, string summonItemName, Func<bool> downed, int price)
-            {
-                BossChecklistProgressionValues.TryGetValue(bossName, out float order);
-                modFargosMutant.Call("AddSummon", order, "ChangedSpecialMod", summonItemName, downed, price);
-            }
-
-            AddToMutantShop("WhiteTail", "SummonWhiteTail", () => DownedBossSystem.DownedWhiteTail, Item.buyPrice(gold: 2));
-            AddToMutantShop("WolfKing", "SummonWolfKing", () => DownedBossSystem.DownedWolfKing, Item.buyPrice(gold: 2));
-            AddToMutantShop("Behemoth", "SummonBehemoth", () => DownedBossSystem.DownedBehemoth, Item.buyPrice(gold: 2));
-        }
-
-        /*
-        1.0 = King Slime
-        2.0 = Eye of Cthulhu
-        3.0 = Eater of Worlds  Brain of Cthulhu
-        4.0 = Queen Bee
-        5.0 = Skeletron
-        6.0 = Deerclops
-        7.0 = Wall of Flesh
-        8.0 = Queen Slime
-        9.0 = The Twins
-        10.0 = The Destroyer
-        11.0 = Skeletron Prime
-        12.0 = Plantera
-        13.0 = Golem
-        14.0 = Duke Fishron
-        15.0 = Empress of Light
-        16.0 = Betsy
-        17.0 = Lunatic Cultist
-        18.0 = Moon Lord
-         */
-
-        private static readonly Dictionary<string, float> BossChecklistProgressionValues = new()
-        {
-            { "WhiteTail", 1.5f },
-            { "WolfKing", 2.5f },
-            { "Behemoth", 5.5f }
-            //{ "Shark", ??? },
-            //{ "SquidDog", ??? },
-        };
-
-        public static LocalizedText GetText(string key)
-        {
-            return Language.GetOrRegister("Mods.ChangedSpecialMod." + key);
-        }
-
-        private static LocalizedText GetSpawnInfo(string entryName)
-        {
-            return GetText($"BossChecklistIntegration.{entryName}.SpawnInfo");
-        } 
-
-        private static LocalizedText GetDespawnMessage(string entryName)
-        {
-            return GetText($"BossChecklistIntegration.{entryName}.DespawnMessage");
-        }
-
-        public static void SetupBossChecklist()
-        {
-            if (changedMod == null || modBossChecklist == null)
-                return;
-
-            // White Tail
-            {
-                string entryName = "WhiteTail";
-                BossChecklistProgressionValues.TryGetValue(entryName, out float order);
-                int type = ModContent.NPCType<WhiteTail>();
-                List<int> collection = new List<int>();
-                Action<SpriteBatch, Rectangle, Color> portrait = (SpriteBatch sb, Rectangle rect, Color color) =>
-                {
-                    Texture2D texture = changedMod.Assets.Request<Texture2D>("Content/NPCs/WhiteTail_Portrait").Value;
-                    Vector2 centered = new Vector2(rect.Center.X - (texture.Width / 2), rect.Center.Y - (texture.Height / 2));
-                    sb.Draw(texture, centered, color);
-                };
-                AddBoss(changedMod, entryName, order, () => DownedBossSystem.DownedWhiteTail, type, new Dictionary<string, object>()
-                {
-                    ["spawnInfo"] = GetSpawnInfo(entryName),
-                    ["despawnMessage"] = GetDespawnMessage(entryName),
-                    ["spawnItems"] = ModContent.ItemType<SummonWhiteTail>(),
-                    ["collectibles"] = collection,
-                    ["overrideHeadTextures"] = "ChangedSpecialMod/Content/NPCs/WhiteTail_Head_Boss",
-                    ["customPortrait"] = portrait
-                });
-            }
-
-            // Wolf King
-            {
-                string entryName = "WolfKing";
-                BossChecklistProgressionValues.TryGetValue(entryName, out float order);
-                int type = ModContent.NPCType<WolfKing>();
-                List<int> collection = new List<int>();
-                Action<SpriteBatch, Rectangle, Color> portrait = (SpriteBatch sb, Rectangle rect, Color color) =>
-                {
-                    Texture2D texture = changedMod.Assets.Request<Texture2D>("Content/NPCs/WolfKing_Portrait").Value;
-                    Vector2 centered = new Vector2(rect.Center.X - (texture.Width / 2), rect.Center.Y - (texture.Height / 2));
-                    sb.Draw(texture, centered, color);
-                };
-                AddBoss(changedMod, entryName, order, () => DownedBossSystem.DownedWolfKing, type, new Dictionary<string, object>()
-                {
-                    ["spawnInfo"] = GetSpawnInfo(entryName),
-                    ["despawnMessage"] = GetDespawnMessage(entryName),
-                    ["spawnItems"] = ModContent.ItemType<SummonWolfKing>(),
-                    ["collectibles"] = collection,
-                    ["overrideHeadTextures"] = "ChangedSpecialMod/Content/NPCs/WolfKing_Head_Boss",
-                    ["customPortrait"] = portrait
-                });
-            }
-
-            // Behemoth
-            {
-                string entryName = "Behemoth";
-                BossChecklistProgressionValues.TryGetValue(entryName, out float order);
-                int type = ModContent.NPCType<Behemoth>();
-                List<int> collection = new List<int>();
-                Action<SpriteBatch, Rectangle, Color> portrait = (SpriteBatch sb, Rectangle rect, Color color) =>
-                {
-                    Texture2D texture = changedMod.Assets.Request<Texture2D>("Content/NPCs/Behemoth_Portrait").Value;
-                    Vector2 centered = new Vector2(rect.Center.X - (texture.Width / 2), rect.Center.Y - (texture.Height / 2));
-                    sb.Draw(texture, centered, color);
-                };
-                AddBoss(changedMod, entryName, order, () => DownedBossSystem.DownedBehemoth, type, new Dictionary<string, object>()
-                {
-                    ["spawnInfo"] = GetSpawnInfo(entryName),
-                    ["despawnMessage"] = GetDespawnMessage(entryName),
-                    ["spawnItems"] = ModContent.ItemType<SummonBehemoth>(),
-                    ["collectibles"] = collection,
-                    ["overrideHeadTextures"] = "ChangedSpecialMod/Content/NPCs/Behemoth_Head_Boss",
-                    ["customPortrait"] = portrait
-                });
-            }
-        }
-
-        public static void AddBoss(Mod hostMod, string name, float difficulty, Func<bool> downed, object npcTypes, Dictionary<string, object> extraInfo)
-        {
-            modBossChecklist.Call("LogBoss", hostMod, name, difficulty, downed, npcTypes, extraInfo);
         }
     }
 }

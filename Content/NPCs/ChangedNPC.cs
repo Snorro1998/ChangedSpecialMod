@@ -9,8 +9,6 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -657,7 +655,8 @@ namespace ChangedSpecialMod.Content.NPCs
                 { ModContent.NPCType<Scientist>(), "Scientist" },
             };
 
-            foreach (var externalMod in ModSupportSystem.externalModsData)
+            // New
+            foreach (var externalMod in ModSupportSystem.externalMods)
             {
                 if (externalMod.townNPCIds == null)
                     continue;
@@ -851,275 +850,388 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public Dictionary<string, string> GetChatKeyWords()
         {
-            var keyWords = new Dictionary<string, string>() { };
-            var npcIdentifiers = GetNPCIdentifiers();
-
-            // It is a bit silly to call this with the condition to true, but
-            // there was once a bug that the chatbox would not appear, because
-            // it tried to insert a duplicate key, making it crash
-            void AddIf(bool condition, string key, string value = "")
+            try
             {
-                if (condition && !keyWords.ContainsKey(key))
-                    keyWords.Add(key, value);
-            }
+                var keyWords = new Dictionary<string, string>() { };
+                var npcIdentifiers = GetNPCIdentifiers();
 
-            //AddIf(ChangedSpecialModClientConfig.Instance.FilterProfanity, "Safe", string.Empty);
-            //AddIf(!ChangedSpecialModClientConfig.Instance.FilterProfanity, "Unsafe", string.Empty);
-
-            // Check which NPCs on the list are present and add keywords for them
-            var npcIDs = npcIdentifiers.Keys.ToList();
-            foreach (var npcID in npcIDs)
-            {
-                var npcIndex = NPC.FindFirstNPC(npcID);
-                if (npcIndex != -1)
+                // It is a bit silly to call this with the condition to true, but
+                // there was once a bug that the chatbox would not appear, because
+                // it tried to insert a duplicate key, making it crash
+                // That was a serious bug and I don't want it to happen again
+                void AddIf(bool condition, string key, string value = "")
                 {
-                    var npcIdentifier = npcIdentifiers[npcID];
-                    var tmpNPC = Main.npc[npcIndex];
-                    AddIf(true, $"Name{npcIdentifier}", tmpNPC.GivenName);
-                    AddIf(true, $"{npcIdentifier}Present", string.Empty);
+                    if (condition && !keyWords.ContainsKey(key))
+                        keyWords.Add(key, value);
                 }
-            }
 
-            // Dr K can talk about the underground lab (TeoChrome)
-            if (ModSupportSystem.modRedemption != null)
-            {
-                AddIf(true, "ModRedemption", string.Empty);
-            }
-
-            // If playing with TerraGuardian, get the names of all companions in the world.
-            if (ModSupportSystem.modTerraGuardians != null)
-            {
-                var companions = GetTerraGuardianCompanions();
-                var companionNamesInParty = GetCompanionNamesInPlayerParty();
-                var companionsInParty = companions.Where(x => companionNamesInParty.Contains(x.name));
-                var companionsNotInParty = companions.Where(x => !companionNamesInParty.Contains(x.name));
-
-                if (companionsInParty.Count() > 0)
+                // Check which NPCs on the list are present and add keywords for them
+                var npcIDs = npcIdentifiers.Keys.ToList();
+                foreach (var npcID in npcIDs)
                 {
-                    AddIf(true, $"PlayerHasTerraGuardian", string.Empty);
-                    var nCompanionsInParty = companionsInParty.Count();
-                    var furries = companionsInParty.Where(x => x.IsFurry());
-                    var nFurries = furries.Count();
-                    
-                    var bigFurries = furries.Where(x => x.IsNormalSized());
-                    var bigFurryMen = bigFurries.Where(x => x.male);
-                    var bigFurryWomen = bigFurries.Where(x => !x.male);
-
-                    var nBigFurries = bigFurries.Count();
-                    var nBigFurryMen = bigFurryMen.Count();
-                    var nBigFurryWomen = bigFurryWomen.Count();
-
-                    var smallFurries = furries.Where(x => x.IsSmall());
-                    var smallFurryMen = smallFurries.Where(x => x.male);
-                    var smallFurryWomen = smallFurries.Where(x => !x.male);
-
-                    var nSmallFurries = smallFurries.Count();
-                    var nSmallFurryMen = smallFurryMen.Count();
-                    var nSmallFurryWomen = smallFurryWomen.Count();
-
-                    // You like furries, dont you?
-                    if (nFurries > 2)
+                    var npcIndex = NPC.FindFirstNPC(npcID);
+                    if (npcIndex != -1)
                     {
-                        // Big furries
-                        if (nBigFurries >= nSmallFurries)
+                        var npcIdentifier = npcIdentifiers[npcID];
+                        var tmpNPC = Main.npc[npcIndex];
+                        AddIf(true, $"Name{npcIdentifier}", tmpNPC.GivenName);
+                        AddIf(true, $"{npcIdentifier}Present", string.Empty);
+                    }
+                }
+
+                // Get vanilla and mod bosses slain
+                var bossProgressionLists = BossProgressionSystem.bossProgressionLists;
+                if (bossProgressionLists != null && bossProgressionLists.Count > 0)
+                {
+                    // Old. It only has Vanilla and Changed bosses now
+                    foreach (var bossList in BossProgressionSystem.bossProgressionLists)
+                    {
+                        var prefix = bossList.modName != null && bossList.modName != "Terraria" ? $"Mod{bossList.modName}" : string.Empty;
+                        var bosses = bossList.bosses;
+                        if (bosses != null && bosses.Count > 0)
                         {
-                            if (nBigFurryMen >= 2 * nBigFurryWomen && nBigFurryMen > 2)
-                                AddIf(true, "PlayerPartyBigFurryMen", string.Empty);
-                            else if (nBigFurryWomen >= 2 * nBigFurryMen && nBigFurryWomen > 2)
-                                AddIf(true, "PlayerPartyBigFurryWomen", string.Empty);
+                            var bossesDowned = bosses.Where(x => x.downed).ToList();
+                            foreach (var boss in bossesDowned)
+                            {
+                                if (!string.IsNullOrEmpty(boss.bossName))
+                                    AddIf(true, $"{prefix}Downed{boss.bossName}");
+                            }
+                            var bossesNotDowned = bosses.Where(x => !x.downed).ToList();
+                        }
+                    }
+                }
+
+                var externalMods = ModSupportSystem.externalMods;
+                if (externalMods != null && externalMods.Count > 0)
+                {
+                    foreach (var mod in ModSupportSystem.externalMods)
+                    {
+                        if (mod == null)
+                            continue;
+
+                        var bossList = mod.bossProgressionList;
+                        if (bossList == null)
+                            continue;
+
+                        var prefix = bossList.modName != null && bossList.modName != "Terraria" ? $"Mod{bossList.modName}" : string.Empty;
+                        var bosses = bossList.bosses;
+                        if (bosses != null && bosses.Count > 0)
+                        {
+                            var bossesDowned = bosses.Where(x => x.downed).ToList();
+                            foreach (var boss in bossesDowned)
+                            {
+                                if (!string.IsNullOrEmpty(boss.bossName))
+                                    AddIf(true, $"{prefix}Downed{boss.bossName}");
+                            }
+                            var bossesNotDowned = bosses.Where(x => !x.downed).ToList();
+                        }
+                    }
+                }
+
+
+                if (GameSupportSystem.games != null && GameSupportSystem.games.Count > 0)
+                {
+                    var gamesFactory = new List<string>();
+                    var gamesFarming = new List<string>();
+                    var gamesHorror = new List<string>();
+                    var gamesParty = new List<string>();
+
+                    var namesFactory = new List<string>()
+                {
+                    "Factorio",
+                    "Satisfactory"
+                };
+
+                    var namesFarming = new List<string>()
+                {
+                    "Farming Simulator",
+                    "Fields of Mistria",
+                    "Stardew Valley"
+                };
+
+                    var namesHorror = new List<string>()
+                {
+                    "Slender Man",
+                    "Five Nights at Freddy's",
+                    "Hello Neighbor",
+                    "Poppy Playtime",
+                    "Garten of Banban"
+                };
+
+                    var namesParty = new List<string>()
+                {
+                    "Jackbox",
+                    "Among Us"
+                };
+
+                    foreach (var game in GameSupportSystem.games)
+                    {
+                        if (namesFactory.Contains(game))
+                            gamesFactory.Add(game);
+                        else if (namesFarming.Contains(game))
+                            gamesFarming.Add(game);
+                        else if (namesHorror.Contains(game))
+                            gamesHorror.Add(game);
+                        else if (namesParty.Contains(game))
+                            gamesParty.Add(game);
+
+                        // Remove spaces and other characters from the name
+                        var gameName = Regex.Replace(game, @"[^a-zA-Z0-9]", "");
+                        AddIf(true, $"HasGame{gameName}");
+                    }
+
+                    if (gamesFactory.Count > 0)
+                        AddIf(true, $"GameNameFactory", Utils.SelectRandom(Main.rand, gamesFactory.Distinct().ToArray()));
+                    if (gamesFarming.Count > 0)
+                        AddIf(true, $"GameNameFarming", Utils.SelectRandom(Main.rand, gamesFarming.Distinct().ToArray()));
+                    if (gamesHorror.Count > 0)
+                        AddIf(true, $"GameNameHorror", Utils.SelectRandom(Main.rand, gamesFarming.Distinct().ToArray()));
+                    if (gamesParty.Count > 0)
+                        AddIf(true, $"GameNameParty", Utils.SelectRandom(Main.rand, gamesParty.Distinct().ToArray()));
+                }
+
+                // Dr K can talk about the underground lab (TeoChrome)
+                if (ModSupportSystem.IsModActive("Redemption"))
+                    AddIf(true, "ModRedemption", string.Empty);
+
+                // If playing with TerraGuardian, get the names of all companions in the world.
+                if (ModSupportSystem.modTerraGuardians != null)
+                {
+                    AddIf(true, "ModTG", string.Empty);
+                    var companions = GetTerraGuardianCompanions();
+                    var companionNamesInParty = GetCompanionNamesInPlayerParty();
+                    var companionsInParty = companions.Where(x => companionNamesInParty.Contains(x.name));
+                    var companionsNotInParty = companions.Where(x => !companionNamesInParty.Contains(x.name));
+
+                    if (companionsInParty.Count() > 0)
+                    {
+                        AddIf(true, $"PlayerHasTerraGuardian", string.Empty);
+                        var nCompanionsInParty = companionsInParty.Count();
+                        var furries = companionsInParty.Where(x => x.IsFurry());
+                        var nFurries = furries.Count();
+
+                        var bigFurries = furries.Where(x => x.IsNormalSized());
+                        var bigFurryMen = bigFurries.Where(x => x.male);
+                        var bigFurryWomen = bigFurries.Where(x => !x.male);
+
+                        var nBigFurries = bigFurries.Count();
+                        var nBigFurryMen = bigFurryMen.Count();
+                        var nBigFurryWomen = bigFurryWomen.Count();
+
+                        var smallFurries = furries.Where(x => x.IsSmall());
+                        var smallFurryMen = smallFurries.Where(x => x.male);
+                        var smallFurryWomen = smallFurries.Where(x => !x.male);
+
+                        var nSmallFurries = smallFurries.Count();
+                        var nSmallFurryMen = smallFurryMen.Count();
+                        var nSmallFurryWomen = smallFurryWomen.Count();
+
+                        // Dr K can tease you by saying: You like (big) furries, dont you?
+                        if (nFurries > 2)
+                        {
+                            // Big furries
+                            if (nBigFurries >= nSmallFurries)
+                            {
+                                if (nBigFurryMen >= 2 * nBigFurryWomen && nBigFurryMen > 2)
+                                    AddIf(true, "PlayerPartyBigFurryMen", string.Empty);
+                                else if (nBigFurryWomen >= 2 * nBigFurryMen && nBigFurryWomen > 2)
+                                    AddIf(true, "PlayerPartyBigFurryWomen", string.Empty);
+                                else
+                                    AddIf(true, "PlayerPartyBigFurries", string.Empty);
+                            }
+                            // Small furries
                             else
-                                AddIf(true, "PlayerPartyBigFurries", string.Empty);
+                            {
+                                if (nSmallFurryMen >= 2 * nSmallFurryWomen && nSmallFurryMen > 2)
+                                    AddIf(true, "PlayerPartySmallFurryMen", string.Empty);
+                                else if (nSmallFurryWomen >= 2 * nSmallFurryMen && nSmallFurryWomen > 2)
+                                    AddIf(true, "PlayerPartySmallFurryWomen", string.Empty);
+                                else
+                                    AddIf(true, "PlayerPartySmallFurries", string.Empty);
+
+                                if (nSmallFurries == nFurries)
+                                    AddIf(true, "PlayerPartyAllShrunkenFurries", string.Empty);
+                            }
                         }
-                        // Small furries
-                        else
+                    }
+
+                    if (companions.Count > 0)
+                    {
+                        foreach (var companion in companions)
                         {
-                            if (nSmallFurryMen >= 2 * nSmallFurryWomen && nSmallFurryMen > 2)
-                                AddIf(true, "PlayerPartySmallFurryMen", string.Empty);
-                            else if (nSmallFurryWomen >= 2 * nSmallFurryMen && nSmallFurryWomen > 2)
-                                AddIf(true, "PlayerPartySmallFurryWomen", string.Empty);
-                            else
-                                AddIf(true, "PlayerPartySmallFurries", string.Empty);
+                            var companionName = companion.name;
+                            var companionNickName = companion.nickname;
 
-                            if (nSmallFurries == nFurries)
-                                AddIf(true, "PlayerPartyAllShrunkenFurries", string.Empty);
+                            if (companion.IsFurry())
+                            {
+                                var macroFurryMan = companion.IsMacro() && companion.male;
+                                var macroFurryWoman = companion.IsMacro() && !companion.male;
+
+                                AddIf(macroFurryMan, "MacroFurryManPresent", string.Empty);
+                                AddIf(macroFurryWoman, "MacroFurryWomanPresent", string.Empty);
+                                AddIf(macroFurryMan || macroFurryWoman, "MacroTerraGuardianName", companionNickName);
+                            }
+
+                            AddIf(true, $"TerraGuardian{companionName}Present", string.Empty);
+                            AddIf(true, $"TerraGuardian{companionName}Name", companionNickName);
                         }
                     }
                 }
 
-                if (companions.Count > 0)
-                {
-                    foreach (var companion in companions)
-                    {
-                        var companionName = companion.name;
-                        var companionNickName = companion.nickname;
+                // Bosses slain
+                if (DownedBossSystem.DownedBehemoth)
+                    AddIf(true, "Behemoth", string.Empty);
 
-                        if (companion.IsFurry())
+                var player = Main.LocalPlayer;
+                if (player != null)
+                {
+                    // Check if playing with any race from MrPlagues mod, or a race mod dependant from it.
+                    // If so, call the player by the race name, instead of 'human'
+                    var raceName = GetMrPlaguesRaceDisplayName(player);
+                    if (raceName == null)
+                        raceName = Language.GetTextValue("Mods.ChangedSpecialMod.Races.Other.Human");
+                    AddIf(true, "PlayerRace", raceName);
+
+                    var changedPlayer = player.ChangedPlayer();
+                    AddIf(true, "NamePlayer", player.name);
+
+                    var hasNormalBook = player.HasItem(ItemID.Book);
+                    var hasBookOfSkulls = player.HasItem(ItemID.BookofSkulls);
+                    var hasWaterBolt = player.HasItem(ItemID.WaterBolt);
+                    var hasDemonScythe = player.HasItem(ItemID.DemonScythe);
+
+                    var hasCrystalStorm = player.HasItem(ItemID.CrystalStorm);
+                    var hasCursedFlames = player.HasItem(ItemID.CursedFlames);
+                    var hasGoldenShower = player.HasItem(ItemID.GoldenShower);
+                    var hasRazorblade = player.HasItem(ItemID.RazorbladeTyphoon);
+                    var hasMagnetSphere = player.HasItem(ItemID.MagnetSphere);
+                    var hasLunarFlare = player.HasItem(ItemID.LunarFlareBook);
+
+                    var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
+                        hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
+
+                    var orangeItem = player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<Orange>());
+                    if (orangeItem != null)
+                    {
+                        AddIf(true, "PlayerHasOrange", string.Empty);
+                        if (orangeItem.stack >= 20)
+                            AddIf(true, "PlayerHasManyOranges", string.Empty);
+                    }
+
+                    AddIf(hasAnyBook, "PlayerHasBook");
+                    AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");
+                    AddIf(hasWaterBolt, "PlayerHasWaterBolt");
+                    AddIf(hasGoldenShower, "PlayerHasGoldenShower");
+
+                    var wearingPartyHat = player.armor.Any(item => item.type == ItemID.PartyHat);
+                    if (!wearingPartyHat)
+                        AddIf(true, "PlayerHasNoPartyHat", string.Empty);
+                    if (ChangedUtils.PlayerIsWearingBalloon(player))
+                        AddIf(true, "PlayerIsWearingBalloon", string.Empty);
+                    if (ChangedUtils.PlayerIsWearingWeddingDress(player))
+                        AddIf(true, "PlayerIsWearingWeddingDress", string.Empty);
+
+                    AddIf(NPC.boughtDog, "HasDogLicense");
+
+                    // Transfur
+                    var playerTransfur = changedPlayer.TransfurTypeCurrent;
+
+                    if (playerTransfur != null)
+                    {
+                        var transfurBlackGoop = playerTransfur.npcType == ModContent.NPCType<BlackGoop>();
+                        var transfurWhiteGoop = playerTransfur.npcType == ModContent.NPCType<WhiteGoop>();
+                        var transfurBlackCub = playerTransfur.npcType == ModContent.NPCType<DarkLatexCub>();
+                        var transfurWhiteCub = playerTransfur.npcType == ModContent.NPCType<WhiteLatexCub>();
+
+                        if (transfurBlackGoop)
                         {
-                            var macroFurryMan = companion.IsMacro() && companion.male;
-                            var macroFurryWoman = companion.IsMacro() && !companion.male;
-
-                            AddIf(macroFurryMan, "MacroFurryManPresent", string.Empty);
-                            AddIf(macroFurryWoman, "MacroFurryWomanPresent", string.Empty);
-                            AddIf(macroFurryMan || macroFurryWoman, "MacroTerraGuardianName", companionNickName);
+                            AddIf(true, "TransfurGoop", string.Empty);
+                            AddIf(true, "TransfurBlackGoop", string.Empty);
                         }
+                        else if (transfurWhiteGoop)
+                        {
+                            AddIf(true, "TransfurGoop", string.Empty);
+                            AddIf(true, "TransfurWhiteGoop", string.Empty);
+                        }
+                        else if (transfurBlackCub)
+                        {
+                            AddIf(true, "TransfurCub", string.Empty);
+                            AddIf(true, "TransfurBlackCub", string.Empty);
+                        }
+                        else if (transfurWhiteCub)
+                        {
+                            AddIf(true, "TransfurCub", string.Empty);
+                            AddIf(true, "TransfurWhiteCub", string.Empty);
+                        }
+                    }
 
-                        AddIf(true, $"TerraGuardian{companionName}Present", string.Empty);
-                        AddIf(true, $"TerraGuardian{companionName}Name", companionNickName);
+                    // Iterate projectile list
+                    foreach (var projectile in Main.ActiveProjectiles)
+                    {
+                        if (projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>() && projectile.owner == Main.myPlayer)
+                        {
+                            AddIf(true, "PlayerHasPurrpurr", string.Empty);
+                            break;
+                        }
                     }
                 }
+
+                // World evil
+                var hasCrimson = WorldGen.tBlood > 0;
+                var hasCorruption = WorldGen.tEvil > 0;
+                var bothWorldEvils = hasCrimson && hasCorruption;
+
+                AddIf(hasCrimson, "Crimson");
+                AddIf(hasCorruption, "Corruption");
+                AddIf(bothWorldEvils, "BothWorldEvils1");
+                AddIf(!bothWorldEvils, "SingleWorldEvil");
+
+                var hasLatex = WorldTileCountSystem.tLatex > 0;
+                AddIf(hasLatex, "Latex");
+                AddIf(!hasLatex, "NoLatex");
+
+                AddIf(WorldGen.tGood > 0, "Hallow");
+                AddIf(WorldTileCountSystem.WorldIsPure(), "Pure");
+
+                // Weather
+                AddIf(Main.IsItRaining, "Rain");
+                AddIf(Main.IsItStorming, "Thunder");
+                AddIf(ChangedUtils.IsItWindy(), "Windy");
+
+                // Seasons
+                if (ChangedSpecialModClientConfig.Instance.Holidays)
+                {
+                    string seasonKeyWord = null;
+                    switch (SeasonSystem.season)
+                    {
+                        case SeasonalEvent.Valentine:
+                            seasonKeyWord = "Valentine";
+                            break;
+                        case SeasonalEvent.Easter:
+                            seasonKeyWord = "Easter";
+                            break;
+                        case SeasonalEvent.Oktoberfest:
+                            seasonKeyWord = "Oktoberfest";
+                            break;
+                        case SeasonalEvent.Halloween:
+                            seasonKeyWord = "Halloween";
+                            break;
+                        case SeasonalEvent.XMas:
+                            seasonKeyWord = "Xmas";
+                            break;
+                    }
+                    if (seasonKeyWord != null)
+                    {
+                        AddIf(true, seasonKeyWord, string.Empty);
+                    }
+                }
+
+                return keyWords;
             }
-
-            
-
-            // Bosses slain
-            if (DownedBossSystem.DownedBehemoth)
-                AddIf(true, "Behemoth", string.Empty);
-
-            var player = Main.LocalPlayer;
-            if (player != null)
+            catch
             {
-                // Check if playing with any race from MrPlagues mod, or a race mod dependant from it.
-                // If so, call the player by the race name, instead of 'human'
-                var raceName = GetMrPlaguesRaceDisplayName(player);
-                if (raceName == null)
-                    raceName = Language.GetTextValue("Mods.ChangedSpecialMod.Races.Other.Human");
-                AddIf(true, "PlayerRace", raceName);
-
-                var changedPlayer = player.ChangedPlayer();
-                AddIf(true, "NamePlayer", player.name);
-
-                var hasNormalBook = player.HasItem(ItemID.Book);
-                var hasBookOfSkulls = player.HasItem(ItemID.BookofSkulls);
-                var hasWaterBolt = player.HasItem(ItemID.WaterBolt);
-                var hasDemonScythe = player.HasItem(ItemID.DemonScythe);
-
-                var hasCrystalStorm = player.HasItem(ItemID.CrystalStorm);
-                var hasCursedFlames = player.HasItem(ItemID.CursedFlames);
-                var hasGoldenShower = player.HasItem(ItemID.GoldenShower);
-                var hasRazorblade = player.HasItem(ItemID.RazorbladeTyphoon);
-                var hasMagnetSphere = player.HasItem(ItemID.MagnetSphere);
-                var hasLunarFlare = player.HasItem(ItemID.LunarFlareBook);
-
-                var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
-                    hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
-
-                var orangeItem = player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<Orange>());
-                if (orangeItem != null)
-                {
-                    AddIf(true, "PlayerHasOrange", string.Empty);
-                    if (orangeItem.stack >= 20)
-                        AddIf(true, "PlayerHasManyOranges", string.Empty);
-                }
-
-                AddIf(hasAnyBook, "PlayerHasBook");
-                AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");
-                AddIf(hasWaterBolt, "PlayerHasWaterBolt");
-                AddIf(hasGoldenShower, "PlayerHasGoldenShower");
-
-                var wearingPartyHat = player.armor.Any(item => item.type == ItemID.PartyHat);
-                if (!wearingPartyHat)
-                    AddIf(true, "PlayerHasNoPartyHat", string.Empty);
-                if (ChangedUtils.PlayerIsWearingBalloon(player))
-                    AddIf(true, "PlayerIsWearingBalloon", string.Empty);
-                if (ChangedUtils.PlayerIsWearingWeddingDress(player))
-                    AddIf(true, "PlayerIsWearingWeddingDress", string.Empty);
-
-                AddIf(NPC.boughtDog, "HasDogLicense");
-
-                // Transfur
-                var playerTransfur = changedPlayer.TransfurTypeCurrent;
-
-                if (playerTransfur != null)
-                {
-                    var transfurBlackGoop = playerTransfur.npcType == ModContent.NPCType<BlackGoop>();
-                    var transfurWhiteGoop = playerTransfur.npcType == ModContent.NPCType<WhiteGoop>();
-                    var transfurBlackCub = playerTransfur.npcType == ModContent.NPCType<DarkLatexCub>();
-                    var transfurWhiteCub = playerTransfur.npcType == ModContent.NPCType<WhiteLatexCub>();
-
-                    if (transfurBlackGoop)
-                    {
-                        AddIf(true, "TransfurGoop", string.Empty);
-                        AddIf(true, "TransfurBlackGoop", string.Empty);
-                    }
-                    else if (transfurWhiteGoop)
-                    {
-                        AddIf(true, "TransfurGoop", string.Empty);
-                        AddIf(true, "TransfurWhiteGoop", string.Empty);
-                    }
-                    else if (transfurBlackCub)
-                    {
-                        AddIf(true, "TransfurCub", string.Empty);
-                        AddIf(true, "TransfurBlackCub", string.Empty);
-                    }
-                    else if (transfurWhiteCub)
-                    {
-                        AddIf(true, "TransfurCub", string.Empty);
-                        AddIf(true, "TransfurWhiteCub", string.Empty);
-                    }
-                }
-
-                // Iterate projectile list
-                foreach (var projectile in Main.ActiveProjectiles)
-                {
-                    if (projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>() && projectile.owner == Main.myPlayer)
-                    {
-                        AddIf(true, "PlayerHasPurrpurr", string.Empty);
-                        break;
-                    }
-                }
+                return new Dictionary<string, string>();
             }
-
-            // World evil
-            var hasCrimson = WorldGen.tBlood > 0;
-            var hasCorruption = WorldGen.tEvil > 0;
-            var bothWorldEvils = hasCrimson && hasCorruption;
-
-            AddIf(hasCrimson, "Crimson");
-            AddIf(hasCorruption, "Corruption");
-            AddIf(bothWorldEvils, "BothWorldEvils1");
-            AddIf(!bothWorldEvils, "SingleWorldEvil");
-
-            var hasLatex = WorldTileCountSystem.tLatex > 0;
-            AddIf(hasLatex, "Latex");
-            AddIf(!hasLatex, "NoLatex");
-
-            AddIf(WorldGen.tGood > 0, "Hallow");
-            AddIf(WorldTileCountSystem.WorldIsPure(), "Pure");
-
-            // Weather
-            AddIf(Main.IsItRaining, "Rain");
-            AddIf(Main.IsItStorming, "Thunder");
-            AddIf(ChangedUtils.IsItWindy(), "Windy");
-
-            // Seasons
-            if (ChangedSpecialModClientConfig.Instance.Holidays)
-            {
-                string seasonKeyWord = null;
-                switch (SeasonSystem.season)
-                {
-                    case SeasonalEvent.Valentine:
-                        seasonKeyWord = "Valentine";
-                        break;
-                    case SeasonalEvent.Easter:
-                        seasonKeyWord = "Easter";
-                        break;
-                    case SeasonalEvent.Oktoberfest:
-                        seasonKeyWord = "Oktoberfest";
-                        break;
-                    case SeasonalEvent.Halloween:
-                        seasonKeyWord = "Halloween";
-                        break;
-                    case SeasonalEvent.XMas:
-                        seasonKeyWord = "Xmas";
-                        break;
-                }
-                if (seasonKeyWord != null)
-                {
-                    AddIf(true, seasonKeyWord, string.Empty);
-                }
-            }
-
-            return keyWords;
         }
 
         private List<TerraGuardianCompanion> GetTerraGuardianCompanions()

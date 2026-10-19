@@ -665,7 +665,7 @@ namespace ChangedSpecialMod.Utilities
 
             // Move further inward if Calamity is enabled so it won't end up in the abyss
             // We might have to also add something for the sunken sea under the desert
-            if (ModSupportSystem.modCalamity != null)
+            if (ModSupportSystem.IsModActive("CalamityMod"))
                 distFromBorderX = 400;
 
             int distFromBorderY = 300;

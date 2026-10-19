@@ -1,10 +1,181 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
 {
+    public class DownedBossObject
+    {
+        public string bossName = null;
+        public string bossCallName = null;
+        public string bossReflectionName = null;
+        public float progressionNumber = 1f;
+        public bool downed = false;
+
+        public DownedBossObject(string bossName, float progressionNumber, string bossCallName = null, string bossReflectionName = null)
+        {
+            this.bossName = bossName;
+            this.progressionNumber = progressionNumber;
+            this.bossCallName = bossCallName;
+            this.bossReflectionName = bossReflectionName;
+        }
+    }
+
+    public class DownedBossObjectList
+    {
+        public Mod mod = null;
+        public string modName = "Unknown mod";
+        // Mod.Call
+        public string modCallMethodName = "BossDowned";
+        // If the mod does not have Mod.Call but does have a public static class with bools
+        public string reflectionPath = null;
+        public bool dontCheck = false;
+
+        public List<DownedBossObject> bosses = new List<DownedBossObject>();
+
+        public void UpdateBosses()
+        {
+            if (modName == "Terraria")
+            {
+                UpdateTerrariaBosses();
+                return;
+            }
+
+            if (modName == "Changed")
+            {
+                UpdateChangedBosses();
+                return;
+            }
+
+            if (mod == null || bosses == null || bosses.Count == 0)
+                return;
+            
+            try
+            {
+                if (reflectionPath != null)
+                {
+                    Type redeBossDownedType = mod.Code.GetType(reflectionPath);
+
+                    if (redeBossDownedType == null)
+                        return;
+
+                    foreach (var boss in bosses)
+                    {
+                        FieldInfo field = redeBossDownedType.GetField(
+                            boss.bossReflectionName,
+                            BindingFlags.Public | BindingFlags.Static
+                        );
+
+                        if (field == null)
+                            continue;
+
+                        boss.downed = (bool)field.GetValue(null);
+                    }
+                }
+                else if (modCallMethodName != null)
+                {
+                    foreach (var boss in bosses)
+                    {
+                        var bossCallName = !string.IsNullOrEmpty(boss.bossCallName) ? boss.bossCallName : boss.bossName;
+                        boss.downed = (bool)mod.Call(modCallMethodName, bossCallName);
+                    }
+                }
+            }
+            catch
+            {
+                // Don't keep checking this boss list if it throws errors
+                dontCheck = true;
+            }
+        }
+
+        private void UpdateTerrariaBosses()
+        {
+            foreach (var boss in bosses)
+            {
+                switch(boss.bossName)
+                {
+                    case "KingSlime":
+                        boss.downed = NPC.downedSlimeKing;
+                        break;
+                    case "EyeOfCthulhu":
+                        boss.downed = NPC.downedBoss1;
+                        break;
+                    case "BrainWorm":
+                        boss.downed = NPC.downedBoss2;
+                        break;
+                    case "QueenBee":
+                        boss.downed = NPC.downedQueenBee;
+                        break;
+                    case "Skeletron":
+                        boss.downed = NPC.downedBoss3;
+                        break;
+                    case "Deerclops":
+                        boss.downed = NPC.downedDeerclops;
+                        break;
+                    case "WallOfFlesh":
+                        boss.downed = Main.hardMode;
+                        break;
+                    case "QueenSlime":
+                        boss.downed = NPC.downedQueenSlime;
+                        break;
+                    case "Twins":
+                        boss.downed = NPC.downedMechBoss2;
+                        break;
+                    case "Destroyer":
+                        boss.downed = NPC.downedMechBoss1;
+                        break;
+                    case "SkeletronPrime":
+                        boss.downed = NPC.downedMechBoss3;
+                        break;
+                    case "Plantera":
+                        boss.downed = NPC.downedPlantBoss;
+                        break;
+                    case "Golem":
+                        boss.downed = NPC.downedGolemBoss;
+                        break;
+                    case "DukeFishron":
+                        boss.downed = NPC.downedFishron;
+                        break;
+                    case "EmpressOfLight":
+                        boss.downed = NPC.downedEmpressOfLight;
+                        break;
+                    // 16: betsy is not tracked
+                    case "Cultist":
+                        boss.downed = NPC.downedAncientCultist;
+                        break;
+                    case "Moonlord":
+                        boss.downed = NPC.downedMoonlord;
+                        break;
+                }
+            }
+        }
+
+        private void UpdateChangedBosses()
+        {
+            foreach (var boss in bosses)
+            {
+                switch (boss.bossName)
+                {
+                    case "WhiteTail":
+                        boss.downed = DownedBossSystem.DownedWhiteTail;
+                        break;
+                    case "WolfKing":
+                        boss.downed = DownedBossSystem.DownedWolfKing;
+                        break;
+                    case "Behemoth":
+                        boss.downed = DownedBossSystem.DownedBehemoth;
+                        break;
+                    case "Shark":
+                        boss.downed = DownedBossSystem.DownedShark;
+                        break;
+                }
+            }
+        }
+    }
+
     // This works even without boss checklist installed
     public class BossProgressionSystem : ModSystem
     {
@@ -12,6 +183,38 @@ namespace ChangedSpecialMod.Common.Systems
         private static int checkInterval = 10;
         private int time = 0;
         private bool hasChecked = false;
+
+        public static List<DownedBossObjectList> bossProgressionLists = new List<DownedBossObjectList>();
+
+        public static void PrintDefeatedBosses()
+        {
+            UpdateBossProgressionNumber();
+            Main.NewText("Bosses defeated:");
+            foreach (var list in bossProgressionLists)
+            {
+                var txt = list.modName + ": ";
+                foreach (var boss in list.bosses)
+                {
+                    if (boss.downed)
+                        txt += boss.bossName + ", ";
+                }
+                Main.NewText(txt);
+            }
+
+            foreach (var mod in ModSupportSystem.externalMods)
+            {
+                if (mod.bossProgressionList == null)
+                    continue;
+
+                var txt = mod.modName + ": ";
+                foreach (var boss in mod.bossProgressionList.bosses)
+                {
+                    if (boss.downed)
+                        txt += boss.bossName + ", ";
+                }
+                Main.NewText(txt);
+            }
+        }
 
         public override void PostUpdateWorld()
         {
@@ -70,58 +273,49 @@ namespace ChangedSpecialMod.Common.Systems
             { "BossRush", 25.99f }
         };
 
-        private static readonly Dictionary<string, float> CoraliteBossValues = new()
+        public static void Init()
         {
-            { "rediancie", 0.9f },
-            { "babyicedragon", 3.1f },
-            { "slimeemperor", 3.2f },
-            { "bloodiancie", 8.2f },
-            { "thunderveindragon", 11.1f },
-            { "zacurrentdragon", 15.1f },
-            { "nightmareplantera", 18.1f }
-        };
-
-        private static readonly Dictionary<string, float> ThoriumBossValues = new()
-        {
-            { "TheGrandThunderBird", 0.9f },
-            { "PatchWerk", 2.51f },
-            { "QueenJellyfish", 3.1f },
-            { "Viscount", 3.85f },
-            { "CorpseBloom", 3.9f },
-            { "Illusionist", 5.2f },
-            { "GraniteEnergyStorm", 6.4f },
-            { "BuriedChampion", 6.5f },
-            { "StarScouter", 6.9f },
-            { "BoreanStrider", 7.2f },
-            { "FallenBeholder", 7.8f },
-            { "Lich", 11.6f },
-            { "ForgottenOne", 13.8f },
-            { "ThePrimordials", 19.5f }
-        };
-
-        // Vanilla bosses
-        private static void AddBossValue(List<float> numbers, bool condition, float bossValue)
-        {
-            if (condition)
-                numbers.Add(bossValue);
-        }
-
-        // Bosses from external mods
-        private static void AddBosses(List<float> bossNumberList, Dictionary<string, float> bosses, Mod mod, string bossCheckMethodName = "BossDowned")
-        {
-            if (mod == null)
-                return;
-            try
+            if (bossProgressionLists == null || bossProgressionLists.Count == 0)
             {
-                foreach (var (bossName, bossValue) in bosses)
+                bossProgressionLists = new List<DownedBossObjectList>()
                 {
-                    if ((bool)mod.Call(bossCheckMethodName, bossName))
-                        bossNumberList.Add(bossValue);
-                }
-            }
-            catch
-            {
-                // Mod call to external mod threw an exception.
+                    new DownedBossObjectList()
+                    {
+                        modName = "Terraria",
+                        bosses = new List<DownedBossObject>
+                        {
+                            new DownedBossObject("KingSlime", 1),
+                            new DownedBossObject("EyeOfCthulhu", 2),
+                            new DownedBossObject("BrainWorm", 3),
+                            new DownedBossObject("QueenBee", 4),
+                            new DownedBossObject("Skeletron", 5),
+                            new DownedBossObject("Deerclops", 6),
+                            new DownedBossObject("WallOfFlesh", 7),
+                            new DownedBossObject("QueenSlime", 8),
+                            new DownedBossObject("Twins", 9),
+                            new DownedBossObject("Destroyer", 10),
+                            new DownedBossObject("SkeletronPrime", 11),
+                            new DownedBossObject("Plantera", 12),
+                            new DownedBossObject("Golem", 13),
+                            new DownedBossObject("DukeFishron", 14),
+                            new DownedBossObject("EmpressOfLight", 15),
+                            // 16 is for betsy, but it is not tracked
+                            new DownedBossObject("Cultist", 17),
+                            new DownedBossObject("Moonlord", 18)
+                        }
+                    },
+
+                    new DownedBossObjectList()
+                    {
+                        modName = "Changed",
+                        bosses = new List<DownedBossObject>()
+                        {
+                            new DownedBossObject("WhiteTail", 1.5f),
+                            new DownedBossObject("WolfKing", 2.5f),
+                            new DownedBossObject("Behemoth", 5.5f)
+                        }
+                    }
+                };
             }
         }
 
@@ -132,41 +326,49 @@ namespace ChangedSpecialMod.Common.Systems
 
         private static void UpdateBossProgressionNumber()
         {
-            var numbers = new List<float>() { 0 };
+            if (bossProgressionLists == null || bossProgressionLists.Count == 0)
+                Init();
 
-            // Vanilla vars
-            AddBossValue(numbers, NPC.downedSlimeKing, 1);
-            AddBossValue(numbers, NPC.downedBoss1, 2);
-            AddBossValue(numbers, NPC.downedBoss2, 3);
-            AddBossValue(numbers, NPC.downedQueenBee, 4);
-            AddBossValue(numbers, NPC.downedBoss3, 5);
-            AddBossValue(numbers, NPC.downedDeerclops, 6);
-            AddBossValue(numbers, Main.hardMode, 7);
-            AddBossValue(numbers, NPC.downedQueenSlime, 8);
-            AddBossValue(numbers, NPC.downedMechBoss2, 9);
-            AddBossValue(numbers, NPC.downedMechBoss1, 10);
-            AddBossValue(numbers, NPC.downedMechBoss3, 11);
-            AddBossValue(numbers, NPC.downedPlantBoss, 12);
-            AddBossValue(numbers, NPC.downedGolemBoss, 13);
-            AddBossValue(numbers, NPC.downedFishron, 14);
-            AddBossValue(numbers, NPC.downedEmpressOfLight, 15);
-            // 16 is for betsy, but it is not tracked
-            AddBossValue(numbers, NPC.downedAncientCultist, 17);
-            AddBossValue(numbers, NPC.downedMoonlord, 18);
+            var maxProgressionNumber = 0f;
 
-            // Our mod vars
-            AddBossValue(numbers, DownedBossSystem.DownedWhiteTail, 1.5f);
-            AddBossValue(numbers, DownedBossSystem.DownedWolfKing, 2.5f);
-            AddBossValue(numbers, DownedBossSystem.DownedBehemoth, 5.5f);
+            // Old. Only used for Terraria and Changed bosses
+            foreach (var progressionList in bossProgressionLists)
+            {
+                if (progressionList.dontCheck)
+                    continue;
+                progressionList.UpdateBosses();
 
-            // Other mods
-            AddBosses(numbers, CalamityBossValues, ModSupportSystem.modCalamity);
-            AddBosses(numbers, CoraliteBossValues, ModSupportSystem.modCoralite);
-            AddBosses(numbers, ThoriumBossValues, ModSupportSystem.modThorium, "GetDownedBoss");
+                if (progressionList.bosses != null)
+                {
+                    var downedBosses = progressionList.bosses.Where(x => x.downed).ToList();
+                    if (downedBosses.Any())
+                        maxProgressionNumber = Math.Max(maxProgressionNumber, downedBosses.ToList().Select(x => x.progressionNumber).ToList().Max());
+                }
+            }
 
-            bossProgressionNumber = numbers.Max();
+            // New. For external mods
+            foreach (var mod in ModSupportSystem.externalMods)
+            {
+                var bossProgressionList = mod.bossProgressionList;
+                if (bossProgressionList != null)
+                {
+                    if (bossProgressionList.dontCheck)
+                        continue;
+                    bossProgressionList.UpdateBosses();
 
-            //Main.NewText($"Update boss progression value... It is now {bossProgressionNumber}");
+                    if (bossProgressionList.bosses != null)
+                    {
+                        var downedBosses = bossProgressionList.bosses.Where(x => x.downed).ToList();
+                        if (downedBosses.Any())
+                        {
+                            var numb2 = Math.Max(maxProgressionNumber, downedBosses.ToList().Select(x => x.progressionNumber).ToList().Max());
+                            maxProgressionNumber = Math.Max(numb2, maxProgressionNumber);
+                        }
+                    }
+                }
+            }
+
+            bossProgressionNumber = maxProgressionNumber;
         }
     }
 }

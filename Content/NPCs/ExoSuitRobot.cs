@@ -102,6 +102,9 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            if (!Main.hardMode)
+                return 0;
+
             if (!ChangedUtils.CanSpawnExtraStrong() || NPC.AnyNPCs(Type))
                 return 0f;
 

@@ -17,7 +17,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             Main.tileFrameImportant[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true;
-            // Copy default settings
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 2;
@@ -28,24 +27,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
             AnimationFrameHeight = 36;
         }
-
-        /*
-        // I don't know why, but without this it won't drop an item if it is turned on
-        public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
-        {
-            noItem = true;
-            var coords = TileObjectData.TopLeft(i, j);
-            var isEnabled = Main.tile[i, j].TileFrameX > 0;
-
-            // Breaking top left tile
-            if (coords.X == i && coords.Y == j && isEnabled && !fail)
-            {
-                Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Placeable.Furniture.Generator>());
-            }
-
-            base.KillTile(i, j, ref fail, ref effectOnly, ref noItem);
-        }
-        */
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {

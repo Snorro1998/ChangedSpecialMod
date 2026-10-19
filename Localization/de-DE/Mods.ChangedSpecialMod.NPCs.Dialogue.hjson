@@ -32,7 +32,7 @@ Puro: {
 	NPCZoologist: "{NameZoologist} ist so süß mit ihren großen Ohren und ihrem flauschigen Schwanz. Aber nicht so süß wie du, hehehe..."
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} erzählte mir allerlei Dinge über „Magie“, aber ich wollte nur wissen, ob man daraus Orangen machen kann."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} hat so viele Schuhe, aber sie sind alle zu klein für meine Pfoten."
-	NPCStarsModPackFarmer: "Dank {NameStarsModPackFarmer} kann ich jetzt noch mehr Orangen anbauen!"
+	NPCStarsModPackFarmer: Dank {NameStarsModPackFarmer} kann ich jetzt noch mehr Orangen anbauen!
 	Book1: Ich beurteile Bücher wie Orangen: danach, wie befriedigend sie bis zur letzten Seite oder dem letzten Stück sind.
 	Book2: Hallo {PlayerRace}! Hast du mein Buch gesehen?
 	Book3: Hilfst du mir, den größten Bücherturm zu bauen?
@@ -73,7 +73,7 @@ Puro: {
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Wow, {PlayerRace}, wer ist denn diese Katze? Die ist ja riesig!"
 	Valentine1: "{Valentine}Was meinst du, {PlayerRace}? Sehe ich mit dieser Valentinstags-Haarspange süß aus?"
 	Valentine2: "{Valentine}Ein Blumenstrauß ist schön, aber wenn du mein Herz gewinnen willst, dann musst du mir ein Büchlein mitbringen!"
-	// Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+	// Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
 	# Easter is not implemented yet
 	// Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 	Oktoberfest1: "{Oktoberfest}Es ist die Zeit des Jahres für viel Bier! PROST!"
@@ -142,8 +142,8 @@ Puro: {
 		// Alexander: TODO
 		Blue: Der Wolfskönig wirkt im Vergleich zu {TerraGuardianBlueName} so winzig. Vielleicht sollten wir sie die Wolfskönigin nennen.
 		// Brutus: TODO
-		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
-		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		// Ich: TODO
+		// Leona: TODO
 		// Monica: TODO
 		Rococo: "{TerraGuardianRococoName} wollte spielen, aber er fiel um und drückte mich platt. Zum Glück kann sich mein weicher Körper einfach wieder in seine ursprüngliche Form zurückverwandeln."
 		Scaleforth: Mir war kalt, und ich fragte {TerraGuardianScaleforthName}, ob er mich mit seinem Feueratem aufwärmen könne. Er hätte beinahe mein Haus in Brand gesetzt.
@@ -156,6 +156,16 @@ Puro: {
 		WrongBook2: Das ist ein schönes Buch, aber es ist nicht das, das ich suche.
 		GiveBook1: Danke für das Buch, {PlayerRace}.
 		GiveBook2: Was für ein großartiger {PlayerRace} du bist! Ich wusste, dass du mein Buch finden würdest!
+	}
+
+	Game: {
+		// CookieClicker: "{HasGameCookieClicker}I like Cookie Clicker, but I wish there were an Orange Clicker too."
+		// DragnWash: "{HasGameDragnWash}What is this Drag'n Wash game about? Does it revolve around Goku washing the Dragon Balls?"
+		// GameFactory: I don't understand {GameNameFactory}. All I am trying to do is to build an orange factory.
+		// GameFarming: Look, {PlayerRace}. I made the biggest orange farm in {GameNameFarming}!
+		// GameHorror: Would you like to {GameNameHorror} together? I'm too scared to play it alone.
+		// GameParty: Do you think we can get enough people together to play {GameNameParty}?
+		// Nekojishi: "{HasGameNekojishi}Who is your favorite cat from Nekojishi? Mine is Likulau. He is just so cute."
 	}
 }
 
@@ -256,15 +266,22 @@ DrK: {
 		MacroFurryManPresent: "{MacroFurryManPresent}Du solltest bei {MacroTerraGuardianName} vorsichtig sein, damit sie nicht auf dich tritt."
 		MacroFurryWomanPresent: "{MacroFurryWomanPresent}Du solltest bei {MacroTerraGuardianName} vorsichtig sein, damit er nicht auf dich tritt."
 		# Guardians
-		Alex: "Halt diesen Köter {TerraGuardianAlexName} von hier fern! Letztes Mal habe ich stundenlang gebraucht, um seine schlammigen Pfotenabdrücke aus dem Zimmer zu schrubben!"
+		Alex: Halt diesen Köter {TerraGuardianAlexName} von hier fern! Letztes Mal habe ich stundenlang gebraucht, um seine schlammigen Pfotenabdrücke aus dem Zimmer zu schrubben!
 		// Alexander: TODO
 		Blue: "{TerraGuardianBlueName} fragte mich, ob ich eine Lotion für ihr Fell herstellen könnte. Ich meine, das könnte ich schon, aber bei jemandem, der so groß ist, bräuchte ich deutlich mehr Zutaten."
 		// Brutus: TODO
 		// Ich: TODO
 		// Leona: TODO
 		// Monica: TODO
-		Rococo: "Ich hoffe sehr, dass {TerraGuardianRococoName} nicht so herumkugelt wie die anderen Waschbären. Der Schaden wäre enorm, wenn er gegen irgendetwas prallen würde."
-		Scaleforth: "Ich bin froh, dass {TerraGuardianScaleforthName} eingezogen ist. Er ist ein sehr hilfsbereiter Assistent und kann sogar meine Bechergläser erhitzen."
+		Rococo: Ich hoffe sehr, dass {TerraGuardianRococoName} nicht so herumkugelt wie die anderen Waschbären. Der Schaden wäre enorm, wenn er gegen irgendetwas prallen würde.
+		Scaleforth: Ich bin froh, dass {TerraGuardianScaleforthName} eingezogen ist. Er ist ein sehr hilfsbereiter Assistent und kann sogar meine Bechergläser erhitzen.
+	}
+
+	Game: {
+		// DragnWash: "{HasGameDragnWash}Oh my, Drag'n Wash... I had no idea you had such a good taste in videogames."
+		// GameHorror: Do you think {GameNameHorror} is scary? What about Five Nights at Dr K, then?
+		// GameParty: No I don't want to play {GameNameParty} together. What? I am not bad at it, I just don't like it.
+		// PawpertyDamage: "{HasGamePawpertyDamage}Pawperty Damage? So you like giant furries crushing things underneath their paws?"
 	}
 }
 

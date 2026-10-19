@@ -32,13 +32,13 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCStarsModPackFarmer", "Question"),
 
                 // Terra Guardians
-                new DialogueElement("TerraGuardian.PlayerHasTerraGuardian"),
-                new DialogueElement("TerraGuardian.Alex", "Shocked"),
-                new DialogueElement("TerraGuardian.Blue"),
-                //new DialogueElement("TerraGuardian.Ich"),
-                //new DialogueElement("TerraGuardian.Leona"),
-                new DialogueElement("TerraGuardian.Rococo"),
-                new DialogueElement("TerraGuardian.Scaleforth", "Shocked"),
+                new DialogueElement("ModTerraGuardian.PlayerHasTerraGuardian"),
+                new DialogueElement("ModTerraGuardian.Alex", "Shocked"),
+                new DialogueElement("ModTerraGuardian.Blue"),
+                //new DialogueElement("ModTerraGuardian.Ich"),
+                //new DialogueElement("ModTerraGuardian.Leona"),
+                new DialogueElement("ModTerraGuardian.Rococo"),
+                new DialogueElement("ModTerraGuardian.Scaleforth", "Shocked"),
                 
 				// Books
 				new DialogueElement("Book1"),
@@ -119,7 +119,18 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("PlayerHasPurrpurr", "Shocked"),
 
                 //Transfurs
-                new DialogueElement("TransfurCub")
+                new DialogueElement("TransfurCub"),
+
+                /*
+                //Game
+                new DialogueElement("Game.CookieClicker"),
+                new DialogueElement("Game.DragnWash"),
+                new DialogueElement("Game.GameFactory"),
+                new DialogueElement("Game.GameFarming"),
+                new DialogueElement("Game.GameHorror"),
+                new DialogueElement("Game.GameParty"),
+                new DialogueElement("Game.Nekojishi")
+                */
             }
         );
 

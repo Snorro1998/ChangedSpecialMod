@@ -351,7 +351,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     item.type = ItemID.None; 
                 } 
 
-                var externalMods = ExternalModItemSystem.GetExternalMods();
                 var itemList = new List<int>(); 
                 // Fruit shop
                 if (shopName.Contains("First Shop")) 
@@ -384,9 +383,13 @@ namespace ChangedSpecialMod.Content.NPCs
                         itemList.Add(ItemID.Starfruit);
                     }
 
-                    foreach (var mod in externalMods)
+                    foreach (var mod in ModSupportSystem.externalMods)
                     {
-                        itemList.AddRange(mod.GetAvailable(ItemCategory.Fruit));
+                        if (mod.itemIdsFruit != null)
+                        {
+                            var fruitItems = mod.itemIdsFruit.Values.ToList();
+                            itemList.AddRange(fruitItems);
+                        }
                     }
                 } 
                 // Herb shop
@@ -402,9 +405,13 @@ namespace ChangedSpecialMod.Content.NPCs
                         ItemID.Fireblossom, 
                         ItemID.Shiverthorn 
                     };
-                    foreach (var mod in externalMods)
+                    foreach (var mod in ModSupportSystem.externalMods)
                     {
-                        itemList.AddRange(mod.GetAvailable(ItemCategory.Herb));
+                        if (mod.itemIdsHerb != null)
+                        {
+                            var herbItems = mod.itemIdsHerb.Values.ToList();
+                            itemList.AddRange(herbItems);
+                        }
                     }
                 }
                 // Seed shop

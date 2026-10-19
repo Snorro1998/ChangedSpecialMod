@@ -78,6 +78,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            var changedNPC = NPC.Changed();
+            if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
+                return 0f;
+
             if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || NPC.AnyNPCs(ModContent.NPCType<Purrpurr>()))
                 return 0;
 

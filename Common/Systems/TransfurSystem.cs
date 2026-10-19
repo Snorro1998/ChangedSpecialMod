@@ -99,7 +99,7 @@ namespace ChangedSpecialMod.Common.Systems
                 }
                 if (transfur.waterBreathing)
                     description += $"{Language.GetTextValue(strAbiBase + "WaterBreathing")}\n";
-                if (transfur.waterBreathingCalamity && ModSupportSystem.modCalamity != null)
+                if (transfur.waterBreathingCalamity && ModSupportSystem.IsModActive("CalamityMod"))
                     description += $"{Language.GetTextValue(strAbiBase + "WaterBreathingCalamity")}\n";
 
                 if (isItemDescription)

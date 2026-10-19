@@ -15,9 +15,9 @@ Puro: {
 	NPCMerchant: ¡Si {NameMerchant} vendiera zumo de naranja, sería rico!
 	NPCNurse: "{NameNurse} dijo que es bueno para la salud comer dos piezas de fruta al día. ¡Yo le dije que como diez naranjas al día!"
 	// NPCOldMan: TODO
-	NPCPainter: "¿Debería pedirle a {NamePainter} que pinte mi habitación de color naranja? ¿O debería pedirle que coloque papel pintado con motivos de naranjas?"
+	NPCPainter: ¿Debería pedirle a {NamePainter} que pinte mi habitación de color naranja? ¿O debería pedirle que coloque papel pintado con motivos de naranjas?
 	// NPCPartyGirl: TODO
-	NPCPirate: "¿Por qué {NamePirate} sigue llamándome «Barbanegra»? Si ni siquiera tengo barba."
+	NPCPirate: ¿Por qué {NamePirate} sigue llamándome «Barbanegra»? Si ni siquiera tengo barba.
 	// NPCPrincess: TODO
 	// NPCSantaClaus: TODO
 	// NPCSkeletonMerchant: TODO
@@ -32,7 +32,7 @@ Puro: {
 	NPCZoologist: "{NameZoologist} es tan linda con sus grandes orejas y su cola esponjosa. Pero no tan linda como tú, jejeje..."
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} me contó todo tipo de cosas sobre la 'magia', pero lo único que quería saber era si se pueden hacer naranjas con ella."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} tiene muchísimos zapatos, pero todos son demasiado pequeños para mis patas."
-	NPCStarsModPackFarmer: "¡Gracias a {NameStarsModPackFarmer}, ahora puedo cultivar aún más naranjas!"
+	NPCStarsModPackFarmer: ¡Gracias a {NameStarsModPackFarmer}, ahora puedo cultivar aún más naranjas!
 	Book1: Yo juzgo los libros como juzgo las naranjas: por lo satisfactorios que resultan hasta la última página o la última rodaja.
 	Book2: ¡Hola {PlayerRace}! ¿Has visto mi libro?
 	Book3: ¿Me ayudarías a construir la torre de libros más grande?
@@ -90,7 +90,7 @@ Puro: {
 	Xmas3: "{Xmas}Navidad, Navidad, hoy es Navidad!"
 	Xmas4: "{Xmas}¿Te gustaría ayudarme a decorar mi naranjo con adornos navideños?"
 	Xmas5: "{Xmas}Oche de paz, noche de amor"
-	// Fiesta1: "{Siesta1}Hola, me has Atrapado en medio suavemente."
+	// Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 	BloodMoon: {
 		BloodMoon1: Aléjate de mí, {PlayerRace}. Hoy no me siento yo mismo.
@@ -142,8 +142,8 @@ Puro: {
 		// Alexander: TODO
 		Blue: El Rey Lobo parece tan diminuto en comparación con {TerraGuardianBlueName}. Quizás deberíamos llamarla la Reina Loba.
 		// Brutus: TODO
-		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
-		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		// Ich: TODO
+		// Leona: TODO
 		// Monica: TODO
 		Rococo: "{TerraGuardianRococoName} quería jugar, pero se cayó y me aplastó. Por suerte, mi cuerpo blando puede volver a tomar su forma."
 		Scaleforth: Tenía frío y le pedí a {TerraGuardianScaleforthName} que me calentara con su aliento de fuego. Por poco prende fuego a mi casa.
@@ -156,6 +156,16 @@ Puro: {
 		WrongBook2: Ese es un buen libro, pero no es el que busco.
 		GiveBook1: Gracias por el libro, {PlayerRace}.
 		GiveBook2: ¡Eres un ser {PlayerRace} excelente! ¡Sabía que encontrarías mi libro!
+	}
+
+	Game: {
+		// CookieClicker: "{HasGameCookieClicker}I like Cookie Clicker, but I wish there were an Orange Clicker too."
+		// DragnWash: "{HasGameDragnWash}What is this Drag'n Wash game about? Does it revolve around Goku washing the Dragon Balls?"
+		// GameFactory: I don't understand {GameNameFactory}. All I am trying to do is to build an orange factory.
+		// GameFarming: Look, {PlayerRace}. I made the biggest orange farm in {GameNameFarming}!
+		// GameHorror: Would you like to {GameNameHorror} together? I'm too scared to play it alone.
+		// GameParty: Do you think we can get enough people together to play {GameNameParty}?
+		// Nekojishi: "{HasGameNekojishi}Who is your favorite cat from Nekojishi? Mine is Likulau. He is just so cute."
 	}
 }
 
@@ -256,15 +266,22 @@ DrK: {
 		MacroFurryManPresent: "{MacroFurryManPresent}Deberías tener cuidado cerca de {MacroTerraGuardianName} para que no te pise."
 		MacroFurryWomanPresent: "{MacroFurryWomanPresent}Deberías tener cuidado cerca de {MacroTerraGuardianName} para que no te pise."
 		# Guardians
-		Alex: "¡Mantén a ese chucho, {TerraGuardianAlexName}, lejos de aquí! ¡La última vez me llevó horas quitar, a base de fregar, las huellas de sus patas embarradas de la habitación!"
+		Alex: ¡Mantén a ese chucho, {TerraGuardianAlexName}, lejos de aquí! ¡La última vez me llevó horas quitar, a base de fregar, las huellas de sus patas embarradas de la habitación!
 		// Alexander: TODO
 		Blue: "{TerraGuardianBlueName} me preguntó si podría preparar una loción para su pelaje. O sea, podría hacerlo, pero necesitaría muchos más ingredientes para alguien de un tamaño tan grande."
 		// Brutus: TODO
 		// Ich: TODO
 		// Leona: TODO
 		// Monica: TODO
-		Rococo: "Espero de verdad que {TerraGuardianRococoName} no se ponga a rodar por ahí como los otros mapaches. Los daños serían enormes si chocara contra algo."
-		Scaleforth: "Me alegra que {TerraGuardianScaleforthName} se haya mudado aquí. Es un ayudante muy servicial e incluso puede calentar mis vasos de precipitados."
+		Rococo: Espero de verdad que {TerraGuardianRococoName} no se ponga a rodar por ahí como los otros mapaches. Los daños serían enormes si chocara contra algo.
+		Scaleforth: Me alegra que {TerraGuardianScaleforthName} se haya mudado aquí. Es un ayudante muy servicial e incluso puede calentar mis vasos de precipitados.
+	}
+
+	Game: {
+		// DragnWash: "{HasGameDragnWash}Oh my, Drag'n Wash... I had no idea you had such a good taste in videogames."
+		// GameHorror: Do you think {GameNameHorror} is scary? What about Five Nights at Dr K, then?
+		// GameParty: No I don't want to play {GameNameParty} together. What? I am not bad at it, I just don't like it.
+		// PawpertyDamage: "{HasGamePawpertyDamage}Pawperty Damage? So you like giant furries crushing things underneath their paws?"
 	}
 }
 

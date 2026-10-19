@@ -1,7 +1,5 @@
-﻿using ChangedSpecialMod.Content.Items.Food;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
@@ -65,72 +63,6 @@ namespace ChangedSpecialMod.Common.Systems
 
             return new List<ExternalMod>
             {
-                new(ModSupportSystem.modThorium,
-                    new()
-                    {
-                        [ItemCategory.Fruit] = new()
-                        {
-                            new("Fig"),
-                            new("Tamarind"),
-                            new("Aril"),
-                            new("Lychee"),
-                            new("Kumquat", Main.hardMode),
-                            new("Persimmon", Main.hardMode),
-                            new("Soursop", NPC.downedPlantBoss),
-                            new("Mangosteen", NPC.downedPlantBoss),
-                            new("Cranberry", NPC.downedPlantBoss),
-                            new("Raspberry", NPC.downedPlantBoss),
-                        },
-                        [ItemCategory.Herb] = new()
-                        {
-                            new("MarineKelp")
-                        }
-                    }
-                ),
-
-                new(ModSupportSystem.modCalamity,
-                    new()
-                    {
-                        [ItemCategory.Fruit] = new()
-                        {
-                            new("Jackfruit"),
-                            new("Salak"),
-                            new("Barberry", Main.hardMode),
-                            new("Cometfruit", Main.hardMode),
-                            new("Lotus", Main.hardMode),
-                            new("Mangosteen", Main.hardMode)
-                        },
-                        [ItemCategory.Seeds] = new()
-                        {
-                            new("CinderBlossomSeeds", Main.hardMode),
-                            new("AstralGrassSeeds", Main.hardMode),
-                        }
-                    }
-                ),
-
-                new(ModSupportSystem.modSpirit,
-                    new()
-                    {
-                        [ItemCategory.Fruit] = new()
-                        {
-                            new("EnchantedApple"),
-                            new("EnchantedStarFruit"),
-                            new("Durian"),
-                            new("Guava"),
-                            new("IceBerry"),
-                            new("Glowpear", anyMech),
-                            new("LuminBerry", anyMech),
-                            new("BirdhouseGourd", NPC.downedGolemBoss),
-                            new("CaramelApple", NPC.downedGolemBoss)
-                        },
-                        [ItemCategory.Seeds] = new()
-                        {
-                            new("BriarGrassSeeds")
-                            //Soulbloom Seeds
-                        }
-                    }
-                ),
-
                 new(ModSupportSystem.modSpiritReforged,
                     new()
                     {
@@ -148,53 +80,5 @@ namespace ChangedSpecialMod.Common.Systems
             };
         }
 
-        public static List<int> GetFruitItems(List<ExternalMod> externalMods)
-        {
-            var list = new List<int>
-            {
-                ItemID.Apple,
-                ItemID.Apricot,
-                ItemID.Banana,
-                ItemID.BlackCurrant,
-                ModContent.ItemType<Orange>(),
-                ItemID.BloodOrange,
-                ItemID.Cherry,
-                ItemID.Coconut,
-                ItemID.Elderberry,
-                ItemID.Grapefruit,
-                ItemID.Lemon,
-                ItemID.Mango,
-                ItemID.Peach,
-                ItemID.Pineapple,
-                ItemID.Plum,
-                ItemID.Pomegranate,
-                ItemID.Rambutan,
-                ItemID.SpicyPepper,
-            };
-
-            foreach (var mod in externalMods)
-                list.AddRange(mod.GetAvailable(ItemCategory.Fruit));
-
-            return list;
-        }
-
-        public static List<int> GetHerbItems(List<ExternalMod> externalMods)
-        {
-            var list = new List<int>
-            {
-                ItemID.Daybloom,
-                ItemID.Moonglow,
-                ItemID.Blinkroot,
-                ItemID.Deathweed,
-                ItemID.Waterleaf,
-                ItemID.Fireblossom,
-                ItemID.Shiverthorn
-            };
-
-            foreach (var mod in externalMods)
-                list.AddRange(mod.GetAvailable(ItemCategory.Herb));
-
-            return list;
-        }
     }
 }

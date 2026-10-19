@@ -43,9 +43,9 @@ namespace ChangedSpecialMod
                     case "getbossdowned":
                     case "bossdowned":
                         if (argsLength < 2)
-                            return new ArgumentNullException("ERROR: Must specify a boss or event name as a string.");
+                            return new ArgumentNullException("ERROR: Argument 1 (BossName) must be provided.");
                         if (args[1] is not string)
-                            return new ArgumentException("ERROR: The argument to \"Downed\" must be a string.");
+                            return new ArgumentException("ERROR: Argument 1 (BossName) must be a string.");
                         return GetBossDowned(args[1].ToString());
                     case "orang":
                     case "orange":

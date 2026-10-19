@@ -32,7 +32,7 @@ Puro: {
 	NPCZoologist: "{NameZoologist}长着大耳朵和毛茸茸的尾巴，真是太可爱了。不过，她还是没有你可爱，嘿嘿嘿……"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot}跟我讲了很多关于“魔能”的事情，但我只想知道能不能用它做出橘子。"
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
-	NPCStarsModPackFarmer: "多亏了{NameStarsModPackFarmer}，我现在能种更多的橙子了！"
+	NPCStarsModPackFarmer: 多亏了{NameStarsModPackFarmer}，我现在能种更多的橙子了！
 	Book1: 我评判一本书的方式就像评判一个橘子一样：看它从头到尾，直到最后一页或最后一片，是否都令人满意。
 	Book2: 你好，{PlayerRace}!你找到我的书了吗？
 	Book3: 你愿意帮我搭建最高的书塔吗？
@@ -73,7 +73,7 @@ Puro: {
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr} 哇，{PlayerRace}，那只猫是谁？它好大啊！"
 	Valentine1: "{Valentine}你觉得怎么样，{PlayerRace}？我戴着这款情人节发夹是不是很可爱？"
 	Valentine2: "{Valentine}鲜花固然美好，但如果你想赢得我的芳心，那就得送我一本小册子。"
-	// Easter1: "{Easter}What is easter about human? What? It is about looking for eggs? How egg-citing!"
+	// Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
 	# Easter is not implemented yet
 	// Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
 	Oktoberfest1: "{Oktoberfest}又到了畅饮啤酒的季节！干杯！"
@@ -142,8 +142,8 @@ Puro: {
 		// Alexander: TODO
 		Blue: 与{TerraGuardianBlueName}相比，狼王显得十分娇小。或许我们该叫她“狼后”。
 		// Brutus: TODO
-		// Ich: I asked {TerraGuardianIchName} meow he was doing. He didn't like it very much.
-		// Leona: "{TerraGuardianLeonaName} is so cool. A royal guard from the Ether Realm! I don't even know what that is, but is sounds awesome!"
+		// Ich: TODO
+		// Leona: TODO
 		// Monica: TODO
 		Rococo: "{TerraGuardianRococoName}想玩，结果却摔倒了，还把我压扁了。好在我这软乎乎的身体能自己恢复原状。"
 		Scaleforth: 我当时觉得冷，就问{TerraGuardianScaleforthName}能不能用他的“火息”帮我暖暖身子。结果，他差点把我的房子给点着了。
@@ -156,6 +156,16 @@ Puro: {
 		WrongBook2: 那本书不错，但并不是我在找的那本。
 		GiveBook1: 谢谢你给的书，{PlayerRace}。
 		GiveBook2: 你真是位出色的{PlayerRace}！我就知道你会找到我的书！
+	}
+
+	Game: {
+		// CookieClicker: "{HasGameCookieClicker}I like Cookie Clicker, but I wish there were an Orange Clicker too."
+		// DragnWash: "{HasGameDragnWash}What is this Drag'n Wash game about? Does it revolve around Goku washing the Dragon Balls?"
+		// GameFactory: I don't understand {GameNameFactory}. All I am trying to do is to build an orange factory.
+		// GameFarming: Look, {PlayerRace}. I made the biggest orange farm in {GameNameFarming}!
+		// GameHorror: Would you like to {GameNameHorror} together? I'm too scared to play it alone.
+		// GameParty: Do you think we can get enough people together to play {GameNameParty}?
+		// Nekojishi: "{HasGameNekojishi}Who is your favorite cat from Nekojishi? Mine is Likulau. He is just so cute."
 	}
 }
 
@@ -256,15 +266,22 @@ DrK: {
 		MacroFurryManPresent: "{MacroFurryManPresent}在{MacroTerraGuardianName}身边要小心，免得他踩到你。"
 		MacroFurryWomanPresent: "{MacroFurryWomanPresent}在{MacroTerraGuardianName}身边要小心，免得她踩到你。"
 		# Guardians
-		Alex: "别让{TerraGuardianAlexName}那只狗靠近这儿！上次我可是花了整整几个小时，才把房间里它留下的泥脚印清理干净！"
+		Alex: 别让{TerraGuardianAlexName}那只狗靠近这儿！上次我可是花了整整几个小时，才把房间里它留下的泥脚印清理干净！
 		// Alexander: TODO
 		Blue: "{TerraGuardianBlueName}问我能不能给她身上的毛弄点护理液。我是能弄，但她体型那么大，需要的原料可就多了去了。"
 		// Brutus: TODO
 		// Ich: TODO
 		// Leona: TODO
 		// Monica: TODO
-		Rococo: "我真心希望{TerraGuardianRococoName}不会像其他浣熊那样到处打滚。要是他撞上什么东西，那造成的破坏可就大了。"
-		Scaleforth: "很高兴{TerraGuardianScaleforthName}搬了进来。他是个非常乐于助人的助手，甚至还能帮我加热烧杯。"
+		Rococo: 我真心希望{TerraGuardianRococoName}不会像其他浣熊那样到处打滚。要是他撞上什么东西，那造成的破坏可就大了。
+		Scaleforth: 很高兴{TerraGuardianScaleforthName}搬了进来。他是个非常乐于助人的助手，甚至还能帮我加热烧杯。
+	}
+
+	Game: {
+		// DragnWash: "{HasGameDragnWash}Oh my, Drag'n Wash... I had no idea you had such a good taste in videogames."
+		// GameHorror: Do you think {GameNameHorror} is scary? What about Five Nights at Dr K, then?
+		// GameParty: No I don't want to play {GameNameParty} together. What? I am not bad at it, I just don't like it.
+		// PawpertyDamage: "{HasGamePawpertyDamage}Pawperty Damage? So you like giant furries crushing things underneath their paws?"
 	}
 }
 

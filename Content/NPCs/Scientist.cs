@@ -132,25 +132,33 @@ namespace ChangedSpecialMod.Content.NPCs
                 // Terra Guardian
                 // Teasing the player for having many normal sized furries in his party
                 // (which is much bigger than the player)
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurries", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurryMen", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartyBigFurryWomen", "Naughty"),
+                new DialogueElement("ModTerraGuardian.PlayerPartyBigFurries", "Naughty"),
+                new DialogueElement("ModTerraGuardian.PlayerPartyBigFurryMen", "Naughty"),
+                new DialogueElement("ModTerraGuardian.PlayerPartyBigFurryWomen", "Naughty"),
 
                 // Teasing the player for having many shrunken furries in his party
                 // (which is the same size as the player)
-                new DialogueElement("TerraGuardian.PlayerPartySmallFurries", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartySmallFurryMen", "Naughty"),
-                new DialogueElement("TerraGuardian.PlayerPartySmallFurryWomen", "Naughty"),
+                new DialogueElement("ModTerraGuardian.PlayerPartySmallFurries", "Naughty"),
+                new DialogueElement("ModTerraGuardian.PlayerPartySmallFurryMen", "Naughty"),
+                new DialogueElement("ModTerraGuardian.PlayerPartySmallFurryWomen", "Naughty"),
 
-                //new DialogueElement("TerraGuardian.PlayerPartyAllShrunkenFurries"),
-                new DialogueElement("TerraGuardian.MacroFurryManPresent", "Naughty"),
-                new DialogueElement("TerraGuardian.MacroFurryWomanPresent", "Naughty"),
+                //new DialogueElement("ModTerraGuardian.PlayerPartyAllShrunkenFurries"),
+                new DialogueElement("ModTerraGuardian.MacroFurryManPresent", "Naughty"),
+                new DialogueElement("ModTerraGuardian.MacroFurryWomanPresent", "Naughty"),
 
                 // Terra Guardians
-                new DialogueElement("TerraGuardian.Alex", "Angry"),
-                new DialogueElement("TerraGuardian.Blue"),
-                new DialogueElement("TerraGuardian.Rococo"),
-                new DialogueElement("TerraGuardian.Scaleforth")
+                new DialogueElement("ModTerraGuardian.Alex", "Angry"),
+                new DialogueElement("ModTerraGuardian.Blue"),
+                new DialogueElement("ModTerraGuardian.Rococo"),
+                new DialogueElement("ModTerraGuardian.Scaleforth"),
+
+                /*
+                // Games
+                new DialogueElement("Game.DragnWash", "Naughty"),
+                new DialogueElement("Game.GameHorror", "Naughty"),
+                new DialogueElement("Game.GameParty"),
+                new DialogueElement("Game.PawpertyDamage", "Naughty")
+                */
             }
         );
 
