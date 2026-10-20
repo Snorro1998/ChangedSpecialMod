@@ -29,11 +29,11 @@ LatexMothMountBuff: {
 }
 
 BehemothWeaponBuff: {
-	// DisplayName: Behemoth Weapon Buff
-	// Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+	DisplayName: Ogromna dłoń
+	Description: Dłoń będzie walczył za ciebie
 }
 
 WhiteTailMountBuff: {
-	// DisplayName: White Tail Mount Buff
-	// Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
+	DisplayName: Biały ogon
+	Description: Biały i szybki!
 }

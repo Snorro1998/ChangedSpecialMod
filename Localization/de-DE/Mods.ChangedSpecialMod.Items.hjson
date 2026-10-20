@@ -1035,57 +1035,57 @@ DebugItem: {
 }
 
 WhiteTailTrophy: {
-	// DisplayName: White Tail Trophy
-	// Tooltip: ""
+	DisplayName: Weißschwanztrophäe
+	Tooltip: ""
 }
 
 DisguiseSetHelmet: {
-	// DisplayName: Disguise Mask
-	// Tooltip: ""
+	DisplayName: Verkleidungsmaske
+	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	// DisplayName: Disguise Shirt
-	// Tooltip: ""
+	DisplayName: Verkleidungshemd
+	Tooltip: ""
 }
 
 WhiteTailRelic: {
-	// DisplayName: White Tail Relic
-	// Tooltip: ""
+	DisplayName: Weißschwanz-Relikt
+	Tooltip: ""
 }
 
 BehemothTrophy: {
-	// DisplayName: Behemoth Trophy
-	// Tooltip: ""
+	DisplayName: Giganttrophäe
+	Tooltip: ""
 }
 
 BehemothRelic: {
-	// DisplayName: Behemoth Relic
-	// Tooltip: ""
+	DisplayName: Gigant-Relikt
+	Tooltip: ""
 }
 
 WolfKingRelic: {
-	// DisplayName: Wolf King Relic
-	// Tooltip: ""
+	DisplayName: Wolfskönig-Relikt
+	Tooltip: ""
 }
 
 WolfKingTrophy: {
-	// DisplayName: Wolf King Trophy
-	// Tooltip: ""
+	DisplayName: Wolfskönigtrophäe
+	Tooltip: ""
 }
 
 BehemothTreasureBag: {
-	// DisplayName: Treasure Bag (Behemoth)
+	DisplayName: Schatzbeutel (Gigant)
 	// Tooltip: Right Click to open
 }
 
 WhiteTailTreasureBag: {
-	// DisplayName: Treasure Bag (White Tail)
+	DisplayName: Schatzbeutel (Weißschwanz)
 	// Tooltip: Right Click to open
 }
 
 WolfKingTreasureBag: {
-	// DisplayName: Treasure Bag (Wolf King)
+	DisplayName: Schatzbeutel (Wolfskönig)
 	// Tooltip: Right Click to open
 }
 
@@ -1096,12 +1096,12 @@ WhiteTailWeapon: {
 
 BehemothWeapon: {
 	// DisplayName: Gooey Grabber
-	// Tooltip: ""
+	// Tooltip: Summons a giant hand to fight for you
 }
 
 WhiteTailMountItem: {
 	// DisplayName: Hairball
-	// Tooltip: ""
+	// Tooltip: Summons a rideable White Tail mount
 }
 
 QuestBook: {

@@ -1,8 +1,58 @@
 ﻿using System.Collections.Generic;
 using Terraria.ModLoader;
+using Terraria;
+using System.Linq;
 
 namespace ChangedSpecialMod.Common.Systems.ModSupport
 {
+    public enum ItemSellCondition
+    {
+        None,
+        HardMode,
+        DownedAnyMech,
+        DownedPlantera,
+        DownedGolem
+    }
+
+    public enum ItemCategory
+    {
+        None,
+        Fruit,
+        Herb,
+        Seeds
+    }
+
+    public class ExternalModItem
+    {
+        public int itemId = -1;
+        public ItemCategory category = ItemCategory.None;
+        public ItemSellCondition shopSellCondition = ItemSellCondition.None;
+
+        public ExternalModItem(int itemId, ItemCategory category = ItemCategory.None, ItemSellCondition shopSellCondition = ItemSellCondition.None)
+        {
+            this.itemId = itemId;
+            this.category = category;
+            this.shopSellCondition = shopSellCondition;
+        }
+
+        public bool CanBeSold()
+        {
+            switch (shopSellCondition)
+            {
+                default:
+                    return false;
+                case ItemSellCondition.None:
+                    return true;
+                case ItemSellCondition.DownedAnyMech:
+                    return NPC.downedMechBossAny;
+                case ItemSellCondition.DownedPlantera:
+                    return NPC.downedPlantBoss;
+                case ItemSellCondition.DownedGolem:
+                    return NPC.downedGolemBoss;
+            }
+        }
+    }
+
     public class ModSupportData
     {
         public Mod mod = null;
@@ -10,6 +60,9 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         
         // Tiles
         public List<int> tilesAvoidedByWorldGen = new List<int>();
+
+        // Items
+        public Dictionary<string, ExternalModItem> items = new Dictionary<string, ExternalModItem>();
 
         // IDs
         public Dictionary<string, int> tileTypes = new Dictionary<string, int>();
@@ -48,7 +101,6 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         public virtual void AddItemsHerb() { }
         public virtual void AddItemsSeed() { }
 
-
         public void AddTileType(string name, bool avoidedByWorldGen = false)
         {
             if (tileTypes == null)
@@ -81,57 +133,55 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
             }
         }
 
-        // TODO re-add shop sell conditions
-        public void AddItemFruit(string name)
+        public void AddItem(string name, ItemCategory itemCategory = ItemCategory.None, ItemSellCondition shopSellCondition = ItemSellCondition.None)
         {
-            if (itemIdsFruit == null)
-                itemIdsFruit = new Dictionary<string, int>();
+            if (mod == null)
+                return;
 
-            if (mod == null || itemIdsFruit.ContainsKey(name))
+            if (items == null)
+                items = new Dictionary<string, ExternalModItem>();
+
+            if (items.ContainsKey(name))
                 return;
 
             if (mod.TryFind(name, out ModItem modItem))
             {
-                var itemType = modItem.Type;
-                itemIdsFruit.Add(name, itemType);
+                var itemEntry = new ExternalModItem(modItem.Type, itemCategory, shopSellCondition);
+                items.Add(name, itemEntry);
             }
         }
 
-        // TODO re-add shop sell conditions
-        public void AddItemHerb(string name)
+        public void AddItemFruit(string name, ItemSellCondition shopSellCondition = ItemSellCondition.None)
         {
-            if (itemIdsHerb == null)
-                itemIdsHerb = new Dictionary<string, int>();
-
-            if (mod == null || itemIdsHerb.ContainsKey(name))
-                return;
-
-            if (mod.TryFind(name, out ModItem modItem))
-            {
-                var itemType = modItem.Type;
-                itemIdsHerb.Add(name, itemType);
-            }
+            AddItem(name, ItemCategory.Fruit, shopSellCondition);
         }
 
-        // TODO re-add shop sell conditions
-        public void AddItemSeed(string name)
+        public void AddItemHerb(string name, ItemSellCondition shopSellCondition = ItemSellCondition.None)
         {
-            if (itemIdsSeed == null)
-                itemIdsSeed = new Dictionary<string, int>();
+            AddItem(name, ItemCategory.Herb, shopSellCondition);
+        }
 
-            if (mod == null || itemIdsSeed.ContainsKey(name))
-                return;
-
-            if (mod.TryFind(name, out ModItem modItem))
-            {
-                var itemType = modItem.Type;
-                itemIdsSeed.Add(name, itemType);
-            }
+        public void AddItemSeed(string name, ItemSellCondition shopSellCondition = ItemSellCondition.None)
+        {
+            AddItem(name, ItemCategory.Seeds, shopSellCondition);
         }
 
         public bool ShouldAvoidTileType(int tileType)
         {
             return tilesAvoidedByWorldGen.Contains(tileType);
+        }
+
+        public List<int> GetItemIdsInCategory(ItemCategory itemCategory)
+        {
+            var result = new List<int>();
+
+            if (items != null && items.Count > 0)
+            {
+                result = items.Values.Where(x => x.CanBeSold() && 
+                x.category == itemCategory).Select(x => x.itemId).ToList();
+            }
+
+            return result;
         }
     }
 }

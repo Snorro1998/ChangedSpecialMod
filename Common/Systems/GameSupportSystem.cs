@@ -6,14 +6,17 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
+// This system can read steam's libraryfolders.vdf file on windows, which contain the ids of installed games
+// It does not collect or send this info in any way. It only compares the ids to the hardcoded dictionary.
+// If a match is found, a dialogue keyword is added in GetChatKeywords like this: HasGame{GameName}
+// Puro and Dr K can then talk about these games, such as "Would you like to play 'game' together?
+
+// It is currently unused, because I am not sure if this is against TModloader's TOS and it would creep players out.
+// It was never present in any version of the mod and it was only used as something fun to test.
+// It still works if you call LoadGames during setup
+
 namespace ChangedSpecialMod.Common.Systems
 {
-    // Unused at the moment. It was previously called during mod loading in ModSupportSystem
-
-    // This system can read steam's libraryfolders.vdf file on windows, which contain the ids of installed games
-    // It does not collect or send this info in any way. It only compares the ids to the hardcoded dictionary.
-    // If a match is found, a dialogue keyword is added in GetChatKeywords like this: HasGame{GameName}
-    // Puro and Dr K can then talk about these games, such as "Would you like to play 'game' together?
     public static class GameSupportSystem
     {
         // List of recognized games
@@ -48,7 +51,7 @@ namespace ChangedSpecialMod.Common.Systems
             { 3722130, "Indigo Park" }, // Chapter 2
 
             // Party
-            { 331670, "Jackbox" },
+            { 331670, "Jackbox" }, // Jackbox 1..12
             { 397460, "Jackbox" },
             { 434170, "Jackbox" },
             { 610180, "Jackbox" },
@@ -71,7 +74,7 @@ namespace ChangedSpecialMod.Common.Systems
             { 4032170, "Bubsy 4D" }, // Demo
             { 4576510, "Casualties Unknown" }, // Demo
             { 4576490, "Casualties Unknown" },
-            { 4739660, "Drag'n Wash" },
+            { 4739660, "Drag'n Wash" }, 
 
             // Misc
             { 391540, "Undertale" },

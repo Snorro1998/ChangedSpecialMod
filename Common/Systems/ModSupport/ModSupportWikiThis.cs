@@ -4,8 +4,6 @@ using ChangedSpecialMod.Content.Items.Debug;
 using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Content.Items.Mounts;
 using ChangedSpecialMod.Content.Items.Placeable;
-using ChangedSpecialMod.Content.Items.Placeable.Banners;
-using ChangedSpecialMod.Content.Items.Placeable.Crystals;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture.MusicBox;
 using ChangedSpecialMod.Content.Items.Placeable.Latex.Black;
@@ -17,17 +15,18 @@ using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.NPCs.Drunk;
 using ChangedSpecialMod.Content.NPCs.TownPets;
+using ChangedSpecialMod.Content.Items.Placeable.Crystals;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using log4net;
 
-namespace ChangedSpecialMod.Common.Systems.Mods
+namespace ChangedSpecialMod.Common.Systems.ModSupport
 {
-    public static class WikithisSystem
+    public class ModSupportWikiThis : ModSupportData
     {
-        private static ChangedSpecialMod changedMod;
-        private static Mod targetMod;
-
+        public ModSupportWikiThis(Mod mod, string modName) : base(mod, modName) { }
         private static string wikiUrl = "https://changedterraria.wiki.gg/wiki/";
 
         private static Dictionary<int, string> GetNPCUrls()
@@ -434,28 +433,24 @@ namespace ChangedSpecialMod.Common.Systems.Mods
             };
         }
 
-        public static void Setup(ChangedSpecialMod _changedMod, Mod _targetMod)
+        public override void PostSetupContent(ILog log)
         {
+            var changedMod = ChangedSpecialMod.Instance;
+
             // Wikithis is a clientside mod
-            if (Main.dedServ)
-                return;
-
-            changedMod = _changedMod;
-            targetMod = _targetMod;
-
-            if (targetMod == null)
+            if (Main.dedServ || mod == null || changedMod == null)
                 return;
 
             var wikiURL = "https://changedterraria.wiki.gg/wiki/{}";
 
-            targetMod.Call("AddModURL", changedMod, wikiURL);
-            targetMod.Call(0, changedMod, wikiURL);
+            mod.Call("AddModURL", changedMod, wikiURL);
+            mod.Call(0, changedMod, wikiURL);
             //wiki.Call("AddWikiTexture", calamity, Request<Texture2D>("CalamityMod/ModSupport/WikiThisIcon"));
             //wiki.Call(3, calamity, Request<Texture2D>("CalamityMod/ModSupport/WikiThisIcon"));
 
             // Clear up name conflicts
-            void ItemRedirect(int item, string pageName) => targetMod.Call(1, item, wikiUrl + pageName);
-            void EnemyRedirect(int item, string pageName) => targetMod.Call(2, item, wikiUrl + pageName);
+            void ItemRedirect(int item, string pageName) => mod.Call(1, item, wikiUrl + pageName);
+            void EnemyRedirect(int item, string pageName) => mod.Call(2, item, wikiUrl + pageName);
 
             var urls = GetNPCUrls();
             var keys = urls.Keys;

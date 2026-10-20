@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
@@ -936,10 +937,19 @@ namespace ChangedSpecialMod.Utilities
                 TileID.LivingMahoganyLeaves
             };
 
+            var externalMods = ModSupportSystem.externalMods;
+            if (externalMods != null && externalMods.Count > 0)
+            {
+                foreach (var mod in externalMods)
+                {
+                    IgnoreBlockTypes.AddRange(mod.tilesAvoidedByWorldGen);
+                }
+            }
+
             int y = (int)GenVars.worldSurfaceLow;
 
             var isLeftWorldHalf = x < Main.maxTilesX / 2;
-            var maxAttempts = 3;
+            var maxAttempts = 5; //3
             var attempt = 0;
             var xShiftOnFailSmall = 10;
             var xShiftOnFailBig = 100;

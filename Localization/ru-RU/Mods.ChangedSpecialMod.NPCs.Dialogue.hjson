@@ -136,6 +136,11 @@ Puro: {
 		Party12: Потанцуем вместе, {PlayerRace}? Потому что я чувствую себя настоящим тусовщиком!
 	}
 
+	PuroCompanionMod: {
+		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}Я не знал, что у меня есть брат-близнец."
+		// PlayerHasPuro2: "{PuroCompanionModPlayerHasPuro}I still didn't know I had a twin brother."
+	}
+
 	ModTerraGuardian: {
 		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, а я тоже могу стать Терра-хранителем? Хочу отправиться с тобой в приключение!"
 		Alex: Я бросил {TerraGuardianAlexName} палку, а он вернулся с целым стволом дерева.

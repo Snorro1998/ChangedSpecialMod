@@ -136,6 +136,11 @@ Puro: {
 		Party12: "{PlayerRace}，我们一起跳舞好吗？因为我感觉自己像个派对动物！"
 	}
 
+	PuroCompanionMod: {
+		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}我不知道自己有个双胞胎兄弟。"
+		// PlayerHasPuro2: "{PuroCompanionModPlayerHasPuro}I still didn't know I had a twin brother."
+	}
+
 	ModTerraGuardian: {
 		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}，我也能成为“大地守护者”吗？我想和你一起去冒险！"
 		Alex: 我给{TerraGuardianAlexName}扔了根木棍，结果他带回来一截树干。

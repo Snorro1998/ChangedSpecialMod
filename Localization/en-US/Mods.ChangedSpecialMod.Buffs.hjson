@@ -29,11 +29,11 @@ LatexMothMountBuff: {
 }
 
 BehemothWeaponBuff: {
-	DisplayName: Behemoth Weapon Buff
-	Description: Mods.ChangedSpecialMod.Buffs.BehemothWeaponBuff.Description
+	DisplayName: Giant hand
+	Description: The hand will fight for you
 }
 
 WhiteTailMountBuff: {
-	DisplayName: White Tail Mount Buff
-	Description: Mods.ChangedSpecialMod.Buffs.WhiteTailMountBuff.Description
+	DisplayName: White Tail
+	Description: White and whoosh!
 }

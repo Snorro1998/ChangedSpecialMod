@@ -21,7 +21,8 @@ namespace ChangedSpecialMod.Content.Items.Mounts
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing; // how the player's arm moves when using the item
             Item.value = Item.buyPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ItemRarityID.Expert;
+            Item.expert = true;
             // Bunny mount fwoomp SoundID.Item79;
             Item.UseSound = Sounds.SoundTransfur; // What sound should play when using the item
             Item.noMelee = true; // this item doesn't do any melee damage

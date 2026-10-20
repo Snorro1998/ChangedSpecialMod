@@ -136,6 +136,11 @@ Puro: {
 		Party12: Wollen wir zusammen tanzen, {PlayerRace}? Denn ich fühle mich wie ein Partytier!
 	}
 
+	PuroCompanionMod: {
+		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}Ich wusste nicht, dass ich einen Zwillingsbruder habe."
+		// PlayerHasPuro2: "{PuroCompanionModPlayerHasPuro}I still didn't know I had a twin brother."
+	}
+
 	ModTerraGuardian: {
 		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, kann ich auch ein Terra-Wächter werden? Ich möchte mit dir auf ein Abenteuer gehen!"
 		Alex: Ich habe einen Stock für {TerraGuardianAlexName} geworfen, aber er kam mit einem Baumstamm zurück.

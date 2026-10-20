@@ -136,6 +136,11 @@ Puro: {
 		Party12: Vamos dançar juntos, {PlayerRace}? Porque eu estou com muita vontade de festejar!
 	}
 
+	PuroCompanionMod: {
+		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}Eu não sabia que tinha um irmão gêmeo."
+		// PlayerHasPuro2: "{PuroCompanionModPlayerHasPuro}I still didn't know I had a twin brother."
+	}
+
 	ModTerraGuardian: {
 		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, será que eu também posso me tornar um Guardião da Terra? Quero partir em uma aventura com você!"
 		Alex: Joguei um graveto para o {TerraGuardianAlexName}, mas ele voltou com um tronco de árvore.

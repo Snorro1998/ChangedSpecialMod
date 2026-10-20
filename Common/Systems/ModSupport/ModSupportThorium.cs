@@ -54,12 +54,12 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
             AddItemFruit("Tamarind");
             AddItemFruit("Aril");
             AddItemFruit("Lychee");
-            AddItemFruit("Kumquat");    //Main.hardMode
-            AddItemFruit("Persimmon");  //Main.hardMode
-            AddItemFruit("Soursop");    //NPC.downedPlantBoss
-            AddItemFruit("Mangosteen"); //NPC.downedPlantBoss
-            AddItemFruit("Cranberry");  //NPC.downedPlantBoss
-            AddItemFruit("Raspberry");  //NPC.downedPlantBoss
+            AddItemFruit("Kumquat", ItemSellCondition.HardMode);
+            AddItemFruit("Persimmon", ItemSellCondition.HardMode);
+            AddItemFruit("Soursop", ItemSellCondition.DownedPlantera);
+            AddItemFruit("Mangosteen", ItemSellCondition.DownedPlantera);
+            AddItemFruit("Cranberry", ItemSellCondition.DownedPlantera);
+            AddItemFruit("Raspberry", ItemSellCondition.DownedPlantera);
         }
 
         public override void AddItemsHerb()

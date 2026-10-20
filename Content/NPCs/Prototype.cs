@@ -24,6 +24,7 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using ChangedSpecialMod.Common.Systems.ModSupport;
 
 
 namespace ChangedSpecialMod.Content.NPCs
@@ -385,11 +386,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
                     foreach (var mod in ModSupportSystem.externalMods)
                     {
-                        if (mod.itemIdsFruit != null)
-                        {
-                            var fruitItems = mod.itemIdsFruit.Values.ToList();
-                            itemList.AddRange(fruitItems);
-                        }
+                        var modItems = mod.GetItemIdsInCategory(ItemCategory.Fruit);
+                        itemList.AddRange(modItems);
                     }
                 } 
                 // Herb shop
@@ -407,11 +405,8 @@ namespace ChangedSpecialMod.Content.NPCs
                     };
                     foreach (var mod in ModSupportSystem.externalMods)
                     {
-                        if (mod.itemIdsHerb != null)
-                        {
-                            var herbItems = mod.itemIdsHerb.Values.ToList();
-                            itemList.AddRange(herbItems);
-                        }
+                        var modItems = mod.GetItemIdsInCategory(ItemCategory.Herb);
+                        itemList.AddRange(modItems);
                     }
                 }
                 // Seed shop
@@ -428,6 +423,11 @@ namespace ChangedSpecialMod.Content.NPCs
                         //ItemID.AshGrassSeeds
                         ModContent.ItemType<DryDirtGrassSeeds>()
                     };
+                    foreach (var mod in ModSupportSystem.externalMods)
+                    {
+                        var modItems = mod.GetItemIdsInCategory(ItemCategory.Seeds);
+                        itemList.AddRange(modItems);
+                    }
                 }
                 var nShopSlots = 40; 
                 // Replace items in the shop

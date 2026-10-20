@@ -499,7 +499,7 @@ MusicBoxBehemoth: {
 }
 
 SummonWhiteTail: {
-	Tooltip: Призывает Белохвостого
+	Tooltip: Призывает Белый хвост
 	DisplayName: Подозрительный слизистый шарик
 }
 
@@ -1035,8 +1035,8 @@ DebugItem: {
 }
 
 WhiteTailTrophy: {
-	// DisplayName: White Tail Trophy
-	// Tooltip: ""
+	DisplayName: Трофей Белый хвост
+	Tooltip: ""
 }
 
 DisguiseSetHelmet: {
@@ -1050,28 +1050,28 @@ DisguiseSetBreastplate: {
 }
 
 WhiteTailRelic: {
-	// DisplayName: White Tail Relic
-	// Tooltip: ""
+	DisplayName: Реликвия Белый хвост
+	Tooltip: ""
 }
 
 BehemothTrophy: {
-	// DisplayName: Behemoth Trophy
-	// Tooltip: ""
+	DisplayName: Трофей Бегемот
+	Tooltip: ""
 }
 
 BehemothRelic: {
-	// DisplayName: Behemoth Relic
-	// Tooltip: ""
+	DisplayName: Реликвия Бегемот
+	Tooltip: ""
 }
 
 WolfKingRelic: {
-	// DisplayName: Wolf King Relic
-	// Tooltip: ""
+	DisplayName: Реликвия Король Волков
+	Tooltip: ""
 }
 
 WolfKingTrophy: {
-	// DisplayName: Wolf King Trophy
-	// Tooltip: ""
+	DisplayName: Трофей Король Волков
+	Tooltip: ""
 }
 
 BehemothTreasureBag: {
@@ -1096,12 +1096,12 @@ WhiteTailWeapon: {
 
 BehemothWeapon: {
 	// DisplayName: Gooey Grabber
-	// Tooltip: ""
+	// Tooltip: Summons a giant hand to fight for you
 }
 
 WhiteTailMountItem: {
 	// DisplayName: Hairball
-	// Tooltip: ""
+	// Tooltip: Summons a rideable White Tail mount
 }
 
 QuestBook: {

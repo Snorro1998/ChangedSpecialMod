@@ -1,5 +1,6 @@
 ﻿using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Common.Systems.ModSupport;
 using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
@@ -115,40 +116,6 @@ namespace ChangedSpecialMod.Content.NPCs
             HType = hType;
             Offset = offset;
             ModHatTexture = modHatTexture;
-        }
-    }
-
-    public class TerraGuardianCompanion
-    {
-        public string name;
-        public string nickname;
-        public float scale;
-        public bool male;
-        public bool inPlayerParty;
-        public bool IsFurry()
-        {
-            var nonFurryList = new List<string>()
-            {
-                "michelle",
-                "nemesis"
-            };
-
-            return !nonFurryList.Contains(name.ToLower());
-        }
-
-        public bool IsSmall()
-        {
-            return scale < 0.8f;
-        }
-
-        public bool IsNormalSized()
-        {
-            return scale >= 0.8f;
-        }
-
-        public bool IsMacro()
-        {
-            return scale >= 3;
         }
     }
 
@@ -850,9 +817,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public Dictionary<string, string> GetChatKeyWords()
         {
+            var keyWords = new Dictionary<string, string>() { };
+
             try
             {
-                var keyWords = new Dictionary<string, string>() { };
                 var npcIdentifiers = GetNPCIdentifiers();
 
                 // It is a bit silly to call this with the condition to true, but
@@ -928,7 +896,6 @@ namespace ChangedSpecialMod.Content.NPCs
                     }
                 }
 
-
                 if (GameSupportSystem.games != null && GameSupportSystem.games.Count > 0)
                 {
                     var gamesFactory = new List<string>();
@@ -937,32 +904,32 @@ namespace ChangedSpecialMod.Content.NPCs
                     var gamesParty = new List<string>();
 
                     var namesFactory = new List<string>()
-                {
-                    "Factorio",
-                    "Satisfactory"
-                };
+                    {
+                        "Factorio",
+                        "Satisfactory"
+                    };
 
                     var namesFarming = new List<string>()
-                {
-                    "Farming Simulator",
-                    "Fields of Mistria",
-                    "Stardew Valley"
-                };
+                    {
+                        "Farming Simulator",
+                        "Fields of Mistria",
+                        "Stardew Valley"
+                    };
 
                     var namesHorror = new List<string>()
-                {
-                    "Slender Man",
-                    "Five Nights at Freddy's",
-                    "Hello Neighbor",
-                    "Poppy Playtime",
-                    "Garten of Banban"
-                };
+                    {
+                        "Slender Man",
+                        "Five Nights at Freddy's",
+                        "Hello Neighbor",
+                        "Poppy Playtime",
+                        "Garten of Banban"
+                    };
 
                     var namesParty = new List<string>()
-                {
-                    "Jackbox",
-                    "Among Us"
-                };
+                    {
+                        "Jackbox",
+                        "Among Us"
+                    };
 
                     foreach (var game in GameSupportSystem.games)
                     {
@@ -994,12 +961,20 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (ModSupportSystem.IsModActive("Redemption"))
                     AddIf(true, "ModRedemption", string.Empty);
 
+                // If you play with Puro Summon mod and have him around
+                var modPuroCompanion = ModSupportSystem.GetModSupportData("PuroCompanion") as ModSupportPuroSummon;
+                if (modPuroCompanion != null)
+                {
+                    AddIf(modPuroCompanion.PlayerHasPuroSummon(Main.LocalPlayer), "PuroCompanionModPlayerHasPuro", string.Empty);
+                }
+
                 // If playing with TerraGuardian, get the names of all companions in the world.
-                if (ModSupportSystem.modTerraGuardians != null)
+                var tgSystem = ModSupportSystem.GetModSupportData("terraguardians") as ModSupportTerraGuardian;
+                if (tgSystem != null)
                 {
                     AddIf(true, "ModTG", string.Empty);
-                    var companions = GetTerraGuardianCompanions();
-                    var companionNamesInParty = GetCompanionNamesInPlayerParty();
+                    var companions = tgSystem.GetTerraGuardianCompanions();
+                    var companionNamesInParty = tgSystem.GetCompanionNamesInPlayerParty();
                     var companionsInParty = companions.Where(x => companionNamesInParty.Contains(x.name));
                     var companionsNotInParty = companions.Where(x => !companionNamesInParty.Contains(x.name));
 
@@ -1228,272 +1203,12 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 return keyWords;
             }
-            catch
+            catch(Exception e)
             {
-                return new Dictionary<string, string>();
+                Mod.Logger.Error("GetChatKeywords crashed: " + e.Message);
+                return keyWords;
             }
         }
-
-        private List<TerraGuardianCompanion> GetTerraGuardianCompanions()
-        {
-            var result = new List<TerraGuardianCompanion>();
-
-            if (ModSupportSystem.modTerraGuardians == null)
-                return result;
-
-            try
-            {
-                Type worldModType = ModSupportSystem.modTerraGuardians.Code.GetType("terraguardians.WorldMod");
-
-                FieldInfo companionNPCsfield = worldModType.GetField(
-                    "CompanionNPCs",
-                    BindingFlags.Public | BindingFlags.Static
-                );
-
-                if (companionNPCsfield != null)
-                {
-                    var companions = companionNPCsfield.GetValue(null) as System.Collections.IList;
-
-                    if (companions == null)
-                        return result;
-                    
-                    for (int i = 0; i < companions.Count; i++)
-                    {
-                        var companion = companions[i];
-                        if (companion != null)
-                        {
-                            var hasBeenMetProperty = companion.GetType().GetProperty("HasBeenMet");
-                            bool hasBeenMet = (bool)(hasBeenMetProperty?.GetValue(companion) ?? false);
-
-                            if (!hasBeenMet)
-                                continue;
-
-                            var nameProperty = companion.GetType().GetProperty("GetRealName");
-                            if (nameProperty != null)
-                            {
-                                string name = nameProperty.GetValue(companion) as string;
-                                if (name != null)
-                                {
-                                    var nickname = name;
-                                    var companionPlayer = companion as Player;
-
-                                    if (companionPlayer != null)
-                                        nickname = companionPlayer.name;
-
-                                    var scaleField = companion.GetType().GetField("Scale");
-                                    float scale = (float)(scaleField?.GetValue(companion) ?? 1f);
-
-                                    int gender = 0;
-                                    var genderProperty = companion.GetType().GetProperty("Genders");
-                                    if (genderProperty != null)
-                                    {
-                                        object genderObject = genderProperty.GetValue(companion);
-                                        gender = Convert.ToInt32(genderObject);
-                                    }
-
-                                    var companionObj = new TerraGuardianCompanion()
-                                    {
-                                        name = name,
-                                        nickname = nickname,
-                                        scale = scale,
-                                        male = gender == 0
-                                    };
-
-                                    result.Add(companionObj);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                return result;
-            }
-            catch
-            {
-                return result;
-            }
-        }
-
-        private List<string> GetCompanionNamesInPlayerParty()
-        {
-            var result = new List<string>();
-
-            if (ModSupportSystem.modTerraGuardians == null)
-                return result;
-
-            // NPC chats are only done locally, so this is okay to do
-            var player = Main.LocalPlayer;
-
-            try
-            {
-                Type playerModType = ModSupportSystem.modTerraGuardians.Code.GetType("terraguardians.PlayerMod");
-
-                if (playerModType == null)
-                    return result;
-
-                // Find TerraGuardians' PlayerMod attached to this player.
-                ModPlayer modPlayer = null;
-
-                foreach (ModPlayer mp in player.ModPlayers)
-                {
-                    if (mp.GetType() == playerModType)
-                    {
-                        modPlayer = mp;
-                        break;
-                    }
-                }
-
-                if (modPlayer == null)
-                    return result;
-
-                // Get the private SummonedCompanions field.
-                var field = playerModType.GetField(
-                    "SummonedCompanions",
-                    System.Reflection.BindingFlags.Instance |
-                    System.Reflection.BindingFlags.NonPublic
-                );
-
-                if (field == null)
-                    return result;
-
-                Array companions = field.GetValue(modPlayer) as Array;
-
-                if (companions == null)
-                    return result;
-
-                // Check whether any companion is actually present.
-                for (int i = 0; i < companions.Length; i++)
-                {
-                    var companion = companions.GetValue(i);
-                    if (companion != null)
-                    {
-                        var nameProperty = companion.GetType().GetProperty("GetRealName");
-
-                        if (nameProperty != null)
-                        {
-                            string name = nameProperty.GetValue(companion) as string;
-                            if (name != null)
-                            {
-                                result.Add(name);
-                            }
-                        }
-                    }
-                }
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return result;
-            }
-        }
-
-        private Dictionary<string, string> GetTerraGuardianKeywords()
-        {
-            // Checks terraguardians modplayer (PlayerMod) if he has any companions
-            // Companion is an extended player class and can be used to retrieve
-            // info like the name, nickname and scale.
-            // The names can be used in chats and scale can be used to determine if they are big
-            // Terraguardian doesnt check the scale as far as I know
-            // For example, Leona can call the player "shortie" even if you shrunk her
-            // It could also be intentional, because normally she is much larger than the player
-            // The companions are stored int the SummonedCompanions array
-
-            var result = new Dictionary<string, string>();  
-
-            if (ModSupportSystem.modTerraGuardians == null)
-                return result;
-
-            // NPC chats are only done locally, so this is okay to do
-            var player = Main.LocalPlayer;
-
-            try
-            {
-                Type playerModType = ModSupportSystem.modTerraGuardians.Code.GetType("terraguardians.PlayerMod");
-
-                if (playerModType == null)
-                    return result;
-
-                // Find TerraGuardians' PlayerMod attached to this player.
-                ModPlayer modPlayer = null;
-
-                foreach (ModPlayer mp in player.ModPlayers)
-                {
-                    if (mp.GetType() == playerModType)
-                    {
-                        modPlayer = mp;
-                        break;
-                    }
-                }
-
-                if (modPlayer == null)
-                    return result;
-
-                // Get the private SummonedCompanions field.
-                var field = playerModType.GetField(
-                    "SummonedCompanions",
-                    System.Reflection.BindingFlags.Instance |
-                    System.Reflection.BindingFlags.NonPublic
-                );
-
-                if (field == null)
-                    return result;
-
-                Array companions = field.GetValue(modPlayer) as Array;
-
-                if (companions == null)
-                    return result;
-
-                // Check whether any companion is actually present.
-                for (int i = 0; i < companions.Length; i++)
-                {
-                    var companion = companions.GetValue(i);
-                    if (companion != null)
-                    {
-                        var nameProperty = companion.GetType().GetProperty("GetRealName");
-                        var scaleField = companion.GetType().GetField("Scale");
-
-                        if (nameProperty != null)
-                        {
-                            string name = nameProperty.GetValue(companion) as string;
-                            if (name != null)
-                            {
-                                var nickname = name;
-                                var companionPlayer = companion as Player;
-
-                                if (companionPlayer != null)
-                                {
-                                    nickname = companionPlayer.name;
-                                }
-
-                                /*
-                                if (scaleField != null)
-                                {
-                                    object scaleObject = scaleField.GetValue(companion);
-                                    if (scaleObject != null)
-                                    {
-                                        var scale = (float)scaleObject;
-                                        name += $", scale {scale}";
-                                    }
-                                }
-                                */
-                                if (!result.ContainsKey(name))
-                                {
-                                    result.Add(name, nickname);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return result;
-            }
-        }
-
 
         public void SetNPCName(NPC npc, string overwriteName = null)
         {

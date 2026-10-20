@@ -31,6 +31,11 @@ namespace ChangedSpecialMod.Content.NPCs
                 // Stars mod
                 new DialogueElement("NPCStarsModPackFarmer", "Question"),
 
+                // Puro Companion Mod
+                new DialogueElement("PuroCompanionMod.PlayerHasPuro1", "Derp"),
+                //new DialogueElement("PuroCompanionMod.PlayerHasPuro2", "Evil"),
+
+                
                 // Terra Guardians
                 new DialogueElement("ModTerraGuardian.PlayerHasTerraGuardian"),
                 new DialogueElement("ModTerraGuardian.Alex", "Shocked"),

@@ -17,6 +17,8 @@ namespace ChangedSpecialMod.Content.Items.Armor
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.defense = 3;
+            Item.rare = ItemRarityID.Expert;
+            Item.expert = true;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

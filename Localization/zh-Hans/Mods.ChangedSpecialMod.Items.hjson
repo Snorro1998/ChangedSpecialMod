@@ -1035,8 +1035,8 @@ DebugItem: {
 }
 
 WhiteTailTrophy: {
-	// DisplayName: White Tail Trophy
-	// Tooltip: ""
+	DisplayName: 白尾纪念章
+	Tooltip: ""
 }
 
 DisguiseSetHelmet: {
@@ -1050,28 +1050,28 @@ DisguiseSetBreastplate: {
 }
 
 WhiteTailRelic: {
-	// DisplayName: White Tail Relic
-	// Tooltip: ""
+	DisplayName: 白尾圣物
+	Tooltip: ""
 }
 
 BehemothTrophy: {
-	// DisplayName: Behemoth Trophy
-	// Tooltip: ""
+	DisplayName: 巨人纪念章
+	Tooltip: ""
 }
 
 BehemothRelic: {
-	// DisplayName: Behemoth Relic
-	// Tooltip: ""
+	DisplayName: 巨人圣物
+	Tooltip: ""
 }
 
 WolfKingRelic: {
-	// DisplayName: Wolf King Relic
-	// Tooltip: ""
+	DisplayName: 狼王圣物
+	Tooltip: ""
 }
 
 WolfKingTrophy: {
-	// DisplayName: Wolf King Trophy
-	// Tooltip: ""
+	DisplayName: 狼王纪念章
+	Tooltip: ""
 }
 
 BehemothTreasureBag: {
@@ -1096,12 +1096,12 @@ WhiteTailWeapon: {
 
 BehemothWeapon: {
 	// DisplayName: Gooey Grabber
-	// Tooltip: ""
+	// Tooltip: Summons a giant hand to fight for you
 }
 
 WhiteTailMountItem: {
 	// DisplayName: Hairball
-	// Tooltip: ""
+	// Tooltip: Summons a rideable White Tail mount
 }
 
 QuestBook: {

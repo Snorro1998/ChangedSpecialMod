@@ -39,16 +39,16 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         {
             AddItemFruit("Jackfruit");
             AddItemFruit("Salak");
-            AddItemFruit("Barberry");   // Main.hardMode
-            AddItemFruit("Cometfruit");   // Main.hardMode
-            AddItemFruit("Lotus");   // Main.hardMode
-            AddItemFruit("Mangosteen");   // Main.hardMode
+            AddItemFruit("Barberry", ItemSellCondition.HardMode);
+            AddItemFruit("Cometfruit", ItemSellCondition.HardMode);
+            AddItemFruit("Lotus", ItemSellCondition.HardMode);
+            AddItemFruit("Mangosteen", ItemSellCondition.HardMode);
         }
 
         public override void AddItemsSeed()
         {
-            AddItemSeed("CinderBlossomSeeds"); // Main.hardMode
-            AddItemSeed("AstralGrassSeeds"); // Main.hardMode
+            AddItemSeed("CinderBlossomSeeds", ItemSellCondition.HardMode);
+            AddItemSeed("AstralGrassSeeds", ItemSellCondition.HardMode);
         }
     }
 }

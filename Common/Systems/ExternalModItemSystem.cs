@@ -4,13 +4,8 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems
 {
-    public enum ItemCategory
-    {
-        Fruit,
-        Herb,
-        Seeds
-    }
 
+    /*
     public static class ExternalModItemSystem
     {
         public class ExternalMod
@@ -81,4 +76,5 @@ namespace ChangedSpecialMod.Common.Systems
         }
 
     }
+    */
 }

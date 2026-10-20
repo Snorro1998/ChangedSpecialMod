@@ -321,24 +321,129 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private Rectangle FindRoomBounds()
         {
+            /*
             int x = (int)(NPC.position.X / 16);
             int y = (int)(NPC.position.Y / 16);
-            int left = Scan(x, y, -1, 0);
-            int right = Scan(x, y, 1, 0);
-            int top = Scan(x, y, 0, -1);
-            int bottom = Scan(x, y, 0, 1);
+            int left = -1;// Scan(x, y, -1, 0);
+            int right = -1;// Scan(x, y, 1, 0);
+            int top = -1;// Scan(x, y, 0, -1);
+            int bottom = -1;// Scan(x, y, 0, 1);
+            */
+            var maxRange = 50;
+            var xPos = (int)(NPC.position.X / 16);
+            var yPos = (int)(NPC.position.Y / 16);
+
+            var tmpX = xPos;
+            var tmpY = yPos;
+            var tile = Main.tile[tmpX, tmpY];
+
+            var topPos = -1;
+            for (int i = 0; i < 20; i++)
+            {
+                var tmpYPos = tmpY - i;
+                if (tmpYPos < 0)
+                {
+                    topPos = 0;
+                    break;
+                }
+                var tileT = Main.tile[tmpX, tmpYPos];
+                if (tileT.HasTile && tileT.HasUnactuatedTile && Main.tileSolid[tileT.TileType])
+                {
+                    topPos = tmpYPos;
+                    break;
+                }
+            }
+
+            var leftPos = -1;
+            for (int i = 0; i < 30; i++)
+            {
+                var tmpXPos = tmpX - i;
+                if (tmpXPos < 0)
+                {
+                    leftPos = 0;
+                    break;
+                }
+                var tileT = Main.tile[tmpXPos, topPos + 1];
+                if (tileT.HasTile && tileT.HasUnactuatedTile && Main.tileSolid[tileT.TileType])
+                {
+                    leftPos = tmpXPos;
+                    break;
+                }
+            }
+
+            var rightPos = -1;
+            for (int i = 0; i < 30; i++)
+            {
+                var tmpXPos = tmpX + i;
+                if (tmpXPos >= Main.maxTilesX)
+                {
+                    rightPos = Main.maxTilesX - 1;
+                    break;
+                }
+                var tileT = Main.tile[tmpXPos, topPos + 1];
+                if (tileT.HasTile && tileT.HasUnactuatedTile && Main.tileSolid[tileT.TileType])
+                {
+                    rightPos = tmpXPos;
+                    break;
+                }
+            }
+            /*
+            var leftPos = -1;
+            for (int iL = 0; iL < maxRange; iL++)
+            {
+                var tileL = Main.tile[tmpX - iL, tmpY];
+                if (!ChangedUtils.IsBlackLatexWall(tileL))
+                {
+                    leftPos = tmpX - iL;
+                    break;
+                }
+            }
+
+            var rightPos = -1;
+            for (int iR = 0; iR < maxRange; iR++)
+            {
+                var tileR = Main.tile[tmpX + iR, tmpY];
+                if (!ChangedUtils.IsBlackLatexWall(tileR))
+                {
+                    rightPos = tmpX + iR;
+                    break;
+                }
+            }
+
+            var topPos = -1;
+            for (int iT = 0; iT < maxRange; iT++)
+            {
+                var tileT = Main.tile[tmpX, tmpY - iT];
+                if (!ChangedUtils.IsBlackLatexWall(tileT))
+                {
+                    topPos = tmpY - iT;
+                    break;
+                }
+            }
+            */
+
+            var bottomPos = -1;
+            for (int iB = 0; iB < maxRange; iB++)
+            {
+                var tileR = Main.tile[tmpX, tmpY + iB];
+                if (!ChangedUtils.IsBlackLatexWall(tileR))
+                {
+                    bottomPos = tmpY + iB;
+                    break;
+                }
+            }
 
             // Handle invalid results (-1)
-            if (left == -1 || right == -1 || top == -1 || bottom == -1)
+            if (leftPos == -1 || rightPos == -1 || topPos == -1 || bottomPos == -1)
             {
-                return new Rectangle(x, y, 1, 1);
+                return new Rectangle(xPos, yPos, 1, 1);
             }
 
             return new Rectangle(
-                left,
-                top,
-                right - left,
-                bottom - top
+                leftPos,
+                topPos,
+                rightPos - leftPos,
+                bottomPos - topPos
             );
         }
 

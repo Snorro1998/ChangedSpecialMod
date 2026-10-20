@@ -1076,17 +1076,17 @@ WolfKingTrophy: {
 
 BehemothTreasureBag: {
 	DisplayName: Treasure Bag (Behemoth)
-	Tooltip: Right Click to open
+	Tooltip: "{$CommonItemTooltip.BannerBonus}"
 }
 
 WhiteTailTreasureBag: {
 	DisplayName: Treasure Bag (White Tail)
-	Tooltip: Right Click to open
+	Tooltip: "{$CommonItemTooltip.BannerBonus}"
 }
 
 WolfKingTreasureBag: {
 	DisplayName: Treasure Bag (Wolf King)
-	Tooltip: Right Click to open
+	Tooltip: "{$CommonItemTooltip.BannerBonus}"
 }
 
 WhiteTailWeapon: {
@@ -1096,12 +1096,12 @@ WhiteTailWeapon: {
 
 BehemothWeapon: {
 	DisplayName: Gooey Grabber
-	Tooltip: ""
+	Tooltip: Summons a giant hand to fight for you
 }
 
 WhiteTailMountItem: {
 	DisplayName: Hairball
-	Tooltip: ""
+	Tooltip: Summons a rideable White Tail mount, which can dash
 }
 
 QuestBook: {

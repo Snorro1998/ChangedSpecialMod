@@ -90,15 +90,19 @@ General
 - Reduced drop change of oranges
 - Well fed buff from oranges increased from 1 to 5 minutes
 
-Config
-- Added option to display retro sprites of blocks and furniture found in the labs
-- Added option to display retro sprites of NPCs
+Lost books
+- All NPCs have a small chance to drop lost books. You can hand them in to Puro for a reward (lost books option).
+- Books have random titles for English, German and French. For the other languages, they are just called "lost book"
+
+Retro sprites
+- Added config option to display retro sprites of blocks and furniture found in the labs
+- Added config option to display retro sprites of NPCs
+- Added retro sprites for Bloodstripe and Purrpurr
 
 Mods
 - If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
 - If you play with the Terra Guardians mod, Puro and Dr K can say things about them.
-- All NPCs have a small chance to drop lost books. You can give (not sell) them to Puro for a reward.
-- Dr K can talk about the underground 'TeoChrome' lab when playing with Mod of Redemption
+- World generation now tries to avoid placing labs on top of the briar biome from Spirit Mod
 - Weapons have element types when playing with Mod of Redemption
 
 Items added
@@ -117,6 +121,7 @@ Resprited
 - Lab door
 - Elevator
 - Mount bookest
+- Bloodstripe
 - Crystals
 
 Fixed

@@ -124,6 +124,57 @@ namespace ChangedSpecialMod.Content.NPCs
             var tmpY = yPos;
             var tile = Main.tile[tmpX, tmpY];
 
+            var topPos = -1;
+            for (int i = 0; i < 20; i++)
+            {
+                var tmpYPos = tmpY - i;
+                if (tmpYPos < 0)
+                {
+                    topPos = 0;
+                    break;
+                }
+                var tileT = Main.tile[tmpX, tmpYPos];
+                if (tileT.HasTile && tileT.HasUnactuatedTile && Main.tileSolid[tileT.TileType])
+                {
+                    topPos = tmpYPos;
+                    break;
+                }
+            }
+
+            var leftPos = -1;
+            for (int i = 0; i < 30; i++)
+            {
+                var tmpXPos = tmpX - i;
+                if (tmpXPos < 0)
+                {
+                    leftPos = 0;
+                    break;
+                }
+                var tileT = Main.tile[tmpXPos, topPos + 1];
+                if (tileT.HasTile && tileT.HasUnactuatedTile && Main.tileSolid[tileT.TileType])
+                {
+                    leftPos = tmpXPos;
+                    break;
+                }
+            }
+
+            var rightPos = -1;
+            for (int i = 0; i < 30; i++)
+            {
+                var tmpXPos = tmpX + i;
+                if (tmpXPos >= Main.maxTilesX)
+                {
+                    rightPos = Main.maxTilesX - 1;
+                    break;
+                }
+                var tileT = Main.tile[tmpXPos, topPos + 1];
+                if (tileT.HasTile && tileT.HasUnactuatedTile && Main.tileSolid[tileT.TileType])
+                {
+                    rightPos = tmpXPos;
+                    break;
+                }
+            }
+            /*
             var leftPos = -1;
             for (int iL = 0; iL < maxRange; iL++)
             {
@@ -156,6 +207,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     break;
                 }
             }
+            */
 
             var bottomPos = -1;
             for (int iB = 0; iB < maxRange; iB++)

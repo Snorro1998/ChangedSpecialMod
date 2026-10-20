@@ -1035,8 +1035,8 @@ DebugItem: {
 }
 
 WhiteTailTrophy: {
-	// DisplayName: White Tail Trophy
-	// Tooltip: ""
+	DisplayName: Trophée de la Queue Blanche
+	Tooltip: ""
 }
 
 DisguiseSetHelmet: {
@@ -1050,28 +1050,28 @@ DisguiseSetBreastplate: {
 }
 
 WhiteTailRelic: {
-	// DisplayName: White Tail Relic
-	// Tooltip: ""
+	DisplayName: Relique de la Queue Blanche
+	Tooltip: ""
 }
 
 BehemothTrophy: {
-	// DisplayName: Behemoth Trophy
-	// Tooltip: ""
+	DisplayName: Trophée du Behemoth
+	Tooltip: ""
 }
 
 BehemothRelic: {
-	// DisplayName: Behemoth Relic
-	// Tooltip: ""
+	DisplayName: Relique du Behemoth
+	Tooltip: ""
 }
 
 WolfKingRelic: {
-	// DisplayName: Wolf King Relic
-	// Tooltip: ""
+	DisplayName: Relique du Roi des Loups
+	Tooltip: ""
 }
 
 WolfKingTrophy: {
-	// DisplayName: Wolf King Trophy
-	// Tooltip: ""
+	DisplayName: Trophée du Roi des Loups
+	Tooltip: ""
 }
 
 BehemothTreasureBag: {
@@ -1096,12 +1096,12 @@ WhiteTailWeapon: {
 
 BehemothWeapon: {
 	// DisplayName: Gooey Grabber
-	// Tooltip: ""
+	// Tooltip: Summons a giant hand to fight for you
 }
 
 WhiteTailMountItem: {
 	// DisplayName: Hairball
-	// Tooltip: ""
+	// Tooltip: Summons a rideable White Tail mount
 }
 
 QuestBook: {

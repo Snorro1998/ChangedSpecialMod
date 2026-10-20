@@ -6,6 +6,13 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
     {
         public ModSupportSpirit(Mod mod, string modName) : base(mod, modName) { }
 
+        public override void AddTiles()
+        {
+            // Briar
+            AddTileType("BriarGrass", true);
+            AddTileType("LivingBriarWood", true);
+        }
+
         public override void AddItemsFruit()
         {
             AddItemFruit("EnchantedApple");
@@ -13,10 +20,10 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
             AddItemFruit("Durian");
             AddItemFruit("Guava");
             AddItemFruit("IceBerry");
-            AddItemFruit("Glowpear"); // anyMech
-            AddItemFruit("LuminBerry"); // anyMech
-            AddItemFruit("BirdhouseGourd"); // NPC.downedGolemBoss
-            AddItemFruit("CaramelApple"); // NPC.downedGolemBoss
+            AddItemFruit("Glowpear", ItemSellCondition.DownedAnyMech);
+            AddItemFruit("LuminBerry", ItemSellCondition.DownedAnyMech);
+            AddItemFruit("BirdhouseGourd", ItemSellCondition.DownedGolem);
+            AddItemFruit("CaramelApple", ItemSellCondition.DownedGolem);
         }
 
         public override void AddItemsSeed()

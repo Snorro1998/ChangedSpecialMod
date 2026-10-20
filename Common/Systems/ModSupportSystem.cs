@@ -1,8 +1,8 @@
-﻿using ChangedSpecialMod.Common.Systems.Mods;
-using ChangedSpecialMod.Common.Systems.ModSupport;
+﻿using ChangedSpecialMod.Common.Systems.ModSupport;
 using ReLogic.OS;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Terraria;
 using Terraria.Localization;
@@ -68,20 +68,13 @@ namespace ChangedSpecialMod.Common.Systems
     public class ModSupportSystem : ModSystem
     {
         public static ChangedSpecialMod changedMod = null;
-
-        // Informational
-        public static Mod modWikiThis = null;
         
-        // Content mods
-        public static Mod modSpiritReforged = null;
-
         // Race
         public static Mod modMrPlagueRaces = null;
 
         // Other
         public static Mod modBoulderBackport = null;
         // Don't need to do anything for Biome Titles
-        public static Mod modTerraGuardians = null;
 
         // The min and max indecis for the extra title message added in the hjson
         private static int indexTitleMessageMin = 1;
@@ -98,7 +91,7 @@ namespace ChangedSpecialMod.Common.Systems
             AddExternalModSupport("BossChecklist", (mod, name) => new ModSupportBossChecklist(mod, name));
             AddExternalModSupport("MusicDisplay", (mod, name) => new ModSupportMusicDisplay(mod, name));
             AddExternalModSupport("Census", (mod, name) => new ModSupportCensus(mod, name));
-            modWikiThis = GetMod("Wikithis");
+            AddExternalModSupport("Wikithis", (mod, name) => new ModSupportWikiThis(mod, name));
 
             // Shops
             AddExternalModSupport("Fargowiltas", (mod, name) => new ModSupportFargosMutant(mod, name));
@@ -108,7 +101,7 @@ namespace ChangedSpecialMod.Common.Systems
             AddExternalModSupport("Coralite", (mod, name) => new ModSupportCoralite(mod, name));
             AddExternalModSupport("Redemption", (mod, name) => new ModSupportRedemption(mod, name));
             AddExternalModSupport("SpiritMod", (mod, name) => new ModSupportSpirit(mod, name));
-            modSpiritReforged = GetMod("SpiritReforged");
+            AddExternalModSupport("SpiritReforged", (mod, name) => new ModSupportSpiritReforged(mod, name));
             AddExternalModSupport("StarsModPack", (mod, name) => new ModSupportStarsModPack(mod, name));
             AddExternalModSupport("ThoriumMod", (mod, name) => new ModSupportThorium(mod, name));
 
@@ -117,7 +110,10 @@ namespace ChangedSpecialMod.Common.Systems
 
             // Other
             modBoulderBackport = GetMod("BoulderBackport");
-            modTerraGuardians = GetMod("terraguardians");
+            AddExternalModSupport("terraguardians", (mod, name) => new ModSupportTerraGuardian(mod, name));
+
+            // Changed
+            AddExternalModSupport("PuroCompanion", (mod, name) => new ModSupportPuroSummon(mod, name));
 
             //GameSupportSystem.LoadGames();
 
@@ -149,6 +145,14 @@ namespace ChangedSpecialMod.Common.Systems
                 return mod;
         }
 
+        public static ModSupportData GetModSupportData(string name)
+        {
+            if (externalMods == null || externalMods.Count == 0)
+                return null;
+
+            return externalMods.FirstOrDefault(x => x.modName == name);
+        }
+
         public static bool IsModActive(string name)
         {
             return ModLoader.TryGetMod(name, out Mod result);
@@ -158,20 +162,14 @@ namespace ChangedSpecialMod.Common.Systems
         {
             changedMod = null;
 
-            // Informational
-            modWikiThis = null;
-
-            // Content mods
-            modSpiritReforged = null;
-
             // Race
             modMrPlagueRaces = null;
 
             // Other
             modBoulderBackport = null;
-            modTerraGuardians = null;
 
-            externalMods = null;
+            if (externalMods != null)
+                externalMods.Clear();
 
             if (Platform.Current.Type == PlatformType.Windows)
                 RemoveExtraTitles();
@@ -191,8 +189,6 @@ namespace ChangedSpecialMod.Common.Systems
                     Mod.Logger.Error($"{modName} PostSetupContent Error: " + ex.Message);
                 }
             }
-
-            WikithisSystem.Setup(changedMod, modWikiThis);
 
             // This might fix a startup crash on MacOS, but I can't confirm this
             if (Platform.Current.Type == PlatformType.Windows)
