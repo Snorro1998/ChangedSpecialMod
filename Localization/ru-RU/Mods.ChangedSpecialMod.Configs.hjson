@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:Трансформации]"
 		Npc: "[c/ffeb6e:Персонажи]"
 		Evolution: "[c/ffeb6e:Эволюция]"
-		// Visuals: "[c/ffeb6e:Visuals]"
+		Visuals: "[c/ffeb6e:Графика]"
 	}
 
 	NumberOfLabs: {
@@ -125,12 +125,12 @@ ChangedSpecialModClientConfig: {
 	}
 
 	RetroVisualsTiles: {
-		// Label: Retro Tiles
-		// Tooltip: Use sprites from older versions for blocks and furniture
+		Label: Старые кварталы
+		Tooltip: Используйте изображения из более старых версий для блоков и мебели
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro NPCs
-		// Tooltip: Use sprites from older versions for NPCs
+		Label: Старые персонажи
+		Tooltip: Используйте изображения персонажей из более старых версий
 	}
 }

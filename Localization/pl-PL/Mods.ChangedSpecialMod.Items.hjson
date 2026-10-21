@@ -1030,8 +1030,8 @@ Painting21: {
 }
 
 DebugItem: {
-	// DisplayName: Debug Item
-	// Tooltip: ""
+	DisplayName: Obiekt debugowania
+	Tooltip: ""
 }
 
 WhiteTailTrophy: {
@@ -1040,13 +1040,13 @@ WhiteTailTrophy: {
 }
 
 DisguiseSetHelmet: {
-	// DisplayName: Disguise Mask
-	// Tooltip: ""
+	DisplayName: Maska maskująca
+	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	// DisplayName: Disguise Shirt
-	// Tooltip: ""
+	DisplayName: Koszula maskująca
+	Tooltip: ""
 }
 
 WhiteTailRelic: {
@@ -1075,18 +1075,18 @@ WolfKingTrophy: {
 }
 
 BehemothTreasureBag: {
-	// DisplayName: Treasure Bag (Behemoth)
-	// Tooltip: Right Click to open
+	DisplayName: Torba skarbów (Gigant)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
-	// DisplayName: Treasure Bag (White Tail)
-	// Tooltip: Right Click to open
+	DisplayName: Torba skarbów (Białego Ogona)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
-	// DisplayName: Treasure Bag (Wolf King)
-	// Tooltip: Right Click to open
+	DisplayName: Torba skarbów (Króla Wilków)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {
@@ -1095,18 +1095,18 @@ WhiteTailWeapon: {
 }
 
 BehemothWeapon: {
-	// DisplayName: Gooey Grabber
-	// Tooltip: Summons a giant hand to fight for you
+	DisplayName: Śliska dłoń
+	Tooltip: Przywołuje ogromna dłoń, który będzie walczył dla ciebie
 }
 
 WhiteTailMountItem: {
-	// DisplayName: Hairball
-	// Tooltip: Summons a rideable White Tail mount
+	DisplayName: Kula włosów
+	Tooltip: Przywołuje postaci Białego Ogona, którego można dosiąść. Potrafi też wykonać gwałtowny skok.
 }
 
 QuestBook: {
 	// DisplayName: Lost Book
-	// Tooltip: Puro might be interested in this
+	Tooltip: Puro może być tym zainteresowany
 }
 
 DebugPickaxe: {

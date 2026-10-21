@@ -1030,8 +1030,8 @@ Painting21: {
 }
 
 DebugItem: {
-	// DisplayName: Debug Item
-	// Tooltip: ""
+	DisplayName: Objeto de depuração
+	Tooltip: ""
 }
 
 WhiteTailTrophy: {
@@ -1040,13 +1040,13 @@ WhiteTailTrophy: {
 }
 
 DisguiseSetHelmet: {
-	// DisplayName: Disguise Mask
-	// Tooltip: ""
+	DisplayName: Máscara de disfarce
+	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	// DisplayName: Disguise Shirt
-	// Tooltip: ""
+	DisplayName: Camisa de disfarce
+	Tooltip: ""
 }
 
 WhiteTailRelic: {
@@ -1075,18 +1075,18 @@ WolfKingTrophy: {
 }
 
 BehemothTreasureBag: {
-	// DisplayName: Treasure Bag (Behemoth)
-	// Tooltip: Right Click to open
+	DisplayName: Bolsa do Tesouro (Gigante)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
-	// DisplayName: Treasure Bag (White Tail)
-	// Tooltip: Right Click to open
+	DisplayName: Bolsa do Tesouro (Cauda Branca)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
-	// DisplayName: Treasure Bag (Wolf King)
-	// Tooltip: Right Click to open
+	DisplayName: Bolsa do Tesouro (Rei Lobo)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {
@@ -1095,18 +1095,18 @@ WhiteTailWeapon: {
 }
 
 BehemothWeapon: {
-	// DisplayName: Gooey Grabber
-	// Tooltip: Summons a giant hand to fight for you
+	DisplayName: Mão viscosa
+	Tooltip: Invoca uma mão gigante para lutar por você.
 }
 
 WhiteTailMountItem: {
-	// DisplayName: Hairball
-	// Tooltip: Summons a rideable White Tail mount
+	DisplayName: Bola de pelo
+	Tooltip: Invoca uma montaria de Cauda Branca, que pode dar um bote
 }
 
 QuestBook: {
 	// DisplayName: Lost Book
-	// Tooltip: Puro might be interested in this
+	Tooltip: O Puro talvez se interesse por isso.
 }
 
 DebugPickaxe: {

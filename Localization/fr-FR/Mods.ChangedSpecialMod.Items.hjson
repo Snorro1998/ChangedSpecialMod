@@ -1030,8 +1030,8 @@ Painting21: {
 }
 
 DebugItem: {
-	// DisplayName: Debug Item
-	// Tooltip: ""
+	DisplayName: Objet de débogage
+	Tooltip: ""
 }
 
 WhiteTailTrophy: {
@@ -1040,13 +1040,13 @@ WhiteTailTrophy: {
 }
 
 DisguiseSetHelmet: {
-	// DisplayName: Disguise Mask
-	// Tooltip: ""
+	DisplayName: Masque de déguisement
+	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	// DisplayName: Disguise Shirt
-	// Tooltip: ""
+	DisplayName: Chemise de déguisement
+	Tooltip: ""
 }
 
 WhiteTailRelic: {
@@ -1075,18 +1075,18 @@ WolfKingTrophy: {
 }
 
 BehemothTreasureBag: {
-	// DisplayName: Treasure Bag (Behemoth)
-	// Tooltip: Right Click to open
+	DisplayName: Sac de trésors (Behemoth)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
-	// DisplayName: Treasure Bag (White Tail)
-	// Tooltip: Right Click to open
+	DisplayName: Sac de trésors (Queue Blanche)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
-	// DisplayName: Treasure Bag (Wolf King)
-	// Tooltip: Right Click to open
+	DisplayName: Sac de trésors (Roi des Loups)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {
@@ -1095,18 +1095,18 @@ WhiteTailWeapon: {
 }
 
 BehemothWeapon: {
-	// DisplayName: Gooey Grabber
-	// Tooltip: Summons a giant hand to fight for you
+	DisplayName: Main visqueuse
+	Tooltip: Summons a giant hand to fight for you Invoque une main géante pour combattre à vos côtés.
 }
 
 WhiteTailMountItem: {
-	// DisplayName: Hairball
-	// Tooltip: Summons a rideable White Tail mount
+	DisplayName: Boule de poils
+	Tooltip: Invoque la Queue Blanche à chevaucher, qui peut foncer
 }
 
 QuestBook: {
 	// DisplayName: Lost Book
-	// Tooltip: Puro might be interested in this
+	Tooltip: Puro pourrait être intéressé par ça
 }
 
 DebugPickaxe: {

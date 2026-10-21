@@ -1030,8 +1030,8 @@ Painting21: {
 }
 
 DebugItem: {
-	// DisplayName: Debug Item
-	// Tooltip: ""
+	DisplayName: Oggetto di debug
+	Tooltip: ""
 }
 
 WhiteTailTrophy: {
@@ -1040,13 +1040,13 @@ WhiteTailTrophy: {
 }
 
 DisguiseSetHelmet: {
-	// DisplayName: Disguise Mask
-	// Tooltip: ""
+	DisplayName: Maschera da travestimento
+	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	// DisplayName: Disguise Shirt
-	// Tooltip: ""
+	DisplayName: Maglia da travestimento
+	Tooltip: ""
 }
 
 WhiteTailRelic: {
@@ -1075,18 +1075,18 @@ WolfKingTrophy: {
 }
 
 BehemothTreasureBag: {
-	// DisplayName: Treasure Bag (Behemoth)
-	// Tooltip: Right Click to open
+	DisplayName: Borsa del tesoro (Colosso)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
-	// DisplayName: Treasure Bag (White Tail)
-	// Tooltip: Right Click to open
+	DisplayName: Borsa del tesoro (Coda Bianca)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
-	// DisplayName: Treasure Bag (Wolf King)
-	// Tooltip: Right Click to open
+	DisplayName: Borsa del tesoro (Re Lupo)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {
@@ -1095,18 +1095,18 @@ WhiteTailWeapon: {
 }
 
 BehemothWeapon: {
-	// DisplayName: Gooey Grabber
-	// Tooltip: Summons a giant hand to fight for you
+	DisplayName: Mano viscida
+	Tooltip: Evoca un mano gigante che combatterà per te
 }
 
 WhiteTailMountItem: {
-	// DisplayName: Hairball
-	// Tooltip: Summons a rideable White Tail mount
+	DisplayName: Bola de pelo
+	Tooltip: Evoca la Coda Bianca cavalcabilet, que puede lanzarse hacia adelante
 }
 
 QuestBook: {
 	// DisplayName: Lost Book
-	// Tooltip: Puro might be interested in this
+	Tooltip: Puro potrebbe essere interessato a questo.
 }
 
 DebugPickaxe: {

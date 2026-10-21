@@ -1076,17 +1076,17 @@ WolfKingTrophy: {
 
 BehemothTreasureBag: {
 	DisplayName: Treasure Bag (Behemoth)
-	Tooltip: "{$CommonItemTooltip.BannerBonus}"
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
 	DisplayName: Treasure Bag (White Tail)
-	Tooltip: "{$CommonItemTooltip.BannerBonus}"
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
 	DisplayName: Treasure Bag (Wolf King)
-	Tooltip: "{$CommonItemTooltip.BannerBonus}"
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {

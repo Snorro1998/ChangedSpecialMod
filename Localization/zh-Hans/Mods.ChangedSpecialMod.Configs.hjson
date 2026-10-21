@@ -33,7 +33,7 @@ ChangedSpecialModClientConfig: {
 		Transfur: "[c/ffeb6e:转型]"
 		Npc: "[c/ffeb6e:人物]"
 		Evolution: "[c/ffeb6e:进化]"
-		// Visuals: "[c/ffeb6e:Visuals]"
+		Visuals: "[c/ffeb6e:图形]"
 	}
 
 	NumberOfLabs: {
@@ -123,12 +123,12 @@ ChangedSpecialModClientConfig: {
 	}
 
 	RetroVisualsTiles: {
-		// Label: Retro Tiles
-		// Tooltip: Use sprites from older versions for blocks and furniture
+		Label: 旧街区
+		Tooltip: 在方块和家具上使用旧版本中的图像
 	}
 
 	RetroVisualsNPCs: {
-		// Label: Retro NPCs
-		// Tooltip: Use sprites from older versions for NPCs
+		Label: 旧角色
+		Tooltip: 角色使用旧版本中的图像
 	}
 }

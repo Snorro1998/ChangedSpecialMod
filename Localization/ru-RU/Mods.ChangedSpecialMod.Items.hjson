@@ -1030,8 +1030,8 @@ Painting21: {
 }
 
 DebugItem: {
-	// DisplayName: Debug Item
-	// Tooltip: ""
+	DisplayName: Отладочный объект
+	Tooltip: ""
 }
 
 WhiteTailTrophy: {
@@ -1040,13 +1040,13 @@ WhiteTailTrophy: {
 }
 
 DisguiseSetHelmet: {
-	// DisplayName: Disguise Mask
-	// Tooltip: ""
+	DisplayName: Маска для маскировки
+	Tooltip: ""
 }
 
 DisguiseSetBreastplate: {
-	// DisplayName: Disguise Shirt
-	// Tooltip: ""
+	DisplayName: Рубашка-маскировка
+	Tooltip: ""
 }
 
 WhiteTailRelic: {
@@ -1075,18 +1075,18 @@ WolfKingTrophy: {
 }
 
 BehemothTreasureBag: {
-	// DisplayName: Treasure Bag (Behemoth)
-	// Tooltip: Right Click to open
+	DisplayName: Мешок с сокровищами (Бегемот)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
-	// DisplayName: Treasure Bag (White Tail)
-	// Tooltip: Right Click to open
+	DisplayName: Мешок с сокровищами (Белый хвост)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
-	// DisplayName: Treasure Bag (Wolf King)
-	// Tooltip: Right Click to open
+	DisplayName: Мешок с сокровищами (Король Волков)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {
@@ -1095,18 +1095,18 @@ WhiteTailWeapon: {
 }
 
 BehemothWeapon: {
-	// DisplayName: Gooey Grabber
-	// Tooltip: Summons a giant hand to fight for you
+	DisplayName: Слизистая рука
+	Tooltip: Призывает гигантская рука, который будет сражаться за вас.
 }
 
 WhiteTailMountItem: {
-	// DisplayName: Hairball
-	// Tooltip: Summons a rideable White Tail mount
+	DisplayName: Волосяной комок
+	Tooltip: Призывает ездового Белый хвост, который может стремительно броситься
 }
 
 QuestBook: {
 	// DisplayName: Lost Book
-	// Tooltip: Puro might be interested in this
+	Tooltip: Пуро это может заинтересовать.
 }
 
 DebugPickaxe: {

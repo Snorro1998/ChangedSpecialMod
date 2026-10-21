@@ -1030,8 +1030,8 @@ Painting21: {
 }
 
 DebugItem: {
-	// DisplayName: Debug Item
-	// Tooltip: ""
+	DisplayName: Debug-Objekt
+	Tooltip: ""
 }
 
 WhiteTailTrophy: {
@@ -1076,17 +1076,17 @@ WolfKingTrophy: {
 
 BehemothTreasureBag: {
 	DisplayName: Schatzbeutel (Gigant)
-	// Tooltip: Right Click to open
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailTreasureBag: {
 	DisplayName: Schatzbeutel (Weißschwanz)
-	// Tooltip: Right Click to open
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WolfKingTreasureBag: {
 	DisplayName: Schatzbeutel (Wolfskönig)
-	// Tooltip: Right Click to open
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
 WhiteTailWeapon: {
@@ -1095,18 +1095,18 @@ WhiteTailWeapon: {
 }
 
 BehemothWeapon: {
-	// DisplayName: Gooey Grabber
-	// Tooltip: Summons a giant hand to fight for you
+	DisplayName: Schleimige Hand
+	Tooltip: Beschwört eine riesige Hand, die für dich kämpft
 }
 
 WhiteTailMountItem: {
-	// DisplayName: Hairball
-	// Tooltip: Summons a rideable White Tail mount
+	DisplayName: Haarball
+	Tooltip: Beschwört ein Weißschwanz zum Reiten, der nach vorne stürmen kann
 }
 
 QuestBook: {
 	// DisplayName: Lost Book
-	// Tooltip: Puro might be interested in this
+	Tooltip: Puro könnte daran interessiert sein
 }
 
 DebugPickaxe: {
