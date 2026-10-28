@@ -1,0 +1,64 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: 都市の廃墟
+	TownNPCDialogueName: 都市の廃墟
+}
+
+CityRuinsUndergroundBiome: {
+	DisplayName: 地下都市の遺跡
+	TownNPCDialogueName: 地下都市の遺跡
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: 白いスライムのエリア
+	TownNPCDialogueName: 白いスライムのエリア
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: 黒いスライムのエリア
+	TownNPCDialogueName: 黒いスライムのエリア
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: 酔っ払い
+	DisplayName: 酔っ払い
+}
+
+BlackLatexUndergroundBiome: {
+	DisplayName: 黒いスライムの洞窟
+	TownNPCDialogueName: 黒いスライムの洞窟
+}
+
+WhiteLatexUndergroundBiome: {
+	DisplayName: 白いスライムの洞窟
+	TownNPCDialogueName: 白いスライムの洞窟
+}
+
+BlackLatexSurfaceDesertBiome: {
+	DisplayName: 黒いスライムの砂丘
+	TownNPCDialogueName: 黒いスライムの砂丘
+}
+
+WhiteLatexSurfaceDesertBiome: {
+	DisplayName: 白いスライムの砂丘
+	TownNPCDialogueName: 白いスライムの砂丘
+}
+
+BlackLatexSurfaceSnowBiome: {
+	DisplayName: ブラックスライム氷河
+	TownNPCDialogueName: ブラックスライム氷河
+}
+
+WhiteLatexSurfaceSnowBiome: {
+	DisplayName: ホワイト・スライム氷河
+	TownNPCDialogueName: ホワイト・スライム氷河
+}
+
+BlackLatexSurfaceJungleBiome: {
+	DisplayName: 黒いスライムのジャングル
+	TownNPCDialogueName: 黒いスライムのジャングル
+}
+
+WhiteLatexSurfaceJungleBiome: {
+	DisplayName: 白いスライムのジャングル
+	TownNPCDialogueName: 白いスライムのジャングル
+}

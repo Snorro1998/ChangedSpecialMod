@@ -1,0 +1,64 @@
+CityRuinsSurfaceBiome: {
+	DisplayName: Stadruïnes
+	TownNPCDialogueName: de Stadruïnes
+}
+
+CityRuinsUndergroundBiome: {
+	DisplayName: Ondergrondse Stadruïnes
+	TownNPCDialogueName: de Ondergrondse Stadruïnes
+}
+
+WhiteLatexSurfaceBiome: {
+	DisplayName: Witte Slijmgebied
+	TownNPCDialogueName: het Witte Slijmgebied
+}
+
+BlackLatexSurfaceBiome: {
+	DisplayName: Zwarte Slijmgebied
+	TownNPCDialogueName: het Zwarte Slijmgebied
+}
+
+ZDrunkBiome: {
+	TownNPCDialogueName: het Dronken Gebied
+	DisplayName: Dronken
+}
+
+BlackLatexUndergroundBiome: {
+	DisplayName: Zwarte Slijmgrot
+	TownNPCDialogueName: de Zwarte Slijmgrot
+}
+
+WhiteLatexUndergroundBiome: {
+	DisplayName: Witte Slijmgrot
+	TownNPCDialogueName: de Witte Slijmgrot
+}
+
+BlackLatexSurfaceDesertBiome: {
+	DisplayName: Zwarte Slijmduinen
+	TownNPCDialogueName: de Zwarte Slijmduinen
+}
+
+WhiteLatexSurfaceDesertBiome: {
+	DisplayName: Witte Slijmduinen
+	TownNPCDialogueName: de Witte Slijmduinen
+}
+
+BlackLatexSurfaceSnowBiome: {
+	DisplayName: Zwarte Slijmgletscher
+	TownNPCDialogueName: de Zwarte Slijmgletscher
+}
+
+WhiteLatexSurfaceSnowBiome: {
+	DisplayName: Witte Slijmgletscher
+	TownNPCDialogueName: de Witte Slijmgletscher
+}
+
+BlackLatexSurfaceJungleBiome: {
+	DisplayName: Zwarte Slijmjungle
+	TownNPCDialogueName: de Zwarte Slijmjungle
+}
+
+WhiteLatexSurfaceJungleBiome: {
+	DisplayName: Witte Slijmjungle
+	TownNPCDialogueName: de Witte Slijmjungle
+}

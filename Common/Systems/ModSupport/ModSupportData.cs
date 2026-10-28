@@ -67,9 +67,6 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         // IDs
         public Dictionary<string, int> tileTypes = new Dictionary<string, int>();
         public Dictionary<string, int> townNPCIds = new Dictionary<string, int>();
-        public Dictionary<string, int> itemIdsFruit = new Dictionary<string, int>();
-        public Dictionary<string, int> itemIdsHerb = new Dictionary<string, int>();
-        public Dictionary<string, int> itemIdsSeed = new Dictionary<string, int>();
 
         public DownedBossObjectList bossProgressionList;
 

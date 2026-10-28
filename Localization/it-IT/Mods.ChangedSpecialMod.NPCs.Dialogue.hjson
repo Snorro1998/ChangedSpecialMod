@@ -138,7 +138,7 @@ Puro: {
 
 	PuroCompanionMod: {
 		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}Non sapevo di avere un fratello gemello."
-		// PlayerHasPuro2: "{PuroCompanionModPlayerHasPuro}I still didn't know I had a twin brother."
+		// PlayerHasLoona1: "{PuroCompanionModPlayerHasLoona}Hello {PlayerRace}, hello Loona. You are both amazing."
 	}
 
 	ModTerraGuardian: {

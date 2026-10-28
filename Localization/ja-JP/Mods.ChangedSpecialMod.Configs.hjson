@@ -1,0 +1,134 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Client Config
+
+	TransfurSound: {
+		Label: Transfur Sound
+		Tooltip: If the transfur sound should play.
+	}
+
+	WhipCrackSound: {
+		Tooltip: If the Mollash weapon and its upgrades should play a whip crack sound.
+		Label: Whip Crack Sound
+	}
+
+	SlipSound: {
+		Tooltip: If the slip sound should be played if the player is sliding around.
+		Label: Slip Sound
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: When NPCs talk they can use emotes about Changed.
+		Label: NPCs Can Use Changed Emotes
+	}
+
+	ExtraDialogue: {
+		Tooltip: If more dialogue should be added to regular Terraria NPCs.
+		Label: Extra Dialogue
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Misc]"
+		WorldGeneration: "[c/ffeb6e:World Generation]"
+		Transfur: "[c/ffeb6e:Transfur]"
+		Npc: "[c/ffeb6e:NPC]"
+		Evolution: "[c/ffeb6e:Evolution]"
+		Visuals: "[c/ffeb6e:Visuals]"
+	}
+
+	NumberOfLabs: {
+		Label: Number Of Labs
+		Tooltip:
+			'''
+			The number of labs per side of the world. 
+			The default value of 1 will generate 1 laboratory on small 
+			and medium-sized worlds and 2 laboratories on large worlds.
+			WARNING Large values on small worlds can crash your game.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Maximum Floors
+		Tooltip: The maximum number of floors a lab can have.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Maximum Rooms Horizontal
+		Tooltip: The maximum number of rooms a lab can have in the horizontal direction.
+	}
+
+	LatexSpread: {
+		Label: Latex Spread
+		Tooltip: If latex can spread to other blocks in hardmode.
+	}
+
+	LatexSpreadChance: {
+		Label: Latex Spread Chance
+		Tooltip: The chance of 1 in X that latex can spread to other blocks in hardmode.
+	}
+
+	DebugItems: {
+		Label: Debug Items
+		Tooltip: If enabled, Dr K. will sell debug items.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: NPCs Can Transfur Player
+		Tooltip: Getting killed by a latex beast will turn you into one of them in most cases.
+	}
+
+	CustomHealthBar: {
+		Label: Custom Health Bar
+		Tooltip: Draws the health bar in different colors when transfurred.
+	}
+
+	Evolution: {
+		Label: Evolution
+		Tooltip: Latex beasts will grow stronger with every boss defeated.
+	}
+
+	EvolutionSize: {
+		Label: Growth
+		Tooltip: Latex beasts will also grow bigger.
+	}
+
+	DialoguePortraits: {
+		Label: Dialogue Portraits
+		Tooltip:
+			'''
+			If the town NPCs in this mod have portraits when you talk to them.
+			If playing with Boulder Backport installed, this setting is ignored and 
+			its option "Modded Town NPC Portraits" is used instead.
+			'''
+	}
+
+	CustomWorldNames: {
+		Label: New World Names
+		Tooltip: When generating a new world, new names can be selected.
+	}
+
+	CustomDryadWorldStatus: {
+		Label: Extra world status information
+		Tooltip: The dryad can also tell you how much goo there is in the world.
+	}
+
+	MonstersCanWearHats: {
+		Label: Monsters Can Wear Hats
+		Tooltip: When this option is enabled, monsters can wear hats under certain conditions. For example, when it is raining or during a party.
+	}
+
+	Holidays: {
+		Label: Holidays
+		Tooltip: Town NPCs wear hats during holidays and have unique dialogue.
+	}
+
+	RetroVisualsTiles: {
+		Label: Retro Tiles
+		Tooltip: Use sprites from older versions for blocks and furniture
+	}
+
+	RetroVisualsNPCs: {
+		Label: Retro NPCs
+		Tooltip: Use sprites from older versions for NPCs
+	}
+}

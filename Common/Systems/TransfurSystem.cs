@@ -7,6 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 
 namespace ChangedSpecialMod.Common.Systems
@@ -251,7 +252,8 @@ namespace ChangedSpecialMod.Common.Systems
                 bonusOcean = true,
                 rotateInWater = true,
                 waterSpeedMultiplier = 2,
-                baseScaleMultiplier = 0.7f
+                baseScaleMultiplier = 0.7f,
+                gooColor = new Color(150, 150, 150)
             });
 
             EvolutionsLines.Add(EvolutionLines.Aquatic, evolutionLine);
@@ -267,7 +269,8 @@ namespace ChangedSpecialMod.Common.Systems
                 nFrames = 4,
                 gooType = GooType.None,
                 lifeMultiplier = 1.25f,
-                extraDefense = 5
+                extraDefense = 5,
+                gooColor = new Color(209, 133, 68)
             });
 
             evolutionLine.Add(new Transfur()
@@ -279,7 +282,8 @@ namespace ChangedSpecialMod.Common.Systems
                 lifeMultiplier = 1.25f,
                 extraDefense = 5,
                 speedMultiplier = 2f,
-                bonusDesert = true
+                bonusDesert = true,
+                gooColor = new Color(255, 236, 160)
             });
 
             evolutionLine.Add(new Transfur()
@@ -291,7 +295,8 @@ namespace ChangedSpecialMod.Common.Systems
                 lifeMultiplier = 1.25f,
                 extraDefense = 5,
                 speedMultiplier = 2f,
-                bonusSnow = true
+                bonusSnow = true,
+                gooColor = new Color(156, 156, 156)
             });
 
             evolutionLine.Add(new Transfur()
@@ -304,7 +309,8 @@ namespace ChangedSpecialMod.Common.Systems
                 extraDefense = 10,
                 speedMultiplier = 0.8f,
                 damageBonus = 0.3f,
-                baseScaleMultiplier = 0.7f
+                baseScaleMultiplier = 0.7f,
+                gooColor = new Color(246, 73, 103)
             });
 
             evolutionLine.Add(new Transfur()
@@ -318,7 +324,8 @@ namespace ChangedSpecialMod.Common.Systems
                 extraMinions = 1,
                 speedMultiplier = 0.8f,
                 damageBonus = 0.3f,
-                baseScaleMultiplier = 0.9f
+                baseScaleMultiplier = 0.9f,
+                gooColor = new Color(196, 110, 233)
             });
 
             EvolutionsLines.Add(EvolutionLines.Misc, evolutionLine);

@@ -97,8 +97,8 @@ ChangedSpecialModClientConfig: {
 		Tooltip:
 			'''
 			如果这个模组中的角色在对话时会显示头像。
-			如果安装了"Boulder Backport"，则此设置将被忽略，
-			并改用其选项"Modded Town NPC Portraits"。
+			如果安装了《Boulder Backport》，则此设置将被忽略，
+			并改用其选项《Modded Town NPC Portraits》。
 			'''
 	}
 

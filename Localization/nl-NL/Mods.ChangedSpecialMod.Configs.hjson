@@ -1,0 +1,133 @@
+ChangedSpecialModClientConfig: {
+	DisplayName: Client Config
+
+	TransfurSound: {
+		Label: Transfurgeluid
+		Tooltip: Of het transfurgeluid af kan spelen.
+	}
+
+	WhipCrackSound: {
+		Tooltip: Of het Mollash wapen of zijn upgrades een zweepgeluid afspelen wanneer ze gebruikt worden.
+		Label: Zweepgeluid
+	}
+
+	SlipSound: {
+		Tooltip: Of een glijgeluid afspeelt als de speler uitglijdt.
+		Label: Glijgeluid
+	}
+
+	NPCsCanUseChangedEmotes: {
+		Tooltip: Of NPCs emoticons over Changed kunnen gebruiken als ze praten.
+		Label: NPCs kunnen Changed emoticons gebruiken
+	}
+
+	ExtraDialogue: {
+		Tooltip: Of er extra dialoog toegevoegd moet worden aan standaard Terraria NPCs.
+		Label: Extra dialoog
+	}
+
+	Headers: {
+		Audio: "[c/ffeb6e:Audio]"
+		Misc: "[c/ffeb6e:Overig]"
+		WorldGeneration: "[c/ffeb6e:Wereldgeneratie]"
+		Transfur: "[c/ffeb6e:Transfur]"
+		Npc: "[c/ffeb6e:NPC]"
+		Evolution: "[c/ffeb6e:Evolutie]"
+		Visuals: "[c/ffeb6e:Grafisch]"
+	}
+
+	NumberOfLabs: {
+		Label: Aantal Laboratoria
+		Tooltip:
+			'''
+			Het aantal laboratoria per wereldhelft. De standaardwaarde 1 maakt 1 laboratorium 
+			in kleine en middelgrote werelden en 2 laboratoria in grote werelden.
+			[c/ff0000:WAARSCHUWING] Grote waardes in kleine werelden kunnen het spel vast laten lopen.
+			'''
+	}
+
+	MaximumFloors: {
+		Label: Maximale Aantal Verdiepingen
+		Tooltip: Het maximum aantal verdiepingen dat een laboratorium kan hebben.
+	}
+
+	MaximumRoomsHorizontal: {
+		Label: Maximale Aantal Horizontale Kamers
+		Tooltip: Het maximale aantal kamers dat een laboratorium kan hebben in horizontale richting.
+	}
+
+	LatexSpread: {
+		Label: Slijmverspreiding
+		Tooltip: Of slijm zich naar andere blokken kan verspreiden in hardmode.
+	}
+
+	LatexSpreadChance: {
+		Label: Slijmverspreidingskans
+		Tooltip: De kans van 1 op X dat slijm zich verspreidt naar andere blokken in hardmode.
+	}
+
+	DebugItems: {
+		Label: Debug Items
+		Tooltip: Als dit aan staat, verkoopt Dr K. debug items.
+	}
+
+	NPCsCanTransfurPlayer: {
+		Label: NPCs Kunnen Speler Transfurren
+		Tooltip: Als je wordt vermoord door een slijmmonster, zul je in de meeste gevallen in een veranderen.
+	}
+
+	CustomHealthBar: {
+		Label: Custom Health Bar
+		Tooltip: Draws the health bar in different colors when transfurred.
+	}
+
+	Evolution: {
+		Label: Evolutie
+		Tooltip: Slijmmonsters worden sterker per verslagen eindbaas.
+	}
+
+	EvolutionSize: {
+		Label: Groei
+		Tooltip: Slijmmonsters worden ook groter.
+	}
+
+	DialoguePortraits: {
+		Label: Dialoogportretten
+		Tooltip:
+			'''
+			Of de dorpelingen van deze mod portretten hebben als je met hen praat.
+			Als je met de mod Boulder Backport speelt, wordt deze intelling overschreven
+			door diens instelling "Modded Town NPC Portraits".
+			'''
+	}
+
+	CustomWorldNames: {
+		Label: Nieuwe Wereldnamen
+		Tooltip: Of er tijdens het aanmaken van een nieuwe wereld nieuwe namen gebruikt kunnen worden.
+	}
+
+	CustomDryadWorldStatus: {
+		Label: Extra wereldinformatie
+		Tooltip: De dryade kan je ook vertellen hoeveel slijm er in de wereld is.
+	}
+
+	MonstersCanWearHats: {
+		Label: Monsters Kunnen Hoeden Dragen
+		Tooltip: Als deze optie aan staat, kunnen monsters onder bepaalde omstandigheden hoeden dragen. Bijvoorbeeld als het regent of tijdens een feest.
+	}
+
+	Holidays: {
+		Label: Feestdagen
+		Tooltip: Dorpelingen dragen hoeden tijdens feestdagen en hebben extra dialoog.
+	}
+
+	RetroVisualsTiles: {
+		Label: Oude Blokken
+		Tooltip: Gebruik oude afbeeldingen voor blokken en meubels
+	}
+
+	RetroVisualsNPCs: {
+		Label: Oude NPCs
+		Tooltip: Gebruik oude afbeeldingen voor NPCs
+	}
+}

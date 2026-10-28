@@ -31,6 +31,7 @@ namespace ChangedSpecialMod
         public string npcName = "WhiteGoop";
         public int nFrames = 3;
         public GooType gooType = GooType.Invalid;
+        public Color gooColor = Color.White;
 
         public float lifeMultiplier = 1f;
         public int extraDefense = 0;
@@ -528,11 +529,19 @@ namespace ChangedSpecialMod
             {
                 if (TransfurTypeCurrent != null)
                 {
-                    var dustType = TransfurTypeCurrent.gooType == GooType.Black ? DustID.Asphalt : DustID.SnowSpray;
+                    var particleColor = TransfurTypeCurrent.gooColor;
+                    var gooType = TransfurTypeCurrent.gooType;
+                    var dustType = DustID.TintableDust;
+                    if (gooType == GooType.Black || gooType == GooType.BlackOnly)
+                        dustType = DustID.Asphalt;
+                    else if (gooType == GooType.White || gooType == GooType.WhiteOnly)
+                        dustType = DustID.SnowBlock;
+
                     var nParticles = 40;
                     for (int i = 0; i < nParticles; i++)
                     {
-                        var dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, 0, 0, 1);
+                        //var dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, 0, 0, 1);
+                        var dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, 0, 0, 1, particleColor);
                         dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
                         dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
                     }

@@ -1,0 +1,315 @@
+# This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
+Puro: {
+	# NPCs
+	NPCAngler: "{NameAngler} is zo roekeloos. Gisteren werd hij bijna het water in getrokken door een inktvishond terwijl hij aan het vissen was."
+	NPCArmsDealer: TODO
+	NPCClothier: TODO
+	NPCCyborg: TODO
+	NPCDemolitionist: TODO
+	NPCDryad: Ik vraag me af of {NameDryad} weet hoe je een sinaasappelboom kweekt.
+	NPCDyeTrader: TODO
+	NPCGoblinTinkerer: TODO
+	NPCGolfer: TODO
+	NPCGuide: Denk je dat {NameGuide} mij kan vertellen wat ik naast hapjes en drankjes nog meer van sinaasappels kan maken?
+	NPCMechanic: TODO
+	NPCMerchant: Als {NameMerchant} sinaasappelsap verkocht zou hij rijk zijn!
+	NPCNurse: "{NameNurse} zei dat het goed voor je gezondheid is om twee sinaasappels per dag te eten. Ik vertelde haar dat ik er minstens tien per dag eet!"
+	NPCOldMan: TODO
+	NPCPainter: Zal ik vragen of {NamePainter} mijn kamer oranje kan verven? Of zal ik hem vragen om oranje behang op te hangen?
+	NPCPartyGirl: TODO
+	NPCPirate: Waarom noemt {NamePirate} mij Zwartbaard? Ik heb toch geen baard.
+	NPCPrincess: TODO
+	NPCSantaClaus: TODO
+	NPCSkeletonMerchant: TODO
+	NPCSteampunker: TODO
+	NPCStylist: TODO
+	NPCTavernKeep: Ik zei tegen {NameTavernKeep} dat hij sinaasappelgerechten en drankjes aan de menukaart toe moest voegen! Denk aan al die lekkere dingen, zoals sinaasappelsalade, sinaasappeltaart, sinaasappelsap, oh en mimosa! Mmmmm mimosa...
+	NPCTaxCollector: "{PlayerRace}, wat zijn 'belastingen'? {NameTaxCollector} was erg chagrijnig en zei dat ik die moest betalen."
+	NPCTravellingMerchant: TODO
+	NPCTruffle: TODO
+	NPCWitchDoctor: TODO
+	NPCWizard: Ik snap niet waarom {NameWizard} mij niet zijn boeken laat lezen. Het is niet alsof ik ze beschadig met mijn zachte poten.
+	NPCZoologist: "{NameZoologist} is zo schattig met haar grote oren en haar pluizige staart. Maar ze is niet zo schattig als jij hehehe..."
+	NPCCoraliteCrystalRobot: "{NameCoraliteCrystalRobot} vertelde me van alles over 'magika', maar ik wilde alleen weten of je er sinaasappels van kan maken."
+	NPCThoriumCobbler: "{NameThoriumCobbler} heeft zoveel schoenen, maar ze zijn allemaal te klein voor mijn poten."
+	NPCStarsModPackFarmer: Dankzij {NameStarsModPackFarmer} kan ik nu nog meer sinaasappels kweken!
+	Book1: I beoordeel boeken op dezelfde manier als sinaasappels. Hoeveel voldoening ze geven tot de laatste pagina of het laatste stukje.
+	Book2: Hallo {PlayerRace}! Heb je mijn boek gezien?
+	Book3: Wil je me helpen om de grootste boekentoren te maken?
+	Book4: "{PlayerRace}! Kijk eens wat voor schitterend boek ik net vond!"
+	Book5: Op een dag zal ik een boek schrijven over de geweldige avonturen van {NamePlayer}!
+	Book6: Gisteren vond ik een kookboek met heel veel lekkere recepten. Wil je samen iets eruit bakken, {PlayerRace}?
+	Book7: Ik ben de zwarte slijmbal, en ik hou van boeken.
+	Orange1: Wat is je lievelingskleur? Mijn lievelingskleur is oranje.
+	Orange2: Mmmm *mjam* sinaasappels *smak* Oh, hallo {PlayerRace}.
+	Orange3: Ik heb geen lievelingskind, maar als ik die wel had dan was het deze sinaasappel.
+	Orange4: Gisteren droomde ik dat ik in een ballenbak met sinaasappels zat.
+	Orange5: Als je me blij wilt maken, geef me dan een lekkere rijpe sinaasappel.
+	Orange6: Ik weet alles over sinaasappels, dus je kan zeggen dat ik een sinaasappelspecialist ben!
+	Orange7: Ik heb de afgelopen 3 dagen alleen maar sinaasappels geteleporteerd.
+	# TF2
+	Crimson1: "{Crimson}Wist je dat er aan sommige bomen in de Crimson bloedsinaasappels groeien? Denk je dat je er een voor mij kan plukken?"
+	Crimson2: "{Crimson}Wees voorzichting in de Crimson. Ik zag daar een enorme rode tijger lopen."
+	Corruption1: "{Corruption}Wees voorzichtig bij de Corruptie. Ik zag daar een enorme paarse kat lopen."
+	Changed1: Heb je mijn tekeningen in het lab gezien? Wil je dat ik een tekening van jou maak?
+	Changed2: "{Behemoth}Ik wil zo groot worden als de Reus, zodat ik je als een pop in mijn poten kan houden en je kan beschermen."
+	Normal1: Ik heb geen wapen nodig om mezelf te beschermen, want ik heb grote klauwen, poten en een grote mond!
+	Normal2: Hallo! Hoe gaat het vandaag met mijn lievelings{PlayerRace}?
+	TransfurCub: "{TransfurCub}Hallo kleine puppy. Je bent zo klein en schattig! Mag ik je vasthouden?"
+	Rain1: "{Rain}Als je het koud hebt van de regen, kun je tegen mijn zachte vacht aankruipen!"
+	Rain2: "{Rain}Ik schudde mijn vacht uit om mezelf op te drogen, waardoor ik nu extra pluizig ben!"
+	Thunder1: "{Thunder}Ik ben niet bang voor onweer. Mijn hele lichaam is gemaakt van rubber, dus ook al word ik geraakt door de bliksem, dan zou ik er niks van merken!"
+	Thunder2: "{Thunder}Met al die felle flitsen heb ik geen lamp nodig om mijn boeken te lezen."
+	Windy1: "{Windy}Wil je met mij vliegeren, {PlayerRace}?"
+	Windy2: "{Windy}De wind is vandaag zo sterk dat mijn vacht helemaal in de war is geraakt."
+	Windy3: "{Windy}Ik wou dat ik vleugels had zodat ik kon vliegen en jou overal heen kon nemen."
+	PlayerHasOrange: "{PlayerHasOrange}*Snuif* {PlayerRace}, heb je lekkere sinaasappels bij je? Mag ik er alsjeblieft een?"
+	PlayerHasBook: "{PlayerHasBook}Is dat een boek wat je daar hebt {PlayerRace}? Wil je het samen lezen?"
+	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}Wat is dat? 'Boek der Schedels?' Heh, de kaft lijkt een beetje op mijn masker."
+	PlayerHasWaterBolt: "{PlayerHasWaterBolt}Wat heb je daar? Een magisch boek dat water sproeit? Ik hoop niet dat hij dat doet als ik hem lees."
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oeh heb je nog een boek voor mij? Eh, waarom heet het 'Gouden Douche'?"
+	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oeh een ballon! Mag ik hem vasthouden?"
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}Dat is een mooie jurk {PlayerRace}. Je ziet er schattig mee uit hehehe."
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Wow {PlayerRace}, wie is die kat? Ze is zo groot!"
+	Valentine1: "{Valentine}Wat denk je, {PlayerRace}? Zie ik er schattig uit met deze Valentijnshaarspeld?"
+	Valentine2: "{Valentine}Een boeket is mooi, maar als je mijn hart wilt winnen moet je me een boekje geven!"
+	Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
+	# Easter is not implemented yet
+	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
+	Oktoberfest1: "{Oktoberfest}Het is weer de tijd van het jaar voor veel bier! PROOST!"
+	Oktoberfest2: "{Oktoberfest}Meeeeeeens... Komt het door het bier of zag je er altijd zo mooi uit?"
+	Oktoberfest3: "{Oktoberfest}Mmmm. Dit biertje is echt heel lekker."
+	Oktoberfest4: "{Oktoberfest}Het gaat primaaaaa. Geef me nog maar een biertje."
+	Halloween1: "{Halloween}Citrus bol van sap en zaad, verdrijf de vreugde en verspreid het kwaad. Citrus bol die naar mij luistert, zorg ervoor dat iedereen huivert!"
+	Halloween2: "{Halloween}Woeeeeh! Ik ben Boe-ro!"
+	Halloween3: "{Halloween}BOE! Hehe je schrok van mij, nietwaar?"
+	Halloween4: "{Halloween}Grrrr! Ik ben de boze Toverwolf. En ik ga jou in een sappige sinaasappel veranderen en opeten!"
+	Halloween5: "{Halloween}Ik ga iedereen bang maken en hun snoep stelen!"
+	Xmas1: "{Xmas}Ho ho ho! Hallo {PlayerRace}!"
+	Xmas2: "{Xmas}Wat zal ik op mijn verlanglijstje zetten? Meer boeken of meer sinaasappels?"
+	Xmas3: "{Xmas}Er is een kindeke geboren op aard. Zijn naam is {PlayerRace} en hij heeft een baard!"
+	Xmas4: "{Xmas}Wil je me helpen met het ophangen van de kerstballen aan mijn sinaasappelboom?"
+	Xmas5: "{Xmas}Stille nacht, heilige nacht. Zalig fruit, wordt verwacht. Heerlijke sinaasappel, sappig en zoet. Zo iets lekkers, waar je alles voor doet."
+	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
+
+	BloodMoon: {
+		BloodMoon1: Blijf uit de buurt van me, {PlayerRace}. Ik voel me vandaag niet mezelf.
+		BloodMoon2: Hallo sappige sinaasappel, zeg hallo tegen mijn mond.
+		BloodMoon3: Grrrr.. ik... wil... sinaasappels!
+		BloodMoon4: Wil je getransfurd worden?
+		# Great Mighty Poo - Conkers Bad Fur Day
+		BloodMoon5: Ik ben de grote sterke slijmbal, en ik ga mijn boeken naar je gooien!
+	}
+
+	Pirates: {
+		Pirates1: ARRRG! Ik ben Kapitein Puro! En ik kom je sinaasappels halen!
+		Pirates2: Ar! Blijf dicht bij Kapitein Puro schatje. Ik zal je beschermen tegen deze landrotten!
+		Pirates3: Nee! Laad de kanonnen niet met mijn kostbare sinaasappels!
+		Pirates4: Vrees de Machtige Puro en zijn Piratenbende!
+		Pirates5: Ben je er klaar voor om de zeven zee�n van sinaasappelsap te bevaren?
+	}
+
+	Martians: {
+		Martians1: Buitenaardse monsters? Eerst leer ik dat er een hele wereld buiten het lab is en nu zeg je me dat er nog een wereld buiten deze is?
+		Martians2: Ik wil zo'n marsmannetjespistool zodat ik pang pang Puro kan zijn!
+		Martians3: "{PlayerRace}, wat is een U.F.O?"
+	}
+
+	Eclipse: {
+		Eclipse1: "{PlayerRace}! Ga alsjeblieft niet naar buiten vandaag. Het is veels te gevaarlijk!"
+		Eclipse2: Ik denk dat ik binnen blijf en boeken ga lezen totdat de zon terug komt.
+		Eclipse3: Ik probeerde vandaag sinaasappels te plukken, maar het is te donker buiten.
+	}
+
+	Party: {
+		Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Waar is je feestmuts?"
+		Party2: Houd even mijn bord vast. Nee wacht, geef me jouw bord.
+		Party3: Als iemand op zoek is naar de sinaasappelcake.. eh, hou dan maar op met zoeken. Ik heb hem namelijk helemaal opgegeten.
+		Party4: Ik wil een ballondier maken die er net zo uitziet als jij. Zacht en schattig!
+		Party5: Ja ik wil nog een drankje! En nog een. En daarna nog een.
+		Party6: Wat? Ik ben geen vreetzak. Ik ben gewoon een groot, sterk beest die veel eten nodig heeft om in vorm te blijven.
+		Party7: Denk je dat ze boos worden als ik alles opeet en ze erachter komen?
+		Party8: *Hap* *Slurp* Mmmmm het eten is zo lekker! *Mjam*
+		Party9: "{PlayerIsWearingBalloon}Ja! Net wat we nodig hadden. Meer ballonnen!"
+		Party10: Ik ben een zwart slijmbeest, en mijn mond is een zwart gat voor lekker eten!
+		Party11: Mmmm deze luchtige sinaasappelcupcakes zijn zo lekker, maar ik heb er al zoveel op.. Misschien nog eentje dan.
+		Party12: Zullen we samen dansen {PlayerRace}? Ik voel me namelijk een feestbeest!
+	}
+
+	PuroCompanionMod: {
+		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}Ik wist niet dat ik een tweelingbroer had."
+		// PlayerHasLoona1: "{PuroCompanionModPlayerHasLoona}Hello {PlayerRace}, hello Loona. You are both amazing."
+	}
+
+	ModTerraGuardian: {
+		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, kan ik ook een Terra Guardian worden? Ik wil met jou op avontuur gaan!"
+		Alex: Ik gooide een stok voor {TerraGuardianAlexName}, maar hij kwam terug met een boomstam.
+		Alexander: TODO
+		Blue: De Wolvenkoning is zo klein vergeleken met {TerraGuardianBlueName}. Misschien moeten we haar de Wolvenkoningin noemen.
+		Brutus: TODO
+		Ich: TODO
+		Leona: TODO
+		Monica: TODO
+		Rococo: "{TerraGuardianRococoName} wou met me spelen, maar hij struikelde en plette me onder zijn grote lichaam. Gelukkig kan mijn zachte lichaam zichzelf hervormen."
+		Scaleforth: Ik had het koud en vroeg of {TerraGuardianScaleforthName} mij op kon warmen met zijn vuuradem. Hij stak bijna mijn huis in brand.
+	}
+
+	QuestBook: {
+		NoBook1: Je hebt geen boek bij je, maar ik ben blij dat je hier bent.
+		NoBook2: Ben je het boek verloren? Je hebt er geen bij je.
+		WrongBook1: Ik zie dat je een boek hebt, maar het is niet degene waar ik naar op zoek ben.
+		WrongBook2: Dat is een mooi boek, maar het is niet degene die ik zoek.
+		GiveBook1: Bedankt voor het boek, {PlayerRace}.
+		GiveBook2: Je bent zo'n uitstekende {PlayerRace}! Ik wist dat je mijn boek zou vinden!
+	}
+
+	Game: {
+		CookieClicker: "{HasGameCookieClicker}I like Cookie Clicker, but I wish there were an Orange Clicker too."
+		DragnWash: "{HasGameDragnWash}What is this Drag'n Wash game about? Does it revolve around Goku washing the Dragon Balls?"
+		GameFactory: I don't understand {GameNameFactory}. All I am trying to do is to build an orange factory.
+		GameFarming: Look, {PlayerRace}. I made the biggest orange farm in {GameNameFarming}!
+		GameHorror: Would you like to {GameNameHorror} together? I'm too scared to play it alone.
+		GameParty: Do you think we can get enough people together to play {GameNameParty}?
+		Nekojishi: "{HasGameNekojishi}Who is your favorite cat from Nekojishi? Mine is Likulau. He is just so cute."
+	}
+}
+
+DrK: {
+	NPCAngler: "{NameAngler} is altijd buiten aan het vissen, en ik ben altijd in het lab op zoek naar resultaten."
+	NPCNurse: Het is goed dat {NameNurse} hier is, want ik had bijna geen injectiespuiten meer.
+	NPCZoologist: Ik vraag me af wat er met {NameZoologist} is gebeurd. Is ze maar half getransfurd?
+	Normal1: Precies op tijd. Ik had net een vrijwilliger nodig voor mijn volgende experiment.
+	Normal2: Hallo proefkonijn. Kun je dit even voor me vasthouden? Het is nogal moeilijk om zelf te doen nu ik grote, harige poten heb.
+	Normal3: Weet je, al die slijmmonsters zouden niet ontsnapt zijn als die stomme relschoppers niet het laboratorium bestormd hadden.
+	Normal4: Nu ik niet meer aan een geneesmiddel voor het virus hoef te werken, kan ik me richten op het maken van het schattigste slijmmonster!
+	Normal5: "{PuroPresent}Dat zwarte monster is... bijzonder. Ik heb nog nooit een soortgenoot van hem gezien die zo veel van mensen hield."
+	Normal6: Dacht je dat de Witte Staart erg was? Wacht dan maar af tot je ziet van welk beest hij een onderdeel was.
+	Normal7: Rustig! Als dit experiment ontploft dan is maar het halve gebouw weg.
+	Normal8: Je mag dan wel sterker zijn geworden, maar dat zijn de slijmmonsters ook. Dus uiteindelijk... is er niks veranderd.
+	Normal9: Wil je iets interessants weten? Wist je dat er in mijn originele game geen afbeeldingen zijn waar ik opzij kijk?
+	Normal10: Het is goed om te zien dat je niet de enige bent die het bleke virus overleefd heeft.
+	Normal11: Het werd lastig om al die slijmmonsters namen te geven. Vandaar dat we zeer wetenschappelijke namen bedachten zoals 'Inktvishond' voor een samenvoegsel van een Inktvis en een Hond, of 'Paarspoes' voor een paarse kat.
+	Normal12: Wist je dat de laboratoria in vroeger verhuurd werden aan een roboticabedrijf? Zij hebben die handige robotstofzuigers ontwikkeld.
+	Normal13: Ik mag dan wel bijgedragen hebben met de ontwikkeling van de slijmmonsters, maar ik heb weinig controle over ze. Waarschijnlijk omdat ik geen doctoraat in dierengedrag heb.
+	Crimson1: "{SingleWorldEvil}{Crimson}Geweldig, ik heb de wereld gered van een dodelijk virus en nu wordt het vernietigd door de Crimson."
+	Crimson2: "{Crimson}Er loopt een enorme rood monster rond bij de Crimson. Als je wilt blijven leven, blijf dan uit de buurt van hem."
+	Corruption1: "{SingleWorldEvil}{Corruption}Geweldig, ik heb de wereld gered van een dodelijk virus en nu wordt het vernietigd door de Corruptie."
+	Corruption2: "{Corruption}Heb je die grote paarse kat bij de Corruptie gezien? Geloof me, als je haar niet hebt gezien, dan moet je dat zo laten."
+	BothWorldEvils1: "{BothWorldEvils1}Geweldig, ik heb de wereld gered van een dodelijk virus en nu wordt het vernietigd door de Corruptie en de Crimson."
+	Thunder1: "{Thunder}Het weer is perfect voor een gekke wetenschapper als ik!"
+	Thunder2: "{Thunder}Wat een toeval, de bliksem raakte net het Thunder Science gebouw."
+	Windy1: "{Windy}Wie heeft het raam open gelaten? Nu liggen al mijn aantekeningen op de vloer!"
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Open hier alsjeblieft niet dat 'Gouden Douche' boek."
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Waarom draag je een trouwjurk? Ga je trouwen met je zwarte puddingvriend?"
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr} Wat? Heb je die grote kat bevriend? Oke ik moet toegeven dat dat indrukwekkend is."
+	Valentine1: "{Valentine}Liefde is net als scheikunde. Het heeft onverwachte resultaten en dingen kunnen heel heet worden."
+	Valentine2: "{Valentine}Wat? Zeg met niet dat je mij op een date wilde vragen voor Valentijn. Ik heb belangrijkere dingen te doen."
+	Oktoberfest1: "{Oktoberfest}Ik ga vandaag... *hips* ...uitstekende beslissingen maken."
+	Oktoberfest2: "{Oktoberfest}Kom op proefpersoon. Laten we dronken wetenschap doen!"
+	Oktoberfest3: "{Oktoberfest}Alleen de dosis maakt het vergif, dus ik kan nog een biertje nemen!"
+	Oktoberfest4: "{Oktoberfest}In het Braadworst-case scenario, moet ik dit experiment helemaal opnieuw doen."
+	# Spooky Scary Skeletons
+	Halloween1: "{Halloween}Weerzinwekkende wetenschappers zullen je achtervolgen in je dromen!"
+	Halloween2: "{Halloween}Ik ben het monster onder je bed. Als ik je te pakken krijg, dan mag je hopen dat je het red."
+	Halloween3: "{Halloween}Als je de dampen uit deze beker inademt, zal je er gruwelijker uitzien dan met elk Halloweenkostuum."
+	Halloween4: "{Halloween}Om een succesvolle dokter zoals ik te zijn heb je... Hersenen! HERSENEN! nodig."
+	Xmas1: "{Xmas}Een verlanglijstje voor de kerstman? Nee ik geloof niet in hem, ik geloof in de wetenschap."
+	Xmas2: "{Xmas}What vind je van dit chemische mengsel? Is het niet mooi? De kleuren zijn nog feller dan de lampjes in een kerstboom!"
+	Xmas3: "{Xmas}Kling klokje klingelingeling. Kling klokje kling."
+	Xmas4: "{Xmas}Als ik een wortel als neus had, zouden ze denken dat ik sneeuwpop was."
+
+	BloodMoon: {
+		BloodMoon1: Kom hier proefkonijn! Ik moet een paar tests bij je uitvoeren!
+		# Dr Nefario
+		BloodMoon2: Wil je ontploffen?
+		BloodMoon3: Mwahaha! Ik ga je pakken en in een van ons veranderen!
+	}
+
+	Pirates: {
+		Pirates1: Als die achterlijke, geweldadige dieven mijn spullen slopen krijgen ze er spijt van!
+		Pirates2: Piraten zijn zo materialistisch en beseffen zich niet dat kennis veel waardevoller is dan wat goud.
+		Pirates3: Ik stond op het punt van een wetenschappelijke doorbraak toen die verdomde bandieten binnenstormden.
+	}
+
+	Martians: {
+		Martians1: Als je iets van de marsmannetjes vind, zou je het dan naar me toe kunnen brengen? Ik wil graag hun technologie bestuderen.
+		Martians2: Er gebeurt hier altijd wat he?
+	}
+
+	Eclipse: {
+		Eclipse1: Ik mag dan wel een gekke wetenschapper zijn, maar zelfs ik zou niet zulke monsters maken.
+		Eclipse2: Het is vandaag beter om binnen te blijven, dus het is een normale dag voor mij.
+		Eclipse3: Blijf alsjeblieft in leven, want ik kan je niet aan elkaar naaien als je sterft. Ik ben namelijk Dr K, niet Dr Frankenstein.
+	}
+
+	Party: {
+		Party1: "{PlayerHasNoPartyHat}Kom op nou proefkonijn, waar is je feestmuts? Ze denken dat ik saai ben, maar zelfs ik heb er een!"
+		Party2: Volgens mijn berekeningen is er nooit genoeg eten op een feest om de honger van een zwart slijmmonster te stillen.
+		Party3: Je kan een slijmmonster makkelijk missen tussen al die ballonnen. Ze zijn namelijk beide van hetzelfde materiaal gemaakt.
+		Party4: Wil je dansen? Oke, ik zal je de doktersdraai laten zien!
+		# The very verbose chemist from YouTube (actually, precisely, arbitrary)
+		Party5: Wil je een feesttruc zien? Kijk, ik kan toiletpapier in alcohol veranderen!
+		Party6: Dit feest zou beter zijn met vuurwerk. Zal ik daarvoor zorgen?
+		Party7: Feestje van Keesje, 't was een verassing. Maar het feest begint te vroeg!
+	}
+
+	ModRedemption: {
+		Lab1: "{ModRedemption}Als je dacht dat de Thunder Science laboratoria gevaarlijke plekken waren, wacht dan maar totdat je de ondergrondse onderzoeksfaciliteit van TeoChrome's vind."
+		Lab2: "{ModRedemption}{ModRedemptionDownedJanitor}Zei je nou dat alle onderzoekers bij TeoChrome besmet raakten met het Xenomite virus en in zombies zijn veranderd? Dat klinkt nog erger dan wat bij ons bij Thunder Science is gebeurd, want de slijmmonsters zijn tenminste schattig."
+	}
+
+	ModTerraGuardian: {
+		PlayerHasTerraGuardian: TODO
+		PlayerPartyBigFurries: "{PlayerPartyBigFurries}Je houdt heel erg van grote furries, nietwaar?"
+		PlayerPartyBigFurryMen: "{PlayerPartyBigFurryMen}Je houdt heel erg van grote furry-mannen, nietwaar?"
+		PlayerPartyBigFurryWomen: "{PlayerPartyBigFurryWomen}Je houdt heel erg van grote furry-vrouwen, nietwaar?"
+		PlayerPartySmallFurries: "{PlayerPartySmallFurries}Je houdt heel erg van furries, nietwaar??"
+		PlayerPartySmallFurryMen: "{PlayerPartySmallFurryMen}Je houdt heel erg van furry-mannen, nietwaar?"
+		PlayerPartySmallFurryWomen: "{PlayerPartySmallFurryWomen}Je houdt heel erg van furry-vrouwen, nietwaar?"
+		PlayerPartyAllShrunkenFurries: "{PlayerPartyAllShrunkenFurries}Bedankt dat je al die Terra guardians hebt gekrompen. Het zou anders erg krap zijn hier binnen."
+		# Macro
+		MacroFurryManPresent: "{MacroFurryManPresent}Je moet voorzichtig zijn rond {MacroTerraGuardianName} zodat hij niet op je stapt."
+		MacroFurryWomanPresent: "{MacroFurryWomanPresent}Je moet voorzichtig zijn rond {MacroTerraGuardianName} zodat zij niet op je stapt."
+		# Guardians
+		Alex: Jaag dat mormel {TerraGuardianAlexName} weg! De vorige duurde het uren om zijn modderige pootafdrukken weg te vegen!
+		Alexander: TODO
+		Blue: "{TerraGuardianBlueName} vroeg me of ik lotion voor haar vacht kon maken. Ik kan dat wel doen, maar ik heb meer ingredienten nodig voor iemand die zo groot is."
+		Brutus: TODO
+		Ich: TODO
+		Leona: TODO
+		Monica: TODO
+		Rococo: Ik hoop dat {TerraGuardianRococoName} niet gaat rollen zoals de andere wasberen. De schade zou enorm zijn als hij ergens tegenaan knalt.
+		Scaleforth: Ik ben blij dat {TerraGuardianScaleforthName} hier is komen wonen. Hij is een behulpzame assistent en hij kan zelfs mijn bekers verwarmen.
+	}
+
+	Game: {
+		DragnWash: "{HasGameDragnWash}Oh my, Drag'n Wash... I had no idea you had such a good taste in videogames."
+		GameHorror: Do you think {GameNameHorror} is scary? What about Five Nights at Dr K, then?
+		GameParty: No I don't want to play {GameNameParty} together. What? I am not bad at it, I just don't like it.
+		PawpertyDamage: "{HasGamePawpertyDamage}Pawperty Damage? So you like giant furries crushing things underneath their paws?"
+	}
+}
+
+Prototype: {
+	Emotion1: Biep :)
+	Emotion2: ... :o
+	Emotion3: Boep :3
+	Emotion4: Vrrrp :D
+	Emotion5: Bzzz :p
+	Emotion6: Wrrrr >:D
+
+	Injured: {
+		Injured1: Drrrr :S
+		Injured2: Fzzzt :|
+		Injured3: Iiiii ;(
+	}
+
+	NearlyDead: {
+		NearlyDead1: Kzzzt X(
+		NearlyDead2: Aaaaa XO
+		# SOS in morse code
+		NearlyDead3: ... --- ...
+	}
+}
+
+PuroWorm.Dialogue1: Mmm sinaasappel

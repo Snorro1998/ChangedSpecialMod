@@ -229,10 +229,14 @@ namespace ChangedSpecialMod.Content.NPCs
             base.OnKill(npc);
             var puroPresent = NPC.AnyNPCs(ModContent.NPCType<Puro>());
             var isCritter = npc.lifeMax == 5;
-            var dropChance = 500; // rod of disc is 1 in 500
+            var dropChance = 1000; // rod of disc is 1 in 500
 
-            if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(dropChance) &&
-                puroPresent && !isCritter)
+            var changedNPC = npc.Changed();
+            if (changedNPC.GooType != GooType.Invalid)
+                dropChance = 500;
+
+            if (Main.netMode != NetmodeID.MultiplayerClient && !npc.boss &&
+                Main.rand.NextBool(dropChance) && puroPresent && !isCritter)
                 Item.NewItem(new EntitySource_Gift(npc), npc.Hitbox, ModContent.ItemType<QuestBook>(), 1);
         }
 
@@ -961,11 +965,14 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (ModSupportSystem.IsModActive("Redemption"))
                     AddIf(true, "ModRedemption", string.Empty);
 
-                // If you play with Puro Summon mod and have him around
+                // If you play with Rocket's Summons mod (previously called Puro Summon), check which summon the player has
                 var modPuroCompanion = ModSupportSystem.GetModSupportData("PuroCompanion") as ModSupportPuroSummon;
                 if (modPuroCompanion != null)
                 {
+                    // Player has Puro as a companion
+                    // Puro can say things like: I didn't know I had a twin brother
                     AddIf(modPuroCompanion.PlayerHasPuroSummon(Main.LocalPlayer), "PuroCompanionModPlayerHasPuro", string.Empty);
+                    AddIf(modPuroCompanion.PlayerHasLoonaSummon(Main.LocalPlayer), "PuroCompanionModPlayerHasLoona", string.Empty);
                 }
 
                 // If playing with TerraGuardian, get the names of all companions in the world.
@@ -973,10 +980,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (tgSystem != null)
                 {
                     AddIf(true, "ModTG", string.Empty);
-                    var companions = tgSystem.GetTerraGuardianCompanions();
-                    var companionNamesInParty = tgSystem.GetCompanionNamesInPlayerParty();
-                    var companionsInParty = companions.Where(x => companionNamesInParty.Contains(x.name));
-                    var companionsNotInParty = companions.Where(x => !companionNamesInParty.Contains(x.name));
+
+                    var companions = tgSystem.GetAllTerraGuardians();
+                    var companionsInParty = companions.Where(x => x.inPlayerParty).ToList();
+                    var companionsCanTalkAbout = companions.Where(x => x.inPlayerParty || x.hasBeenMet).ToList();
 
                     if (companionsInParty.Count() > 0)
                     {
@@ -1030,9 +1037,9 @@ namespace ChangedSpecialMod.Content.NPCs
                         }
                     }
 
-                    if (companions.Count > 0)
+                    if (companionsCanTalkAbout.Count > 0)
                     {
-                        foreach (var companion in companions)
+                        foreach (var companion in companionsCanTalkAbout)
                         {
                             var companionName = companion.name;
                             var companionNickName = companion.nickname;

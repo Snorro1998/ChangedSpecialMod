@@ -82,54 +82,22 @@ Other
 --------- Changelog ---------
 
 
-0.5.7.4
+0.5.7.5
 
-This update adds more loot to bosses and makes some changes to dialogue.
+This update resprites some furniture items and adds a few extra languages that are not part of TModloader. 
+These new languages require the Localization Plus mod and only translate content from this mod. 
+They do not provide any translations for normal Terraria content.
 
-General
-- Reduced drop change of oranges
-- Well fed buff from oranges increased from 1 to 5 minutes
-
-Lost books
-- All NPCs have a small chance to drop lost books. You can hand them in to Puro for a reward (lost books option).
-- Books have random titles for English, German and French. For the other languages, they are just called "lost book"
-
-Retro sprites
-- Added config option to display retro sprites of blocks and furniture found in the labs
-- Added config option to display retro sprites of NPCs
-- Added retro sprites for Bloodstripe and Purrpurr
-
-Mods
-- If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
-- If you play with the Terra Guardians mod, Puro and Dr K can say things about them.
-- World generation now tries to avoid placing labs on top of the briar biome from Spirit Mod
-- Weapons have element types when playing with Mod of Redemption
-
-Items added
-- Boss trophies
-- Treasure bags (expert mode)
-- Boss relics (master mode)
-- Disguise set. It makes the player immune to all latex beasts.
-- Gooey grabber. Summons the behemoth's hand as a minion.
-- Hairball. Summons a white tail mount, which can dash.	
-
-NPC
-- Maintenance robot now only spawns in hardmode
-- Snow Leopard no longer spawns underground
+Translations Added
+- Dutch
+- Japanese
 
 Resprited
-- Lab door
-- Elevator
-- Mount bookest
-- Bloodstripe
+- White Tail
 - Crystals
+- Lab table
+- Iris Scanner
+- Generator
 
 Fixed
-- Some monsters could spawn during events
-- Infected snow biomes had rain instead of snow
-- Infected desert biomes did not use the heat distortion effect
-- Behemoth could not always spawn if the room had the lowest ceiling possible
-- Labs did not have walls at doors between rooms
-- Fixed broken buff translations in many languages
-- Fixed broken German translations of NPC dialogue
-- Debug item for resetting boss progression now works again and doesn't just print numbers
+- Worldgen could generate green plants in infected deserts, which looked strange

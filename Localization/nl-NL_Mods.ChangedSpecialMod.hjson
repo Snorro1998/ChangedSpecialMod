@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: Witte Staart
+		SpawnInfo: Kan in ieder slijmgebied verschijnen als je minstens 20 slijmmonsters hebt verslagen.
+		DespawnMessage: De Witte Staart zit niet meer achter je aan
+	}
+
+	WolfKing: {
+		EntryName: Wolvenkoning
+		SpawnInfo: Is te vinden in een kamer waarvan de muren bedekt zijn met zwart slijm.
+		DespawnMessage: De Wolvenkoning zit niet meer achter je aan
+	}
+
+	Behemoth: {
+		EntryName: Reus
+		SpawnInfo: Is te vinden in een kamer waarvan de muren bedekt zijn met wit slijm.
+		DespawnMessage: De Reus zit niet meer achter je aan
+	}
+}

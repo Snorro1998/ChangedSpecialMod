@@ -5,6 +5,7 @@ using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public int[] AnimIdle = new int[] { 0, 1, 2, 1 };
         public int[] AnimDash = new int[] { 0 };
         public int[] AnimSlam = new int[] { 3 };
-        public int[] AnimRubble = new int[] { 4, 5, 6, 7 };
+        public int[] AnimRubble = new int[] { 1 };//{ 4, 5, 6, 7 };
         public int[] AnimGrow = new int[] { 11, 10, 9, 8};
         public int[] AnimShrink = new int[] { 8, 9, 10, 11};
 
@@ -67,6 +68,8 @@ namespace ChangedSpecialMod.Content.NPCs
         private int backupTime = 15;
 
         public int maxFollowDistance = 300 * 16;
+
+        private bool doScoop = false;
 
         public double CalcAnimationDuration()
         {
@@ -98,7 +101,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.npcSlots = 10f;
             NPC.dontTakeDamage = true;
             AnimationType = NPCID.None;
-            NPC.scale = 0.75f;
+            NPC.scale = 1f;// 0.75f;
 
             NPC.boss = true;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
@@ -222,13 +225,47 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (!doScoop)
+                return base.PreDraw(spriteBatch, screenPos, drawColor);
+
+            Texture2D textureBase = Mod.Assets.Request<Texture2D>("Content/NPCs/BehemothHand").Value;
+            Vector2 drawPos = NPC.Top - screenPos;
+            drawPos.Y += NPC.gfxOffY;
+            //drawColor *= (1 - NPC.shimmerTransparency);
+
+            SpriteEffects effects = NPC.spriteDirection == 1
+                ? SpriteEffects.FlipHorizontally
+                : SpriteEffects.None;
+
+            var nFrames = Main.npcFrameCount[Type];
+            var xOrigin = NPC.spriteDirection < 0 ? 0 : textureBase.Size().X;
+
+            // Body
+            spriteBatch.Draw(
+                textureBase,
+                drawPos,
+                NPC.frame,
+                drawColor,
+                NPC.rotation,
+                new Vector2(xOrigin, textureBase.Size().Y / nFrames),
+                //new Vector2(textureBase.Size().X / 2, textureBase.Size().Y / nFrames / 2),
+                NPC.scale,
+                effects,
+                0f
+            );
+
+            return false;
+        }
+
         // This started out as a copy of the deerclops AI, so there is still some junk left
         public override void AI()
         {
             bool isBackingUpForDashAttack = AIState == (float)ActionState.Dash && AITimer < fiddleHandsTime + backupTime;
 
             // Update sprite direction if moving and not preparing to dash
-            if (!isBackingUpForDashAttack && NPC.velocity.X != 0)
+            if (!isBackingUpForDashAttack && NPC.velocity.X != 0 && !doScoop)
             {
                 NPC.spriteDirection = Math.Sign(NPC.velocity.X);
             }
@@ -280,7 +317,7 @@ namespace ChangedSpecialMod.Content.NPCs
                     break;
             }
 
-            if ((int)AIState != (int)ActionState.Dash && (int)AIState != (int)ActionState.Slam)
+            if ((int)AIState != (int)ActionState.Dash && (int)AIState != (int)ActionState.Slam && !doScoop)
                 Movement(haltMovement, goHome);
         }
 
@@ -656,6 +693,17 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 SwitchAnimation(AnimRubble);
                 Loop = false;
+                doScoop = true;
+                if (NPC.spriteDirection >= 0)
+                    NPC.rotation = (float)Math.PI * -1;
+                else
+                    NPC.rotation = (float)Math.PI;
+                NPC.spriteDirection *= -1;
+            }
+
+            if (AITimer > attackDelay)
+            {
+                NPC.rotation += NPC.spriteDirection * 0.05f;
             }
 
             if (AITimer == (float)num9)
@@ -702,6 +750,8 @@ namespace ChangedSpecialMod.Content.NPCs
             if (AITimer >= 60f + attackDelay)
             {
                 SwitchState(ActionState.Idle, AnimIdle, true);
+                doScoop = false;
+                NPC.rotation = 0;
             }
         }
     }

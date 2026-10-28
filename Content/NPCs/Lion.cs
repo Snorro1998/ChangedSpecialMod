@@ -83,6 +83,9 @@ namespace ChangedSpecialMod.Content.NPCs
             if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
                 return 0f;
 
+            if (NPC.AnyNPCs(ModContent.NPCType<Lion>()))
+                return 0;
+
             var vanillaChance = (spawnInfo.Player.ZoneDesert && Main.hardMode && spawnInfo.Player.townNPCs < 3) ? 0.2f : 0;
             var changedChance = ChangedUtils.GetDesertSpawnChance(spawnInfo, changedNPC);
             return Math.Max(vanillaChance, changedChance);

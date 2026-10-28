@@ -1,0 +1,1115 @@
+Painting1: {
+	DisplayName: De Gekke Pluizenbol
+	Tooltip: Schattig totdat hij groot wordt
+}
+
+Painting2: {
+	DisplayName: Wolvenkoning
+	Tooltip: Een machtig monster
+}
+
+Painting3: {
+	DisplayName: De Effecten van Sinaasappels
+	Tooltip: Gezond
+}
+
+Painting4: {
+	DisplayName: Sssss
+	Tooltip: Stil, anders vindt hij jou
+}
+
+Painting5: {
+	DisplayName: Komedie
+	Tooltip: HAHAHAHA!
+}
+
+Painting6: {
+	DisplayName: De Duistere Ninja
+	Tooltip: Leip
+}
+
+Painting7: {
+	DisplayName: Beste Maatjes
+	Tooltip: Knus
+}
+
+Painting8: {
+	DisplayName: Vreettijd
+	Tooltip: Jummie
+}
+
+Painting9: {
+	DisplayName: Puro de Zwarte Slijm
+	Tooltip: Schattig
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: De Inktvishond
+	Tooltip: A Menacing Mollusc
+}
+
+Painting12: {
+	DisplayName: Sneeuwluipaard
+	Tooltip: Rustig
+}
+
+Painting13: {
+	DisplayName: Gevangen
+	Tooltip: Oh nee
+}
+
+DrunkPainting1: {
+	DisplayName: Sinas
+	Tooltip: Mmmm
+}
+
+DrunkPainting2: {
+	DisplayName: Haaaaai
+	Tooltip: Bleh
+}
+
+DrunkPainting3: {
+	DisplayName: Inkhon
+	Tooltip: Bleh
+}
+
+DrunkPainting4: {
+	DisplayName: Purbles
+	Tooltip: Bleh
+}
+
+MusicBoxLab: {
+	DisplayName: Speeldoos (Laboratorium)
+	Tooltip: Door ShiZi
+}
+
+DarkLatexBanner: {
+	DisplayName: Zwarte Slijmbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
+}
+
+SquidDogBanner: {
+	DisplayName: Inktvishondbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: Lift
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: Puroknuffel
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: Basketbal (Plaatsbaar)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: Haaiknuffel
+}
+
+Orange: {
+	DisplayName: Sinaasappel
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: Zwarte Slijmblok
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: Gevarenblok
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: Droge Aardeblok
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: Blauwe Gasfles
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: Blauwe Bureaustoel
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: Documentpapier
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: Aggregraat
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: Groene Bureaustoel
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: Irisscanner
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: Laboratoriumdeur
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: Laboratoriumtafel
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: Boekenberg
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: Speeldoos (Kristalzone)
+	Tooltip: Door ShiZi
+}
+
+PackingBox: {
+	DisplayName: Verpakkingsdoos
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Verpakkingsdoossleutel
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: Rode Gasfles
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: Rode Bureaustoel
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: Stapel Dozen
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: Opbergdoos
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Opbergdoossleutel
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: Witte Slijmboekenkast
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: Laboratorium Tegelblok
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: Witte Slijmblok
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: Bedorven Sinaasappel
+	Tooltip: Alleen al dit vasthouden is genoeg om vreemde dingen te zien
+}
+
+TigerPaw: {
+	DisplayName: Krimklauw
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: Encyclopedie
+	Tooltip: Voel het gewicht van kennis
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: Gruwelhoorn
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: Mollash
+}
+
+WendigoBanner: {
+	DisplayName: Wendigobanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
+}
+
+BloodstripeBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
+	DisplayName: Bloedstreepbanier
+}
+
+BlackGoopBanner: {
+	DisplayName: Zwarte Smurriebanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
+}
+
+BlackGoo: {
+	DisplayName: Zwarte Slijm
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: Witte Smurriebanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
+}
+
+WhiteGoo: {
+	DisplayName: Witte Slijm
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: Duitse Herder banier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: Slijmerig Hoefijzer
+	Tooltip: Roept een Slijmcentaur-rijdier op
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: Black Wing
+	Tooltip: Roept een Yufeng-rijdier op
+}
+
+Literature: {
+	DisplayName: Literatuur
+	Tooltip: Bevat veel interessante onderwerpen
+}
+
+WhiskerStaff: {
+	DisplayName: Snorstaf
+	Tooltip: Roept een kat op om voor jou te vechten
+}
+
+PurrpurrBanner: {
+	DisplayName: Paarspoesbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: Boekenregen
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: Gieter (Plaatsbaar)
+}
+
+MusicBoxPuro: {
+	DisplayName: Speeldoos (Puro de Zwarte Slijm)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxPuroDance: {
+	DisplayName: Speeldoos (Puro's Dans)
+	Tooltip: Door ShiZi
+}
+
+PurrpurrStaff: {
+	Tooltip: Roept een enorme paarse kat op om voor jou te vechten
+	DisplayName: Paarspoes staf
+}
+
+TabbyStaff: {
+	Tooltip: Roept een grote gestreepte kat op om voor jou te vechten
+	DisplayName: Gestreepte kat staf
+}
+
+FennecPlush: {
+	DisplayName: Fennekknuffel
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: Tweetakel
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: Megascheur
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: Versnipperaar
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: Triotakel
+}
+
+Bashskewer: {
+	DisplayName: Bafspies
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: Duivelspijker
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: Alpenhoed
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: Dit ding doet niks en wordt alleen gebruikt als je de muis over een lift houdt
+	DisplayName: Icon Lift naar boven
+}
+
+ElevatorDown: {
+	Tooltip: Dit ding doet niks en wordt alleen gebruikt als je de muis over een lift houdt
+	DisplayName: Icon Lift naar beneden
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: Speeldoos (Verjaardag)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxLibrary: {
+	DisplayName: Speeldoos (Bibliotheek)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: Speeldoos (Witte Slijmjungle)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: Speeldoos (Vuurrode Kristalmijn)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: Speeldoos (Zwarte Slijmzone)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxWolfKing: {
+	DisplayName: Speeldoos (Wolvenkoning)
+	Tooltip: Door ShiZi
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
+	DisplayName: Yufengbanier
+}
+
+SummonWolfKing: {
+	Tooltip: Roept de Wolvenkoning op
+	DisplayName: Vreemde Draaistoel
+}
+
+SummonBehemoth: {
+	Tooltip: Roept de Reus op
+	DisplayName: Enorme Hand
+}
+
+DebugResetBosses: {
+	DisplayName: Zet eindbaas progressie terug
+	Tooltip: Zet eindbaas progressie terug
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: Ventilator
+}
+
+Painting14: {
+	Tooltip: Zzzz
+	DisplayName: Wolvenhol
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: Speeldoos (Broeikas)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxLabSlow: {
+	DisplayName: Speeldoos (Laboratorium, langzaam)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxVents: {
+	Tooltip: Door ShiZi
+	DisplayName: Speeldoos (Ventilatieschachten)
+}
+
+WhiteLatexBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
+	DisplayName: Witte Slijmbanier
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: Kluisje
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: Speelgoedblokken
+}
+
+MusicBoxBehemoth: {
+	Tooltip: Door ShiZi
+	DisplayName: Speeldoos (Reus)
+}
+
+SummonWhiteTail: {
+	Tooltip: Roept de Witte Staart op
+	DisplayName: Verdachte Slijmbal
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: Ja
+	DisplayName: Debug Roep alle karakters op
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: Wit Kristal
+}
+
+CrystalGreen: {
+	DisplayName: Groen Kristal
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: Rood Kristal
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: Witte Pilaar
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: Awoe
+	DisplayName: Nachtmonster
+}
+
+Painting16: {
+	DisplayName: De Wetenschapper
+	Tooltip: Griezelig
+}
+
+Painting17: {
+	DisplayName: Slapende Vos
+	Tooltip: Maak hem niet wakker
+}
+
+Painting18: {
+	DisplayName: Slijmwereld
+	Tooltip: Ze bouwen een brug
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: Speeldoos (De Witte Staart Achtervolging deel 2)
+	Tooltip: Door ShiZi
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: Cryopode
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: Foto's (Puro)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: Foto's (Zwarte Slijm)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: Foto's (Buiten)
+}
+
+Pictures4: {
+	DisplayName: Foto's (Gang)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: Foto's (Bacteriën)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: Foto's (Vrienden)
+}
+
+BlackSyringe: {
+	DisplayName: Zwarte Injectiespuit
+	Tooltip:
+		'''
+		- Verandert je in een Zwarte Slijm
+		- Biedt immuniteit tegen Zwarte Slijmen
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: Witte Injectiespuit
+	Tooltip:
+		'''
+		- Verandert je in een Witte Slijm
+		- Biedt immuniteit tegen Witte Slijmen
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: Basketbal
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: Discokristal
+	Tooltip: Als je dit vasthoudt, gedragen kristallen zich als discolampen
+}
+
+BlackLatexSolution: {
+	DisplayName: Zwarte Slijmoplossing
+	Tooltip: Verspreidt het Zwarte Slijmgebied
+}
+
+WhiteLatexSolution: {
+	DisplayName: Witte Slijmoplossing
+	Tooltip: Verspreidt het Witte Slijmgebied
+}
+
+DryDirtSolution: {
+	DisplayName: Droge Aardeoplossing
+	Tooltip: Verspreidt de Stadsruïnes
+}
+
+OrangeStatue: {
+	DisplayName: Sinaasappelstandbeeld
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: Zonnebril
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: Inktvishondinjectiespuit
+	Tooltip: ""
+}
+
+BlackLatexSand: {
+	DisplayName: Zwart Slijmzandblok
+	Tooltip:
+		'''
+		Kan gebruikt worden met het zandpistool
+		- Verandert beestjes en slijmen in hoopjes
+		- Evolueert Zwarte Slijmen
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: Wit Slijmzandblok
+	Tooltip:
+		'''
+		Kan gebruikt worden met het zandpistool
+		- Verandert beestjes en slijmen in hoopjes
+		- Evolueert Witte Slijmen
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: Superinjectiespuit
+	Tooltip: Verandert je in elk Slijmmonster
+}
+
+SummonExperiment009: {
+	DisplayName: Debug Summon Experiment 009 Boss
+	Tooltip: Unfinished. From the Minecraft Changed Addon Plus mod.
+}
+
+SummonShark: {
+	DisplayName: Debug Summon Shark Boss
+	Tooltip: Unfinished.
+}
+
+SweeperItem: {
+	DisplayName: Robotstofzuiger
+	Tooltip: Schoonmaakspecialist
+}
+
+SweeperPuroItem: {
+	DisplayName: Puroomba
+	Tooltip: Vroem
+}
+
+Paper: {
+	DisplayName: Papier
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: Puroomba
+	Tooltip: Vroem
+}
+
+BlackLatexCubLicense: {
+	DisplayName: Zwarte Slijmpuppyvergunning
+	UseLicense: De vergunning teleporteert weg naar de hondenbezorgdienst...
+	Tooltip: Gebruik dit om een Zwarte Slijmpuppy voor je stad te adopteren
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: Witte Slijmpuppyvergunning
+	UseLicense: De vergunning teleporteert weg naar de hondenbezorgdienst...
+	Tooltip: Gebruik dit om een Witte Slijmpuppy voor je stad te adopteren
+}
+
+Calendar: {
+	DisplayName: Kalender
+	Tooltip: Kan gebruikt worden om de huidige feestdag aan te passen
+}
+
+SombreroHat: {
+	DisplayName: Sombrero Hat
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: Paradijs
+	Tooltip: Hij leeft in zijn droom
+}
+
+DrunkPainting6: {
+	DisplayName: Sinaasappelaandelen
+	Tooltip: Grote winst
+}
+
+SkinLion: {
+	DisplayName: Leeuwenvel
+	Tooltip: ""
+}
+
+SkinSnep: {
+	DisplayName: Sneeuwluipaardenvel
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: Diverseninjectiespuit
+	Tooltip: Verandert je in verschillende Slijmen
+}
+
+TigerSharkSyringe: {
+	DisplayName: Tijgerhaai Injectiespuit
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: Waterinjectiespuit
+	Tooltip: Verandert je in verschillende Waterslijmmonsters
+}
+
+Syringe: {
+	DisplayName: Injectiespuit
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: Bloedstreep Injectiespuit
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: Duitse Herder Injectiespuit
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: Feng Yu Injectiespuit
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: Paarspoes Injectiespuit
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: Sneeuwluipaard Injectiespuit
+	Tooltip: ""
+}
+
+DebugSpawnColin: {
+	DisplayName: Debug Spawn Colin
+	Tooltip: ""
+}
+
+PuroStatue: {
+	DisplayName: Standbeeld van Puro
+	Tooltip: ""
+}
+
+SquidDogStatue: {
+	DisplayName: Standbeeld van een Inktvishond
+	Tooltip: ""
+}
+
+BlackLatexStoneBlock: {
+	DisplayName: Zwart Slijmsteenblok
+	Tooltip: ""
+}
+
+WhiteLatexStoneBlock: {
+	DisplayName: Wit Slijmsteenblok
+	Tooltip: ""
+}
+
+BlackLatexPylon: {
+	DisplayName: Zwarte Slijmpylon
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+}
+
+WhiteLatexPylon: {
+	DisplayName: Witte Slijmpylon
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+}
+
+LatexMothMountItem: {
+	DisplayName: Witte Vleugel
+	Tooltip: Roept een Slijmmot-rijdier op
+}
+
+BlackLatexIce: {
+	Tooltip: ""
+	DisplayName: Zwart Ijsslijmblok
+}
+
+WhiteLatexIce: {
+	Tooltip: ""
+	DisplayName: Wit Ijsslijmblok
+}
+
+WhiteLatexSnow: {
+	Tooltip: ""
+	DisplayName: Wit Sneeuwslijmblok
+}
+
+BlackLatexSnow: {
+	Tooltip: ""
+	DisplayName: Zwart Sneeuwslijmblok
+}
+
+DebugTeleportToHallow: {
+	Tooltip:
+		'''
+		Rechtermuisknop om de bestemming aan te passen.
+		WAARSCHUWING: Dit kan je naar een gevaarlijke plek teleporteren.
+		'''
+	DisplayName: Debug Teleporteer naar het Heilige land
+}
+
+DebugTeleportToCrimson: {
+	Tooltip:
+		'''
+		Rechtermuisknop om de bestemming aan te passen.
+		WAARSCHUWING: Dit kan je naar een gevaarlijke plek teleporteren.
+		'''
+	DisplayName: Debug Teleporteer naar de Crimson
+}
+
+DebugTeleportToLatex: {
+	Tooltip:
+		'''
+		Rechtermuisknop om de bestemming aan te passen.
+		WAARSCHUWING: Dit kan je naar een gevaarlijke plek teleporteren.
+		'''
+	DisplayName: Debug Teleporteer naar het Slijmgebied
+}
+
+DebugTeleportToCorruption: {
+	Tooltip:
+		'''
+		Rechtermuisknop om de bestemming aan te passen.
+		WAARSCHUWING: Dit kan je naar een gevaarlijke plek teleporteren.
+		'''
+	DisplayName: Debug Teleporteer naar de Corruptie
+}
+
+DryDirtGrassBlock: {
+	DisplayName: Droog Aardegrasblok
+	Tooltip: ""
+}
+
+DryDirtGrassSeeds: {
+	DisplayName: Droge Graszaden
+	Tooltip: ""
+}
+
+BlackLatexGrassBlock: {
+	DisplayName: Zwart Slijmgrasblok
+	Tooltip: ""
+}
+
+BlackLatexLantern: {
+	DisplayName: Zwarte Slijmlantaarn
+	Tooltip: ""
+}
+
+BlackLatexMudBlock: {
+	DisplayName: Zwart Slijmmodderblok
+	Tooltip: ""
+}
+
+WhiteLatexMudBlock: {
+	DisplayName: Wit Slijmmodderblok
+	Tooltip: ""
+}
+
+BlackLatexHardenedSandBlock: {
+	DisplayName: Verhard Zwart Slijmzandblok
+	Tooltip: ""
+}
+
+WhiteLatexHardenedSandBlock: {
+	DisplayName: Verhard Wit Slijmzandblok
+	Tooltip: ""
+}
+
+BlackLatexSandstoneBlock: {
+	DisplayName: Zwart Slijmzandsteenblok
+	Tooltip: ""
+}
+
+WhiteLatexSandstoneBlock: {
+	DisplayName: Wit Slijmzandsteenblok
+	Tooltip: ""
+}
+
+CelebrationCake: {
+	DisplayName: Feesttaart
+	Tooltip: Bedankt allemaal voor meer dan 900 downloads
+}
+
+WhiteLatexLantern: {
+	DisplayName: Witte Slijmlantaarn
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: Groene Kristalstaf
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: Rode Kristalstaf
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: Watergevecht
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: Witte Kristalstaf
+	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: Speelgoedblok
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: Gieter
+	Tooltip: Rechtermuisknop om te gooien
+}
+
+DarkLatexCubBanner: {
+	DisplayName: Zwarte Slijmpupbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: Robotstofzuigerbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: Witte Slijmpupbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: Feng Yu Banier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: Tijgerhaaibanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
+}
+
+SweeperPuroCage: {
+	DisplayName: Puroomba kooi
+	Tooltip: Gevangengezet voor zijn misdaden
+}
+
+MusicBoxRun: {
+	DisplayName: Speeldoos (REN)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxShark: {
+	DisplayName: Speeldoos (De Haai)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxSquidDog: {
+	DisplayName: Speeldoos (Inktvishond)
+	Tooltip: Door ShiZi
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: Speeldoos (De Witte Staart Achtervolging Deel 1)
+	Tooltip: Door ShiZi
+}
+
+Painting21: {
+	DisplayName: Kraken van Krakow
+	Tooltip: ""
+}
+
+DebugItem: {
+	DisplayName: Debug Item
+	Tooltip: ""
+}
+
+WhiteTailTrophy: {
+	DisplayName: Witte Staart Trofee
+	Tooltip: ""
+}
+
+DisguiseSetHelmet: {
+	DisplayName: Vermommingsmasker
+	Tooltip: ""
+}
+
+DisguiseSetBreastplate: {
+	DisplayName: Vermommingsshirt
+	Tooltip: ""
+}
+
+WhiteTailRelic: {
+	DisplayName: Witte Staart Relikwie
+	Tooltip: ""
+}
+
+BehemothTrophy: {
+	DisplayName: Reustrofee
+	Tooltip: ""
+}
+
+BehemothRelic: {
+	DisplayName: Reusrelikwie
+	Tooltip: ""
+}
+
+WolfKingRelic: {
+	DisplayName: Wolvenkoningrelikwie
+	Tooltip: ""
+}
+
+WolfKingTrophy: {
+	DisplayName: Wolvenkoningtrofee
+	Tooltip: ""
+}
+
+BehemothTreasureBag: {
+	DisplayName: Schatzak (Reus)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+WhiteTailTreasureBag: {
+	DisplayName: Schatzak (Witte Staart)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+WolfKingTreasureBag: {
+	DisplayName: Schatzak (Wolvenkoning)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+WhiteTailWeapon: {
+	DisplayName: Witte Staart Wapen
+	Tooltip: ""
+}
+
+BehemothWeapon: {
+	DisplayName: Kleverige Grijper
+	Tooltip: Roept een enorme hand op om voor je te vechten
+}
+
+WhiteTailMountItem: {
+	DisplayName: Haarbal
+	Tooltip: Roept een Witte Staart-rijdier op, die naar voren kan schieten
+}
+
+QuestBook: {
+	DisplayName: Verloren boek
+	Tooltip: Puro zou dit wellicht interessant vinden
+}
+
+DebugPickaxe: {
+	DisplayName: Debug Pikhouweel
+	Tooltip: ""
+}

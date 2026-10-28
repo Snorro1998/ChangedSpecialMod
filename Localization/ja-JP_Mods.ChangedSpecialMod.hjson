@@ -1,0 +1,19 @@
+BossChecklistIntegration: {
+	WhiteTail: {
+		EntryName: 白い尾
+		SpawnInfo: スライム系のモンスターを20体以上倒した後であれば、どのスライム地帯にも出現する可能性がある。
+		DespawnMessage: 白い尾はもうあなたを追いかけません
+	}
+
+	WolfKing: {
+		EntryName: 狼の王
+		SpawnInfo: 黒い粘液に覆われた部屋で見つかる。
+		DespawnMessage: 狼の王はもうあなたを追いかけません
+	}
+
+	Behemoth: {
+		EntryName: ベヒモス
+		SpawnInfo: 白い粘液に覆われた部屋で見つかる。
+		DespawnMessage: ベヒモスはもうあなたを追いかけません
+	}
+}

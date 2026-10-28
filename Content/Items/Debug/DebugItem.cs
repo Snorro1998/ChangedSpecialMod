@@ -1,4 +1,6 @@
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Common.Systems.ModSupport;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,7 +21,19 @@ namespace ChangedSpecialMod.Content.Items.Debug
 
         public override bool? UseItem(Player player)
         {
-            BossProgressionSystem.PrintDefeatedBosses();
+            var tgMod = ModSupportSystem.externalMods.Where(x => x.modName == "terraguardians").FirstOrDefault() as ModSupportTerraGuardian;
+            if (tgMod != null)
+            {
+                var tgs = tgMod.GetAllTerraGuardians();
+                var str = "";
+                foreach (var t in tgs)
+                {
+                    str += $"{t.name}, {t.hasBeenMet}, {t.inPlayerParty} | ";
+                }
+                Main.NewText(str);
+            }
+
+            //BossProgressionSystem.PrintDefeatedBosses();
             //var bookName = BookQuestSystem.GetBookName();
             //Main.NewText(bookName);
             return true;

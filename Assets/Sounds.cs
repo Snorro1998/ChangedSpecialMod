@@ -73,5 +73,8 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundAroo = new(Sound("Aroo"));             // Cheerleaders on the drunk world seed
         public static readonly SoundStyle SoundGroanTube1 = new(Sound("GroanTube1")); // Cub sitting down
         public static readonly SoundStyle SoundGroanTube2 = new(Sound("GroanTube2")); // Cub standing up
+
+        // Misc
+        public static readonly SoundStyle SoundFeestjeVanKeesje = new(Sound("FeestjeVanKeesje"));
     }
 }

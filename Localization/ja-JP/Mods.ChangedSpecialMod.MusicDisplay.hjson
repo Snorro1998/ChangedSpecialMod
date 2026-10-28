@@ -1,0 +1,31 @@
+ModName: Changed
+
+Authors: {
+	Shizi: シズ
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: 黒いスライム地帯
+	MusicBlackLatexZone2: スカーレット・クリスタル鉱山
+	MusicCrystalZone: クリスタル・ゾーン
+	MusicWhiteLatexZone: 白いスライムのジャングル
+	MusicLibrary: 図書館
+	MusicLabSlow: 研究室 (遅い)
+	MusicLab: 研究室
+	MusicVents: 通気管
+	MusicPuro: 黒いスライムのプーロ
+	MusicGreenhouse: 温室
+	MusicHappyBirthday: バースデーソング
+	MusicPuroDance: プーロのダンス
+	MusicRun: 走る
+	MusicWhiteTailChase1: 狩りをする白い尾第1部
+	MusicWhiteTailChase2: 狩りをする白い尾第2部
+	# Not 100% sure, because they have no names
+	MusicWolfKing: 狼の王
+	MusicBehemoth: ベヒモス
+	MusicShark: サメ
+	MusicSquidDog: イカ犬
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

@@ -1,12 +1,9 @@
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
-using ChangedSpecialMod.Content.Tiles.Latex.Black;
-using ChangedSpecialMod.Content.Tiles.Latex.White;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -80,6 +77,9 @@ namespace ChangedSpecialMod.Content.NPCs
             var changedNPC = NPC.Changed();
             if (!ChangedUtils.CommonCanSpawn(spawnInfo, changedNPC))
                 return 0f;
+
+            if (NPC.AnyNPCs(ModContent.NPCType<Snep>()))
+                return 0;
 
             var spawnTileType = spawnInfo.SpawnTileType;
             var correctTileType = TileID.Sets.IcesSnow[spawnTileType];

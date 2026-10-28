@@ -1,6 +1,7 @@
 ﻿using ChangedSpecialMod.Content.NPCs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Terraria;
 using Terraria.ModLoader;
@@ -13,7 +14,8 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         public string nickname;
         public float scale;
         public bool male;
-        public bool inPlayerParty;
+        public bool inPlayerParty;  // If they are currently following the player
+        public bool hasBeenMet;     // If they have moved in, aka are listed in the housing menu
         public bool IsFurry()
         {
             var nonFurryList = new List<string>()
@@ -45,6 +47,21 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
     {
         public ModSupportTerraGuardian(Mod mod, string modName) : base(mod, modName) { }
 
+        public List<TerraGuardianCompanion> GetAllTerraGuardians()
+        {
+            var companionsInParty = GetCompanionsInPlayerParty();
+            var otherCompanions = GetTerraGuardianCompanions();
+
+            var allCompanions = companionsInParty;
+            foreach (var companion in otherCompanions)
+            {
+                if (!allCompanions.Any(x => x.name == companion.name))
+                    allCompanions.Add(companion);
+            }
+
+            return allCompanions;
+        }
+
         public List<TerraGuardianCompanion> GetTerraGuardianCompanions()
         {
             var result = new List<TerraGuardianCompanion>();
@@ -64,6 +81,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 if (companionNPCsfield != null)
                 {
                     var companions = companionNPCsfield.GetValue(null) as System.Collections.IList;
+                    var companionNamesInParty = GetCompanionNamesInPlayerParty();
 
                     if (companions == null)
                         return result;
@@ -75,9 +93,6 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                         {
                             var hasBeenMetProperty = companion.GetType().GetProperty("HasBeenMet");
                             bool hasBeenMet = (bool)(hasBeenMetProperty?.GetValue(companion) ?? false);
-
-                            if (!hasBeenMet)
-                                continue;
 
                             var nameProperty = companion.GetType().GetProperty("GetRealName");
                             if (nameProperty != null)
@@ -107,7 +122,9 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                                         name = name,
                                         nickname = nickname,
                                         scale = scale,
-                                        male = gender == 0
+                                        male = gender == 0,
+                                        hasBeenMet = hasBeenMet,
+                                        inPlayerParty = false
                                     };
 
                                     result.Add(companionObj);
@@ -120,6 +137,110 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 return result;
             }
             catch
+            {
+                return result;
+            }
+        }
+
+        public List<TerraGuardianCompanion> GetCompanionsInPlayerParty()
+        {
+            var result = new List<TerraGuardianCompanion>();
+
+            if (mod == null)
+                return result;
+
+            // NPC chats are only done locally, so this is okay to do
+            var player = Main.LocalPlayer;
+
+            try
+            {
+                Type playerModType = mod.Code.GetType("terraguardians.PlayerMod");
+
+                if (playerModType == null)
+                    return result;
+
+                // Find TerraGuardians' PlayerMod attached to this player.
+                ModPlayer modPlayer = null;
+
+                foreach (ModPlayer mp in player.ModPlayers)
+                {
+                    if (mp.GetType() == playerModType)
+                    {
+                        modPlayer = mp;
+                        break;
+                    }
+                }
+
+                if (modPlayer == null)
+                    return result;
+
+                // Get the private SummonedCompanions field.
+                var field = playerModType.GetField(
+                    "SummonedCompanions",
+                    BindingFlags.Instance |
+                    BindingFlags.NonPublic
+                );
+
+                if (field == null)
+                    return result;
+
+                Array companions = field.GetValue(modPlayer) as Array;
+
+                if (companions == null)
+                    return result;
+
+                // Check whether any companion is actually present.
+                for (int i = 0; i < companions.Length; i++)
+                {
+                    var companion = companions.GetValue(i);
+                    if (companion != null)
+                    {
+                        var hasBeenMetProperty = companion.GetType().GetProperty("HasBeenMet");
+                        bool hasBeenMet = (bool)(hasBeenMetProperty?.GetValue(companion) ?? false);
+
+                        var nameProperty = companion.GetType().GetProperty("GetRealName");
+                        if (nameProperty != null)
+                        {
+                            string name = nameProperty.GetValue(companion) as string;
+
+                            if (name != null)
+                            {
+                                var nickname = name;
+                                var companionPlayer = companion as Player;
+
+                                if (companionPlayer != null)
+                                    nickname = companionPlayer.name;
+
+                                var scaleField = companion.GetType().GetField("Scale");
+                                float scale = (float)(scaleField?.GetValue(companion) ?? 1f);
+
+                                int gender = 0;
+                                var genderProperty = companion.GetType().GetProperty("Genders");
+                                if (genderProperty != null)
+                                {
+                                    object genderObject = genderProperty.GetValue(companion);
+                                    gender = Convert.ToInt32(genderObject);
+                                }
+
+                                var companionObj = new TerraGuardianCompanion()
+                                {
+                                    name = name,
+                                    nickname = nickname,
+                                    scale = scale,
+                                    male = gender == 0,
+                                    hasBeenMet = hasBeenMet,
+                                    inPlayerParty = true
+                                };
+
+                                result.Add(companionObj);
+                            }
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
             {
                 return result;
             }

@@ -1,0 +1,31 @@
+ModName: Changed
+
+Authors: {
+	Shizi: ShiZi
+	Haise: Haise_h1
+}
+
+Music: {
+	MusicBlackLatexZone: Zwarte Slijmzone
+	MusicBlackLatexZone2: Vuurrode Kristalmijn
+	MusicCrystalZone: Kristalzone
+	MusicWhiteLatexZone: Witte Slijmjungle
+	MusicLibrary: Bibliotheek
+	MusicLabSlow: Laboratorium (langzaam)
+	MusicLab: Laboratorium
+	MusicVents: Ventilatieschachten
+	MusicPuro: Puro de Zwarte Slijm
+	MusicGreenhouse: Broeikas
+	MusicHappyBirthday: Verjaardagslied
+	MusicPuroDance: Puro's Dans
+	MusicRun: REN
+	MusicWhiteTailChase1: Jagende Witte Staart, Deel 1
+	MusicWhiteTailChase2: Jagende Witte Staart, Deel 2
+	# Not 100% sure, because they have no names
+	MusicWolfKing: De Wolvenkoning
+	MusicBehemoth: De Reus
+	MusicShark: De Haai
+	MusicSquidDog: Inktvishond
+	Music30: 30.wav
+	MusicMeaninglessStrafe: Meaningless Strafe
+}

@@ -1,0 +1,1115 @@
+Painting1: {
+	DisplayName: お茶目な毛玉ちゃん
+	Tooltip: 大きくなるまでは可愛い
+}
+
+Painting2: {
+	DisplayName: 狼の王
+	Tooltip: 強大な獣
+}
+
+Painting3: {
+	DisplayName: オレンジがもたらす効果
+	Tooltip: 健康
+}
+
+Painting4: {
+	DisplayName: しーっ
+	Tooltip: 静かに。さもないと見つかってしまうぞ。
+}
+
+Painting5: {
+	DisplayName: コメディ
+	Tooltip: はははは！
+}
+
+Painting6: {
+	DisplayName: 闇の忍者
+	Tooltip: すごい
+}
+
+Painting7: {
+	DisplayName: 親友
+	Tooltip: かわいい
+}
+
+Painting8: {
+	DisplayName: おやつの時間
+	Tooltip: 美味しい
+}
+
+Painting9: {
+	DisplayName: 黒いスライムのプーロ
+	Tooltip: かわいい
+}
+
+Painting10: {
+	DisplayName: Baguette
+	Tooltip: Delicieux
+}
+
+Painting11: {
+	DisplayName: イカ犬
+	Tooltip: 危険な軟体動物
+}
+
+Painting12: {
+	DisplayName: ユキヒョウ
+	Tooltip: 落ち着いた
+}
+
+Painting13: {
+	DisplayName: 捕らえられた
+	Tooltip: なんてこった
+}
+
+DrunkPainting1: {
+	DisplayName: オレンジ
+	Tooltip: 美味しい
+}
+
+DrunkPainting2: {
+	DisplayName: サメ
+	Tooltip: Derp
+}
+
+DrunkPainting3: {
+	DisplayName: イカ犬
+	Tooltip: Derp
+}
+
+DrunkPainting4: {
+	DisplayName: プーロ
+	Tooltip: Derp
+}
+
+MusicBoxLab: {
+	DisplayName: オルゴール (研究室)
+	Tooltip: シズ作
+}
+
+DarkLatexBanner: {
+	DisplayName: 黒いスライムのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.MaleDarkLatex.DisplayName}"
+}
+
+SquidDogBanner: {
+	DisplayName: イカ犬のバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDog.DisplayName}"
+}
+
+Elevator: {
+	Tooltip: ""
+	DisplayName: エレベーター
+}
+
+PuroPlush: {
+	Tooltip: ""
+	DisplayName: プーロのぬいぐるみ
+}
+
+Basketball: {
+	Tooltip: ""
+	DisplayName: バスケットボール (配置可能)
+}
+
+SharkPlush: {
+	Tooltip: ""
+	DisplayName: サメのぬいぐるみ
+}
+
+Orange: {
+	DisplayName: オレンジ
+	Tooltip: ""
+}
+
+BlackLatexBlock: {
+	DisplayName: 黒いスライムブロック
+	Tooltip: ""
+}
+
+CautionTileBlock: {
+	DisplayName: 危険タイルブロック
+	Tooltip: ""
+}
+
+DryDirtBlock: {
+	DisplayName: 乾いた土ブロック
+	Tooltip: ""
+}
+
+BlueGasTank: {
+	DisplayName: 青いガスボンベ
+	Tooltip: ""
+}
+
+BlueOfficeChair: {
+	DisplayName: 青いオフィスチェア
+	Tooltip: ""
+}
+
+DocumentPaper: {
+	DisplayName: 書類用紙
+	Tooltip: ""
+}
+
+Generator: {
+	DisplayName: 発電機
+	Tooltip: ""
+}
+
+GreenOfficeChair: {
+	DisplayName: 緑色のオフィスチェア
+	Tooltip: ""
+}
+
+IrisScanner: {
+	DisplayName: 虹彩スキャナー
+	Tooltip: ""
+}
+
+LabDoor: {
+	DisplayName: 研究室のドア
+	Tooltip: ""
+}
+
+LabTable: {
+	DisplayName: 研究室のテーブル
+	Tooltip: ""
+}
+
+MountBookest: {
+	DisplayName: 本の山
+	Tooltip: ""
+}
+
+MusicBoxCrystalZone: {
+	DisplayName: オルゴール (クリスタルゾーン)
+	Tooltip: シズ作
+}
+
+PackingBox: {
+	DisplayName: 梱包箱
+	Tooltip: ""
+}
+
+PackingBoxKey: {
+	DisplayName: Packing Box Key
+	Tooltip: ""
+}
+
+RedGasTank: {
+	DisplayName: 赤いガスボンベ
+	Tooltip: ""
+}
+
+RedOfficeChair: {
+	DisplayName: 赤いオフィスチェア
+	Tooltip: ""
+}
+
+StackOfBoxes: {
+	DisplayName: 積み重なった箱
+	Tooltip: ""
+}
+
+StorageBox: {
+	DisplayName: 収納ボックス
+	Tooltip: ""
+}
+
+StorageBoxKey: {
+	DisplayName: Storage Box Key
+	Tooltip: ""
+}
+
+WhiteLatexBookcases: {
+	DisplayName: 白くてぬるぬるした本棚
+	Tooltip: ""
+}
+
+LabTileBlock: {
+	DisplayName: 実験室用タイルブロック
+	Tooltip: ""
+}
+
+WhiteLatexBlock: {
+	DisplayName: 白いスライムブロック
+	Tooltip: ""
+}
+
+RottenOrange: {
+	DisplayName: 腐ったオレンジ
+	Tooltip: これを持っているだけで、奇妙なものが見えてくる。
+}
+
+TigerPaw: {
+	DisplayName: 深紅の爪
+	Tooltip: ""
+}
+
+Encyclopedia: {
+	DisplayName: 百科事典
+	Tooltip: 知識の重みを感じよ
+}
+
+Dreadhorn: {
+	Tooltip: ""
+	DisplayName: 恐るべき角
+}
+
+Mollash: {
+	Tooltip: ""
+	DisplayName: 軟体動物の鞭
+}
+
+WendigoBanner: {
+	DisplayName: ウェンディゴのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Wendigo.DisplayName}"
+}
+
+BloodstripeBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Bloodstripe.DisplayName}"
+	DisplayName: 血の虎のバナー
+}
+
+BlackGoopBanner: {
+	DisplayName: 黒い水たまりのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.BlackGoop.DisplayName}"
+}
+
+BlackGoo: {
+	DisplayName: 黒いスライム
+	Tooltip: ""
+}
+
+WhiteGoopBanner: {
+	DisplayName: 白い水たまりのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteGoop.DisplayName}"
+}
+
+WhiteGoo: {
+	DisplayName: 白いスライム
+	Tooltip: ""
+}
+
+GermanShepherdBanner: {
+	DisplayName: ジャーマン・シェパードのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.GermanShepherd.DisplayName}"
+}
+
+WhiteLatexTaurMountItem: {
+	DisplayName: ぬるぬるした蹄鉄
+	Tooltip: 乗れる白いスライムのケンタウロスのマウントを召喚する
+}
+
+FlyingDarkLatexMountItem: {
+	DisplayName: 黒い翼
+	Tooltip: 乗れるユーフェンのマウントを召喚する
+}
+
+Literature: {
+	DisplayName: 文学
+	Tooltip: トレンドのトピックで溢れている
+}
+
+WhiskerStaff: {
+	DisplayName: ウィスカー・ワンド
+	Tooltip: 猫を召喚し、自分のために戦わせる
+}
+
+PurrpurrBanner: {
+	DisplayName: 紫色の猫のバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Purrpurr.DisplayName}"
+}
+
+BookBarrage: {
+	Tooltip: ""
+	DisplayName: 本の雨
+}
+
+WateringCan: {
+	Tooltip: ""
+	DisplayName: じょうろ (配置可能)
+}
+
+MusicBoxPuro: {
+	DisplayName: オルゴール (黒いスライムのプーロ)
+	Tooltip: シズ作
+}
+
+MusicBoxPuroDance: {
+	DisplayName: オルゴール (プーロのダンス)
+	Tooltip: シズ作
+}
+
+PurrpurrStaff: {
+	Tooltip: 巨大な紫色の猫を召喚し、自分のために戦わせる
+	DisplayName: 魔法の紫色の猫用スティック
+}
+
+TabbyStaff: {
+	Tooltip: 自分のために戦ってくれる、大きなトラ猫を召喚する
+	DisplayName: 魔法のキジトラ猫スティック
+}
+
+FennecPlush: {
+	DisplayName: フェネックのぬいぐるみ
+	Tooltip: ""
+}
+
+Twintacle: {
+	DisplayName: ダブル・テンタクル
+	Tooltip: ""
+}
+
+MegaMauler: {
+	DisplayName: メガクロー
+	Tooltip: ""
+}
+
+Shredder: {
+	DisplayName: シュレッダー
+	Tooltip: ""
+}
+
+Tentatrio: {
+	Tooltip: ""
+	DisplayName: 3本の触手
+}
+
+Bashskewer: {
+	DisplayName: 叩くための串
+	Tooltip: ""
+}
+
+Daemonspike: {
+	DisplayName: 悪魔の棘
+	Tooltip: ""
+}
+
+AlpineHat: {
+	DisplayName: アルパインハット
+	Tooltip: ""
+}
+
+ElevatorUp: {
+	Tooltip: このアイテムには何の機能もなく、マウスカーソルをエレベーターに合わせた際にのみ使用されます。
+	DisplayName: アイコン：エレベーター（上）
+}
+
+ElevatorDown: {
+	Tooltip: このアイテムには何の機能もなく、マウスカーソルをエレベーターに合わせた際にのみ使用されます。
+	DisplayName: アイコン：エレベーター下降
+}
+
+MusicBoxHappyBirthday: {
+	DisplayName: オルゴール (お誕生日おめでとう)
+	Tooltip: シズ作
+}
+
+MusicBoxLibrary: {
+	DisplayName: オルゴール (図書館)
+	Tooltip: シズ作
+}
+
+MusicBoxWhiteLatexZone: {
+	DisplayName: オルゴール (白いスライムのジャングル)
+	Tooltip: シズ作
+}
+
+MusicBoxBlackLatexZone2: {
+	DisplayName: オルゴール (スカーレット・クリスタル鉱山)
+	Tooltip: シズ作
+}
+
+MusicBoxBlackLatexZone1: {
+	DisplayName: オルゴール (黒いスライム地帯)
+	Tooltip: シズ作
+}
+
+MusicBoxWolfKing: {
+	DisplayName: オルゴール (狼の王)
+	Tooltip: シズ作
+}
+
+FlyingDarkLatexBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
+	DisplayName: ユーフェンの子のバナー
+}
+
+SummonWolfKing: {
+	Tooltip: 狼の王を召喚せよ
+	DisplayName: 奇妙な回転椅子
+}
+
+SummonBehemoth: {
+	Tooltip: ベヒモスを召喚する
+	DisplayName: 巨大な手
+}
+
+DebugResetBosses: {
+	DisplayName: ボス戦の進行状況をリセットする
+	Tooltip: 『Changed』のすべてのボスの進行状況をリセットします。
+}
+
+Fan: {
+	Tooltip: ""
+	DisplayName: 扇風機
+}
+
+Painting14: {
+	Tooltip: 彼らは眠っている
+	DisplayName: 狼の巣穴
+}
+
+MusicBoxGreenhouse: {
+	DisplayName: オルゴール (温室)
+	Tooltip: シズ作
+}
+
+MusicBoxLabSlow: {
+	DisplayName: オルゴール (研究室, 遅い)
+	Tooltip: シズ作
+}
+
+MusicBoxVents: {
+	Tooltip: シズ作
+	DisplayName: オルゴール (通気口)
+}
+
+WhiteLatexBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteKnight.DisplayName}"
+	DisplayName: 白いスライムのバナー
+}
+
+Locker: {
+	Tooltip: ""
+	DisplayName: ロッカー
+}
+
+Blocks: {
+	Tooltip: ""
+	DisplayName: 積み木
+}
+
+MusicBoxBehemoth: {
+	Tooltip: シズ作
+	DisplayName: オルゴール (ベヒモス)
+}
+
+SummonWhiteTail: {
+	Tooltip: 白い尾を呼び出す
+	DisplayName: 怪しげなスライムボール
+}
+
+DebugSpawnAllNPCs: {
+	Tooltip: はい
+	DisplayName: すべてのキャラクターを召喚する
+}
+
+CrystalWhite: {
+	Tooltip: ""
+	DisplayName: 白い結晶
+}
+
+CrystalGreen: {
+	DisplayName: 緑色の結晶
+	Tooltip: ""
+}
+
+CrystalRed: {
+	DisplayName: 赤い水晶
+	Tooltip: ""
+}
+
+PillarWhite: {
+	DisplayName: 白い柱
+	Tooltip: ""
+}
+
+Painting15: {
+	Tooltip: アウー
+	DisplayName: 夜の生き物
+}
+
+Painting16: {
+	DisplayName: 科学者
+	Tooltip: 不気味な
+}
+
+Painting17: {
+	DisplayName: 眠るキツネ
+	Tooltip: 彼を起こさないで。
+}
+
+Painting18: {
+	DisplayName: スライムの世界
+	Tooltip: 彼らは橋を建設している。
+}
+
+MusicBoxWhiteTail: {
+	DisplayName: オルゴール (狩りをする白い尾第2部)
+	Tooltip: シズ作
+}
+
+Cryopod: {
+	Tooltip: ""
+	DisplayName: 冷凍睡眠ポッド
+}
+
+Pictures1: {
+	Tooltip: ""
+	DisplayName: 写真 (プーロ)
+}
+
+Pictures2: {
+	Tooltip: ""
+	DisplayName: 写真 (黒いスライム)
+}
+
+Pictures3: {
+	Tooltip: ""
+	DisplayName: 写真 (外)
+}
+
+Pictures4: {
+	DisplayName: 写真 (廊下)
+	Tooltip: ""
+}
+
+Pictures5: {
+	Tooltip: ""
+	DisplayName: 写真 (細菌)
+}
+
+Pictures6: {
+	Tooltip: ""
+	DisplayName: 写真 (友達)
+}
+
+BlackSyringe: {
+	DisplayName: 黒い注射器
+	Tooltip:
+		'''
+		- 黒いスライムに変身させる
+		- ブラック・スライムに対する耐性を付与する
+		'''
+}
+
+WhiteSyringe: {
+	DisplayName: 白い注射器
+	Tooltip:
+		'''
+		- 白いスライムに変身する
+		- ホワイトスライムに対する耐性を付与する
+		'''
+}
+
+BasketballWeapon: {
+	DisplayName: バスケットボール
+	Tooltip: ""
+}
+
+DiscoCrystal: {
+	DisplayName: ディスコ・クリスタル
+	Tooltip: これを持ち歩くと、クリスタルがまるでディスコライトのように振る舞うようになります。
+}
+
+BlackLatexSolution: {
+	DisplayName: 黒くぬるぬるした溶液
+	Tooltip: 黒いスライムの領域を広げろ。
+}
+
+WhiteLatexSolution: {
+	DisplayName: 白くぬるぬるした溶液
+	Tooltip: 白いスライムの領域を広げよ。
+}
+
+DryDirtSolution: {
+	DisplayName: 乾燥した土壌の溶液
+	Tooltip: 都市の廃墟を広げる
+}
+
+OrangeStatue: {
+	DisplayName: オレンジ色の像
+	Tooltip: ""
+}
+
+Sunglasses: {
+	DisplayName: サングラス
+	Tooltip: ""
+}
+
+SquidDogSyringe: {
+	DisplayName: イカ犬用注射器
+	Tooltip: ""
+}
+
+BlackLatexSand: {
+	DisplayName: 黒いスライム砂ブロック
+	Tooltip:
+		'''
+		サンドガンと併用できます
+		- 生き物やスライムを水たまりに変える
+		- それはブラックスライムを進化させる。
+		'''
+}
+
+WhiteLatexSand: {
+	DisplayName: 白いスライム砂ブロック
+	Tooltip:
+		'''
+		サンドガンと併用できます
+		- 生き物やスライムを水たまりに変える
+		- それは白いスライムを進化させる。
+		'''
+}
+
+SuperSyringe: {
+	DisplayName: スーパーシリンジ
+	Tooltip: どんなスライムにも姿を変える
+}
+
+SummonExperiment009: {
+	DisplayName: Debug Summon Experiment 009 Boss
+	Tooltip: Unfinished. From the Minecraft Changed Addon Plus mod.
+}
+
+SummonShark: {
+	DisplayName: Debug Summon Shark Boss
+	Tooltip: Unfinished.
+}
+
+SweeperItem: {
+	DisplayName: ロボット掃除機
+	Tooltip: 清掃の専門家
+}
+
+SweeperPuroItem: {
+	DisplayName: プールンバ
+	Tooltip: ブオーン
+}
+
+Paper: {
+	DisplayName: 紙
+	Tooltip: ""
+}
+
+Painting19: {
+	DisplayName: プールンバ
+	Tooltip: ブオーン
+}
+
+BlackLatexCubLicense: {
+	DisplayName: 黒いスライムの子犬の登録
+	UseLicense: ライセンスはテレポートして、犬の配達サービスのもとへ移動する。...
+	Tooltip: これを使って、黒いスライムの子犬を自分の町に迎え入れましょう。
+}
+
+WhiteLatexCubLicense: {
+	DisplayName: 白いスライムの子犬の登録
+	UseLicense: ライセンスはテレポートして、犬の配達サービスのもとへ移動する。...
+	Tooltip: これを使って、白いスライムの子犬を自分の町に迎え入れましょう。
+}
+
+Calendar: {
+	DisplayName: 暦
+	Tooltip: 現在の祝日を変更できます
+}
+
+SombreroHat: {
+	DisplayName: Sombrero Hat
+	Tooltip: ""
+}
+
+DrunkPainting5: {
+	DisplayName: 天国
+	Tooltip: 彼は夢のような生活を送っている。
+}
+
+DrunkPainting6: {
+	DisplayName: オレンジ株式市場
+	Tooltip: 大きな利益
+}
+
+SkinLion: {
+	DisplayName: ライオンの皮
+	Tooltip: ""
+}
+
+SkinSnep: {
+	DisplayName: ユキヒョウの毛皮
+	Tooltip: ""
+}
+
+MiscSyringe: {
+	DisplayName: その他用注射器
+	Tooltip: さまざまなスライムの獣へと姿を変える
+}
+
+TigerSharkSyringe: {
+	DisplayName: イタチザメ用注射器
+	Tooltip: ""
+}
+
+AquaticSyringe: {
+	DisplayName: 水生の用注射器
+	Tooltip: 水生スライムの怪物へと変身させる
+}
+
+Syringe: {
+	DisplayName: 注射器
+	Tooltip: ""
+}
+
+BloodstripeSyringe: {
+	DisplayName: 血の虎用注射器
+	Tooltip: ""
+}
+
+GermanShepherdSyringe: {
+	DisplayName: ジャーマン・シェパード用注射器
+	Tooltip: ""
+}
+
+LionSyringe: {
+	DisplayName: フェンユー用注射器
+	Tooltip: ""
+}
+
+PurrpurrSyringe: {
+	DisplayName: 紫色の猫用注射器
+	Tooltip: ""
+}
+
+SnepSyringe: {
+	DisplayName: ユキヒョウ用注射器
+	Tooltip: ""
+}
+
+DebugSpawnColin: {
+	DisplayName: コリンを登場させる
+	Tooltip: ""
+}
+
+PuroStatue: {
+	DisplayName: プーロの像
+	Tooltip: ""
+}
+
+SquidDogStatue: {
+	DisplayName: イカ犬の像
+	Tooltip: ""
+}
+
+BlackLatexStoneBlock: {
+	DisplayName: 黒のスライムストーンブロック
+	Tooltip: ""
+}
+
+WhiteLatexStoneBlock: {
+	DisplayName: 白いスライム石ブロック
+	Tooltip: ""
+}
+
+BlackLatexPylon: {
+	DisplayName: 黒いスライムの柱
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+}
+
+WhiteLatexPylon: {
+	DisplayName: 白いスライムの柱
+	Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+}
+
+LatexMothMountItem: {
+	DisplayName: 白い翼
+	Tooltip: 乗れる...のマウントを召喚する
+}
+
+BlackLatexIce: {
+	Tooltip: ""
+	DisplayName: 黒いスライムのアイスブロック
+}
+
+WhiteLatexIce: {
+	Tooltip: ""
+	DisplayName: 白いスライムのアイスブロック
+}
+
+WhiteLatexSnow: {
+	Tooltip: ""
+	DisplayName: 白いスライムのスノーブロック
+}
+
+BlackLatexSnow: {
+	Tooltip: ""
+	DisplayName: 黒いスライムのスノーブロック
+}
+
+DebugTeleportToHallow: {
+	Tooltip:
+		'''
+		右クリックして、テレポート先を変更します。
+		警告：危険な場所にテレポートしてしまう可能性があります。
+		'''
+	DisplayName: 神聖な土地ンへテレポートする
+}
+
+DebugTeleportToCrimson: {
+	Tooltip:
+		'''
+		右クリックして、テレポート先を変更します。
+		警告：危険な場所にテレポートしてしまう可能性があります。
+		'''
+	DisplayName: クリムゾンランドンへテレポートする
+}
+
+DebugTeleportToLatex: {
+	Tooltip:
+		'''
+		右クリックして、テレポート先を変更します。
+		警告：危険な場所にテレポートしてしまう可能性があります。
+		'''
+	DisplayName: スライムゾーンへテレポートする
+}
+
+DebugTeleportToCorruption: {
+	Tooltip:
+		'''
+		右クリックして、テレポート先を変更します。
+		警告：危険な場所にテレポートしてしまう可能性があります。
+		'''
+	DisplayName: 汚染された地ンへテレポートする
+}
+
+DryDirtGrassBlock: {
+	DisplayName: 乾燥した土の草ブロック
+	Tooltip: ""
+}
+
+DryDirtGrassSeeds: {
+	DisplayName: 乾燥した草の種
+	Tooltip: ""
+}
+
+BlackLatexGrassBlock: {
+	DisplayName: 黒いスライムの草ブロック
+	Tooltip: ""
+}
+
+BlackLatexLantern: {
+	DisplayName: 黒いスライムランタン
+	Tooltip: ""
+}
+
+BlackLatexMudBlock: {
+	DisplayName: 黒いスライム泥ブロック
+	Tooltip: ""
+}
+
+WhiteLatexMudBlock: {
+	DisplayName: 白いスライム泥ブロック
+	Tooltip: ""
+}
+
+BlackLatexHardenedSandBlock: {
+	DisplayName: 硬化した黒いスライム砂ブロック
+	Tooltip: ""
+}
+
+WhiteLatexHardenedSandBlock: {
+	DisplayName: 硬化した白いスライム砂ブロック
+	Tooltip: ""
+}
+
+BlackLatexSandstoneBlock: {
+	DisplayName: 黒くぬるぬるした砂岩のブロック
+	Tooltip: ""
+}
+
+WhiteLatexSandstoneBlock: {
+	DisplayName: 白くぬるぬるした砂岩のブロック
+	Tooltip: ""
+}
+
+CelebrationCake: {
+	DisplayName: お祝いのケーキ
+	Tooltip: 900回以上のダウンロード、ありがとうございます。
+}
+
+WhiteLatexLantern: {
+	DisplayName: 白いスライムランタン
+	Tooltip: ""
+}
+
+GreenCrystalStaff: {
+	DisplayName: 緑の水晶の杖
+	Tooltip: ""
+}
+
+RedCrystalStaff: {
+	DisplayName: 赤い水晶の杖
+	Tooltip: ""
+}
+
+Painting20: {
+	DisplayName: 水かけ合戦
+	Tooltip: ""
+}
+
+WhiteCrystalStaff: {
+	DisplayName: 白水晶の杖
+	Tooltip: ""
+}
+
+ToyBlock: {
+	DisplayName: 積み木
+	Tooltip: ""
+}
+
+WateringCanWeapon: {
+	DisplayName: じょうろ
+	Tooltip: 右クリックで投げる
+}
+
+DarkLatexCubBanner: {
+	DisplayName: 黒いスライムの子犬のバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.DarkLatexCub.DisplayName}"
+}
+
+SweeperBanner: {
+	DisplayName: ロボット掃除機のバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Sweeper.DisplayName}"
+}
+
+WhiteLatexCubBanner: {
+	DisplayName: 白いスライムの子犬のバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexCub.DisplayName}"
+}
+
+LionBanner: {
+	DisplayName: フェンユーのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Lion.DisplayName}"
+}
+
+TigerSharkBanner: {
+	DisplayName: イタチザメのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.TigerShark.DisplayName}"
+}
+
+SweeperPuroCage: {
+	DisplayName: プールンバのケージ
+	Tooltip: 罪を犯して投獄された
+}
+
+MusicBoxRun: {
+	DisplayName: オルゴール (走る)
+	Tooltip: シズ作
+}
+
+MusicBoxShark: {
+	DisplayName: オルゴール (サメ)
+	Tooltip: シズ作
+}
+
+MusicBoxSquidDog: {
+	DisplayName: オルゴール (イカ犬)
+	Tooltip: シズ作
+}
+
+MusicBoxWhiteTail1: {
+	DisplayName: オルゴール (狩りをする白い尾第1部)
+	Tooltip: シズ作
+}
+
+Painting21: {
+	DisplayName: クラクフのクラーケン
+	Tooltip: ""
+}
+
+DebugItem: {
+	DisplayName: デバッグ用アイテム
+	Tooltip: ""
+}
+
+WhiteTailTrophy: {
+	DisplayName: 白い尾のトロフィー
+	Tooltip: ""
+}
+
+DisguiseSetHelmet: {
+	DisplayName: 変装用マスク
+	Tooltip: ""
+}
+
+DisguiseSetBreastplate: {
+	DisplayName: 変装用シャツ
+	Tooltip: ""
+}
+
+WhiteTailRelic: {
+	DisplayName: 白い尾の遺物
+	Tooltip: ""
+}
+
+BehemothTrophy: {
+	DisplayName: ベヒモスのトロフィー
+	Tooltip: ""
+}
+
+BehemothRelic: {
+	DisplayName: ベヒモスの遺物
+	Tooltip: ""
+}
+
+WolfKingRelic: {
+	DisplayName: 狼の王の遺物
+	Tooltip: ""
+}
+
+WolfKingTrophy: {
+	DisplayName: 狼の王のトロフィー
+	Tooltip: ""
+}
+
+BehemothTreasureBag: {
+	DisplayName: 宝袋 (ベヒモス)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+WhiteTailTreasureBag: {
+	DisplayName: 宝袋 (白い尾)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+WolfKingTreasureBag: {
+	DisplayName: 宝袋 (狼の王)
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+WhiteTailWeapon: {
+	DisplayName: White Tail Weapon
+	Tooltip: ""
+}
+
+BehemothWeapon: {
+	DisplayName: ぬるぬるした手
+	Tooltip: 巨大な手を召喚し、自分のために戦わせる
+}
+
+WhiteTailMountItem: {
+	DisplayName: 毛玉
+	Tooltip: 乗れる白い尾のマウントを召喚する, が突進できる
+}
+
+QuestBook: {
+	DisplayName: 失われた本
+	Tooltip: プーロはこれに興味があるかもしれない
+}
+
+DebugPickaxe: {
+	DisplayName: デバッグ用ツルハシ
+	Tooltip: ""
+}

@@ -1,0 +1,39 @@
+WhiteLatexTaurMountBuff: {
+	Description: Wit en snel!
+	DisplayName: Witte Slijmcentaur
+}
+
+FlyingDarkLatexMountBuff: {
+	Description: Vliegen op slijm!
+	DisplayName: Yufeng
+}
+
+WhiskerStaffBuff: {
+	Description: De kat vecht voor jou
+	DisplayName: Mingkat
+}
+
+PurrpurrStaffBuff: {
+	Description: Maak haar niet kwaad!
+	DisplayName: Paarspoes
+}
+
+TabbyStaffBuff: {
+	Description: De kat vecht voor jou
+	DisplayName: Gestreepte kat
+}
+
+LatexMothMountBuff: {
+	Description: Auf einem Schleim fliegen!
+	DisplayName: Schleimmotte
+}
+
+BehemothWeaponBuff: {
+	DisplayName: Riesige Hand
+	Description: Die Hand wird für dich kämpfen
+}
+
+WhiteTailMountBuff: {
+	DisplayName: Weißschwanz
+	Description: Weiß und schnell!
+}

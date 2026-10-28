@@ -91,50 +91,73 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 [h2]Changelog[/h2]
 
 
-[h3]0.5.7.2[/h3]
+[h3]0.5.7.4[/h3]
 
-This updates makes some changes to the spawning behaviour of monsters. It also disables the holiday system by default, which makes town npcs wear hats and adds unique dialogue. You can re-enable this in the mod configuration.
+This update adds more loot to bosses and a lost book system.
 
-
-[b]Items[/b]
+[b]General[/b]
 [list]
-	[*]Added Puroomba cage
-	[*]Added painting "Kraken of Krakow"
-	[*]Added Music Boxes: Tiger Shark, Squid Dog, Run and White Tail Chase pt 1
-	[*]Renamed White Tail Music Box to The White Tail Chase pt. 2 
-	[*]Crimclaw can be shimmered into Whisker Wand and vice versa
+	[*]Reduced drop change of oranges
+	[*]Well fed buff from oranges increased from 1 to 5 minutes
 [/list]
 
-[b]NPCs[/b]
+[b]Lost books[/b]
 [list]
-	[*]Added config option to disable holidays, which makes NPCs wear hats and adds unique dialogue
-	[*]Bloodstripe can now only spawn in the crimson
-	[*]Purrpurr can now only spawn in the corruption.
-	[*]Raccoon can now only spawn in the forest during the night
-	[*]German Shepherd can now only spawn in the forest during the day
-	[*]Reduced spawn chance of Wendigo
+	[*]All NPCs have a small chance to drop lost books. You can hand them in to Puro for a reward (lost books option).
+	[*]Books have random titles for English, German and French. For the other languages, they are just called "lost book"
+[/list]
+
+[b]Retro sprites[/b]
+[list]
+	[*]Added config option to display retro sprites of blocks and furniture found in the labs
+	[*]Added config option to display retro sprites of NPCs
+	[*]Added retro sprites for Bloodstripe and Purrpurr
+[/list]
+
+[b]Mods[/b]
+[list]
+	[*]If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
+	[*]If you play with the Terra Guardians mod, Puro and Dr K can say things about them.
+	[*]World generation now tries to avoid placing labs on top of the briar biome from Spirit Mod
+	[*]Weapons have element types when playing with Mod of Redemption
+[/list]
+
+[b]Items added[/b]
+[list]
+	[*]Boss trophies
+	[*]Treasure bags (expert mode)
+	[*]Boss relics (master mode)
+	[*]Disguise set. It makes the player immune to all latex beasts.
+	[*]Gooey grabber. Summons the behemoth's hand as a minion.
+	[*]Hairball. Summons a white tail mount, which can dash.	
+[/list]
+
+[b]NPC[/b]
+[list]
+	[*]Maintenance robot now only spawns in hardmode
+	[*]Snow Leopard no longer spawns underground
+	[*]There can no longer be more than 1 Snow Leopard or Feng Yu at the same time
 [/list]
 
 [b]Resprited[/b]
 [list]
+	[*]Lab door
+	[*]Elevator
+	[*]Mount bookest
 	[*]Bloodstripe
-	[*]Maintenance Robot
-	[*]Purrpurr
-	[*]Tabby Cat
-	[*]Wendigo
+	[*]Crystals
 [/list]
 
 [b]Fixed[/b]
 [list]
-	[*]Toy room could only contain toy blocks as furniture, so no plushies or other things. This was for testing, but I forgot to revert it
-	[*]TileCountSystem did not count latex mud blocks. This meant you needed much more other latex blocks in the jungle to be considered inside a latex biome.
-	[*]Some tiles had a wrong highlight for the smart cursor
+	[*]Some monsters could spawn during events
+	[*]Infected snow biomes had rain instead of snow
+	[*]Infected desert biomes did not use the heat distortion effect
+	[*]Behemoth could not always spawn if the room had the lowest ceiling possible
+	[*]Labs did not have walls at doors between rooms
+	[*]Fixed broken buff translations in many languages
+	[*]Fixed broken German translations of NPC dialogue
+	[*]Debug item for resetting boss progression now works again and doesn't just print numbers
+	[*]Transfurring into a character that isn't white or black would always show white particles
 [/list]
 
-[h2]Hotfixes[/h2]
-
-[h3]0.5.7.3[/h3]
-[list]
-	[*]Fixed calendar not always changing the current holiday
-	[*]Updated some translations
-[/list]

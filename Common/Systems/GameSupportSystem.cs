@@ -79,7 +79,8 @@ namespace ChangedSpecialMod.Common.Systems
             // Misc
             { 391540, "Undertale" },
             { 1454400, "Cookie Clicker" },
-            { 1671210, "Deltarune" }
+            { 1671210, "Deltarune" },
+            { 3164500, "Schedule I" }
         };
 
         public static void LoadGames()

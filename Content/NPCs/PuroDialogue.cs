@@ -33,7 +33,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
                 // Puro Companion Mod
                 new DialogueElement("PuroCompanionMod.PlayerHasPuro1", "Derp"),
-                //new DialogueElement("PuroCompanionMod.PlayerHasPuro2", "Evil"),
+                new DialogueElement("PuroCompanionMod.PlayerHasLoona1"),
 
                 
                 // Terra Guardians

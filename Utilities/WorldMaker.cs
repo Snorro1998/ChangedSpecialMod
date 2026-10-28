@@ -4,6 +4,8 @@ using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
+using ChangedSpecialMod.Content.Tiles.Latex.White;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -159,6 +161,43 @@ namespace ChangedSpecialMod.Utilities
                 }));
 
                 HandleSpecialSeeds(ref tasks, taskIndex + 3);
+            }
+
+            taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Cactus, Palm Trees, & Coral"));
+            if (taskIndex != -1)
+            {
+                tasks.Insert(taskIndex + 1, new PassLegacy("ChangedRemoveUnwantedDecals", (progress, config) =>
+                {
+                    progress.Message = Language.GetTextValue("Mods.ChangedSpecialMod.WorldGenerationPasses.Labs");//"Adding Thunder Science Buildings";
+
+                    var tileIDs = new HashSet<int>()
+                    {
+                        TileID.OasisPlants,
+                        TileID.SeaOats,
+                        TileID.PalmTree
+                    };
+
+                    var tileIDSand = new HashSet<int>()
+                    {
+                        ModContent.TileType<BlackLatexSandTile>(),
+                        ModContent.TileType<WhiteLatexSandTile>()
+                    };
+
+                    for (int x = 0; x < Main.maxTilesX; x++)
+                    {
+                        for (int y = 0; y < Main.worldSurface; y++)
+                        {
+                            var tile = Framing.GetTileSafely(x, y);
+                            var tileBelow = Framing.GetTileSafely(x, y + 1);
+
+                            if (tile.HasTile && tileIDs.Contains(tile.TileType) && 
+                            tileBelow.HasTile && tileIDSand.Contains(tileBelow.TileType))
+                            {
+                                WorldGen.KillTile(x, y, false, false, true);
+                            }
+                        }
+                    }
+                }));
             }
         }
 
