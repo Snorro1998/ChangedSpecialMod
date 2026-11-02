@@ -1,10 +1,12 @@
 ﻿using ChangedSpecialMod.Common.Systems.ModSupport;
+using ChangedSpecialMod.Content.NPCs;
 using ReLogic.OS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -82,6 +84,9 @@ namespace ChangedSpecialMod.Common.Systems
 
         public static List<ModSupportData> externalMods;
 
+        // Used for dialogue
+        public static Dictionary<int, string> NPCIdentifiers;
+
         public override void Load()
         {
             changedMod = ChangedSpecialMod.Instance;
@@ -97,6 +102,8 @@ namespace ChangedSpecialMod.Common.Systems
             AddExternalModSupport("Fargowiltas", (mod, name) => new ModSupportFargosMutant(mod, name));
 
             // Content mods
+            AddExternalModSupport("AAModClassic", (mod, name) => new ModSupportAncientsAwakened(mod, name));
+            AddExternalModSupport("Bismuth", (mod, name) => new ModSupportBismuth(mod, name));
             AddExternalModSupport("CalamityMod", (mod, name) => new ModSupportCalamity(mod, name));
             AddExternalModSupport("Coralite", (mod, name) => new ModSupportCoralite(mod, name));
             AddExternalModSupport("Redemption", (mod, name) => new ModSupportRedemption(mod, name));
@@ -190,6 +197,8 @@ namespace ChangedSpecialMod.Common.Systems
                 }
             }
 
+            InitNPCIdentifiers();
+
             // This might fix a startup crash on MacOS, but I can't confirm this
             if (Platform.Current.Type == PlatformType.Windows)
             {
@@ -235,6 +244,53 @@ namespace ChangedSpecialMod.Common.Systems
             {
                 if (gameTitleKeys.Contains($"Changed{i.ToString()}"))
                     gameTitleKeys.Remove($"Changed{i.ToString()}");
+            }
+        }
+
+        private void InitNPCIdentifiers()
+        {
+            NPCIdentifiers = new Dictionary<int, string>()
+            {
+                // Vanilla
+                { NPCID.Angler,         "Angler" },
+                { NPCID.BestiaryGirl,   "Zoologist" },
+                { NPCID.Clothier,       "Clothier" },
+                { NPCID.Cyborg,         "Cyborg" },
+                { NPCID.DD2Bartender,   "TavernKeep" },
+                { NPCID.Demolitionist,  "Demolitionist" },
+                { NPCID.Dryad,          "Dryad" },
+                { NPCID.DyeTrader,      "DyeTrader" },
+                { NPCID.Golfer,         "Golfer" },
+                { NPCID.Guide,          "Guide" },
+                { NPCID.Mechanic,       "Mechanic" },
+                { NPCID.Merchant,       "Merchant" },
+                { NPCID.Nurse,          "Nurse" },
+                { NPCID.Painter,        "Painter" },
+                { NPCID.PartyGirl,      "PartyGirl" },
+                { NPCID.Pirate,         "Pirate" },
+                { NPCID.SantaClaus,     "SantaClaus" },
+                { NPCID.Stylist,        "Stylist" },
+                { NPCID.TaxCollector,   "TaxCollector" },
+                { NPCID.WitchDoctor,    "WitchDoctor" },
+                { NPCID.Wizard,         "Wizard" },
+
+                // Changed
+                { ModContent.NPCType<Puro>(), "Puro" },
+                { ModContent.NPCType<Prototype>(), "Prototype" },
+                { ModContent.NPCType<Scientist>(), "Scientist" },
+            };
+
+            foreach (var externalMod in externalMods)
+            {
+                if (externalMod.townNPCIds == null)
+                    continue;
+                foreach (var keyPair in externalMod.townNPCIds)
+                {
+                    // Externalmod has them reverted
+                    if (NPCIdentifiers.ContainsKey(keyPair.Value))
+                        continue;
+                    NPCIdentifiers.Add(keyPair.Value, keyPair.Key);
+                }
             }
         }
     }

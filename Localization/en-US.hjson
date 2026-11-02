@@ -122,7 +122,7 @@ Mods: {
 				Description: A gooey wolf-like monster created in a laboratory.
 			}
 
-			WingedDarkLatex: {
+			Yufeng: {
 				DisplayName: Yufeng
 				Description: This dragon-like beast has grown too big to fly, but thanks to its powerful legs, it can still run faster than almost any other creature.
 			}
@@ -464,7 +464,7 @@ Mods: {
 
 			CrystalWolfOrange: {
 				DisplayName: Topaz Wolf
-				Description: Shining bright like an topaz.
+				Description: Shining bright like a topaz.
 			}
 
 			CrystalWolfWhite: {

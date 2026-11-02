@@ -22,6 +22,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCWizard", "Question"),
                 new DialogueElement("NPCZoologist", "Happy"),
 
+                // Ancients Awakened
+                new DialogueElement("NPCAncientsAwakenedAnubis", "Love"),
+
                 // Coralite
                 new DialogueElement("NPCCoraliteCrystalRobot"),
 
@@ -29,7 +32,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCThoriumCobbler"),
 
                 // Stars mod
-                new DialogueElement("NPCStarsModPackFarmer", "Question"),
+                new DialogueElement("NPCStarsModPackFarmer", "Happy"),
 
                 // Puro Companion Mod
                 new DialogueElement("PuroCompanionMod.PlayerHasPuro1", "Derp"),

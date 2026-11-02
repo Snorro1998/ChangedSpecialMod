@@ -80,8 +80,8 @@ Mods: {
 			}
 
 			Prototype: {
-				DisplayName: Prototype
-				Description: A prototype for mass production of household robots.
+				DisplayName: プロトタイプ
+				Description: 家庭用ロボットの量産に向けた試作機。
 
 				TownNPCMood: {
 					Content: ":)"
@@ -122,84 +122,84 @@ Mods: {
 				Description: 研究所で生み出された、ドロドロしたオオカミのような怪物。
 			}
 
-			WingedDarkLatex: {
+			Yufeng: {
 				DisplayName: ユーフェン
 				Description: この竜のような獣は、大きくなりすぎて空を飛ぶことはできないが、強靭な脚のおかげで、他のほとんどの生き物よりも速く走ることができる。
 			}
 
 			FlyingDarkLatex: {
-				DisplayName: Yufeng Cub
-				Description: A mutated Black Latex that has grown wings, allowing him to fly anywhere.
+				DisplayName: ユーフェンの子犬
+				Description: 翼が生え、どこへでも飛んでいけるようになった、変異した黒いスライム。
 			}
 
 			DarkLatexCub: {
-				DisplayName: Black Latex Cub
-				Description: Small and cute, but still dangerous.
+				DisplayName: 黒いスライムの子犬
+				Description: 小さくて可愛いけれど、それでも危険。
 			}
 
 			SquidDog: {
-				DisplayName: Squid Dog
-				Description: Half squid, half dog and double as dangerous. This monster can easily catch anything with its tentacles.
+				DisplayName: イカ犬
+				Description: 半分イカで半分イヌ、危険度はその分2倍。この怪物は、触手を使ってどんな獲物もたやすく捕らえてしまう。
 			}
 
 			SquidDogCub: {
-				DisplayName: Squid Dog Cub
-				Description: This curious water creature wants to play with anything near it.
+				DisplayName: イカ犬の子犬
+				Description: この好奇心旺盛な水中の生き物は、近くにあるものなら何とでも遊びたがる。
 			}
 
 			Sweeper: {
-				DisplayName: Sweeper
-				Description: He tries his best to keep everything clean and tidy.
+				DisplayName: ロボット掃除機
+				Description: 彼は、すべてをきれいに整頓しておくよう最善を尽くしている。
 			}
 
 			Bloodstripe: {
-				DisplayName: Bloodstripe
-				Description: This huge, hulking tiger can crush anything with its paws.
+				DisplayName: 血の虎
+				Description: この巨大で屈強なトラは、その前足でどんなものでも押しつぶすことができる。
 			}
 
 			Wendigo: {
-				DisplayName: Wendigo
-				Description: This massive beast can pierce the hardest materials with its horns.
+				DisplayName: ウェンディゴ
+				Description: この巨大な獣は、その角で最も硬い物質をも貫くことができる。
 			}
 
 			WhiteKnight: {
-				DisplayName: White Latex
-				Description: The albino cousin of the Black Latex.
+				DisplayName: 白いスライム
+				Description: ブラックスライムのアルビノのいとこ。
 			}
 
 			WhiteLatexTaur: {
-				DisplayName: White Latex Taur
-				Description: His extra limbs make him extra fast and extra dangerous.
+				DisplayName: 白いスライムのケンタウロス
+				Description: 彼には余分な手足があり、それによって並外れて素早く、極めて危険な存在となっている。
 			}
 
 			Behemoth: {
-				DisplayName: Behemoth
-				Description: When enough white goos merge, they can become a monstrously large beast.
+				DisplayName: ベヒモス
+				Description: 白いスライムが十分に融合すると、途方もなく巨大な獣になり得る。
 			}
 
 			BehemothHand: {
-				DisplayName: Behemoth Hand
-				Description: Very handy.
+				DisplayName: ベヒモスの手
+				Description: ハンディ。
 			}
 
 			WolfKingSpawn: {
-				DisplayName: ???
-				Description: A mysterious figure.
+				DisplayName: ？？？
+				Description: 謎めいた人物。
 			}
 
 			WolfKing: {
-				DisplayName: Wolf King
-				Description: The leader of a pack of rowdy wolves.
+				DisplayName: 狼の王
+				Description: 騒がしいオオカミの群れのリーダー。
 			}
 
 			Cheerleader: {
-				DisplayName: Cheerleader
-				Description: Very happy guy.
+				DisplayName: チアリーダー
+				Description: とても幸せそうな人。
 			}
 
 			WhiteTail: {
-				DisplayName: White Tail
-				Description: A piece that seperated from a large beast that is now looking to feast!
+				DisplayName: 白い尾
+				Description: 巨大な獣から切り離された一部が、今、あなたを狩っている！
 			}
 
 			Spike: {
@@ -208,93 +208,93 @@ Mods: {
 			}
 
 			WhiteGoop: {
-				DisplayName: White Goop
-				Description: A strange, walking milk pudding.
+				DisplayName: 白い水たまり
+				Description: 奇妙な、歩くミルクプリン。
 			}
 
 			BlackGoop: {
-				DisplayName: Black Goop
-				Description: A strange, walking oil slick.
+				DisplayName: 黒い水たまり
+				Description: 奇妙な、歩く油膜。
 			}
 
 			WideLatex: {
-				DisplayName: Wide Latex
-				Description: He barely fits through the door.
+				DisplayName: ワイドスライム
+				Description: 彼はかろうじてドアを通れる。
 			}
 
 			BackLatex: {
-				DisplayName: Back Latex
-				Description: He is looking the wrong way.
+				DisplayName: 後ろ向きに歩くスライム
+				Description: 彼は違う方向を見ている。
 			}
 
 			WackLatex: {
-				DisplayName: Wack Latex
-				Description: He is crazy.
+				DisplayName: クレイジースライム
+				Description: 彼は頭がおかしい。
 			}
 
 			BrightLatex: {
-				DisplayName: Bright Latex
-				Description: Brighter than the future.
+				DisplayName: 明るいスライム
+				Description: 彼はまばゆいほどに輝いている。
 			}
 
 			WhiteLatexCub: {
-				DisplayName: White Latex Cub
-				Description: Small and cute, but still dangerous.
+				DisplayName: 白いスライムの子犬
+				Description: 小さくて可愛いけれど、それでも危険。
 			}
 
 			GermanShepherd: {
-				DisplayName: German Shepherd
-				Description: While most of his kind are harmless and used for herding sheep, this one is a big, bad dog coming for you!
+				DisplayName: ジャーマン・シェパード
+				Description: 同種の犬の多くは無害で、羊の群れを誘導する役割を担っているものだが、こいつは違う。巨大で凶暴な犬が、お前に向かってやってくるぞ！
 			}
 
 			Raccoon: {
-				DisplayName: Raccoon
-				Description: This silly guy loves rolling around on the ground, and he's really good at it.
+				DisplayName: ラクーン
+				Description: このお茶目な子は地面を転げ回るのが大好きで、しかもすごく上手なんです。
 			}
 
 			QuackLatex: {
-				DisplayName: Quack Latex
-				Description: He is quackers.
+				DisplayName: ガーガー鳴くスライム
+				Description: 彼はイカれている。
 			}
 
 			StackLatex: {
-				DisplayName: Stack Latex
-				Description: A stack of Black Latecis.
+				DisplayName: スライムの山
+				Description: 黒いスライムの山。
 			}
 
 			PuroWormBody: {
-				DisplayName: Devourer of Oranges
-				Description: He wants to devour you like a juicy orange.
+				DisplayName: オレンジを食べる者
+				Description: 彼は、瑞々しいオレンジのように君を貪り食いたいと思っている。
 			}
 
 			PuroWormHead: {
-				DisplayName: Devourer of Oranges
-				Description: He wants to devour you like a juicy orange.
+				DisplayName: オレンジを食べる者
+				Description: 彼は、瑞々しいオレンジのように君を貪り食いたいと思っている。
 			}
 
 			PuroWormTail: {
-				DisplayName: Devourer of Oranges
-				Description: He wants to devour you like a juicy orange.
+				DisplayName: オレンジを食べる者
+				Description: 彼は、瑞々しいオレンジのように君を貪り食いたいと思っている。
 			}
 
 			SideLatex: {
-				DisplayName: Side Latex
-				Description: He has fallen, and he can't get up.
+				DisplayName: 横向きのスライム
+				Description: 彼は倒れてしまい、起き上がることができない。
 			}
 
 			MightLatex: {
-				DisplayName: Might Latex
-				Description: He is a big guy.
+				DisplayName: 強大なスライム
+				Description: 彼は強い男だ。
 			}
 
 			HideLatex: {
-				DisplayName: Hide Latex
-				Description: He is hard to see.
+				DisplayName: 隠れたスライム
+				Description: 彼は見つけにくい。
 			}
 
 			Purrpurr: {
-				DisplayName: Purrpurr
-				Description: A big, purring purple cat.
+				DisplayName: 紫色の猫
+				Description: ゴロゴロと喉を鳴らす、大きな紫色の猫。
 			}
 
 			Scientist: {
@@ -321,76 +321,76 @@ Mods: {
 					Princess_LovesNPC: "{NPCName} is always so cheerful, it's contagious."
 				}
 
-				DisplayName: Scientist
-				Description: A scientist who previously worked on a cure for a deadly virus.
+				DisplayName: 科学者
+				Description: かつて、致死性のウイルスの治療法開発に取り組んでいた科学者。
 				Census.SpawnCondition: ベヒモスを倒したに違いない
 			}
 
 			FlightLatex: {
-				DisplayName: Flight Latex
-				Description: Flying on a magic carpet.
+				DisplayName: 空飛ぶスライム
+				Description: 魔法の絨毯に乗って空を飛ぶ。
 			}
 
 			SnackLatex: {
-				DisplayName: Snack Latex
-				Description: A giant glutton.
+				DisplayName: お腹をすかせたスライム
+				Description: 巨大な大食漢。
 			}
 
 			FightLatex: {
-				DisplayName: Fight Latex
-				Description: Don't mess with him.
+				DisplayName: ファイタースライム
+				Description: 彼を挑発するな。
 			}
 
 			DarkLatexCubOfDoom: {
-				DisplayName: Puppy of Doom
-				Description: He will squish you with cuddles.
+				DisplayName: 破滅の子犬
+				Description: 彼はハグであなたをぎゅーっと押しつぶしちゃうよ。
 			}
 
 			MutatedLatex: {
-				DisplayName: Mutated Latex
-				DisplayNameBlack: Black Mutated Latex
-				DisplayNameWhite: White Mutated Latex
-				DisplayNameDrunk: Furry
-				Description: A goo monster that has morphed into something bizarre.
+				DisplayName: 変異したスライム
+				DisplayNameBlack: 黒い変異スライム
+				DisplayNameWhite: 白い変異スライム
+				DisplayNameDrunk: 獣
+				Description: 異様な姿へと変貌を遂げたスライムモンスター。
 			}
 
 			HungryLocker: {
-				DisplayName: Hungry Locker
-				Description: Nom nom nom.
+				DisplayName: ハングリー・ロッカー
+				Description: モグモグモグ。
 			}
 
 			Snep: {
-				DisplayName: Snow Leopard
-				Description: A very fast and fluffy feline.
+				DisplayName: ユキヒョウ
+				Description: とても速くてふわふわなネコ。
 			}
 
 			Lion: {
-				DisplayName: Feng Yu
-				Description: A lion-like creature that lures its prey with his mesmerizing asymmetrically colored eyes.
+				DisplayName: フェンユー
+				Description: 左右非対称で魅惑的な瞳で獲物を誘い寄せる、ライオンのような生き物。
 			}
 
 			TigerShark: {
-				DisplayName: Tiger Shark
+				DisplayName: イタチザメ
 				# This is accurate to real life because they eat many different things
-				Description: A massive predator that can devour anything and anybody. Those foolish enough to swim near it end up swimming inside its belly.
+				Description: 何でも、誰でも飲み込んでしまう巨大な捕食者。その近くで泳ぐという愚かな真似をすれば、最後にはその腹の中を泳ぐ羽目になる。
 			}
 
 			BehemothSpawn: {
-				DisplayName: ???
-				Description: Great mighty goo.
+				DisplayName: ？？？
+				Description: 偉大なる強大なスライム。
 			}
 
 			TigerSharkBoss.DisplayName: Tiger Shark Boss
 
 			SweeperPuro: {
-				DisplayName: Puroomba
-				Description: He goes vroomba.
+				DisplayName: プルームバ
+				Description: ブオーン。
 			}
 
 			Experiment009.DisplayName: Experiment 009
 
 			DarkLatexCubTownPet: {
-				DisplayName: Black Goo Puppy
+				DisplayName: 黒いスライムの子犬
 				Description: Cute
 
 				Dialogue: {
@@ -404,7 +404,7 @@ Mods: {
 			}
 
 			WhiteLatexCubTownPet: {
-				DisplayName: White Goo Puppy
+				DisplayName: 白いスライムの子犬
 				Description: Cute
 
 				Dialogue: {
@@ -418,13 +418,13 @@ Mods: {
 			}
 
 			ExoSuitRobot: {
-				DisplayName: Maintenance Robot
-				Description: A robot programmed to act as an automated sentinel against anyone trying to breach containment.
+				DisplayName: メンテナンスロボット
+				Description: 収容を突破しようとする者に対し、自動監視役として機能するようプログラムされたロボット。
 			}
 
 			Colin: {
-				DisplayName: Survivor
-				Description: The only test subject who managed to escape the Thunder Science Building.
+				DisplayName: サバイバー
+				Description: サンダー科学ビルから脱出することに成功した、唯一の被験体。
 
 				TownNPCMood: {
 					Content: ...
@@ -448,52 +448,52 @@ Mods: {
 			}
 
 			CrystalWolfGreen: {
-				DisplayName: Emerald Wolf
-				Description: Shining bright like an emerald.
+				DisplayName: エメラルド・ウルフ
+				Description: エメラルドのように鮮やかに輝く。
 			}
 
 			CrystalWolfRed: {
-				DisplayName: Ruby Wolf
-				Description: Shining bright like a ruby.
+				DisplayName: ルビー・ウルフ
+				Description: ルビーのように鮮やかに輝く。
 			}
 
 			CrystalWolfBlue: {
-				DisplayName: Sapphire Wolf
-				Description: Shining bright like a sapphire.
+				DisplayName: サファイア・ウルフ
+				Description: サファイアのように鮮やかに輝く。
 			}
 
 			CrystalWolfOrange: {
-				DisplayName: Topaz Wolf
-				Description: Shining bright like an topaz.
+				DisplayName: トパーズ・ウルフ
+				Description: トパーズのように明るく輝く。
 			}
 
 			CrystalWolfWhite: {
-				DisplayName: Diamond Wolf
-				Description: Shining bright like a diamond.
+				DisplayName: ダイヤモンド・ウルフ
+				Description: ダイヤモンドのようにまばゆく輝く。
 			}
 
 			CrystalWolfPurple: {
-				DisplayName: Amethyst Wolf
-				Description: Shining bright like an amethyst.
+				DisplayName: アメジスト・ウルフ
+				Description: アメジストのように鮮やかに輝く。
 			}
 
 			LatexMoth: {
-				DisplayName: Slime Moth
-				Description: A slime that is attracted to light.
+				DisplayName: ぬるぬるした蛾
+				Description: 光に引き寄せられるスライム。
 			}
 
 			Snek: {
-				DisplayName: Snake
-				Description: Long and fast.
+				DisplayName: 蛇
+				Description: 長く、速い。
 			}
 
 			Fennec: {
-				DisplayName: Fennec
-				Description: Foxxo
+				DisplayName: フェネック
+				Description: 砂漠の狐
 			}
 
 			PrototypeBound: {
-				DisplayName: Stuck robot
+				DisplayName: 動けなくなったロボット
 
 				TownNPCMood: {
 					Content: I am content.
@@ -623,21 +623,21 @@ Mods: {
 
 		Races: {
 			Animals: {
-				Bee: Bee
-				Bunny: Bunny
-				Cat: Cat
-				Chicken: Chicken
-				Dog: Dog
-				Dragon: Dragon
-				Fox: Fox
-				Hedgehog: Hedgehog
-				Hyena: Hyena
-				Mouse: Mouse
-				Otter: Otter
-				Panda: Panda
-				Shark: Shark
-				Tiger: Tiger
-				Wolf: Wolf
+				Bee: ハナバチ
+				Bunny: うさぎ
+				Cat: 猫
+				Chicken: ニワトリ
+				Dog: 犬
+				Dragon: ドラゴン
+				Fox: キツネ
+				Hedgehog: ハリネズミ
+				Hyena: ハイエナ
+				Mouse: ネズミ
+				Otter: カワウソ
+				Panda: パンダ
+				Shark: サメ
+				Tiger: 虎
+				Wolf: オオカミ
 			}
 
 			Fantasy: {
@@ -692,7 +692,7 @@ Mods: {
 			}
 
 			Other: {
-				Human: Human
+				Human: 人間
 				Fishron: Fishron
 				LavaShark: Lava Shark
 				Raptor: Raptor
@@ -722,8 +722,8 @@ SpecialWorldName.TheConstant: おいしいオレンジ
 
 UI: {
 	# Mods can also override existing translation keys, but these types of changes are better suited to Resource Packs.
-	PlayerIsCreativeAndWorldIsNotCreative: Human! Only Non-Journey characters may enter a Non-Journey world.
-	PlayerIsNotCreativeAndWorldIsCreative: Human! Only Journey characters may enter a Journey world.
+	PlayerIsCreativeAndWorldIsNotCreative: 人間よ！「非移動」の世界には、「非移動」のキャラクターしか入ることができない。
+	PlayerIsNotCreativeAndWorldIsCreative: 人間よ！『旅』のキャラクターのみが、『旅』の世界に入ることができる。
 }
 
 GameTitle: {

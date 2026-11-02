@@ -34,6 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:人物]"
 		Evolution: "[c/ffeb6e:进化]"
 		Visuals: "[c/ffeb6e:图形]"
+		// WorldGenerationSteps: World Generation Steps Header
 	}
 
 	NumberOfLabs: {
@@ -130,5 +131,25 @@ ChangedSpecialModClientConfig: {
 	RetroVisualsNPCs: {
 		Label: 旧角色
 		Tooltip: 角色使用旧版本中的图像
+	}
+
+	ForceLastGenerationPass: {
+		// Label: Force Last Generation Pass
+		// Tooltip: ""
+	}
+
+	WorldGenStepSurfaceLabs: {
+		// Label: World Gen Step Surface Labs
+		// Tooltip: ""
+	}
+
+	WorldGenStepLatexCaves: {
+		// Label: World Gen Step Latex Caves
+		// Tooltip: ""
+	}
+
+	WorldGenStepOrangeShrine: {
+		// Label: World Gen Step Orange Shrine
+		// Tooltip: ""
 	}
 }

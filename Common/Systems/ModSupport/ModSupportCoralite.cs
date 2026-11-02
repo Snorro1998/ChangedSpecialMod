@@ -1,5 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
+
 
 namespace ChangedSpecialMod.Common.Systems.ModSupport
 {
@@ -34,11 +40,17 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
 
         public override void AddTiles()
         {
+            // Basalt. Don't do this, because it can generate like small ore patches
+            //AddTileType("BasaltTile", true);
+            //AddTileType("CrystalBasaltTile", true);
+            //AddTileType("HardBasaltTile", true);
+
             // Crystal cave
-            AddTileType("BasaltTile", true);
-            AddTileType("CrystalBasaltTile", true);
-            AddTileType("HardBasaltTile", true);
+            AddTileType("MagicCrystalBlockTile", true);
             AddTileType("MagicCrystalBrickTile", true);
+
+            // Maze
+            AddTileType("HartcoreObsidianTile", true);
         }
     }
 }

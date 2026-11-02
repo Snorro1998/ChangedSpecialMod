@@ -1,166 +1,166 @@
 # This is very hacky, we add conditions as parameters and fill them with nothing. If not all parameters are filled then it won't be chosen
 Puro: {
 	# NPCs
-	NPCAngler: "{NameAngler} is so reckless. Yesterday he nearly got pulled into the water by a Squid Dog while he was fishing."
+	NPCAngler: "{NameAngler}は本当に無鉄砲だ。昨日も釣りをしていた際、イカ犬に水の中へ引きずり込まれそうになったんだ。"
 	NPCArmsDealer: TODO
 	NPCClothier: TODO
 	NPCCyborg: TODO
 	NPCDemolitionist: TODO
-	NPCDryad: I wonder if {NameDryad} knows how to grow an orange tree.
+	NPCDryad: "{NameDryad}はオレンジの木の育て方を知っているのだろうか。"
 	NPCDyeTrader: TODO
 	NPCGoblinTinkerer: TODO
 	NPCGolfer: TODO
-	NPCGuide: Do you think {NameGuide} can tell me what else I can make from my oranges besides drinks and dishes?
+	NPCGuide: "{NameGuide}なら、オレンジを使って、飲み物や料理以外に何が作れるか教えてくれると思いますか？"
 	NPCMechanic: TODO
-	NPCMerchant: If only {NameMerchant} sold orange juice, he would be rich!
-	NPCNurse: "{NameNurse} said it's good for your health to eat two pieces of fruit a day. I told her I eat ten oranges a day!"
+	NPCMerchant: "{NameMerchant}がオレンジジュースを売ってさえいれば、彼は大金持ちになれるだろうに！"
+	NPCNurse: "{NameNurse}は、1日に果物を2つ食べるのが健康に良いと言っていた。私は彼女に、自分は1日にオレンジを10個も食べていると伝えた！"
 	NPCOldMan: TODO
-	NPCPainter: Should I ask {NamePainter} to paint my room orange? Or should I ask him to put up wallpaper with oranges?
+	NPCPainter: "{NamePainter}に頼んで、部屋をオレンジ色に塗ってもらおうかな？それとも、オレンジの柄の壁紙を貼ってもらおうかな？"
 	NPCPartyGirl: TODO
-	NPCPirate: Why does {NamePirate} keep calling me blackbeard? I don't even have a beard.
+	NPCPirate: "{NamePirate}はどうしてしきりに私のことを「黒ひげ」と呼ぶんだろう？私にはひげなんてないのに。"
 	NPCPrincess: TODO
 	NPCSantaClaus: TODO
 	NPCSkeletonMerchant: TODO
 	NPCSteampunker: TODO
 	NPCStylist: TODO
-	NPCTavernKeep: I told {NameTavernKeep} he should expand his menu with orange drinks and dishes! Think of all the delicious possibilities like citrus salad, orange pound cake, orange juice, oh and mimosa! Mmmmm mimosa...
-	NPCTaxCollector: "{PlayerRace}, what are 'taxes'? {NameTaxCollector} was very grumpy and said I should pay them."
+	NPCTavernKeep: "{NameTavernKeep}に、オレンジを使ったドリンクや料理でメニューを広げてみたらどう？と提案したの！シトラスサラダやオレンジのパウンドケーキ、オレンジジュース……それにミモザだってあるし！あぁ、ミモザ……たまらないわね。"
+	NPCTaxCollector: "{PlayerRace}、「税金」って何？{NameTaxCollector}がすごく不機嫌そうに、それを払うべきだと言ってきたんだ。"
 	NPCTravellingMerchant: TODO
 	NPCTruffle: TODO
 	NPCWitchDoctor: TODO
-	NPCWizard: I don't understand why {NameWizard} doesn't let me read his books. It's not like I will damage them with my soft paws.
-	NPCZoologist: "{NameZoologist} is so cute with her big ears and her fluffy tail. But not as cute as you hehehe..."
-	NPCCoraliteCrystalRobot: "{NameCoraliteCrystalRobot} told me all kinds of things about 'magike', but all I wanted to know is if you can make oranges from it."
-	NPCThoriumCobbler: "{NameThoriumCobbler} has so many shoes, but they are all too small for my paws."
-	NPCStarsModPackFarmer: Thanks to {NameStarsModPackFarmer}, I can now grow even more oranges!
-	Book1: I judge books the way I judge oranges. By how satisfying they are all the way to the last page or the last slice.
-	Book2: Hello {PlayerRace}! Have you seen my book?
-	Book3: Will you help me make the biggest book tower?
-	Book4: "{PlayerRace}! Look at this amazing book I just found!"
-	Book5: One day I will write a book about the amazing adventures of {NamePlayer}!
-	Book6: Yesterday I found a cookbook with so many delicious looking recipes. Would you like to bake something together {PlayerRace}?
-	Book7: I am the gooey glabgalab, and I love books.
-	Orange1: What's your favorite color? My favorite color is orange.
-	Orange2: Mmmm *munch* orange *munch* Oh, hello {PlayerRace}.
-	Orange3: I don't have a favorite child but if I did, it would be this orange.
-	Orange4: Last night I dreamt I was in a ball pit filled with oranges.
-	Orange5: If you want to make me happy, just hand me a perfectly ripe orange.
-	Orange6: I know everything about oranges, so you could say I am a citrus connoisseur!
-	Orange7: I have done nothing but teleport oranges for 3 days.
+	NPCWizard: なぜ{NameWizard}は、私に彼が持っている本を読ませてくれないんだろう。私のやわらかい肉球で本を傷つけたりなんて、しないはずなのに。
+	NPCZoologist: "{NameZoologist}は大きな耳とフワフワの尻尾があって、すごく可愛いね。でも、君ほど可愛くはないかな……へへへ。"
+	NPCCoraliteCrystalRobot: "{NameCoraliteCrystalRobot}は「マジック」についてあれこれ教えてくれたけれど、私が知りたかったのは、それを使ってオレンジを作り出せるかどうかということだけだった。"
+	NPCThoriumCobbler: "{NameThoriumCobbler}は靴をたくさん持っているけれど、どれも僕の足には小さすぎるんだ。"
+	NPCStarsModPackFarmer: "{NameStarsModPackFarmer}のおかげで、オレンジをさらにたくさん育てられるようになったよ！"
+	Book1: 私は本を​​、オレンジを評価するのと同じ基準で判断する。最後のページまで、あるいは最後の一片まで、どれだけ満足させてくれるか、という基準で。
+	Book2: やあ、{PlayerRace}！僕の本、見なかった？
+	Book3: 一番大きな本のタワーを作るのを手伝ってくれる？
+	Book4: "{PlayerRace}！見てよ、今すごくいい本を見つけたんだ！"
+	Book5: いつか、{NamePlayer}の驚くべき冒険についての本を書くつもりだ。
+	Book6: 昨日、とても美味しそうなレシピがたくさん載っている料理本を見つけたんだ。ねえ{PlayerRace}、一緒に何か焼いてみない？
+	Book7: 私はネバネバのグラブガララブ。本が大好きだよ。
+	Orange1: 好きな色は何ですか？私はオレンジ色が好きです。
+	Orange2: ん〜……（もぐもぐ）……オレンジ……（もぐもぐ）……おや、やあ、人間さん。
+	Orange3: 特に「一番のお気に入り」の子供がいるわけではないけれど、もしいるとしたら、このオレンジがそうだろう。
+	Orange4: 昨夜、オレンジでいっぱいのボールプールの中にいる夢を見た。
+	Orange5: 私を喜ばせたいのなら、完璧に熟したオレンジを渡してくれればいい。
+	Orange6: 私はオレンジについて何でも知っています。つまり、柑橘類の専門家と言えるでしょう！
+	Orange7: この3日間、オレンジをテレポートさせることしかしていない。
 	# TF2
-	Crimson1: "{Crimson}Did you know that some trees in the Crimson grow blood oranges? Do you think you could get me one?"
-	Crimson2: "{Crimson}Be careful around the lab near the Crimson. I saw a huge, hulking tiger there."
-	Corruption1: "{Corruption}Be careful around the lab near the Corruption. I saw a massive, purple cat there."
-	Changed1: Have you seen my drawings in the lab? Would you like me to make a drawing of you?
-	Changed2: "{Behemoth}I want to become as big as the Behemoth, so I can hold you in my paws like a doll and keep you safe."
-	Normal1: I don't need gear to protect myself, because I've got big claws, paws and a big maw!
-	Normal2: Hello! How's my favorite {PlayerRace} today?
-	TransfurCub: "{TransfurCub}Hello little puppy. You are so small and cute! Can I hold you please?"
-	Rain1: "{Rain}If you are cold from the rain and want to warm up, you can bury yourself in my fluffy fur!"
-	Rain2: "{Rain}I shook my fur to dry myself off and now I am extra floofy!"
-	Thunder1: "{Thunder}I am not afraid of lightning. My whole body is made out of rubber so even if I got struck by it, I would be totally fine!"
-	Thunder2: "{Thunder}With all those bright flashes I hardly need a lamp to read my books."
-	Windy1: "{Windy}Would you like to fly a kite with me, {PlayerRace}?"
-	Windy2: "{Windy}The wind is so strong today that my fur got all messed up."
-	Windy3: "{Windy}I wish I had wings so I could fly and take you everywhere."
-	PlayerHasOrange: "{PlayerHasOrange}*Sniff* {PlayerRace}, are you carrying juicy oranges? Can I have one please?"
-	PlayerHasBook: "{PlayerHasBook}Is that a book you have there {PlayerRace}? Would you like to read it together?"
-	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}What is that? 'Book of Skulls?' Heh, the cover looks a bit like my mask."
-	PlayerHasWaterBolt: "{PlayerHasWaterBolt}What do you have there? A magical book that sprays water? I hope it doesn't do that if I try to read it."
-	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Oooh you brought me another book? Eh, why is it called 'Golden Shower'?"
-	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}Oooh a shiny balloon! Can I hold it please?"
-	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}That is one fancy dress {PlayerRace}. You look kinda cute in it hehehe."
-	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Woah {PlayerRace}, who is that cat? She is huge!"
-	Valentine1: "{Valentine}What do you think, {PlayerRace}? Do I look cute with this Valentine's Day hair pin?"
-	Valentine2: "{Valentine}A bouquet is nice, but if you want to win my heart then you have to bring me a booklet!"
+	Crimson1: "{Crimson}クリムゾンにある木の中には、ブラッドオレンジを実らせるものがあるって知ってた？一つ手に入れてきてくれないかな？"
+	Crimson2: "{Crimson}クリムゾン付近の研究所の周辺には気をつけてくれ。そこで、巨大で屈強なトラを見かけたんだ。"
+	Corruption1: "{Corruption}「汚染」の近くにある研究所の周辺には気をつけて。そこで、巨大な紫色の猫を見かけたんだ。"
+	Changed1: 研究室にある私の絵は見てくれましたか？あなたを描いてみましょうか？
+	Changed2: "{Behemoth}ベヒモスと同じくらい大きくなりたいんだ。そうすれば、君を人形みたいに前足で抱えて、ずっと守ってあげられるから。"
+	Normal1: 自分を守るための装備なんていらない。俺には大きな爪と肉球、それに大きな口があるからな！
+	Normal2: こんにちは！私のお気に入りの{PlayerRace}さん、今日はどんな感じ？
+	TransfurCub: "{TransfurCub}こんにちは、子犬ちゃん。とっても小さくて可愛いね！抱っこしてもいいかな？"
+	Rain1: "{Rain}雨で体が冷えて温まりたいなら、私のふわふわの毛にうずもれてみて！"
+	Rain2: "{Rain}体を振って毛を乾かしたら、いつもよりさらにモフモフになっちゃった！"
+	Thunder1: "{Thunder}私は雷を怖がらない。体全体がゴムでできているから、たとえ雷に打たれたとしても、全く平気だよ！"
+	Thunder2: "{Thunder}あれほど明るい閃光が次々と走るおかげで、本を読むのにランプはほとんど必要ない。"
+	Windy1: "{Windy}{PlayerRace}、私と一緒に凧揚げをしないか？"
+	Windy2: "{Windy}今日は風がすごく強くて、毛並みがめちゃくちゃになっちゃった。"
+	Windy3: "{Windy}翼があったらいいのに。そうすれば空を飛んで、あなたをどこへでも連れて行ってあげられるのに。"
+	PlayerHasOrange: "{PlayerHasOrange}（クンクン）ねえ{PlayerRace}さん、ジューシーなオレンジを持ってるの？一つもらってもいい？"
+	PlayerHasBook: "{PlayerHasBook}{PlayerRace}、そこに持っているのは本か？一緒に読んでみないか？"
+	PlayerHasBookOfSkulls: "{PlayerHasBookOfSkulls}なんだあれは？『骸骨の書』……？へえ、表紙が俺の仮面に少し似てるな。"
+	PlayerHasWaterBolt: "{PlayerHasWaterBolt}それ、何？水を噴き出す魔法の本？私が読もうとしたときに、そんなことにならないといいんだけど。"
+	PlayerHasGoldenShower: "{PlayerHasGoldenShower}おっ、また本を持ってきてくれたの？……あれ、なんで『ゴールデン・シャワー』なんてタイトルなの？"
+	PlayerIsWearingBalloon: "{PlayerIsWearingBalloon}わあ、キラキラした風船だ！持たせてもらってもいい？"
+	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}ずいぶん豪華な服だね、{PlayerRace}さん。なんだか可愛らしく見えるよ、へへへ。"
+	PlayerHasPurrpurr: "{PlayerHasPurrpurr}うわっ、{PlayerRace}！あの猫は誰？すごく大きいね！"
+	Valentine1: "{Valentine}どう思う、{PlayerRace}？このバレンタインのヘアピン、私に似合ってて可愛いかな？"
+	Valentine2: "{Valentine}花束もいいけれど、私の心を射止めたいのなら、小冊子を持ってきてちょうだい！"
 	Easter1: "{Easter}What is easter about {PlayerRace}? What? It is about looking for eggs? How egg-citing!"
 	# Easter is not implemented yet
 	Easter2: "{Easter}I am going to pick up a brush and paint my oranges like how you would paint your easter eggs!"
-	Oktoberfest1: "{Oktoberfest}It is that time of the year for lots of beer! PROST!"
-	Oktoberfest2: "{Oktoberfest}Hooooman... Is it the beer or have you always looked so pretty?"
-	Oktoberfest3: "{Oktoberfest}Mmmm. This beerrr ish some good shtuff."
-	Oktoberfest4: "{Oktoberfest}I'm fineeeee. Just give me one more steinnn."
-	Halloween1: "{Halloween}Citrus orb of juice and seed, grant me warmth in hour of need. Sour flee and sweet remain, Citrus ward against all bane!"
-	Halloween2: "{Halloween}Wooooh! I am Boo-ro!"
-	Halloween3: "{Halloween}BOO! Hehe I scared you didn't I?"
-	Halloween4: "{Halloween}Grrrr! I am the evil Wizard Wolf. And I will turn you into a juicy orange and swallow you whole!"
-	Halloween5: "{Halloween}I am going to scare everybody and take their candy!"
-	Xmas1: "{Xmas}Ho ho ho! Hello {PlayerRace}!"
-	Xmas2: "{Xmas}What should I ask from Santa? More books or more oranges?"
-	Xmas3: "{Xmas}Jingle bells, Puro smells, {PlayerRace} on a sleigh!"
-	Xmas4: "{Xmas}Would you like to help me decorate my orange tree with Christmas ornaments?"
-	Xmas5: "{Xmas}Silent night, citrus bright. All is calm, peel held tight. Round orange, golden and sweet. Spoiled rotten, with such a nice treat."
+	Oktoberfest1: "{Oktoberfest}ビールをたっぷり楽しむ季節がやってきました！乾杯！"
+	Oktoberfest2: "{Oktoberfest}{PlayerRace}さん……ビールのせいかな？ それとも、元からこんなに綺麗だったっけ？"
+	Oktoberfest3: "{Oktoberfest}美味しい。このビールは最高だ。"
+	Oktoberfest4: "{Oktoberfest}大丈夫。もう一杯ビールをちょうだい。"
+	Halloween1: "{Halloween}私は1000個のオレンジを召喚するつもりだ。"
+	Halloween2: "{Halloween}うおおお！俺はブーロだ！"
+	Halloween3: "{Halloween}わっ！へへっ、びっくりした？"
+	Halloween4: "{Halloween}グルルル！俺様は邪悪な魔法使いウルフだ。お前をジューシーなオレンジに変えて、丸呑みにしてやる！"
+	Halloween5: "{Halloween}みんなを怖がらせて、お菓子を奪っちゃうぞ！"
+	Xmas1: "{Xmas}ホッホッホ！やあ、{PlayerRace}。"
+	Xmas2: "{Xmas}サンタクロースに何をお願いしようかな？本をもっと？それとも、オレンジをもっと？"
+	Xmas3: "{Xmas}ジングルベル、ジングルベル、鐘の音が響き渡る。"
+	Xmas4: "{Xmas}オレンジの木をクリスマスオーナメントで飾るのを手伝ってくれませんか？"
+	Xmas5: "{Xmas}雪だるまを作りたい？"
 	Fiesta1: "{Siesta1}Hola, you seem to have caught me... mid suavemente."
 
 	BloodMoon: {
-		BloodMoon1: Stay away from me {PlayerRace}. I am not feeling like myself today.
-		BloodMoon2: Hello juicy orange, say hi to my mouth.
-		BloodMoon3: Grrrr.. need... more... oranges!
-		BloodMoon4: Do you want to be transfurred?
+		BloodMoon1: 私に近づくな、{PlayerRace}。今日はどうも、いつもの自分という気がしないんだ。
+		BloodMoon2: やあ、ジューシーなオレンジ。僕の口にご挨拶を。
+		BloodMoon3: ぐぬぬ……もっと……オレンジが……必要だ！
+		BloodMoon4: 私に、あなたを変えてほしいの？
 		# Great Mighty Poo - Conkers Bad Fur Day
-		BloodMoon5: I... am... the Great Mighty Goo, and I'm going to throw my books at you!
+		BloodMoon5: 我こそは偉大なるスライム様だ！お前に本を投げつけてやるぞ！
 	}
 
 	Pirates: {
-		Pirates1: ARRRG! I am Captain Puro! And I am coming for yer oranges!
-		Pirates2: Yar! Stay close to Captain Puro me hearty. I will protect ya from those bilge rats!
-		Pirates3: No! Don't load the cannons with me precious oranges!
-		Pirates4: Fear the Mighty Puro and me crew of Bookkaneers!
-		Pirates5: Arrr ye ready to sail the seven seas of orange juice?
+		Pirates1: ぐぬぬ！俺様はキャプテン・プーロだ！お前たちのオレンジをいただきに来たぞ！
+		Pirates2: やあ！プーロ船長のそばを離れるんじゃないよ、愛しい人。あの薄汚いネズミどもから、俺が守ってやるからな！
+		Pirates3: やめろ！俺の大切なオレンジを大砲に詰めるんじゃない！
+		Pirates4: 偉大なるプーロと、その海賊団を恐れよ！
+		Pirates5: オレンジジュースの七つの海を航海する準備はいいですか？
 	}
 
 	Martians: {
-		Martians1: Creatures from another world? First I find out there is a whole world outside the lab and now you are telling me there is another world out there?
-		Martians2: I want one of those martian zappers so I can be pew pew Puro!
-		Martians3: "{PlayerRace}, what's a U.F.O? An Unbelievably Fruity Orange?"
+		Martians1: 異世界の生き物だって？研究所の外に広大な世界があることを知ったばかりだというのに、今度は別の世界まであると言うのか？
+		Martians2: あの火星人のピストルが欲しいな。そうすれば「ピューピュー・プーロ」になれるから！
+		Martians3: "{PlayerRace}、U.F.O.って何？"
 	}
 
 	Eclipse: {
-		Eclipse1: "{PlayerRace}! Please don't go outside today. It is way too dangerous!"
-		Eclipse2: I think I will stay inside and read some books until the sun gets back.
-		Eclipse3: I tried to pick some oranges today, but it is just way too dark.
+		Eclipse1: "{PlayerRace}さん！今日は外に出ないでください。あまりにも危険すぎます！"
+		Eclipse2: 太陽が戻ってくるまで、家の中にいて本でも読もうかな。
+		Eclipse3: 今日、オレンジを摘もうとしたのだけれど、あまりにも暗すぎて。
 	}
 
 	Party: {
-		Party1: "{PlayerHasNoPartyHat}{PlayerRace}! Where is your party hat?"
-		Party2: Hold my plate. No wait actually, give me yours too.
-		Party3: If anybody is looking for the orange pound cake.. eh, don't. I ate the whole thing.
-		Party4: I want to make a balloon animal that looks just like you. Cute and squishy!
-		Party5: Yes, I'd love a drink! And a refill on that. And maybe a refill on the refill.
-		Party6: What? I am not a glutton. I am just a big, strong beast who needs lots of food to stay in shape.
-		Party7: Do you think they will be mad if I eat everything and they find out?
-		Party8: *Nom* *Glrk* Mmmmm the food is so good! *Munch*
-		Party9: "{PlayerIsWearingBalloon}Yes! Just what this party needed. More balloons!"
-		Party10: I am a black latex beast, and my mouth is a black hole for delicious food!
-		Party11: Mmmm these fluffy orange cupcakes are so good, but I already had so many.. Perhaps just one more.
-		Party12: Shall we dance together {PlayerRace}? Because I feel like a party animal!
+		Party1: "{PlayerHasNoPartyHat}{PlayerRace}！パーティーハットはどうしたんだ？"
+		Party2: 私のお皿、持っていて。いや、待って……やっぱり、あなたのお皿もこっちにちょうだい。
+		Party3: オレンジパウンドケーキをお探しの方へ……あ、やめておいたほうがいいですよ。全部食べちゃいましたから。
+		Party4: あなたそっくりのバルーンアートを作りたいな。かわいくて、ぷにぷにしているやつ！
+		Party5: ええ、ぜひ何か飲み物を！それから、おかわりも。……あ、そのおかわりのおかわりも、もらえますか？
+		Party6: はあ？俺は大食いなんかじゃない。ただ、体調を維持するためにたくさんの食事を必要とする、デカくて強靭な獣ってだけだ。
+		Party7: 全部食べてしまって、それがバレたら、彼らは怒るかな？
+		Party8: モグモグ……ん〜、すごくおいしい！……モグモグ
+		Party9: "{PlayerIsWearingBalloon}やった！まさにこのパーティーに必要だったものだ。もっと風船を！"
+		Party10: 私は黒いスライムの獣。私の口は、美味しい食べ物のためのブラックホールだ！
+		Party11: ん〜、このふわふわのオレンジカップケーキ、すごくおいしい。もうだいぶ食べたけれど……あと1個だけならいいかな。
+		Party12: ねえ、{PlayerRace}さん、一緒に踊らない？なんだか、とことん騒ぎたい気分なんだ！
 	}
 
 	PuroCompanionMod: {
-		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}I didn't know I had a twin brother."
+		PlayerHasPuro1: "{PuroCompanionModPlayerHasPuro}自分に双子の兄弟がいるとは知らなかった。"
 		// PlayerHasLoona1: "{PuroCompanionModPlayerHasLoona}Hello {PlayerRace}, hello Loona. You are both amazing."
 	}
 
 	ModTerraGuardian: {
-		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}, can I also become a Terra Guardian? I want to go on an adventure with you!"
-		Alex: I threw a stick for {TerraGuardianAlexName}, but he came back with a tree trunk.
+		PlayerHasTerraGuardian: "{PlayerHasTerraGuardian}{PlayerRace}さん、私もテラ・ガーディアンになれるかな？あなたと一緒に冒険に出たいんだ！"
+		Alex: "{TerraGuardianAlexName}に棒を投げてやったのだが、あいつは木の幹をくわえて戻ってきた。"
 		Alexander: TODO
-		Blue: The Wolf King looks so tiny compared to {TerraGuardianBlueName}. Maybe we should call her the Wolf Queen.
+		Blue: "{TerraGuardianBlueName}と比べると、ウルフ・キングはとても小さく見える。いっそ「ウルフ・クイーン」と呼ぶべきかもしれない。"
 		Brutus: TODO
 		Ich: TODO
 		Leona: TODO
 		Monica: TODO
-		Rococo: "{TerraGuardianRococoName} wanted to play, but he fell over and flattened me. Luckily my squishy body can just reform itself."
-		Scaleforth: I was cold and asked if {TerraGuardianScaleforthName} could warm me up with his fire breath. He nearly set my house on fire.
+		Rococo: "{TerraGuardianRococoName}は遊びたがっていたのだけれど、転んだ拍子に私を押しつぶしてしまった。幸い、私の体は柔らかいから、すぐに元の形に戻れるんだ。"
+		Scaleforth: 寒かったので、{TerraGuardianScaleforthName}に火の息で温めてくれないかと頼んだ。すると、彼は危うく私の家を燃やしてしまうところだった。
 	}
 
 	QuestBook: {
-		NoBook1: You don't have a book with you, but I'm glad you're here.
-		NoBook2: Did you lose the book? You don't have one with you.
-		WrongBook1: I see you have a book, but it's not the one that I am looking for.
-		WrongBook2: That's a nice book, but it's not the one that I am looking for.
-		GiveBook1: Thank you for the book, {PlayerRace}.
-		GiveBook2: Such an excellent {PlayerRace} you are! I knew you would find my book!
+		NoBook1: 本は持っていないようですが、あなたがここにいてくれて嬉しいです。
+		NoBook2: 本をなくしたのですか？手元に持っていないようですね。
+		WrongBook1: 本をお持ちのようですが、それは私が探している本ではありません。
+		WrongBook2: いい本ですね。でも、私が探しているものとは違います。
+		GiveBook1: 本をありがとう、{PlayerRace}。
+		GiveBook2: なんて素晴らしい{PlayerRace}なんだ！君ならきっと、私の本を見つけてくれると思っていたよ！
 	}
 
 	Game: {

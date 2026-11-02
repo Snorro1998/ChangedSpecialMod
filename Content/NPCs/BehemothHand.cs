@@ -101,7 +101,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.npcSlots = 10f;
             NPC.dontTakeDamage = true;
             AnimationType = NPCID.None;
-            NPC.scale = 1f;// 0.75f;
+            NPC.scale = 0.75f; //1
 
             NPC.boss = true;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };

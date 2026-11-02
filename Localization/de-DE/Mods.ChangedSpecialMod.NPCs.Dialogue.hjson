@@ -30,6 +30,7 @@ Puro: {
 	// NPCWitchDoctor: TODO
 	NPCWizard: Ich verstehe nicht, warum {NameWizard} mich seine Bücher nicht lesen lässt. Es ist ja nicht so, als würde ich sie mit meinen weichen Pfoten beschädigen.
 	NPCZoologist: "{NameZoologist} ist so süß mit ihren großen Ohren und ihrem flauschigen Schwanz. Aber nicht so süß wie du, hehehe..."
+	// NPCAncientsAwakenedAnubis: "{NameAncientsAwakenedAnubis} is so big and strong! I want to become like him!"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} erzählte mir allerlei Dinge über „Magie“, aber ich wollte nur wissen, ob man daraus Orangen machen kann."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} hat so viele Schuhe, aber sie sind alle zu klein für meine Pfoten."
 	NPCStarsModPackFarmer: Dank {NameStarsModPackFarmer} kann ich jetzt noch mehr Orangen anbauen!
@@ -178,6 +179,7 @@ DrK: {
 	NPCAngler: "{NameAngler} ist immer draußen und angelt, und ich bin immer im Labor und suche nach Ergebnissen."
 	NPCNurse: Es ist gut, dass {NameNurse} hier ist, denn mir gingen die Spritzen aus.
 	NPCZoologist: Ich frage mich, was mit {NameZoologist} passiert ist. Wurde sie nur teilweise verwandelt?
+	// NPCAncientsAwakenedAnubis: "{PuroPresent}{NameAncientsAwakenedAnubis} might be the god of the dead, but his big, muscular body sure does make Puro feel alive."
 	Normal1: Perfektes Timing. Ich brauchte gerade einen Freiwilligen für mein nächstes Experiment.
 	Normal2: Hallo Testperson. Könnten Sie das bitte für mich halten? Es ist ziemlich schwierig für mich selbst, jetzt, wo ich große, pelzige Pfoten habe.
 	Normal3: Weißt du, all diese Schleimmonster wären noch immer eingedämmt, wenn diese dummen Randalierer das Labor nicht gestürmt hätten.

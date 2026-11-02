@@ -30,6 +30,7 @@ Puro: {
 	// NPCWitchDoctor: TODO
 	NPCWizard: No entiendo por qué {NameWizard} no me deja leer sus libros. No es como si fuera a estropearlos con mis patitas suaves.
 	NPCZoologist: "{NameZoologist} es tan linda con sus grandes orejas y su cola esponjosa. Pero no tan linda como tú, jejeje..."
+	// NPCAncientsAwakenedAnubis: "{NameAncientsAwakenedAnubis} is so big and strong! I want to become like him!"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} me contó todo tipo de cosas sobre la 'magia', pero lo único que quería saber era si se pueden hacer naranjas con ella."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} tiene muchísimos zapatos, pero todos son demasiado pequeños para mis patas."
 	NPCStarsModPackFarmer: ¡Gracias a {NameStarsModPackFarmer}, ahora puedo cultivar aún más naranjas!
@@ -178,6 +179,7 @@ DrK: {
 	NPCAngler: "{NameAngler} siempre está afuera pescando, y yo siempre estoy adentro del laboratorio buscando resultados."
 	NPCNurse: Es bueno tener a {NameNurse} por aquí, porque me estaba quedando sin jeringas.
 	NPCZoologist: Me pregunto qué le habrá pasado a {NameZoologist}. ¿Solo se transformó parcialmente?
+	// NPCAncientsAwakenedAnubis: "{PuroPresent}{NameAncientsAwakenedAnubis} might be the god of the dead, but his big, muscular body sure does make Puro feel alive."
 	Normal1: Justo a tiempo. Necesitaba un voluntario para mi próximo experimento.
 	Normal2: Hola, sujeto de prueba. ¿Podrías sujetar esto por mí? Me resulta bastante difícil hacerlo yo solo ahora que tengo patas grandes y peludas.
 	Normal3: Ya sabes, todos esos monstruos habrían permanecido contenidos si esos estúpidos alborotadores no hubieran irrumpido en el laboratorio.

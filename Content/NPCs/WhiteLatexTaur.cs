@@ -1,5 +1,6 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Mounts;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -43,6 +44,9 @@ namespace ChangedSpecialMod.Content.NPCs
 			AIType = NPCID.Wolf;
 			AnimationType = NPCID.Wolf;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
+
+            Banner = Type;
+            BannerItem = ModContent.ItemType<WhiteLatexTaurBanner>();
 
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);

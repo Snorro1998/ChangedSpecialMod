@@ -69,7 +69,6 @@ namespace ChangedSpecialMod.Content.NPCs
         Cave,
     }
 
-
     public enum HatType
     {
         None,
@@ -513,7 +512,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (changedPlayer == null)
                 return;
 
-            var npcIdentifiers = GetNPCIdentifiers();
+            var npcIdentifiers = ModSupportSystem.NPCIdentifiers;;
             if (!npcIdentifiers.ContainsKey(npc.type))
                 return;
 
@@ -825,7 +824,7 @@ namespace ChangedSpecialMod.Content.NPCs
 
             try
             {
-                var npcIdentifiers = GetNPCIdentifiers();
+                var npcIdentifiers = ModSupportSystem.NPCIdentifiers;
 
                 // It is a bit silly to call this with the condition to true, but
                 // there was once a bug that the chatbox would not appear, because
@@ -1650,8 +1649,8 @@ namespace ChangedSpecialMod.Content.NPCs
                         goreTypes.Add("FlyingDarkLatex2");
                         goreTypes.Add("FlyingDarkLatex3");
                     }
-                    else if (npc.type == ModContent.NPCType<WingedDarkLatex>())
-                        goreTypes.Add("WingedDarkLatex");
+                    else if (npc.type == ModContent.NPCType<Yufeng>())
+                        goreTypes.Add("Yufeng");
                     else if (npc.type == ModContent.NPCType<Wendigo>())
                     {
                         goreTypes.Add("Wendigo1");

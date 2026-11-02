@@ -57,6 +57,7 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundSave = new(Sound("Save"));             // Iris scanner
         public static readonly SoundStyle SoundLoad = new(Sound("Load"));             // Iris scanner
         public static readonly SoundStyle SoundSlip = new(Sound("Jump1"));            // Slippery goo
+        public static readonly SoundStyle SoundLights = new(Sound("Paralyze1"));      // Lights flickering
 
         public static readonly SoundStyle SoundPlush = new(Sound("Plush"));           // From the Minecraft mod
 
@@ -76,5 +77,7 @@ namespace ChangedSpecialMod.Assets
 
         // Misc
         public static readonly SoundStyle SoundFeestjeVanKeesje = new(Sound("FeestjeVanKeesje"));
+
+        // Item3 = prototype
     }
 }

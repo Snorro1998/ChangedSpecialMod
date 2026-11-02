@@ -148,8 +148,8 @@ namespace ChangedSpecialMod.Common.Systems
 
             evolutionLine.Add(new Transfur()
             {
-                npcType = ModContent.NPCType<WingedDarkLatex>(),
-                npcName = "WingedDarkLatex",
+                npcType = ModContent.NPCType<Yufeng>(),
+                npcName = "Yufeng",
                 nFrames = 4,
                 gooType = GooType.Black,
                 lifeMultiplier = 1.25f,

@@ -790,7 +790,7 @@ namespace ChangedSpecialMod.Utilities
                 ModContent.NPCType<FemaleDarkLatex>(),
                 ModContent.NPCType<MaleDarkLatex>(),
                 ModContent.NPCType<FlyingDarkLatex>(),
-                ModContent.NPCType<WingedDarkLatex>(),
+                ModContent.NPCType<Yufeng>(),
 
                 // Crystal wolves
                 ModContent.NPCType<CrystalWolfBlue>(),

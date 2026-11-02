@@ -30,6 +30,7 @@ Puro: {
 	// NPCWitchDoctor: TODO
 	NPCWizard: 我不明白{NameWizard}为什么不让我读他的书。我又不会用我那双柔软的爪子把书弄坏。
 	NPCZoologist: "{NameZoologist}长着大耳朵和毛茸茸的尾巴，真是太可爱了。不过，她还是没有你可爱，嘿嘿嘿……"
+	// NPCAncientsAwakenedAnubis: "{NameAncientsAwakenedAnubis} is so big and strong! I want to become like him!"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot}跟我讲了很多关于“魔能”的事情，但我只想知道能不能用它做出橘子。"
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler}有很多鞋子，但它们都太小了，我的爪子穿不下。"
 	NPCStarsModPackFarmer: 多亏了{NameStarsModPackFarmer}，我现在能种更多的橙子了！
@@ -178,6 +179,7 @@ DrK: {
 	NPCAngler: "{NameAngler}总是在外面钓鱼，而我总是在实验室里寻找结果。"
 	NPCNurse: 幸好有{NameNurse}在，因为我的注射器快用完了。
 	NPCZoologist: 我想知道{NameZoologist}发生了什么事。她是不是只发生了部分变化？
+	// NPCAncientsAwakenedAnubis: "{PuroPresent}{NameAncientsAwakenedAnubis} might be the god of the dead, but his big, muscular body sure does make Puro feel alive."
 	Normal1: 真是太巧了。我正需要一位志愿者来做下一个实验。
 	Normal2: 你好，测试对象。你能帮我拿着这个吗？我现在爪子又大又毛茸茸的，自己拿有点困难。
 	Normal3: 你知道吗，如果不是那些愚蠢的暴徒冲进实验室，所有那些黏液怪物现在仍然会被控制住。

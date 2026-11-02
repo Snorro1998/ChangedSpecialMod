@@ -14,6 +14,14 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 	[*]Transformation mechanic (WIP)
 [/list]
 
+[h2]Special Seeds[/h2]
+These affect the world generation when used as the world seed. If you want varitions of these seeds, just add letters or numbers after it.
+[list]
+	[*]blackgoozone: Covers the surface in black goo
+	[*]whitegoojungle: Covers the surface in white goo
+	[*]drydrydirt: Covers the surface in dry dirt
+	[*]muchorange: Paints the world orange
+[/list]
 
 [h2]Mod Support[/h2]
 This mod has built-in support for:
@@ -91,73 +99,28 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 [h2]Changelog[/h2]
 
 
-[h3]0.5.7.4[/h3]
+[h3]0.5.7.5[/h3]
 
-This update adds more loot to bosses and a lost book system.
+This update resprites some furniture items and adds two new languages that are not part of TModloader. 
+These languages require the Localization Plus mod to be installed, and they only translate content from this mod. 
 
-[b]General[/b]
+[b]Translations Added[/b]
 [list]
-	[*]Reduced drop change of oranges
-	[*]Well fed buff from oranges increased from 1 to 5 minutes
-[/list]
-
-[b]Lost books[/b]
-[list]
-	[*]All NPCs have a small chance to drop lost books. You can hand them in to Puro for a reward (lost books option).
-	[*]Books have random titles for English, German and French. For the other languages, they are just called "lost book"
-[/list]
-
-[b]Retro sprites[/b]
-[list]
-	[*]Added config option to display retro sprites of blocks and furniture found in the labs
-	[*]Added config option to display retro sprites of NPCs
-	[*]Added retro sprites for Bloodstripe and Purrpurr
-[/list]
-
-[b]Mods[/b]
-[list]
-	[*]If you play with any race mod enabled, Puro will address the player by the race name instead of 'human'.
-	[*]If you play with the Terra Guardians mod, Puro and Dr K can say things about them.
-	[*]World generation now tries to avoid placing labs on top of the briar biome from Spirit Mod
-	[*]Weapons have element types when playing with Mod of Redemption
-[/list]
-
-[b]Items added[/b]
-[list]
-	[*]Boss trophies
-	[*]Treasure bags (expert mode)
-	[*]Boss relics (master mode)
-	[*]Disguise set. It makes the player immune to all latex beasts.
-	[*]Gooey grabber. Summons the behemoth's hand as a minion.
-	[*]Hairball. Summons a white tail mount, which can dash.	
-[/list]
-
-[b]NPC[/b]
-[list]
-	[*]Maintenance robot now only spawns in hardmode
-	[*]Snow Leopard no longer spawns underground
-	[*]There can no longer be more than 1 Snow Leopard or Feng Yu at the same time
+	[*]Dutch
+	[*]Japanese
 [/list]
 
 [b]Resprited[/b]
 [list]
-	[*]Lab door
-	[*]Elevator
-	[*]Mount bookest
-	[*]Bloodstripe
+	[*]White Tail
 	[*]Crystals
+	[*]Lab table
+	[*]Iris Scanner
+	[*]Generator
 [/list]
 
 [b]Fixed[/b]
 [list]
-	[*]Some monsters could spawn during events
-	[*]Infected snow biomes had rain instead of snow
-	[*]Infected desert biomes did not use the heat distortion effect
-	[*]Behemoth could not always spawn if the room had the lowest ceiling possible
-	[*]Labs did not have walls at doors between rooms
-	[*]Fixed broken buff translations in many languages
-	[*]Fixed broken German translations of NPC dialogue
-	[*]Debug item for resetting boss progression now works again and doesn't just print numbers
-	[*]Transfurring into a character that isn't white or black would always show white particles
+	[*]Worldgen could generate green plants in infected deserts, which looked strange
 [/list]
 

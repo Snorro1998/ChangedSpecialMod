@@ -34,6 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Charaktere]"
 		Evolution: "[c/ffeb6e:Entwicklung]"
 		Visuals: "[c/ffeb6e:Grafik]"
+		// WorldGenerationSteps: World Generation Steps Header
 	}
 
 	NumberOfLabs: {
@@ -130,5 +131,25 @@ ChangedSpecialModClientConfig: {
 	RetroVisualsNPCs: {
 		Label: Alte Charaktere
 		Tooltip: Verwende Bilder aus älteren Versionen für die Charaktere.
+	}
+
+	ForceLastGenerationPass: {
+		// Label: Force Last Generation Pass
+		// Tooltip: ""
+	}
+
+	WorldGenStepSurfaceLabs: {
+		// Label: World Gen Step Surface Labs
+		// Tooltip: ""
+	}
+
+	WorldGenStepLatexCaves: {
+		// Label: World Gen Step Latex Caves
+		// Tooltip: ""
+	}
+
+	WorldGenStepOrangeShrine: {
+		// Label: World Gen Step Orange Shrine
+		// Tooltip: ""
 	}
 }

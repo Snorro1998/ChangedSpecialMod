@@ -1,4 +1,5 @@
 using ChangedSpecialMod.Content.Biomes;
+using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -9,9 +10,11 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
+
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class WingedDarkLatex : ModNPC
+    [LegacyName("WingedDarkLatex")]
+    public class Yufeng : ModNPC
 	{
         public override void SetStaticDefaults() 
         {
@@ -41,6 +44,9 @@ namespace ChangedSpecialMod.Content.NPCs
             AnimationType = -1;
             SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
 
+            Banner = Type;
+            BannerItem = ModContent.ItemType<YufengBanner>();
+
             var changedNPC = NPC.Changed();
             changedNPC.AdjustStatScaling(NPC);
             changedNPC.SetNPCName(NPC);
@@ -57,7 +63,7 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.WingedDarkLatex.Description"))
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Yufeng.Description"))
             });
         }
 

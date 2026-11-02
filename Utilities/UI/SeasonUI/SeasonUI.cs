@@ -42,20 +42,7 @@ namespace ChangedSpecialMod.Utilities.UI.SeasonUI
             buttonsSeasons.Add(AddButton(3, 0, SeasonalEvent.Halloween, TexturePath("SetSeasonHalloween"), NamePath("Halloween")));
             buttonsSeasons.Add(AddButton(4, 0, SeasonalEvent.XMas, TexturePath("SetSeasonXmas"), NamePath("Xmas")));
 
-
-            var catSpirit = new List<UIHoverImageButton>();
-            /*
-            // Spirit
-            if (ModSupportSystem.modSpirit != null)
-            {
-                catSpirit.Add(AddButtonSpirit(0, 0, 4, TexturePath("SetSeasonXmas"), NamePath("WingedDarkLatex")));
-                catSpirit.Add(AddButtonSpirit2(1, 0, 4, TexturePath("SetSeasonXmas"), NamePath("WingedDarkLatex")));
-            }
-            */
-
             allCategories.Add(buttonsSeasons);
-            allCategories.Add(catSpirit);
-
             Append(MainPanel);
         }
 

@@ -30,6 +30,7 @@ Puro: {
 	// NPCWitchDoctor: TODO
 	NPCWizard: Не понимаю, почему {NameWizard} не разрешает мне читать его книги. Вряд ли я могу их испортить своими мягкими лапками.
 	NPCZoologist: "{NameZoologist} такая милая со своими большими ушками и пушистым хвостиком. Но не такая милая, как ты, хе-хе..."
+	// NPCAncientsAwakenedAnubis: "{NameAncientsAwakenedAnubis} is so big and strong! I want to become like him!"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} рассказал мне всякое про 'магию', но меня интересовало только одно: можно ли из нее делать апельсины."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} очень много обуви, но вся она мне мала."
 	NPCStarsModPackFarmer: Благодаря {NameStarsModPackFarmer} я теперь могу выращивать ещё больше апельсинов!
@@ -178,6 +179,7 @@ DrK: {
 	NPCAngler: "{NameAngler} постоянно на улице ловит рыбу, а я постоянно в лаборатории жду результатов."
 	NPCNurse: Хорошо, что {NameNurse} здесь, потому что у меня заканчивались шприцы.
 	NPCZoologist: Интересно, что случилось с {NameZoologist}? Она преобразилась лишь частично?
+	// NPCAncientsAwakenedAnubis: "{PuroPresent}{NameAncientsAwakenedAnubis} might be the god of the dead, but his big, muscular body sure does make Puro feel alive."
 	Normal1: Как раз вовремя. Мне как раз нужен был доброволец для следующего эксперимента.
 	Normal2: Здравствуйте, испытуемый. Не могли бы вы подержать это для меня? Сейчас мне довольно сложно сделать это самой, так как у меня большие пушистые лапы.
 	Normal3: Знаете, всех этих слизистых монстров всё равно бы удалось удержать под контролем, если бы эти тупые бунтовщики не ворвались в лабораторию.

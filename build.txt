@@ -1,3 +1,4 @@
 displayName = Changed Special
 author = Snorro
-version = 0.5.7.4
+version = 0.5.7.5
+sortAfter = Coralite

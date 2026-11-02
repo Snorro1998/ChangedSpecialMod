@@ -1,4 +1,3 @@
-using ChangedSpecialMod.Assets;
 using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Biomes;
@@ -13,7 +12,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
@@ -70,6 +68,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 new DialogueElement("NPCNurse"),
                 new DialogueElement("NPCAngler", "Happy"),
                 new DialogueElement("NPCZoologist"),
+
+                // Mod NPCs
+                new DialogueElement("NPCAncientsAwakenedAnubis", "Naughty"),
                 
 				// Normal
                 new DialogueElement("Normal1", "Happy"),
@@ -354,8 +355,8 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCPortraitSystem.UpdatePortrait(ModContent.NPCType<Scientist>(), emotionText);
 
             // Something funni if you use Dutch language
-            if (dialogueText.ToLower().Contains("feestje van keesje"))
-                SoundEngine.PlaySound(Sounds.SoundFeestjeVanKeesje, Main.LocalPlayer.Center);
+            //if (dialogueText.ToLower().Contains("feestje van keesje"))
+            //    SoundEngine.PlaySound(Sounds.SoundFeestjeVanKeesje, Main.LocalPlayer.Center);
 
             return dialogueText;
         }

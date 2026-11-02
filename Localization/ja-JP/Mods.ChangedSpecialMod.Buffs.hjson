@@ -1,39 +1,39 @@
 WhiteLatexTaurMountBuff: {
-	Description: White and whoosh!
-	DisplayName: White Latex Taur
+	Description: 白くて速い！
+	DisplayName: ホワイトスライム・ケンタウロス
 }
 
 FlyingDarkLatexMountBuff: {
-	Description: Gliding on goo!
-	DisplayName: Yufeng
+	Description: スライムに乗って空を飛ぶ！
+	DisplayName: ユーフェン
 }
 
 WhiskerStaffBuff: {
-	Description: The cat will fight for you
-	DisplayName: Ming Cat
+	Description: その猫はあなたのために戦ってくれるだろう。
+	DisplayName: 猫
 }
 
 PurrpurrStaffBuff: {
-	Description: Don't mess with her!
-	DisplayName: Purrpurr
+	Description: 彼女を挑発するな！
+	DisplayName: 紫色の猫
 }
 
 TabbyStaffBuff: {
-	Description: The cat will fight for you
-	DisplayName: Tabby Cat
+	Description: その猫はあなたのために戦ってくれるだろう。
+	DisplayName: トラ猫
 }
 
 LatexMothMountBuff: {
-	Description: Gliding on goo!
-	DisplayName: Slime moth
+	Description: スライムに乗って空を飛ぶ！
+	DisplayName: ぬるぬるした蛾
 }
 
 BehemothWeaponBuff: {
-	DisplayName: Giant hand
-	Description: The hand will fight for you
+	DisplayName: 巨大な手
+	Description: その手は、あなたのために戦うだろう。
 }
 
 WhiteTailMountBuff: {
-	DisplayName: White Tail
-	Description: White and whoosh!
+	DisplayName: 白い尾
+	Description: 白くて速い！
 }

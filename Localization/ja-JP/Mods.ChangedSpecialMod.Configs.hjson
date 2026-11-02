@@ -1,134 +1,133 @@
 ChangedSpecialModClientConfig: {
-	DisplayName: Client Config
+	DisplayName: クライアント設定
 
 	TransfurSound: {
-		Label: Transfur Sound
-		Tooltip: If the transfur sound should play.
+		Label: 変身効果音
+		Tooltip: プレイヤーが変身する際、効果音を再生する。
 	}
 
 	WhipCrackSound: {
-		Tooltip: If the Mollash weapon and its upgrades should play a whip crack sound.
-		Label: Whip Crack Sound
+		Tooltip: 鞭を使用する際、効果音を再生する。
+		Label: 鞭の音効果音
 	}
 
 	SlipSound: {
-		Tooltip: If the slip sound should be played if the player is sliding around.
-		Label: Slip Sound
+		Tooltip: プレイヤーが滑ったときに音を再生する。
+		Label: 滑る音
 	}
 
 	NPCsCanUseChangedEmotes: {
-		Tooltip: When NPCs talk they can use emotes about Changed.
-		Label: NPCs Can Use Changed Emotes
+		Tooltip: キャラクターは「Changed」に関するエモートを使用できます。
+		Label: 『Changed』の絵文字
 	}
 
 	ExtraDialogue: {
-		Tooltip: If more dialogue should be added to regular Terraria NPCs.
-		Label: Extra Dialogue
+		Tooltip: 『Changed』の標準的なキャラクターたちに、セリフを追加する。
+		Label: 追加の会話
 	}
 
 	Headers: {
-		Audio: "[c/ffeb6e:Audio]"
-		Misc: "[c/ffeb6e:Misc]"
-		WorldGeneration: "[c/ffeb6e:World Generation]"
-		Transfur: "[c/ffeb6e:Transfur]"
-		Npc: "[c/ffeb6e:NPC]"
-		Evolution: "[c/ffeb6e:Evolution]"
-		Visuals: "[c/ffeb6e:Visuals]"
+		Audio: "[c/ffeb6e:音]"
+		Misc: "[c/ffeb6e:その他]"
+		WorldGeneration: "[c/ffeb6e:ワールド生成]"
+		Transfur: "[c/ffeb6e:変容]"
+		Npc: "[c/ffeb6e:登場人物]"
+		Evolution: "[c/ffeb6e:進化]"
+		Visuals: "[c/ffeb6e:ビジュアル]"
 	}
 
 	NumberOfLabs: {
-		Label: Number Of Labs
+		Label: 研究室の数
 		Tooltip:
 			'''
-			The number of labs per side of the world. 
-			The default value of 1 will generate 1 laboratory on small 
-			and medium-sized worlds and 2 laboratories on large worlds.
-			WARNING Large values on small worlds can crash your game.
+			半球あたりの研究所の数。
+			デフォルト値の1を設定すると、小規模および中規模のワールドには1つの研究所が、大規模なワールドには2つの研究所が生成されます。
+			警告：小さなワールドで大きな値を設定すると、ゲームがクラッシュする可能性があります。
 			'''
 	}
 
 	MaximumFloors: {
-		Label: Maximum Floors
-		Tooltip: The maximum number of floors a lab can have.
+		Label: 階数
+		Tooltip: 研究施設が持つことのできる階数の最大値。
 	}
 
 	MaximumRoomsHorizontal: {
-		Label: Maximum Rooms Horizontal
-		Tooltip: The maximum number of rooms a lab can have in the horizontal direction.
+		Label: 水平方向の最大部屋数
+		Tooltip: 研究室が水平方向に持つことのできる部屋の最大数。
 	}
 
 	LatexSpread: {
-		Label: Latex Spread
-		Tooltip: If latex can spread to other blocks in hardmode.
+		Label: スライムが広がる
+		Tooltip: ハードモードにおいて、スライムが他のブロックに広がる可能性がある場合。
 	}
 
 	LatexSpreadChance: {
-		Label: Latex Spread Chance
-		Tooltip: The chance of 1 in X that latex can spread to other blocks in hardmode.
+		Label: スライムが広がる確率
+		Tooltip: ハードモードにおいて、スライムが他のブロックに広がる確率は1/Xである。
 	}
 
 	DebugItems: {
-		Label: Debug Items
-		Tooltip: If enabled, Dr K. will sell debug items.
+		Label: デバッグ用アイテム
+		Tooltip: このオプションを有効にすると、ドクターKがデバッグ用アイテムを販売するようになります。
 	}
 
 	NPCsCanTransfurPlayer: {
-		Label: NPCs Can Transfur Player
-		Tooltip: Getting killed by a latex beast will turn you into one of them in most cases.
+		Label: キャラクターはプレイヤーを変容させうる。
+		Tooltip: スライムの魔物に殺されると、多くの場合、自分もスライムの魔物に変えられてしまう。
 	}
 
 	CustomHealthBar: {
-		Label: Custom Health Bar
-		Tooltip: Draws the health bar in different colors when transfurred.
+		Label: 色付きの体力バー
+		Tooltip: 変身時には、体力バーが異なる色で描画されます。
 	}
 
 	Evolution: {
-		Label: Evolution
-		Tooltip: Latex beasts will grow stronger with every boss defeated.
+		Label: 進化
+		Tooltip: スライムの魔物は、ボスを倒すたびに強くなっていく。
 	}
 
 	EvolutionSize: {
-		Label: Growth
-		Tooltip: Latex beasts will also grow bigger.
+		Label: 成長
+		Tooltip: スライムの獣は大きくなっていく。
 	}
 
 	DialoguePortraits: {
-		Label: Dialogue Portraits
+		Label: キャラクターのポートレート
 		Tooltip:
 			'''
-			If the town NPCs in this mod have portraits when you talk to them.
-			If playing with Boulder Backport installed, this setting is ignored and 
-			its option "Modded Town NPC Portraits" is used instead.
+			このMODの町の人々に、話しかけた際に表示されるポートレートがある場合。
+			「Boulder Backport」を導入してプレイしている場合、この設定は無視され、代わりに同
+			MODの「Modded Town NPC Portraits」というオプションが使用されます。
 			'''
 	}
 
 	CustomWorldNames: {
-		Label: New World Names
-		Tooltip: When generating a new world, new names can be selected.
+		Label: 新しい世界名
+		Tooltip: 新しく作成された世界には、追加の名前が付くことがある。
 	}
 
 	CustomDryadWorldStatus: {
-		Label: Extra world status information
-		Tooltip: The dryad can also tell you how much goo there is in the world.
+		Label: ワールドの追加ステータス情報
+		Tooltip: ドライアドは、世界にどれだけのスライムが存在するかを教えてくれます。
 	}
 
 	MonstersCanWearHats: {
-		Label: Monsters Can Wear Hats
-		Tooltip: When this option is enabled, monsters can wear hats under certain conditions. For example, when it is raining or during a party.
+		Label: モンスターは帽子をかぶることができる
+		Tooltip: このオプションを有効にすると、特定の条件下でモンスターが帽子をかぶれるようになります。例えば、雨が降っている時やパーティーの最中などが挙げられます。
 	}
 
 	Holidays: {
-		Label: Holidays
-		Tooltip: Town NPCs wear hats during holidays and have unique dialogue.
+		Label: 祝日
+		Tooltip: 町の人々は帽子をかぶることができ、祝日には特別なセリフを話す。
 	}
 
 	RetroVisualsTiles: {
-		Label: Retro Tiles
-		Tooltip: Use sprites from older versions for blocks and furniture
+		Label: 古いブロック
+		Tooltip: ブロックや家具には、古いバージョンのスプライトを使用する。
 	}
 
 	RetroVisualsNPCs: {
-		Label: Retro NPCs
-		Tooltip: Use sprites from older versions for NPCs
+		Label: 古いキャラクター
+		Tooltip: キャラクターには、古いバージョンのスプライトを使用する。
 	}
 }

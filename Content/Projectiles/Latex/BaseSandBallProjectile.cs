@@ -88,8 +88,8 @@ namespace ChangedSpecialMod.Content.Projectiles.Latex
                     else if (npc.type == ModContent.NPCType<DarkLatexCub>())
                         transformIndex = ModContent.NPCType<MaleDarkLatex>();
                     else if (npc.type == ModContent.NPCType<MaleDarkLatex>() || npc.type == ModContent.NPCType<FemaleDarkLatex>())
-                        transformIndex = ModContent.NPCType<WingedDarkLatex>();
-                    else if (npc.type == ModContent.NPCType<WingedDarkLatex>())
+                        transformIndex = ModContent.NPCType<Yufeng>();
+                    else if (npc.type == ModContent.NPCType<Yufeng>())
                         transformIndex = ModContent.NPCType<Wendigo>();
 
                     // White

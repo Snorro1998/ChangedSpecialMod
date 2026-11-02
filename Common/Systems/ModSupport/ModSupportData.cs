@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using Terraria.ModLoader;
-using Terraria;
+﻿using ChangedSpecialMod.Utilities;
+using System.Collections.Generic;
 using System.Linq;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.Systems.ModSupport
 {
@@ -57,7 +58,9 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
     {
         public Mod mod = null;
         public string modName = "UnknownMod";
-        
+
+        public WorldPass VanillaPassAfterBiomeGeneration = WorldPass.SurfaceOreandStone;
+
         // Tiles
         public List<int> tilesAvoidedByWorldGen = new List<int>();
 

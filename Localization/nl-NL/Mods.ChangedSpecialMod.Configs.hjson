@@ -77,8 +77,8 @@ ChangedSpecialModClientConfig: {
 	}
 
 	CustomHealthBar: {
-		Label: Custom Health Bar
-		Tooltip: Draws the health bar in different colors when transfurred.
+		Label: Gekleurde levenskrachtbalk
+		Tooltip: Tekent de levenskrachtbalk in andere kleuren als de speler getransfurd is.
 	}
 
 	Evolution: {

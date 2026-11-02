@@ -43,6 +43,19 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(false)]
         public bool CustomHealthBar { get; set; }
 
+        [Header("WorldGenerationSteps")]
+        [DefaultValue(true)]
+        public bool WorldGenStepSurfaceLabs { get; set; }
+        
+        [DefaultValue(true)]
+        public bool WorldGenStepLatexCaves { get; set; }
+        
+        [DefaultValue(true)]
+        public bool WorldGenStepOrangeShrine { get; set; }
+        
+        [DefaultValue(false)]
+        public bool ForceLastGenerationPass { get; set; }
+
         [Header("WorldGeneration")]
         [DefaultValue(true)]
         public bool CustomWorldNames { get; set; }

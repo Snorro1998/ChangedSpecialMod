@@ -30,6 +30,7 @@ Puro: {
 	// NPCWitchDoctor: TODO
 	NPCWizard: Non capisco perché {NameWizard} non mi lasci leggere i suoi libri. Mica li rovinerò con le mie zampette morbide.
 	NPCZoologist: "{NameZoologist} è così carina con le sue grandi orecchie e la coda soffice. Ma non così carina come te, hehehe..."
+	// NPCAncientsAwakenedAnubis: "{NameAncientsAwakenedAnubis} is so big and strong! I want to become like him!"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} mi ha raccontato un sacco di cose sulla 'magia', ma tutto quello che volevo sapere era se si possono ricavare arance da essa."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} ha tantissime scarpe, ma sono tutte troppo piccole per le mie zampe."
 	NPCStarsModPackFarmer: Grazie a {NameStarsModPackFarmer}, ora posso coltivare ancora più arance!
@@ -178,6 +179,7 @@ DrK: {
 	NPCAngler: "{NameAngler} è sempre fuori a pescare, e io sono sempre dentro in laboratorio a cercare risultati."
 	NPCNurse: È un bene avere {NameNurse} qui intorno, perché stavo finendo le siringhe.
 	NPCZoologist: Mi chiedo cosa sia successo a {NameZoologist}. Si è trasformata solo parzialmente?
+	// NPCAncientsAwakenedAnubis: "{PuroPresent}{NameAncientsAwakenedAnubis} might be the god of the dead, but his big, muscular body sure does make Puro feel alive."
 	Normal1: Tempismo perfetto. Mi serviva proprio un volontario per il mio prossimo esperimento.
 	Normal2: Salve, soggetto del test. Potrebbe tenermelo, per favore? È piuttosto difficile farlo da solo ora che ho delle zampe grandi e pelose.
 	Normal3: Sai, tutti quei mostri di melma sarebbero stati ancora tenuti a bada se quegli stupidi rivoltosi non avessero preso d'assalto il laboratorio.

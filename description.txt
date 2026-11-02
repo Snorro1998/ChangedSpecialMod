@@ -82,22 +82,31 @@ Other
 --------- Changelog ---------
 
 
-0.5.7.5
+0.5.7.6
 
-This update resprites some furniture items and adds a few extra languages that are not part of TModloader. 
-These new languages require the Localization Plus mod and only translate content from this mod. 
-They do not provide any translations for normal Terraria content.
+This update improves the detection of biomes and structures from other mods, making it less likely for things to overlap.
+If you still experience this, there is a also a new config option to force world generation to happen after all other mods.
 
-Translations Added
-- Dutch
-- Japanese
+Added banners for
+- White Latex Taur
+- Yufeng
+
+Config
+- Added config option to force world generation to be performed after all other mods.
+
+World Generation
+- World generator now tries to avoid generating things in biomes from these mods:
+- Ancients Awakened
+- Bismuth
+- Spirit Reforged
 
 Resprited
-- White Tail
-- Crystals
-- Lab table
-- Iris Scanner
-- Generator
+- A couple of banners
 
 Fixed
-- Worldgen could generate green plants in infected deserts, which looked strange
+- Dry dirt generated in deserts did not grow grass on top
+- Spirit reforged always crashes when generating a new world, because it tries to add items to the chests in orange shrines (which are completely filled).
+
+Technical
+- Updated old internal names for NPCs:
+- WingedDarkLatex -> Yufeng

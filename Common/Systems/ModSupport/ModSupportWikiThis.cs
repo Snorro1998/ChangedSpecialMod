@@ -59,7 +59,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 { ModContent.NPCType<MaleDarkLatex>(), "Black_Latex" },
                 { ModContent.NPCType<FemaleDarkLatex>(), "Black_Latex" },
                 { ModContent.NPCType<FlyingDarkLatex>(), "Yufeng_Cub" },
-                { ModContent.NPCType<WingedDarkLatex>(), "Yufeng" },
+                { ModContent.NPCType<Yufeng>(), "Yufeng" },
                 { ModContent.NPCType<Wendigo>(), "Wendigo" },
 
                 // Black Cave

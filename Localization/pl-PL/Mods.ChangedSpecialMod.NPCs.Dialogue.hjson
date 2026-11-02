@@ -30,6 +30,7 @@ Puro: {
 	// NPCWitchDoctor: TODO
 	NPCWizard: Nie rozumiem, dlaczego {NameWizard} nie pozwala mi czytać swoich książek. Przecież nie zniszczę ich swoimi miękkimi łapkami.
 	NPCZoologist: "{NameZoologist} jest taka słodka z tymi swoimi dużymi uszami i puszystym ogonkiem. Ale nie tak słodka jak ty, hehehe..."
+	// NPCAncientsAwakenedAnubis: "{NameAncientsAwakenedAnubis} is so big and strong! I want to become like him!"
 	NPCCoraliteCrystalRobot: "{CoraliteCrystalRobotPresent}{NameCoraliteCrystalRobot} opowiadał mi mnóstwo rzeczy o „magii”, ale ja chciałem się tylko dowiedzieć, czy można z niej zrobić pomarańcze."
 	NPCThoriumCobbler: "{ThoriumCobblerPresent}{NameThoriumCobbler} ma wiele butów, ale wszystkie są za małe na moje łapy."
 	NPCStarsModPackFarmer: Dzięki {NameStarsModPackFarmer}’owi mogę teraz uprawiać jeszcze więcej pomarańczy!
@@ -178,6 +179,7 @@ DrK: {
 	NPCAngler: "{NameAngler} zawsze jest na łowisku, a ja zawsze jestem w laboratorium i czekam na wyniki."
 	NPCNurse: Dobrze, że {NameNurse} jest tu w pobliżu, bo kończyły mi się strzykawki
 	NPCZoologist: Ciekawe, co stało się z {NameZoologist}. Czy przeszła tylko częściową transformację?
+	// NPCAncientsAwakenedAnubis: "{PuroPresent}{NameAncientsAwakenedAnubis} might be the god of the dead, but his big, muscular body sure does make Puro feel alive."
 	Normal1: Idealny moment. Potrzebowałem tylko ochotnika do mojego kolejnego eksperymentu.
 	Normal2: Witaj, badany. Czy mógłbyś mi to przytrzymać? Teraz, kiedy mam duże, futrzane łapy, trudno mi to zrobić samemu.
 	Normal3: Wiesz, wszystkie te śluzowate potwory dałyby się opanować, gdyby ci głupi buntownicy nie wkroczyli do laboratorium.
