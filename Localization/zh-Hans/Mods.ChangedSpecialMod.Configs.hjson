@@ -152,4 +152,9 @@ ChangedSpecialModClientConfig: {
 		// Label: World Gen Step Orange Shrine
 		// Tooltip: ""
 	}
+
+	ShortMusic: {
+		// Label: Short Music
+		// Tooltip: ""
+	}
 }

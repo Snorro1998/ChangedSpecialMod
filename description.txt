@@ -1,4 +1,5 @@
 This Terraria mod is about the game Changed by DragonSnow. It adds laboratories on the surface where you will find goo monsters, also know as latex beasts. They are quite strong and grow stronger with every boss you defeat.
+The mod is highly configurable, allowing you to change or disable content however you like.
 
 -------- Contents ---------
 
@@ -89,6 +90,7 @@ If you still experience this, there is a also a new config option to force world
 
 Added banners for
 - White Latex Taur
+- Squid Dog Cub
 - Yufeng
 
 Config
@@ -102,6 +104,7 @@ World Generation
 
 Resprited
 - A couple of banners
+- Ming Cat
 
 Fixed
 - Dry dirt generated in deserts did not grow grass on top

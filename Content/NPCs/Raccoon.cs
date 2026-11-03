@@ -1,4 +1,3 @@
-using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Utilities;
@@ -6,14 +5,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
@@ -69,7 +66,6 @@ namespace ChangedSpecialMod.Content.NPCs
                 new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.Raccoon.Description")),
             });
         }
-
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

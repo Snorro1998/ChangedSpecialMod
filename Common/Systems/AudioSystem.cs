@@ -59,6 +59,7 @@ namespace ChangedSpecialMod.Common.Systems
         {
             var nearPuro = ChangedUtils.IsPlayerNearPuro(player);
             var nearPrototype = ChangedUtils.IsPlayerNearPrototype(player);
+            var config = ChangedSpecialModClientConfig.Instance;
 
             // Black latex zone
             if (gooType == GooType.Black)
@@ -66,9 +67,10 @@ namespace ChangedSpecialMod.Common.Systems
                 var musicOptions = new List<string>()
                 {
                     Sounds.MusicBlackLatexZone,
-                    Sounds.MusicBlackLatexZone2,
                     Sounds.MusicCrystalZone,
                 };
+                if (config.ShortMusic)
+                    musicOptions.Add(Sounds.MusicBlackLatexZone2);
                 if (player.townNPCs > 0)
                     musicOptions.Add(Sounds.MusicLibrary);
                 if (nearPuro)
@@ -84,9 +86,10 @@ namespace ChangedSpecialMod.Common.Systems
             {
                 var musicOptions = new List<string>()
                 {
-                    Sounds.MusicWhiteLatexZone,
                     Sounds.MusicLabSlow
                 };
+                if (config.ShortMusic)
+                    musicOptions.Add(Sounds.MusicWhiteLatexZone);
                 if (player.townNPCs > 0)
                     musicOptions.Add(Sounds.MusicLibrary);
                 if (nearPuro)

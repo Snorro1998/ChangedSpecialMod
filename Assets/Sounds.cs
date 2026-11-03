@@ -1,6 +1,4 @@
-﻿using ChangedSpecialMod.Utilities;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
+﻿using Terraria.Audio;
 
 namespace ChangedSpecialMod.Assets
 {

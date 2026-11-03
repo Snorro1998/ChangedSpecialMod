@@ -16,6 +16,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
@@ -1625,11 +1626,25 @@ namespace ChangedSpecialMod.Content.NPCs
             if (changedNPC == null || !changedNPC.DefaultHitEffect || changedNPC.GooType == GooType.Invalid)
                 return;
 
+            var catIDs = new List<int>()
+            {
+                // Bloodstripe is a tough guy and doesn't meow like a kitten
+                //ModContent.NPCType<Bloodstripe>(),
+                ModContent.NPCType<Purrpurr>(),
+                ModContent.NPCType<TabbyCat>(),
+                ModContent.NPCType<MingCat>()
+            };
+
             var dustType = DustID.TintableDust;
             if (changedNPC.GooType == GooType.Black || changedNPC.GooType == GooType.BlackOnly)
                 dustType = DustID.Asphalt;
             else if (changedNPC.GooType == GooType.White || changedNPC.GooType == GooType.WhiteOnly)
                 dustType = DustID.SnowBlock;
+
+            var soundMeow = false;
+
+            if (Main.rand.NextBool(5) && catIDs.Contains(npc.type))
+                soundMeow = true;
 
             var nParticles = 10;
             if (npc.life <= 0)
@@ -1637,6 +1652,9 @@ namespace ChangedSpecialMod.Content.NPCs
                 nParticles = 40;
                 if (!Main.dedServ)
                 {
+                    if (catIDs.Contains(npc.type))
+                        soundMeow = true;
+
                     var goreTypes = new List<string>();
 
                     if (npc.type == ModContent.NPCType<MaleDarkLatex>())
@@ -1674,6 +1692,11 @@ namespace ChangedSpecialMod.Content.NPCs
                 dust.velocity.X += Main.rand.NextFloat(-0.05f, 0.05f);
                 dust.velocity.Y += Main.rand.NextFloat(-0.05f, 0.05f);
                 dust.scale *= npc.scale * changedNPC.HitEffectScale + Main.rand.NextFloat(-0.03f, 0.03f);
+            }
+
+            if (soundMeow)
+            {
+                SoundEngine.PlaySound(SoundID.Meowmere, npc.Center);
             }
         }
 

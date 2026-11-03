@@ -18,6 +18,10 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             var isWhiteCub = npc.type == ModContent.NPCType<WhiteLatexCub>();
             var isFennec = npc.type == ModContent.NPCType<Fennec>();
             var isSnake = npc.type == ModContent.NPCType<Snek>();
+
+            var isMingCat = npc.type == ModContent.NPCType<MingCat>();
+            var isTabbyCat = npc.type == ModContent.NPCType<TabbyCat>();
+
             var isExoSuitRobot = npc.type == ModContent.NPCType<ExoSuitRobot>();
 
             if (Main.player[npc.target].position.Y + (float)Main.player[npc.target].height == npc.position.Y + (float)npc.height)
@@ -109,7 +113,7 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.direction = 1;
                 }
             }
-            if (isBlackCub || isWhiteCub || isFennec || isSnake)
+            if (isBlackCub || isWhiteCub || isFennec || isSnake || isTabbyCat || isMingCat)
             {
                 float num80 = 1.5f;
                 // Make them much faster if the target player is drunk

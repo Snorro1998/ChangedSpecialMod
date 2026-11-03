@@ -513,6 +513,16 @@ Mods: {
 			SquidDogTentacleBody.DisplayName: Squid Dog Tentacle Body
 			SquidDogBoss.DisplayName: Squid Dog Boss
 			SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
+
+			MingCat: {
+				DisplayName: Ming Cat
+				Description: Meow
+			}
+
+			TabbyCat: {
+				DisplayName: Tabby Cat
+				Description: Meow
+			}
 		}
 
 		Emotes: {

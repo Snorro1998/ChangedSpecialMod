@@ -1128,3 +1128,8 @@ YufengBanner: {
 	// DisplayName: Yufeng Banner
 	// Tooltip: ""
 }
+
+SquidDogCubBanner: {
+	// DisplayName: Squid Dog Cub Banner
+	// Tooltip: ""
+}

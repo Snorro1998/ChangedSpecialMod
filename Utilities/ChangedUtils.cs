@@ -1549,18 +1549,18 @@ namespace ChangedSpecialMod.Utilities
         {
             Player player = Main.player[projectile.owner];
 
-            bool isTabbyOrPurrpurr = 
-                projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>() || 
-                projectile.type == ModContent.ProjectileType<TabbyStaffProjectile>();
+            bool isMingCat = projectile.type == ModContent.ProjectileType<WhiskerStaffProjectile>();
+            bool isTabby = projectile.type == ModContent.ProjectileType<TabbyStaffProjectile>();
+            bool isPurrpurr = projectile.type == ModContent.ProjectileType<PurrpurrStaffProjectile>();
+
+            bool isTabbyOrPurrpurr = isPurrpurr || isTabby;
             bool isWhiteTail = projectile.type == ModContent.ProjectileType<WhiteTailProjectile>();
             int targetingRange = 450;
 
             var playerPosition = player.position;
             var playerCenter = player.Center;
 
-            bool spinWhenFlyingToPlayer = isTabbyOrPurrpurr;
-
-            bool testFlag = false;
+            bool spinWhenFlyingToPlayer = isTabbyOrPurrpurr || isMingCat;
 
             if (isTabbyOrPurrpurr)
             {
@@ -1678,16 +1678,25 @@ namespace ChangedSpecialMod.Utilities
                 {
                     projectile.spriteDirection = Math.Sign(projectile.velocity.X);
                 }
-                projectile.frameCounter++;
-                if (projectile.frameCounter > 3)
+
+                if (isTabby)
                 {
-                    projectile.frame++;
-                    projectile.frameCounter = 0;
+                    projectile.frame = 1;
                 }
-                if (projectile.frame < 2 || projectile.frame >= Main.projFrames[projectile.type])
+                else
                 {
-                    projectile.frame = 2;
+                    projectile.frameCounter++;
+                    if (projectile.frameCounter > 3)
+                    {
+                        projectile.frame++;
+                        projectile.frameCounter = 0;
+                    }
+                    if (projectile.frame < 2 || projectile.frame >= Main.projFrames[projectile.type])
+                    {
+                        projectile.frame = 2;
+                    }
                 }
+                
                 // Spin
                 if (spinWhenFlyingToPlayer)
                     projectile.rotation = projectile.rotation.AngleTowards(projectile.rotation + 0.25f * (float)projectile.spriteDirection, 0.25f);
@@ -2084,12 +2093,17 @@ namespace ChangedSpecialMod.Utilities
                     {
                         projectile.frameCounter += (int)Math.Abs(projectile.velocity.X);
                         //projectile.frameCounter++;
-                        if (projectile.frameCounter > 10)
+                        var animSpeed = isTabby ? 5 : 10;
+                        if (projectile.frameCounter > animSpeed)
                         {
                             projectile.frame++;
                             projectile.frameCounter = 0;
                         }
-                        if (isTabbyOrPurrpurr && projectile.frame >= 4)
+                        if (isTabby && projectile.frame >= 10)
+                        {
+                            projectile.frame = 2;
+                        }
+                        else if (isPurrpurr && projectile.frame >= 4)
                         {
                             projectile.frame = 0;
                         }
@@ -2103,7 +2117,11 @@ namespace ChangedSpecialMod.Utilities
                 else if (projectile.velocity.Y != 0f)
                 {
                     projectile.frameCounter = 0;
-                    if (isTabbyOrPurrpurr)
+                    if (isTabby)
+                    {
+                        projectile.frame = 1;
+                    }
+                    else if (isPurrpurr)
                     {
                         projectile.frame = 4;
                     }
