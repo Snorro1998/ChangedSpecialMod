@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: 召唤一只可骑乘的白色史莱姆坐骑
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: 黑翅
-	Tooltip: 召唤一头可骑乘的与锋坐骑
-}
-
 Literature: {
 	DisplayName: 文学
 	Tooltip: 充满热门话题
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: 八音盒 (狼王)
 	Tooltip: 噬子
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: 与锋小狗横幅
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: 庆典蛋糕
-	Tooltip: 感谢大家的支持，下载量已超过900次！
+	Tooltip: 感谢大家的支持，下载量已超过1000次！
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: 白色粘液半人马横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: 与锋横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: 乌贼犬小狗横幅
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: 调试生成所有 Boss
+	Tooltip:
+	'''
+	生成所有已启用模组中的全部BOSS。
+	如果你想让电脑崩溃，这绝对是个“好”主意。
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: 黑翅
+	Tooltip: 召唤一头可骑乘的与锋坐骑
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: 与锋小狗横幅
 }

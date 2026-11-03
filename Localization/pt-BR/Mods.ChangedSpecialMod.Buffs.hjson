@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Centauro de Gosma Branca
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Voando em uma gosma!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: O gato lutará por você.
 	DisplayName: Gato Ming
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Cauda branca
 	Description: Branco e rápido!
+}
+
+YufengCubMountBuff: {
+	Description: Voando em uma gosma!
+	DisplayName: Yufeng
 }

@@ -14,7 +14,8 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.NPCs
 {
-	public class FlyingDarkLatex : ModNPC
+    [LegacyName("FlyingDarkLatex")]
+    public class YufengCub : ModNPC
 	{
         public override void SetStaticDefaults() 
         {
@@ -42,7 +43,7 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.noGravity = true;
             Banner = Type;
-            BannerItem = ModContent.ItemType<FlyingDarkLatexBanner>();
+            BannerItem = ModContent.ItemType<YufengCubBanner>();
             AnimationType = NPCID.Slimer;
             SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
 
@@ -60,13 +61,13 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
             {
-                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.Description")),
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.ChangedSpecialMod.NPCs.YufengCub.Description")),
             });
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlyingDarkLatexMountItem>(), 20));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<YufengCubMountItem>(), 20));
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

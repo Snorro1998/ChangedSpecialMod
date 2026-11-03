@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: 寻找适合建造构筑物的地点
 			Labs: 建造实验室
 			OrangeShrines: 建造神社
 			LatexCaves: 生成粘液洞穴
 			SpecialLatexEverywhere: 散播了太多黏液
 			SpecialOrange: 橙子
+			RemoveUnwantedDecals: 清理
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: 与锋
 				Description: 这种形似龙的野兽体型过大，无法飞行，但凭借强壮的双腿，它的奔跑速度仍然比几乎任何其他生物都要快。
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: 与锋小狗
-				Description: 一种变异的黑色黏液，长出了翅膀，使他能够飞到任何地方。
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: 明猫
+				Description: 喵
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: 虎斑猫
+				Description: 喵喵
+			}
+
+			YufengCub: {
+				DisplayName: 与锋小狗
+				Description: 一种变异的黑色黏液，长出了翅膀，使他能够飞到任何地方。
 			}
 		}
 

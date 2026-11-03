@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Centauro di melma bianca
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Volare sulla melma!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: Il gatto combatterà per te
 	DisplayName: Gatto ming
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Coda bianca
 	Description: Bianco e veloce!
+}
+
+YufengCubMountBuff: {
+	Description: Volare sulla melma!
+	DisplayName: Yufeng
 }

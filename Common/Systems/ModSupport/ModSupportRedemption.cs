@@ -11,6 +11,9 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
 
         public override void Init()
         {
+            // Everything happens after "Final Cleanup"
+            VanillaPassAfterBiomeGeneration = Utilities.WorldPass.Final;
+
             bossProgressionList = new DownedBossObjectList()
             {
                 mod = this.mod,
@@ -23,6 +26,44 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                     new DownedBossObject("PatientZero", 19.1f, null, "downedPZ")
                 }
             };
+        }
+
+        public override void AddTiles()
+        {
+            // Slayer ship (protected structure)
+            AddTileType("ShipGlassTile", true);
+            AddTileType("SlayerShipPanelTile", true);
+            // Cyberscrap
+
+            // Other
+            AddTileType("AncientHallBrickTile", true);
+
+            // Portals?
+
+            // Blazing Bastion
+            AddTileType("ShinkiteBrickTile", true);
+            AddTileType("ShinkiteBrickOrnateTile", true);
+            AddTileType("DarkShinkiteBrickTile", true);
+
+            // Tombs
+            AddTileType("AncientDirtTile", true);
+            AddTileType("AncientGrassTile", true);
+            AddTileType("GathicStoneTile", true);
+            AddTileType("GathicStoneBrickTile", true);
+            AddTileType("GathicGladestoneTile", true);
+
+            // Abandoned lab (protected structure)
+            AddTileType("LabPlatingTileUnsafe", true);
+            AddTileType("OvergrownLabPlatingTile", true);
+            AddTileType("BlackHardenedSludgeTile", true);
+
+            // Corium
+            // Plutonium
+            // Uranium
+
+            AddTileType("HalogenLampTile", true);
+            AddTileType("LabTankTile", true);
+            AddTileType("RedLaserTile", true);
         }
 
         public override void PostSetupContent(ILog log)

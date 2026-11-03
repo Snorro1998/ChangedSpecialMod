@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: белый слизистый кентавр
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: летать на слизи!
-	DisplayName: Юфэна
-}
-
 WhiskerStaffBuff: {
 	Description: Кот будет бороться за тебя.
 	DisplayName: кот мин
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Белый хвост
 	Description: белый и быстрый
+}
+
+YufengCubMountBuff: {
+	Description: летать на слизи!
+	DisplayName: Юфэна
 }

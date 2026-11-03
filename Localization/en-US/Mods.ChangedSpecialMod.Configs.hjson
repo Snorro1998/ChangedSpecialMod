@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:NPC]"
 		Evolution: "[c/ffeb6e:Evolution]"
 		Visuals: "[c/ffeb6e:Visuals]"
-		WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:World Generation Passes]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			The number of labs per side of the world. 
 			The default value of 1 will generate 1 laboratory on small 
 			and medium-sized worlds and 2 laboratories on large worlds.
-			WARNING Large values on small worlds can crash your game.
+			[c/ff0000:WARNING] Large values on small worlds can crash your game.
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		Label: Force Last Generation Pass
-		Tooltip: ""
+		Label: Force world generation at the end
+		Tooltip:
+			'''
+			If the world generation should be done after all other mods.
+			This might, but is not guaranteed to fix issues with overlapping biomes and structures.
+			If this option is enabled, the world generator will get stuck for a bit on the last step.
+			[c/ff0000:WARNING] Only enable this if necessary!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		Label: World Gen Step Surface Labs
-		Tooltip: ""
+		Label: Laboratories
+		Tooltip: If laboratories should be built on the surface.
 	}
 
 	WorldGenStepLatexCaves: {
-		Label: World Gen Step Latex Caves
-		Tooltip: ""
+		Label: Slime Caves
+		Tooltip: If slime caves should generate underground.
 	}
 
 	WorldGenStepOrangeShrine: {
-		Label: World Gen Step Orange Shrine
-		Tooltip: ""
+		Label: Orange Shrines
+		Tooltip: If Orange Shrines should be built underground.
 	}
 
 	ShortMusic: {
-		Label: Short Music
-		Tooltip: ""
+		Label: Short Music Tracks
+		Tooltip: If short and repetitive music can play in the slime zones.
 	}
 }

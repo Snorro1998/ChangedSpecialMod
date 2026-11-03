@@ -3,11 +3,12 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Banners
 {
-    public class FlyingDarkLatexBanner : ModItem
+    [LegacyName("FlyingDarkLatexBanner")]
+    public class YufengCubBanner : ModItem
     {
         public override void SetDefaults()
         {
-            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Banners.FlyingDarkLatexBanner>());
+            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Banners.YufengCubBanner>());
             Item.rare = ItemRarityID.Blue;
         }
     }

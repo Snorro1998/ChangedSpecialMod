@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Przywołuje postaci białego szlamu, którego można dosiąść
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Czarne skrzydło
-	Tooltip: Przywołuje Yufeng, którego można dosiąść
-}
-
 Literature: {
 	DisplayName: Literatura
 	Tooltip: Pełen popularnych tematów
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Pozytywka (Król Wilków)
 	Tooltip: Przez ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Sztandar Szczeniak Yufeng
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Tort na uroczystość
-	Tooltip: Dziękujemy wszystkim za ponad 900 pobrań
+	Tooltip: Dziękujemy wszystkim za ponad 1000 pobrań
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Sztandar Biały szlam centaur
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Sztandar Yufeng
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Sztandar Szczeniak psa-kałamarnicy
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Przyzwij wszystkich bossów
+	Tooltip:
+	'''
+	Przywołuje wszystkich bossów ze wszystkich aktywnych modów.
+	To znakomity pomysł, jeśli chcesz doprowadzić do zawieszenia swojego komputera.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Czarne skrzydło
+	Tooltip: Przywołuje Yufeng, którego można dosiąść
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Sztandar Szczeniak Yufeng
 }

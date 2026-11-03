@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Invoca uma montaria de Gosma Branca.
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Asa Negra
-	Tooltip: Invoca uma montaria Yufeng.
-}
-
 Literature: {
 	DisplayName: Literatura
 	Tooltip: Repleto de tópicos em alta
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Caixinha de Música (Rei Lobo)
 	Tooltip: Por ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Bandeira do Filhote de Yufeng
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Bolo de comemoração
-	Tooltip: Muito obrigado a todos pelos mais de 900 downloads!
+	Tooltip: Muito obrigado a todos pelos mais de 1000 downloads!
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Bandeira do Centauro de Gosma Branca
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Bandeira da Yufeng
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Bandeira da Filhote de Cachorro-Lula
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Invocar todos os chefes
+	Tooltip: 
+	'''
+	Invoca todos os chefes de todos os mods ativos.
+	Essa é uma excelente ideia se você quiser fazer seu computador travar.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Asa Negra
+	Tooltip: Invoca uma montaria Yufeng.
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Bandeira do Filhote de Yufeng
 }

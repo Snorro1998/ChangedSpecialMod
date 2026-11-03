@@ -6,7 +6,8 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Mounts
 {
-    public class FlyingDarkLatexMountItem : ModItem
+    [LegacyName("FlyingDarkLatexMountItem")]
+    public class YufengCubMountItem : ModItem
     {
         public override void SetDefaults()
         {
@@ -20,7 +21,7 @@ namespace ChangedSpecialMod.Content.Items.Mounts
             // Bunny mount fwoomp SoundID.Item79;
             Item.UseSound = Sounds.SoundTransfur; // What sound should play when using the item
             Item.noMelee = true; // this item doesn't do any melee damage
-            Item.mountType = ModContent.MountType<FlyingDarkLatexMount>();
+            Item.mountType = ModContent.MountType<YufengCubMount>();
         }
     }
 }

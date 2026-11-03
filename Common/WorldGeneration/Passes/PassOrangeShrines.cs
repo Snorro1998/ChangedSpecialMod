@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Common.Systems;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.Tiles.Furniture;
@@ -17,6 +18,11 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         {
             PassName = "ChangedOrangeShrines";
             GenerationMessage = "OrangeShrines";
+        }
+
+        public override bool Enabled()
+        {
+            return ChangedSpecialModClientConfig.Instance.WorldGenStepOrangeShrine;
         }
 
         public override void Generate()

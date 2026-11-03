@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Postacie]"
 		Evolution: "[c/ffeb6e:Ewolucja]"
 		Visuals: "[c/ffeb6e:Grafika]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Etapy generowania świata]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			Liczba laboratoriów po każdej stronie świata.
 			Domyślna wartość 1 spowoduje wygenerowanie 1 laboratorium w 
 			małych i średnich światach oraz 2 laboratoriów w dużych światach.
-			OSTRZEŻENIE Duże wartości w małych światach mogą spowodować zawieszenie gry.
+			[c/ff0000:OSTRZEŻENIE] Duże wartości w małych światach mogą spowodować zawieszenie gry.
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Wymuś generowanie świata na końcu
+		Tooltip:
+			'''
+			Określa, czy generowanie świata ma odbywać się po załadowaniu wszystkich pozostałych modów. 
+			Może to – choć nie daje gwarancji – rozwiązać problemy z nakładającymi się biomami i strukturami. 
+			Włączenie tej opcji spowoduje, że na ostatnim etapie generowania świata proces ten na chwilę „zawiesi się”.
+			[c/ff0000:OSTRZEŻENIE] Włączaj to tylko wtedy, gdy jest to konieczne!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Laboratoria
+		Tooltip: Czy laboratoria powinny być budowane na powierzchni?
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Śluzowe jaskinie
+		Tooltip: Jeśli jaskinie ze szlamem miałyby generować się pod ziemią.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Sanktuaria pomarańczy
+		Tooltip: Jeśli sanktuaria pomarańczy miałyby powstać pod ziemią.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Krótkie piosenki
+		Tooltip: W strefach ze szlamem może być odtwarzana krótka i powtarzalna muzyka.
 	}
 }

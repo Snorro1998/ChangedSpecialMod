@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Roept een Slijmcentaur-rijdier op
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Black Wing
-	Tooltip: Roept een Yufeng-rijdier op
-}
-
 Literature: {
 	DisplayName: Literatuur
 	Tooltip: Bevat veel interessante onderwerpen
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Speeldoos (Wolvenkoning)
 	Tooltip: Door ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Yufengbanier
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Feesttaart
-	Tooltip: Bedankt allemaal voor meer dan 900 downloads
+	Tooltip: Bedankt allemaal voor meer dan 1000 downloads!
 }
 
 WhiteLatexLantern: {
@@ -1112,4 +1102,43 @@ QuestBook: {
 DebugPickaxe: {
 	DisplayName: Debug Pikhouweel
 	Tooltip: ""
+}
+
+FaultyLight: {
+	// DisplayName: Faulty Light
+	// Tooltip: ""
+}
+
+WhiteLatexTaurBanner: {
+	DisplayName: Witte Slijmcentaurbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
+}
+
+YufengBanner: {
+	DisplayName: Yufengbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
+}
+
+SquidDogCubBanner: {
+	DisplayName: Inktvishondpupbanier
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Roep alle eindbazen op
+	Tooltip:
+	'''
+	Roept alle eindbazen uit alle actieve mods op.
+	Dit is een uitstekend idee als je je computer wilt laten crashen.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Zwarte Vleugel
+	Tooltip: Roept een Yufeng-rijdier op
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Yufengbanier
 }

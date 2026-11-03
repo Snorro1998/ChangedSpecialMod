@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Personagens]"
 		Evolution: "[c/ffeb6e:Evolução]"
 		Visuals: "[c/ffeb6e:Gráficos]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Etapas de Geração de Mundo]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			O número de laboratórios em cada lado do mundo.
 			O valor padrão de 1 irá gerar 1 laboratório em mundos de 
 			pequeno e médio porte e 2 laboratórios em mundos grandes.
-			AVISO: Valores altos em mundos pequenos podem causar o travamento do seu jogo.
+			[c/ff0000:AVISO]: Valores altos em mundos pequenos podem causar o travamento do seu jogo.
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Forçar a geração do mundo ao final
+		Tooltip:
+			'''
+			Se a geração do mundo deve ser realizada após todos os outros mods. 
+			Isso pode — embora não seja garantido — corrigir problemas de sobreposição de biomas e estruturas. 
+			Se esta opção estiver ativada, o gerador de mundos ficará travado por um breve momento durante a última etapa.
+			[c/ff0000:AVISO] Ative isso apenas se for necessário!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Laboratórios
+		Tooltip: Se laboratórios devem ser construídos na superfície.
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Cavernas de Limo
+		Tooltip: Se cavernas de limo devessem ser geradas no subsolo.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Santuários ou laranjas
+		Tooltip: Se santuários ou laranjas tiverem de ser construídos no subsolo.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Música curta
+		Tooltip: Se uma música curta e repetitiva puder tocar nas zonas de lodo.
 	}
 }

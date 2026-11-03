@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: White Latex Taur
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Gliding on goo!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: The cat will fight for you
 	DisplayName: Ming Cat
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: White Tail
 	Description: White and whoosh!
+}
+
+YufengCubMountBuff: {
+	Description: Gliding on goo!
+	DisplayName: Yufeng
 }

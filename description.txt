@@ -24,10 +24,16 @@ This mod has built-in support for:
 - Music Display
 - Wikithis
 
-Additionally, town npcs can sell items from these mods:
+The mod also tries to avoid generating things in structures and biomes from these mods
+- Ancients Awakened
+- Bismuth
 - Calamity
+- Coralite
+- Mod of Redemption
 - Spirit and Spirit Reforged
 - Thorium
+
+And finally, town npcs can sell herbs and fruit from the previously listed mods.
 
 Mods that can cause issues:
 - Modliquid library: there is a bug in this mod that causes waterfalls to freeze in all modded biomes, included the Changed biomes.
@@ -85,7 +91,8 @@ Other
 
 0.5.7.6
 
-This update improves the detection of biomes and structures from other mods, making it less likely for things to overlap.
+This update greatly improves the sprites of the ming and tabby cat summons. 
+It also improves detection of biomes and structures from other mods, making it less likely for things to overlap.
 If you still experience this, there is a also a new config option to force world generation to happen after all other mods.
 
 Added banners for
@@ -94,6 +101,7 @@ Added banners for
 - Yufeng
 
 Config
+- Added toggles for all world generation steps
 - Added config option to force world generation to be performed after all other mods.
 
 World Generation
@@ -105,11 +113,18 @@ World Generation
 Resprited
 - A couple of banners
 - Ming Cat
+- Tabby Cat
+
+NPCs
+- I really like how the resprited cats turned out, so I have added them as NPCs as well. They spawn rarely in the forest.
+- Added Ming Cat
+- Added Tabby Cat
 
 Fixed
 - Dry dirt generated in deserts did not grow grass on top
 - Spirit reforged always crashes when generating a new world, because it tries to add items to the chests in orange shrines (which are completely filled).
 
 Technical
-- Updated old internal names for NPCs:
+- Updated old internal names for NPCs and their related items:
+- FlyingDarkLatex -> YufengCub
 - WingedDarkLatex -> Yufeng

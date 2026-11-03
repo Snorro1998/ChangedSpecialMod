@@ -10,7 +10,7 @@ namespace ChangedSpecialMod.Content.Projectiles
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Type] = 10; //5
+            Main.projFrames[Type] = 10;
             Main.projPet[Type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Type] = true;
             ProjectileID.Sets.MinionSacrificable[Type] = true;
@@ -19,7 +19,7 @@ namespace ChangedSpecialMod.Content.Projectiles
         public override void SetDefaults()
         {
             Projectile.width = 32;
-            Projectile.height = 52;
+            Projectile.height = 54;
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.minionSlots = 1f;

@@ -1661,11 +1661,11 @@ namespace ChangedSpecialMod.Content.NPCs
                         goreTypes.Add("MaleDarkLatex1");
                     else if (npc.type == ModContent.NPCType<FemaleDarkLatex>())
                         goreTypes.Add("FemaleDarkLatex1");
-                    else if (npc.type == ModContent.NPCType<FlyingDarkLatex>())
+                    else if (npc.type == ModContent.NPCType<YufengCub>())
                     {
-                        goreTypes.Add("FlyingDarkLatex1");
-                        goreTypes.Add("FlyingDarkLatex2");
-                        goreTypes.Add("FlyingDarkLatex3");
+                        goreTypes.Add("YufengCub1");
+                        goreTypes.Add("YufengCub2");
+                        goreTypes.Add("YufengCub3");
                     }
                     else if (npc.type == ModContent.NPCType<Yufeng>())
                         goreTypes.Add("Yufeng");

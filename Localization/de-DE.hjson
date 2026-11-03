@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Suche nach geeigneten Standorten für Bauwerke
 			Labs: Laboratorien bauen
 			OrangeShrines: Schreine bauen
 			LatexCaves: Schleimhöhlen generieren
 			SpecialLatexEverywhere: Viel Schleim verbreiten
 			SpecialOrange: Orange
+			RemoveUnwantedDecals: Aufräumen
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: Dieses drachenähnliche Tier ist zu groß geworden zum Fliegen, aber dank seiner kräftigen Beine kann es immer noch schneller laufen als fast jedes andere Lebewesen.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Yufengwelpe
-				Description: Ein mutierter schwarzer Schleim, dem Flügel gewachsen sind, die es ihm ermöglichen, überall hin zu fliegen.
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: Ming-Katze
+				Description: Miau
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: Getigerte Katze
+				Description: Miau, miau
+			}
+
+			YufengCub: {
+				DisplayName: Yufengwelpe
+				Description: Ein mutierter schwarzer Schleim, dem Flügel gewachsen sind, die es ihm ermöglichen, überall hin zu fliegen.
 			}
 		}
 

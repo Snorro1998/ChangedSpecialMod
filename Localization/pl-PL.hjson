@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Poszukiwanie odpowiednich lokalizacji dla obiektów budowlanych
 			Labs: Budować laboratoria
 			OrangeShrines: Budować kapliczki
 			LatexCaves: Generowanie jaskiń śluzowych
 			SpecialLatexEverywhere: Rozprzestrzenianie zbyt dużej ilości szlamu
 			SpecialOrange: Pomarańczowy
+			RemoveUnwantedDecals: Sprzątanie
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: Ta bestia przypominająca smoka urosła tak bardzo, że nie jest w stanie latać, jednak dzięki silnym nogom nadal może biec szybciej niż prawie każde inne stworzenie.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Szczeniak Yufeng
-				Description: Zmutowany czarny szlam, któremu wyrosły skrzydła, pozwalające mu latać gdziekolwiek.
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: Kot ming
+				Description: Miau miau
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: Kot pręgowany
+				Description: Miau
+			}
+
+			YufengCub: {
+				DisplayName: Szczeniak Yufeng
+				Description: Zmutowany czarny szlam, któremu wyrosły skrzydła, pozwalające mu latać gdziekolwiek.
 			}
 		}
 

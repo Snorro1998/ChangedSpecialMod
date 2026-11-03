@@ -3,7 +3,8 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Buffs
 {
-    public class FlyingDarkLatexMountBuff : ModBuff
+    [LegacyName("FlyingDarkLatexMountBuff")]
+    public class YufengCubMountBuff : ModBuff
     {
         public override void SetStaticDefaults()
         {
@@ -13,7 +14,7 @@ namespace ChangedSpecialMod.Content.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.mount.SetMount(ModContent.MountType<Mounts.FlyingDarkLatexMount>(), player);
+            player.mount.SetMount(ModContent.MountType<Mounts.YufengCubMount>(), player);
             player.buffTime[buffIndex] = 10;
         }
     }

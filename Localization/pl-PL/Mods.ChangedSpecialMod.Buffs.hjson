@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Biały szlam centaur
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Latanie na szlamie!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: Kot będzie walczył za ciebie
 	DisplayName: Kot ming
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Biały ogon
 	Description: Biały i szybki!
+}
+
+YufengCubMountBuff: {
+	Description: Latanie na szlamie!
+	DisplayName: Yufeng
 }

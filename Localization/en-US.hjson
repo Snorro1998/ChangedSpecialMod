@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Searching for suitable locations for structures
 			Labs: Building laboratories
 			OrangeShrines: Building shrines
 			LatexCaves: Generating slime caves
 			SpecialLatexEverywhere: Spreading way too much slime
 			SpecialOrange: Orange
+			RemoveUnwantedDecals: Cleaning up
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: This dragon-like beast has grown too big to fly, but thanks to its powerful legs, it can still run faster than almost any other creature.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Yufeng Cub
-				Description: A mutated Black Latex that has grown wings, allowing him to fly anywhere.
 			}
 
 			DarkLatexCub: {
@@ -521,7 +518,12 @@ Mods: {
 
 			TabbyCat: {
 				DisplayName: Tabby Cat
-				Description: Meow
+				Description: Meow meow
+			}
+
+			YufengCub: {
+				DisplayName: Yufeng Cub
+				Description: A mutated Black Latex that has grown wings, allowing him to fly anywhere.
 			}
 		}
 

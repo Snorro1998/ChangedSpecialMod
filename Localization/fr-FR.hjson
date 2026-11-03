@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Recherche d’emplacements appropriés pour des structures
 			Labs: Construction des laboratoires
 			OrangeShrines: Construction des sanctuaires
 			LatexCaves: Générer des grottes de slime
 			SpecialLatexEverywhere: Répandre beaucoup trop de slime
 			SpecialOrange: Orange
+			RemoveUnwantedDecals: Nettoyage
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: Cette bête ressemblant à un dragon est devenue trop grosse pour voler, mais grâce à ses pattes puissantes, elle peut encore courir plus vite que presque toutes les autres créatures.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Petit Yufeng
-				Description: Une gelée noire mutante qui a développé des ailes, lui permettant de voler partout.
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: Chat Ming
+				Description: Miaou
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: Chat Tigré
+				Description: Miaou miaou
+			}
+
+			YufengCub: {
+				DisplayName: Petit Yufeng
+				Description: Une gelée noire mutante qui a développé des ailes, lui permettant de voler partout.
 			}
 		}
 

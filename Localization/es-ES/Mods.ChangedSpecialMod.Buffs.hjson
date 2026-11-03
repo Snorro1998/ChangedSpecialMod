@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Centauro Látex Blanco
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Deslizándose sobre látex
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: El gato luchará por ti.
 	DisplayName: Gato Ming
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Cola Blanco
 	Description: Blanco y rápido
+}
+
+YufengCubMountBuff: {
+	Description: Deslizándose sobre látex
+	DisplayName: Yufeng
 }

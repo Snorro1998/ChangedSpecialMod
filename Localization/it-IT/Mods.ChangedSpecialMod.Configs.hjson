@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Caratteri]"
 		Evolution: "[c/ffeb6e:Evoluzione]"
 		Visuals: "[c/ffeb6e:Grafica]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Fasi di generazione del mondo]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			Il numero di laboratori per lato del mondo.
 			Il valore predefinito di 1 genererà 1 laboratorio sui mondi di 
 			piccole e medie dimensioni e 2 laboratori sui mondi di grandi dimensioni.
-			ATTENZIONE: Valori elevati su mondi di piccole dimensioni possono 
+			[c/ff0000:ATTENZIONE]: Valori elevati su mondi di piccole dimensioni possono 
 			causare il crash del gioco.
 			'''
 	}
@@ -135,27 +135,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Forza la generazione del mondo alla fine
+		Tooltip:
+			'''
+			Se la generazione del mondo debba avvenire dopo quella di tutte le altre mod. 
+			Ciò potrebbe risolvere, sebbene non sia garantito, problemi di sovrapposizione tra biomi e strutture. 
+			Se questa opzione è abilitata, il generatore del mondo rimarrà bloccato per un breve istante durante l'ultima fase.
+			[c/ff0000:ATTENZIONE] Abilitalo solo se necessario!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Laboratori
+		Tooltip: Se i laboratori dovessero essere costruiti in superficie.
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Grotte di melma
+		Tooltip: Se le grotte di slime dovessero generarsi nel sottosuolo.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Santuari di arance
+		Tooltip: Se le santuari di arance dovessero generarsi nel sottosuolo.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Musica breve
+		Tooltip: Se nelle zone di melma può essere riprodotta musica breve e ripetitiva.
 	}
 }

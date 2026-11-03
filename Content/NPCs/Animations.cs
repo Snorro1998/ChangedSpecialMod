@@ -5,7 +5,7 @@ namespace ChangedSpecialMod.Content.NPCs
 {
     public static class Animations
     {
-        // Used by Winged Black Latex, Lion and Snep.
+        // Used by Yufeng, Lion and Snep.
         // The white latex taur uses something similar with extra logic. Maybe it can be merged with this one
         public static void AnimRunner(NPC npc, int frameHeight, float animSpeed = 0.6f)
         {

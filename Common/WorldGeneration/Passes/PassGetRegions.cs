@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -14,6 +15,12 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         {
             PassName = "ChangedAnalyzeWorld";
             GenerationMessage = "GetRegions"; //Finding suitable places for structures
+        }
+
+        public override bool Enabled()
+        {
+            var config = ChangedSpecialModClientConfig.Instance;
+            return config.WorldGenStepOrangeShrine || config.WorldGenStepLatexCaves || config.WorldGenStepSurfaceLabs;
         }
 
         public override void Generate()

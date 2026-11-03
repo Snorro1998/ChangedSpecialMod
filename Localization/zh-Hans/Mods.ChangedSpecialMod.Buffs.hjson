@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: 白色史莱姆半人马
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: 乘着黏液飞行
-	DisplayName: 与锋
-}
-
 WhiskerStaffBuff: {
 	Description: 猫会为你而战
 	DisplayName: 明猫
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: 白尾
 	Description: 白色且快速
+}
+
+YufengCubMountBuff: {
+	Description: 乘着黏液飞行
+	DisplayName: 与锋
 }

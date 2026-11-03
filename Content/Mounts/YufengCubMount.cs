@@ -5,7 +5,8 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Mounts
 {
-    public class FlyingDarkLatexMount : ModMount
+    [LegacyName("FlyingDarkLatexMount")]
+    public class YufengCubMount : ModMount
     {
         public override void SetStaticDefaults()
         {
@@ -23,7 +24,7 @@ namespace ChangedSpecialMod.Content.Mounts
 
             // Misc
             MountData.fatigueMax = 0;
-            MountData.buff = ModContent.BuffType<Buffs.FlyingDarkLatexMountBuff>();
+            MountData.buff = ModContent.BuffType<Buffs.YufengCubMountBuff>();
 
             // Effects
             MountData.spawnDust = DustID.Asphalt;

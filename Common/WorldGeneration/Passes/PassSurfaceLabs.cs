@@ -25,6 +25,11 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             GenerationMessage = "Labs";
         }
 
+        public override bool Enabled()
+        {
+            return ChangedSpecialModClientConfig.Instance.WorldGenStepSurfaceLabs;
+        }
+
         public override void Generate()
         {
             // Reset the Changed world generation variables. If this didn't happen, you would get variations

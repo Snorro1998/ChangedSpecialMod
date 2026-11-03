@@ -70,7 +70,7 @@ namespace ChangedSpecialMod.Common.Systems
             if (BiomeChecks.InChangedBiome(player))
                 chance = 1;
 
-            var entityNameBlack = "FlyingDarkLatex";
+            var entityNameBlack = "YufengCub";
             var entityNameWhite = "WhiteDragon";
             var entityName = entityNameBlack;
 

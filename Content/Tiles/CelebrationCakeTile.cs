@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -27,6 +28,11 @@ namespace ChangedSpecialMod.Content.Tiles
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.StyleLineSkip = 2;
             TileObjectData.addTile(Type);
+        }
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
+        {
+            return true;
         }
 
         public override void MouseOver(int i, int j)
@@ -88,12 +94,14 @@ namespace ChangedSpecialMod.Content.Tiles
                 return;
 
             Texture2D texture = Mod.Assets.Request<Texture2D>("Assets/Textures/Dust/Torch").Value;
+            var nCandles = 4;
 
-            for (int k = 0; k < 3; k++)
+            for (int k = 0; k < nCandles; k++)
             {
+                // x - 13
                 spriteBatch.Draw(
                     texture, 
-                    new Vector2(i * 16 - Main.screenPosition.X + k * 8 - 13, j * 16 - Main.screenPosition.Y - 3) + ChangedUtils.TileDrawOffset, 
+                    new Vector2(i * 16 - Main.screenPosition.X + k * 8 - 15, j * 16 - Main.screenPosition.Y - 3) + ChangedUtils.TileDrawOffset, 
                     new Rectangle(0, ChangedUtils.Choose(0, 10, 20), 10, 10), 
                     Color.White
                 );

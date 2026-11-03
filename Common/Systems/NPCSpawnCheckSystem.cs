@@ -187,7 +187,7 @@ namespace ChangedSpecialMod.Common.Systems
                 var nCub = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<DarkLatexCub>());
                 var nAdult = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<MaleDarkLatex>());
                 nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FemaleDarkLatex>());
-                var nFlying = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FlyingDarkLatex>());
+                var nFlying = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<YufengCub>());
 
                 // White
                 nGoop += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteGoop>());

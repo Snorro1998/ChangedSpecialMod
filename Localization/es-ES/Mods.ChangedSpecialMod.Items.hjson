@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Invoca un Centauro Látex Blanco como montura.
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Ala negra
-	Tooltip: Invoca un Cachorro de Yufeng como montura.
-}
-
 Literature: {
 	DisplayName: Literatura
 	Tooltip: Está lleno de temas candentes.
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Caja de música (Rey Lobo)
 	Tooltip: Por ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Estandarte de Cachorro de Yufeng
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Pastel de celebración
-	Tooltip: Gracias a todos por las más de 900 descargas.
+	Tooltip: Gracias a todos por las más de 1000 descargas.
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Estandarte de Centauro Látex Blanco
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Estandarte de Yufeng
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Estandarte de Cachorro de Perro Calamar
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Convocar a todos los jefes
+	Tooltip: 
+	'''
+	Invoca a todos los jefes de todos los mods activos.
+	Es una idea excelente si quieres que tu ordenador se bloquee.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Ala negra
+	Tooltip: Invoca un Cachorro de Yufeng como montura.
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Estandarte de Cachorro de Yufeng
 }

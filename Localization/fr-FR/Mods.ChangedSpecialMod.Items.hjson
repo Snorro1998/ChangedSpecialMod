@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Invoque une gelée blanche à chevaucher
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Aile noire
-	Tooltip: Invoque un Yufeng à chevaucher
-}
-
 Literature: {
 	DisplayName: Littérature
 	Tooltip: Plein de sujets d'actualité
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Boîte à Musique (Roi des Loups)
 	Tooltip: Par ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Bannière de petit Yufeng
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Gâteau de fête
-	Tooltip: Merci à tous pour plus de 900 téléchargements!
+	Tooltip: Merci à tous pour plus de 1000 téléchargements!
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Bannière de Centaure de Gelée Blanche
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Bannière de Yufeng
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Bannière de Petit Chien-calamar
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Invoquer tous les boss
+	Tooltip:
+	'''
+	Fait apparaître tous les boss issus de tous les mods actifs.
+	C'est une excellente idée si vous souhaitez faire planter votre ordinateur.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Aile noire
+	Tooltip: Invoque un Yufeng à chevaucher
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Bannière de petit Yufeng
 }

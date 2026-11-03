@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: ホワイトスライム・ケンタウロス
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: スライムに乗って空を飛ぶ！
-	DisplayName: ユーフェン
-}
-
 WhiskerStaffBuff: {
 	Description: その猫はあなたのために戦ってくれるだろう。
 	DisplayName: 猫
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: 白い尾
 	Description: 白くて速い！
+}
+
+YufengCubMountBuff: {
+	Description: スライムに乗って空を飛ぶ！
+	DisplayName: ユーフェン
 }

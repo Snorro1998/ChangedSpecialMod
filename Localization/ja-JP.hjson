@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: 構造物の設置に適した場所の検討
 			Labs: 研究施設の建設
 			OrangeShrines: 神社を建てること
 			LatexCaves: スライムの洞窟を生成する
 			SpecialLatexEverywhere: 大量のスライムを広げる
 			SpecialOrange: オレンジ
+			RemoveUnwantedDecals: 片付け
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: ユーフェン
 				Description: この竜のような獣は、大きくなりすぎて空を飛ぶことはできないが、強靭な脚のおかげで、他のほとんどの生き物よりも速く走ることができる。
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: ユーフェンの子犬
-				Description: 翼が生え、どこへでも飛んでいけるようになった、変異した黒いスライム。
 			}
 
 			DarkLatexCub: {
@@ -513,6 +510,21 @@ Mods: {
 			SquidDogTentacleBody.DisplayName: Squid Dog Tentacle Body
 			SquidDogBoss.DisplayName: Squid Dog Boss
 			SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
+			
+			MingCat: {
+				DisplayName: 鳴く猫
+				Description: ニャー
+			}
+
+			TabbyCat: {
+				DisplayName: トラ猫
+				Description: ニャーニャー
+			}
+
+			YufengCub: {
+				DisplayName: ユーフェンの子犬
+				Description: 翼が生え、どこへでも飛んでいけるようになった、変異した黒いスライム。
+			}
 		}
 
 		Emotes: {

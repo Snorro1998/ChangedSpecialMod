@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Charaktere]"
 		Evolution: "[c/ffeb6e:Entwicklung]"
 		Visuals: "[c/ffeb6e:Grafik]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Durchläufe der Weltgenerierung]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			Die Anzahl der Labore pro Erdhälfte.
 			Der Standardwert 1 erzeugt 1 Labor auf kleinen 
 			und mittleren Welten und 2 Labore auf großen Welten.
-			WARNUNG Große Werte in kleinen Welten können zum Absturz des Spiels führen.
+			[c/ff0000:WARNUNG] Große Werte in kleinen Welten können zum Absturz des Spiels führen.
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Weltgenerierung am Ende erzwingen
+		Tooltip:
+			'''
+			Falls die Weltgenerierung erst nach allen anderen Mods erfolgen soll. 
+			Dies kann – ohne Gewähr – Probleme mit sich überschneidenden Biomen und Strukturen beheben. 
+			Ist diese Option aktiviert, bleibt der Weltgenerator im letzten Schritt für einen Moment stehen.
+			[c/ff0000:WARNUNG] Dies nur bei Bedarf aktivieren!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Laboratorien
+		Tooltip: Falls Labore an der Oberfläche errichtet werden sollen.
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Schleimhöhlen
+		Tooltip: Falls Schleimhöhlen unter der Erde generiert werden sollen.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Orangenschreine
+		Tooltip: Falls Orangenschreine unter der Erde generiert werden sollen.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Kurze Lieder
+		Tooltip: In den Schleimzonen kann kurze und sich wiederholende Lieder abgespielt werden.
 	}
 }

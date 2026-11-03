@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Content.NPCs;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -15,6 +16,11 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         {
             PassName = "ChangedLatexPools";
             GenerationMessage = "LatexCaves";
+        }
+
+        public override bool Enabled()
+        {
+            return ChangedSpecialModClientConfig.Instance.WorldGenStepLatexCaves;
         }
 
         public override void Generate()

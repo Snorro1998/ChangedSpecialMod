@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Ricerca di ubicazioni idonee per le strutture
 			Labs: Costruire laboratori
 			OrangeShrines: Costruire santuari
 			LatexCaves: Generare grotte di melma
 			SpecialLatexEverywhere: Spargendo troppa melma
 			SpecialOrange: Arancia
+			RemoveUnwantedDecals: Pulizie in corso
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: Questa bestia simile a un drago è diventata troppo grande per volare, ma grazie alle sue zampe potenti, può ancora correre più veloce di quasi qualsiasi altra creatura.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Cucciolo di Yufeng
-				Description: Una melma nera mutata a cui sono spuntate le ali, che gli permettono di volare ovunque.
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: Gatto Ming
+				Description: Miao
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: Gatto Tigrato
+				Description: Miao miao
+			}
+
+			YufengCub: {
+				DisplayName: Cucciolo di Yufeng
+				Description: Una melma nera mutata a cui sono spuntate le ali, che gli permettono di volare ovunque.
 			}
 		}
 
@@ -568,7 +570,7 @@ Mods: {
 		Keybinds.TransfurAttack.DisplayName: Capacità
 
 		Abilities: {
-			MingCat: Gatto ming
+			MingCat: Gatto Ming
 			TentacleWhip: Frusta tentacolare
 			WaterBreathing: Può respirare sott'acqua
 			WaterBreathingCalamity: Può resistere all'Abisso

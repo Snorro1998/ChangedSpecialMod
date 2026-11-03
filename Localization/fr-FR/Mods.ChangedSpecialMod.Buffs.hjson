@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Centaure de Gelée Blanche
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Voler sur de la gelée!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: Le chat se battra pour vous
 	DisplayName: Chat Ming
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Queue Blanche
 	Description: Blanc et rapide!
+}
+
+YufengCubMountBuff: {
+	Description: Voler sur de la gelée!
+	DisplayName: Yufeng
 }

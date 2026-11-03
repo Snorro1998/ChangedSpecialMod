@@ -140,60 +140,6 @@ namespace ChangedSpecialMod.Content.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return 0;
-            /*
-            if (DownedBossSystem.DownedWhiteTail || NPC.AnyNPCs(ModContent.NPCType<WhiteTail>()))
-                return 0;
-
-            var nMinKills = 20;     // Minimum monster kills needed to spawn
-            var nMaxKills = 40;     // Guaranteed to spawn
-
-            // Black
-            var nGoop = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<BlackGoop>());
-            var nCub = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<DarkLatexCub>());
-            var nAdult = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<MaleDarkLatex>());
-            nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FemaleDarkLatex>());
-            var nFlying = ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FlyingDarkLatex>());
-
-            // White
-            nGoop += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteGoop>());
-            nCub += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteLatexCub>());
-            nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WhiteKnight>());
-
-            // Drunk
-            if (ChangedUtils.IsDrunk(spawnInfo.Player))
-            {
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<BackLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<DarkLatexCubOfDoom>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<PuroWormHead>());
-                nCub += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<QuackLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<SnackLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<StackLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WackLatex>());
-
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<BrightLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FightLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<FlightLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<HideLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<MightLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<SideLatex>());
-                nAdult += ChangedUtils.GetBestiaryKillCount(ModContent.NPCType<WideLatex>());
-            }
-
-            // Increase the change even further if the player has more then 200 hp
-            var playerHP = spawnInfo.Player.statLifeMax2;
-            var playerHPMultiplier = Math.Max(0, playerHP - 200) / 200 * nMinKills;
-
-            var nKills = 0.3f * nGoop + 0.5f * nCub + nAdult + 1.5f * nFlying + playerHPMultiplier;
-            
-            if (nKills < nMinKills)
-            {
-                return 0;
-            }
-
-            var chance = 0.5f + (nKills - nMinKills) * (2.5f / (nMaxKills - nMinKills));
-            var changedNPC = NPC.Changed();
-            return chance * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, changedNPC, NPC.type);
-            */
         }
 
         public void SwitchState(ActionState newState)

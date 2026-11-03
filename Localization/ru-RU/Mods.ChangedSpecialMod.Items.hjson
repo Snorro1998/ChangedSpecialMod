@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Призывает ездового белого слизня.
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Чёрное Крыло
-	Tooltip: Призывает ездового питомца Юфэна.
-}
-
 Literature: {
 	DisplayName: Литература
 	Tooltip: В нем содержится много популярных тем.
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Музыкальная шкатулка (Король Волков)
 	Tooltip: Шизи
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Знамя Юфэнанок
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Праздничный торт
-	Tooltip: Спасибо всем за более чем 900 загрузок!
+	Tooltip: Спасибо всем за более чем 1000 загрузок!
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Знамя белый слизистый кентавр
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Знамя Юфэна
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Знамя собака-кальмар щенок
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Призвать всех боссов
+	Tooltip: 
+	'''
+	Призывает всех боссов из всех активных модов.
+	Отличная идея, если вы хотите «повесить» свой компьютер.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Чёрное Крыло
+	Tooltip: Призывает ездового питомца Юфэна.
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Знамя Юфэнанок
 }

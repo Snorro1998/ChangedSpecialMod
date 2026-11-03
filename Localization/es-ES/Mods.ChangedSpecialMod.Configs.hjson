@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Personajes]"
 		Evolution: "[c/ffeb6e:Evolución]"
 		Visuals: "[c/ffeb6e:Gráficos]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Fases de generación del mundo]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			El número de laboratorios por lado del mundo.
 			El valor predeterminado 1 generará 1 laboratorio 
 			en mundos pequeños y medianos, y 2 laboratorios en mundos grandes.
-			ADVERTENCIA: Los valores grandes en mundos pequeños pueden provocar que el juego se bloquee.
+			[c/ff0000:ADVERTENCIA]: Los valores grandes en mundos pequeños pueden provocar que el juego se bloquee.
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Forzar la generación del mundo al final
+		Tooltip:
+			'''
+			Si la generación del mundo debe realizarse después de todos los demás mods. 
+			Esto podría solucionar problemas de superposición de biomas y estructuras, aunque no está garantizado. 
+			Si esta opción está habilitada, el generador de mundos se quedará bloqueado durante un breve instante en la última etapa.
+			[c/ff0000:ADVERTENCIA] ¡Activa esto solo si es necesario!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Laboratorios
+		Tooltip: Si los laboratorios deberían construirse en la superficie.
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Cuevas de limo
+		Tooltip: Si las cuevas de slimes debieran generarse bajo tierra.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Santuarios Naranjas
+		Tooltip: Si las Santuarios Naranja debieran generarse bajo tierra.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Canciones cortas
+		Tooltip: Si en las zonas de limo puede sonar canciones cortas y repetitivas.
 	}
 }

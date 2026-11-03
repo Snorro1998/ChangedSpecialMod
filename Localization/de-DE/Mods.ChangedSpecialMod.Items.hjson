@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Beschwört ein weißer Schleim zum Reiten.
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Schwarzer Flügel
-	Tooltip: Beschwört ein Yufeng zum Reiten.
-}
-
 Literature: {
 	DisplayName: Literatur
 	Tooltip: Voller Trendthemen
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Spieluhr (Wolfskönig)
 	Tooltip: Von ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Yufengwelpebanner
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Festtagstorte
-	Tooltip: Vielen Dank an alle für über 900 Downloads!
+	Tooltip: Vielen Dank an alle für über 1000 Downloads!
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Weißer Schleimzentaurbanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Yufengbanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Tintenfischhundwelpebanner
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Beschwöre alle Bosse
+	Tooltip: 
+	'''
+	Beschwört alle Bosse aus sämtlichen aktiven Mods. 
+	Das ist eine hervorragende Idee, wenn du deinen Computer zum Absturz bringen willst.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Schwarzer Flügel
+	Tooltip: Beschwört ein Yufeng zum Reiten.
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Yufengwelpebanner
 }

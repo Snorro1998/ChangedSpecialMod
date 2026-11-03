@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Personnages]"
 		Evolution: "[c/ffeb6e:Évolution]"
 		Visuals: "[c/ffeb6e:Graphismes]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Étapes de génération du monde]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			Le nombre de laboratoires par côté du monde.
 			La valeur par défaut 1 générera 1 laboratoire sur les mondes de 
 			petite et moyenne taille et 2 laboratoires sur les grands mondes.
-			ATTENTION: Des valeurs élevées sur des mondes de petite taille peuvent faire planter votre jeu.
+			[c/ff0000:ATTENTION]: Des valeurs élevées sur des mondes de petite taille peuvent faire planter votre jeu.
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Forcer la génération du monde à la fin
+		Tooltip:
+			'''
+			Si la génération du monde doit être effectuée après tous les autres mods. 
+			Cela pourrait — sans garantie — résoudre des problèmes de chevauchement entre biomes et structures. 
+			Si cette option est activée, le générateur de monde restera bloqué pendant un court instant lors de la dernière étape.
+			[c/ff0000:ATTENTION] N'activez ceci que si nécessaire !
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Laboratoires
+		Tooltip: Si des laboratoires devaient être construits en surface.
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Grottes de slime
+		Tooltip: Si des grottes à slimes devaient se générer sous terre.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Sanctuaires d'oranges
+		Tooltip: Si des sanctuaires d'oranges devaient se générer sous terre.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Chansons courtes
+		Tooltip: Si des chansons courts et répétitifs peuvent être diffusés dans les zones de slime.
 	}
 }

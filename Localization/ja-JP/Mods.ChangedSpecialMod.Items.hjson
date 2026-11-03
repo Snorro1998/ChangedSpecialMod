@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: 乗れる白いスライムのケンタウロスのマウントを召喚する
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: 黒い翼
-	Tooltip: 乗れるユーフェンのマウントを召喚する
-}
-
 Literature: {
 	DisplayName: 文学
 	Tooltip: トレンドのトピックで溢れている
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: オルゴール (狼の王)
 	Tooltip: シズ作
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: ユーフェンの子のバナー
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: お祝いのケーキ
-	Tooltip: 900回以上のダウンロード、ありがとうございます。
+	Tooltip: 1000回以上のダウンロード、ありがとうございます。
 }
 
 WhiteLatexLantern: {
@@ -1112,4 +1102,43 @@ QuestBook: {
 DebugPickaxe: {
 	DisplayName: デバッグ用ツルハシ
 	Tooltip: ""
+}
+
+FaultyLight: {
+	// DisplayName: Faulty Light
+	// Tooltip: ""
+}
+
+WhiteLatexTaurBanner: {
+	DisplayName: 白いスライムのケンタウロスのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
+}
+
+YufengBanner: {
+	DisplayName: ユーフェンのバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
+}
+
+SquidDogCubBanner: {
+	DisplayName: イカ犬の子犬のバナー
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: すべてのボスを召喚する
+	Tooltip:
+	'''
+	有効なすべてのMODから、あらゆるボスを出現させます。
+	PCをクラッシュさせたいのであれば、最高のアイデアと言えるでしょう。
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: 黒い翼
+	Tooltip: 乗れるユーフェンのマウントを召喚する
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: ユーフェンの子のバナー
 }

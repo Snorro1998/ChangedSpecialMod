@@ -34,6 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:登場人物]"
 		Evolution: "[c/ffeb6e:進化]"
 		Visuals: "[c/ffeb6e:ビジュアル]"
+		WorldGenerationSteps: "[c/ffeb6e:ワールド生成のステップ]"
 	}
 
 	NumberOfLabs: {
@@ -42,7 +43,7 @@ ChangedSpecialModClientConfig: {
 			'''
 			半球あたりの研究所の数。
 			デフォルト値の1を設定すると、小規模および中規模のワールドには1つの研究所が、大規模なワールドには2つの研究所が生成されます。
-			警告：小さなワールドで大きな値を設定すると、ゲームがクラッシュする可能性があります。
+			[c/ff0000:警告]：小さなワールドで大きな値を設定すると、ゲームがクラッシュする可能性があります。
 			'''
 	}
 
@@ -129,5 +130,36 @@ ChangedSpecialModClientConfig: {
 	RetroVisualsNPCs: {
 		Label: 古いキャラクター
 		Tooltip: キャラクターには、古いバージョンのスプライトを使用する。
+	}
+	
+	ForceLastGenerationPass: {
+		Label: ワールド生成が最後に実行されるように強制する
+		Tooltip:
+			'''
+			ワールド生成を他のすべてのMODの処理が終わった後に行うように設定します。 
+			これにより、バイオームや構造物の重複といった問題が解消される可能性があります（ただし、必ず解消されるとは限りません）。 
+			このオプションを有効にすると、ワールド生成の最終段階で処理がしばらく停止したような状態になります。
+			[c/ff0000:警告] 必要な場合にのみ有効にしてください！
+			'''
+	}
+
+	WorldGenStepSurfaceLabs: {
+		Label: 研究所
+		Tooltip: もし研究所を地表に建設すべきだとしたら。
+	}
+
+	WorldGenStepLatexCaves: {
+		Label: スライムの洞窟
+		Tooltip: もし地下にスライムの洞窟が生成されるとしたら。
+	}
+
+	WorldGenStepOrangeShrine: {
+		Label: オレンジの祠
+		Tooltip: もしオレンジの祠を地下に建設するとしたら。
+	}
+
+	ShortMusic: {
+		Label: 短い音楽
+		Tooltip: スライム地帯では、短く反復的な音楽が流れるようにする。
 	}
 }

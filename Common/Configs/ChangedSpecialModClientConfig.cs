@@ -21,10 +21,10 @@ namespace ChangedSpecialMod.Common.Configs
         public bool WhipCrackSound { get; set; }
 
         [DefaultValue(false)]
-        public bool ShortMusic { get; set; }
+        public bool SlipSound { get; set; }
 
         [DefaultValue(false)]
-        public bool SlipSound { get; set; }
+        public bool ShortMusic { get; set; }
 
         [Header("Npc")]
         [DefaultValue(true)]

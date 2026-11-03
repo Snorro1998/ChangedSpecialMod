@@ -34,6 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:NPC]"
 		Evolution: "[c/ffeb6e:Evolutie]"
 		Visuals: "[c/ffeb6e:Grafisch]"
+		WorldGenerationSteps: "[c/ffeb6e:Wereldgeneratiefasen]"
 	}
 
 	NumberOfLabs: {
@@ -129,5 +130,36 @@ ChangedSpecialModClientConfig: {
 	RetroVisualsNPCs: {
 		Label: Oude NPCs
 		Tooltip: Gebruik oude afbeeldingen voor NPCs
+	}
+
+	ForceLastGenerationPass: {
+		Label: Forceer wereldgeneratie op het eind
+		Tooltip:
+			'''
+			Of de wereldgeneratie gebeurt na alle andere mods.
+			Dit kan problemen met overlappen klimaten en gebouwen oplossen, maar het is niet gegarandeerd.
+			Als deze optie aan staat, hangt de wereldgenerato even bij de laatste stap.
+			[c/ff0000:WAARSCHUWING] Schakel dit alleen in als het echt nodig is!
+			'''
+	}
+
+	WorldGenStepSurfaceLabs: {
+		Label: Laboratoria
+		Tooltip: Of laboratoria op het oppervlakte gebouwd worden.
+	}
+
+	WorldGenStepLatexCaves: {
+		Label: Slijmgrotten
+		Tooltip: Of slijmgrotten ondergronds gemaakt worden.
+	}
+
+	WorldGenStepOrangeShrine: {
+		Label: Sinaasappelheiligdommen
+		Tooltip: Of sinaasappelheiligdommen ondergrond gebouwd worden.
+	}
+
+	ShortMusic: {
+		Label: Korte muziek
+		Tooltip: Of korte, repeterende muziek afgespeeld kan worden in slijmgebieden.
 	}
 }

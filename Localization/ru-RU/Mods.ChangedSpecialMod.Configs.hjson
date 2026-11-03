@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:Персонажи]"
 		Evolution: "[c/ffeb6e:Эволюция]"
 		Visuals: "[c/ffeb6e:Графика]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:Этапы генерации мира]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			Количество лабораторий на каждой стороне мира.
 			Значение по умолчанию, равное 1, создаёт одну лабораторию
 			в маленьких и средних мирах и две лаборатории в больших мирах.
-			ПРЕДУПРЕЖДЕНИЕ: Большие значения на маленьких мирах могут
+			[c/ff0000:ПРЕДУПРЕЖДЕНИЕ]: Большие значения на маленьких мирах могут
 			привести к вылету игры.
 			'''
 	}
@@ -136,27 +136,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: Принудительно запустить генерацию мира в конце
+		Tooltip:
+			'''
+			Если генерация мира должна выполняться после всех остальных модов. 
+			Это может — хотя и не гарантирует — решить проблемы с наложением биомов и структур друг на друга. 
+			Если эта опция включена, генератор мира на некоторое время «зависнет» на последнем этапе.
+			[c/ff0000:ПРЕДУПРЕЖДЕНИЕ] Включайте это, только если необходимо!
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: Лаборатории
+		Tooltip: Следует ли строить лаборатории на поверхности?
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: Слизневые пещеры
+		Tooltip: Если в подземной части мира должны генерироваться пещеры со слаймами.
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: Святилища из апельсинов
+		Tooltip: Если бы под землёй следовало возводить святилища из апельсинов.
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: Короткая музыка
+		Tooltip: В зонах со слизью может звучать короткая, повторяющаяся музыка.
 	}
 }

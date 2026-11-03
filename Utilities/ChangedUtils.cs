@@ -789,7 +789,7 @@ namespace ChangedSpecialMod.Utilities
                 //ModContent.NPCType<Cheerleader>(),
                 ModContent.NPCType<FemaleDarkLatex>(),
                 ModContent.NPCType<MaleDarkLatex>(),
-                ModContent.NPCType<FlyingDarkLatex>(),
+                ModContent.NPCType<YufengCub>(),
                 ModContent.NPCType<Yufeng>(),
 
                 // Crystal wolves
@@ -1679,7 +1679,7 @@ namespace ChangedSpecialMod.Utilities
                     projectile.spriteDirection = Math.Sign(projectile.velocity.X);
                 }
 
-                if (isTabby)
+                if (isTabby || isMingCat)
                 {
                     projectile.frame = 1;
                 }
@@ -2093,13 +2093,13 @@ namespace ChangedSpecialMod.Utilities
                     {
                         projectile.frameCounter += (int)Math.Abs(projectile.velocity.X);
                         //projectile.frameCounter++;
-                        var animSpeed = isTabby ? 5 : 10;
+                        var animSpeed = (isTabby || isMingCat) ? 5 : 10;
                         if (projectile.frameCounter > animSpeed)
                         {
                             projectile.frame++;
                             projectile.frameCounter = 0;
                         }
-                        if (isTabby && projectile.frame >= 10)
+                        if ((isTabby || isMingCat) && projectile.frame >= 10)
                         {
                             projectile.frame = 2;
                         }
@@ -2117,7 +2117,7 @@ namespace ChangedSpecialMod.Utilities
                 else if (projectile.velocity.Y != 0f)
                 {
                     projectile.frameCounter = 0;
-                    if (isTabby)
+                    if (isTabby || isMingCat)
                     {
                         projectile.frame = 1;
                     }

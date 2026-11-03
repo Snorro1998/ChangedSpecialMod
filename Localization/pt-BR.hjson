@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Busca por locais adequados para estruturas
 			Labs: Construir laboratórios
 			OrangeShrines: Construir santuários
 			LatexCaves: Gerando cavernas de lodo
 			SpecialLatexEverywhere: Espalhando slime demais
 			SpecialOrange: Laranja
+			RemoveUnwantedDecals: Fazendo uma limpeza
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: Essa besta semelhante a um dragão cresceu demais para voar, mas graças às suas poderosas pernas, ainda consegue correr mais rápido do que quase qualquer outra criatura.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Filhote de Yufeng
-				Description: Uma gosma preta mutante que desenvolveu asas, permitindo-lhe voar para qualquer lugar.
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: Gato Ming
+				Description: Miau
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: Gato tigrado
+				Description: Miau miau
+			}
+
+			YufengCub: {
+				DisplayName: Filhote de Yufeng
+				Description: Uma gosma preta mutante que desenvolveu asas, permitindo-lhe voar para qualquer lugar.
 			}
 		}
 

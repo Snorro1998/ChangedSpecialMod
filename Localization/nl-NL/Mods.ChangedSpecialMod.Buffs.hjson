@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Witte Slijmcentaur
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Vliegen op slijm!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: De kat vecht voor jou
 	DisplayName: Mingkat
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Weißschwanz
 	Description: Weiß und schnell!
+}
+
+YufengCubMountBuff: {
+	Description: Vliegen op slijm!
+	DisplayName: Yufeng
 }

@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Zoeken naar geschikte locaties voor bouwwerken
 			Labs: Laboratoria bouwen
 			OrangeShrines: Altaren bouwen
 			LatexCaves: Slijmgrotten genereren
 			SpecialLatexEverywhere: Verspreiden van veels te veel slijm
 			SpecialOrange: Sinaasappel
+			RemoveUnwantedDecals: Opschonen
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Yufeng
 				Description: Dit draakachtige beest is to groot geworden om te vliegen, maar dankzij zijn sterke benen kan hij sneller rennen dan bijna ieder ander dier.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Yufengpup
-				Description: Een gemuteerde Zwarte Slijm die vleugels heeft ontwikkeld, zodat hij overal heen kan vliegen.
 			}
 
 			DarkLatexCub: {
@@ -513,6 +510,21 @@ Mods: {
 			// SquidDogTentacleBody.DisplayName: Squid Dog Tentacle Body
 			// SquidDogBoss.DisplayName: Squid Dog Boss
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
+
+			MingCat: {
+				DisplayName: Ming Kat
+				Description: Miauw
+			}
+
+			TabbyCat: {
+				DisplayName: Cyperse Kat
+				Description: Miauw miauw
+			}
+
+			YufengCub: {
+				DisplayName: Yufengpup
+				Description: Een gemuteerde Zwarte Slijm die vleugels heeft ontwikkeld, zodat hij overal heen kan vliegen.
+			}
 		}
 
 		Emotes: {

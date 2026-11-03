@@ -36,7 +36,8 @@ namespace ChangedSpecialMod.Utilities
     {
         SpreadingGrass,
         SurfaceOreandStone,
-        WaterPlants
+        WaterPlants,
+        Final
     }
 
     public class WorldMaker : ModSystem
@@ -50,6 +51,7 @@ namespace ChangedSpecialMod.Utilities
             { WorldPass.SurfaceOreandStone, "Surface Ore and Stone" },
             // Ancients Awakened generates its biomes before this
             { WorldPass.WaterPlants, "Water Plants" },
+            // Enum has "Final" value, which means after everything from this dictionary
         };
 
         private WorldPass highestPass = WorldPass.SurfaceOreandStone;

@@ -42,8 +42,7 @@ namespace ChangedSpecialMod.Content.NPCs
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = NPCAIStyleID.Bat;
 			NPC.noGravity = true;
-            //Banner = Type;
-            //BannerItem = ModContent.ItemType<FlyingDarkLatexBanner>();
+
             AnimationType = NPCID.Slimer;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexUndergroundBiome>().Type };
 

@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Evoca una melma bianca cavalcabile
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Ala Nera
-	Tooltip: Evoca uno Yufeng cavalcabile
-}
-
 Literature: {
 	DisplayName: Letteratura
 	Tooltip: Contiene argomenti popolari
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Carillon (Re Lupo)
 	Tooltip: Di ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Stendardo cucciolo di Yufeng
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Torta di festa
-	Tooltip: Grazie a tutti per gli oltre 900 download
+	Tooltip: Grazie a tutti per gli oltre 1000 download
 }
 
 WhiteLatexLantern: {
@@ -1120,16 +1110,35 @@ FaultyLight: {
 }
 
 WhiteLatexTaurBanner: {
-	// DisplayName: White Latex Taur Banner
-	// Tooltip: ""
+	DisplayName: Stendardo Centauro di melma bianca
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
-	// DisplayName: Yufeng Banner
-	// Tooltip: ""
+	DisplayName: Stendardo Yufeng
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
-	// DisplayName: Squid Dog Cub Banner
-	// Tooltip: ""
+	DisplayName: Stendardo Cucciolo di Cane calamaro
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Evoca tutti i boss
+	Tooltip:
+	'''
+	Genera tutti i boss provenienti da tutte le mod attive.
+	È un'ottima idea se vuoi mandare in crash il tuo computer.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Ala Nera
+	Tooltip: Evoca uno Yufeng cavalcabile
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Stendardo cucciolo di Yufeng
 }

@@ -3,11 +3,6 @@ WhiteLatexTaurMountBuff: {
 	DisplayName: Weißer Schleimzentaur
 }
 
-FlyingDarkLatexMountBuff: {
-	Description: Auf einem Schleim fliegen!
-	DisplayName: Yufeng
-}
-
 WhiskerStaffBuff: {
 	Description: Die Katze wird für dich kämpfen
 	DisplayName: Ming-Katze
@@ -36,4 +31,9 @@ BehemothWeaponBuff: {
 WhiteTailMountBuff: {
 	DisplayName: Weißschwanz
 	Description: Weiß und schnell!
+}
+
+YufengCubMountBuff: {
+	Description: Auf einem Schleim fliegen!
+	DisplayName: Yufeng
 }

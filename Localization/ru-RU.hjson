@@ -44,11 +44,13 @@ Mods: {
 		}
 
 		WorldGenerationPasses: {
+			GetRegions: Поиск подходящих мест для сооружений
 			Labs: Строить лаборатории
 			OrangeShrines: Стройте святилища
 			LatexCaves: Создание слизистых пещер
 			SpecialLatexEverywhere: Распространяете слишком много слизи.
 			SpecialOrange: Апельсин
+			RemoveUnwantedDecals: Уборка
 		}
 
 		NPCs: {
@@ -125,11 +127,6 @@ Mods: {
 			Yufeng: {
 				DisplayName: Юфэна
 				Description: Это драконоподобное существо выросло слишком большим, чтобы летать, но благодаря своим мощным ногам оно все еще может бегать быстрее, чем почти любое другое существо.
-			}
-
-			FlyingDarkLatex: {
-				DisplayName: Юфэна щенок
-				Description: Мутировавшая черная слизь, у которой выросли крылья, позволяющие ей летать куда угодно.
 			}
 
 			DarkLatexCub: {
@@ -515,13 +512,18 @@ Mods: {
 			// SquidDogTentacleHead.DisplayName: Squid Dog Tentacle Head
 
 			MingCat: {
-				// DisplayName: Ming Cat
-				// Description: Meow
+				DisplayName: Минг Кот
+				Description: Мяу
 			}
 
 			TabbyCat: {
-				// DisplayName: Tabby Cat
-				// Description: Meow
+				DisplayName: Полосатая кошка
+				Description: Мяу-мяу
+			}
+
+			YufengCub: {
+				DisplayName: Юфэна щенок
+				Description: Мутировавшая черная слизь, у которой выросли крылья, позволяющие ей летать куда угодно.
 			}
 		}
 

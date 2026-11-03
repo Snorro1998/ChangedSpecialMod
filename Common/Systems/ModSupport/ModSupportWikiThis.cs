@@ -58,7 +58,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 { ModContent.NPCType<DarkLatexCub>(), "Black_Latex_Cub" },
                 { ModContent.NPCType<MaleDarkLatex>(), "Black_Latex" },
                 { ModContent.NPCType<FemaleDarkLatex>(), "Black_Latex" },
-                { ModContent.NPCType<FlyingDarkLatex>(), "Yufeng_Cub" },
+                { ModContent.NPCType<YufengCub>(), "Yufeng_Cub" },
                 { ModContent.NPCType<Yufeng>(), "Yufeng" },
                 { ModContent.NPCType<Wendigo>(), "Wendigo" },
 
@@ -303,7 +303,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 ModContent.ItemType<BlackGoopBanner>(),
                 ModContent.ItemType<BloodstripeBanner>(),
                 ModContent.ItemType<DarkLatexBanner>(),
-                ModContent.ItemType<FlyingDarkLatexBanner>(),
+                ModContent.ItemType<YufengCubBanner>(),
                 ModContent.ItemType<GermanShepherdBanner>(),
                 ModContent.ItemType<PurrpurrBanner>(),
                 ModContent.ItemType<SquidDogBanner>(),
@@ -407,7 +407,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         {
             return new List<int>()
             {
-                ModContent.ItemType<FlyingDarkLatexMountItem>(),
+                ModContent.ItemType<YufengCubMountItem>(),
                 ModContent.ItemType<LatexMothMountItem>(),
                 ModContent.ItemType<WhiteLatexTaurMountItem>()
             };

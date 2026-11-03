@@ -34,7 +34,7 @@ ChangedSpecialModClientConfig: {
 		Npc: "[c/ffeb6e:人物]"
 		Evolution: "[c/ffeb6e:进化]"
 		Visuals: "[c/ffeb6e:图形]"
-		// WorldGenerationSteps: World Generation Steps Header
+		WorldGenerationSteps: "[c/ffeb6e:世界生成阶段]"
 	}
 
 	NumberOfLabs: {
@@ -44,7 +44,7 @@ ChangedSpecialModClientConfig: {
 			世界每边的实验室数量。
 			默认值 1 将在小型和中型世界中生成 1 
 			个实验室，在大型世界中生成 2 个实验室。
-			警告：在小型世界中使用过大的值可能会导致游戏崩溃。
+			[c/ff0000:警告]：在小型世界中使用过大的值可能会导致游戏崩溃。
 			'''
 	}
 
@@ -134,27 +134,33 @@ ChangedSpecialModClientConfig: {
 	}
 
 	ForceLastGenerationPass: {
-		// Label: Force Last Generation Pass
-		// Tooltip: ""
+		Label: 强制将世界生成过程置于最后执行
+		Tooltip:
+			'''
+			若希望在所有其他模组加载完毕后再执行世界生成过程，可启用此选项。 
+			这或许能解决生物群系或结构重叠的问题，但不能保证一定有效。 
+			若启用此选项，世界生成器在最后一步会短暂停滞。
+			[c/ff0000:警告] 仅在必要时启用此项！
+			'''
 	}
 
 	WorldGenStepSurfaceLabs: {
-		// Label: World Gen Step Surface Labs
-		// Tooltip: ""
+		Label: 实验室
+		Tooltip: 如果实验室应建在地表上。
 	}
 
 	WorldGenStepLatexCaves: {
-		// Label: World Gen Step Latex Caves
-		// Tooltip: ""
+		Label: 黏液洞穴
+		Tooltip: 如果地下会生成史莱姆洞穴。
 	}
 
 	WorldGenStepOrangeShrine: {
-		// Label: World Gen Step Orange Shrine
-		// Tooltip: ""
+		Label: 橙子神龛
+		Tooltip: 如果要在地下建造供奉橙子的神龛。
 	}
 
 	ShortMusic: {
-		// Label: Short Music
-		// Tooltip: ""
+		Label: 短音乐
+		Tooltip: 如果能在黏液区域播放短小且重复的音乐。
 	}
 }

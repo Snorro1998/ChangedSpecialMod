@@ -303,11 +303,6 @@ WhiteLatexTaurMountItem: {
 	Tooltip: Summons a rideable White Latex mount
 }
 
-FlyingDarkLatexMountItem: {
-	DisplayName: Black Wing
-	Tooltip: Summons a rideable Yufeng mount
-}
-
 Literature: {
 	DisplayName: Literature
 	Tooltip: Full of hot topics
@@ -431,11 +426,6 @@ MusicBoxBlackLatexZone1: {
 MusicBoxWolfKing: {
 	DisplayName: Music Box (Wolf King)
 	Tooltip: By ShiZi
-}
-
-FlyingDarkLatexBanner: {
-	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.FlyingDarkLatex.DisplayName}"
-	DisplayName: Yufeng Cub Banner
 }
 
 SummonWolfKing: {
@@ -936,7 +926,7 @@ WhiteLatexSandstoneBlock: {
 
 CelebrationCake: {
 	DisplayName: Celebration Cake
-	Tooltip: Thank you all for over 900 downloads
+	Tooltip: Thank you all for over 1000 downloads
 }
 
 WhiteLatexLantern: {
@@ -1121,15 +1111,34 @@ FaultyLight: {
 
 WhiteLatexTaurBanner: {
 	DisplayName: White Latex Taur Banner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.WhiteLatexTaur.DisplayName}"
 }
 
 YufengBanner: {
 	DisplayName: Yufeng Banner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.Yufeng.DisplayName}"
 }
 
 SquidDogCubBanner: {
 	DisplayName: Squid Dog Cub Banner
-	Tooltip: ""
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.SquidDogCub.DisplayName}"
+}
+
+DebugSpawnAllBosses: {
+	DisplayName: Spawn All Bosses
+	Tooltip:
+	'''
+	Spawns all bosses from all active mods.
+	This is an excellent idea if you want to crash your computer.
+	'''
+}
+
+YufengCubMountItem: {
+	DisplayName: Black Wing
+	Tooltip: Summons a rideable Yufeng mount
+}
+
+YufengCubBanner: {
+	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
+	DisplayName: Yufeng Cub Banner
 }
