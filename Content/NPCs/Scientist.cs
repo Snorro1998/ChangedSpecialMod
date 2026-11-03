@@ -434,6 +434,7 @@ namespace ChangedSpecialMod.Content.NPCs
             new NPCShop(Type, Shops[5].InternalName)
                 .Add<DebugTeleportToLatex>()
                 .Add<DebugSpawnAllNPCs>()
+                .Add<DebugSpawnAllBosses>()
                 .Add<DebugResetBosses>()
                 .Add<DebugSpawnColin>()
                 //.Add<SummonShark>()

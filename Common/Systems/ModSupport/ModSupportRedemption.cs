@@ -12,7 +12,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         public override void Init()
         {
             // Everything happens after "Final Cleanup"
-            VanillaPassAfterBiomeGeneration = Utilities.WorldPass.Final;
+            // VanillaPassAfterBiomeGeneration = Utilities.WorldPass.AfterFinalCleanup;
 
             bossProgressionList = new DownedBossObjectList()
             {
@@ -51,6 +51,10 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
             AddTileType("GathicStoneTile", true);
             AddTileType("GathicStoneBrickTile", true);
             AddTileType("GathicGladestoneTile", true);
+            // Gathic Frost Stone
+            // Niric Brass pipe
+            // Niric Cog
+            // Big Niric Cob
 
             // Abandoned lab (protected structure)
             AddTileType("LabPlatingTileUnsafe", true);

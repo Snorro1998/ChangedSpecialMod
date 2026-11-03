@@ -1127,10 +1127,10 @@ SquidDogCubBanner: {
 DebugSpawnAllBosses: {
 	DisplayName: Przyzwij wszystkich bossów
 	Tooltip:
-	'''
-	Przywołuje wszystkich bossów ze wszystkich aktywnych modów.
-	To znakomity pomysł, jeśli chcesz doprowadzić do zawieszenia swojego komputera.
-	'''
+		'''
+		Przywołuje wszystkich bossów ze wszystkich aktywnych modów.
+		To znakomity pomysł, jeśli chcesz doprowadzić do zawieszenia swojego komputera.
+		'''
 }
 
 YufengCubMountItem: {

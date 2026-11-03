@@ -14,7 +14,6 @@ namespace ChangedSpecialMod.Content.Items.Debug
             Item.useAnimation = 10;
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.consumable = true;
         }
 
         public override bool? UseItem(Player player)

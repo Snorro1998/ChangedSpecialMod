@@ -1126,11 +1126,11 @@ SquidDogCubBanner: {
 
 DebugSpawnAllBosses: {
 	DisplayName: Beschwöre alle Bosse
-	Tooltip: 
-	'''
-	Beschwört alle Bosse aus sämtlichen aktiven Mods. 
-	Das ist eine hervorragende Idee, wenn du deinen Computer zum Absturz bringen willst.
-	'''
+	Tooltip:
+		'''
+		Beschwört alle Bosse aus sämtlichen aktiven Mods. 
+		Das ist eine hervorragende Idee, wenn du deinen Computer zum Absturz bringen willst.
+		'''
 }
 
 YufengCubMountItem: {

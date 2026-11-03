@@ -37,7 +37,7 @@ namespace ChangedSpecialMod.Utilities
         SpreadingGrass,
         SurfaceOreandStone,
         WaterPlants,
-        Final
+        AfterFinalCleanup
     }
 
     public class WorldMaker : ModSystem
@@ -51,7 +51,9 @@ namespace ChangedSpecialMod.Utilities
             { WorldPass.SurfaceOreandStone, "Surface Ore and Stone" },
             // Ancients Awakened generates its biomes before this
             { WorldPass.WaterPlants, "Water Plants" },
-            // Enum has "Final" value, which means after everything from this dictionary
+            
+            // Not a generation pass, but for everything after it
+            { WorldPass.AfterFinalCleanup, "After Final Cleanup" },
         };
 
         private WorldPass highestPass = WorldPass.SurfaceOreandStone;
@@ -79,7 +81,9 @@ namespace ChangedSpecialMod.Utilities
             var passOrangeShrinesEnabled = config.WorldGenStepOrangeShrine;
             var anyWorldGenEnabled = passLabsEnabled || passLatexCavesEnabled || passOrangeShrinesEnabled;
 
-            var passName = WorldGenPasses[highestPass];
+            var passName = string.Empty;
+            if (WorldGenPasses.ContainsKey(highestPass))
+                passName = WorldGenPasses[highestPass];
             int taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals(passName)) - 1; 
             if (taskIndex >= 0)
             {

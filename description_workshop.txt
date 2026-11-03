@@ -15,7 +15,7 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 [/list]
 
 [h2]Special Seeds[/h2]
-These affect the world generation when used as the world seed. If you want varitions of these seeds, just add letters or numbers after it.
+These affect the world generation when used as the world seed. If you want variations of these seeds, just add letters or numbers after it.
 [list]
 	[*]blackgoozone: Covers the surface in black goo
 	[*]whitegoojungle: Covers the surface in white goo
@@ -34,12 +34,18 @@ This mod has built-in support for:
 	[*]Wikithis
 [/list]
 
-Additionally, town npcs can sell items from these mods:
+The mod also tries to avoid generating things in structures and biomes from these mods
 [list]
+	[*]Ancients Awakened
+	[*]Bismuth
 	[*]Calamity
+	[*]Coralite
+	[*]Mod of Redemption
 	[*]Spirit and Spirit Reforged
 	[*]Thorium
 [/list]
+
+Town NPCs can also sell herbs and fruit from the previously listed mods.
 
 Mods that can cause issues:
 [list]
@@ -47,11 +53,9 @@ Mods that can cause issues:
 	[*]MrPlague's Authentic Races: Not game-breaking, but the visuals of races are overwritten when transfurred.
 [/list]
 
-Most other mods should work fine. The only problem that you can run into is when the world generation overwrites structures or biomes from other mods and vice versa.
-
 
 [h2]Multiplayer[/h2]
-Most things should work fine in multiplayer. In rare cases, you might encounter desycing of player transfurs. This means that they are transfurred, but you can't see it. A possible indicator of this happening is if the other player jitters on your screen when he moves. To fix this problem, he has to transfur into something else with any of the combined syringes (it's hard to explain, but it has to be a syringe that makes the interface pop up).
+This mod should work fine most of the time in multiplayer. In rare cases, you might see other players jittering while moving. This can mean that they are transfurred, but that it isn't visible for you. To fix this, they can use any syringe that makes the selection screen pop up. Syringes that don't do this can't fix this issue.
 
 
 [h2]Other[/h2]
@@ -99,7 +103,7 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 [h2]Changelog[/h2]
 
 
-[h3]0.5.7.5[/h3]
+[h3]0.5.7.6[/h3]
 
 This update resprites some furniture items and adds two new languages that are not part of TModloader. 
 These languages require the Localization Plus mod to be installed, and they only translate content from this mod. 
@@ -110,17 +114,58 @@ These languages require the Localization Plus mod to be installed, and they only
 	[*]Japanese
 [/list]
 
+
+This update greatly improves the sprites of the ming and tabby cat summons. 
+It also improves detection of biomes and structures from other mods, making it less likely for things to overlap.
+If you still experience this, there is a also a new config option to force world generation to happen after all other mods.
+
+
+[b]Items[/b]
+[list]
+	[*]Added banners for: White Latex Taur, Squid Dog Cub and Yufeng
+	[*]Made all debug items non-consumable
+	[*]Added debug item to summon all bosses from all active mods. It is just for fun and it will likely make your game lag a lot.
+[/list]
+
+[b]Config[/b]
+[list]
+	[*]Added toggles for all world generation steps
+	[*]Added option to disable short and repetitive music tracks
+	[*]Added config option to force world generation to be performed after all other mods.
+[/list]
+
+[b]World Generation[/b]
+[list]
+	[*]World generator now tries to avoid generating things in biomes from these mods:
+	[*]Ancients Awakened
+	[*]Bismuth
+	[*]Mod of Redemption
+	[*]Spirit Reforged
+[/list]
+
 [b]Resprited[/b]
 [list]
-	[*]White Tail
-	[*]Crystals
-	[*]Lab table
-	[*]Iris Scanner
-	[*]Generator
+	[*]A couple of banners
+	[*]Ming Cat
+	[*]Tabby Cat
+[/list]
+
+[b]NPCs[/b]
+[list]
+	[*]I really like how the resprited cats turned out, so I decided to also turn them into NPCs. They can spawn rarely in the forest.
+	[*]Added Ming Cat
+	[*]Added Tabby Cat
 [/list]
 
 [b]Fixed[/b]
 [list]
-	[*]Worldgen could generate green plants in infected deserts, which looked strange
+	[*]Dry dirt generated in deserts did not grow grass on top
+	[*]Spirit reforged always crashes when generating a new world, because it tries to add items to the chests in orange shrines (which are completely filled).
 [/list]
 
+[b]Technical[/b]
+[list]
+	[*]Updated old internal names for NPCs and their related items:
+	[*]FlyingDarkLatex -> YufengCub
+	[*]WingedDarkLatex -> Yufeng
+[/list]

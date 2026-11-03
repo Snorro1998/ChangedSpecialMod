@@ -1127,10 +1127,10 @@ SquidDogCubBanner: {
 DebugSpawnAllBosses: {
 	DisplayName: 调试生成所有 Boss
 	Tooltip:
-	'''
-	生成所有已启用模组中的全部BOSS。
-	如果你想让电脑崩溃，这绝对是个“好”主意。
-	'''
+		'''
+		生成所有已启用模组中的全部BOSS。
+		如果你想让电脑崩溃，这绝对是个“好”主意。
+		'''
 }
 
 YufengCubMountItem: {

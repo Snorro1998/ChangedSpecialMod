@@ -1126,11 +1126,11 @@ SquidDogCubBanner: {
 
 DebugSpawnAllBosses: {
 	DisplayName: Convocar a todos los jefes
-	Tooltip: 
-	'''
-	Invoca a todos los jefes de todos los mods activos.
-	Es una idea excelente si quieres que tu ordenador se bloquee.
-	'''
+	Tooltip:
+		'''
+		Invoca a todos los jefes de todos los mods activos.
+		Es una idea excelente si quieres que tu ordenador se bloquee.
+		'''
 }
 
 YufengCubMountItem: {

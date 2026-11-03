@@ -1127,10 +1127,10 @@ SquidDogCubBanner: {
 DebugSpawnAllBosses: {
 	DisplayName: Spawn All Bosses
 	Tooltip:
-	'''
-	Spawns all bosses from all active mods.
-	This is an excellent idea if you want to crash your computer.
-	'''
+		'''
+		Spawns all bosses from all active mods.
+		This is an excellent idea if you want to crash your computer.
+		'''
 }
 
 YufengCubMountItem: {

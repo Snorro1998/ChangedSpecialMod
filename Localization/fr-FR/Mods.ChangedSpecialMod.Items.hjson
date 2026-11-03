@@ -1127,10 +1127,10 @@ SquidDogCubBanner: {
 DebugSpawnAllBosses: {
 	DisplayName: Invoquer tous les boss
 	Tooltip:
-	'''
-	Fait apparaître tous les boss issus de tous les mods actifs.
-	C'est une excellente idée si vous souhaitez faire planter votre ordinateur.
-	'''
+		'''
+		Fait apparaître tous les boss issus de tous les mods actifs.
+		C'est une excellente idée si vous souhaitez faire planter votre ordinateur.
+		'''
 }
 
 YufengCubMountItem: {

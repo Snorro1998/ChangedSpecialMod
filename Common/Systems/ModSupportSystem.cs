@@ -111,6 +111,7 @@ namespace ChangedSpecialMod.Common.Systems
             AddExternalModSupport("SpiritReforged", (mod, name) => new ModSupportSpiritReforged(mod, name));
             AddExternalModSupport("StarsModPack", (mod, name) => new ModSupportStarsModPack(mod, name));
             AddExternalModSupport("ThoriumMod", (mod, name) => new ModSupportThorium(mod, name));
+            AddExternalModSupport("Ultranium", (mod, name) => new ModSupportUltranium(mod, name));
 
             // Race
             modMrPlagueRaces = GetMod("MrPlagueRaces");

@@ -14,6 +14,14 @@ The mod is highly configurable, allowing you to change or disable content howeve
 - Transformation mechanic
 
 
+------ Special Seeds -------
+These affect the world generation when used as the world seed. If you want variations of these seeds, just add letters or numbers after it.
+- blackgoozone: Covers the surface in black goo
+- whitegoojungle: Covers the surface in white goo
+- drydrydirt: Covers the surface in dry dirt
+- muchorange: Paints the world orange
+
+
 ------- Mod support -------
 
 This mod has built-in support for:
@@ -33,13 +41,11 @@ The mod also tries to avoid generating things in structures and biomes from thes
 - Spirit and Spirit Reforged
 - Thorium
 
-And finally, town npcs can sell herbs and fruit from the previously listed mods.
+Town NPCs can also sell herbs and fruit from the previously listed mods.
 
 Mods that can cause issues:
 - Modliquid library: there is a bug in this mod that causes waterfalls to freeze in all modded biomes, included the Changed biomes.
 - MrPlague's Authentic Races: Not game-breaking, but the visuals of races are overwritten when transfurred.
-
-Most other mods should work fine. The only problem that you can run into is when the world generation overwrites structures or biomes from other mods and vice versa.
 
 
 ------- Multiplayer -------
@@ -100,14 +106,21 @@ Added banners for
 - Squid Dog Cub
 - Yufeng
 
+Items
+- Added banners for: White Latex Taur, Squid Dog Cub and Yufeng
+- Made all debug items non-consumable
+- Added debug item to summon all bosses from all active mods. It is just for fun and it will likely make your game lag a lot.
+
 Config
 - Added toggles for all world generation steps
+- Added option to disable short and repetitive music tracks
 - Added config option to force world generation to be performed after all other mods.
 
 World Generation
 - World generator now tries to avoid generating things in biomes from these mods:
 - Ancients Awakened
 - Bismuth
+- Mod of Redemption
 - Spirit Reforged
 
 Resprited
@@ -116,7 +129,7 @@ Resprited
 - Tabby Cat
 
 NPCs
-- I really like how the resprited cats turned out, so I have added them as NPCs as well. They spawn rarely in the forest.
+- I really like how the resprited cats turned out, so I decided to also turn them into NPCs. They can spawn rarely in the forest.
 - Added Ming Cat
 - Added Tabby Cat
 

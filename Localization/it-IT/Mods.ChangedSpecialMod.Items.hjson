@@ -1127,10 +1127,10 @@ SquidDogCubBanner: {
 DebugSpawnAllBosses: {
 	DisplayName: Evoca tutti i boss
 	Tooltip:
-	'''
-	Genera tutti i boss provenienti da tutte le mod attive.
-	È un'ottima idea se vuoi mandare in crash il tuo computer.
-	'''
+		'''
+		Genera tutti i boss provenienti da tutte le mod attive.
+		È un'ottima idea se vuoi mandare in crash il tuo computer.
+		'''
 }
 
 YufengCubMountItem: {
