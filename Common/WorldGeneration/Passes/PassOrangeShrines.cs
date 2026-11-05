@@ -5,6 +5,7 @@ using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -12,40 +13,239 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 {
-    public class PassOrangeShrines : WorldGenerationPass
+    public class TileData
     {
-        public PassOrangeShrines()
+        // -1 = ignore, -2 = remove
+        public int LiquidType = -1;
+        public int LiquidAmount = -1;
+
+        public int TileType = -1;
+        public int TileColor = -1;
+
+        public int WallType = -1;
+        public int WallColor = -1;
+
+        public bool HasWire = false;
+
+        public int FurnitureTileID = -1;
+
+        public bool IsTopLeftOfChest = false;
+    }
+
+    // Non-retarded colors that just work
+    public static class Colors2
+    {
+        public static Color Red = new Color(255, 0, 0);
+        public static Color Orange = new Color(255, 128, 0);
+        public static Color Yellow = new Color(255, 255, 0);
+        public static Color Green = new Color(0, 255, 0);
+        public static Color Blue = new Color(0, 0, 255);
+
+        public static Color Purple = new Color(128, 0, 128);
+        public static Color DeepOrange = new Color(200, 100, 0);
+
+        public static Color Gray = new Color(128, 128, 128);
+    }
+
+    public class StructureRuinedHouse
+    {
+        public string Name;
+        public TileData[,] Layout = null;
+
+        // Overwriteable
+        public Dictionary<Color, int> TileTypes = new Dictionary<Color, int>()
         {
-            PassName = "ChangedOrangeShrines";
-            GenerationMessage = "OrangeShrines";
+            { Colors2.Green, TileID.SlimeBlock },
+            { Colors2.Blue, TileID.Platforms },
+        };
+
+        // Overwriteable
+        public Dictionary<Color, int> WallTypes = new Dictionary<Color, int>()
+        {
+            { Colors2.Gray, WallID.None },
+            { Colors2.Green, WallID.Slime },
+        };
+
+        // Things placed after blocks, because they need to be anchored
+        public Dictionary<Color, int> FurnitureTypes = new Dictionary<Color, int>()
+        {
+            { Colors2.Red, TileID.Lamps },
+            { Colors2.Green, ModContent.TileType<OrangeStatue>() },
+            { Colors2.Blue, ModContent.TileType<PuroStatue>() },
+        };
+
+        // Always the same. Used for both tiles and walls
+        public Dictionary<Color, int> TileColors = new Dictionary<Color, int>()
+        {
+            { Colors2.Green, PaintID.GreenPaint },
+            { Colors2.DeepOrange, PaintID.DeepOrangePaint },
+        };
+
+        // Always the same
+        public Dictionary<Color, int> LiquidTypes = new Dictionary<Color, int>()
+        {
+            { Colors2.Blue, LiquidID.Water},
+            { Colors2.Red, LiquidID.Lava},
+            { Colors2.Yellow, LiquidID.Honey},
+            { Colors2.Purple, LiquidID.Shimmer}
+        };
+
+        public StructureRuinedHouse(string name, Dictionary<Color, int> tileTypes = null, Dictionary<Color, int> wallTypes = null, Dictionary<Color, int> furnitureTypes = null)
+        {
+            Name = name;
+            if (tileTypes != null)
+                TileTypes = tileTypes;
+            if (wallTypes != null)
+                WallTypes = wallTypes;
+            if (furnitureTypes != null)
+                FurnitureTypes = furnitureTypes;
+
+            LoadWalls();
+            LoadWires();
+            LoadWallColors();
+            LoadTiles();
+            LoadTileColors();
+            LoadLiquids();
+            LoadFurniture();
+            LoadChests();
         }
 
-        public override bool Enabled()
+        public bool BuildAtPosition(ref List<(int, int)> placedPositions)
         {
-            return ChangedSpecialModClientConfig.Instance.WorldGenStepOrangeShrine;
-        }
+            if (Layout == null)
+                return false;
 
-        public override void Generate()
-        {
-            var nSucces = 0;
-            var nShrines = 5;
+            var nX = Layout.GetLength(0);
+            var nY = Layout.GetLength(1);
 
-            if (Main.maxTilesX >= WorldGen.WorldSizeLargeX)
-                nShrines = 15;
-            else if (Main.maxTilesX >= WorldGen.WorldSizeMediumX)
-                nShrines = 10;
+            ChangedSpecialMod.Instance.Logger.Info($"building something w:{nX}, h:{nY}");
 
-            var nMaxAttempts = 500;
-            var placedPositions = new List<(int, int)>();
+            int distFromBorderX = 200;
 
-            for (int i = 0; i < nMaxAttempts; i++)
+            // Move further inward if Calamity is enabled so it won't end up in the abyss
+            // We might have to also add something for the sunken sea under the desert
+            if (ModSupportSystem.IsModActive("CalamityMod"))
+                distFromBorderX = 400;
+
+            int distFromBorderY = 300;
+
+            int xPosMin = distFromBorderX;
+            int xPosMax = Main.maxTilesX - distFromBorderX - nX;
+            int yPosMin = (int)(Main.maxTilesY * 0.4f);
+            int yPosMax = Main.maxTilesY - distFromBorderY - nY;
+
+            int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
+            int yPos = ChangedUtils.WorldGenRandNext(yPosMin, yPosMax);
+
+            foreach (var position in placedPositions)
             {
-                var succes = MakeOrangeShrine(ref placedPositions);
-                if (succes)
-                    nSucces++;
-                if (nSucces >= nShrines)
-                    break;
+                var dist = Vector2.DistanceSquared(new Vector2(position.Item1, position.Item2), new Vector2(xPos, yPos));
+                var minDist = 300;
+                if (dist < minDist * minDist)
+                    return false;
             }
+
+            // First iteration. Walls and blocks
+            for (int x2 = 0; x2 < nX; x2++)
+            {
+                for (int y2 = 0; y2 < nY; y2++)
+                {
+                    var xPosWorld = xPos + x2;
+                    var yPosWorld = yPos + y2;
+
+                    if (!WorldGen.InWorld(xPosWorld, yPosWorld))
+                        continue;
+
+                    var tmpTile = Layout[x2, y2];
+                    var worldTile = Main.tile[xPosWorld, yPosWorld];
+
+                    if (tmpTile == null)
+                        continue;
+
+                    var liquidType = tmpTile.LiquidType;
+                    var liquidAmount = tmpTile.LiquidAmount;
+                    var tileType = tmpTile.TileType;
+                    var tileColor = tmpTile.TileColor;
+                    var wallType = tmpTile.WallType;
+                    var wallColor = tmpTile.WallColor;
+                    var hasWire = tmpTile.HasWire;
+
+                    if (liquidType < -1)
+                        worldTile.LiquidType = LiquidID.Water;
+                    else if (liquidType >= 0)
+                        worldTile.LiquidType = liquidType;
+
+                    if (liquidAmount < -1)
+                        worldTile.LiquidAmount = 0;
+                    else if (liquidAmount >= 0)
+                        worldTile.LiquidAmount = (byte)liquidAmount;
+
+                    if (tileType < -1)
+                    {
+                        WorldGenerator.DestroyChestAtPosition(xPosWorld, yPosWorld);
+                        worldTile.TileType = TileID.Dirt;
+                        worldTile.IsHalfBlock = false;
+                        worldTile.Slope = SlopeType.Solid;
+                        worldTile.HasTile = false;
+                    }
+                    else if (tileType >= 0)
+                    {
+                        worldTile.TileType = (ushort)tileType;
+                        worldTile.HasTile = true;
+                        worldTile.Slope = SlopeType.Solid;
+                        worldTile.IsHalfBlock = false;
+                        worldTile.IsActuated = false;
+                    }
+
+                    if (tileColor < -1)
+                        worldTile.TileColor = PaintID.None;
+                    else if (tileColor >= 0)
+                        worldTile.TileColor = (byte)tileColor;
+
+                    if (wallType < -1)
+                        worldTile.WallType = WallID.None;
+                    else if (wallType >= 0)
+                        worldTile.WallType = (ushort)wallType;
+
+                    if (wallColor < -1)
+                        worldTile.WallColor = PaintID.None;
+                    else if (wallColor >= 0)
+                        worldTile.WallColor = (byte)wallColor;
+
+                    if (hasWire)
+                        worldTile.RedWire = true;
+                }
+            }
+
+            // Second iteration. For things that need to be anchored to tiles or walls (furniture, chests, etc)
+            for (int x2 = 0; x2 < nX; x2++)
+            {
+                for (int y2 = 0; y2 < nY; y2++)
+                {
+                    var xPosWorld = xPos + x2;
+                    var yPosWorld = yPos + y2;
+
+                    if (!WorldGen.InWorld(xPosWorld, yPosWorld))
+                        continue;
+
+                    var tmpTile = Layout[x2, y2];
+                    var worldTile = Main.tile[xPosWorld, yPosWorld];
+
+                    if (tmpTile == null)
+                        continue;
+
+                    var placeChest = tmpTile.IsTopLeftOfChest;
+                    var furnitureType = tmpTile.FurnitureTileID;
+
+                    if (placeChest)
+                        CreateChest(xPosWorld, yPosWorld);
+                    if (furnitureType >= 0)
+                        WorldGen.PlaceTile(xPosWorld, yPosWorld, furnitureType, true);
+                }
+            }
+
+            placedPositions.Add((xPos, yPos));
+            return true;
         }
 
         private void CreateChest(int xx, int yy)
@@ -115,279 +315,291 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             }
         }
 
-        private bool MakeOrangeShrine(ref List<(int, int)> placedPositions)
+        private Texture2D LoadTexture(string textureName)
         {
-            List<string> structureBackground = new List<string>()
+            if (Name == null || textureName == null)
+                return null;
+            ChangedSpecialMod.Instance.RequestAssetIfExists<Texture2D>($"Content/Structures/{Name}/{textureName}", out ReLogic.Content.Asset<Texture2D> texture);
+            return texture.Value;
+        }
+
+        public void LoadWires()
+        {
+            Texture2D texture = LoadTexture("Wires");
+            if (texture != null)
             {
-                "      1111      ",
-                "    11111111    ",
-                "   1111111111   ",
-                "  111111111111  ",
-                "  111111111111  ",
-                " 11111111111111 ",
-                " 11111111111111 ",
-                " 11111111111111 ",
-                " 11111111111111 ",
-                " 11111111111111 ",
-                " 11111111111111 ",
-                "  111111111111  ",
-                "  111111111111  ",
-                "   1111111111   ",
-                "    11111111    ",
-                "      1111      ",
-            };
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
 
-            List<string> structure = new List<string>()
-            {
-                "     111111     ",
-                "   111....111   ",
-                "  11........11  ",
-                " 11..........11 ",
-                " 1............1 ",
-                "11............11",
-                "1......66......1",
-                "1......66......1",
-                "1......55......1",
-                "1.4..........4.1",
-                "114..........411",
-                " 14....33....41 ",
-                " 11..2.33..2.11 ",
-                "  11.2.11..211  ",
-                "   1111111111   ",
-                "     111111     ",
-            };
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
 
-            List<string> structureWires = new List<string>()
-            {
-                "                ",
-                "                ",
-                "                ",
-                "                ",
-                "                ",
-                "                ",
-                "                ",
-                "     111111     ",
-                "     1    1     ",
-                "     1    1     ",
-                "     1    1     ",
-                "     1    1     ",
-                "     1    1     ",
-                "     1    1     ",
-                "                ",
-                "                ",
-            };
-
-            int distFromBorderX = 200;
-
-            // Move further inward if Calamity is enabled so it won't end up in the abyss
-            // We might have to also add something for the sunken sea under the desert
-            if (ModSupportSystem.IsModActive("CalamityMod"))
-                distFromBorderX = 400;
-
-            int distFromBorderY = 300;
-
-            int width = structure[0].Length;
-            int height = structure.Count;
-
-            int xPosMin = distFromBorderX;
-            int xPosMax = Main.maxTilesX - distFromBorderX - width;
-            int yPosMin = (int)(Main.maxTilesY * 0.4f);
-            int yPosMax = Main.maxTilesY - distFromBorderY;
-
-            int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
-            int yPos = ChangedUtils.WorldGenRandNext(yPosMin, yPosMax);
-
-            if (!WorldGen.InWorld(xPos, yPos))
-                return false;
-
-            // Don't place it if too close to another shrine
-            foreach (var position in placedPositions)
-            {
-                var dist = Vector2.DistanceSquared(new Vector2(position.Item1, position.Item2), new Vector2(xPos, yPos));
-                var minDist = 300;
-                if (dist < minDist * minDist)
-                    return false;
-            }
-
-            List<int> blackListBlocks = new List<int>()
-            {
-                TileID.BlueDungeonBrick,
-                TileID.GreenDungeonBrick,
-                TileID.PinkDungeonBrick,
-                TileID.LihzahrdBrick,
-                TileID.MushroomGrass,
-                TileID.Granite,
-                TileID.Marble,
-                TileID.Hive
-            };
-
-            List<int> blackListWalls = new List<int>()
-            {
-                WallID.BlueDungeon,
-                WallID.BlueDungeonUnsafe,
-                WallID.BlueDungeonSlab,
-                WallID.BlueDungeonSlabUnsafe,
-                WallID.BlueDungeonTile,
-                WallID.BlueDungeonTileUnsafe,
-
-                WallID.GreenDungeon,
-                WallID.GreenDungeonUnsafe,
-                WallID.GreenDungeonSlab,
-                WallID.GreenDungeonSlabUnsafe,
-                WallID.GreenDungeonTile,
-                WallID.GreenDungeonTileUnsafe,
-
-                WallID.PinkDungeon,
-                WallID.PinkDungeonUnsafe,
-                WallID.PinkDungeonSlab,
-                WallID.PinkDungeonSlabUnsafe,
-                WallID.PinkDungeonTile,
-                WallID.PinkDungeonTileUnsafe,
-
-                WallID.Hive,
-                WallID.HiveUnsafe,
-                WallID.Spider,
-                WallID.SpiderEcho,
-                WallID.SpiderUnsafe,
-                WallID.LihzahrdBrick,
-                WallID.LihzahrdBrickUnsafe
-            };
-
-            // Get blocks from other mods we should avoid
-            blackListBlocks.AddRange(ModSupportSystem.GetAvoidTiles());
-
-            List<int> blackListLiquids = new List<int>
-            {
-                LiquidID.Honey,
-                LiquidID.Shimmer
-            };
-
-            if (!Terraria.WorldBuilding.GenVars.structures.CanPlace(new Rectangle(xPos, yPos, width, height)))
-                return false;
-
-            var anyTiles = false;
-
-            // Check if in a good place
-            for (int y = 0; y < height; y++)
-            {
-                string line = structure[y];
-
-                for (int x = 0; x < width; x++)
+                for (int y = 0; y < texture.Height; y++)
                 {
-                    int xx = xPos + x;
-                    int yy = yPos + y;
-
-                    if (!WorldGen.InWorld(xx, yy))
-                        continue;
-
-                    Tile t = Framing.GetTileSafely(xx, yy);
-                    if (t.HasTile)
-                        anyTiles = true;
-                    if (t.LiquidAmount > 0 && blackListLiquids.Contains(t.LiquidType))
-                        return false;
-                    if (t.HasTile && blackListBlocks.Contains(t.TileType))
-                        return false;
-                    if (blackListWalls.Contains(t.WallType))
-                        return false;
-                }
-            }
-
-            // Not a valid position if floating in air
-            if (!anyTiles)
-                return false;
-
-            placedPositions.Add((xPos, yPos));
-
-            // 0: clears space and places walls and wires
-            // 1: place normal blocks
-            // 2: place things that need to be anchored to blocks
-            for (int i = 0; i < 3; i++)
-            {
-                var firstPass = i == 0;
-                for (int y = 0; y < height; y++)
-                {
-                    string line = structure[y];
-
-                    for (int x = 0; x < width; x++)
+                    for (int x = 0; x < texture.Width; x++)
                     {
-                        char tile = line[x];
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
 
-                        int xx = xPos + x;
-                        int yy = yPos + y;
-
-                        if (!WorldGen.InWorld(xx, yy))
-                            continue;
-
-                        Tile t = Framing.GetTileSafely(xx, yy);
-
-                        // Remove blocks, place walls and wires
-                        if (firstPass)
-                        {
-                            if (tile != ' ')
-                            {
-                                WorldGen.KillTile(xx, yy, false, false, true);
-                                t.LiquidAmount = 0;
-                            }
-
-                            var bgLine = structureBackground[y];
-                            var bgTile = bgLine[x];
-
-                            if (bgTile == '1')
-                            {
-                                WorldGen.KillWall(xx, yy);
-                                WorldGen.PlaceWall(xx, yy, WallID.Slime, true);
-                                t.WallColor = PaintID.YellowPaint;
-                            }
-
-                            var wireLine = structureWires[y];
-                            var wireTile = wireLine[x];
-
-                            if (wireTile == '1')
-                                t.RedWire = true;
-                        }
-                        // Place the blocks
-                        else
-                        {
-                            switch (tile)
-                            {
-                                case ' ':
-                                    continue;
-                                case '1':
-                                    WorldGen.PlaceTile(xx, yy, TileID.SlimeBlock, true);
-                                    t = Framing.GetTileSafely(xx, yy);
-                                    t.TileColor = PaintID.OrangePaint;
-                                    continue;
-
-                                case '2':
-                                    WorldGen.PlaceTile(xx, yy, (ushort)ModContent.TileType<OrangeStatue>(), true);
-                                    continue;
-
-                                case '3':
-                                    WorldGen.PlaceTile(xx, yy, (ushort)ModContent.TileType<PuroStatue>(), true);
-                                    continue;
-
-                                case '4':
-                                    WorldGen.PlaceTile(xx, yy, TileID.Lamps, true);
-                                    continue;
-
-                                case '5':
-                                    WorldGen.PlaceTile(xx, yy, TileID.Platforms, true);
-                                    continue;
-
-                                case '6':
-                                    CreateChest(xx, yy);
-                                    continue;
-                                case '7':
-                                    WorldGen.PlaceTile(xx, yy, TileID.HangingLanterns, true);
-                                    continue;
-                            }
-                        }
-
-                        WorldGen.SquareTileFrame(xx, yy);
+                        if (color == Color.Red)
+                            Layout[x, y].HasWire = true;
                     }
                 }
             }
-            return true;
+        }
+
+        public void LoadWalls()
+        {
+            Texture2D texture = LoadTexture("Walls");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
+
+                        if (color == Color.Gray)
+                            Layout[x, y].WallType = -2;
+                        else if (WallTypes.ContainsKey(color))
+                            Layout[x, y].WallType = (ushort)WallTypes[color];
+                    }
+                }
+            }
+        }
+
+        public void LoadWallColors()
+        {
+            Texture2D texture = LoadTexture("WallColors");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
+
+                        if (TileColors.ContainsKey(color))
+                            Layout[x, y].WallColor = TileColors[color];
+                    }
+                }
+            }
+        }
+
+        public void LoadTiles()
+        {
+            Texture2D texture = LoadTexture("Blocks");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
+
+                        if (color == Color.Gray)
+                            Layout[x, y].TileType = -2;
+                        else if (TileTypes.ContainsKey(color))
+                            Layout[x, y].TileType = (ushort)TileTypes[color];
+                    }
+                }
+            }
+        }
+
+        public void LoadTileColors()
+        {
+            Texture2D texture = LoadTexture("BlockColors");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
+
+                        if (TileColors.ContainsKey(color))
+                            Layout[x, y].TileColor = TileColors[color];
+                    }
+                }
+            }
+        }
+
+        public void LoadChests()
+        {
+            Texture2D texture = LoadTexture("Chests");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
+
+                        if (color == Colors2.Green)
+                            Layout[x, y].IsTopLeftOfChest = true;
+                    }
+                }
+            }
+        }
+
+        public void LoadFurniture()
+        {
+            Texture2D texture = LoadTexture("Furniture");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        if (Layout[x, y] == null)
+                            Layout[x, y] = new TileData();
+
+                        if (FurnitureTypes.ContainsKey(color))
+                            Layout[x, y].FurnitureTileID = FurnitureTypes[color];
+                    }
+                }
+            }
+        }
+
+        public void LoadLiquids()
+        {
+            Texture2D texture = LoadTexture("Liquids");
+            if (texture != null)
+            {
+                Color[] pixels = new Color[texture.Width * texture.Height];
+                texture.GetData(pixels);
+
+                if (Layout == null)
+                    Layout = new TileData[texture.Width, texture.Height];
+
+                for (int y = 0; y < texture.Height; y++)
+                {
+                    for (int x = 0; x < texture.Width; x++)
+                    {
+                        Color color = pixels[y * texture.Width + x];
+                        var tile = Layout[x, y];
+                        if (tile == null)
+                            tile = new TileData();
+
+                        if (color == Color.Gray)
+                        {
+                            Layout[x, y].LiquidType = -2;
+                            Layout[x, y].LiquidAmount = -2;
+                        }
+                        else if (LiquidTypes.ContainsKey(color))
+                        {
+                            tile.LiquidAmount = 255;
+                            tile.LiquidType = (ushort)LiquidTypes[color];
+                        }
+
+                        Layout[x, y] = tile;
+                    }
+                }
+            }
+        }
+    }
+
+    public class PassOrangeShrines : WorldGenerationPass
+    {
+        public PassOrangeShrines()
+        {
+            PassName = "ChangedOrangeShrines";
+            GenerationMessage = "OrangeShrines";
+        }
+
+        public override bool Enabled()
+        {
+            return ChangedSpecialModClientConfig.Instance.WorldGenStepOrangeShrine;
+        }
+
+        public override void Generate()
+        {
+            var nSucces = 0;
+            var nShrines = 5;
+
+            if (Main.maxTilesX >= WorldGen.WorldSizeLargeX)
+                nShrines = 15;
+            else if (Main.maxTilesX >= WorldGen.WorldSizeMediumX)
+                nShrines = 10;
+
+            var nMaxAttempts = 500;
+            var placedPositions = new List<(int, int)>();
+
+            Queue<StructureRuinedHouse> structureList = new Queue<StructureRuinedHouse>();
+            structureList.Enqueue(WorldMaker.StructureOrangeShrine);
+            structureList.Enqueue(WorldMaker.StructureOrangeShrine2);
+
+            for (int i = 0; i < nMaxAttempts; i++)
+            {
+                var structure = structureList.Dequeue();
+                var succes = structure.BuildAtPosition(ref placedPositions);
+                //var succes = MakeOrangeShrine(ref placedPositions);
+                if (succes)
+                    nSucces++;
+                if (nSucces >= nShrines)
+                    break;
+                structureList.Enqueue(structure);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                var x1 = WorldGen.genRand.Next(Main.maxTilesX - 50);
+                var y1 = WorldGen.genRand.Next(Main.maxTilesX - 50);
+
+                var success = WorldMaker.StructureLabRoom1.BuildAtPosition(ref placedPositions);
+                if (success)
+                    break;
+            }
+
+
         }
     }
 }

@@ -62,3 +62,8 @@ WhiteLatexSurfaceJungleBiome: {
 	DisplayName: biała dżungla szlamowa
 	TownNPCDialogueName: biała dżungla szlamowa
 }
+
+LabBiome: {
+	// DisplayName: Lab Biome
+	// TownNPCDialogueName: the Lab Biome
+}

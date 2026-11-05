@@ -62,3 +62,8 @@ WhiteLatexSurfaceJungleBiome: {
 	DisplayName: 白色粘液丛林
 	TownNPCDialogueName: 白色粘液丛林
 }
+
+LabBiome: {
+	// DisplayName: Lab Biome
+	// TownNPCDialogueName: the Lab Biome
+}

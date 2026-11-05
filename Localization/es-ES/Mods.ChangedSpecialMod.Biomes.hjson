@@ -62,3 +62,8 @@ WhiteLatexSurfaceJungleBiome: {
 	DisplayName: Jungla de Látex Blanco
 	TownNPCDialogueName: la Jungla de Látex Blanco
 }
+
+LabBiome: {
+	// DisplayName: Lab Biome
+	// TownNPCDialogueName: the Lab Biome
+}

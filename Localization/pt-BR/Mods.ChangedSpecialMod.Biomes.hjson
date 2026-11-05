@@ -62,3 +62,8 @@ WhiteLatexSurfaceJungleBiome: {
 	DisplayName: Selva da Gosma Branca
 	TownNPCDialogueName: a Selva da Gosma Branca
 }
+
+LabBiome: {
+	// DisplayName: Lab Biome
+	// TownNPCDialogueName: the Lab Biome
+}

@@ -62,3 +62,8 @@ WhiteLatexSurfaceJungleBiome: {
 	DisplayName: Weißer Schleimdschungel
 	TownNPCDialogueName: der Weiße Schleimdschungel
 }
+
+LabBiome: {
+	// DisplayName: Lab Biome
+	// TownNPCDialogueName: the Lab Biome
+}

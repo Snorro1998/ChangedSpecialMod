@@ -2,6 +2,10 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Common.WorldGeneration;
 using ChangedSpecialMod.Common.WorldGeneration.Passes;
+using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Tiles;
+using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Walls;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -57,6 +61,10 @@ namespace ChangedSpecialMod.Utilities
         };
 
         private WorldPass highestPass = WorldPass.SurfaceOreandStone;
+
+        public static StructureRuinedHouse StructureOrangeShrine;
+        public static StructureRuinedHouse StructureOrangeShrine2;
+        public static StructureRuinedHouse StructureLabRoom1;
 
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
@@ -184,6 +192,49 @@ namespace ChangedSpecialMod.Utilities
                 if (tmpPass > highestPass)
                     highestPass = tmpPass;
             }
+        }
+
+        public override void PostSetupContent()
+        {
+            // Structure init loads image files by using texture.getdata, which has to happen on the main thread
+            Main.QueueMainThreadAction(() =>
+            {
+                StructureOrangeShrine = new StructureRuinedHouse("OrangeShrine");
+
+                Dictionary<Color, int> tileTypes = new Dictionary<Color, int>
+                {
+                    { Colors2.Red, TileID.MarbleBlock },
+                    { Colors2.Green, TileID.Marble },
+                    { Colors2.Blue, TileID.MarbleColumn },
+                };
+
+                Dictionary<Color, int> wallTypes = new Dictionary<Color, int>
+                {
+                    { Colors2.Green, WallID.MarbleBlock }
+                };
+
+                StructureOrangeShrine2 = new StructureRuinedHouse("Shrine", tileTypes, wallTypes);
+
+                tileTypes = new Dictionary<Color, int>
+                {
+                    { Colors2.Green, ModContent.TileType<Lab_TileTile>() },
+                    { Colors2.Blue, TileID.Platforms },
+                };
+
+                wallTypes = new Dictionary<Color, int>
+                {
+                    { Colors2.Green, ModContent.WallType<LabWall>() }
+                };
+
+                Dictionary<Color, int> furnitureTypes = new Dictionary<Color, int>
+                {
+                    { Colors2.Yellow, ModContent.TileType<LabDoorATile>() },
+                    { Colors2.Blue, ModContent.TileType<Content.Tiles.Furniture.Elevator>() },
+                    { Colors2.Purple, ModContent.TileType<FaultyLightTile>() },
+                };
+
+                StructureLabRoom1 = new StructureRuinedHouse("LabRoom1", tileTypes, wallTypes, furnitureTypes);
+            });
         }
     }
 }

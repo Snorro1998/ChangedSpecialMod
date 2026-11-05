@@ -1,5 +1,4 @@
 ﻿using ChangedSpecialMod.Common.Configs;
-using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Placeable;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;

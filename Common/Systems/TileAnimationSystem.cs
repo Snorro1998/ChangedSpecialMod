@@ -1,6 +1,16 @@
-﻿using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Walls;
+using ChangedSpecialMod.Utilities;
+using Microsoft.Xna.Framework;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.UI;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -60,6 +70,8 @@ namespace ChangedSpecialMod.Common.Systems
     public class TileAnimationSystem : ModSystem
     {
         public CageAnimation sweeperPuroCageAnimation;
+        private int counter = 0;
+        private bool lightOn = true;
 
         public override void Load()
         {
@@ -67,10 +79,74 @@ namespace ChangedSpecialMod.Common.Systems
             sweeperPuroCageAnimation.Setup();
         }
 
+        private void ToggleLights()
+        {
+            lightOn = !lightOn;
+            var tileType = (ushort)ModContent.TileType<FaultyLightTile>();
+            var player = Main.LocalPlayer;
+
+            var playerPos = player.Center.ToTileCoordinates();
+            var padding = 100;
+            var xMin = playerPos.X - padding;
+            var xMax = playerPos.X + padding;
+            var yMin = playerPos.Y - padding;
+            var yMax = playerPos.Y + padding;
+
+            var minDist = float.MaxValue;
+            var closestPos = new Point(0, 0);
+            var anyLight = false;
+
+            for (int x = xMin; x < xMax; x++)
+            {
+                for (int y = yMin; y < yMax; y++)
+                {
+                    if (!WorldGen.InWorld(x, y))
+                        continue;
+
+                    var tile = Main.tile[x, y];
+                    if (!tile.HasTile)
+                        continue;
+
+                    if (tile.TileType == tileType)
+                    {
+                        anyLight = true;
+                        if (!lightOn)
+                            tile.TileFrameX = 18;
+                        else
+                            tile.TileFrameX = 0;
+
+                        var tilePos = new Point(x, y);
+
+                        var x1 = playerPos.X - tilePos.X;
+                        var y1 = playerPos.Y - tilePos.Y;
+                        var tmpDist = x1 * x1 + y1 * y1;
+                        if (tmpDist < minDist)
+                        {
+                            minDist = tmpDist;
+                            closestPos = tilePos;
+                        }
+                    }
+                }
+            }
+
+            if (anyLight)
+            {
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                    SoundEngine.PlaySound(Assets.Sounds.SoundLights, new Vector2(closestPos.X * 16, closestPos.Y * 16));
+            }
+        }
+
         public override void PostUpdateWorld()
         {
             sweeperPuroCageAnimation.Update();
             ChangedUtils.Snowing();
+
+            if (counter % (60 * 3) == 0)
+            {
+                ToggleLights();
+            }
+
+            counter++;
         }
     }
 }

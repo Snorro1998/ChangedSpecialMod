@@ -36,7 +36,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 b = 0f;
             }
         }
-
+        /*
         public override void HitWire(int i, int j)
         {
             FurnitureCommon.LightHitWire(Type, i, j, 1, 2);
@@ -44,5 +44,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             if (Main.netMode == NetmodeID.SinglePlayer)
                 SoundEngine.PlaySound(Assets.Sounds.SoundLights, new Vector2(i * 16, j * 16));
         }
+        */
     }
 }

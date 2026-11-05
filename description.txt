@@ -40,6 +40,7 @@ The mod also tries to avoid generating things in structures and biomes from thes
 - Mod of Redemption
 - Spirit and Spirit Reforged
 - Thorium
+- Ultranium
 
 Town NPCs can also sell herbs and fruit from the previously listed mods.
 
@@ -97,47 +98,15 @@ Other
 
 0.5.7.6
 
-This update greatly improves the sprites of the ming and tabby cat summons. 
-It also improves detection of biomes and structures from other mods, making it less likely for things to overlap.
-If you still experience this, there is a also a new config option to force world generation to happen after all other mods.
+Description goes here
 
-Added banners for
-- White Latex Taur
-- Squid Dog Cub
-- Yufeng
+Blocks
+- Infected ice no longer makes you slide around weirdly
 
-Items
-- Added banners for: White Latex Taur, Squid Dog Cub and Yufeng
-- Made all debug items non-consumable
-- Added debug item to summon all bosses from all active mods. It is just for fun and it will likely make your game lag a lot.
-
-Config
-- Added toggles for all world generation steps
-- Added option to disable short and repetitive music tracks
-- Added config option to force world generation to be performed after all other mods.
+World Generation
+- Added more variants for underground shrines
 
 World Generation
 - World generator now tries to avoid generating things in biomes from these mods:
-- Ancients Awakened
-- Bismuth
-- Mod of Redemption
-- Spirit Reforged
+- Ultranium
 
-Resprited
-- A couple of banners
-- Ming Cat
-- Tabby Cat
-
-NPCs
-- I really like how the resprited cats turned out, so I decided to also turn them into NPCs. They can spawn rarely in the forest.
-- Added Ming Cat
-- Added Tabby Cat
-
-Fixed
-- Dry dirt generated in deserts did not grow grass on top
-- Spirit reforged always crashes when generating a new world, because it tries to add items to the chests in orange shrines (which are completely filled).
-
-Technical
-- Updated old internal names for NPCs and their related items:
-- FlyingDarkLatex -> YufengCub
-- WingedDarkLatex -> Yufeng

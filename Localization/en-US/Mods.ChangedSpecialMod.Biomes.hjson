@@ -62,3 +62,8 @@ WhiteLatexSurfaceJungleBiome: {
 	DisplayName: White Goo Jungle
 	TownNPCDialogueName: the White Goo Jungle
 }
+
+LabBiome: {
+	DisplayName: Lab Biome
+	TownNPCDialogueName: the Lab Biome
+}

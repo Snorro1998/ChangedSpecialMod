@@ -23,6 +23,8 @@ namespace ChangedSpecialMod.Assets
         public static readonly string MusicPuro = Music("PuroTheBlackGoo");
         public static readonly string MusicGreenhouse = Music("Greenhouse");
 
+        public static readonly string MusicGas = Music("Gas");
+
         // Party
         public static readonly string MusicHappyBirthday = Music("BirthdaySong");
         public static readonly string MusicPuroDance = Music("PuroDance");

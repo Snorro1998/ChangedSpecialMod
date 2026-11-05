@@ -1142,3 +1142,8 @@ YufengCubBanner: {
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
 	DisplayName: 与锋小狗横幅
 }
+
+LabDoorA: {
+	// DisplayName: Lab Door A
+	// Tooltip: ""
+}

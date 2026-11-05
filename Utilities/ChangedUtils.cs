@@ -861,6 +861,9 @@ namespace ChangedSpecialMod.Utilities
 
         public static void SpawnOranges(IEntitySource source, Player player, int x, int y, int amount = 30)
         {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             var nCurrentOranges = Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<OrangeProjectile>()).Count();
             if (nCurrentOranges > Main.maxProjectiles / 2)
                 return;
@@ -875,6 +878,30 @@ namespace ChangedSpecialMod.Utilities
                     Main.projectile[index].velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 5;
                 }
             }
+
+            /*
+            if (Main.expertMode)
+            {
+                if (player == null)
+                    player = ChangedUtils.GetClosestPlayer(x, y);
+
+                if (player == null)
+                    return;
+
+                var boulderProjectileID = Projectile.NewProjectile(source, x * 16, y * 16, 0, 0, ProjectileID.RollingCactus, 0, 0, -1, 0f, 0f);
+                if (boulderProjectileID != -1)
+                {
+                    var boulderProjectile = Main.projectile[boulderProjectileID];
+                    var playerPosX = player.position.X;
+                    var boulderPosX = boulderProjectile.position.X;
+                    var direction = 1;
+                    if (playerPosX < boulderPosX)
+                        direction = -1;
+
+                    boulderProjectile.velocity = new Vector2(direction * 3, -3);
+                }
+            }
+            */
         }
 
         public static void DrawProjectileCentered(Projectile proj, Color lightColor, Texture2D texture = null, bool drawCentered = true, float yOffset = 0)

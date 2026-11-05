@@ -387,6 +387,34 @@ namespace ChangedSpecialMod
             if (Player.mount.Active)
                 return;
 
+            if (!ChangedSpecialModClientConfig.Instance.SlipSound || Math.Abs(Player.velocity.X) < 0.2f)
+                return;
+
+            Point tilePos = Player.Bottom.ToTileCoordinates();
+            Tile tile = Framing.GetTileSafely(tilePos);
+
+            var slipperyTiles = new List<int>
+            {
+                ModContent.TileType<BlackLatexIceTile>(),
+                ModContent.TileType<WhiteLatexIceTile>(),
+            };
+
+            if (tile.HasTile && tile.TileType == TileID.FrozenSlimeBlock && tile.TileColor == PaintID.BlackPaint)
+            {
+                if (Player.velocity.X != 0f)
+                {
+                    timerSlipSound = (timerSlipSound + 1) % intervalSlipSound;
+                    if (timerSlipSound == 0)
+                        SoundEngine.PlaySound(Sounds.SoundSlip, Player.Center);
+                }
+            }
+        }
+        /*
+        public override void PostUpdateRunSpeeds()
+        {
+            if (Player.mount.Active)
+                return;
+
             Point tilePos = Player.Bottom.ToTileCoordinates();
             Tile tile = Framing.GetTileSafely(tilePos);
 
@@ -413,6 +441,7 @@ namespace ChangedSpecialMod
                 }
             }
         }
+        */
 
         public static bool IsNearOrangeShrineWall(Player player, int radius)
         {

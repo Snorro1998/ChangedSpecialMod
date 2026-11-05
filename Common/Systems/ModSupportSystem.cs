@@ -109,6 +109,7 @@ namespace ChangedSpecialMod.Common.Systems
             AddExternalModSupport("Redemption", (mod, name) => new ModSupportRedemption(mod, name));
             AddExternalModSupport("SpiritMod", (mod, name) => new ModSupportSpirit(mod, name));
             AddExternalModSupport("SpiritReforged", (mod, name) => new ModSupportSpiritReforged(mod, name));
+            AddExternalModSupport("Spooky", (mod, name) => new ModSupportSpooky(mod, name));
             AddExternalModSupport("StarsModPack", (mod, name) => new ModSupportStarsModPack(mod, name));
             AddExternalModSupport("ThoriumMod", (mod, name) => new ModSupportThorium(mod, name));
             AddExternalModSupport("Ultranium", (mod, name) => new ModSupportUltranium(mod, name));
