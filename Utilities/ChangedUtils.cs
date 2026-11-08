@@ -2321,7 +2321,7 @@ namespace ChangedSpecialMod.Utilities
                 return;
 
             var player = Main.player[playerIndex];
-            player.position = new Vector2(xPos * 16, yPos * 16);
+            player.Teleport(new Vector2(xPos * 16, yPos * 16), TeleportationStyleID.DebugTeleport);
             
             if (Main.netMode == NetmodeID.Server)
                 NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, xPos * 16, yPos * 16, TeleportationStyleID.DebugTeleport, 0, 0);

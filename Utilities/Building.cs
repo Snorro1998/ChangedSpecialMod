@@ -4,6 +4,7 @@ using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -19,16 +20,15 @@ namespace ChangedSpecialMod.Utilities
         Normal = 1,
         Elevator = 2,
         BossRoomLeft = 3,
-        BossRoomRight = 4
+        BossRoomRight = 4,
+        BasementDoor = 5
     }
 
     public class Building
     {
-        public Room[] rooms;
         int nHor = 1;
         int nVer = 1;
 
-        int newRoomIndex = 0;
 
         int[] roomWidths;
         int[] roomHeights;
@@ -36,14 +36,16 @@ namespace ChangedSpecialMod.Utilities
         public int totalWidth = 0;
         public int totalHeight = 0;
 
-        public int[] layout = null;
+        public int[,] layout = null;
+        public bool hasBasementDoor = false;
 
-        public Building()
+        public Building(bool hasBasementDoor = false)
         {
             layout = GetLayout();
+            this.hasBasementDoor = hasBasementDoor;
         }
 
-        private int[] GetLayout()
+        private int[,] GetLayout()
         {
             int RoomWidthMin = 14;
             int RoomWidthMax = 19;
@@ -57,7 +59,7 @@ namespace ChangedSpecialMod.Utilities
 
             nHor = ChangedUtils.WorldGenRandNext(xMinRooms, xMaxRooms + 1);
             nVer = ChangedUtils.WorldGenRandNext(yMinRooms, yMaxRooms + 1);
-            int[] roomNums = new int[nHor * nVer];
+            int[,] roomNums = new int[nHor, nVer];
 
             // -    empty
             // =    not part of the building, just to illustrate what is below the ground
@@ -65,6 +67,7 @@ namespace ChangedSpecialMod.Utilities
             // 2    staircase
             // 3    left side goo room
             // 4    right side goo room
+            // 5    basement door
 
             //- - - -
             //- - - -
@@ -72,16 +75,15 @@ namespace ChangedSpecialMod.Utilities
             //=======
             //- - - -
 
-            int stairPos = 0;
+            int elevatorXPos = 0;
 
             if (nHor == 3)
-                stairPos = Utils.SelectRandom(WorldGen.genRand, 0, 2);
+                elevatorXPos = Utils.SelectRandom(WorldGen.genRand, 0, 2);
             else
-                stairPos = ChangedUtils.WorldGenRandNext(0, nHor);
+                elevatorXPos = ChangedUtils.WorldGenRandNext(0, nHor);
 
-            var iStart = stairPos * nVer;
-            for (int i = iStart; i < iStart + nVer; i++)
-                roomNums[i] = (int)RoomType.Elevator;
+            for (int y1 = 0; y1 < nVer; y1++)
+                roomNums[elevatorXPos, y1] = (int)RoomType.Elevator;
 
             //- - 2 -
             //- - 2 -
@@ -89,20 +91,19 @@ namespace ChangedSpecialMod.Utilities
             //=======
             //- - 2 -
 
-            int towerStairPos = -1;
-            var leftStairPos = stairPos - 1;
-            var rightStairPos = stairPos + 1;
+            int towerXPos = -1;
+            var leftStairPos = elevatorXPos - 1;
+            var rightStairPos = elevatorXPos + 1;
 
-            if (stairPos == 0)
-                towerStairPos = rightStairPos;
-            else if (stairPos == nHor - 1)
-                towerStairPos = leftStairPos;
+            if (elevatorXPos == 0)
+                towerXPos = rightStairPos;
+            else if (elevatorXPos == nHor - 1)
+                towerXPos = leftStairPos;
             else
-                towerStairPos = ChangedUtils.Choose(leftStairPos, rightStairPos);
+                towerXPos = ChangedUtils.Choose(leftStairPos, rightStairPos);
 
-            iStart = towerStairPos * nVer;
-            for (int i = iStart; i < iStart + nVer; i++)
-                roomNums[i] = (int)RoomType.Normal;
+            for (int y1 = 0; y1 < nVer; y1++)
+                roomNums[towerXPos, y1] = (int)RoomType.Normal;
 
             //- - 2 1
             //- - 2 1
@@ -110,18 +111,16 @@ namespace ChangedSpecialMod.Utilities
             //=======
             //- - 2 1
 
-            for (int x = 0; x < nHor; x++)
+            for (int x1 = 0; x1 < nHor; x1++)
             {
-                if (x == stairPos || x == towerStairPos)
+                if (x1 == elevatorXPos || x1 == towerXPos)
                     continue;
 
-                var nFloors = ChangedUtils.WorldGenRandNext(2, nVer + 1);
-                for (int y = 0; y < nVer; y++)
+                var yStart = ChangedUtils.WorldGenRandNext(0, nVer - 1);
+
+                for (int y1 = yStart; y1 < nVer; y1++)
                 {
-                    if (y + nFloors >= nVer)
-                    {
-                        roomNums[x * nVer + y] = (int)RoomType.Normal;
-                    }
+                    roomNums[x1, y1] = (int)RoomType.Normal;
                 }
             }
 
@@ -137,16 +136,16 @@ namespace ChangedSpecialMod.Utilities
                 var xBlack1 = ChangedUtils.WorldGenRandNext(0, nHor - 1);
                 var yBlack1 = ChangedUtils.WorldGenRandNext(0, nVer - 1);
 
-                var tBlack1 = roomNums[xBlack1 * nVer + yBlack1];
-                var tBlack2 = roomNums[xBlack1 * nVer + yBlack1 + nVer];
+                var tBlack1 = roomNums[xBlack1, yBlack1];
+                var tBlack2 = roomNums[xBlack1 + 1, yBlack1];
 
-                var tBlack1Below = roomNums[xBlack1 * nVer + yBlack1 + 1];
-                var tBlack2Below = roomNums[xBlack1 * nVer + yBlack1 + nVer + 1];
+                var tBlack1Below = roomNums[xBlack1, yBlack1 + 1];
+                var tBlack2Below = roomNums[xBlack1 + 1, yBlack1 + 1];
 
                 if ((tBlack1 == 0 || tBlack1 == 1) && (tBlack2 == 0 || tBlack2 == 1) && (tBlack1Below == 1 && tBlack2Below == 1))
                 {
-                    roomNums[xBlack1 * nVer + yBlack1] = (int)RoomType.BossRoomLeft;
-                    roomNums[xBlack1 * nVer + yBlack1 + nVer] = (int)RoomType.BossRoomRight;
+                    roomNums[xBlack1, yBlack1] = (int)RoomType.BossRoomLeft;
+                    roomNums[xBlack1 + 1, yBlack1] = (int)RoomType.BossRoomRight;
                     break;
                 }
             }
@@ -157,10 +156,33 @@ namespace ChangedSpecialMod.Utilities
             //=======
             //1 1 2 1
 
+            // Place the door in the basement
+            var xPositions = new List<int>();
+            for (int x1 = 0; x1 < nHor; x1++)
+                xPositions.Add(x1);
+
+            xPositions = xPositions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+            var y2 = nVer - 1;
+
+            foreach (var x2 in xPositions)
+            {
+                var room1 = roomNums[x2, y2];
+                if (room1 == (int)RoomType.Normal)
+                {
+                    roomNums[x2, y2] = (int)RoomType.BasementDoor;
+                    break;
+                }
+            }
+
+            //- - 2 1
+            //3 4 2 1
+            //1 1 2 1
+            //=======
+            //1 5 2 1
+
             roomWidths = ChangedUtils.GetRandomIntegerArray(nHor, RoomWidthMin, RoomWidthMax);
             roomHeights = ChangedUtils.GetRandomIntegerArray(nVer, RoomHeightMin, RoomHeightMax);
-
-            roomWidths[stairPos] = 11;
+            roomWidths[elevatorXPos] = 11;
 
             return roomNums;
         }
@@ -196,7 +218,8 @@ namespace ChangedSpecialMod.Utilities
             yPos += roomHeights.Last();
             yCurrent = yPos;
 
-            if (dontGenerate) return;
+            if (dontGenerate) 
+                return;
 
             var tTypes = new List<int>()
             {
@@ -272,7 +295,7 @@ namespace ChangedSpecialMod.Utilities
                 for (int y = 0; y < nVer; y++)
                 {
                     var height = roomHeights[y];
-                    var rr = layout[newRoomIndex % layout.Length];
+                    var rr = layout[x, y];
                     var hasRoom = rr != (int)RoomType.None;
 
                     if (hasRoom)
@@ -285,7 +308,7 @@ namespace ChangedSpecialMod.Utilities
 
                         Room room = null;
                         var leftSideOpen = false;
-                        var hasRoomOnRight = newRoomIndex + nVer < layout.Length && layout[newRoomIndex + nVer] != (int)RoomType.None;
+                        var hasRoomOnRight = x < nHor - 1 && layout[x + 1, y] != (int)RoomType.None;
 
                         if (rr == (int)RoomType.Normal)
                         {
@@ -307,14 +330,16 @@ namespace ChangedSpecialMod.Utilities
                         else if (rr == (int)RoomType.BossRoomLeft || rr == (int)RoomType.BossRoomRight)
                         {
                             room = labType == LabType.White ? new RoomWhiteGoo() : new RoomBlackGoo();
-                            if (rr == 4) 
+                            if (rr == 4)
                                 leftSideOpen = true;
                         }
+                        else if (rr == (int)RoomType.BasementDoor)
+                            room = new RoomBasementDoor();
 
                         var flooded = false;
 
-                        // If the room isn't an elevator, there is a chance it will be flooded
-                        if (isLowFloor && room is not RoomElevator)
+                        // If the room isn't an elevator or basement door, there is a chance it will be flooded
+                        if (isLowFloor && room is not RoomElevator && room is not RoomBasementDoor)
                             flooded = Utils.NextBool(WorldGen.genRand, 2);
 
                         WorldGenerator.MakeBox(xCurrent, yCurrent, width, height, room.FloorType, room.GetWallType(), (byte)room.FloorPaint, (byte)room.WallPaint, true, hasRoomOnRight, leftSideOpen);
@@ -374,8 +399,12 @@ namespace ChangedSpecialMod.Utilities
                         if (Main.drunkWorld && room.HasPainting && !flooded)
                             WorldGenerator.AddPainting(xCurrent, width, yCurrent, height);
 
+                        if (room.SingleDecor != -1)
+                        {
+                            WorldGenerator.ForceSingleDecor(room, xCurrent, width, yCurrent, height, room.SingleDecor);
+                        }
+
                         // Try to place furniture 3 times
-                        room.PlacedSingleDecor = false;
                         for (int i = 0; i < 3; i++)
                         {
                             var placedAnything = WorldGenerator.AddDecor(room, xCurrent, width, yCurrent, height);
@@ -391,7 +420,6 @@ namespace ChangedSpecialMod.Utilities
                     }
 
                     yCurrent = yCurrent + height - 1;
-                    newRoomIndex++;
                 }
 
                 yCurrent = yPos;

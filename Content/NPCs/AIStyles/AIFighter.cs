@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -13,20 +14,59 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
     {
         public static void Update(NPC npc)
         {
-            // Check which npc it is
-            var isBlackCub = npc.type == ModContent.NPCType<DarkLatexCub>();
-            var isWhiteCub = npc.type == ModContent.NPCType<WhiteLatexCub>();
-            var isFennec = npc.type == ModContent.NPCType<Fennec>();
-            var isSnake = npc.type == ModContent.NPCType<Snek>();
-
-            var isMingCat = npc.type == ModContent.NPCType<MingCat>();
-            var isTabbyCat = npc.type == ModContent.NPCType<TabbyCat>();
-
-            var isExoSuitRobot = npc.type == ModContent.NPCType<ExoSuitRobot>();
-
-            if (Main.player[npc.target].position.Y + (float)Main.player[npc.target].height == npc.position.Y + (float)npc.height)
+            // Asleep
+            if (npc.ai[0] == 10)
             {
-                npc.directionY = -1;
+                npc.damage = 0;
+                if (npc.justHit)
+                {
+                    // Wake him up
+                    npc.ai[0] = 0;
+                    npc.damage = npc.defDamage;
+                    return;
+                }
+
+                if (!npc.HasValidTarget)
+                    npc.TargetClosest();
+
+                if (npc.HasValidTarget)
+                {
+                    var player = Main.player[npc.target];
+                    var position = npc.Center;
+                    var targetPos = player.position;
+                    var lineOfSight = Collision.CanHit(npc.position, npc.width, npc.height, Main.player[npc.target].position, Main.player[npc.target].width, Main.player[npc.target].height);
+                    var lightsOn = TileAnimationSystem.lightOn;
+                    var maxDist = 400;
+                    var playerMoved = (player.controlLeft || player.controlRight) && Math.Abs(player.velocity.X) > 0;
+
+                    if (Vector2.DistanceSquared(position, targetPos) < maxDist * maxDist && lineOfSight && lightsOn && playerMoved)
+                    {
+                        npc.ai[0] = 0;
+                        npc.damage = npc.defDamage;
+                    }
+                    return;
+                }
+            }
+
+            // Check which npc it is
+            var npcType = npc.type;
+            var isBlackCub = npcType == ModContent.NPCType<DarkLatexCub>();
+            var isWhiteCub = npcType == ModContent.NPCType<WhiteLatexCub>();
+            var isBlackLatex = npcType == ModContent.NPCType<MaleDarkLatex>() || npcType == ModContent.NPCType<FemaleDarkLatex>();
+            var isFennec = npcType == ModContent.NPCType<Fennec>();
+            var isSnake = npcType == ModContent.NPCType<Snek>();
+
+            var isMingCat = npcType == ModContent.NPCType<MingCat>();
+            var isTabbyCat = npcType == ModContent.NPCType<TabbyCat>();
+
+            var isExoSuitRobot = npcType == ModContent.NPCType<ExoSuitRobot>();
+
+            if (npc.target >= 0 && npc.target < Main.maxPlayers)
+            {
+                if (Main.player[npc.target].position.Y + (float)Main.player[npc.target].height == npc.position.Y + (float)npc.height)
+                {
+                    npc.directionY = -1;
+                }
             }
 
             bool flag = false;
@@ -113,9 +153,13 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     npc.direction = 1;
                 }
             }
-            if (isBlackCub || isWhiteCub || isFennec || isSnake || isTabbyCat || isMingCat)
+            if (isBlackCub || isWhiteCub || isFennec || isSnake || isTabbyCat || isMingCat || isBlackLatex)
             {
                 float num80 = 1.5f;
+                if (isBlackLatex)
+                {
+                    num80 = 1f;
+                }
                 // Make them much faster if the target player is drunk
                 if (isSnake || npc.HasValidTarget && ChangedUtils.IsDrunk(Main.player[npc.target]))
                 {

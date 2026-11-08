@@ -3,6 +3,8 @@ using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -69,7 +71,7 @@ namespace ChangedSpecialMod.Common.Systems
     {
         public CageAnimation sweeperPuroCageAnimation;
         private int counter = 0;
-        private bool lightOn = true;
+        public static bool lightOn = true;
 
         public override void Load()
         {
@@ -146,6 +148,145 @@ namespace ChangedSpecialMod.Common.Systems
             {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                     SoundEngine.PlaySound(Assets.Sounds.SoundLights, new Vector2(closestPos.X * 16, closestPos.Y * 16));
+            }
+        }
+
+        public static void OnEnterRoom(int roomIndex)
+        {
+            // If the top left wall of the first room is missing, then this won't work
+            var wallTypeBlackGooZone = ModContent.WallType<LabWall>();
+            Point16 blackGooRoomPos = new Point16(-1, -1);
+
+            var regionSize = 50;
+            for (int x = 0; x < Main.maxTilesX; x += regionSize)
+            {
+                for (int y = 0; y < Main.maxTilesY; y += regionSize)
+                {
+                    var tile = Main.tile[x, y];
+                    if (tile.WallType == wallTypeBlackGooZone)
+                        blackGooRoomPos = new Point16(x, y);
+                }
+            }
+
+            if (blackGooRoomPos != Point16.NegativeOne)
+            {
+                var crystalRoomPos = blackGooRoomPos + new Point16(regionSize, 0);
+                var libraryRoomPos = blackGooRoomPos + new Point16(2 * regionSize, 0);
+
+                var waterRoomPos = blackGooRoomPos + new Point16(0, regionSize);
+                var gasRoomPos = blackGooRoomPos + new Point16(regionSize, regionSize);
+                var ventRoomPos = blackGooRoomPos + new Point16(2 * regionSize, regionSize);
+
+                var roomPositions = new Point16[]
+                {
+                    blackGooRoomPos,
+                    crystalRoomPos,
+                    libraryRoomPos,
+                    waterRoomPos,
+                    gasRoomPos,
+                    ventRoomPos
+                };
+
+                // Get rooms with players inside
+                var listActiveRooms = new List<Point16>();
+                for (int i = 0; i < roomPositions.Length; i++)
+                {
+                    var roomPosition = roomPositions[i];
+                    for (int j = 0; j < Main.maxPlayers; j++)
+                    {
+                        var player = Main.player[j];
+                        if (!player.active)
+                            continue;
+
+                        var playerPos = player.Center.ToTileCoordinates();
+                        if (playerPos.X >= roomPosition.X && playerPos.X < roomPosition.X + regionSize &&
+                            playerPos.Y >= roomPosition.Y && playerPos.Y < roomPosition.Y + regionSize)
+                        {
+                            listActiveRooms.Add(roomPosition);
+                            break;
+                        }
+                    }
+                }
+
+                //Main.NewText($"{blackGooRoomPos.X}, {blackGooRoomPos.Y}");
+                //var localPlayerPos = Main.LocalPlayer.Center.ToTileCoordinates();
+                //Main.NewText($"{localPlayerPos.X}, {localPlayerPos.Y}");
+
+                var lightTileType1 = ModContent.TileType<LabLightTile>();
+                var lightTileType2 = ModContent.TileType<FaultyLightTile>();
+                var generatorTileType = ModContent.TileType<Generator>();
+
+                // Turn off the light for all rooms
+                for (int i = 0; i < roomPositions.Length; i++)
+                {
+                    var roomPosition = roomPositions[i];
+                    for (int x = roomPosition.X; x < roomPosition.X + regionSize; x++)
+                    {
+                        for (int y = roomPosition.Y; y < roomPosition.Y + regionSize; y += 2)
+                        {
+                            if (x >= Main.maxTilesX || y >= Main.maxTilesY) 
+                                continue;
+
+                            var tile = Framing.GetTileSafely(x, y);
+                            var tileUp = Framing.GetTileSafely(x, y - 1);
+                            var tileDown = Framing.GetTileSafely(x, y + 1);
+                            if (tile.HasTile && (tile.TileType == lightTileType1 || tile.TileType == lightTileType2))
+                                tile.TileFrameX = 18;
+                            if (tileUp.HasTile && (tileUp.TileType == lightTileType1 || tileUp.TileType == lightTileType2))
+                                tileUp.TileFrameX = 18;
+                            if (tileDown.HasTile && (tileDown.TileType == lightTileType1 || tileDown.TileType == lightTileType2))
+                                tileDown.TileFrameX = 18;
+
+                            // Turn off the generator if it is on
+                            var isGeneratorTile = tile.TileType == generatorTileType;
+                            short xLeft = 4 * 18;
+                            var generatorOn = isGeneratorTile && tile.TileFrameX >= xLeft;
+                            if (generatorOn)
+                            {
+                                var topLeftPos = TileObjectData.TopLeft(x, y);
+
+                                for (var j = 0; j < 4; j++)
+                                {
+                                    for (var k = 0; k < 4; k++)
+                                    {
+                                        var xx = topLeftPos.X + j;
+                                        var yy = topLeftPos.Y + k;
+                                        var tile2 = Framing.GetTileSafely(xx, yy);
+                                        tile2.TileFrameX = (short)(j * 18);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Turn the non-faulty lights for active rooms back on
+                for (int i = 0; i < listActiveRooms.Count; i++)
+                {
+                    var roomPosition = listActiveRooms[i];
+                    for (int x = roomPosition.X; x < roomPosition.X + regionSize; x++)
+                    {
+                        for (int y = roomPosition.Y; y < roomPosition.Y + regionSize; y += 2)
+                        {
+                            if (x >= Main.maxTilesX || y >= Main.maxTilesY)
+                                continue;
+
+                            // Ignore the water room, because you have to turn on the power yourself
+                            if (roomPosition == waterRoomPos)
+                                continue;
+
+                            var tile = Framing.GetTileSafely(x, y);
+                            var tileUp = Framing.GetTileSafely(x, y - 1);
+                            var tileDown = Framing.GetTileSafely(x, y + 1);
+                            if (tile.HasTile && tile.TileType == lightTileType1)
+                                tile.TileFrameX = 0;
+                            if (tileUp.HasTile && tileUp.TileType == lightTileType1)
+                                tileUp.TileFrameX = 0;
+                            if (tileDown.HasTile && tileDown.TileType == lightTileType1)
+                                tileDown.TileFrameX = 0;
+                        }
+                    }
+                }
             }
         }
 

@@ -271,4 +271,24 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         )
         { }
     }
+
+    public class RoomBasementDoor : Room
+    {
+        public RoomBasementDoor() : base(
+            floorType: ModContent.TileType<Lab_TileTile>(),
+            floorPaint: PaintID.None,
+            wallType: [WallID.LeadBrick],
+            wallPaint: PaintID.None,
+            hasPainting: false,
+            hasChest: false,
+            decor: [ModContent.TileType<PuroPlush>(), ModContent.TileType<SharkPlush>()],
+            singleDecor: ModContent.TileType<LabDoorATile>(),
+            lanternStyle: 0,
+            torchStyle: -1,
+            chandelierStyle: -1,
+            hasLightSwitch: false,
+            hasFans: false
+        )
+        { }
+    }
 }

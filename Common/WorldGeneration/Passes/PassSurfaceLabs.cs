@@ -77,8 +77,9 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             newLabs.Clear();
 
             // Create lab classes and calculate their layouts
-            InitLabs(nBuildings, xStartLeft, widthLeft);
-            InitLabs(nBuildings, xStartRight, widthRight);
+            var door = ChangedUtils.WorldGenRandNext(0, 2);
+            InitLabs(nBuildings, xStartLeft, widthLeft, door == 0);
+            InitLabs(nBuildings, xStartRight, widthRight, door == 1);
 
             // Update positions
             UpdateLabPositions();
@@ -107,10 +108,11 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             GenerateLabs();
         }
 
-        private void InitLabs(int nBuildings, int xStart, int widthTotal)
+        private void InitLabs(int nBuildings, int xStart, int widthTotal, bool hasBasementDoor = false)
         {
             var isLeftSide = xStart < Main.maxTilesX / 2;
             var spacing = widthTotal / nBuildings;
+            var buildingWithDoorIndex = ChangedUtils.WorldGenRandNext(0, nBuildings);
 
             for (int i = 0; i < nBuildings; i++)
             {
@@ -119,8 +121,9 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 int randomXShift = ChangedUtils.WorldGenRandNext(-halfSpace / 2, halfSpace / 2);
                 x += randomXShift;
 
+                var hasDoor = hasBasementDoor;
                 var pos = new Vector2(x, (int)GenVars.worldSurfaceLow);
-                newLabs.Add(new LabStruct(pos));
+                newLabs.Add(new LabStruct(pos, hasDoor));
             }
         }
 
@@ -246,26 +249,6 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 var isLeftSide = pos.X < Main.maxTilesX / 2;
 
                 var validRegions = GetSuitableRegions();
-                /*
-                // Search regions again and ignore the right neighbor
-                if (!validRegions.Any())
-                {
-                    for (int x2 = 0; x2 < nX; x2++)
-                    {
-                        for (int y2 = 0; y2 < nY; y2++)
-                        {
-                            var region = WorldMaker.worldRegionsNew[x2, y2];
-                            var regionValid = region.surfaceLayer &&
-                            (
-                                region.regionType == WorldRegionType.Forest ||
-                                region.regionType == WorldRegionType.Desert ||
-                                region.regionType == WorldRegionType.Snow ||
-                                region.regionType == WorldRegionType.Jungle
-                            );
-                        }
-                    }
-                }
-                */
 
                 bool skipLegacy = false;
 

@@ -30,11 +30,11 @@ namespace ChangedSpecialMod.Utilities
         public LabType labType;
         public Building Lab = null;
 
-        public LabStruct(Vector2 position)
+        public LabStruct(Vector2 position, bool hasBasementDoor = false)
         {
             Position = position;
             labType = LabType.CityRuins;
-            Lab = new Building();
+            Lab = new Building(hasBasementDoor);
         }
     }
 
@@ -115,15 +115,6 @@ namespace ChangedSpecialMod.Utilities
                     pass.AddPassIfEnabled(ref tasks, ref taskIndex);
                 }
             }
-
-            /*
-            taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Cactus, Palm Trees, & Coral"));
-            if (taskIndex != -1)
-            {
-                var pass1 = new PassRemoveUnwantedDecals();
-                pass1.AddPassIfEnabled(ref tasks, ref taskIndex);
-            }
-            */
 
             taskIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
             if (taskIndex != -1)
@@ -261,12 +252,14 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Yellow10, ModContent.TileType<LabDoorJTile>() },
 
                         { Colors2.Red, ModContent.TileType<RedGasTank>() },
+                        { Colors2.Red2, ModContent.TileType<CrystalRed>() },
                         
                         { Colors2.Blue, ModContent.TileType<BlueGasTank>() },
                         { Colors2.Blue2, ModContent.TileType<Elevator>() },
 
                         { Colors2.Green, ModContent.TileType<LabDoorClosed>() },
-                        
+                        { Colors2.Green2, ModContent.TileType<CrystalGreen>() },
+
                         { Colors2.Purple, ModContent.TileType<FaultyLightTile>() },
                         { Colors2.Purple2, ModContent.TileType<LabLightTile>() },
                         

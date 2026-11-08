@@ -36,5 +36,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 b = 0f;
             }
         }
+
+        public override void HitWire(int i, int j)
+        {
+            FurnitureCommon.LightHitWire(Type, i, j, 1, 2);
+        }
     }
 }

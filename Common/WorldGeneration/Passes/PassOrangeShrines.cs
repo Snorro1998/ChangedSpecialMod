@@ -38,6 +38,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
     public static class Colors2
     {
         public static Color Red = new Color(255, 0, 0);
+        public static Color Red2 = new Color(250, 0, 0);
+
         public static Color Orange = new Color(255, 128, 0);
 
         public static Color Yellow = new Color(255, 255, 0);
@@ -52,6 +54,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public static Color Yellow10 = new Color(210, 210, 0);
 
         public static Color Green = new Color(0, 255, 0);
+        public static Color Green2 = new Color(0, 250, 0);
 
         public static Color Blue = new Color(0, 0, 255);
         public static Color Blue2 = new Color(0, 0, 250);
@@ -304,8 +307,18 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                         if (tile1.HasTile && tile1.TileType == furnitureType)
                             continue;
 
-                        WorldGen.PlaceTile(xPosWorld, yPosWorld, furnitureType, true);
-                        tile1 = Main.tile[xPosWorld, yPosWorld];
+                        var nStyles = ChangedUtils.GetNumberOfStylesPerItem(furnitureType);
+                        if (nStyles > 0)
+                        {
+                            var style = ChangedUtils.WorldGenRandNext(0, nStyles);
+                            var placementResult = WorldGen.PlaceObject(xPosWorld, yPosWorld, furnitureType, true, style, 1, -1, ChangedUtils.WorldGenRandNext(1, 3));
+                        }
+                        else
+                        {
+                            WorldGen.PlaceTile(xPosWorld, yPosWorld, furnitureType, true);
+                            tile1 = Main.tile[xPosWorld, yPosWorld];
+                        }
+                        
 
                         // Placed succesfully
                         if (tile1.HasTile && tile1.TileType == furnitureType)

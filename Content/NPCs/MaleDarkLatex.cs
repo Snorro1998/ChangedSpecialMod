@@ -1,9 +1,12 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
+using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
@@ -36,9 +39,14 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0.5f;
-			NPC.aiStyle = NPCAIStyleID.Fighter;
+            NPC.aiStyle = -1;
+            AIType = NPCID.None;
+            AnimationType = NPCID.Zombie;
+            /*
+            NPC.aiStyle = NPCAIStyleID.Fighter;
 			AIType = NPCID.GoblinScout;
 			AnimationType = NPCID.Zombie;
+            */
             SpawnModBiomes = new int[] { ModContent.GetInstance<BlackLatexSurfaceBiome>().Type };
 
             Banner = Type;
@@ -75,6 +83,28 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            var position = NPC.position.ToTileCoordinates();
+            var tile = Framing.GetTileSafely(position);
+            // Make him asleep if he spawns in the lab
+            if (tile.WallType == ModContent.WallType<LabWall>())
+            {
+                NPC.ai[0] = 10;
+            }
+        }
+
+        public override void AI()
+        {
+            AIFighter.Update(NPC);
+        }
+
+        public override bool? CanFallThroughPlatforms()
+        {
+            if (!NPC.HasValidTarget) return false;
+            else return Main.player[NPC.target].Bottom.Y > NPC.Bottom.Y + 32;
         }
     }
 }

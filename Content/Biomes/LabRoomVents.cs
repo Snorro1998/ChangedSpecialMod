@@ -48,6 +48,7 @@ namespace ChangedSpecialMod.Content.Biomes
         {
             LastEnteredPlayer = player;
             AudioSystem.RandomizeMusic(player, NPCs.GooType.None);
+            TileAnimationSystem.OnEnterRoom(5);
         }
 
         public bool IsInBiome()

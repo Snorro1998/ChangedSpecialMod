@@ -358,7 +358,10 @@ namespace ChangedSpecialMod.Utilities
                 {
                     if (y == yPos || x == xPos + width / 2)
                     {
-                        WorldGen.PlaceWire(x, y);
+                        var tile = Main.tile[x, y];
+                        // Placewire makes it go brrrrrrrrrrt
+                        tile.RedWire = true;
+                        //WorldGen.PlaceWire(x, y);
                     }
 
                     // Wire for the switch
@@ -366,7 +369,10 @@ namespace ChangedSpecialMod.Utilities
                     {
                         if (x > xPos + 1 && x < right - 1 && y == bottom - 3)
                         {
-                            WorldGen.PlaceWire(x, y);
+                            var tile = Main.tile[x, y];
+                            // Placewire makes it go brrrrrrrrrrt
+                            tile.RedWire = true;
+                            //WorldGen.PlaceWire(x, y);
                         }
                     }
                 }
@@ -492,9 +498,37 @@ namespace ChangedSpecialMod.Utilities
             {
                 for (var x = xCur + 2; x < right - 1; x++)
                 {
-                    WorldGen.PlaceWire(x, yCur + h - 5);
+                    var tile = Main.tile[x, yCur + h - 5];
+                    // Placewire makes it go brrrrrrrrrrt
+                    tile.RedWire = true;
+                    //WorldGen.PlaceWire(x, yCur + h - 5);
                 }
             }
+        }
+
+        public static bool ForceSingleDecor(Room room, int xStart, int roomWidth, int yCur, int h, int decor)
+        {
+            var placedAnything = false;
+            
+            for (int j = 2; j < 10; j++)
+            {
+                for (var i = 0; i < 20; i++)
+                {
+                    var xPos = ChangedUtils.WorldGenRandNext(xStart + 3, xStart + roomWidth - 3);
+                    var nStyles = ChangedUtils.GetNumberOfStylesPerItem(decor);
+                    var style = ChangedUtils.WorldGenRandNext(0, nStyles);
+
+                    var placementResult = WorldGen.PlaceObject(xPos, yCur + h - j, decor, true, style, 1, -1, ChangedUtils.WorldGenRandNext(1, 3));
+                    if (!placedAnything)
+                        placedAnything = placementResult;
+                    if (placedAnything)
+                        goto GetOut1;
+
+                }
+            }
+            GetOut1:
+
+            return placedAnything;
         }
 
         public static bool AddDecor(Room room, int xStart, int roomWidth, int yCur, int h)
@@ -508,11 +542,6 @@ namespace ChangedSpecialMod.Utilities
                     break;
 
                 var decor = room.GetDecor();
-                if (room.SingleDecor != -1 && !room.PlacedSingleDecor && ChangedUtils.WorldGenRandNext(0, 3) == 0)
-                {
-                    room.PlacedSingleDecor = true;
-                    decor = room.SingleDecor;
-                }
                 var nStyles = ChangedUtils.GetNumberOfStylesPerItem(decor);
                 var style = ChangedUtils.WorldGenRandNext(0, nStyles);
                 var placementResult = WorldGen.PlaceObject(xCurrent, yCur + h - 2, decor, true, style, 1, -1, ChangedUtils.WorldGenRandNext(1, 3));
