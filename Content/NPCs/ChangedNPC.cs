@@ -7,6 +7,7 @@ using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Content.NPCs.TownPets;
 using ChangedSpecialMod.Content.Projectiles;
+using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -332,6 +333,28 @@ namespace ChangedSpecialMod.Content.NPCs
         }
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
+            var position = player.Center.ToTileCoordinates();
+            var tile = Framing.GetTileSafely(position);
+            var tileLeft = Framing.GetTileSafely(position.X - 1, position.Y);
+            var tileRight = Framing.GetTileSafely(position.X + 1, position.Y);
+
+            var labWalls = new List<int>
+            {
+                ModContent.WallType<LabWall>(),
+                ModContent.WallType<LabCrystalRoomWall>(),
+                ModContent.WallType<LabLibraryRoomWall>(),
+                ModContent.WallType<LabVentsRoomWall>(),
+                ModContent.WallType<LabGasRoomWall>(),
+                ModContent.WallType<LabWaterRoomWall>(),
+            };
+
+            if (labWalls.Contains(tile.WallType) || labWalls.Contains(tileLeft.WallType) || labWalls.Contains(tileRight.WallType))
+            {
+                spawnRate = 0;
+                maxSpawns = 0;
+                return;
+            }
+
             if (BiomeChecks.InChangedBiome(player))
             {
                 //defaultspawnrate = 600

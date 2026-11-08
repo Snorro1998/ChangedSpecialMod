@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Content.NPCs;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -37,6 +38,18 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             Player player = ChangedUtils.GetClosestPlayer(i, j);
             if (!player.IsWithinSnappngRangeToTile(i, j, 5 * 16))
                 return false;
+
+            if (NPC.AnyNPCs(ModContent.NPCType<WhiteTail>()))
+            {
+                if (DestinationTileID == ModContent.TileType<LabDoorETile>() ||
+                    DestinationTileID == ModContent.TileType<LabDoorHTile>())
+                {
+                    var xPos = i;
+                    var yPos = j;
+                    SoundEngine.PlaySound(Assets.Sounds.SoundLockedDoor, new Vector2(xPos * 16, yPos * 16));
+                    return true;
+                }
+            }
 
             for (int x = 0; x < Main.maxTilesX; x += 3)
             {
@@ -127,5 +140,15 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
     public class LabDoorJTile : LabDoorTile
     {
         public override int DestinationTileID => ModContent.TileType<LabDoorITile>();
+    }
+
+    public class LabDoorKTile : LabDoorTile
+    {
+        public override int DestinationTileID => ModContent.TileType<LabDoorLTile>();
+    }
+
+    public class LabDoorLTile : LabDoorTile
+    {
+        public override int DestinationTileID => ModContent.TileType<LabDoorKTile>();
     }
 }

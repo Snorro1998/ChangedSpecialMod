@@ -161,7 +161,11 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
                     num80 = 1f;
                 }
                 // Make them much faster if the target player is drunk
-                if (isSnake || npc.HasValidTarget && ChangedUtils.IsDrunk(Main.player[npc.target]))
+                if (isSnake)
+                {
+                    num80 = 4f;
+                }
+                if (!isBlackLatex && npc.HasValidTarget && ChangedUtils.IsDrunk(Main.player[npc.target]))
                 {
                     num80 = 4f;
                 }

@@ -1,0 +1,76 @@
+﻿using ChangedSpecialMod.Assets;
+using ChangedSpecialMod.Backgrounds;
+using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Walls;
+using Microsoft.VisualBasic;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Graphics.Capture;
+using Terraria.ModLoader;
+
+namespace ChangedSpecialMod.Content.Biomes
+{
+    public class LabRoomWater : ModBiome
+	{
+        // I don't want a custom water style, so I made one as close as I could to vanilla
+        // This override must happen, or else the game crashes completely if you take a screenshot in snapshot mode
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<CityRuinsWaterStyle>();
+		public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<BlackLatexSurfaceBackgroundStyle>();
+		public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
+		public override string BestiaryIcon => base.BestiaryIcon;
+		public override string BackgroundPath => base.BackgroundPath;
+		public override Color? BackgroundColor => base.BackgroundColor;
+		public override string MapBackground => BackgroundPath;
+
+        public Player LastEnteredPlayer;
+
+		public override bool IsBiomeActive(Player player)
+        {
+            var playerPos = player.Center.ToTileCoordinates();
+            var waterRoomWallType = ModContent.WallType<LabWaterRoomWall>();
+
+            var tile = Framing.GetTileSafely(playerPos.X, playerPos.Y);
+            var tileLeft = Framing.GetTileSafely(playerPos.X - 1, playerPos.Y);
+            var tileRight = Framing.GetTileSafely(playerPos.X + 1, playerPos.Y);
+            var inWaterRoom = tile.WallType == waterRoomWallType ||
+                tileLeft.WallType == waterRoomWallType ||
+                tileRight.WallType == waterRoomWallType;
+
+            return inWaterRoom;
+        }
+
+		public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
+        public override int Music
+        {
+            get 
+            { 
+                return MusicLoader.GetMusicSlot(Mod, Sounds.MusicPuroDance); 
+            }
+        }
+
+        public override void OnEnter(Player player)
+        {
+            LastEnteredPlayer = player;
+            AudioSystem.RandomizeMusic(player, NPCs.GooType.None);
+            TileAnimationSystem.OnEnterRoom(5);
+        }
+
+        public bool IsInBiome()
+        {
+            for (int k = 0; k < Main.maxPlayers; k++)
+            {
+                Player player = Main.player[k];
+                if (!player.active)
+                {
+                    continue;
+                }
+
+                if (player.InModBiome<BlackLatexSurfaceBiome>())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+}

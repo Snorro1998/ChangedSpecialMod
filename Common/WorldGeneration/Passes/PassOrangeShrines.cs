@@ -52,15 +52,19 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public static Color Yellow8 = new Color(220, 220, 0);
         public static Color Yellow9 = new Color(215, 215, 0);
         public static Color Yellow10 = new Color(210, 210, 0);
+        public static Color Yellow11 = new Color(205, 205, 0);
+        public static Color Yellow12 = new Color(200, 200, 0);
 
         public static Color Green = new Color(0, 255, 0);
         public static Color Green2 = new Color(0, 250, 0);
 
         public static Color Blue = new Color(0, 0, 255);
         public static Color Blue2 = new Color(0, 0, 250);
+        public static Color Blue3 = new Color(0, 0, 245);
 
         public static Color Purple = new Color(128, 0, 128);
         public static Color Purple2 = new Color(138, 0, 138);
+
         public static Color DeepOrange = new Color(200, 100, 0);
 
         public static Color Gray = new Color(128, 128, 128);
@@ -70,10 +74,15 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public static Color Brown1 = new Color(190, 140, 110);
         public static Color Brown2 = new Color(180, 140, 110);
         public static Color Brown3 = new Color(170, 140, 110);
+        public static Color Brown4 = new Color(160, 140, 110);
+        public static Color Brown5 = new Color(150, 140, 110);
+        public static Color Brown6 = new Color(140, 140, 110);
+        public static Color Brown7 = new Color(130, 140, 110);
 
         public static Color PaintingShhh = new Color(100, 50, 30);
         public static Color PaintingPoofball = new Color(95, 50, 30);
         public static Color PaintingPuro = new Color(90, 50, 30);
+        public static Color PaintingEffectOfOranges = new Color(85, 50, 30);
     }
 
     public class StructureRuinedHouse
@@ -337,15 +346,6 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                                 Main.tile[topLeft.X + 2, topLeft.Y + 1].TileFrameX = 54 + 36;
                             }
                         }
-
-                        /*
-                        // Dirty fix for lab lights
-                        if (placed && furnitureType == ModContent.TileType<LabLightTile>())
-                        {
-                            Main.tile[xPosWorld, yPosWorld].TileFrameX = 18;
-                            Main.tile[xPosWorld, yPosWorld + 1].TileFrameX = 18;
-                        }
-                        */
                     }
                 }
             }
@@ -365,15 +365,15 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 var itemAmounts = new List<int>();
 
                 var primaryItems = new List<int>()
-                                        {
-                                            ItemID.Extractinator,
-                                            ItemID.BandofRegeneration,
-                                            ItemID.MagicMirror,
-                                            ItemID.CloudinaBottle,
-                                            ItemID.HermesBoots,
-                                            ItemID.Mace,
-                                            ItemID.ShoeSpikes
-                                        };
+                {
+                    ItemID.Extractinator,
+                    ItemID.BandofRegeneration,
+                    ItemID.MagicMirror,
+                    ItemID.CloudinaBottle,
+                    ItemID.HermesBoots,
+                    ItemID.Mace,
+                    ItemID.ShoeSpikes
+                };
 
                 items.Add(Utils.SelectRandom(WorldGen.genRand, primaryItems.ToArray()));
                 itemAmounts.Add(1);

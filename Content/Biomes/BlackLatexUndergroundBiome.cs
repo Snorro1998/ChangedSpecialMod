@@ -30,12 +30,21 @@ namespace ChangedSpecialMod.Content.Biomes
             var playerPos = player.Center.ToTileCoordinates();
             var tile = Framing.GetTileSafely(playerPos);
             var wallType = tile.WallType;
-            var inLab = 
+            var inLabRoom = 
                 wallType == ModContent.WallType<LabWall>() || 
                 wallType == ModContent.WallType<LabCrystalRoomWall>() || 
                 wallType == ModContent.WallType<LabVentsRoomWall>() || 
                 wallType == ModContent.WallType<LabGasRoomWall>() || 
                 wallType == ModContent.WallType<LabLibraryRoomWall>();
+
+            var waterRoomWallType = ModContent.WallType<LabWaterRoomWall>();
+            var tileLeft = Framing.GetTileSafely(playerPos.X - 1, playerPos.Y);
+            var tileRight = Framing.GetTileSafely(playerPos.X + 1, playerPos.Y);
+            var inWaterRoom = wallType == waterRoomWallType || 
+                tileLeft.WallType == waterRoomWallType || 
+                tileRight.WallType == waterRoomWallType;
+
+            var inLab = inLabRoom || inWaterRoom;
 
             return !inLab && TileCountSystem.BiomeActive(player, NPCs.GooType.Black, false);
 		}

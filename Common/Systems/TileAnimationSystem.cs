@@ -1,9 +1,8 @@
-﻿using ChangedSpecialMod.Content.Projectiles;
+﻿using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -286,8 +285,124 @@ namespace ChangedSpecialMod.Common.Systems
                                 tileDown.TileFrameX = 0;
                         }
                     }
+
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        var entitySource = new EntitySource_SpawnNPC("ChangedUtils");
+                        
+                        if (roomPosition == blackGooRoomPos)
+                        {
+                            var monstersInRoom = CheckIfNPCsInRoom(roomPosition);
+                            if (!monstersInRoom)
+                            {
+                                var blackCubType = ModContent.NPCType<DarkLatexCub>();
+                                var blackLatexType = ModContent.NPCType<MaleDarkLatex>();
+
+                                var roomPosX = roomPosition.X * 16;
+                                var roomPosY = roomPosition.Y * 16;
+
+                                var xPos = 18 * 16;
+                                var yPos = 32 * 16;
+                                var npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackCubType);
+
+                                xPos = 25 * 16;
+                                yPos = 32 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackLatexType, 0, 10);
+
+                                xPos = 16 * 16;
+                                yPos = 21 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackLatexType, 0, 10);
+
+                                xPos = 31 * 16;
+                                yPos = 21 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackLatexType, 0, 10);
+
+                                xPos = 18 * 16;
+                                yPos = 10 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackLatexType, 0, 10);
+
+                                xPos = 24 * 16;
+                                yPos = 10 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackCubType);
+
+                                xPos = 38 * 16;
+                                yPos = 10 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, blackLatexType, 0, 10);
+                            }
+                        }
+                        else if (roomPosition == crystalRoomPos)
+                        {
+                            var monstersInRoom = CheckIfNPCsInRoom(roomPosition);
+                            if (!monstersInRoom)
+                            {
+                                var yufengCubType = ModContent.NPCType<YufengCub>();
+                                var yufengType = ModContent.NPCType<Yufeng>();
+
+                                var roomPosX = roomPosition.X * 16;
+                                var roomPosY = roomPosition.Y * 16;
+
+                                var xPos = 30 * 16;
+                                var yPos = 8 * 16;
+                                var npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, yufengCubType);
+
+                                xPos = 40 * 16;
+                                yPos = 20 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, yufengCubType);
+
+                                xPos = 35 * 16;
+                                yPos = 38 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, yufengType);
+                            }
+                        }
+                        else if (roomPosition == libraryRoomPos)
+                        {
+                            var whiteTailType = ModContent.NPCType<WhiteTail>();
+                            if (!NPC.AnyNPCs(whiteTailType) && !DownedBossSystem.DownedWhiteTail)
+                            {
+                                var roomPosX = roomPosition.X * 16;
+                                var roomPosY = roomPosition.Y * 16;
+
+                                var xPos = 3 * 16;
+                                var yPos = 24 * 16;
+                                var npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, whiteTailType);
+                                Main.NewText("White tail has awoken!");
+                            }
+                        }
+                    }
                 }
             }
+        }
+
+        private static bool CheckIfNPCsInRoom(Point16 roomPosition)
+        {
+            var npcTypes = new List<int>
+            {
+                ModContent.NPCType<DarkLatexCub>(),
+                ModContent.NPCType<MaleDarkLatex>(),
+                ModContent.NPCType<YufengCub>(),
+                ModContent.NPCType<Yufeng>(),
+            };
+
+            var regionSize = 50;
+            var monstersInRoom = false;
+            for (int j = 0; j < Main.maxNPCs; j++)
+            {
+                var npc = Main.npc[j];
+                if (npc.active)
+                {
+                    if (!npcTypes.Contains(npc.type))
+                        continue;
+
+                    var pos = npc.position.ToTileCoordinates();
+                    if (pos.X >= roomPosition.X && pos.X < roomPosition.X + regionSize &&
+                        pos.Y >= roomPosition.Y && pos.Y < roomPosition.Y + regionSize)
+                    {
+                        monstersInRoom = true;
+                        break;
+                    }
+                }
+            }
+            return monstersInRoom;
         }
 
         public override void PostUpdateWorld()

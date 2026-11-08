@@ -85,6 +85,7 @@ namespace ChangedSpecialMod.Content.NPCs
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }
 
+        /*
         public override void OnSpawn(IEntitySource source)
         {
             var position = NPC.position.ToTileCoordinates();
@@ -95,6 +96,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 NPC.ai[0] = 10;
             }
         }
+        */
 
         public override void AI()
         {

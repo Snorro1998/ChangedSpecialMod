@@ -105,5 +105,11 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             AIFighter.Update(NPC);
         }
+
+        public override bool? CanFallThroughPlatforms()
+        {
+            if (!NPC.HasValidTarget) return false;
+            else return Main.player[NPC.target].Bottom.Y > NPC.Bottom.Y + 32;
+        }
     }
 }

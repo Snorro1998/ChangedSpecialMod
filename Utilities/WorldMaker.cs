@@ -234,7 +234,10 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Yellow, ModContent.WallType<LabCrystalRoomWall>() },
                         { Colors2.Red, ModContent.WallType<LabLibraryRoomWall>() },
                         { Colors2.Purple, ModContent.WallType<LabVentsRoomWall>() },
+                        { Colors2.Purple2, ModContent.WallType<LabWaterRoomWall>() },
+
                         { Colors2.Blue, ModContent.WallType<LabGasRoomWall>() },
+                        { Colors2.Blue2, WallID.Waterfall },
 
                     };
 
@@ -250,12 +253,15 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Yellow8, ModContent.TileType<LabDoorHTile>() },
                         { Colors2.Yellow9, ModContent.TileType<LabDoorITile>() },
                         { Colors2.Yellow10, ModContent.TileType<LabDoorJTile>() },
+                        { Colors2.Yellow11, ModContent.TileType<LabDoorKTile>() },
+                        { Colors2.Yellow12, ModContent.TileType<LabDoorLTile>() },
 
                         { Colors2.Red, ModContent.TileType<RedGasTank>() },
                         { Colors2.Red2, ModContent.TileType<CrystalRed>() },
                         
                         { Colors2.Blue, ModContent.TileType<BlueGasTank>() },
                         { Colors2.Blue2, ModContent.TileType<Elevator>() },
+                        { Colors2.Blue3, TileID.WaterDrip },
 
                         { Colors2.Green, ModContent.TileType<LabDoorClosed>() },
                         { Colors2.Green2, ModContent.TileType<CrystalGreen>() },
@@ -266,15 +272,20 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Brown1, TileID.Bookcases },
                         { Colors2.Brown2, ModContent.TileType<MountBookest>() },
                         { Colors2.Brown3, ModContent.TileType<Fan>() },
+                        { Colors2.Brown4, ModContent.TileType<StackOfBoxes>() },
+                        { Colors2.Brown5, ModContent.TileType<LabTable>() },
+                        { Colors2.Brown6, ModContent.TileType<Cryopod>() },
+                        { Colors2.Brown7, TileID.AlchemyTable },
 
                         { Colors2.PaintingShhh, ModContent.TileType<Painting4>() },
                         { Colors2.PaintingPoofball, ModContent.TileType<Painting1>() },
                         { Colors2.PaintingPuro, ModContent.TileType<Painting9>() },
+                        { Colors2.PaintingEffectOfOranges, ModContent.TileType<Painting3>() },
                     };
 
                     StructureLabRoom1 = new StructureRuinedHouse("LabRoom1", tileTypes, wallTypes, furnitureTypes, "SignTextBlackGooRoom");
                     StructureLabRoom2 = new StructureRuinedHouse("LabRoom2", tileTypes, wallTypes, furnitureTypes, "SignTextCrystalZoneRoom");
-                    StructureLabRoomLibrary = new StructureRuinedHouse("LabRoomLibrary", tileTypes, wallTypes, furnitureTypes);
+                    StructureLabRoomLibrary = new StructureRuinedHouse("LabRoomLibrary", tileTypes, wallTypes, furnitureTypes, "SignTextLibraryRoom");
                     StructureLabRoomVents = new StructureRuinedHouse("LabRoomVents", tileTypes, wallTypes, furnitureTypes);
                     StructureLabRoomGas = new StructureRuinedHouse("LabRoomGas", tileTypes, wallTypes, furnitureTypes);
                     StructureLabRoomWater = new StructureRuinedHouse("LabRoomWater", tileTypes, wallTypes, furnitureTypes);

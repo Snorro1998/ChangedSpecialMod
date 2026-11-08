@@ -10,6 +10,7 @@ using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
+using ChangedSpecialMod.Content.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -1226,7 +1227,7 @@ namespace ChangedSpecialMod.Utilities
 
         private static Tile GetTile(NPCSpawnInfo info)
         {
-            return Main.tile[info.SpawnTileX, info.SpawnTileY];
+            return Framing.GetTileSafely(info.SpawnTileX, info.SpawnTileY);
         }
 
         public static float GetFishSpawnChance(NPCSpawnInfo spawnInfo, ChangedNPC changedNPC, int NPCID)
@@ -1344,14 +1345,30 @@ namespace ChangedSpecialMod.Utilities
                 return false;
 
             // Spawn tile checks
-            var tileType = GetTile(spawnInfo).TileType;
+            var tile = GetTile(spawnInfo);
+            var tileType = tile.TileType;
+            var wallType = tile.WallType;
             var spawnTileIsWater = spawnInfo.Water;
+
+            var labWalls = new List<int>
+            {
+                ModContent.WallType<LabWall>(),
+                ModContent.WallType<LabCrystalRoomWall>(),
+                ModContent.WallType<LabLibraryRoomWall>(),
+                ModContent.WallType<LabVentsRoomWall>(),
+                ModContent.WallType<LabGasRoomWall>(),
+                ModContent.WallType<LabWaterRoomWall>(),
+            };
+
+            if (labWalls.Contains(wallType))
+                return false;
 
             // Don't spawn in water if it is not a fish or water type 
             //if (!npc.IsFish && npc.ElementType != ElementType.Water && spawnTileIsWater)
             //    return false;
             // Don't spawn fish type if there is no water
-            /*else*/ if (npc.IsFish && !spawnTileIsWater)
+            /*else*/
+            if (npc.IsFish && !spawnTileIsWater)
                 return false;
 
             return true;

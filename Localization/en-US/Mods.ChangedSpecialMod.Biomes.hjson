@@ -87,3 +87,8 @@ LabRoomVents: {
 	DisplayName: Lab Room Vents
 	TownNPCDialogueName: the Lab Room Vents
 }
+
+LabRoomWater: {
+	DisplayName: Lab Room Water
+	TownNPCDialogueName: the Lab Room Water
+}

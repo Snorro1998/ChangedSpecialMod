@@ -58,6 +58,7 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundLoad = new(Sound("Load"));             // Iris scanner
         public static readonly SoundStyle SoundSlip = new(Sound("Jump1"));            // Slippery goo
         public static readonly SoundStyle SoundLights = new(Sound("Paralyze1"));      // Lights flickering
+        public static readonly SoundStyle SoundLockedDoor = new(Sound("Open2"));      // Trying to open a door during a boss fight
 
         public static readonly SoundStyle SoundPlush = new(Sound("Plush"));           // From the Minecraft mod
         public static readonly SoundStyle SoundFireP1 = new(Sound("FireP1"));           // From the Minecraft mod
