@@ -875,7 +875,12 @@ namespace ChangedSpecialMod.Utilities
                 if (index >= 0 && index < Main.projectile.Length)
                 {
                     var angle = Main.rand.NextFloat((float)Math.PI * 2);
-                    Main.projectile[index].velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 5;
+                    var rotationSpeed = ChangedUtils.Choose(-1, 1) * Main.rand.NextFloat(2, 10);
+                    var projectile = Main.projectile[index];
+                    projectile.velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * 5;
+                    projectile.ai[1] = rotationSpeed;
+                    // Only 1 in 5 will make noise
+                    projectile.ai[2] = i % 3;
                 }
             }
 

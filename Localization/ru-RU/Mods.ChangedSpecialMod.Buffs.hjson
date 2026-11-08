@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: летать на слизи!
 	DisplayName: Юфэна
 }
+
+GasDebuff: {
+	// DisplayName: Gas Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.GasDebuff.Description
+}

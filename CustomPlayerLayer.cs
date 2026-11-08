@@ -9,6 +9,68 @@ using Terraria.ModLoader;
 
 namespace ChangedSpecialMod
 {
+    /*
+    public class PlayerGasLayer : PlayerDrawLayer
+    {
+        public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.LastVanillaLayer);
+
+        protected override void Draw(ref PlayerDrawSet drawInfo)
+        {
+            Player player = drawInfo.drawPlayer;
+            var changedPlayer = player.ChangedPlayer();
+            var baseTexturePath = "ChangedSpecialMod/Content/NPCs/";
+            var texturePath = $"{baseTexturePath}GreenFog";
+            var nFrames = 3;
+
+            var transfurCurrent = changedPlayer?.TransfurTypeCurrent;
+            var rotation = 0f;
+            var scale = 1f;
+
+            Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
+            Vector2 playerPos = player.Center;
+            playerPos.Y += player.gfxOffY;
+            Vector2 position = playerPos - Main.screenPosition;
+            position = new Vector2((int)position.X, (int)position.Y);
+            var effects = player.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+            var frameWidth = texture.Width;
+            var legFrame = player.legFrame.Y / 56;
+            var frameIndex = (player.legFrame.Y / (4 * 32)) % nFrames;// 0;
+
+            frameIndex = 0;
+
+            var frameHeight = texture.Height / nFrames;
+            var sourceRect = new Rectangle(0, frameIndex * frameHeight, frameWidth, frameHeight);
+
+            var yOff = (48 - (frameHeight * scale)) / 2;
+            position.Y += yOff;
+
+            Vector2 drawCenter = player.Center;
+            Vector2 drawPositionInWorld = drawCenter;
+            Color tmpColor = Lighting.GetColor((int)drawCenter.X / 16, (int)(drawCenter.Y / 16f));
+
+            var projs = Main.gore.Where(x => x.active && x.type == 1202).ToList();
+            foreach (var proj in projs)
+            {
+                var pos = proj.position - Main.screenPosition;
+
+                // Body
+                drawInfo.DrawDataCache.Add(new DrawData(
+                    texture,
+                    pos,
+                    sourceRect,
+                    tmpColor,
+                    rotation,
+                    new Vector2(frameWidth / 2, frameHeight / 2),
+                    scale,
+                    effects,
+                    0f
+                ));
+            }
+        }
+    }
+    */
+
     public class CustomPlayerLayer : PlayerDrawLayer
     {
         public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.LastVanillaLayer);

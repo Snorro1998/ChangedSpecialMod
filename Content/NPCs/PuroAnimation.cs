@@ -32,11 +32,12 @@ namespace ChangedSpecialMod.Content.NPCs
             }
 
             var nOranges = 0;
+            var orangeProjectileType = ModContent.ProjectileType<OrangeProjectile>();
             // Look for how many flying oranges are around him
             for (int i = 0; i < Main.maxProjectiles; i++)
             {
                 var projectile = Main.projectile[i];
-                if (!projectile.active || projectile.type != ModContent.ProjectileType<OrangeProjectile>() || projectile.Distance(NPC.Center) > dangerDetectRange)
+                if (!projectile.active || projectile.type != orangeProjectileType || projectile.DistanceSQ(NPC.Center) > dangerDetectRange * dangerDetectRange)
                     continue;
                 nOranges++;
             }

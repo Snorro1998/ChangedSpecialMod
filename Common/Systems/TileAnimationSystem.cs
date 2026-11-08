@@ -1,13 +1,11 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable.Furniture;
+﻿using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.UI;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -81,11 +79,20 @@ namespace ChangedSpecialMod.Common.Systems
 
         private void ToggleLights()
         {
+            var player = Main.LocalPlayer;
+            var playerPos = player.Center.ToTileCoordinates();
+            var playerTile = Framing.GetTileSafely(playerPos);
+            var shouldFlicker = true;
+
+            if (playerTile.WallType != ModContent.WallType<LabWall>() && !lightOn)
+                shouldFlicker = false;
+
+            if (!shouldFlicker)
+                return;
+
             lightOn = !lightOn;
             var tileType = (ushort)ModContent.TileType<FaultyLightTile>();
-            var player = Main.LocalPlayer;
 
-            var playerPos = player.Center.ToTileCoordinates();
             var padding = 100;
             var xMin = playerPos.X - padding;
             var xMax = playerPos.X + padding;
@@ -98,7 +105,8 @@ namespace ChangedSpecialMod.Common.Systems
 
             for (int x = xMin; x < xMax; x++)
             {
-                for (int y = yMin; y < yMax; y++)
+                // Because lamps are 2 tiles tall, we can check only every two rows
+                for (int y = yMin; y < yMax; y += 2)
                 {
                     if (!WorldGen.InWorld(x, y))
                         continue;
@@ -110,13 +118,18 @@ namespace ChangedSpecialMod.Common.Systems
                     if (tile.TileType == tileType)
                     {
                         anyLight = true;
-                        if (!lightOn)
-                            tile.TileFrameX = 18;
-                        else
-                            tile.TileFrameX = 0;
 
+                        var tileUp = Framing.GetTileSafely(x, y - 1);
+                        var tileDown = Framing.GetTileSafely(x, y + 1);
+                        var tileFrameX = !lightOn ? (short)18 : (short)0;
+
+                        tile.TileFrameX = tileFrameX;
+                        if (tileUp.TileType == tileType)
+                            tileUp.TileFrameX = tileFrameX;
+                        if (tileDown.TileType == tileType)
+                            tileDown.TileFrameX = tileFrameX;
+                        
                         var tilePos = new Point(x, y);
-
                         var x1 = playerPos.X - tilePos.X;
                         var y1 = playerPos.Y - tilePos.Y;
                         var tmpDist = x1 * x1 + y1 * y1;
@@ -140,6 +153,9 @@ namespace ChangedSpecialMod.Common.Systems
         {
             sweeperPuroCageAnimation.Update();
             ChangedUtils.Snowing();
+
+            if (Main.gamePaused || Main.gameInactive || Main.gameMenu)
+                return;
 
             if (counter % (60 * 3) == 0)
             {

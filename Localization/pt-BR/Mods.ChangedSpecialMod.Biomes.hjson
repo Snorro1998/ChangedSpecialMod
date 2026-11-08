@@ -67,3 +67,23 @@ LabBiome: {
 	// DisplayName: Lab Biome
 	// TownNPCDialogueName: the Lab Biome
 }
+
+LabRoomGas: {
+	// DisplayName: Lab Room Gas
+	// TownNPCDialogueName: the Lab Room Gas
+}
+
+LabRoomLibrary: {
+	// DisplayName: Lab Room Library
+	// TownNPCDialogueName: the Lab Room Library
+}
+
+LabRoomCrystal: {
+	// DisplayName: Lab Room Crystal
+	// TownNPCDialogueName: the Lab Room Crystal
+}
+
+LabRoomVents: {
+	// DisplayName: Lab Room Vents
+	// TownNPCDialogueName: the Lab Room Vents
+}

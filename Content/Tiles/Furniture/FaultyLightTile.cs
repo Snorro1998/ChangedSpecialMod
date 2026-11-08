@@ -26,8 +26,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             if (Main.tile[i, j].TileFrameX < 18)
             {
                 r = 1f;
-                g = 0.2f;
-                b = 0.2f;
+                g = 1f; //.2
+                b = 1f; //.2
             }
             else
             {
@@ -36,14 +36,5 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 b = 0f;
             }
         }
-        /*
-        public override void HitWire(int i, int j)
-        {
-            FurnitureCommon.LightHitWire(Type, i, j, 1, 2);
-
-            if (Main.netMode == NetmodeID.SinglePlayer)
-                SoundEngine.PlaySound(Assets.Sounds.SoundLights, new Vector2(i * 16, j * 16));
-        }
-        */
     }
 }

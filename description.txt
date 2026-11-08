@@ -98,13 +98,32 @@ Other
 
 0.5.7.6
 
-Description goes here
+I want to thank you all for 1000 downloads. This is the first mod I have made for Terraria, 
+so I am happy to see that despite some of its flaws, it is still well received.
+
+This update is a bigger than most of the previous ones to celebrate the occasion.
+It adds a large underground lab section, consisting of 6 rooms. 
+Each room respresents a different part of a normal Changed playthrough. 
+You can enter this underground section from a door in the basement of a surface lab. 
+Only one lab will have this door.
+
+Underground lab
+- Consists of 6 different parts of Changed
+- Black Goo Zone: Flickering lights
+- Crystal Zone: Slippery blocks
+- Library: Lots of books
+- Vents: Dark and difficult to navigate
+- Gas room: Stand under the fans to avoid the blue gas
+- Water room: Flip the switches to turn on the generators and the lights
+
+General
+- Flying oranges make less noise if there are many of them
 
 Blocks
-- Infected ice no longer makes you slide around weirdly
+- Infected ice blocks no longer makes you slide around weirdly
 
 World Generation
-- Added more variants for underground shrines
+- Added biome variants for underground shrines
 
 World Generation
 - World generator now tries to avoid generating things in biomes from these mods:

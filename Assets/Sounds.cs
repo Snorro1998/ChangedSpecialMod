@@ -60,6 +60,8 @@ namespace ChangedSpecialMod.Assets
         public static readonly SoundStyle SoundLights = new(Sound("Paralyze1"));      // Lights flickering
 
         public static readonly SoundStyle SoundPlush = new(Sound("Plush"));           // From the Minecraft mod
+        public static readonly SoundStyle SoundFireP1 = new(Sound("FireP1"));           // From the Minecraft mod
+        public static readonly SoundStyle SoundFireP2 = new(Sound("FireP2"));           // From the Minecraft mod
 
         // Boss fight
         public static readonly SoundStyle SoundSword1 = new(Sound("Sword1"));         // Wolf King snapping fingers

@@ -230,7 +230,7 @@ WhiteLatexBookcases: {
 
 LabTileBlock: {
 	DisplayName: Laboratory Tile Block
-	Tooltip: ""
+	Tooltip: Also known as recolored iron bricks!
 }
 
 WhiteLatexBlock: {
@@ -1145,5 +1145,20 @@ YufengCubBanner: {
 
 LabDoorA: {
 	DisplayName: Lab Door A
+	Tooltip: ""
+}
+
+LabDoorB: {
+	DisplayName: Lab Door B
+	Tooltip: ""
+}
+
+LabLight: {
+	DisplayName: Lab Light
+	Tooltip: ""
+}
+
+LabGasRoomWallItem: {
+	DisplayName: Lab Gas Room Wall Item
 	Tooltip: ""
 }

@@ -562,6 +562,11 @@ Mods: {
 				MapEntry: Papel para documentos
 				SignText1: No te quedes aquí mucho tiempo. Hay monstruos cerca.
 				SignText2: En caso de un corte de luz, puede reiniciar el generador que se encuentra en el sótano.
+				// SignTextBlackGooRoom: Move when the lights are off, so they don't see you.
+				// SignTextCrystalZoneRoom: Careful human, it is very slippery here.
+				// SignTextLibrary: He is away to pick some oranges, but he'll be back soon.
+				// SignVents: It is too dark to read what it says.
+				// SignGas: Stay close to the fans and don't breathe in the gas.
 			}
 
 			Elevator: Ascensor

@@ -32,9 +32,6 @@ namespace ChangedSpecialMod.Content.Projectiles
 			Projectile.penetrate = 1;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Generic;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.noDropItem = true;
         }
 
         public override bool PreDraw(ref Color lightColor)

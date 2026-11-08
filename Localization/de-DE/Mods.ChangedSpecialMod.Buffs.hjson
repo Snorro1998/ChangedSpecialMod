@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: Auf einem Schleim fliegen!
 	DisplayName: Yufeng
 }
+
+GasDebuff: {
+	// DisplayName: Gas Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.GasDebuff.Description
+}

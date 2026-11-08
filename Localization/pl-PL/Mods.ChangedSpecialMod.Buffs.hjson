@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: Latanie na szlamie!
 	DisplayName: Yufeng
 }
+
+GasDebuff: {
+	// DisplayName: Gas Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.GasDebuff.Description
+}

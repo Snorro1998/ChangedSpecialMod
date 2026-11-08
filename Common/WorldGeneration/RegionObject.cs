@@ -166,6 +166,11 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                 regionType != WorldRegionType.Structure;
         }
 
+        public bool IsValidNotSky()
+        {
+            return IsNonStructureRegion() && regionType != WorldRegionType.Sky;
+        }
+
         public void SetRegionType()
         {
             // Make a copy so external mod tiles don't permanently modify structureTiles.

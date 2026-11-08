@@ -449,7 +449,7 @@ namespace ChangedSpecialMod.Utilities
                             Language.GetTextValue("Mods.ChangedSpecialMod.Tiles.DocumentPaper.SignText2")
                         };
 
-                        string txt = Utils.SelectRandom(Main.rand, options);
+                        string txt = Utils.SelectRandom(WorldGen.genRand, options);
                         Sign.TextSign(signId, txt);
                     }
 
@@ -546,6 +546,23 @@ namespace ChangedSpecialMod.Utilities
                     var chest = Main.chest[chestIndex];
                     FillChest(chest);
                     break;
+                }
+            }
+        }
+
+        public static void PlaceDocumentPaper(int x, int y, string signText = "SignText1")
+        {
+            var tileType = ModContent.TileType<DocumentPaper>();
+            WorldGen.PlaceTile(x, y, tileType, true);
+            var placed = Main.tile[x, y].TileType == ModContent.TileType<DocumentPaper>();
+            if (placed)
+            {
+                var topLeft = TileObjectData.TopLeft(x, y);
+                int signId = Sign.ReadSign(x, y, true);
+                if (signId != -1)
+                {
+                    var txt = Language.GetTextValue($"Mods.ChangedSpecialMod.Tiles.DocumentPaper.{signText}");
+                    Sign.TextSign(signId, txt);
                 }
             }
         }

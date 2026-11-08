@@ -7,8 +7,10 @@ using ChangedSpecialMod.Content.Items.Armor;
 using ChangedSpecialMod.Content.Mounts;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Content.Projectiles;
+using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
+using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -142,6 +144,14 @@ namespace ChangedSpecialMod
         private int timerSlipSound = 0;
         private int intervalSlipSound = 20;
 
+        // Terraria can't pause or stop sounds
+        // So instead, we split the gas sound (fire.ogg) into 4 parts
+        // And play them based on a timer
+        // This will very likely cause issues if the game lags
+        private int gasSoundCounter = 0;
+        public int gasAmount = 0;
+        public bool gas = false;
+
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             if (KeybindSystem.TransfurAttackKeybind.Current)
@@ -151,6 +161,22 @@ namespace ChangedSpecialMod
         public override void ResetEffects()
         {
             var changedPlayer = Player.ChangedPlayer();
+            changedPlayer.gas = false;
+        }
+
+        public override void UpdateBadLifeRegen()
+        {
+            if (gas)
+            {
+                // These lines zero out any positive lifeRegen. This is expected for all bad life regeneration effects
+                if (Player.lifeRegen > 0)
+                    Player.lifeRegen = 0;
+                // Player.lifeRegenTime used to increase the speed at which the player reaches its maximum natural life regeneration
+                // So we set it to 0, and while this debuff is active, it never reaches it
+                Player.lifeRegenTime = 0;
+                // lifeRegen is measured in 1/2 life per second. Therefore, this effect causes 8 life lost per second
+                Player.lifeRegen -= 120;
+            }
         }
 
         private void TransfurAttack()
@@ -233,6 +259,47 @@ namespace ChangedSpecialMod
 
         public void AddDebuff()
         {
+            var pos = Player.Center.ToTileCoordinates();
+            var tile = Framing.GetTileSafely(pos);
+
+            var belowFan = false;
+            var fanTileType = ModContent.TileType<Fan>();
+
+            for (int y = -5; y < 0; y++)
+            {
+                var tmpTile = Framing.GetTileSafely(pos.X, pos.Y + y);
+                if (tmpTile.HasTile && tmpTile.TileType == fanTileType)
+                {
+                    belowFan = true;
+                    break;
+                }
+            }
+
+            var isGassed = false;
+            if (tile.WallType == ModContent.WallType<LabGasRoomWall>() && !belowFan)
+            {
+                isGassed = true;
+                if (gasAmount >= 240)
+                    Player.AddBuff(ModContent.BuffType<GasDebuff>(), 10);
+                gasAmount++;
+            }
+            else
+                gasAmount -= 3;
+
+            gasAmount = Math.Clamp(gasAmount, 0, 240);
+
+            if (isGassed || gasAmount > 0)
+            {
+                if (gasSoundCounter == 0)
+                    SoundEngine.PlaySound(Sounds.SoundFireP1);
+                else if (gasSoundCounter == 120)
+                    SoundEngine.PlaySound(Sounds.SoundFireP2);
+                gasSoundCounter++;
+                gasSoundCounter = gasSoundCounter % (4 * 60);
+            }
+            else
+                gasSoundCounter = 0;
+
             if (ChangedUtils.HasWolfKingFightStarted())
             {
                 var wolfPosition = Vector2.Zero;
@@ -264,7 +331,6 @@ namespace ChangedSpecialMod
         }
         public override void PreUpdateBuffs()
         {
-            base.PreUpdateBuffs();
             AddDebuff();
         }
 
@@ -393,20 +459,20 @@ namespace ChangedSpecialMod
             Point tilePos = Player.Bottom.ToTileCoordinates();
             Tile tile = Framing.GetTileSafely(tilePos);
 
+            if (tile.WallType != ModContent.WallType<LabCrystalRoomWall>())
+                return;
+
             var slipperyTiles = new List<int>
             {
                 ModContent.TileType<BlackLatexIceTile>(),
                 ModContent.TileType<WhiteLatexIceTile>(),
             };
 
-            if (tile.HasTile && tile.TileType == TileID.FrozenSlimeBlock && tile.TileColor == PaintID.BlackPaint)
+            if (tile.HasTile && tile.TileType == TileID.FrozenSlimeBlock)
             {
-                if (Player.velocity.X != 0f)
-                {
-                    timerSlipSound = (timerSlipSound + 1) % intervalSlipSound;
-                    if (timerSlipSound == 0)
-                        SoundEngine.PlaySound(Sounds.SoundSlip, Player.Center);
-                }
+                timerSlipSound = (timerSlipSound + 1) % intervalSlipSound;
+                if (timerSlipSound == 0)
+                    SoundEngine.PlaySound(Sounds.SoundSlip, Player.Center);
             }
         }
         /*

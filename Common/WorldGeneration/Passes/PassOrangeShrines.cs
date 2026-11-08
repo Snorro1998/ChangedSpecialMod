@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 {
@@ -30,6 +31,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public int FurnitureTileID = -1;
 
         public bool IsTopLeftOfChest = false;
+        public bool IsTopLeftOfDocumentPaper = false;
     }
 
     // Non-retarded colors that just work
@@ -37,20 +39,45 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
     {
         public static Color Red = new Color(255, 0, 0);
         public static Color Orange = new Color(255, 128, 0);
+
         public static Color Yellow = new Color(255, 255, 0);
+        public static Color Yellow2 = new Color(250, 250, 0);
+        public static Color Yellow3 = new Color(245, 245, 0);
+        public static Color Yellow4 = new Color(240, 240, 0);
+        public static Color Yellow5 = new Color(235, 235, 0);
+        public static Color Yellow6 = new Color(230, 230, 0);
+        public static Color Yellow7 = new Color(225, 225, 0);
+        public static Color Yellow8 = new Color(220, 220, 0);
+        public static Color Yellow9 = new Color(215, 215, 0);
+        public static Color Yellow10 = new Color(210, 210, 0);
+
         public static Color Green = new Color(0, 255, 0);
+
         public static Color Blue = new Color(0, 0, 255);
+        public static Color Blue2 = new Color(0, 0, 250);
 
         public static Color Purple = new Color(128, 0, 128);
+        public static Color Purple2 = new Color(138, 0, 138);
         public static Color DeepOrange = new Color(200, 100, 0);
 
         public static Color Gray = new Color(128, 128, 128);
+
+        public static Color BlackLatex = new Color(20, 20, 20);
+
+        public static Color Brown1 = new Color(190, 140, 110);
+        public static Color Brown2 = new Color(180, 140, 110);
+        public static Color Brown3 = new Color(170, 140, 110);
+
+        public static Color PaintingShhh = new Color(100, 50, 30);
+        public static Color PaintingPoofball = new Color(95, 50, 30);
+        public static Color PaintingPuro = new Color(90, 50, 30);
     }
 
     public class StructureRuinedHouse
     {
         public string Name;
         public TileData[,] Layout = null;
+        public string SignText = null;
 
         // Overwriteable
         public Dictionary<Color, int> TileTypes = new Dictionary<Color, int>()
@@ -79,6 +106,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         {
             { Colors2.Green, PaintID.GreenPaint },
             { Colors2.DeepOrange, PaintID.DeepOrangePaint },
+            { Colors2.BlackLatex, PaintID.BlackPaint },
         };
 
         // Always the same
@@ -90,7 +118,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             { Colors2.Purple, LiquidID.Shimmer}
         };
 
-        public StructureRuinedHouse(string name, Dictionary<Color, int> tileTypes = null, Dictionary<Color, int> wallTypes = null, Dictionary<Color, int> furnitureTypes = null)
+        public StructureRuinedHouse(string name, Dictionary<Color, int> tileTypes = null, Dictionary<Color, int> wallTypes = null, Dictionary<Color, int> furnitureTypes = null, string signText = "SignText1")
         {
             Name = name;
             if (tileTypes != null)
@@ -100,17 +128,26 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             if (furnitureTypes != null)
                 FurnitureTypes = furnitureTypes;
 
-            LoadWalls();
-            LoadWires();
-            LoadWallColors();
-            LoadTiles();
-            LoadTileColors();
-            LoadLiquids();
-            LoadFurniture();
-            LoadChests();
+            try
+            {
+                LoadWalls();
+                LoadWires();
+                LoadWallColors();
+                LoadTiles();
+                LoadTileColors();
+                LoadLiquids();
+                LoadFurniture();
+                LoadChests();
+            }
+            catch
+            {
+                ChangedSpecialMod.Instance.Logger.Error("Structure cctor crashed while loading images!");
+            }
+
+            SignText = signText;
         }
 
-        public bool BuildAtPosition(ref List<(int, int)> placedPositions)
+        public bool BuildAtPosition(ref List<(int, int)> placedPositions, int forceXPosition = -1, int forceYPosistion = -1)
         {
             if (Layout == null)
                 return false;
@@ -137,13 +174,22 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
             int yPos = ChangedUtils.WorldGenRandNext(yPosMin, yPosMax);
 
-            foreach (var position in placedPositions)
+            if (forceXPosition == -1)
             {
-                var dist = Vector2.DistanceSquared(new Vector2(position.Item1, position.Item2), new Vector2(xPos, yPos));
-                var minDist = 300;
-                if (dist < minDist * minDist)
-                    return false;
+                foreach (var position in placedPositions)
+                {
+                    var dist = Vector2.DistanceSquared(new Vector2(position.Item1, position.Item2), new Vector2(xPos, yPos));
+                    var minDist = 300;
+                    if (dist < minDist * minDist)
+                        return false;
+                }
             }
+            else
+            {
+                xPos = forceXPosition;
+                yPos = forceYPosistion;
+            }
+
 
             // First iteration. Walls and blocks
             for (int x2 = 0; x2 < nX; x2++)
@@ -183,18 +229,25 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                     if (tileType < -1)
                     {
                         WorldGenerator.DestroyChestAtPosition(xPosWorld, yPosWorld);
+                        WorldGen.KillTile(xPosWorld, yPosWorld, false, false, true);
+                        /*
                         worldTile.TileType = TileID.Dirt;
                         worldTile.IsHalfBlock = false;
                         worldTile.Slope = SlopeType.Solid;
-                        worldTile.HasTile = false;
+                        worldTile.HasTile = false;*/
                     }
                     else if (tileType >= 0)
                     {
+                        WorldGenerator.DestroyChestAtPosition(xPosWorld, yPosWorld);
+                        WorldGen.KillTile(xPosWorld, yPosWorld, false, false, true);
+                        WorldGen.PlaceTile(xPosWorld, yPosWorld, tileType, false, true);
+                        /*
                         worldTile.TileType = (ushort)tileType;
                         worldTile.HasTile = true;
                         worldTile.Slope = SlopeType.Solid;
                         worldTile.IsHalfBlock = false;
                         worldTile.IsActuated = false;
+                        */
                     }
 
                     if (tileColor < -1)
@@ -235,12 +288,52 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                         continue;
 
                     var placeChest = tmpTile.IsTopLeftOfChest;
+                    var placeSign = tmpTile.IsTopLeftOfDocumentPaper;
                     var furnitureType = tmpTile.FurnitureTileID;
 
                     if (placeChest)
                         CreateChest(xPosWorld, yPosWorld);
+                    else if (placeSign)
+                        WorldGenerator.PlaceDocumentPaper(xPosWorld, yPosWorld, SignText);
+                    
                     if (furnitureType >= 0)
+                    {
+                        var tile1 = Main.tile[xPosWorld, yPosWorld];
+
+                        // Skip if it is already there
+                        if (tile1.HasTile && tile1.TileType == furnitureType)
+                            continue;
+
                         WorldGen.PlaceTile(xPosWorld, yPosWorld, furnitureType, true);
+                        tile1 = Main.tile[xPosWorld, yPosWorld];
+
+                        // Placed succesfully
+                        if (tile1.HasTile && tile1.TileType == furnitureType)
+                        {
+                            // Dirty fan fix
+                            if (furnitureType == ModContent.TileType<Fan>())
+                            {
+                                var topLeft = TileObjectData.TopLeft(xPosWorld, yPosWorld);
+
+                                Main.tile[topLeft.X, topLeft.Y].TileFrameX = 54;
+                                Main.tile[topLeft.X + 1, topLeft.Y].TileFrameX = 54 + 18;
+                                Main.tile[topLeft.X + 2, topLeft.Y].TileFrameX = 54 + 36;
+
+                                Main.tile[topLeft.X, topLeft.Y + 1].TileFrameX = 54;
+                                Main.tile[topLeft.X + 1, topLeft.Y + 1].TileFrameX = 54 + 18;
+                                Main.tile[topLeft.X + 2, topLeft.Y + 1].TileFrameX = 54 + 36;
+                            }
+                        }
+
+                        /*
+                        // Dirty fix for lab lights
+                        if (placed && furnitureType == ModContent.TileType<LabLightTile>())
+                        {
+                            Main.tile[xPosWorld, yPosWorld].TileFrameX = 18;
+                            Main.tile[xPosWorld, yPosWorld + 1].TileFrameX = 18;
+                        }
+                        */
+                    }
                 }
             }
 
@@ -478,6 +571,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 
                         if (color == Colors2.Green)
                             Layout[x, y].IsTopLeftOfChest = true;
+                        else if (color == Colors2.Blue)
+                            Layout[x, y].IsTopLeftOfDocumentPaper = true;
                     }
                 }
             }
@@ -588,18 +683,6 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                     break;
                 structureList.Enqueue(structure);
             }
-
-            for (int i = 0; i < 10; i++)
-            {
-                var x1 = WorldGen.genRand.Next(Main.maxTilesX - 50);
-                var y1 = WorldGen.genRand.Next(Main.maxTilesX - 50);
-
-                var success = WorldMaker.StructureLabRoom1.BuildAtPosition(ref placedPositions);
-                if (success)
-                    break;
-            }
-
-
         }
     }
 }

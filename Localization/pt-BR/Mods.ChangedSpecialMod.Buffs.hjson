@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: Voando em uma gosma!
 	DisplayName: Yufeng
 }
+
+GasDebuff: {
+	// DisplayName: Gas Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.GasDebuff.Description
+}

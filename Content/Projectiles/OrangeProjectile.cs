@@ -1,8 +1,10 @@
 ﻿using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,23 +14,20 @@ namespace ChangedSpecialMod.Content.Projectiles
 	{
 		public static float RotationSpeed = 10;
 
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+		{
 			Projectile.width = 16;
 			Projectile.height = 16;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.penetrate = 3;
 			Projectile.timeLeft = 600;
-		}
+        }
 
-		public override void AI() {
+		public override void AI() 
+		{
 			Projectile.velocity.Y += Projectile.ai[0];
-			Projectile.rotation += MathHelper.ToRadians(RotationSpeed);
-			/*
-			if (Main.rand.NextBool(3)) {
-				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Sparkle>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
-			}
-			*/
+			Projectile.rotation += MathHelper.ToRadians(Projectile.ai[1]);
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
@@ -45,10 +44,19 @@ namespace ChangedSpecialMod.Content.Projectiles
 					Projectile.velocity.Y = -oldVelocity.Y;
 				}
 				Projectile.velocity *= 0.75f;
-				SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
+
+				if (ShouldPlaySound())
+					SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
 			}
 			return false;
 		}
+
+		private bool ShouldPlaySound()
+		{
+			var nOranges = Main.projectile.Where(x => x.active && x.type == Projectile.type).Count();
+			return Projectile.ai[2] == 0 || nOranges < 20;
+
+        }
 
 		public override void OnKill(int timeLeft) {
 			
@@ -63,10 +71,13 @@ namespace ChangedSpecialMod.Content.Projectiles
 					0,
 					Color.Orange);
 			}
-			SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
+
+            if (ShouldPlaySound())
+                SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
 		}
 
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) 
+		{
 			Projectile.ai[0] += 0.1f;
 			Projectile.velocity *= 0.75f;
 		}

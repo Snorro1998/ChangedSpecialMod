@@ -2,11 +2,13 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Common.WorldGeneration;
 using ChangedSpecialMod.Common.WorldGeneration.Passes;
-using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
+using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
+using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Walls;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -64,7 +66,13 @@ namespace ChangedSpecialMod.Utilities
 
         public static StructureRuinedHouse StructureOrangeShrine;
         public static StructureRuinedHouse StructureOrangeShrine2;
+
         public static StructureRuinedHouse StructureLabRoom1;
+        public static StructureRuinedHouse StructureLabRoom2;
+        public static StructureRuinedHouse StructureLabRoomLibrary;
+        public static StructureRuinedHouse StructureLabRoomVents;
+        public static StructureRuinedHouse StructureLabRoomGas;
+        public static StructureRuinedHouse StructureLabRoomWater;
 
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
@@ -129,8 +137,9 @@ namespace ChangedSpecialMod.Utilities
                 if (specialPass != null)
                     passes.Add(specialPass);
 
+                passes.Add(new PassUndergroundLab());
                 passes.Add(new PassRemoveUnwantedDecals());
-
+                
                 foreach (var pass in passes)
                 {
                     pass.AddPassIfEnabled(ref tasks, ref taskIndex);
@@ -148,8 +157,9 @@ namespace ChangedSpecialMod.Utilities
                 new PassGetRegions(),
                 new PassSurfaceLabs(),
                 new PassOrangeShrines(),
-                new PassRemoveUnwantedDecals(),
-                new PassLatexCaves()
+                new PassLatexCaves(),
+                new PassUndergroundLab(),
+                new PassRemoveUnwantedDecals()
             };
 
             var specialPass = GetSpecialSeedPass();
@@ -196,45 +206,91 @@ namespace ChangedSpecialMod.Utilities
 
         public override void PostSetupContent()
         {
-            // Structure init loads image files by using texture.getdata, which has to happen on the main thread
-            Main.QueueMainThreadAction(() =>
+            try
             {
-                StructureOrangeShrine = new StructureRuinedHouse("OrangeShrine");
-
-                Dictionary<Color, int> tileTypes = new Dictionary<Color, int>
+                // Structure init loads image files by using texture.getdata, which has to happen on the main thread
+                Main.QueueMainThreadAction(() =>
                 {
-                    { Colors2.Red, TileID.MarbleBlock },
-                    { Colors2.Green, TileID.Marble },
-                    { Colors2.Blue, TileID.MarbleColumn },
-                };
+                    StructureOrangeShrine = new StructureRuinedHouse("OrangeShrine");
 
-                Dictionary<Color, int> wallTypes = new Dictionary<Color, int>
-                {
-                    { Colors2.Green, WallID.MarbleBlock }
-                };
+                    Dictionary<Color, int> tileTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, TileID.Marble },
+                        { Colors2.Blue, TileID.MarbleColumn },
+                        { Colors2.Red, TileID.MarbleBlock },
+                    };
 
-                StructureOrangeShrine2 = new StructureRuinedHouse("Shrine", tileTypes, wallTypes);
+                    Dictionary<Color, int> wallTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, WallID.MarbleBlock }
+                    };
 
-                tileTypes = new Dictionary<Color, int>
-                {
-                    { Colors2.Green, ModContent.TileType<Lab_TileTile>() },
-                    { Colors2.Blue, TileID.Platforms },
-                };
+                    StructureOrangeShrine2 = new StructureRuinedHouse("Shrine", tileTypes, wallTypes);
 
-                wallTypes = new Dictionary<Color, int>
-                {
-                    { Colors2.Green, ModContent.WallType<LabWall>() }
-                };
+                    tileTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, ModContent.TileType<Lab_TileTile>() },
+                        { Colors2.Blue, TileID.Platforms },
+                        { Colors2.Red, TileID.Spikes },
 
-                Dictionary<Color, int> furnitureTypes = new Dictionary<Color, int>
-                {
-                    { Colors2.Yellow, ModContent.TileType<LabDoorATile>() },
-                    { Colors2.Blue, ModContent.TileType<Content.Tiles.Furniture.Elevator>() },
-                    { Colors2.Purple, ModContent.TileType<FaultyLightTile>() },
-                };
+                        { Colors2.Purple, TileID.FrozenSlimeBlock },
+                        { Colors2.BlackLatex, ModContent.TileType<BlackLatexTile>() },
+                    };
 
-                StructureLabRoom1 = new StructureRuinedHouse("LabRoom1", tileTypes, wallTypes, furnitureTypes);
-            });
+                    wallTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, ModContent.WallType<LabWall>() },
+                        { Colors2.Yellow, ModContent.WallType<LabCrystalRoomWall>() },
+                        { Colors2.Red, ModContent.WallType<LabLibraryRoomWall>() },
+                        { Colors2.Purple, ModContent.WallType<LabVentsRoomWall>() },
+                        { Colors2.Blue, ModContent.WallType<LabGasRoomWall>() },
+
+                    };
+
+                    Dictionary<Color, int> furnitureTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Yellow, ModContent.TileType<LabDoorATile>() },
+                        { Colors2.Yellow2, ModContent.TileType<LabDoorBTile>() },
+                        { Colors2.Yellow3, ModContent.TileType<LabDoorCTile>() },
+                        { Colors2.Yellow4, ModContent.TileType<LabDoorDTile>() },
+                        { Colors2.Yellow5, ModContent.TileType<LabDoorETile>() },
+                        { Colors2.Yellow6, ModContent.TileType<LabDoorFTile>() },
+                        { Colors2.Yellow7, ModContent.TileType<LabDoorGTile>() },
+                        { Colors2.Yellow8, ModContent.TileType<LabDoorHTile>() },
+                        { Colors2.Yellow9, ModContent.TileType<LabDoorITile>() },
+                        { Colors2.Yellow10, ModContent.TileType<LabDoorJTile>() },
+
+                        { Colors2.Red, ModContent.TileType<RedGasTank>() },
+                        
+                        { Colors2.Blue, ModContent.TileType<BlueGasTank>() },
+                        { Colors2.Blue2, ModContent.TileType<Elevator>() },
+
+                        { Colors2.Green, ModContent.TileType<LabDoorClosed>() },
+                        
+                        { Colors2.Purple, ModContent.TileType<FaultyLightTile>() },
+                        { Colors2.Purple2, ModContent.TileType<LabLightTile>() },
+                        
+                        { Colors2.Brown1, TileID.Bookcases },
+                        { Colors2.Brown2, ModContent.TileType<MountBookest>() },
+                        { Colors2.Brown3, ModContent.TileType<Fan>() },
+
+                        { Colors2.PaintingShhh, ModContent.TileType<Painting4>() },
+                        { Colors2.PaintingPoofball, ModContent.TileType<Painting1>() },
+                        { Colors2.PaintingPuro, ModContent.TileType<Painting9>() },
+                    };
+
+                    StructureLabRoom1 = new StructureRuinedHouse("LabRoom1", tileTypes, wallTypes, furnitureTypes, "SignTextBlackGooRoom");
+                    StructureLabRoom2 = new StructureRuinedHouse("LabRoom2", tileTypes, wallTypes, furnitureTypes, "SignTextCrystalZoneRoom");
+                    StructureLabRoomLibrary = new StructureRuinedHouse("LabRoomLibrary", tileTypes, wallTypes, furnitureTypes);
+                    StructureLabRoomVents = new StructureRuinedHouse("LabRoomVents", tileTypes, wallTypes, furnitureTypes);
+                    StructureLabRoomGas = new StructureRuinedHouse("LabRoomGas", tileTypes, wallTypes, furnitureTypes);
+                    StructureLabRoomWater = new StructureRuinedHouse("LabRoomWater", tileTypes, wallTypes, furnitureTypes);
+                });
+            }
+            catch(Exception e)
+            {
+                Mod.Logger.Error($"Something went wrong while trying to load the structure data: {e.Message}");
+            }
         }
     }
 }

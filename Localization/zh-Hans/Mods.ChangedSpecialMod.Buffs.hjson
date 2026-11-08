@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: 乘着黏液飞行
 	DisplayName: 与锋
 }
+
+GasDebuff: {
+	// DisplayName: Gas Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.GasDebuff.Description
+}
