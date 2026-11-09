@@ -281,7 +281,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
             wallPaint: PaintID.None,
             hasPainting: false,
             hasChest: false,
-            decor: [ModContent.TileType<PuroPlush>(), ModContent.TileType<SharkPlush>()],
+            decor: [ModContent.TileType<RedGasTank>(), ModContent.TileType<BlueGasTank>()],
             singleDecor: ModContent.TileType<LabDoorATile>(),
             lanternStyle: 0,
             torchStyle: -1,

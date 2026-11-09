@@ -42,6 +42,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.aiStyle = -1;
             AIType = NPCID.None;
             AnimationType = NPCID.Zombie;
+            NPC.waterMovementSpeed = 0.8f;
             SpawnModBiomes = new int[] { ModContent.GetInstance<CityRuinsSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();

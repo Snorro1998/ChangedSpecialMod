@@ -11,6 +11,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
+using Microsoft.Xna.Framework;
 
 namespace ChangedSpecialMod.Utilities
 {
@@ -189,17 +190,61 @@ namespace ChangedSpecialMod.Utilities
 
         public void DigOutSpaceForBuilding(int totalWidth, int totalHeight, int xCurrent, int yCurrent)
         {
+            int currentX = xCurrent;
+
+            for (int row = 0; row < roomWidths.Length; row++)
+            {
+                int currentY = yCurrent;
+
+                for (int col = 0; col < roomHeights.Length; col++)
+                {
+                    var room = layout[row, col];
+                    if (room != (int)RoomType.None)
+                    {
+                        // Dig out only the current room
+                        for (int x = 0; x < roomWidths[row]; x++)
+                        {
+                            for (int y = 0; y < roomHeights[col]; y++)
+                            {
+                                int xx = currentX + x;
+                                int yy = currentY + y;
+
+                                if (!WorldGen.InWorld(xx, yy))
+                                    continue;
+
+                                WorldGenerator.DestroyChestAtPosition(xx, yy);
+                                Main.tile[xx, yy].ClearEverything();
+                            }
+                        }
+                    }
+
+                    // Move to the next room horizontally
+                    currentY += roomHeights[col] - 1;
+                }
+
+                // Move to the next row vertically
+                currentX += roomWidths[row] - 1;
+            }
+        }
+        /*
+        public void DigOutSpaceForBuilding(int totalWidth, int totalHeight, int xCurrent, int yCurrent)
+        {
             for (int x = 0; x < totalWidth; x++)
             {
                 for (int y = 0; y < totalHeight; y++)
                 {
                     var xx = xCurrent + x;
                     var yy = yCurrent + y;
+
+                    if (!WorldGen.InWorld(xx, yy))
+                        continue;
+
                     WorldGenerator.DestroyChestAtPosition(xx, yy);
                     Main.tile[xx, yy].ClearEverything();
                 }
             }
         }
+        */
 
         public void Generate(int xPos, int yPos, LabType labType = LabType.CityRuins, bool dontGenerate = false)
         {
@@ -283,7 +328,7 @@ namespace ChangedSpecialMod.Utilities
 
             // Dig out space for the building. TODO do it per room so you don't have empty space around the building if inside a mountain or if some rooms don't generate
             DigOutSpaceForBuilding(totalWidth, totalHeight, xCurrent, yCurrent);
-            Microsoft.Xna.Framework.Rectangle rect = new Microsoft.Xna.Framework.Rectangle(xCurrent, yCurrent, totalWidth, totalHeight);
+            Rectangle rect = new Rectangle(xCurrent, yCurrent, totalWidth, totalHeight);
             GenVars.structures.AddProtectedStructure(rect, 1);
 
             // Vertical strips

@@ -442,7 +442,7 @@ namespace ChangedSpecialMod
 
         public override void PostUpdate()
         {
-            if (Player.chest != -1 && IsNearOrangeShrineWall(Player, 20) && Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<OrangeProjectile>()) != null)
+            if (Player.chest != -1 && IsNearOrangeStatue(Player, 20) && Main.projectile.Where(x => x.active && x.type == ModContent.ProjectileType<OrangeProjectile>()) != null)
             {
                 ModContent.GetInstance<OrangeShrineAchievement>().Condition.Complete();
             }
@@ -475,43 +475,11 @@ namespace ChangedSpecialMod
                     SoundEngine.PlaySound(Sounds.SoundSlip, Player.Center);
             }
         }
-        /*
-        public override void PostUpdateRunSpeeds()
-        {
-            if (Player.mount.Active)
-                return;
 
-            Point tilePos = Player.Bottom.ToTileCoordinates();
-            Tile tile = Framing.GetTileSafely(tilePos);
-
-            var slipperyTiles = new List<int>
-            {
-                ModContent.TileType<BlackLatexIceTile>(),
-                ModContent.TileType<WhiteLatexIceTile>(),
-            };
-
-            if (tile.HasTile && slipperyTiles.Contains(tile.TileType))
-            {
-                if (Player.velocity.X != 0f)
-                {
-                    if (ChangedSpecialModClientConfig.Instance.SlipSound)
-                    {
-                        timerSlipSound = (timerSlipSound + 1) % intervalSlipSound;
-                        if (timerSlipSound == 0)
-                            SoundEngine.PlaySound(Sounds.SoundSlip, Player.Center);
-                    }
-                    //var accel = 0.1f;
-                    //var maxSpeed = Player.maxRunSpeed * Player.moveSpeed;
-                    //Player.velocity.X = Math.Clamp(Player.velocity.X + MathF.Sign(Player.velocity.X) * accel, -maxSpeed, maxSpeed);
-                    Player.velocity.X = MathF.Sign(Player.velocity.X) * Player.maxRunSpeed * Player.moveSpeed;
-                }
-            }
-        }
-        */
-
-        public static bool IsNearOrangeShrineWall(Player player, int radius)
+        public static bool IsNearOrangeStatue(Player player, int radius)
         {
             Point center = player.Center.ToTileCoordinates();
+            var orangeStatueTileType = ModContent.TileType<OrangeStatue>();
 
             for (int x = center.X - radius; x <= center.X + radius; x++)
             {
@@ -522,11 +490,8 @@ namespace ChangedSpecialMod
 
                     Tile tile = Main.tile[x, y];
 
-                    if (tile.WallType == WallID.Slime &&
-                        tile.WallColor == PaintID.YellowPaint)
-                    {
+                    if (tile.HasTile && tile.TileType == orangeStatueTileType)
                         return true;
-                    }
                 }
             }
 

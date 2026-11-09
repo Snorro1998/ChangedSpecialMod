@@ -28,6 +28,11 @@ namespace ChangedSpecialMod.Content.Tiles
             AddMapEntry(new Color(200, 200, 200));
         }
 
+        public override bool CanExplode(int i, int j)
+        {
+            return false;
+        }
+
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             if (ChangedSpecialModClientConfig.Instance.RetroVisualsTiles)

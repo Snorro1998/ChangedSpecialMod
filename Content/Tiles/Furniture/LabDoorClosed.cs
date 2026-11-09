@@ -1,11 +1,9 @@
 using ChangedSpecialMod.Common.Configs;
-using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Placeable.Furniture;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
@@ -15,13 +13,11 @@ using Terraria.ObjectData;
 
 namespace ChangedSpecialMod.Content.Tiles.Furniture
 {
-	//TODO: Smart Cursor Outlines and tModLoader support
 	public class LabDoorClosed : ModTile
 	{
         public static string retroTexturePath = "ChangedSpecialMod/Content/Tiles/Furniture/LabDoorClosedRetro";
         public override void SetStaticDefaults()
         {
-            // Properties
             Main.tileFrameImportant[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSolid[Type] = true;
@@ -35,36 +31,12 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 
-            DustType = DustID.TintableDust; //ModContent.DustType<Sparkle>();
+            DustType = DustID.TintableDust;
             AdjTiles = [TileID.ClosedDoor];
 
-            // Names
-            AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.Door"));
+            AddMapEntry(new Color(160, 160, 160), Language.GetText("MapObject.Door"));
 
-            // Placement
-            // In addition to copying from the TileObjectData.Something templates, modders can copy from specific tile types. CopyFrom won't copy subtile data, so style specific properties won't be copied, such as how Obsidian doors are immune to lava.
             TileObjectData.newTile.CopyFrom(TileObjectData.GetTileData(TileID.ClosedDoor, 0));
-            /* This is what is copied from the ClosedDoor tile
-			TileObjectData.newTile.Width = 1;
-			TileObjectData.newTile.Height = 3;
-			TileObjectData.newTile.Origin = new Point16(0, 0);
-			TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-			TileObjectData.newTile.UsesCustomCanPlace = true;
-			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = [16, 16, 16];
-			TileObjectData.newTile.CoordinateWidth = 16;
-			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.StyleHorizontal = false;
-			TileObjectData.newTile.StyleWrapLimit = 36;
-			TileObjectData.newTile.StyleLineSkip = 3; // When a door closes, each tile randomize between 3 different options. StyleLineSkip ensures that those tiles are interpreted as the correct style.
-			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-			TileObjectData.newAlternate.Origin = new Point16(0, 1);
-			TileObjectData.addAlternate(0);
-			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-			TileObjectData.newAlternate.Origin = new Point16(0, 2);
-			TileObjectData.addAlternate(0);
-			*/
             TileObjectData.addTile(Type);
         }
 
@@ -85,14 +57,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             player.cursorItemIconEnabled = true;
             player.cursorItemIconID = ModContent.ItemType<LabDoor>();
         }
-
-        /*
-        public override bool RightClick(int i, int j)
-        {
-            SoundEngine.PlaySound(Assets.Sounds.SoundDoor, new Vector2(i * 16, j * 16));
-            return base.RightClick(i, j);
-        }
-        */
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -119,7 +83,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             if (ModContent.RequestIfExists(retroTexturePath, out Asset<Texture2D> retroTexture))
                 texture = retroTexture.Value;
 
-            // Firstly we draw the original texture and then glow mask texture
             spriteBatch.Draw(
                 texture,
                 new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero,

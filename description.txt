@@ -96,7 +96,7 @@ Other
 --------- Changelog ---------
 
 
-0.5.7.6
+0.5.8
 
 I want to thank you all for 1000 downloads. This is the first mod I have made for Terraria, 
 so I am happy to see that despite some of its flaws, it is still well received.
@@ -120,6 +120,7 @@ General
 
 Blocks
 - Infected ice blocks no longer makes you slide around weirdly
+- Laboratory tiles can no longer be blown up with bombs
 
 World Generation
 - Added biome variants for underground shrines
@@ -127,8 +128,15 @@ World Generation
 World Generation
 - World generator now tries to avoid generating things in biomes from these mods:
 - Ultranium
+- Spooky Mod
 
 Fixed
 - World generator often spammed sounds (brrrrrrt), because of the way it placed wires
+- World generator dug out too much space when a lab generated inside the terrain
 - Camera moving smoothly when using an elevator in multiplayer, but not in single player
 - Enemies using the custom FigtherAI did not fall through platforms if the player was below them
+- Added missing map entries for a few tiles
+
+Resprited
+- Wolf King
+- Cheerleader

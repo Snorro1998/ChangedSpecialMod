@@ -25,7 +25,8 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 			TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.addTile(Type);
 			DustType = DustID.WoodFurniture;
-		}
+            AddMapEntry(new Color(20, 20, 255));
+        }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {

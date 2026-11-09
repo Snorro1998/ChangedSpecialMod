@@ -44,7 +44,7 @@ namespace ChangedSpecialMod.Content.Biomes
         {
             get 
             { 
-                return MusicLoader.GetMusicSlot(Mod, Sounds.MusicPuroDance); 
+                return MusicLoader.GetMusicSlot(Mod, Sounds.AmbientDrips); 
             }
         }
 

@@ -32,9 +32,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         Mushroom,
         Granite,
         Marble,
-        Beehive,
-
-        Labyrinth
+        Beehive
     }
 
     public class RegionObject
@@ -89,70 +87,70 @@ namespace ChangedSpecialMod.Common.WorldGeneration
             };
 
         private static readonly List<int> CrimsonTiles = new()
-            {
-                TileID.Crimstone,
-                TileID.Crimsand,
-                TileID.CrimsonGrass
-            };
+        {
+            TileID.Crimstone,
+            TileID.Crimsand,
+            TileID.CrimsonGrass
+        };
 
         private static readonly List<int> HellTiles = new()
-            {
-                TileID.Ash
-            };
+        {
+            TileID.Ash
+        };
 
         private static readonly List<int> dungeonTiles = new()
-            {
-                TileID.BlueDungeonBrick,
-                TileID.GreenDungeonBrick,
-                TileID.PinkDungeonBrick
-            };
+        {
+            TileID.BlueDungeonBrick,
+            TileID.GreenDungeonBrick,
+            TileID.PinkDungeonBrick
+        };
 
         private static readonly List<int> livingTreeTiles = new()
-            {
-                TileID.LivingWood,
-                TileID.LeafBlock,
-                TileID.LivingMahogany,
-                TileID.LivingMahoganyLeaves
-            };
+        {
+            TileID.LivingWood,
+            TileID.LeafBlock,
+            TileID.LivingMahogany,
+            TileID.LivingMahoganyLeaves
+        };
 
         private static readonly List<int> graniteTiles = new()
-            {
-                TileID.Granite
-            };
+        {
+            TileID.Granite
+        };
 
         private static readonly List<int> marbleTiles = new()
-            {
-                TileID.Marble
-            };
+        {
+            TileID.Marble
+        };
 
         private static readonly List<int> hiveTiles = new()
-            {
-                TileID.Hive
-            };
+        {
+            TileID.Hive
+        };
 
         private static readonly List<int> structureTiles = new()
-            {
-                // Chests
-                TileID.Containers,
-                TileID.Containers2,
+        {
+            // Chests
+            TileID.Containers,
+            TileID.Containers2,
 
-                // Pyramid
-                TileID.SandstoneBrick,
+            // Pyramid
+            TileID.SandstoneBrick,
 
-                // Temple
-                TileID.LihzahrdBrick,
+            // Temple
+            TileID.LihzahrdBrick,
 
-                // Not used by vanilla, but often used by other mods for buildings
-                TileID.WoodBlock,
-                TileID.GrayBrick,
-                TileID.StoneSlab,
-                TileID.BlueDynastyShingles,
-                TileID.RedDynastyShingles,
-                TileID.RichMahogany,
-                TileID.BorealWood,
+            // Not used by vanilla, but often used by other mods for buildings
+            TileID.WoodBlock,
+            TileID.GrayBrick,
+            TileID.StoneSlab,
+            TileID.BlueDynastyShingles,
+            TileID.RedDynastyShingles,
+            TileID.RichMahogany,
+            TileID.BorealWood,
 
-                TileID.IceBrick
-            };
+            TileID.IceBrick
+        };
 
         public bool IsNonStructureRegion()
         {
@@ -169,6 +167,11 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         public bool IsValidNotSky()
         {
             return IsNonStructureRegion() && regionType != WorldRegionType.Sky;
+        }
+
+        public bool IsUnderground()
+        {
+            return area.Top > Main.rockLayer;
         }
 
         public void SetRegionType()
@@ -358,9 +361,6 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                 tileType = TileID.IceBlock;
             else if (regionType == WorldRegionType.Forest)
                 tileType = TileID.Grass;
-
-            else if (regionType == WorldRegionType.Labyrinth)
-                tileType = TileID.PinkSlimeBlock;
 
             if (surfaceLayer)
                 tileType = TileID.GoldBrick;

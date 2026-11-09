@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Microsoft.Xna.Framework;
 using static ChangedSpecialMod.ChangedSpecialMod;
 
 namespace ChangedSpecialMod.Content.Tiles.Furniture
@@ -26,12 +27,13 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             DustType = DustID.WoodFurniture;
 
             AnimationFrameHeight = 36;
+            AddMapEntry(new Color(160, 160, 160), Language.GetText("Mods.ChangedSpecialMod.Items.Fan.DisplayName"));
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-            if (frameCounter >= 10) // speed of animation (lower = faster)
+            if (frameCounter >= 10)
             {
                 frameCounter = 0;
                 frame = (frame + 1) % 4;

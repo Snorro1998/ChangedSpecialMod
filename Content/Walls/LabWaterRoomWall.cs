@@ -11,6 +11,15 @@ namespace ChangedSpecialMod.Content.Walls
             DustType = DustID.Asphalt;
             AddMapEntry(new Color(5, 5, 5));
         }
+        public override bool CanExplode(int i, int j)
+        {
+            return false;
+        }
+
+        public override void KillWall(int i, int j, ref bool fail)
+        {
+            fail = true;
+        }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
         {

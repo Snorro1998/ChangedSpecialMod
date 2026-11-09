@@ -6,7 +6,9 @@ using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -71,6 +73,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 
         public static Color BlackLatex = new Color(20, 20, 20);
 
+        // Most of them are not brown
         public static Color Brown1 = new Color(190, 140, 110);
         public static Color Brown2 = new Color(180, 140, 110);
         public static Color Brown3 = new Color(170, 140, 110);
@@ -78,6 +81,9 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public static Color Brown5 = new Color(150, 140, 110);
         public static Color Brown6 = new Color(140, 140, 110);
         public static Color Brown7 = new Color(130, 140, 110);
+        public static Color Brown8 = new Color(120, 140, 110);
+        public static Color Brown9 = new Color(110, 140, 110);
+        public static Color Brown10 = new Color(100, 140, 110);
 
         public static Color PaintingShhh = new Color(100, 50, 30);
         public static Color PaintingPoofball = new Color(95, 50, 30);
@@ -159,7 +165,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             SignText = signText;
         }
 
-        public bool BuildAtPosition(ref List<(int, int)> placedPositions, int forceXPosition = -1, int forceYPosistion = -1)
+        public bool BuildAtPosition(ref List<(int, int)> placedPositions, int forceXPosition = -1, int forceYPosistion = -1, RegionObject region = null)
         {
             if (Layout == null)
                 return false;
@@ -185,6 +191,12 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 
             int xPos = ChangedUtils.WorldGenRandNext(xPosMin, xPosMax);
             int yPos = ChangedUtils.WorldGenRandNext(yPosMin, yPosMax);
+
+            if (region != null)
+            {
+                xPos = region.area.Left + ChangedUtils.WorldGenRandNext(0, 30);
+                yPos = region.area.Top + ChangedUtils.WorldGenRandNext(0, 30);
+            }
 
             if (forceXPosition == -1)
             {
@@ -242,24 +254,12 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                     {
                         WorldGenerator.DestroyChestAtPosition(xPosWorld, yPosWorld);
                         WorldGen.KillTile(xPosWorld, yPosWorld, false, false, true);
-                        /*
-                        worldTile.TileType = TileID.Dirt;
-                        worldTile.IsHalfBlock = false;
-                        worldTile.Slope = SlopeType.Solid;
-                        worldTile.HasTile = false;*/
                     }
                     else if (tileType >= 0)
                     {
                         WorldGenerator.DestroyChestAtPosition(xPosWorld, yPosWorld);
                         WorldGen.KillTile(xPosWorld, yPosWorld, false, false, true);
                         WorldGen.PlaceTile(xPosWorld, yPosWorld, tileType, false, true);
-                        /*
-                        worldTile.TileType = (ushort)tileType;
-                        worldTile.HasTile = true;
-                        worldTile.Slope = SlopeType.Solid;
-                        worldTile.IsHalfBlock = false;
-                        worldTile.IsActuated = false;
-                        */
                     }
 
                     if (tileColor < -1)
@@ -333,7 +333,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                         if (tile1.HasTile && tile1.TileType == furnitureType)
                         {
                             // Dirty fan fix
-                            if (furnitureType == ModContent.TileType<Fan>())
+                            if (furnitureType == ModContent.TileType<Content.Tiles.Furniture.Fan>())
                             {
                                 var topLeft = TileObjectData.TopLeft(xPosWorld, yPosWorld);
 
@@ -344,6 +344,12 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                                 Main.tile[topLeft.X, topLeft.Y + 1].TileFrameX = 54;
                                 Main.tile[topLeft.X + 1, topLeft.Y + 1].TileFrameX = 54 + 18;
                                 Main.tile[topLeft.X + 2, topLeft.Y + 1].TileFrameX = 54 + 36;
+                            }
+                            // Dirty lamp fix
+                            if (furnitureType == ModContent.TileType<LabLightTile>() || furnitureType == ModContent.TileType<FaultyLightTile>())
+                            {
+                                Main.tile[xPosWorld, yPosWorld].TileFrameX = 18;
+                                Main.tile[xPosWorld, yPosWorld + 1].TileFrameX = 18;
                             }
                         }
                     }
@@ -671,30 +677,124 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public override void Generate()
         {
             var nSucces = 0;
-            var nShrines = 5;
+            var nShrines = 10;
 
             if (Main.maxTilesX >= WorldGen.WorldSizeLargeX)
-                nShrines = 15;
+                nShrines = 20;
             else if (Main.maxTilesX >= WorldGen.WorldSizeMediumX)
-                nShrines = 10;
+                nShrines = 15;
 
-            var nMaxAttempts = 500;
+            var nIce = 2;
+            var nJungle = 2;
+            var nDesert = 2;
+            var nOther = 4;
+
+            if (nShrines == 15)
+            {
+                nIce = 3;
+                nJungle = 3;
+                nDesert = 3;
+                nOther = 6;
+            }
+
+            else if (nShrines == 20)
+            {
+                nIce = 4;
+                nJungle = 4;
+                nDesert = 4;
+                nOther = 8;
+            }
+
             var placedPositions = new List<(int, int)>();
 
             Queue<StructureRuinedHouse> structureList = new Queue<StructureRuinedHouse>();
             structureList.Enqueue(WorldMaker.StructureOrangeShrine);
             structureList.Enqueue(WorldMaker.StructureOrangeShrine2);
 
-            for (int i = 0; i < nMaxAttempts; i++)
+            var regions = WorldMaker.worldRegionsNew;
+            var nX = regions.GetLength(0);
+            var nY = regions.GetLength(1);
+
+            var iceRegions = new List<RegionObject>();
+            var jungleRegions = new List<RegionObject>();
+            var desertRegions = new List<RegionObject>();
+            var otherRegions = new List<RegionObject>();
+
+            for (int x = 0; x < nX; x++)
             {
-                var structure = structureList.Dequeue();
-                var succes = structure.BuildAtPosition(ref placedPositions);
-                //var succes = MakeOrangeShrine(ref placedPositions);
+                for (int y = 0; y < nY; y++)
+                {
+                    var region = regions[x, y];
+                    if (region == null || !region.IsValidNotSky() || !region.IsUnderground()) 
+                        continue;
+                    if (region.regionType == WorldRegionType.Snow)
+                        iceRegions.Add(region);
+                    else if (region.regionType == WorldRegionType.Jungle)
+                        jungleRegions.Add(region);
+                    else if (region.regionType == WorldRegionType.Desert)
+                        desertRegions.Add(region);
+                    else if (region.regionType != WorldRegionType.Hell)
+                        otherRegions.Add(region);
+                }
+            }
+
+            iceRegions = iceRegions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+            jungleRegions = jungleRegions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+            desertRegions = desertRegions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+            otherRegions = otherRegions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+
+            var shrineDefault = WorldMaker.StructureOrangeShrine;
+            var shrineMarble = WorldMaker.StructureOrangeShrine2;
+            var shrineSnow = WorldMaker.StructureOrangeSnow;
+            var shrineDesert = WorldMaker.StructureOrangeDesert;
+
+            nSucces = 0;
+            for (int i = 0; i < iceRegions.Count; i++)
+            {
+                if (nSucces >= nIce)
+                    break;
+                
+                var region = iceRegions[i];
+                var succes = shrineSnow.BuildAtPosition(ref placedPositions, -1, -1, region);
                 if (succes)
                     nSucces++;
-                if (nSucces >= nShrines)
+            }
+
+            nSucces = 0;
+            for (int i = 0; i < jungleRegions.Count; i++)
+            {
+                if (i >= nJungle)
                     break;
-                structureList.Enqueue(structure);
+
+                var region = jungleRegions[i];
+                var succes = shrineDefault.BuildAtPosition(ref placedPositions, -1, -1, region);
+                if (succes)
+                    nSucces++;
+            }
+
+            nSucces = 0;
+            for (int i = 0; i < desertRegions.Count; i++)
+            {
+                if (i >= nDesert)
+                    break;
+
+                var region = desertRegions[i];
+                var succes = shrineDesert.BuildAtPosition(ref placedPositions, -1, -1, region);
+                if (succes)
+                    nSucces++;
+            }
+
+            nSucces = 0;
+            for (int i = 0; i < otherRegions.Count; i++)
+            {
+                if (i >= nOther)
+                    break;
+
+                var region = otherRegions[i];
+                var shrine = i % 2 == 0 ? shrineDefault : shrineMarble;
+                var succes = shrine.BuildAtPosition(ref placedPositions, -1, -1, region);
+                if (succes)
+                    nSucces++;
             }
         }
     }

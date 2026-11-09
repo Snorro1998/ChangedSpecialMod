@@ -28,7 +28,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.AnchorBottom = AnchorData.Empty;
             TileObjectData.newTile.AnchorWall = true;
             TileObjectData.addTile(Type);
-            AddMapEntry(new Color(191, 142, 111), Language.GetText("Mods.ChangedSpecialMod.Tiles.IrisScanner"));
+            AddMapEntry(new Color(255, 20, 20), Language.GetText("Mods.ChangedSpecialMod.Tiles.IrisScanner"));
         }
 
         public override bool RightClick(int i, int j)

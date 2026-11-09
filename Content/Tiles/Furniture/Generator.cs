@@ -30,6 +30,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             DustType = DustID.WoodFurniture;
 
             AnimationFrameHeight = 72;
+            AddMapEntry(new Color(160, 160, 160), Language.GetText("Mods.ChangedSpecialMod.Items.Generator.DisplayName"));
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

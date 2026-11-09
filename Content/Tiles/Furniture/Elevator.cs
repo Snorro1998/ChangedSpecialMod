@@ -1,10 +1,8 @@
 ﻿using ChangedSpecialMod.Common.Configs;
-using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -31,7 +29,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.AnchorWall = true;
             TileObjectData.addTile(Type);
 			DustType = DustID.WoodFurniture;
-            AddMapEntry(new Color(200, 200, 200), Language.GetText("Mods.ChangedSpecialMod.Tiles.Elevator"));
+            AddMapEntry(new Color(160, 160, 160), Language.GetText("Mods.ChangedSpecialMod.Tiles.Elevator"));
         }
 
         public override bool RightClick(int i, int j)
@@ -41,7 +39,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 return false;
 
             // Disable usage if you are fighting the wolf king or behemoth and play a buzzer sound
-            if (ChangedUtils.HasWolfKingFightStarted()/* || NPC.AnyNPCs(ModContent.NPCType<Behemoth>())*/)
+            if (ChangedUtils.HasWolfKingFightStarted())
             {
                 SoundEngine.PlaySound(Assets.Sounds.SoundBuzzer1);
                 return true;

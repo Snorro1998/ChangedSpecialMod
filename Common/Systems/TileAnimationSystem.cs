@@ -368,6 +368,36 @@ namespace ChangedSpecialMod.Common.Systems
                                 Main.NewText("White tail has awoken!");
                             }
                         }
+                        else if (roomPosition == waterRoomPos)
+                        {
+                            var monstersInRoom = CheckIfNPCsInRoom(roomPosition);
+                            if (!monstersInRoom)
+                            {
+                                var squogCubType = ModContent.NPCType<SquidDogCub>();
+                                var robotType = ModContent.NPCType<ExoSuitRobot>();
+                                var sharkType = ModContent.NPCType<TigerShark>();
+                                var squogType = ModContent.NPCType<SquidDog>();
+
+                                var roomPosX = roomPosition.X * 16;
+                                var roomPosY = roomPosition.Y * 16;
+
+                                var xPos = 16 * 16;
+                                var yPos = 24 * 16;
+                                var npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, squogCubType);
+
+                                xPos = 38 * 16;
+                                yPos = 22 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, squogType);
+
+                                xPos = 6 * 16;
+                                yPos = 34 * 16;
+                                npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, robotType);
+
+                                //xPos = 40 * 16;
+                                //yPos = 44 * 16;
+                                //npc = NPC.NewNPCDirect(entitySource, roomPosX + xPos, roomPosY + yPos, squogType);
+                            }
+                        }
                     }
                 }
             }
@@ -381,6 +411,10 @@ namespace ChangedSpecialMod.Common.Systems
                 ModContent.NPCType<MaleDarkLatex>(),
                 ModContent.NPCType<YufengCub>(),
                 ModContent.NPCType<Yufeng>(),
+                ModContent.NPCType<SquidDogCub>(),
+                ModContent.NPCType<SquidDog>(),
+                ModContent.NPCType<TigerShark>(),
+                ModContent.NPCType<ExoSuitRobot>(),
             };
 
             var regionSize = 50;

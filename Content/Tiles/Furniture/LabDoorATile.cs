@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -27,7 +26,17 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             TileObjectData.newTile.AnchorWall = true;
             TileObjectData.addTile(Type);
             DustType = DustID.WoodFurniture;
-            AddMapEntry(new Color(200, 200, 200), Language.GetText("Mods.ChangedSpecialMod.Tiles.Elevator"));
+            AddMapEntry(new Color(160, 160, 160));
+        }
+
+        public override bool CanExplode(int i, int j)
+        {
+            return false;
+        }
+
+        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+        {
+            return false;
         }
 
         public override bool RightClick(int i, int j)

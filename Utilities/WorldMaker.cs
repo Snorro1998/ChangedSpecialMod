@@ -66,6 +66,8 @@ namespace ChangedSpecialMod.Utilities
 
         public static StructureRuinedHouse StructureOrangeShrine;
         public static StructureRuinedHouse StructureOrangeShrine2;
+        public static StructureRuinedHouse StructureOrangeDesert;
+        public static StructureRuinedHouse StructureOrangeSnow;
 
         public static StructureRuinedHouse StructureLabRoom1;
         public static StructureRuinedHouse StructureLabRoom2;
@@ -216,7 +218,35 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Green, WallID.MarbleBlock }
                     };
 
-                    StructureOrangeShrine2 = new StructureRuinedHouse("Shrine", tileTypes, wallTypes);
+                    StructureOrangeShrine2 = new StructureRuinedHouse("OrangeShrineMarble", tileTypes, wallTypes);
+
+                    tileTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, TileID.Sandstone },
+                        { Colors2.Blue, TileID.Platforms },
+                        { Colors2.Red, TileID.HardenedSand }
+                    };
+
+                    wallTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, WallID.Sandstone }
+                    };
+
+                    StructureOrangeDesert = new StructureRuinedHouse("OrangeShrineDesert", tileTypes, wallTypes);
+
+                    tileTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, TileID.IceBlock },
+                        { Colors2.Blue, TileID.Platforms },
+                        { Colors2.Red, TileID.SnowBlock }
+                    };
+
+                    wallTypes = new Dictionary<Color, int>
+                    {
+                        { Colors2.Green, WallID.IceUnsafe }
+                    };
+
+                    StructureOrangeSnow = new StructureRuinedHouse("OrangeShrineSnow", tileTypes, wallTypes);
 
                     tileTypes = new Dictionary<Color, int>
                     {
@@ -276,6 +306,9 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Brown5, ModContent.TileType<LabTable>() },
                         { Colors2.Brown6, ModContent.TileType<Cryopod>() },
                         { Colors2.Brown7, TileID.AlchemyTable },
+                        { Colors2.Brown8, ModContent.TileType<Generator>() },
+                        { Colors2.Brown9, TileID.Switches },
+                        { Colors2.Brown10, ModContent.TileType<WateringCan>() },
 
                         { Colors2.PaintingShhh, ModContent.TileType<Painting4>() },
                         { Colors2.PaintingPoofball, ModContent.TileType<Painting1>() },
