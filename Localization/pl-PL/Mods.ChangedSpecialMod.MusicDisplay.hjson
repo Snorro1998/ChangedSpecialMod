@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: ShiZi
-}
+Authors.Shizi: ShiZi
 
 Music: {
 	MusicBlackLatexZone: Strefa czarnego szlamu
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: Laboratorium (powolny)
 	MusicLab: Laboratorium
 	MusicVents: Rura odpowietrzająca
+	MusicGas: Gaz
 	MusicPuro: Puro, czarny szlam
 	MusicGreenhouse: Szklarnia
 	MusicHappyBirthday: Piosenka urodzinowa

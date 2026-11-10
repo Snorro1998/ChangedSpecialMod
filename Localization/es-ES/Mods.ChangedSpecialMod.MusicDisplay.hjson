@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: ShiZi
-}
+Authors.Shizi: ShiZi
 
 Music: {
 	MusicBlackLatexZone: Zona de limo negro
@@ -13,9 +10,10 @@ Music: {
 	MusicLabSlow: Laboratorio (lento)
 	MusicLab: Laboratorio
 	MusicVents: Ventilador
-	MusicPuro: Puro el Látex Negro
+	MusicGas: Gas
+	MusicPuro: Puro el LÃ¡tex Negro
 	MusicGreenhouse: Invernadero
-	MusicHappyBirthday: Feliz cumpleaños
+	MusicHappyBirthday: Feliz cumpleaÃ±os
 	MusicPuroDance: Danza Puro
 	MusicRun: HUIR
 	MusicWhiteTailChase1: Cola Blanco parte 1
@@ -23,7 +21,7 @@ Music: {
 	# Not 100% sure, because they have no names
 	MusicWolfKing: Rey Lobo
 	MusicBehemoth: El Behemot
-	MusicShark: El Tiburón
+	MusicShark: El TiburÃ³n
 	MusicSquidDog: Perro Calamar
 	Music30: 30.wav
 }

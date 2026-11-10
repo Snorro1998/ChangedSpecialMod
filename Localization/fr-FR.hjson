@@ -41,9 +41,9 @@ Mods: {
 			ColinCanSpawn: Quelqu'un est en route pour vous...
 			WIPBossFight: Ce combat de boss est encore en développement, alors ne vous attendez pas à grand-chose pour le moment.
 			CalendarUsedNoHolidays: Cet élément n'a aucun effet, à moins que vous n'activiez l'option de configuration jours fériés.
-			// UseElevatorIllegal: Nice try
-			// WalkedThroughLab: Congratulations! You explored the whole lab! It will be expanded in the future.
-			// LabCouldntUseDoor: Couldn't find the destination door! This likely means that another mod destroyed it when creating the world.
+			UseElevatorIllegal: Bien essayé.
+			WalkedThroughLab: Félicitations ! Vous avez exploré le laboratoire dans son intégralité ! Il sera agrandi à l'avenir.
+			LabCouldntUseDoor: Impossible de trouver la porte de destination ! Cela signifie probablement qu'un autre mod l'a détruite lors de la création du monde.
 		}
 
 		WorldGenerationPasses: {

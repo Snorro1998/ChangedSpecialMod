@@ -41,6 +41,9 @@ Mods: {
 			ColinCanSpawn: Iemand is onderweg...
 			WIPBossFight: Dit gevecht is nog niet af, dus verwacht er niet veel van.
 			CalendarUsedNoHolidays: Dit voorwerp doet niks, tenzij je de feestdagen optie aanzet in de configuratie.
+			UseElevatorIllegal: Leuk geprobeerd.
+			WalkedThroughLab: Gefeliciteerd! Je hebt het hele laboratorium verkend! In de toekomst zal het worden uitgebreid.
+			LabCouldntUseDoor: De bestemmingsdeur kon niet worden gevonden! Dit betekent waarschijnlijk dat een andere mod deze heeft vernietigd tijdens het aanmaken van de wereld.
 		}
 
 		WorldGenerationPasses: {

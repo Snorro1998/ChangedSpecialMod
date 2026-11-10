@@ -41,9 +41,9 @@ Mods: {
 			ColinCanSpawn: Ktoś jest w drodze do Ciebie...
 			WIPBossFight: Ta walka z bossem jest wciąż rozwijana, więc na razie nie spodziewaj się wiele.
 			CalendarUsedNoHolidays: Ten element nie działa, dopóki nie włączysz opcji konfiguracyjnej święta państwowe.
-			// UseElevatorIllegal: Nice try
-			// WalkedThroughLab: Congratulations! You explored the whole lab! It will be expanded in the future.
-			// LabCouldntUseDoor: Couldn't find the destination door! This likely means that another mod destroyed it when creating the world.
+			UseElevatorIllegal: Dobra próba.
+			WalkedThroughLab: Gratulacje! Zwiedziłeś całe laboratorium! W przyszłości zostanie ono rozbudowane.
+			LabCouldntUseDoor: Nie udało się znaleźć drzwi docelowych! Prawdopodobnie oznacza to, że zostały one zniszczone przez inny mod podczas tworzenia świata.
 		}
 
 		WorldGenerationPasses: {

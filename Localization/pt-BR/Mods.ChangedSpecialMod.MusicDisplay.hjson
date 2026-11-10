@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: ShiZi
-}
+Authors.Shizi: ShiZi
 
 Music: {
 	MusicBlackLatexZone: Zona da Gosma Negra
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: Laboratório (lento)
 	MusicLab: Laboratório
 	MusicVents: Tubo de Ventilação
+	MusicGas: Gás
 	MusicPuro: Puro a Gosma Negra
 	MusicGreenhouse: Estufa
 	MusicHappyBirthday: Música de Aniversário

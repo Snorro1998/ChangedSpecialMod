@@ -41,6 +41,9 @@ Mods: {
 			ColinCanSpawn: 誰かがあなたのもとへ向かっています…
 			WIPBossFight: このボス戦は現在開発中ですので、現時点ではあまり期待しないでください。
 			CalendarUsedNoHolidays: この項目は、祝日設定オプションを有効にしない限り、何も機能しません。
+			UseElevatorIllegal: いい線いってるね。
+			WalkedThroughLab: おめでとうございます！研究所をすべて探索し終えましたね！今後、さらに拡張される予定です。
+			LabCouldntUseDoor: 移動先のドアが見つかりませんでした！おそらく、ワールド生成時に別のMODがそのドアを破壊してしまったものと思われます。
 		}
 
 		WorldGenerationPasses: {

@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: ShiZi
-}
+Authors.Shizi: ShiZi
 
 Music: {
 	MusicBlackLatexZone: Black Goo Zone
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: Laboratory (slow)
 	MusicLab: Laboratory
 	MusicVents: Vent Pipe
+	MusicGas: Gas
 	MusicPuro: Puro The Black Goo
 	MusicGreenhouse: Greenhouse
 	MusicHappyBirthday: Birthday Song

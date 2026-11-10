@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: Шизи
-}
+Authors.Shizi: Шизи
 
 Music: {
 	MusicBlackLatexZone: Зона Черной Слизи
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: Лаборатория (медленный)
 	MusicLab: Лаборатория
 	MusicVents: вентиляционная труба
+	MusicGas: Газ
 	MusicPuro: Пуро, Чёрная Слизь
 	MusicGreenhouse: Теплица
 	MusicHappyBirthday: Песня ко дню рождения

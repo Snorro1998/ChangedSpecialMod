@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: ShiZi
-}
+Authors.Shizi: ShiZi
 
 Music: {
 	MusicBlackLatexZone: Zone de Gelée Noire
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: Laboratoire (lente)
 	MusicLab: Laboratoire
 	MusicVents: Tuyau de ventilation
+	MusicGas: Gaz
 	MusicPuro: Puro la Gelée Noire
 	MusicGreenhouse: Serre
 	MusicHappyBirthday: Chanson d'anniversaire

@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: ShiZi
-}
+Authors.Shizi: ShiZi
 
 Music: {
 	MusicBlackLatexZone: Zona di melma nera
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: Laboratorio (lento)
 	MusicLab: Laboratorio
 	MusicVents: Tubo di sfiato
+	MusicGas: Gas
 	MusicPuro: Puro, la melma nera
 	MusicGreenhouse: Serra
 	MusicHappyBirthday: Canzone di compleanno

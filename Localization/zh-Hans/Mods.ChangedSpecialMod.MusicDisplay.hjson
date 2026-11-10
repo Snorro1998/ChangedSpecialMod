@@ -1,8 +1,5 @@
 ModName: Changed
-
-Authors: {
-	Shizi: 噬子
-}
+Authors.Shizi: 噬子
 
 Music: {
 	MusicBlackLatexZone: 黑色粘液丛林
@@ -13,6 +10,7 @@ Music: {
 	MusicLabSlow: 实验室 (慢的)
 	MusicLab: 实验室
 	MusicVents: 通风管
+	MusicGas: 气体
 	MusicPuro: 普羅黑色粘液
 	MusicGreenhouse: 温室
 	MusicHappyBirthday: 生日歌
