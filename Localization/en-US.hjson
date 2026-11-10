@@ -41,6 +41,9 @@ Mods: {
 			ColinCanSpawn: Someone is on their way to you...
 			WIPBossFight: This boss fight is still being developed, so don't expect much for now.
 			CalendarUsedNoHolidays: This item does nothing, unless you enable the holidays configuration option.
+			UseElevatorIllegal: Nice try
+			WalkedThroughLab: Congratulations! You explored the whole lab! It will be expanded in the future.
+			LabCouldntUseDoor: Couldn't find the destination door! This likely means that another mod destroyed it when creating the world.
 		}
 
 		WorldGenerationPasses: {
@@ -51,6 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Spreading way too much slime
 			SpecialOrange: Orange
 			RemoveUnwantedDecals: Cleaning up
+			UndergroundLab: Building laboratory basement
 		}
 
 		NPCs: {
@@ -566,7 +570,7 @@ Mods: {
 				SignTextCrystalZoneRoom: Careful human, it is very slippery here.
 				SignTextLibraryRoom: He is away to pick some oranges, but he'll be back soon.
 				SignVents: It is too dark to read what it says.
-				SignGas: Stay close to the fans and don't breathe in the gas.
+				SignTextGasRoom: Stay close to the fans and don't breathe in the gas.
 			}
 
 			Elevator: Elevator

@@ -56,6 +56,17 @@ namespace ChangedSpecialMod
                     case "spawnallnpcs":
                         ChangedUtils.SpawnAllNPCs(null);
                         return true;
+                    case "spawnalltown":
+                        ChangedUtils.SpawnAllTown(null);
+                        return true;
+                    case "addavoidtile":
+                        if (argsLength < 2)
+                            return new ArgumentNullException("ERROR: Argument 1 (TileType) must be provided.");
+                        bool isNumber = int.TryParse(args[1]?.ToString(), out int tileType);
+                        if (!isNumber)
+                            return new ArgumentException("ERROR: Argument 1 (TileType) must be a number.");
+                        ModSupportSystem.AvoidTiles.Add(tileType);
+                        return true;
                 }
             }
             catch (Exception e)

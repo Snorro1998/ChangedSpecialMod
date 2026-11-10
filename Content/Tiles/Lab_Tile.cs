@@ -23,7 +23,7 @@ namespace ChangedSpecialMod.Content.Tiles
             ChangedUtils.SetTileMerge(ModContent.TileType<Lab_TileTile>());
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            DustType = DustID.TintableDust;//ModContent.DustType<Sparkle>();
+            DustType = DustID.TintableDust;
             ItemDrop = ModContent.ItemType <LabTileBlock>();
             AddMapEntry(new Color(200, 200, 200));
         }

@@ -118,9 +118,9 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            var multiplier = 0.4f;
+            var multiplier = 0.2f;
             if (spawnInfo.Player != null && ChangedUtils.IsDrunk(spawnInfo.Player))
-                multiplier = 0.8f;
+                multiplier = 0.4f;
             var ChangedGlobalNPC = NPC.Changed();
             return multiplier * ChangedUtils.GetSurfaceSpawnChance(spawnInfo, ChangedGlobalNPC, NPC.type);
         }

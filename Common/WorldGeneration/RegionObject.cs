@@ -188,6 +188,12 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                 }
             }
 
+            if (ModSupportSystem.AvoidTiles != null)
+            {
+                foreach (var tileType in ModSupportSystem.AvoidTiles)
+                    allStructureTiles.Add(tileType);
+            }
+
             var dungeonCount = 0;
             var livingTreeCount = 0;
             var structureCount = 0;
@@ -227,7 +233,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                 return;
             }
 
-            // Should add ocean region
+            // TODO add ocean region
             if (area.Left < GenVars.leftBeachEnd || area.Right > GenVars.rightBeachStart)
             {
                 regionType = WorldRegionType.Structure;

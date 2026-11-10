@@ -39,6 +39,6 @@ YufengCubMountBuff: {
 }
 
 GasDebuff: {
-	DisplayName: Gas Debuff
-	Description: Mods.ChangedSpecialMod.Buffs.GasDebuff.Description
+	DisplayName: Toxic gas
+	Description: You are dying from toxic gas!
 }

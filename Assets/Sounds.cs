@@ -83,6 +83,7 @@ namespace ChangedSpecialMod.Assets
 
         // Misc
         public static readonly SoundStyle SoundFeestjeVanKeesje = new(Sound("FeestjeVanKeesje"));
+        public static readonly SoundStyle SoundFartReverb = new(Sound("FartReverb"));
 
         // Item3 = prototype
     }

@@ -70,7 +70,7 @@ namespace ChangedSpecialMod.Content.NPCs
             if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || !correctTime || Main.eclipse || NPC.AnyNPCs(ModContent.NPCType<MingCat>()))
                 return 0;
 
-            var spawnChance = 0.08f;
+            var spawnChance = 0.05f; //8
             var spawnTileType = spawnInfo.SpawnTileType;
             var player = spawnInfo.Player;
             var validTileTypes = new List<int>()

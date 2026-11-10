@@ -1162,3 +1162,17 @@ LabGasRoomWallItem: {
 	DisplayName: Lab Gas Room Wall Item
 	Tooltip: ""
 }
+
+FartGun: {
+	DisplayName: Fart Gun
+	Tooltip:
+		'''
+		A strange device created by Doctor N
+		"Under what circumstances would you use this?"
+		'''
+}
+
+MusicBoxGas: {
+	DisplayName: Music Box Gas
+	Tooltip: ""
+}

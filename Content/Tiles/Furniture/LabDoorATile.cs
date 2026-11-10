@@ -1,10 +1,12 @@
-﻿using ChangedSpecialMod.Content.NPCs;
+﻿using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -41,7 +43,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
 
         public override bool RightClick(int i, int j)
         {
-            if (DestinationTileID <= 0)
+            if ((DestinationTileID <= 0 && DestinationTileID > -2) || DestinationTileID < -2)
                 return true;
 
             Player player = ChangedUtils.GetClosestPlayer(i, j);
@@ -58,6 +60,28 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                     SoundEngine.PlaySound(Assets.Sounds.SoundLockedDoor, new Vector2(xPos * 16, yPos * 16));
                     return true;
                 }
+            }
+
+            if (DestinationTileID == -2)
+            {
+                var xPos = player.SpawnX;
+                var yPos = player.SpawnY - 3;
+
+                if (xPos == -1)
+                {
+                    xPos = Main.spawnTileX;
+                    yPos = Main.spawnTileY - 3;
+                }
+
+                var worldPos = new Vector2(xPos * 16, yPos * 16);
+                SoundEngine.PlaySound(Assets.Sounds.SoundDoor, worldPos);
+                player.RemoveAllGrapplingHooks();
+                ChangedUtils.TeleportPlayer(player.whoAmI, xPos, yPos);
+                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WalkedThroughLab"));
+                var projectile = Projectile.NewProjectileDirect(player.GetSource_FromThis(), worldPos, new Vector2(0, -8), ProjectileID.RocketFireworkBlue, 0, 0, player.whoAmI);
+                Main.NewText(DownedBossSystem.ExploredLabVersion.ToString());
+                DownedBossSystem.SetExploredLab();
+                return true;
             }
 
             for (int x = 0; x < Main.maxTilesX; x += 3)
@@ -82,9 +106,7 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 }
             }
 
-            var coords = TileObjectData.TopLeft(i, j);
-            var topLeftTile = Main.tile[coords.X, coords.Y];
-
+            Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.LabCouldntUseDoor"));
             
             return true;
         }
@@ -159,5 +181,10 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
     public class LabDoorLTile : LabDoorTile
     {
         public override int DestinationTileID => ModContent.TileType<LabDoorKTile>();
+    }
+
+    public class LabDoorHomeTile : LabDoorTile
+    {
+        public override int DestinationTileID => -2;
     }
 }

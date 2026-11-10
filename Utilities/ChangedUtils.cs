@@ -11,6 +11,7 @@ using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Tiles.Latex.White;
 using ChangedSpecialMod.Content.Walls;
+using Microsoft.VisualBasic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -193,6 +194,17 @@ namespace ChangedSpecialMod.Utilities
                 }
             }
             */
+        }
+
+        public static bool IsLabWall(int wallType)
+        {
+            return
+            wallType == ModContent.WallType<LabWall>() ||
+            wallType == ModContent.WallType<LabCrystalRoomWall>() ||
+            wallType == ModContent.WallType<LabVentsRoomWall>() ||
+            wallType == ModContent.WallType<LabGasRoomWall>() ||
+            wallType == ModContent.WallType<LabLibraryRoomWall>() ||
+            wallType == ModContent.WallType<LabWaterRoomWall>();
         }
 
         private static string Hook_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
@@ -836,6 +848,30 @@ namespace ChangedSpecialMod.Utilities
                 ModContent.NPCType<StackLatex>(),
                 ModContent.NPCType<WackLatex>(),
                 ModContent.NPCType<WideLatex>(),
+            };
+
+            foreach (var npc in npcs)
+            {
+                int xPos = (int)player.Center.X + Main.rand.Next(-40, 40) * 16;
+                int yPos = (int)player.Center.Y + Main.rand.Next(-20, 0) * 16;
+                NPC.NewNPCDirect(entitySource, xPos, yPos, npc, player.whoAmI);
+            }
+        }
+
+        public static void SpawnAllTown(Player player)
+        {
+            var entitySource = new EntitySource_SpawnNPC("ChangedUtils");
+
+            if (player == null)
+                player = Main.player.Where(x => x.active).FirstOrDefault();
+            if (player == null)
+                return;
+
+            var npcs = new List<int>
+            {
+                ModContent.NPCType<Puro>(),
+                ModContent.NPCType<Prototype>(),
+                ModContent.NPCType<Scientist>(),
             };
 
             foreach (var npc in npcs)

@@ -38,6 +38,7 @@ namespace ChangedSpecialMod.Common.Systems
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicBlackLatexZone), ModContent.ItemType<MusicBoxBlackLatexZone1>(), ModContent.TileType<MusicBoxBlackLatexZone1Tile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicGreenhouse), ModContent.ItemType<MusicBoxGreenhouse>(), ModContent.TileType<MusicBoxGreenhouseTile>());
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicVents), ModContent.ItemType<MusicBoxVents>(), ModContent.TileType<MusicBoxVentsTile>());
+                MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicGas), ModContent.ItemType<MusicBoxGas>(), ModContent.TileType<MusicBoxGasTile>());
 
                 // Boss music
                 MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, Sounds.MusicWhiteTailChase1), ModContent.ItemType<MusicBoxWhiteTail1>(), ModContent.TileType<MusicBoxWhiteTailTile1>());

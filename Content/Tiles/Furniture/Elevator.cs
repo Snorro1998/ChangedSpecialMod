@@ -38,10 +38,19 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
             if (!player.IsWithinSnappngRangeToTile(i, j, 5 * 16))
                 return false;
 
+            var tile = Framing.GetTileSafely(i, j);
+            if (ChangedUtils.IsLabWall(tile.WallType))
+            {
+                SoundEngine.PlaySound(Assets.Sounds.SoundBuzzer1);
+                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.UseElevatorIllegal"));
+                return true;
+            }
+
             // Disable usage if you are fighting the wolf king or behemoth and play a buzzer sound
             if (ChangedUtils.HasWolfKingFightStarted())
             {
                 SoundEngine.PlaySound(Assets.Sounds.SoundBuzzer1);
+                Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.UseElevatorIllegal"));
                 return true;
             }
 

@@ -69,10 +69,10 @@ namespace ChangedSpecialMod.Content.NPCs
                 return 0f;
 
             var correctTime = Main.IsItDay() || Main.remixWorld;
-            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || !correctTime || Main.eclipse || NPC.AnyNPCs(ModContent.NPCType<GermanShepherd>()))
+            if (!ChangedUtils.CanSpawn(SpawnRequirement.WolfKing) || !correctTime || Main.eclipse || NPC.AnyNPCs(ModContent.NPCType<TabbyCat>()))
                 return 0;
 
-            var spawnChance = 0.08f;
+            var spawnChance = 0.05f; //8
             var spawnTileType = spawnInfo.SpawnTileType;
             var player = spawnInfo.Player;
             var validTileTypes = new List<int>()

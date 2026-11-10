@@ -1,6 +1,8 @@
 ﻿using ChangedSpecialMod.Backgrounds;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
+using ChangedSpecialMod.Content.Walls;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Capture;
@@ -25,7 +27,20 @@ namespace ChangedSpecialMod.Content.Biomes
 
 		public override bool IsBiomeActive(Player player)
         {
-            return TileCountSystem.BiomeActive(player, NPCs.GooType.White, false);
+            var playerPos = player.Center.ToTileCoordinates();
+            var tile = Framing.GetTileSafely(playerPos);
+            var wallType = tile.WallType;
+            var inLabRoom = ChangedUtils.IsLabWall(wallType);
+            var waterRoomWallType = ModContent.WallType<LabWaterRoomWall>();
+            var tileLeft = Framing.GetTileSafely(playerPos.X - 1, playerPos.Y);
+            var tileRight = Framing.GetTileSafely(playerPos.X + 1, playerPos.Y);
+            var inWaterRoom = wallType == waterRoomWallType ||
+                tileLeft.WallType == waterRoomWallType ||
+                tileRight.WallType == waterRoomWallType;
+
+            var inLab = inLabRoom || inWaterRoom;
+
+            return !inLab && TileCountSystem.BiomeActive(player, NPCs.GooType.White, false);
         }
 
 		public override SceneEffectPriority Priority => SceneEffectPriority.Environment;

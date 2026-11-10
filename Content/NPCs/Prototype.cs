@@ -323,6 +323,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ModContent.ItemType<MusicBoxPuro>())
                 .Add(ModContent.ItemType<MusicBoxPuroDance>())
                 .Add(ModContent.ItemType<MusicBoxVents>())
+                .Add(ModContent.ItemType<MusicBoxGas>())
                 .Add(ModContent.ItemType<MusicBoxHappyBirthday>())
 
                 .Add(ModContent.ItemType<MusicBoxWhiteTail1>())

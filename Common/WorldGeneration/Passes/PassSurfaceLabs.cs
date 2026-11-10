@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using static ChangedSpecialMod.Utilities.WorldMaker;
 
@@ -194,7 +193,9 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                             region.regionType == WorldRegionType.Forest ||
                             region.regionType == WorldRegionType.Desert ||
                             region.regionType == WorldRegionType.Snow ||
-                            region.regionType == WorldRegionType.Jungle
+                            region.regionType == WorldRegionType.Jungle ||
+                            region.regionType == WorldRegionType.Crimson ||
+                            region.regionType == WorldRegionType.Corruption
                         );
 
                         var neighsValid = true;
@@ -216,6 +217,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                                 region2.regionType == WorldRegionType.Desert ||
                                 region2.regionType == WorldRegionType.Snow ||
                                 region2.regionType == WorldRegionType.Jungle ||
+                                region2.regionType == WorldRegionType.Crimson ||
+                                region2.regionType == WorldRegionType.Corruption ||
                                 region2.regionType == WorldRegionType.Sky
                             );
 

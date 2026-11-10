@@ -87,6 +87,8 @@ namespace ChangedSpecialMod.Common.Systems
         // Used for dialogue
         public static Dictionary<int, string> NPCIdentifiers;
 
+        public static List<int> AvoidTiles = new List<int>();
+
         public override void Load()
         {
             changedMod = ChangedSpecialMod.Instance;
@@ -179,6 +181,8 @@ namespace ChangedSpecialMod.Common.Systems
 
             if (externalMods != null)
                 externalMods.Clear();
+
+            AvoidTiles = new List<int>();
 
             if (Platform.Current.Type == PlatformType.Windows)
                 RemoveExtraTitles();

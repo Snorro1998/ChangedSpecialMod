@@ -12,6 +12,7 @@ The mod is highly configurable, allowing you to change or disable content howeve
 - 3 mounts
 - Many furniture items
 - Transformation mechanic
+- NEW: An underground laboratory, which is like a mini playthrough of Changed
 
 
 ------ Special Seeds -------
@@ -39,6 +40,7 @@ The mod also tries to avoid generating things in structures and biomes from thes
 - Coralite
 - Mod of Redemption
 - Spirit and Spirit Reforged
+- Spooky Mod
 - Thorium
 - Ultranium
 
@@ -104,7 +106,7 @@ so I am happy to see that despite some of its flaws, it is still well received.
 This update is a bigger than most of the previous ones to celebrate the occasion.
 It adds a large underground lab section, consisting of 6 rooms. 
 Each room respresents a different part of a normal Changed playthrough. 
-You can enter this underground section from a door in the basement of laboratories on the surface. 
+You can enter this underground section from the double door in the basement of a laboratory. 
 
 Underground lab
 - Consists of 6 different parts of Changed
@@ -118,7 +120,12 @@ Underground lab
 General
 - Flying oranges make less noise if there are many of them
 
+Items
+- Added music box for the music that plays in the room filled with gas
+- Added a new magic weapon. You can find it in the underground lab
+
 Blocks
+- Added doors, elevators and tiles for the underground lab. These cannot be mined or blown up
 - Infected ice blocks no longer makes you slide around weirdly
 - Laboratory tiles can no longer be blown up with bombs
 
@@ -130,13 +137,21 @@ World Generation
 - Ultranium
 - Spooky Mod
 
+NPC
+- Reduced spawn change of Ming Cat, Tabby Cat and German Shepherd
+
 Fixed
 - World generator often spammed sounds (brrrrrrt), because of the way it placed wires
 - World generator dug out too much space when a lab generated inside the terrain
 - Camera moving smoothly when using an elevator in multiplayer, but not in single player
 - Enemies using the custom FigtherAI did not fall through platforms if the player was below them
+- Multiple tabby cats could spawn, because it was wrongly checking for german shepherds
 - Added missing map entries for a few tiles
 
 Resprited
 - Wolf King
 - Cheerleader
+
+Mod calls (technical)
+- Added "AddAvoidTile". You can use this to add tiles from your own mod that the world generator should avoid.
+- Added "SpawnAllTown". It spawns in Puro, Prototype and Dr K

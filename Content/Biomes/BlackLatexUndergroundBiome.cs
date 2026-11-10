@@ -2,6 +2,7 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Achievements;
 using ChangedSpecialMod.Content.Walls;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Capture;
@@ -30,13 +31,7 @@ namespace ChangedSpecialMod.Content.Biomes
             var playerPos = player.Center.ToTileCoordinates();
             var tile = Framing.GetTileSafely(playerPos);
             var wallType = tile.WallType;
-            var inLabRoom = 
-                wallType == ModContent.WallType<LabWall>() || 
-                wallType == ModContent.WallType<LabCrystalRoomWall>() || 
-                wallType == ModContent.WallType<LabVentsRoomWall>() || 
-                wallType == ModContent.WallType<LabGasRoomWall>() || 
-                wallType == ModContent.WallType<LabLibraryRoomWall>();
-
+            var inLabRoom = ChangedUtils.IsLabWall(wallType);
             var waterRoomWallType = ModContent.WallType<LabWaterRoomWall>();
             var tileLeft = Framing.GetTileSafely(playerPos.X - 1, playerPos.Y);
             var tileRight = Framing.GetTileSafely(playerPos.X + 1, playerPos.Y);

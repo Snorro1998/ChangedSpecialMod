@@ -226,25 +226,6 @@ namespace ChangedSpecialMod.Utilities
                 currentX += roomWidths[row] - 1;
             }
         }
-        /*
-        public void DigOutSpaceForBuilding(int totalWidth, int totalHeight, int xCurrent, int yCurrent)
-        {
-            for (int x = 0; x < totalWidth; x++)
-            {
-                for (int y = 0; y < totalHeight; y++)
-                {
-                    var xx = xCurrent + x;
-                    var yy = yCurrent + y;
-
-                    if (!WorldGen.InWorld(xx, yy))
-                        continue;
-
-                    WorldGenerator.DestroyChestAtPosition(xx, yy);
-                    Main.tile[xx, yy].ClearEverything();
-                }
-            }
-        }
-        */
 
         public void Generate(int xPos, int yPos, LabType labType = LabType.CityRuins, bool dontGenerate = false)
         {

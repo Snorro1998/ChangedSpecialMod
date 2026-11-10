@@ -56,6 +56,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public static Color Yellow10 = new Color(210, 210, 0);
         public static Color Yellow11 = new Color(205, 205, 0);
         public static Color Yellow12 = new Color(200, 200, 0);
+        public static Color Yellow13 = new Color(195, 195, 0);
 
         public static Color Green = new Color(0, 255, 0);
         public static Color Green2 = new Color(0, 250, 0);
@@ -96,6 +97,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public string Name;
         public TileData[,] Layout = null;
         public string SignText = null;
+        public List<int> ChestItemIDs = null;
 
         // Overwriteable
         public Dictionary<Color, int> TileTypes = new Dictionary<Color, int>()
@@ -136,7 +138,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             { Colors2.Purple, LiquidID.Shimmer}
         };
 
-        public StructureRuinedHouse(string name, Dictionary<Color, int> tileTypes = null, Dictionary<Color, int> wallTypes = null, Dictionary<Color, int> furnitureTypes = null, string signText = "SignText1")
+        public StructureRuinedHouse(string name, Dictionary<Color, int> tileTypes = null, Dictionary<Color, int> wallTypes = null, Dictionary<Color, int> furnitureTypes = null, string signText = "SignText1", List<int> chestItemIDs = null)
         {
             Name = name;
             if (tileTypes != null)
@@ -145,6 +147,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 WallTypes = wallTypes;
             if (furnitureTypes != null)
                 FurnitureTypes = furnitureTypes;
+
+            ChestItemIDs = chestItemIDs;
 
             try
             {
@@ -357,44 +361,72 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             }
 
             placedPositions.Add((xPos, yPos));
+            Rectangle rect = new Rectangle(xPos, yPos, nX, nY);
+            Terraria.WorldBuilding.GenVars.structures.AddProtectedStructure(rect, 1);
             return true;
         }
 
         private void CreateChest(int xx, int yy)
         {
-            // Place a dead man's chest
-            var chestIndex = WorldGen.PlaceChest(xx, yy, TileID.Containers2, false, 4);
+            // Dead man's chest
+            var chestType = TileID.Containers2;
+            var chestStyle = 4;
+
+            // Gold chest
+            if (ChestItemIDs != null)
+            {
+                chestType = TileID.Containers;
+                chestStyle = 1;
+            }
+
+            var chestIndex = WorldGen.PlaceChest(xx, yy, chestType, false, chestStyle);
             if (chestIndex >= 0)
             {
                 var chest = Main.chest[chestIndex];
                 var items = new List<int>();
                 var itemAmounts = new List<int>();
 
-                var primaryItems = new List<int>()
+                if (ChestItemIDs != null)
                 {
-                    ItemID.Extractinator,
-                    ItemID.BandofRegeneration,
-                    ItemID.MagicMirror,
-                    ItemID.CloudinaBottle,
-                    ItemID.HermesBoots,
-                    ItemID.Mace,
-                    ItemID.ShoeSpikes
-                };
+                    foreach (var itemID in ChestItemIDs)
+                    {
+                        items.Add(itemID);
+                        itemAmounts.Add(1);
+                    }
+                }
+                else
+                {
+                    var primaryItems = new List<int>()
+                    {
+                        ItemID.Extractinator,
+                        ItemID.BandofRegeneration,
+                        ItemID.MagicMirror,
+                        ItemID.CloudinaBottle,
+                        ItemID.HermesBoots,
+                        ItemID.Mace,
+                        ItemID.ShoeSpikes
+                    };
 
-                items.Add(Utils.SelectRandom(WorldGen.genRand, primaryItems.ToArray()));
-                itemAmounts.Add(1);
+                    items.Add(Utils.SelectRandom(WorldGen.genRand, primaryItems.ToArray()));
+                    itemAmounts.Add(1);
+                }
 
                 WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.SuspiciousLookingEye, 5, 1, 1);
                 WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.Dynamite, 3, 1, 1);
                 WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.JestersArrow, 4, 25, 50);
-                WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.Topaz, 3, 1, 4);
                 WorldGenerator.AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.SilverBar, ItemID.TungstenBar }, 2, 3, 10);
                 WorldGenerator.AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.GoldBar, ItemID.PlatinumBar }, 2, 3, 10);
                 WorldGenerator.AddRandomToPool(ref items, ref itemAmounts, new int[] { ItemID.FlamingArrow, ItemID.ThrowingKnife }, 2, 25, 50);
                 WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.HealingPotion, 2, 3, 5);
-                WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.OrangeTorch, 2, 15, 30);
-                WorldGenerator.AddToPool(ref items, ref itemAmounts, ModContent.ItemType<BasketballWeapon>(), 3, 1, 1);
-                WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.GolfBallDyedOrange, 3, 1, 1);
+
+                if (ChestItemIDs == null)
+                {
+                    WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.Topaz, 3, 1, 4);
+                    WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.OrangeTorch, 2, 15, 30);
+                    WorldGenerator.AddToPool(ref items, ref itemAmounts, ModContent.ItemType<BasketballWeapon>(), 3, 1, 1);
+                    WorldGenerator.AddToPool(ref items, ref itemAmounts, ItemID.GolfBallDyedOrange, 3, 1, 1);
+                }
+
 
                 // Set this to a lower value if other mods also add things to chests
                 // Spirit reforged doesn't check and just crashes the world generation
@@ -403,22 +435,24 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 if (ModSupportSystem.IsModActive("SpiritReforged"))
                     nItemsChest = 30;
 
-
-                for (int j = items.Count; j < nItemsChest; j++)
+                if (ChestItemIDs == null)
                 {
-                    if (Main.rand.NextBool(3))
+                    for (int j = items.Count; j < nItemsChest; j++)
                     {
-                        items.Add(ItemID.BloodOrange);
-                        itemAmounts.Add(1);
-                    }
-                    else
-                    {
-                        items.Add(ModContent.ItemType<Orange>());
-                        itemAmounts.Add(1);
+                        if (Main.rand.NextBool(3))
+                        {
+                            items.Add(ItemID.BloodOrange);
+                            itemAmounts.Add(1);
+                        }
+                        else
+                        {
+                            items.Add(ModContent.ItemType<Orange>());
+                            itemAmounts.Add(1);
+                        }
                     }
                 }
 
-                for (int j = 0; j < nItemsChest; j++)
+                for (int j = 0; j < items.Count; j++)
                 {
                     var item = items[j];
                     chest.item[j].SetDefaults(item, false);

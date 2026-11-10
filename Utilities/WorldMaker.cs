@@ -2,6 +2,9 @@
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Common.WorldGeneration;
 using ChangedSpecialMod.Common.WorldGeneration.Passes;
+using ChangedSpecialMod.Content.Items;
+using ChangedSpecialMod.Content.Items.Food;
+using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Content.Tiles.Furniture;
 using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
@@ -250,7 +253,7 @@ namespace ChangedSpecialMod.Utilities
 
                     tileTypes = new Dictionary<Color, int>
                     {
-                        { Colors2.Green, ModContent.TileType<Lab_TileTile>() },
+                        { Colors2.Green, ModContent.TileType<SturdyLabTileTile>() },
                         { Colors2.Blue, TileID.Platforms },
                         { Colors2.Red, TileID.Spikes },
 
@@ -285,12 +288,13 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.Yellow10, ModContent.TileType<LabDoorJTile>() },
                         { Colors2.Yellow11, ModContent.TileType<LabDoorKTile>() },
                         { Colors2.Yellow12, ModContent.TileType<LabDoorLTile>() },
+                        { Colors2.Yellow13, ModContent.TileType<LabDoorHomeTile>() },
 
                         { Colors2.Red, ModContent.TileType<RedGasTank>() },
                         { Colors2.Red2, ModContent.TileType<CrystalRed>() },
                         
                         { Colors2.Blue, ModContent.TileType<BlueGasTank>() },
-                        { Colors2.Blue2, ModContent.TileType<Elevator>() },
+                        { Colors2.Blue2, ModContent.TileType<LabElevatorTile>() },
                         { Colors2.Blue3, TileID.WaterDrip },
 
                         { Colors2.Green, ModContent.TileType<LabDoorClosed>() },
@@ -316,11 +320,33 @@ namespace ChangedSpecialMod.Utilities
                         { Colors2.PaintingEffectOfOranges, ModContent.TileType<Painting3>() },
                     };
 
-                    StructureLabRoom1 = new StructureRuinedHouse("LabRoom1", tileTypes, wallTypes, furnitureTypes, "SignTextBlackGooRoom");
+                    var itemList = new List<int>() { ModContent.ItemType<Orange>() };
+                    StructureLabRoom1 = new StructureRuinedHouse("LabRoom1", tileTypes, wallTypes, furnitureTypes, "SignTextBlackGooRoom", itemList);
                     StructureLabRoom2 = new StructureRuinedHouse("LabRoom2", tileTypes, wallTypes, furnitureTypes, "SignTextCrystalZoneRoom");
-                    StructureLabRoomLibrary = new StructureRuinedHouse("LabRoomLibrary", tileTypes, wallTypes, furnitureTypes, "SignTextLibraryRoom");
-                    StructureLabRoomVents = new StructureRuinedHouse("LabRoomVents", tileTypes, wallTypes, furnitureTypes);
-                    StructureLabRoomGas = new StructureRuinedHouse("LabRoomGas", tileTypes, wallTypes, furnitureTypes);
+                    
+                    var lostBookID = ModContent.ItemType<QuestBook>();
+                    itemList = new List<int>() 
+                    { 
+                        ModContent.ItemType<Encyclopedia>(),
+                        lostBookID,  
+                        lostBookID,  
+                        lostBookID,
+                        lostBookID,
+                        lostBookID,
+                        lostBookID,
+                    };
+                    
+                    StructureLabRoomLibrary = new StructureRuinedHouse("LabRoomLibrary", tileTypes, wallTypes, furnitureTypes, "SignTextLibraryRoom", itemList);
+
+                    itemList = new List<int>() { ItemID.MiningHelmet };
+                    StructureLabRoomVents = new StructureRuinedHouse("LabRoomVents", tileTypes, wallTypes, furnitureTypes, "SignText1", itemList);
+
+                    itemList = new List<int>()
+                    {
+                        ModContent.ItemType<FartGun>(),
+                        ItemID.WhoopieCushion,
+                    };
+                    StructureLabRoomGas = new StructureRuinedHouse("LabRoomGas", tileTypes, wallTypes, furnitureTypes, "SignTextGasRoom", itemList);
                     StructureLabRoomWater = new StructureRuinedHouse("LabRoomWater", tileTypes, wallTypes, furnitureTypes);
                 });
             }

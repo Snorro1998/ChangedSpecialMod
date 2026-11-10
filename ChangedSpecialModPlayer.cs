@@ -175,7 +175,7 @@ namespace ChangedSpecialMod
                 // So we set it to 0, and while this debuff is active, it never reaches it
                 Player.lifeRegenTime = 0;
                 // lifeRegen is measured in 1/2 life per second. Therefore, this effect causes 8 life lost per second
-                Player.lifeRegen -= 120;
+                Player.lifeRegen -= 240;
             }
         }
 
