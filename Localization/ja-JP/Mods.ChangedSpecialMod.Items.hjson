@@ -1105,8 +1105,8 @@ DebugPickaxe: {
 }
 
 FaultyLight: {
-	// DisplayName: Faulty Light
-	// Tooltip: ""
+	DisplayName: 不具合のある電球
+	Tooltip: ""
 }
 
 WhiteLatexTaurBanner: {
@@ -1141,4 +1141,23 @@ YufengCubMountItem: {
 YufengCubBanner: {
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
 	DisplayName: ユーフェンの子のバナー
+}
+
+LabLight: {
+	DisplayName: 実験用電球
+	Tooltip: ""
+}
+
+FartGun: {
+	DisplayName: おならピストル
+	Tooltip:
+		'''
+		N博士が作り出した奇妙な装置。
+		"どのような状況でこれを使いますか？"
+		'''
+}
+
+MusicBoxGas: {
+	DisplayName: オルゴール (ガス)
+	Tooltip: シズ作
 }

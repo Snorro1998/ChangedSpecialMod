@@ -1143,23 +1143,8 @@ YufengCubBanner: {
 	DisplayName: Yufeng Cub Banner
 }
 
-LabDoorA: {
-	DisplayName: Lab Door A
-	Tooltip: ""
-}
-
-LabDoorB: {
-	DisplayName: Lab Door B
-	Tooltip: ""
-}
-
 LabLight: {
 	DisplayName: Lab Light
-	Tooltip: ""
-}
-
-LabGasRoomWallItem: {
-	DisplayName: Lab Gas Room Wall Item
 	Tooltip: ""
 }
 
@@ -1167,12 +1152,12 @@ FartGun: {
 	DisplayName: Fart Gun
 	Tooltip:
 		'''
-		A strange device created by Doctor N
+		A strange device created by Doctor N.
 		"Under what circumstances would you use this?"
 		'''
 }
 
 MusicBoxGas: {
-	DisplayName: Music Box Gas
-	Tooltip: ""
+	DisplayName: Music Box (Gas)
+	Tooltip: By ShiZi
 }

@@ -2,7 +2,6 @@ ModName: Changed
 
 Authors: {
 	Shizi: ShiZi
-	Haise: Haise_h1
 }
 
 Music: {
@@ -27,5 +26,4 @@ Music: {
 	MusicShark: Lo Squalo
 	MusicSquidDog: Cane-calamaro
 	Music30: 30.wav
-	MusicMeaninglessStrafe: Meaningless Strafe
 }

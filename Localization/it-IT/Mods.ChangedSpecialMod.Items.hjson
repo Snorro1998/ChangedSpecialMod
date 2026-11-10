@@ -1105,8 +1105,8 @@ DebugPickaxe: {
 }
 
 FaultyLight: {
-	// DisplayName: Faulty Light
-	// Tooltip: ""
+	DisplayName: Lampadina difettosa
+	Tooltip: ""
 }
 
 WhiteLatexTaurBanner: {
@@ -1143,36 +1143,21 @@ YufengCubBanner: {
 	DisplayName: Stendardo cucciolo di Yufeng
 }
 
-LabDoorA: {
-	// DisplayName: Lab Door A
-	// Tooltip: ""
-}
-
-LabDoorB: {
-	// DisplayName: Lab Door B
-	// Tooltip: ""
-}
-
 LabLight: {
-	// DisplayName: Lab Light
-	// Tooltip: ""
-}
-
-LabGasRoomWallItem: {
-	// DisplayName: Lab Gas Room Wall Item
-	// Tooltip: ""
+	DisplayName: Lampadina da laboratorio
+	Tooltip: ""
 }
 
 FartGun: {
-	// DisplayName: Fart Gun
-	/* Tooltip:
+	DisplayName: Pistola a peti
+	Tooltip:
 		'''
-		A strange device created by Doctor N
-		"Under what circumstances would you use this?"
-		''' */
+		Uno strano dispositivo creato dal Dr. N.
+		"In quali circostanze useresti questo?"
+		'''
 }
 
 MusicBoxGas: {
-	// DisplayName: Music Box Gas
-	// Tooltip: ""
+	DisplayName: Carillon (Gas)
+	Tooltip: Di ShiZi
 }

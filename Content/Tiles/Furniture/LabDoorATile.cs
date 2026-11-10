@@ -79,7 +79,6 @@ namespace ChangedSpecialMod.Content.Tiles.Furniture
                 ChangedUtils.TeleportPlayer(player.whoAmI, xPos, yPos);
                 Main.NewText(Language.GetTextValue("Mods.ChangedSpecialMod.Messages.WalkedThroughLab"));
                 var projectile = Projectile.NewProjectileDirect(player.GetSource_FromThis(), worldPos, new Vector2(0, -8), ProjectileID.RocketFireworkBlue, 0, 0, player.whoAmI);
-                Main.NewText(DownedBossSystem.ExploredLabVersion.ToString());
                 DownedBossSystem.SetExploredLab();
                 return true;
             }

@@ -1105,8 +1105,8 @@ DebugPickaxe: {
 }
 
 FaultyLight: {
-	// DisplayName: Faulty Light
-	// Tooltip: ""
+	DisplayName: 故障灯泡
+	Tooltip: ""
 }
 
 WhiteLatexTaurBanner: {
@@ -1143,36 +1143,21 @@ YufengCubBanner: {
 	DisplayName: 与锋小狗横幅
 }
 
-LabDoorA: {
-	// DisplayName: Lab Door A
-	// Tooltip: ""
-}
-
-LabDoorB: {
-	// DisplayName: Lab Door B
-	// Tooltip: ""
-}
-
 LabLight: {
-	// DisplayName: Lab Light
-	// Tooltip: ""
-}
-
-LabGasRoomWallItem: {
-	// DisplayName: Lab Gas Room Wall Item
-	// Tooltip: ""
+	DisplayName: 实验室灯泡
+	Tooltip: ""
 }
 
 FartGun: {
-	// DisplayName: Fart Gun
-	/* Tooltip:
+	DisplayName: 屁枪
+	Tooltip:
 		'''
-		A strange device created by Doctor N
-		"Under what circumstances would you use this?"
-		''' */
+		由N博士制造的一件奇特装置。
+		"在什么情况下你会使用这个？"
+		'''
 }
 
 MusicBoxGas: {
-	// DisplayName: Music Box Gas
-	// Tooltip: ""
+	DisplayName: 八音盒 (气体)
+	Tooltip: 噬子
 }

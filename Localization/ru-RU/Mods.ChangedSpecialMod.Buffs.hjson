@@ -39,6 +39,6 @@ YufengCubMountBuff: {
 }
 
 GasDebuff: {
-	// DisplayName: Toxic gas
-	// Description: You are dying from toxic gas!
+	DisplayName: Токсичный газ
+	Description: Вы умираете от ядовитого газа!
 }

@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: Vliegen op slijm!
 	DisplayName: Yufeng
 }
+
+GasDebuff: {
+	DisplayName: Gifgas
+	Description: Je sterft door gifgas!
+}

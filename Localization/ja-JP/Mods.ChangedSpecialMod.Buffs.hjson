@@ -37,3 +37,8 @@ YufengCubMountBuff: {
 	Description: スライムに乗って空を飛ぶ！
 	DisplayName: ユーフェン
 }
+
+GasDebuff: {
+	DisplayName: 有毒ガス
+	Description: 有毒ガスで死にかけている！
+}

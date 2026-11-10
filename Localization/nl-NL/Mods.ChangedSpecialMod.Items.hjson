@@ -1105,8 +1105,8 @@ DebugPickaxe: {
 }
 
 FaultyLight: {
-	// DisplayName: Faulty Light
-	// Tooltip: ""
+	DisplayName: Kapotte lamp
+	Tooltip: ""
 }
 
 WhiteLatexTaurBanner: {
@@ -1140,5 +1140,24 @@ YufengCubMountItem: {
 
 YufengCubBanner: {
 	Tooltip: "{$CommonItemTooltip.BannerBonus}{$Mods.ChangedSpecialMod.NPCs.YufengCub.DisplayName}"
-	DisplayName: Yufengbanier
+	DisplayName: Yufengwelpbanier
+}
+
+LabLight: {
+	DisplayName: Laboratoriumlamp
+	Tooltip: ""
+}
+
+FartGun: {
+	DisplayName: Ruftpistool
+	Tooltip:
+		'''
+		Een vreemd apparaat gemaakt door Doctor N.
+		"Onder welke omstandigheden zou je dit gebruiken?"
+		''' 
+}
+
+MusicBoxGas: {
+	DisplayName: Speeldoos (Gas)
+	Tooltip: Door ShiZi
 }

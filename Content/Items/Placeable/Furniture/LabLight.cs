@@ -1,6 +1,4 @@
-﻿using ChangedSpecialMod.Content.Items.Placeable.Crystals;
-using Terraria;
-using Terraria.ID;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Content.Items.Placeable.Furniture

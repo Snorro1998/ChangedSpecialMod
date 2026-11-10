@@ -1,5 +1,5 @@
-﻿using ChangedSpecialMod.Utilities;
-using System;
+﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Utilities;
 using System.Collections.Generic;
 using Terraria;
 
@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 
         public override bool Enabled()
         {
-            return true;
+            return ChangedSpecialModClientConfig.Instance.WorldGenStepSurfaceLabs;
         }
 
         public override void Generate()
