@@ -566,11 +566,11 @@ Mods: {
 				MapEntry: Dokumentenpapier
 				SignText1: Bleib nicht zu lange hier. In der Nähe sind Monster.
 				SignText2: Im Falle eines Stromausfalls können Sie den Generator im Keller wieder in Betrieb nehmen.
-				// SignTextBlackGooRoom: Move when the lights are off, so they don't see you.
-				// SignTextCrystalZoneRoom: Careful human, it is very slippery here.
-				// SignTextLibraryRoom: He is away to pick some oranges, but he'll be back soon.
-				// SignVents: It is too dark to read what it says.
-				// SignTextGasRoom: Stay close to the fans and don't breathe in the gas.
+				SignTextBlackGooRoom: Geh, wenn das Licht aus ist, damit sie dich nicht sehen.
+				SignTextCrystalZoneRoom: Vorsicht, Mensch. Hier ist es sehr glatt.
+				SignTextLibraryRoom: Er ist unterwegs, um ein paar Orangen zu pflücken, aber er wird bald zurück sein.
+				SignVents: Es ist zu dunkel, um zu lesen, was dort steht.
+				SignTextGasRoom: Bleib in der Nähe der Ventilatoren und atme das Gas nicht ein.
 			}
 
 			Elevator: Aufzug

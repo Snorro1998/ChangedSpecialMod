@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 
         public override bool Enabled()
         {
-            return ChangedSpecialModClientConfig.Instance.WorldGenStepSurfaceLabs;
+            return ChangedSpecialModClientConfig.Instance.WorldGenStepUndergroundLab;
         }
 
         public override void Generate()

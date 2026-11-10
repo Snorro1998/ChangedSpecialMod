@@ -566,11 +566,11 @@ Mods: {
 				MapEntry: Документ Бумага
 				SignText1: Не задерживайтесь здесь надолго. Поблизости водятся чудовища.
 				SignText2: В случае отключения электроэнергии вы можете перезапустить генератор в подвале.
-				// SignTextBlackGooRoom: Move when the lights are off, so they don't see you.
-				// SignTextCrystalZoneRoom: Careful human, it is very slippery here.
-				// SignTextLibraryRoom: He is away to pick some oranges, but he'll be back soon.
-				// SignVents: It is too dark to read what it says.
-				// SignTextGasRoom: Stay close to the fans and don't breathe in the gas.
+				SignTextBlackGooRoom: Иди, когда свет выключен, чтобы тебя не увидели.
+				SignTextCrystalZoneRoom: Осторожнее, человек. Здесь очень скользко.
+				SignTextLibraryRoom: Он ушёл собрать апельсины, но скоро вернётся.
+				SignVents: Слишком темно, чтобы прочитать, что там написано.
+				SignTextGasRoom: Держитесь поближе к вентиляторам и не вдыхайте газ.
 			}
 
 			Elevator: Лифт

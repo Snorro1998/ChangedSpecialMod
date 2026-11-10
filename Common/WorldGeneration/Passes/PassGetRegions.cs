@@ -20,7 +20,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
         public override bool Enabled()
         {
             var config = ChangedSpecialModClientConfig.Instance;
-            return config.WorldGenStepOrangeShrine || config.WorldGenStepLatexCaves || config.WorldGenStepSurfaceLabs;
+            return config.WorldGenStepOrangeShrine || config.WorldGenStepLatexCaves || 
+                config.WorldGenStepSurfaceLabs || config.WorldGenStepUndergroundLab;
         }
 
         public override void Generate()

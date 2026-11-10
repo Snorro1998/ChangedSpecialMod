@@ -157,21 +157,25 @@ namespace ChangedSpecialMod.Utilities
             //=======
             //1 1 2 1
 
-            // Place the door in the basement
-            var xPositions = new List<int>();
-            for (int x1 = 0; x1 < nHor; x1++)
-                xPositions.Add(x1);
-
-            xPositions = xPositions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
-            var y2 = nVer - 1;
-
-            foreach (var x2 in xPositions)
+            // Place a door in the basement if there is an underground lab
+            if (ChangedSpecialModClientConfig.Instance.WorldGenStepUndergroundLab)
             {
-                var room1 = roomNums[x2, y2];
-                if (room1 == (int)RoomType.Normal)
+                // Place the door in the basement
+                var xPositions = new List<int>();
+                for (int x1 = 0; x1 < nHor; x1++)
+                    xPositions.Add(x1);
+
+                xPositions = xPositions.OrderBy(_ => ChangedUtils.WorldGenRandNext(0, Int32.MaxValue)).ToList();
+                var y2 = nVer - 1;
+
+                foreach (var x2 in xPositions)
                 {
-                    roomNums[x2, y2] = (int)RoomType.BasementDoor;
-                    break;
+                    var room1 = roomNums[x2, y2];
+                    if (room1 == (int)RoomType.Normal)
+                    {
+                        roomNums[x2, y2] = (int)RoomType.BasementDoor;
+                        break;
+                    }
                 }
             }
 

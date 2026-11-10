@@ -564,8 +564,13 @@ Mods: {
 
 			DocumentPaper: {
 				MapEntry: Document Paper
-				SignText1: Don't stay here too long. There are monsters nearby.
-				SignText2: In the event of a power outage, you can restart the generator in the basement.
+				SignText1: ここにあまり長くいないほうがいい。近くにモンスターがいる。
+				SignText2: 停電の際は、地下にある発電機を再始動させることができます。
+				SignTextBlackGooRoom: 明かりが消えている時に歩くんだ。そうすれば、相手に気づかれない。
+				SignTextCrystalZoneRoom: 気をつけて、人間。ここはとても滑りやすいよ。
+				SignTextLibraryRoom: 彼はオレンジを摘みに出かけていますが、すぐに戻ってきます。
+				SignVents: 暗すぎて、何と書いてあるのか読めない。
+				SignTextGasRoom: ファンの近くにいて、ガスを吸い込まないようにしてください。
 			}
 
 			Elevator: Elevator

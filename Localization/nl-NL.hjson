@@ -566,6 +566,11 @@ Mods: {
 				MapEntry: Documentpapier
 				SignText1: Blijf niet te lang hier. Er zijn monsters in de buurt.
 				SignText2: In het geval van een stroomstoring kun je de aggregraat in de kelder herstarten.
+				SignTextBlackGooRoom: Loop wanneer het licht uit is, zodat ze je niet zien.
+				SignTextCrystalZoneRoom: Voorzichtig, mens. Het is hier erg glad.
+				SignTextLibraryRoom: Hij is even weg om sinaasappels te plukken, maar hij komt zo terug.
+				SignVents: Het is te donker om te lezen wat er staat.
+				SignTextGasRoom: Blijf dichtbij de ventilatoren en adem het gas niet in.
 			}
 
 			Elevator: Lift

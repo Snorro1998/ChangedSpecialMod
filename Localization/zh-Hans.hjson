@@ -566,11 +566,11 @@ Mods: {
 				MapEntry: 文件纸
 				SignText1: 不要在这里待太久，附近有怪物。
 				SignText2: 如果发生停电，您可以重新启动地下室的发电机。
-				// SignTextBlackGooRoom: Move when the lights are off, so they don't see you.
-				// SignTextCrystalZoneRoom: Careful human, it is very slippery here.
-				// SignTextLibraryRoom: He is away to pick some oranges, but he'll be back soon.
-				// SignVents: It is too dark to read what it says.
-				// SignTextGasRoom: Stay close to the fans and don't breathe in the gas.
+				SignTextBlackGooRoom: 在灯光熄灭时走动，这样他们就看不见你了。
+				SignTextCrystalZoneRoom: 小心，人类。这里非常滑。
+				SignTextLibraryRoom: 他去摘些橙子了，不过很快就会回来。
+				SignVents: 太暗了，看不清上面写的是什么。
+				SignTextGasRoom: 靠近风扇，不要吸入气体。
 			}
 
 			Elevator: 电梯

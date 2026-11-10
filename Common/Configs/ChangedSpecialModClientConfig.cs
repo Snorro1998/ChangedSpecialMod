@@ -20,7 +20,7 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(true)]
         public bool WhipCrackSound { get; set; }
 
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         public bool SlipSound { get; set; }
 
         [DefaultValue(false)]

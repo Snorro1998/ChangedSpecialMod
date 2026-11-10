@@ -11,7 +11,8 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 	[*]5 upgradeable weapons
 	[*]3 mounts
 	[*]Many furniture items
-	[*]Transformation mechanic (WIP)
+	[*]Transformation mechanic
+	[*]NEW: An underground laboratory, which is like a mini playthrough of Changed
 [/list]
 
 [h2]Special Seeds[/h2]
@@ -103,69 +104,78 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 [h2]Changelog[/h2]
 
 
-[h3]0.5.7.6[/h3]
+[h3]0.5.8[/h3]
 
-This update resprites some furniture items and adds two new languages that are not part of TModloader. 
-These languages require the Localization Plus mod to be installed, and they only translate content from this mod. 
 
-[b]Translations Added[/b]
+I want to thank you all for 1000 downloads. This is the first mod I have made for Terraria, 
+so I am happy to see that despite some of its flaws, it is still well received.
+
+This update is a bigger than most of the previous ones to celebrate the occasion.
+It adds a large underground lab section, consisting of 6 rooms. 
+Each room respresents a different part of a normal Changed playthrough. 
+You can enter this underground section from the double door in the basement of a laboratory. 
+
+[b]Underground lab[/b]
 [list]
-	[*]Dutch
-	[*]Japanese
+	[*]An underground building featuring different parts of a normal Changed playthrough
+	[*]Consists of 6 room:
+	[*]Black Goo Zone: Flickering lights
+	[*]Crystal Zone: Slippery blocks
+	[*]Library: White Tail spawns here if you haven't defeated thim yet
+	[*]Vents: Dark and difficult to navigate
+	[*]Gas room: Stand under the fans to avoid the blue gas
+	[*]Water room: Flip the switches to turn on the generators and the lights
 [/list]
 
-
-This update greatly improves the sprites of the ming and tabby cat summons. 
-It also improves detection of biomes and structures from other mods, making it less likely for things to overlap.
-If you still experience this, there is a also a new config option to force world generation to happen after all other mods.
-
+[b]General[/b]
+[list]
+	[*]Flying oranges make less noise if there are many of them
+[/list]
 
 [b]Items[/b]
 [list]
-	[*]Added banners for: White Latex Taur, Squid Dog Cub and Yufeng
-	[*]Made all debug items non-consumable
-	[*]Added debug item to summon all bosses from all active mods. It is just for fun and it will likely make your game lag a lot.
+	[*]Added music box for the music that plays in the room filled with gas
+	[*]Added a new magic weapon. You can find it in the underground lab
 [/list]
 
-[b]Config[/b]
+[b]Blocks[/b]
 [list]
-	[*]Added toggles for all world generation steps
-	[*]Added option to disable short and repetitive music tracks
-	[*]Added config option to force world generation to be performed after all other mods.
+	[*]Added doors, elevators and tiles for the underground lab. These cannot be mined or blown up
+	[*]Infected ice blocks no longer makes you slide around weirdly
+	[*]Laboratory tiles can no longer be blown up with bombs
 [/list]
 
 [b]World Generation[/b]
 [list]
-	[*]World generator now tries to avoid generating things in biomes from these mods:
-	[*]Ancients Awakened
-	[*]Bismuth
-	[*]Mod of Redemption
-	[*]Spirit Reforged
+	[*]Added biome variants for underground shrines
+	[*]World generator now tries to avoid structures and biomes from:
+	[*]Ultranium
+	[*]Spooky Mod
 [/list]
 
-[b]Resprited[/b]
+[b]NPC[/b]
 [list]
-	[*]A couple of banners
-	[*]Ming Cat
-	[*]Tabby Cat
-[/list]
-
-[b]NPCs[/b]
-[list]
-	[*]I really like how the resprited cats turned out, so I decided to also turn them into NPCs. They can spawn rarely in the forest.
-	[*]Added Ming Cat
-	[*]Added Tabby Cat
+	[*]Reduced spawn change of Ming Cat, Tabby Cat and German Shepherd
 [/list]
 
 [b]Fixed[/b]
 [list]
-	[*]Dry dirt generated in deserts did not grow grass on top
-	[*]Spirit reforged always crashes when generating a new world, because it tries to add items to the chests in orange shrines (which are completely filled).
+	[*]World generator often spammed sounds (brrrrrrt), because of the way it placed wires
+	[*]World generator dug out too much space when a lab generated inside the terrain
+	[*]Camera moving smoothly when using an elevator in multiplayer, but not in single player
+	[*]Enemies using the custom FigtherAI did not fall through platforms if the player was below them
+	[*]Multiple tabby cats could spawn, because it was wrongly checking for german shepherds
+	[*]Added missing map entries for a few tiles
 [/list]
 
-[b]Technical[/b]
+[b]Resprited[/b]
 [list]
-	[*]Updated old internal names for NPCs and their related items:
-	[*]FlyingDarkLatex -> YufengCub
-	[*]WingedDarkLatex -> Yufeng
+	[*]Wolf King
+	[*]Cheerleader
+[/list]
+
+[b]Mod calls (technical)[/b]
+[list]
+	[*]Added "AddAvoidTile". You can use this to add tiles from your own mod that the world generator should avoid.
+	[*]Added "SpawnAllTown". It spawns in Puro, Prototype and Dr K
 [/list]

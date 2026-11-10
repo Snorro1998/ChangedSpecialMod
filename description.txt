@@ -109,7 +109,8 @@ Each room respresents a different part of a normal Changed playthrough.
 You can enter this underground section from the double door in the basement of a laboratory. 
 
 Underground lab
-- Consists of 6 different parts of Changed
+- An underground building featuring different parts of a normal Changed playthrough
+- Consists of 6 room:
 - Black Goo Zone: Flickering lights
 - Crystal Zone: Slippery blocks
 - Library: White Tail spawns here if you haven't defeated thim yet
@@ -131,9 +132,7 @@ Blocks
 
 World Generation
 - Added biome variants for underground shrines
-
-World Generation
-- World generator now tries to avoid generating things in biomes from these mods:
+- World generator now tries to avoid structures and biomes from:
 - Ultranium
 - Spooky Mod
 

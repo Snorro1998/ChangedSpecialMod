@@ -566,11 +566,11 @@ Mods: {
 				MapEntry: Dokument Papierowy
 				SignText1: Nie siedź tu zbyt długo. W pobliżu są potwory.
 				SignText2: W przypadku zaniku zasilania istnieje możliwość ponownego uruchomienia generatora w piwnicy.
-				// SignTextBlackGooRoom: Move when the lights are off, so they don't see you.
-				// SignTextCrystalZoneRoom: Careful human, it is very slippery here.
-				// SignTextLibraryRoom: He is away to pick some oranges, but he'll be back soon.
-				// SignVents: It is too dark to read what it says.
-				// SignTextGasRoom: Stay close to the fans and don't breathe in the gas.
+				SignTextBlackGooRoom: Poruszaj się, gdy światła są zgaszone, żeby cię nie zobaczyli.
+				SignTextCrystalZoneRoom: Uważaj, człowieku. Jest tu bardzo ślisko.
+				SignTextLibraryRoom: Poszedł zerwać trochę pomarańczy, ale niedługo wróci.
+				SignVents: Jest zbyt ciemno, żeby przeczytać, co tam jest napisane.
+				SignTextGasRoom: Trzymaj się blisko wentylatorów i nie wdychaj gazu.
 			}
 
 			Elevator: Winda

@@ -566,11 +566,11 @@ Mods: {
 				MapEntry: Documento em papel
 				SignText1: Não fique aqui por muito tempo. Há monstros por perto.
 				SignText2: Em caso de queda de energia, você pode reiniciar o gerador no porão.
-				// SignTextBlackGooRoom: Move when the lights are off, so they don't see you.
-				// SignTextCrystalZoneRoom: Careful human, it is very slippery here.
-				// SignTextLibraryRoom: He is away to pick some oranges, but he'll be back soon.
-				// SignVents: It is too dark to read what it says.
-				// SignTextGasRoom: Stay close to the fans and don't breathe in the gas.
+				SignTextBlackGooRoom: Ande quando as luzes estiverem apagadas, para que não te vejam.
+				SignTextCrystalZoneRoom: Cuidado, humano. Aqui é muito escorregadio.
+				SignTextLibraryRoom: Ele saiu para colher algumas laranjas, mas logo estará de volta.
+				SignVents: Está escuro demais para ler o que está escrito.
+				SignTextGasRoom: Fique perto dos ventiladores e não inale o gás.
 			}
 
 			Elevator: Elevador
