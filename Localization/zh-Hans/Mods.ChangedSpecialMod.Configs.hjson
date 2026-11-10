@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: 如果要在地下建造供奉橙子的神龛。
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: 地下实验室
+		Tooltip: 如果应当建造一座地下实验室。
+	}
+
 	ShortMusic: {
 		Label: 短音乐
 		Tooltip: 如果能在黏液区域播放短小且重复的音乐。

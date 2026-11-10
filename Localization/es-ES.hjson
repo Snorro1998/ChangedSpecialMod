@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Esparciendo mucho limo
 			SpecialOrange: Naranja
 			RemoveUnwantedDecals: Limpieza
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: Construcción del sótano del laboratorio
 		}
 
 		NPCs: {

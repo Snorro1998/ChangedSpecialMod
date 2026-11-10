@@ -158,6 +158,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Of sinaasappelheiligdommen ondergrond gebouwd worden.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Ondergrondse laboratorium
+		Tooltip: Of er een ondergronds laboratorium gebouwd wordt.
+	}
+
 	ShortMusic: {
 		Label: Korte muziek
 		Tooltip: Of korte, repeterende muziek afgespeeld kan worden in slijmgebieden.

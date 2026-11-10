@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Falls Orangenschreine unter der Erde generiert werden sollen.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Untergrundlabor
+		Tooltip: Falls ein unterirdisches Labor gebaut werden sollte.
+	}
+
 	ShortMusic: {
 		Label: Kurze Lieder
 		Tooltip: In den Schleimzonen kann kurze und sich wiederholende Lieder abgespielt werden.

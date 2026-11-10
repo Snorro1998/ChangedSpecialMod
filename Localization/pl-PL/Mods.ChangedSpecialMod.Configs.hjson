@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Jeśli sanktuaria pomarańczy miałyby powstać pod ziemią.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Podziemne laboratorium
+		Tooltip: Gdyby miało powstać podziemne laboratorium.
+	}
+
 	ShortMusic: {
 		Label: Krótkie piosenki
 		Tooltip: W strefach ze szlamem może być odtwarzana krótka i powtarzalna muzyka.

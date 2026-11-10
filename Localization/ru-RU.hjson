@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Распространяете слишком много слизи.
 			SpecialOrange: Апельсин
 			RemoveUnwantedDecals: Уборка
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: Строительство подвального этажа лаборатории
 		}
 
 		NPCs: {

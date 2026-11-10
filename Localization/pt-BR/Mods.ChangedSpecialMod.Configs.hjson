@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Se santuários ou laranjas tiverem de ser construídos no subsolo.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Laboratório subterrâneo
+		Tooltip: Caso um laboratório subterrâneo venha a ser construído.
+	}
+
 	ShortMusic: {
 		Label: Música curta
 		Tooltip: Se uma música curta e repetitiva puder tocar nas zonas de lodo.

@@ -160,6 +160,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Se le santuari di arance dovessero generarsi nel sottosuolo.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Laboratorio sotterraneo
+		Tooltip: Se si dovesse costruire un laboratorio sotterraneo.
+	}
+
 	ShortMusic: {
 		Label: Musica breve
 		Tooltip: Se nelle zone di melma può essere riprodotta musica breve e ripetitiva.

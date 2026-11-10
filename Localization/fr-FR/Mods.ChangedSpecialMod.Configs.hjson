@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Si des sanctuaires d'oranges devaient se générer sous terre.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Laboratoire souterrain
+		Tooltip: Si un laboratoire souterrain devait être construit.
+	}
+
 	ShortMusic: {
 		Label: Chansons courtes
 		Tooltip: Si des chansons courts et répétitifs peuvent être diffusés dans les zones de slime.

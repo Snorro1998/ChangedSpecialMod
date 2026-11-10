@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Spargendo troppa melma
 			SpecialOrange: Arancia
 			RemoveUnwantedDecals: Pulizie in corso
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: Costruzione del piano interrato del laboratorio
 		}
 
 		NPCs: {

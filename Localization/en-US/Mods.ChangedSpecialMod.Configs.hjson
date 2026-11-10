@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: If Orange Shrines should be built underground.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Underground laboratory
+		Tooltip: If an underground laboratory should be built.
+	}
+
 	ShortMusic: {
 		Label: Short Music Tracks
 		Tooltip: If short and repetitive music can play in the slime zones.

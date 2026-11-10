@@ -161,6 +161,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Если бы под землёй следовало возводить святилища из апельсинов.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Подземная лаборатория
+		Tooltip: Если предстоит построить подземную лабораторию.
+	}
+
 	ShortMusic: {
 		Label: Короткая музыка
 		Tooltip: В зонах со слизью может звучать короткая, повторяющаяся музыка.

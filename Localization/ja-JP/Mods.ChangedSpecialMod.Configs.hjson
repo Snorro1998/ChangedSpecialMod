@@ -158,6 +158,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: もしオレンジの祠を地下に建設するとしたら。
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: 地下研究所
+		Tooltip: もし地下研究所が建設されるとしたら。
+	}
+
 	ShortMusic: {
 		Label: 短い音楽
 		Tooltip: スライム地帯では、短く反復的な音楽が流れるようにする。

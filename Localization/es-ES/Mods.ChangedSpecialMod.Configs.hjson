@@ -159,6 +159,11 @@ ChangedSpecialModClientConfig: {
 		Tooltip: Si las Santuarios Naranja debieran generarse bajo tierra.
 	}
 
+	WorldGenStepUndergroundLab: {
+		Label: Laboratorio subterráneo
+		Tooltip: Si se llegara a construir un laboratorio subterráneo.
+	}
+
 	ShortMusic: {
 		Label: Canciones cortas
 		Tooltip: Si en las zonas de limo puede sonar canciones cortas y repetitivas.

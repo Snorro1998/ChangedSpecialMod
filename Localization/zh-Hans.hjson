@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: 散播了太多黏液
 			SpecialOrange: 橙子
 			RemoveUnwantedDecals: 清理
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: 建造实验室地下室
 		}
 
 		NPCs: {

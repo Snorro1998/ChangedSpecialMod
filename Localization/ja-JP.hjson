@@ -54,6 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: 大量のスライムを広げる
 			SpecialOrange: オレンジ
 			RemoveUnwantedDecals: 片付け
+			UndergroundLab: 研究所の地下を建設する
 		}
 
 		NPCs: {

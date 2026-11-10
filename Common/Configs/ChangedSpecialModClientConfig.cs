@@ -55,7 +55,10 @@ namespace ChangedSpecialMod.Common.Configs
         
         [DefaultValue(true)]
         public bool WorldGenStepOrangeShrine { get; set; }
-        
+
+        [DefaultValue(true)]
+        public bool WorldGenStepUndergroundLab { get; set; }
+
         [DefaultValue(false)]
         public bool ForceLastGenerationPass { get; set; }
 

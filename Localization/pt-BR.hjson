@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Espalhando slime demais
 			SpecialOrange: Laranja
 			RemoveUnwantedDecals: Fazendo uma limpeza
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: Construção do subsolo do laboratório
 		}
 
 		NPCs: {

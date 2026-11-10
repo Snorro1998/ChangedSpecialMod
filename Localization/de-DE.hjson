@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Viel Schleim verbreiten
 			SpecialOrange: Orange
 			RemoveUnwantedDecals: Aufräumen
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: Laborkellers bauen
 		}
 
 		NPCs: {

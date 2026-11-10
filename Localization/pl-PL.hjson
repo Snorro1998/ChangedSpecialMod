@@ -54,7 +54,7 @@ Mods: {
 			SpecialLatexEverywhere: Rozprzestrzenianie zbyt dużej ilości szlamu
 			SpecialOrange: Pomarańczowy
 			RemoveUnwantedDecals: Sprzątanie
-			// UndergroundLab: Building laboratory basement
+			UndergroundLab: Budowa piwnicy laboratoryjnej
 		}
 
 		NPCs: {
