@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using ChangedSpecialMod.Common;
 
 namespace ChangedSpecialMod
 {
@@ -66,6 +67,14 @@ namespace ChangedSpecialMod
                         if (!isNumber)
                             return new ArgumentException("ERROR: Argument 1 (TileType) must be a number.");
                         ModSupportSystem.AvoidTiles.Add(tileType);
+                        return true;
+                    case "setnpcevo":
+                        ChangedUtils.SpawnAllTown(null);
+                        bool isNumber1 = int.TryParse(args[1]?.ToString(), out int evoFrom);
+                        bool isNumber2 = int.TryParse(args[1]?.ToString(), out int evoTo);
+                        if (!isNumber1 || !isNumber2)
+                            return new ArgumentException("ERROR: Invalid input.");
+                        ChangedSets.EvolveType[evoFrom] = evoTo;
                         return true;
                 }
             }

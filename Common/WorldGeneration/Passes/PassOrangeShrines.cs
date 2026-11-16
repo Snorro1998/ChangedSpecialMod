@@ -398,6 +398,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 {
                     var primaryItems = new List<int>()
                     {
+                        ModContent.ItemType<OrangeJuiceWeapon>(),
                         ItemID.Extractinator,
                         ItemID.BandofRegeneration,
                         ItemID.MagicMirror,

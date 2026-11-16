@@ -170,4 +170,9 @@ ChangedSpecialModClientConfig: {
 		Label: Короткая музыка
 		Tooltip: В зонах со слизью может звучать короткая, повторяющаяся музыка.
 	}
+
+	ModRedemptionLabs: {
+		// Label: Mod Redemption Labs
+		// Tooltip: ""
+	}
 }

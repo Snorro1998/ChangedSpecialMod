@@ -42,3 +42,8 @@ GasDebuff: {
 	DisplayName: Токсичный газ
 	Description: Вы умираете от ядовитого газа!
 }
+
+BloodDebuff: {
+	// DisplayName: Blood Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.BloodDebuff.Description
+}

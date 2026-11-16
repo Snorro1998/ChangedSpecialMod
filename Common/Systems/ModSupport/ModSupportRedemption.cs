@@ -58,6 +58,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
 
             // Abandoned lab (protected structure)
             AddTileType("LabPlatingTileUnsafe", true);
+            AddTileType("LabPlatingTile");
             AddTileType("OvergrownLabPlatingTile", true);
             AddTileType("BlackHardenedSludgeTile", true);
 

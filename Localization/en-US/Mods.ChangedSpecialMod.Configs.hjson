@@ -168,4 +168,9 @@ ChangedSpecialModClientConfig: {
 		Label: Short Music Tracks
 		Tooltip: If short and repetitive music can play in the slime zones.
 	}
+
+	ModRedemptionLabs: {
+		Label: Mod Redemption Labs
+		Tooltip: ""
+	}
 }

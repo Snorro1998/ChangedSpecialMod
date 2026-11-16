@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common;
 using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Weapons;
@@ -23,6 +24,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
         {
 			Main.npcFrameCount[Type] = 4;
+            ChangedSets.CanMeowOnHurt[Type] = true;
+
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,

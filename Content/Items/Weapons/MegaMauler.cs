@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using ChangedSpecialMod.Content.Buffs;
 
 namespace ChangedSpecialMod.Content.Items.Weapons
 {
@@ -54,9 +55,7 @@ namespace ChangedSpecialMod.Content.Items.Weapons
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            // Inflict the OnFire debuff for 1 second onto any NPC/Monster that this hits.
-            // 60 frames = 1 second
-            target.AddBuff(BuffID.BloodButcherer, 90);
+            target.AddBuff(ModContent.BuffType<BloodDebuff>(), 540);
         }
     }
 }

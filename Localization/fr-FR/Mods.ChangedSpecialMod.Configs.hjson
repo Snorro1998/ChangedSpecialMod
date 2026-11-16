@@ -168,4 +168,9 @@ ChangedSpecialModClientConfig: {
 		Label: Chansons courtes
 		Tooltip: Si des chansons courts et répétitifs peuvent être diffusés dans les zones de slime.
 	}
+
+	ModRedemptionLabs: {
+		// Label: Mod Redemption Labs
+		// Tooltip: ""
+	}
 }

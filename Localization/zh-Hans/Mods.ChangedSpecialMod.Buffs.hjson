@@ -42,3 +42,8 @@ GasDebuff: {
 	DisplayName: 有毒气体
 	Description: 你正因有毒气体而濒临死亡！
 }
+
+BloodDebuff: {
+	// DisplayName: Blood Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.BloodDebuff.Description
+}

@@ -1,7 +1,4 @@
-﻿using ChangedSpecialMod.Assets;
-using ChangedSpecialMod.Content.Items.Placeable.Crystals;
-using ChangedSpecialMod.Content.Projectiles;
-using Microsoft.Xna.Framework;
+﻿using ChangedSpecialMod.Content.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +24,7 @@ namespace ChangedSpecialMod.Content.Items.Weapons
             Item.shootSpeed = 4f;
             Item.rare = ItemRarityID.Green;
             Item.value = Item.buyPrice(0, 1, 50, 0);
-            Item.UseSound = SoundID.Item16;//Sounds.SoundFartReverb;
+            Item.UseSound = SoundID.Item16; //Sounds.SoundFartReverb;
         }
     }
 }

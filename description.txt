@@ -98,59 +98,26 @@ Other
 --------- Changelog ---------
 
 
-0.5.8
+0.5.8.1
 
-I want to thank you all for 1000 downloads. This is the first mod I have made for Terraria, 
-so I am happy to see that despite some of its flaws, it is still well received.
-
-This update is a bigger than most of the previous ones to celebrate the occasion.
-It adds a large underground lab section, consisting of 6 rooms. 
-Each room respresents a different part of a normal Changed playthrough. 
-You can enter this underground section from the double door in the basement of a laboratory. 
-
-Underground lab
-- An underground building featuring different parts of a normal Changed playthrough
-- Consists of 6 room:
-- Black Goo Zone: Flickering lights
-- Crystal Zone: Slippery blocks
-- Library: White Tail spawns here if you haven't defeated thim yet
-- Vents: Dark and difficult to navigate
-- Gas room: Stand under the fans to avoid the blue gas
-- Water room: Flip the switches to turn on the generators and the lights
-
-General
-- Flying oranges make less noise if there are many of them
+Description goes here
 
 Items
-- Added music box for the music that plays in the room filled with gas
-- Added a new magic weapon. You can find it in the underground lab
-
-Blocks
-- Added doors, elevators and tiles for the underground lab. These cannot be mined or blown up
-- Infected ice blocks no longer makes you slide around weirdly
-- Laboratory tiles can no longer be blown up with bombs
-
-World Generation
-- Added biome variants for underground shrines
-- World generator now tries to avoid structures and biomes from:
-- Ultranium
-- Spooky Mod
-
-NPC
-- Reduced spawn change of Ming Cat, Tabby Cat and German Shepherd
-
-Fixed
-- World generator often spammed sounds (brrrrrrt), because of the way it placed wires
-- World generator dug out too much space when a lab generated inside the terrain
-- Camera moving smoothly when using an elevator in multiplayer, but not in single player
-- Enemies using the custom FigtherAI did not fall through platforms if the player was below them
-- Multiple tabby cats could spawn, because it was wrongly checking for german shepherds
-- Added missing map entries for a few tiles
+- Buffed Shredder and Mega Mauler by giving them a bleeding effect
 
 Resprited
-- Wolf King
-- Cheerleader
+- Dr K (also added attack animation)
+- Crimclaw and its upgrades
+- Snow Leopard (cleanup)
 
-Mod calls (technical)
-- Added "AddAvoidTile". You can use this to add tiles from your own mod that the world generator should avoid.
-- Added "SpawnAllTown". It spawns in Puro, Prototype and Dr K
+World generation
+- Underground labs try to generate in normal underground and will only generate in the desert, jungle or snow if it could not find a suitable place.
+
+Fixed
+- Slipping sound played for all players instead of the local player (your own character)
+
+Mod calls
+- Added "SetNPCEvo". You can use this to make two of the same NPCs merge into something else, like the goops do
+
+TODO
+- Underground latex biomes now also use the same system as labs and shrines to avoid biomes and structures

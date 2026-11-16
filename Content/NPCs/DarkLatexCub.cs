@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
@@ -17,6 +18,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 4;
+            ChangedSets.EvolveType[Type] = ModContent.NPCType<MaleDarkLatex>();
+
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -55,8 +58,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.SetHalloweenHatsForBlackLatex();
             changedNPC.DoOnSpawnExtra = true;
-            changedNPC.CanEvolve = true;
-            changedNPC.EvolveType = ModContent.NPCType<MaleDarkLatex>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

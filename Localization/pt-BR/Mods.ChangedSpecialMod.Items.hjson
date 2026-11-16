@@ -1161,3 +1161,13 @@ MusicBoxGas: {
 	DisplayName: Caixinha de Música (Gás)
 	Tooltip: Por ShiZi
 }
+
+OrangeJuiceWeapon: {
+	// DisplayName: Orange Juice Weapon
+	// Tooltip: ""
+}
+
+Carton: {
+	// DisplayName: Carton
+	// Tooltip: ""
+}

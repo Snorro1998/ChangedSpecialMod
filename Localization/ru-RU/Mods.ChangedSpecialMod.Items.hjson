@@ -1161,3 +1161,13 @@ MusicBoxGas: {
 	DisplayName: Музыкальная шкатулка (Газ)
 	Tooltip: Шизи
 }
+
+OrangeJuiceWeapon: {
+	// DisplayName: Orange Juice Weapon
+	// Tooltip: ""
+}
+
+Carton: {
+	// DisplayName: Carton
+	// Tooltip: ""
+}

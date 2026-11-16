@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
@@ -17,6 +18,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
+            ChangedSets.EvolveType[Type] = ModContent.NPCType<WhiteKnight>();
+
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -55,8 +58,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.DefaultHitEffect = true;
             changedNPC.SetHalloweenHatsForWhiteLatex();
             changedNPC.DoOnSpawnExtra = true;
-            changedNPC.CanEvolve = true;
-            changedNPC.EvolveType = ModContent.NPCType<WhiteKnight>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

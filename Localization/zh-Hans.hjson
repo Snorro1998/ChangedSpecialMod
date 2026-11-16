@@ -722,6 +722,8 @@ Mods: {
 				StormDrake: 风暴龙
 			}
 		}
+
+		// Ecotones.BlackLatexSurfaceEcotone: BlackLatexSurfaceEcotone
 	}
 }
 

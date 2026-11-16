@@ -1,5 +1,6 @@
 using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Common.Systems.ModSupport;
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Food;
@@ -11,6 +12,7 @@ using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,6 @@ using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using ChangedSpecialMod.Common.Systems.ModSupport;
 
 
 namespace ChangedSpecialMod.Content.NPCs
@@ -34,6 +35,8 @@ namespace ChangedSpecialMod.Content.NPCs
     {
         private static int shopIndex = 0;
         private const string ShopNamePath = "Mods.ChangedSpecialMod.ShopNames";
+        public Texture2D BaseTexture;
+        public Texture2D LightsTexture;
 
         private static readonly List<ShopData> Shops = new()
         {

@@ -169,6 +169,15 @@ namespace ChangedSpecialMod.Common.WorldGeneration
             return IsNonStructureRegion() && regionType != WorldRegionType.Sky;
         }
 
+        public bool IsNormalCave()
+        {
+            return IsNonStructureRegion() && 
+                regionType != WorldRegionType.Sky && 
+                regionType != WorldRegionType.Jungle && 
+                regionType != WorldRegionType.Desert &&
+                regionType != WorldRegionType.Snow;
+        }
+
         public bool IsUnderground()
         {
             return area.Top > Main.rockLayer;

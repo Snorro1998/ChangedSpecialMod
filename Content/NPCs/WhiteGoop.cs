@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Content.Biomes;
+﻿using ChangedSpecialMod.Common;
+using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Utilities;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -13,6 +14,8 @@ namespace ChangedSpecialMod.Content.NPCs
 		public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 4;
+            ChangedSets.EvolveType[Type] = ModContent.NPCType<WhiteLatexCub>();
+
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,
@@ -47,8 +50,6 @@ namespace ChangedSpecialMod.Content.NPCs
             changedNPC.SetNPCName(NPC);
             changedNPC.DefaultOnHitPlayer = true;
             changedNPC.DefaultHitEffect = true;
-            changedNPC.CanEvolve = true;
-            changedNPC.EvolveType = ModContent.NPCType<WhiteLatexCub>();
             changedNPC.spawnDepth = SpawnDepth.Everywhere;
         }
 

@@ -42,3 +42,8 @@ GasDebuff: {
 	DisplayName: Giftiges Gas
 	Description: Du stirbst an giftigem Gas!
 }
+
+BloodDebuff: {
+	// DisplayName: Blood Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.BloodDebuff.Description
+}

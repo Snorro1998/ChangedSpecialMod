@@ -450,6 +450,9 @@ namespace ChangedSpecialMod
 
         public override void PostUpdateRunSpeeds()
         {
+            if (Player != Main.LocalPlayer || Main.netMode == NetmodeID.Server)
+                return;
+
             if (Player.mount.Active)
                 return;
 

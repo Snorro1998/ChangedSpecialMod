@@ -168,4 +168,9 @@ ChangedSpecialModClientConfig: {
 		Label: Canciones cortas
 		Tooltip: Si en las zonas de limo puede sonar canciones cortas y repetitivas.
 	}
+
+	ModRedemptionLabs: {
+		// Label: Mod Redemption Labs
+		// Tooltip: ""
+	}
 }

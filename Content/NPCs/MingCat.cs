@@ -1,3 +1,4 @@
+using ChangedSpecialMod.Common;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Content.Tiles;
 using ChangedSpecialMod.Utilities;
@@ -18,6 +19,8 @@ namespace ChangedSpecialMod.Content.NPCs
         public override void SetStaticDefaults() 
 		{
             Main.npcFrameCount[Type] = 10;
+            ChangedSets.CanMeowOnHurt[Type] = true;
+
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f,

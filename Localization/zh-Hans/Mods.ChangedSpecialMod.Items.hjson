@@ -1161,3 +1161,13 @@ MusicBoxGas: {
 	DisplayName: 八音盒 (气体)
 	Tooltip: 噬子
 }
+
+OrangeJuiceWeapon: {
+	// DisplayName: Orange Juice Weapon
+	// Tooltip: ""
+}
+
+Carton: {
+	// DisplayName: Carton
+	// Tooltip: ""
+}

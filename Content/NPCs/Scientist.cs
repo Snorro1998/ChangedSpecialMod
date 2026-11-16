@@ -225,7 +225,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPCID.Sets.AttackFrameCount[Type] = 4;
             NPCID.Sets.DangerDetectRange[Type] = 700;
             NPCID.Sets.AttackType[Type] = 0;
-            NPCID.Sets.AttackTime[Type] = 90;
+            NPCID.Sets.AttackTime[Type] = 34;
             NPCID.Sets.AttackAverageChance[Type] = 30;
 
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()

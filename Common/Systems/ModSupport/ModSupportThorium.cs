@@ -66,5 +66,15 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         {
             AddItemHerb("MarineKelp");
         }
+
+        public override void AddItems()
+        {
+            AddItemBook("DragonsBreath");
+            AddItemBook("Flurry");
+            AddItemBook("GraveBuster");
+            AddItemBook("Razorlash");
+            AddItemBook("Spores");
+            AddItemBook("Stalagmite");
+        }
     }
 }

@@ -29,6 +29,9 @@
 	  <Reference Include="ModLiquidLib">
 	    <HintPath>Lib\ModLiquidLib.dll</HintPath>
 	  </Reference>
+	  <Reference Include="SpiritReforged">
+	    <HintPath>Lib\SpiritReforged.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 	<!-- References -->

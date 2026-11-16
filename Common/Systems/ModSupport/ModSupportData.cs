@@ -20,7 +20,8 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         None,
         Fruit,
         Herb,
-        Seeds
+        Seeds,
+        Book
     }
 
     public class ExternalModItem
@@ -97,6 +98,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
 
         public virtual void AddTownNPCs() { }
         public virtual void AddTiles() { }
+        public virtual void AddItems() { }
         public virtual void AddItemsFruit() { }
         public virtual void AddItemsHerb() { }
         public virtual void AddItemsSeed() { }
@@ -164,6 +166,11 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         public void AddItemSeed(string name, ItemSellCondition shopSellCondition = ItemSellCondition.None)
         {
             AddItem(name, ItemCategory.Seeds, shopSellCondition);
+        }
+
+        public void AddItemBook(string name, ItemSellCondition shopSellCondition = ItemSellCondition.None)
+        {
+            AddItem(name, ItemCategory.Book, shopSellCondition);
         }
 
         public bool ShouldAvoidTileType(int tileType)

@@ -722,6 +722,8 @@ Mods: {
 				StormDrake: Штормовой дракон
 			}
 		}
+
+		// Ecotones.BlackLatexSurfaceEcotone: BlackLatexSurfaceEcotone
 	}
 }
 

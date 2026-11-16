@@ -1161,3 +1161,13 @@ MusicBoxGas: {
 	DisplayName: Carillon (Gas)
 	Tooltip: Di ShiZi
 }
+
+OrangeJuiceWeapon: {
+	// DisplayName: Orange Juice Weapon
+	// Tooltip: ""
+}
+
+Carton: {
+	// DisplayName: Carton
+	// Tooltip: ""
+}

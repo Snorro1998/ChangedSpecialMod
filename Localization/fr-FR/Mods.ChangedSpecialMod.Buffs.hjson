@@ -42,3 +42,8 @@ GasDebuff: {
 	DisplayName: Gaz toxique
 	Description: Vous êtes en train de mourir à cause de gaz toxiques !
 }
+
+BloodDebuff: {
+	// DisplayName: Blood Debuff
+	// Description: Mods.ChangedSpecialMod.Buffs.BloodDebuff.Description
+}

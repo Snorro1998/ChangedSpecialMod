@@ -1,4 +1,6 @@
 ﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Common.Systems.ModSupport;
 using ChangedSpecialMod.Content.Items.Placeable;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -24,7 +26,7 @@ namespace ChangedSpecialMod.Content.Tiles
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             DustType = DustID.TintableDust;
-            ItemDrop = ModContent.ItemType <LabTileBlock>();
+            ItemDrop = ModContent.ItemType<LabTileBlock>();
             AddMapEntry(new Color(200, 200, 200));
         }
 
@@ -38,6 +40,11 @@ namespace ChangedSpecialMod.Content.Tiles
             if (ChangedSpecialModClientConfig.Instance.RetroVisualsTiles)
             {
                 RetroDraw(i, j, spriteBatch);
+                return false;
+            }
+            else if (ChangedSpecialModClientConfig.Instance.ModRedemptionLabs)
+            {
+                OtherLabTileDraw(i, j, spriteBatch);
                 return false;
             }
             return base.PreDraw(i, j, spriteBatch);
@@ -57,6 +64,39 @@ namespace ChangedSpecialMod.Content.Tiles
             var texture = TextureAssets.Tile[Type].Value;
             if (ModContent.RequestIfExists(retroTexturePath, out Asset<Texture2D> retroTexture))
                 texture = retroTexture.Value;
+
+            // Firstly we draw the original texture and then glow mask texture
+            spriteBatch.Draw(
+                texture,
+                new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero,
+                new Rectangle(tile.TileFrameX, tile.TileFrameY + frameYOffset, 16, height),
+                Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
+        }
+
+        private void OtherLabTileDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            var texture = TextureAssets.Tile[Type].Value;
+            var modRedemption = ModSupportSystem.GetModSupportData("Redemption") as ModSupportRedemption;
+
+            if (modRedemption != null)
+            {
+                if (modRedemption.tileTypes.ContainsKey("LabPlatingTile"))
+                {
+                    var tileID = modRedemption.tileTypes["LabPlatingTile"];
+                    texture = TextureAssets.Tile[tileID].Value;
+                }
+            }
+
+            //LabPlatingTileUnsafe
+
+            Tile tile = Main.tile[i, j];
+
+            if (tile.IsTileInvisible && !Main.ShouldShowInvisibleWalls())
+                return;
+
+            Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+            int height = 16;
+            int frameYOffset = 0;
 
             // Firstly we draw the original texture and then glow mask texture
             spriteBatch.Draw(

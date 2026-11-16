@@ -57,3 +57,5 @@ BehemothWeaponProjectile.DisplayName: Behemoth Weapon Projectile
 WhiteLatexProjectileFriendly.DisplayName: White Latex Projectile Friendly
 GasCloudProjectile.DisplayName: Gas Cloud Projectile
 FartGunProjectile.DisplayName: Fart Gun Projectile
+WaveProjectile.DisplayName: Wave Projectile
+OrangeJuiceProjectile.DisplayName: Orange Juice Projectile

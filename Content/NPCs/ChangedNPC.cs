@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Common.Configs;
+﻿using ChangedSpecialMod.Common;
+using ChangedSpecialMod.Common.Configs;
 using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Common.Systems.ModSupport;
 using ChangedSpecialMod.Content.EmoteBubbles;
@@ -122,6 +123,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
     public partial class ChangedNPC : GlobalNPC
     {
+        public bool Bleeding = false;
+
         public List<HatStruct> NewHats = new List<HatStruct>
         {
             // Rain
@@ -1664,9 +1667,10 @@ namespace ChangedSpecialMod.Content.NPCs
             else if (changedNPC.GooType == GooType.White || changedNPC.GooType == GooType.WhiteOnly)
                 dustType = DustID.SnowBlock;
 
+            var canMeow = ChangedSets.CanMeowOnHurt[npc.type];
             var soundMeow = false;
 
-            if (Main.rand.NextBool(5) && catIDs.Contains(npc.type))
+            if (Main.rand.NextBool(5) && canMeow)
                 soundMeow = true;
 
             var nParticles = 10;
@@ -1675,9 +1679,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 nParticles = 40;
                 if (!Main.dedServ)
                 {
-                    if (catIDs.Contains(npc.type))
-                        soundMeow = true;
-
+                    soundMeow = canMeow;
                     var goreTypes = new List<string>();
 
                     if (npc.type == ModContent.NPCType<MaleDarkLatex>())
@@ -1752,9 +1754,13 @@ namespace ChangedSpecialMod.Content.NPCs
                 return;
 
             var changedNPC = npc.Changed();
-            
-            if (changedNPC == null || !changedNPC.CanEvolve)
+            var evolveType = ChangedSets.EvolveType[npc.type];
+
+            if (evolveType == NPCID.None)
                 return;
+            
+            //if (changedNPC == null || !changedNPC.CanEvolve)
+            //    return;
 
             foreach (var tmpNpc in Main.npc)
             {
@@ -1764,7 +1770,7 @@ namespace ChangedSpecialMod.Content.NPCs
                 if (npc.Distance(tmpNpc.Center) < 16)
                 {
                     TransfurSystem.TransfurEffect(npc);
-                    var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)npc.Center.X, (int)npc.Bottom.Y, changedNPC.EvolveType, 0, 0);
+                    var npcIndex = NPC.NewNPC(new EntitySource_WorldEvent(), (int)npc.Center.X, (int)npc.Bottom.Y, evolveType, 0, 0);
 
                     if (Main.netMode == NetmodeID.Server && npcIndex != -1)
                         NetMessage.SendData(MessageID.SyncNPC, number: npcIndex);
@@ -1794,6 +1800,25 @@ namespace ChangedSpecialMod.Content.NPCs
             base.AI(npc);
             DoRandomEmote(npc);
             CheckForEvolution(npc);
+        }
+
+        public override void ResetEffects(NPC npc)
+        {
+            Bleeding = false;
+        }
+
+        public override void UpdateLifeRegen(NPC npc, ref int damage)
+        {
+            if (Bleeding)
+                npc.lifeRegen -= 20;
+        }
+
+        public override void DrawEffects(NPC npc, ref Color drawColor)
+        {
+            if (Bleeding)
+            {
+                int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, DustID.Blood, 0, 0, 100, default(Color), 1.5f);
+            }
         }
     }
 }
