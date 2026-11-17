@@ -104,20 +104,22 @@ Description goes here
 
 Items
 - Buffed Shredder and Mega Mauler by giving them a bleeding effect
+- Added Vitamin Flood. It is a magic weapon that creates waves of orange juice
+- Added several fireworks rockets
 
 Resprited
-- Dr K (also added attack animation)
+- Dr K. Also added all his missing animations (attack, sitting, talking, blinking and shaking hands)
 - Crimclaw and its upgrades
 - Snow Leopard (cleanup)
 
 World generation
-- Underground labs try to generate in normal underground and will only generate in the desert, jungle or snow if it could not find a suitable place.
+- Chest in shrines can no longer contain a mace. Instead they can contain a new magic weapon
+- Underground labs try to generate in normal caves and will only generate in the desert, jungle or snow if it could not find a suitable place.
 
 Fixed
+- Town NPCs could talk about the same NPC that they were talking to
 - Slipping sound played for all players instead of the local player (your own character)
+- Underground latex biomes could generate anywhere and did not check for biomes or structurs from other mods.
 
 Mod calls
 - Added "SetNPCEvo". You can use this to make two of the same NPCs merge into something else, like the goops do
-
-TODO
-- Underground latex biomes now also use the same system as labs and shrines to avoid biomes and structures

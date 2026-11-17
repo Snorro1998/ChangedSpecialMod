@@ -1171,3 +1171,28 @@ Carton: {
 	// DisplayName: Carton
 	// Tooltip: ""
 }
+
+RocketWhiteTail: {
+	// DisplayName: Rocket White Tail
+	// Tooltip: ""
+}
+
+RocketPrototype: {
+	// DisplayName: Rocket Prototype
+	// Tooltip: ""
+}
+
+RocketEaterOfWorlds: {
+	// DisplayName: Rocket Eater Of Worlds
+	// Tooltip: ""
+}
+
+RocketEyeOfCthulu: {
+	// DisplayName: Rocket Eye Of Cthulu
+	// Tooltip: ""
+}
+
+RocketGuide: {
+	// DisplayName: Rocket Guide
+	// Tooltip: ""
+}

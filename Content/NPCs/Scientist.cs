@@ -4,6 +4,7 @@ using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Dusts;
 using ChangedSpecialMod.Content.Items.Ammo;
 using ChangedSpecialMod.Content.Items.Debug;
+using ChangedSpecialMod.Content.Items.Rockets;
 using ChangedSpecialMod.Content.Items.Syringes;
 using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
@@ -11,6 +12,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -50,7 +52,8 @@ namespace ChangedSpecialMod.Content.NPCs
             new ShopData("Third Shop", "BossSummons"),
             new ShopData("Fourth Shop", "Solutions"),
             new ShopData("Fifth Shop", "Syringes"),
-            new ShopData("Sixth Shop", "DebugItems"),
+            new ShopData("Sixth Shop", "Fireworks"),
+            new ShopData("Seventh Shop", "DebugItems"),
         };
 
         //private static int ShimmerHeadIndex;
@@ -220,9 +223,10 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = 30;
-            NPCID.Sets.ExtraFramesCount[Type] = 14;
+            Main.npcFrameCount[Type] = 25;
+            NPCID.Sets.ExtraFramesCount[Type] = 9;
             NPCID.Sets.AttackFrameCount[Type] = 4;
+
             NPCID.Sets.DangerDetectRange[Type] = 700;
             NPCID.Sets.AttackType[Type] = 0;
             NPCID.Sets.AttackTime[Type] = 34;
@@ -252,12 +256,14 @@ namespace ChangedSpecialMod.Content.NPCs
                 .SetNPCAffection(NPCID.BestiaryGirl, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.Wizard, AffectionLevel.Dislike)
                 .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Hate);
+
+            //ContentSamples.NpcBestiaryRarityStars[Type] = 3; // We can override the default bestiary star count calculation by setting this.
         }
 
         public override int? PickEmote(Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
         {
             var changedNPC = NPC.Changed();
-            emoteList = changedNPC.GetEmoteList(NPC, closestPlayer, emoteList);
+            emoteList = changedNPC.GetEmoteList(NPC, closestPlayer, emoteList, otherAnchor);
             var index = ChangedUtils.MainRandNext(0, emoteList.Count);
             return emoteList[index];
         }
@@ -280,7 +286,7 @@ namespace ChangedSpecialMod.Content.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
-            AnimationType = NPCID.None;//NPCID.Guide;
+            AnimationType = NPCID.Guide;
             SpawnModBiomes = new int[] { ModContent.GetInstance<WhiteLatexSurfaceBiome>().Type };
 
             var changedNPC = NPC.Changed();
@@ -365,6 +371,17 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             button2 = Language.GetTextValue($"{ShopNamePath}.CycleShop");
 
+            var rockets = BirthdayParty.PartyIsUp;
+            var debugItems = ChangedSpecialModClientConfig.Instance.DebugItems;
+            if (shopIndex == 5 && !rockets)
+                shopIndex++;
+
+            if (shopIndex == 6 && !debugItems)
+                shopIndex++;
+
+            if (shopIndex >= Shops.Count)
+                shopIndex = 0;
+
             var currentShop = Shops[shopIndex];
             button = Language.GetTextValue($"{ShopNamePath}.{currentShop.DisplayKey}");
         }
@@ -378,12 +395,24 @@ namespace ChangedSpecialMod.Content.NPCs
             // Cycle shops
             else
             {
-                var nShops = ChangedSpecialModClientConfig.Instance.DebugItems ? Shops.Count : Shops.Count - 1;
-                shopIndex = (shopIndex + 1) % nShops;
+                var rockets = BirthdayParty.PartyIsUp;
+                var debugItems = ChangedSpecialModClientConfig.Instance.DebugItems;
+
+                shopIndex++;
+
+                if (shopIndex == 5 && !rockets)
+                    shopIndex++;
+
+                if (shopIndex == 6 && !debugItems)
+                    shopIndex++;
+
+                if (shopIndex >= Shops.Count)
+                    shopIndex = 0;
             }
         }
 
-        public override void AddShops() {
+        public override void AddShops()
+        {
             new NPCShop(Type, Shops[0].InternalName)
                 .Add<Items.Placeable.LabTileBlock>()
                 .Add<Items.Placeable.CautionTileBlock>()
@@ -432,6 +461,16 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Register();
 
             new NPCShop(Type, Shops[5].InternalName)
+                .Add(ItemID.RedRocket)
+                .Add(ItemID.GreenRocket)
+                .Add(ItemID.BlueRocket)
+                .Add<RocketPrototype>()
+                .Add<RocketWhiteTail>()
+                .Add<RocketEyeOfCthulu>()
+                .Add<RocketEaterOfWorlds>()
+                .Register();
+
+            new NPCShop(Type, Shops[6].InternalName)
                 .Add<DebugTeleportToLatex>()
                 .Add<DebugSpawnAllNPCs>()
                 .Add<DebugSpawnAllBosses>()
@@ -500,19 +539,6 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
-        private void AddItemToShop(ref Item[] items, int itemId)
-        {
-            for (int i = 0; i < items.Length; i++)
-            {
-                var item = items[i];
-                if (item != null && item.type != ItemID.None)
-                    continue;
-                if (item == null)
-                    item = new Item(ItemID.DirtBlock);
-                item.SetDefaults(itemId);
-            }
-        }
-
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.HealingPotion));
@@ -524,13 +550,17 @@ namespace ChangedSpecialMod.Content.NPCs
         }
 
         // Create a square of pixels around the NPC on teleport.
-        public void StatueTeleport() {
-            for (int i = 0; i < 30; i++) {
+        public void StatueTeleport()
+        {
+            for (int i = 0; i < 30; i++)
+            {
                 Vector2 position = Main.rand.NextVector2Square(-20, 21);
-                if (Math.Abs(position.X) > Math.Abs(position.Y)) {
+                if (Math.Abs(position.X) > Math.Abs(position.Y))
+                {
                     position.X = Math.Sign(position.X) * 20;
                 }
-                else {
+                else
+                {
                     position.Y = Math.Sign(position.Y) * 20;
                 }
 
@@ -552,9 +582,8 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            //ProjectileID.AbigailCounter;
-            projType = ProjectileID.NurseSyringeHurt;//ModContent.ProjectileType<BottleProjectile>();
-            attackDelay = 1;
+            projType = ProjectileID.NurseSyringeHurt;
+            attackDelay = 20;
         }
 
         public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
@@ -565,28 +594,38 @@ namespace ChangedSpecialMod.Content.NPCs
 
         private void UpdateHatPosition(int frameHeight)
         {
-            /*
-            standing    0 2 3 4 5 9 10 11 12 16 17 24 25
-            wide legs   1 13 14 15
-            leg frwd    6 7 8
-            sitting     18 19 20 21 22 23
-            throw 26..29
-            */
-
             var changedNPC = NPC.Changed();
             var frame = NPC.frame;
             var fr = frame.Top / frameHeight;
+            var hatXOffset = 0;
             var hatYOffset = -46;
 
-            if (fr == 1 || fr == 13 || fr == 14 || fr == 15 || fr == 6 || fr == 7 || fr == 8)
+            // Walking
+            if (fr == 1 || fr == 7 || fr == 8 || fr == 15)
             {
                 hatYOffset += 2;
-                //hatYOffset = -47;
             }
-            else if (fr == 18 || fr == 19 || fr == 20 || fr == 21 || fr == 22 || fr == 23)
+            // Walking
+            else if (fr == 4 || fr == 5 || fr == 11 || fr == 12)
+            {
+                hatYOffset -= 2;
+            }
+            // Sitting
+            else if (fr == 18)
             {
                 hatYOffset -= 4;
-                //hatYOffset = -52;
+            }
+            // Attack frame 1
+            else if (fr == 21)
+            {
+                hatXOffset += 2;
+                hatYOffset -= 2;
+            }
+            // Attack frame 4
+            else if (fr == 24)
+            {
+                hatXOffset -= 2;
+                hatYOffset += 2;
             }
 
             changedNPC.HatYOffset = hatYOffset;
@@ -653,777 +692,15 @@ namespace ChangedSpecialMod.Content.NPCs
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }
 
-        public bool IsGrounded()
-        {
-            return NPC.velocity.Y == 0f;
-        }
-
-        public bool IsSitting()
-        {
-            return NPC.ai[0] == 5f;
-        }
-
         public override bool PreAI()
         {
             AIPassive.Update(NPC);
             return false;
         }
 
-        // This is the vanilla code with unnecessary conditions removed (like pets and town slimes)
-        // The frame logic for talking and shaking hands is still here but disabled, because it got messed up after adding more frames for sitting
         public override void FindFrame(int frameHeight)
         {
-            // Set this to true anywhere to determine when a certain piece of code is executed. It will rapidly flip the sprite around
-            bool testFlag = false;
-            int extraFrames = (NPC.isLikeATownNPC ? NPCID.Sets.ExtraFramesCount[NPC.type] : 0);
-            if (IsGrounded())
-            {
-                if (NPC.direction == 1)
-                {
-                    NPC.spriteDirection = 1;
-                }
-                if (NPC.direction == -1)
-                {
-                    NPC.spriteDirection = -1;
-                }
-
-                int nFramesWithoutAttackAnim = Main.npcFrameCount[NPC.type] - NPCID.Sets.AttackFrameCount[NPC.type];
-                int frameSleep = nFramesWithoutAttackAnim - 3;
-
-                if (NPC.ai[0] == 23f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num319 = NPC.frame.Y / frameHeight;
-                    int num320 = nFramesWithoutAttackAnim - num319;
-                    if ((uint)(num320 - 1) > 1u && (uint)(num320 - 4) > 1u && num319 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int frameNumber0 = 0;
-                    frameNumber0 = ((!(NPC.frameCounter < 6.0)) ? (nFramesWithoutAttackAnim - 4) : (nFramesWithoutAttackAnim - 5));
-                    if (NPC.ai[1] < 6f)
-                    {
-                        frameNumber0 = nFramesWithoutAttackAnim - 5;
-                    }
-                    NPC.frame.Y = 0;
-                    //NPC.frame.Y = frameHeight * frameNumber0;
-                }
-                else if (NPC.ai[0] >= 20f && NPC.ai[0] <= 22f)
-                {
-                    int currentFrame = NPC.frame.Y / frameHeight;
-                    switch ((int)NPC.ai[0])
-                    {
-                        case 20:
-                            if (NPC.ai[1] > 30f && (currentFrame < 23 || currentFrame > 27))
-                            {
-                                currentFrame = 23;
-                            }
-                            if (currentFrame > 0)
-                            {
-                                NPC.frameCounter += animationSpeed;
-                            }
-                            if (NPC.frameCounter > 4.0)
-                            {
-                                NPC.frameCounter = 0.0;
-                                currentFrame++;
-                                if (currentFrame > 26 && NPC.ai[1] > 30f)
-                                {
-                                    currentFrame = 24;
-                                }
-                                if (currentFrame > 27)
-                                {
-                                    currentFrame = 0;
-                                }
-                            }
-                            break;
-                        case 21:
-                            if (NPC.ai[1] > 30f && (currentFrame < 17 || currentFrame > 22))
-                            {
-                                currentFrame = 17;
-                            }
-                            if (currentFrame > 0)
-                            {
-                                NPC.frameCounter += animationSpeed;
-                            }
-                            if (NPC.frameCounter > 4.0)
-                            {
-                                NPC.frameCounter = 0.0;
-                                currentFrame++;
-                                if (NPC.ai[1] > 30f && currentFrame > 21)
-                                {
-                                    currentFrame = 18;
-                                }
-                                if (currentFrame > 22)
-                                {
-                                    currentFrame = 0;
-                                }
-                            }
-                            break;
-                        case 22:
-                            if (NPC.ai[1] > 30f && (currentFrame < 17 || currentFrame > 27))
-                            {
-                                currentFrame = 17;
-                            }
-                            if (currentFrame > 0)
-                            {
-                                NPC.frameCounter += animationSpeed;
-                            }
-                            if (NPC.frameCounter > 4.0)
-                            {
-                                NPC.frameCounter = 0.0;
-                                currentFrame++;
-                                if (currentFrame > 27)
-                                {
-                                    currentFrame = ((!(NPC.ai[1] <= 30f)) ? 22 : 20);
-                                }
-                                else if (NPC.ai[1] <= 30f && currentFrame == 22)
-                                {
-                                    currentFrame = 0;
-                                }
-                                else if (NPC.ai[1] > 30f && currentFrame > 19 && currentFrame < 22)
-                                {
-                                    currentFrame = 22;
-                                }
-                            }
-                            break;
-                    }
-                    NPC.frame.Y = 0;
-                    //NPC.frame.Y = frameNumber * frameHeight;
-                }
-                else if (NPC.ai[0] == 2f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    if (NPC.frame.Y / frameHeight == nFramesWithoutAttackAnim - 1 && NPC.frameCounter >= 5.0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    else if (NPC.frame.Y / frameHeight == 0 && NPC.frameCounter >= 40.0)
-                    {
-                        NPC.frame.Y = 0;
-                        //NPC.frame.Y = frameHeight * (nFramesWithoutAttackAnim - 1);
-                        NPC.frameCounter = 0.0;
-                    }
-                    else if (NPC.frame.Y != 0 && NPC.frame.Y != frameHeight * (nFramesWithoutAttackAnim - 1))
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                }
-                else if (NPC.ai[0] == 11f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    if (NPC.frame.Y / frameHeight == nFramesWithoutAttackAnim - 1 && NPC.frameCounter >= 50.0)
-                    {
-                        if (NPC.frameCounter == 50.0)
-                        {
-                            int num324 = Main.rand.Next(4);
-                            for (int m = 0; m < 3 + num324; m++)
-                            {
-                                int num325 = Dust.NewDust(NPC.Center + Vector2.UnitX * -NPC.direction * 8f - Vector2.One * 5f + Vector2.UnitY * 8f, 3, 6, 216, -NPC.direction, 1f);
-                                Main.dust[num325].velocity /= 2f;
-                                Main.dust[num325].scale = 0.8f;
-                            }
-                        }
-                        if (NPC.frameCounter >= 100.0 && Main.rand.Next(20) == 0)
-                        {
-                            NPC.frame.Y = 0;
-                            NPC.frameCounter = 0.0;
-                        }
-                    }
-                    else if (NPC.frame.Y / frameHeight == 0 && NPC.frameCounter >= 20.0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                        EmoteBubble.NewBubble(89, new WorldUIAnchor(NPC), 90);
-                    }
-                    else if (NPC.frame.Y != 0 && NPC.frame.Y != frameHeight * (nFramesWithoutAttackAnim - 1))
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                }
-                // Sitting. This is the sole reason we make a custom animation type so he can shake his head
-                else if (IsSitting())
-                {
-                    //frame     begin   end
-                    //0         00      60
-                    //1         60      75
-                    //2         75      90
-                    //3         90      150
-                    //4         150     165
-                    //5         165     180
-
-                    var frame = 0;
-
-                    if (NPC.frameCounter >= 160)
-                        NPC.frameCounter = 0;
-
-                    if (NPC.frameCounter < 60)
-                        frame = 18;
-                    else if (NPC.frameCounter >= 60 && NPC.frameCounter < 70)
-                        frame = 19;
-                    else if (NPC.frameCounter >= 70 && NPC.frameCounter < 80)
-                        frame = 20;
-                    else if (NPC.frameCounter >= 80 && NPC.frameCounter < 140)
-                        frame = 21;
-                    else if (NPC.frameCounter >= 140 && NPC.frameCounter < 150)
-                        frame = 22;
-                    else if (NPC.frameCounter >= 150 && NPC.frameCounter < 160)
-                        frame = 23;
-
-                    NPC.frame.Y = frameHeight * frame;
-                    NPC.frameCounter += animationSpeed;
-                }
-                else if (NPC.ai[0] == 6f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num327 = NPC.frame.Y / frameHeight;
-                    int num328 = nFramesWithoutAttackAnim - num327;
-                    if ((uint)(num328 - 1) > 1u && (uint)(num328 - 4) > 1u && num327 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int num329 = 0;
-                    num329 = ((!(NPC.frameCounter < 10.0)) ? ((NPC.frameCounter < 16.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 46.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 60.0) ? (nFramesWithoutAttackAnim - 5) : ((!(NPC.frameCounter < 66.0)) ? ((NPC.frameCounter < 72.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 102.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 108.0) ? (nFramesWithoutAttackAnim - 5) : ((!(NPC.frameCounter < 114.0)) ? ((NPC.frameCounter < 120.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 150.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 156.0) ? (nFramesWithoutAttackAnim - 5) : ((!(NPC.frameCounter < 162.0)) ? ((NPC.frameCounter < 168.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 198.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 204.0) ? (nFramesWithoutAttackAnim - 5) : ((!(NPC.frameCounter < 210.0)) ? ((NPC.frameCounter < 216.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 246.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 252.0) ? (nFramesWithoutAttackAnim - 5) : ((!(NPC.frameCounter < 258.0)) ? ((NPC.frameCounter < 264.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 294.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 300.0) ? (nFramesWithoutAttackAnim - 5) : 0))) : 0)))) : 0)))) : 0)))) : 0)))) : 0)))) : 0);
-                    if (num329 == nFramesWithoutAttackAnim - 4 && num327 == nFramesWithoutAttackAnim - 5)
-                    {
-                        Vector2 vector5 = NPC.Center + new Vector2(10 * NPC.direction, -4f);
-                        for (int n = 0; n < 8; n++)
-                        {
-                            int num330 = Main.rand.Next(139, 143);
-                            int num331 = Dust.NewDust(vector5, 0, 0, num330, NPC.velocity.X + (float)NPC.direction, NPC.velocity.Y - 2.5f, 0, default(Color), 1.2f);
-                            Main.dust[num331].velocity.X += (float)NPC.direction * 1.5f;
-                            Main.dust[num331].position -= new Vector2(4f);
-                            Main.dust[num331].velocity *= 2f;
-                            Main.dust[num331].scale = 0.7f + Main.rand.NextFloat() * 0.3f;
-                        }
-                    }
-                    NPC.frame.Y = 0;
-
-                    if (NPC.frameCounter >= 300.0)
-                    {
-                        NPC.frameCounter = 0.0;
-                    }
-                }
-                else if ((NPC.ai[0] == 7f || NPC.ai[0] == 19f) && !NPCID.Sets.IsTownPet[NPC.type])
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num332 = NPC.frame.Y / frameHeight;
-                    int num333 = nFramesWithoutAttackAnim - num332;
-                    if ((uint)(num333 - 1) > 1u && (uint)(num333 - 4) > 1u && num332 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int num334 = 0;
-                    if (NPC.frameCounter < 16.0)
-                    {
-                        num334 = 0;
-                    }
-                    else if (NPC.frameCounter == 16.0)
-                    {
-                        EmoteBubble.NewBubbleNPC(new WorldUIAnchor(NPC), 112);
-                    }
-                    else if (NPC.frameCounter < 128.0)
-                    {
-                        num334 = ((NPC.frameCounter % 16.0 < 8.0) ? (nFramesWithoutAttackAnim - 2) : 0);
-                    }
-                    else if (NPC.frameCounter < 160.0)
-                    {
-                        num334 = 0;
-                    }
-                    else if (NPC.frameCounter != 160.0)
-                    {
-                        num334 = ((NPC.frameCounter < 220.0) ? ((NPC.frameCounter % 12.0 < 6.0) ? (nFramesWithoutAttackAnim - 2) : 0) : 0);
-                    }
-                    else
-                    {
-                        EmoteBubble.NewBubbleNPC(new WorldUIAnchor(NPC), 60);
-                    }
-                    NPC.frame.Y = 0;
-
-                    if (NPC.frameCounter >= 220.0)
-                    {
-                        NPC.frameCounter = 0.0;
-                    }
-                }
-                else if (NPC.ai[0] == 9f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num335 = NPC.frame.Y / frameHeight;
-                    int num336 = nFramesWithoutAttackAnim - num335;
-                    if ((uint)(num336 - 1) > 1u && (uint)(num336 - 4) > 1u && num335 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int num337 = 0;
-                    num337 = ((!(NPC.frameCounter < 10.0)) ? ((!(NPC.frameCounter < 16.0)) ? (nFramesWithoutAttackAnim - 4) : (nFramesWithoutAttackAnim - 5)) : 0);
-                    if (NPC.ai[1] < 16f)
-                    {
-                        num337 = nFramesWithoutAttackAnim - 5;
-                    }
-                    if (NPC.ai[1] < 10f)
-                    {
-                        num337 = 0;
-                    }
-                    NPC.frame.Y = 0;
-
-                }
-                else if (NPC.ai[0] == 18f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num338 = NPC.frame.Y / frameHeight;
-                    int num339 = nFramesWithoutAttackAnim - num338;
-                    if ((uint)(num339 - 1) > 1u && (uint)(num339 - 4) > 1u && num338 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int frameNumber1 = 0;
-                    if (NPC.frameCounter < 10.0)
-                    {
-                        frameNumber1 = 0;
-                    }
-                    else if (NPC.frameCounter < 16.0)
-                    {
-                        frameNumber1 = nFramesWithoutAttackAnim - 1;
-                    }
-                    else
-                    {
-                        frameNumber1 = nFramesWithoutAttackAnim - 2;
-                    }
-                    if (NPC.ai[1] < 16f)
-                    {
-                        frameNumber1 = nFramesWithoutAttackAnim - 1;
-                    }
-                    if (NPC.ai[1] < 10f)
-                    {
-                        frameNumber1 = 0;
-                    }
-                    frameNumber1 = Main.npcFrameCount[NPC.type] - 2;
-                    NPC.frame.Y = 0;
-
-                }
-                else if (NPC.ai[0] == 10f || NPC.ai[0] == 13f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num341 = NPC.frame.Y / frameHeight;
-                    if ((uint)(num341 - nFramesWithoutAttackAnim) > 3u && num341 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int num342 = 10;
-                    int num343 = 6;
-                    int frameNumber2 = 0;
-                    frameNumber2 = ((!(NPC.frameCounter < (double)num342)) ? ((NPC.frameCounter < (double)(num342 + num343)) ? nFramesWithoutAttackAnim : ((NPC.frameCounter < (double)(num342 + num343 * 2)) ? (nFramesWithoutAttackAnim + 1) : ((NPC.frameCounter < (double)(num342 + num343 * 3)) ? (nFramesWithoutAttackAnim + 2) : ((NPC.frameCounter < (double)(num342 + num343 * 4)) ? (nFramesWithoutAttackAnim + 3) : 0)))) : 0);
-                    NPC.frame.Y = frameHeight * frameNumber2;
-                }
-                else if (NPC.ai[0] == 15f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num345 = NPC.frame.Y / frameHeight;
-                    if ((uint)(num345 - nFramesWithoutAttackAnim) > 3u && num345 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    float num346 = NPC.ai[1] / (float)NPCID.Sets.AttackTime[NPC.type];
-                    int frameNumber3 = 0;
-                    frameNumber3 = ((num346 > 0.65f) ? nFramesWithoutAttackAnim : ((num346 > 0.5f) ? (nFramesWithoutAttackAnim + 1) : ((num346 > 0.35f) ? (nFramesWithoutAttackAnim + 2) : ((num346 > 0f) ? (nFramesWithoutAttackAnim + 3) : 0))));
-                    NPC.frame.Y = frameHeight * frameNumber3;
-                }
-                else if (NPC.ai[0] == 25f)
-                {
-                    NPC.frame.Y = frameHeight;
-                }
-                // Shooting?
-                else if (NPC.ai[0] == 12f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num348 = NPC.frame.Y / frameHeight;
-                    if ((uint)(num348 - nFramesWithoutAttackAnim) > 4u && num348 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int frameNumber4 = nFramesWithoutAttackAnim + NPC.GetShootingFrame(NPC.ai[2]);
-                    NPC.frame.Y = frameHeight * frameNumber4;
-                }
-                else if (NPC.ai[0] == 14f || NPC.ai[0] == 24f)
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num350 = NPC.frame.Y / frameHeight;
-                    if ((uint)(num350 - nFramesWithoutAttackAnim) > 1u && num350 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    int num351 = 12;
-                    int num352 = ((NPC.frameCounter % (double)num351 * 2.0 < (double)num351) ? nFramesWithoutAttackAnim : (nFramesWithoutAttackAnim + 1));
-                    NPC.frame.Y = frameHeight * num352;
-                    if (NPC.ai[0] == 24f)
-                    {
-                        if (NPC.frameCounter == 60.0)
-                        {
-                            EmoteBubble.NewBubble(87, new WorldUIAnchor(NPC), 60);
-                        }
-                        if (NPC.frameCounter == 150.0)
-                        {
-                            EmoteBubble.NewBubble(3, new WorldUIAnchor(NPC), 90);
-                        }
-                        if (NPC.frameCounter >= 240.0)
-                        {
-                            NPC.frame.Y = 0;
-                        }
-                    }
-                }
-                else if (NPC.ai[0] == 1001f)
-                {
-                    NPC.frame.Y = 0;
-                    NPC.frameCounter = 0.0;
-                }
-                else if (NPC.CanTalk && (NPC.ai[0] == 3f || NPC.ai[0] == 4f))
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num353 = NPC.frame.Y / frameHeight;
-                    int num354 = nFramesWithoutAttackAnim - num353;
-                    if ((uint)(num354 - 1) > 1u && (uint)(num354 - 4) > 1u && num353 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    bool flag15 = NPC.ai[0] == 3f;
-                    int num355 = 0;
-                    int num356 = 0;
-                    int num357 = -1;
-                    int num358 = -1;
-                    if (NPC.frameCounter < 10.0)
-                    {
-                        num355 = 0;
-                    }
-                    else if (NPC.frameCounter < 16.0)
-                    {
-                        num355 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 46.0)
-                    {
-                        num355 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 60.0)
-                    {
-                        num355 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 216.0)
-                    {
-                        num355 = 0;
-                    }
-                    else if (NPC.frameCounter == 216.0 && Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        num357 = 70;
-                    }
-                    else if (NPC.frameCounter < 286.0)
-                    {
-                        num355 = ((NPC.frameCounter % 12.0 < 6.0) ? (nFramesWithoutAttackAnim - 2) : 0);
-                    }
-                    else if (NPC.frameCounter < 320.0)
-                    {
-                        num355 = 0;
-                    }
-                    else if (NPC.frameCounter != 320.0 || Main.netMode == NetmodeID.MultiplayerClient)
-                    {
-                        num355 = ((NPC.frameCounter < 420.0) ? ((NPC.frameCounter % 16.0 < 8.0) ? (nFramesWithoutAttackAnim - 2) : 0) : 0);
-                    }
-                    else
-                    {
-                        num357 = 100;
-                    }
-                    if (NPC.frameCounter < 70.0)
-                    {
-                        num356 = 0;
-                    }
-                    else if (NPC.frameCounter != 70.0 || Main.netMode == NetmodeID.MultiplayerClient)
-                    {
-                        num356 = ((!(NPC.frameCounter < 160.0)) ? ((NPC.frameCounter < 166.0) ? (nFramesWithoutAttackAnim - 5) : ((NPC.frameCounter < 186.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 200.0) ? (nFramesWithoutAttackAnim - 5) : ((!(NPC.frameCounter < 320.0)) ? ((NPC.frameCounter < 326.0) ? (nFramesWithoutAttackAnim - 1) : 0) : 0)))) : ((NPC.frameCounter % 16.0 < 8.0) ? (nFramesWithoutAttackAnim - 2) : 0));
-                    }
-                    else
-                    {
-                        num358 = 90;
-                    }
-                    if (flag15)
-                    {
-                        NPC nPC = Main.npc[(int)NPC.ai[2]];
-                        if (num357 != -1)
-                        {
-                            EmoteBubble.NewBubbleNPC(new WorldUIAnchor(NPC), num357, new WorldUIAnchor(nPC));
-                        }
-                        if (num358 != -1 && nPC.CanTalk)
-                        {
-                            EmoteBubble.NewBubbleNPC(new WorldUIAnchor(nPC), num358, new WorldUIAnchor(NPC));
-                        }
-                    }
-                    NPC.frame.Y = 0;
-
-                    if (NPC.frameCounter >= 420.0)
-                    {
-                        NPC.frameCounter = 0.0;
-                    }
-                }
-                // Rock paper scissors?
-                else if (NPC.CanTalk && (NPC.ai[0] == 16f || NPC.ai[0] == 17f))
-                {
-                    NPC.frameCounter += animationSpeed;
-                    int num359 = NPC.frame.Y / frameHeight;
-                    int num360 = nFramesWithoutAttackAnim - num359;
-                    if ((uint)(num360 - 1) > 1u && (uint)(num360 - 4) > 1u && num359 != 0)
-                    {
-                        NPC.frame.Y = 0;
-                        NPC.frameCounter = 0.0;
-                    }
-                    bool flag16 = NPC.ai[0] == 16f;
-                    int num361 = 0;
-                    int num362 = -1;
-                    if (NPC.frameCounter < 10.0)
-                    {
-                        num361 = 0;
-                    }
-                    else if (NPC.frameCounter < 16.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 22.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 28.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 34.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 40.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter == 40.0 && Main.netMode != 1)
-                    {
-                        num362 = 45;
-                    }
-                    else if (NPC.frameCounter < 70.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 76.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 82.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 88.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 94.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 100.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter == 100.0 && Main.netMode != 1)
-                    {
-                        num362 = 45;
-                    }
-                    else if (NPC.frameCounter < 130.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 136.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 142.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 148.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter < 154.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 4;
-                    }
-                    else if (NPC.frameCounter < 160.0)
-                    {
-                        num361 = nFramesWithoutAttackAnim - 5;
-                    }
-                    else if (NPC.frameCounter != 160.0 || Main.netMode == 1)
-                    {
-                        num361 = ((NPC.frameCounter < 220.0) ? (nFramesWithoutAttackAnim - 4) : ((NPC.frameCounter < 226.0) ? (nFramesWithoutAttackAnim - 5) : 0));
-                    }
-                    else
-                    {
-                        num362 = 75;
-                    }
-                    if (flag16 && num362 != -1)
-                    {
-                        int num363 = (int)NPC.localAI[2];
-                        int num364 = (int)NPC.localAI[3];
-                        int num365 = (int)Main.npc[(int)NPC.ai[2]].localAI[3];
-                        int num366 = (int)Main.npc[(int)NPC.ai[2]].localAI[2];
-                        int num367 = 3 - num363 - num364;
-                        int num368 = 0;
-                        if (NPC.frameCounter == 40.0)
-                        {
-                            num368 = 1;
-                        }
-                        if (NPC.frameCounter == 100.0)
-                        {
-                            num368 = 2;
-                        }
-                        if (NPC.frameCounter == 160.0)
-                        {
-                            num368 = 3;
-                        }
-                        int num369 = 3 - num368;
-                        int num370 = -1;
-                        int num371 = 0;
-                        while (num370 < 0)
-                        {
-                            num360 = num371 + 1;
-                            num371 = num360;
-                            if (num360 >= 100)
-                            {
-                                break;
-                            }
-                            num370 = Main.rand.Next(2);
-                            if (num370 == 0 && num366 >= num364)
-                            {
-                                num370 = -1;
-                            }
-                            if (num370 == 1 && num365 >= num363)
-                            {
-                                num370 = -1;
-                            }
-                            if (num370 == -1 && num369 <= num367)
-                            {
-                                num370 = 2;
-                            }
-                        }
-                        if (num370 == 0)
-                        {
-                            Main.npc[(int)NPC.ai[2]].localAI[3] += 1f;
-                            num365++;
-                        }
-                        if (num370 == 1)
-                        {
-                            Main.npc[(int)NPC.ai[2]].localAI[2] += 1f;
-                            num366++;
-                        }
-                        int num372 = Utils.SelectRandom<int>(Main.rand, 38, 37, 36);
-                        int num373 = num372;
-                        switch (num370)
-                        {
-                            case 0:
-                                switch (num372)
-                                {
-                                    case 38:
-                                        num373 = 37;
-                                        break;
-                                    case 37:
-                                        num373 = 36;
-                                        break;
-                                    case 36:
-                                        num373 = 38;
-                                        break;
-                                }
-                                break;
-                            case 1:
-                                switch (num372)
-                                {
-                                    case 38:
-                                        num373 = 36;
-                                        break;
-                                    case 37:
-                                        num373 = 38;
-                                        break;
-                                    case 36:
-                                        num373 = 37;
-                                        break;
-                                }
-                                break;
-                        }
-                        if (num369 == 0)
-                        {
-                            if (num365 >= 2)
-                            {
-                                num372 -= 3;
-                            }
-                            if (num366 >= 2)
-                            {
-                                num373 -= 3;
-                            }
-                        }
-                        EmoteBubble.NewBubble(num372, new WorldUIAnchor(NPC), num362);
-                        EmoteBubble.NewBubble(num373, new WorldUIAnchor(Main.npc[(int)NPC.ai[2]]), num362);
-                    }
-                    // Puro doesn't shake his hands so we ignore all the stuff above and use his idle animation instead
-                    NPC.frame.Y = 0;
-
-                    if (NPC.frameCounter >= 420.0)
-                    {
-                        NPC.frameCounter = 0.0;
-                    }
-                }
-                // Standing still
-                else if (NPC.velocity.X == 0f)
-                {
-                    NPC.frame.Y = 0;
-                    NPC.frameCounter = 0.0;
-                }
-                // Walking
-                else
-                {
-                    int num375 = 6;
-                    NPC.frameCounter += Math.Abs(NPC.velocity.X) * 2f;
-                    NPC.frameCounter += animationSpeed;
-                    int num376 = frameHeight * 2;
-
-                    if (NPC.frame.Y < num376)
-                    {
-                        NPC.frame.Y = num376;
-                    }
-                    if (NPC.frameCounter > (double)num375)
-                    {
-                        NPC.frame.Y += frameHeight;
-                        NPC.frameCounter = 0.0;
-                    }
-                    if (NPC.frame.Y / frameHeight >= Main.npcFrameCount[NPC.type] - extraFrames)
-                    {
-                        NPC.frame.Y = num376;
-                    }
-                }
-            }
-            // Falling down
-            else
-            {
-                NPC.frameCounter = 0.0;
-                NPC.frame.Y = frameHeight;
-            }
-
-            if (testFlag)
-                NPC.spriteDirection = Utils.SelectRandom(Main.rand, -1, 1);
-
+            base.FindFrame(frameHeight);
             UpdateHatPosition(frameHeight);
         }
     }

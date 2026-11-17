@@ -23,68 +23,24 @@ namespace ChangedSpecialMod.Content.Items.Debug
 
         public override bool? UseItem(Player player)
         {
+            for (int i = 0; i < Main.maxNPCs; i++)
             {
-                var dict = ModSupportSystem.NPCIdentifiers;
-                var keys = dict.Keys.ToList();
+                var npc = Main.npc[i];
+                if (npc == null || !npc.active || npc.aiStyle != NPCAIStyleID.Passive)
+                    continue;
 
-                var str = "";
-                foreach (var key in keys)
-                {
-                    var val = dict[key];
-                    str += $"{key}, {val} | ";
-                }
+                // Makes all town npcs blink
+                npc.ai[0] = 2;
+                npc.ai[1] = 45 * Main.rand.Next(1, 2);
+                npc.ai[2] = 0;
+                npc.ai[3] = 0;
 
-                Main.NewText(str);
+                npc.localAI[0] = 0;
+                npc.localAI[1] = 0;
+                npc.localAI[2] = 0;
+                npc.localAI[3] = 0;
+
             }
-
-
-            var npc = Main.npc.FirstOrDefault(x => x.active);
-            if (npc != null)
-            {
-                var changedNPC = npc.Changed();
-                var keywords = changedNPC.GetChatKeyWords();
-
-                var keys = keywords.Keys.Where(x => x.Contains("Name")).ToList();
-                var str = "";
-                foreach (var key in keys)
-                {
-                    str += $"{key}, ";
-                }
-                Main.NewText(str);
-            }
-
-            var anubisNPC = Main.npc.FirstOrDefault(x => x.type == 753);
-            if (anubisNPC != null)
-            {
-                Main.NewText($"{anubisNPC.FullName}, {anubisNPC.active}");
-            }
-
-
-
-            {
-                var activeNPCS = Main.npc.Where(x => x.active).ToList();
-                var str = "";
-                foreach (var activeNPC in activeNPCS)
-                {
-                    str += $"{activeNPC.type}, {activeNPC.TypeName} | ";
-                }
-                Main.NewText(str);
-            }
-
-
-            /*
-            var tgMod = ModSupportSystem.externalMods.Where(x => x.modName == "terraguardians").FirstOrDefault() as ModSupportTerraGuardian;
-            if (tgMod != null)
-            {
-                var tgs = tgMod.GetAllTerraGuardians();
-                var str = "";
-                foreach (var t in tgs)
-                {
-                    str += $"{t.name}, {t.hasBeenMet}, {t.inPlayerParty} | ";
-                }
-                Main.NewText(str);
-            }
-            */
 
             return true;
         }

@@ -164,7 +164,7 @@ namespace ChangedSpecialMod.Content.NPCs
         public override int? PickEmote(Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
         {
             var changedNPC = NPC.Changed();
-            emoteList = changedNPC.GetEmoteList(NPC, closestPlayer, emoteList);
+            emoteList = changedNPC.GetEmoteList(NPC, closestPlayer, emoteList, otherAnchor);
             var index = ChangedUtils.MainRandNext(0, emoteList.Count);
             return emoteList[index];
         }

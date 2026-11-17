@@ -59,3 +59,10 @@ GasCloudProjectile.DisplayName: Gas Cloud Projectile
 FartGunProjectile.DisplayName: Fart Gun Projectile
 WaveProjectile.DisplayName: Wave Projectile
 OrangeJuiceProjectile.DisplayName: Orange Juice Projectile
+FireworksProjectile.DisplayName: Fireworks Projectile
+WhiteTailFireworksProjectile.DisplayName: White Tail Fireworks Projectile
+RocketPrototypeProjectile.DisplayName: Rocket Prototype Projectile
+RocketWhiteTailProjectile.DisplayName: Rocket White Tail Projectile
+RocketEaterOfWorldsProjectile.DisplayName: Rocket Eater Of Worlds Projectile
+RocketEyeOfCthuluProjectile.DisplayName: Rocket Eye Of Cthulu Projectile
+RocketGuideProjectile.DisplayName: Rocket Guide Projectile

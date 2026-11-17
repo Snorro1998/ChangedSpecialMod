@@ -123,6 +123,11 @@ namespace ChangedSpecialMod.Content.Projectiles
             return false;
         }
 
+        public override bool? CanCutTiles()
+        {
+            return false;
+        }
+
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Splash, Projectile.Center);

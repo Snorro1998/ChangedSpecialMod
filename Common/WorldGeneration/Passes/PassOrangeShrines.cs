@@ -404,7 +404,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                         ItemID.MagicMirror,
                         ItemID.CloudinaBottle,
                         ItemID.HermesBoots,
-                        ItemID.Mace,
+                        //ItemID.Mace,
                         ItemID.ShoeSpikes
                     };
 

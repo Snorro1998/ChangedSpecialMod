@@ -82,6 +82,13 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 var x = possibleLocations[i].x;
                 var y = possibleLocations[i].y;
 
+                var regionSize = 50;
+                var regionX = x / regionSize;
+                var regionY = y / regionSize;
+                var region = WorldMaker.worldRegionsNew[regionX, regionY];
+                if (!region.IsNonStructureRegion())
+                    goto labelSkip;
+
                 // Don't place it if too close to another pool
                 foreach (var position in placedPositions)
                 {

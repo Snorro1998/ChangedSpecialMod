@@ -6,6 +6,7 @@ using ChangedSpecialMod.Content.EmoteBubbles;
 using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
+using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.NPCs.TownPets;
 using ChangedSpecialMod.Content.Projectiles;
 using ChangedSpecialMod.Content.Walls;
@@ -17,6 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Threading.Channels;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -118,6 +120,19 @@ namespace ChangedSpecialMod.Content.NPCs
             HType = hType;
             Offset = offset;
             ModHatTexture = modHatTexture;
+        }
+    }
+
+    public class NPCEmoteObject
+    {
+        public int NPCType;
+        public int EmoteID;
+        public bool IsTalking;
+        public bool IsSubject;
+
+        public bool CanTalkAbout()
+        {
+            return !IsTalking && !IsSubject;
         }
     }
 
@@ -394,74 +409,149 @@ namespace ChangedSpecialMod.Content.NPCs
             }
         }
 
-        public List<int> GetEmoteList(NPC npc, Player closestPlayer, List<int> emoteList)
+        public List<int> GetEmoteList(NPC npc, Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
         {
-            if (!ChangedSpecialModClientConfig.Instance.NPCsCanUseChangedEmotes)
-                return emoteList;
-
-            var chance = 3;
-            var isPuro = npc.type == ModContent.NPCType<Puro>();
-            var isDrK = npc.type == ModContent.NPCType<Scientist>();
-            var isPrototype = npc.type == ModContent.NPCType<Prototype>();
-            var isColin = npc.type == ModContent.NPCType<Colin>();
-            var isChangedNPC = isPuro || isDrK || isPrototype || isColin;
-
-            //if (isColin)
-            //    return new List<int> { EmoteID.DebuffSilence };
-
-            List<int> changedEmotes = new List<int>
+            try
             {
-                ModContent.EmoteBubbleType<BlackGoopEmote>(),
-                ModContent.EmoteBubbleType<BlackLatexEmote>(),
-                ModContent.EmoteBubbleType<SquidDogEmote>(),
-                ModContent.EmoteBubbleType<SweeperEmote>(),
-                ModContent.EmoteBubbleType<WhiteGoopEmote>()
-            };
+                var tmpList = new List<int>();
 
-            // Only Puro can do the orange emote
-            if (isPuro)
-            {
-                for (int i = 0; i < 3; i++)
-                    changedEmotes.Add(ModContent.EmoteBubbleType<OrangeEmote>());
-            }
+                // Emote IDs
+                var puroEmoteID = ModContent.EmoteBubbleType<BlackLatexEmote>();
+                var prototypeEmoteID = ModContent.EmoteBubbleType<PrototypeEmote>();
+                var drKEmoteID = ModContent.EmoteBubbleType<DrKEmote>();
+                // No Colin yet
 
-            foreach (var tmpNpc in Main.npc)
-            {
-                if (!tmpNpc.active)
-                    continue;
-                // Add DrK if he is present and the NPC talking is not him
-                if (tmpNpc.type == ModContent.NPCType<Scientist>() && !isDrK)
-                    changedEmotes.Add(ModContent.EmoteBubbleType<DrKEmote>());
-                // Add Prototype if he is present and the NPC talking is not him
-                else if (tmpNpc.type == ModContent.NPCType<Prototype>() && !isPrototype)
+                // Always filter out emotes so that the NPC won't talk about the same NPC that he is talking to
+                foreach (var emote in emoteList)
+                {
+                    if (emote != puroEmoteID && emote != prototypeEmoteID && emote != drKEmoteID)
+                        tmpList.Add(emote);
+                }
+
+                emoteList = tmpList;
+
+                if (!ChangedSpecialModClientConfig.Instance.NPCsCanUseChangedEmotes)
+                    return emoteList;
+
+                // NPC Types
+                var puroNPCType = ModContent.NPCType<Puro>();
+                var prototypeNPCType = ModContent.NPCType<Prototype>();
+                var drKNPCType = ModContent.NPCType<Scientist>();
+                var colinNPCType = ModContent.NPCType<Colin>();
+
+                // Get talking NPC
+                var puroTalking = npc.type == puroNPCType;
+                var prototypeTalking = npc.type == prototypeNPCType;
+                var drKTalking = npc.type == drKNPCType;
+                var colinTalking = npc.type == colinNPCType;
+                var isChangedNPCTalking = puroTalking || prototypeTalking || drKTalking || colinTalking;
+
+                // Get talked to NPC
+                var puroTalkedTo = false;
+                var prototypeTalkedTo = false;
+                var drKTalkedTo = false;
+                var colinTalkedTo = false;
+                var talkedToIndex = (int)npc.ai[2];
+
+                if (otherAnchor.entity is NPC)
+                {
+                    var otherNPC = (NPC)otherAnchor.entity;
+                    if (otherNPC.type == puroNPCType)
+                        puroTalkedTo = true;
+                    else if (otherNPC.type == prototypeNPCType)
+                        prototypeTalkedTo = true;
+                    else if (otherNPC.type == drKNPCType)
+                        drKTalkedTo = true;
+                    else if (otherNPC.type == colinNPCType)
+                        colinTalkedTo = true;
+                }
+
+                // Get NPC present
+                var puroPresent = false;
+                var prototypePresent = false;
+                var drKPresent = false;
+                var colinPresent = false;
+
+                for (int i = 0; i < Main.maxNPCs; i++)
+                {
+                    var npc2 = Main.npc[i];
+                    if (npc2 == null || !npc2.active)
+                        continue;
+
+                    if (npc2.type == ModContent.NPCType<Puro>())
+                        puroPresent = true;
+                    else if (npc2.type == ModContent.NPCType<Prototype>())
+                        prototypePresent = true;
+                    else if (npc2.type == ModContent.NPCType<Scientist>())
+                        drKPresent = true;
+                    else if (npc2.type == ModContent.NPCType<Colin>())
+                        colinPresent = true;
+                }
+
+                var canTalkAboutPuro = puroPresent && !puroTalking && !puroTalkedTo;
+                var canTalkAboutPrototype = prototypePresent && !prototypeTalking && !prototypeTalkedTo;
+                var canTalkAboutDrK = drKPresent && !drKTalking && !drKTalkedTo;
+                var canTalkAboutColin = colinPresent && !colinTalking && !colinTalkedTo;
+
+                List<int> changedEmotes = new List<int>
+                {
+                    ModContent.EmoteBubbleType<BlackGoopEmote>(),
+                    ModContent.EmoteBubbleType<SquidDogEmote>(),
+                    ModContent.EmoteBubbleType<SweeperEmote>(),
+                    ModContent.EmoteBubbleType<WhiteGoopEmote>()
+                };
+
+                if (puroTalking)
+                {
+                    // Only Puro can do the orange emote
+                    for (int i = 0; i < 3; i++)
+                        changedEmotes.Add(ModContent.EmoteBubbleType<OrangeEmote>());
+                    // Puro loves Colin
+                    if (colinTalkedTo)
+                    {
+                        for (int i = 0; i < 2; i++)
+                            changedEmotes.Add(EmoteID.EmotionLove);
+                    }
+                }
+
+                if (canTalkAboutPuro)
+                    changedEmotes.Add(ModContent.EmoteBubbleType<BlackLatexEmote>());
+                if (canTalkAboutPrototype)
                     changedEmotes.Add(ModContent.EmoteBubbleType<PrototypeEmote>());
-            }
+                if (canTalkAboutDrK)
+                    changedEmotes.Add(ModContent.EmoteBubbleType<DrKEmote>());
 
-            if (ChangedUtils.CanSpawn(SpawnRequirement.WolfKing))
+
+                if (ChangedUtils.CanSpawn(SpawnRequirement.WolfKing))
+                {
+                    changedEmotes.Add(ModContent.EmoteBubbleType<BloodStripeEmote>());
+                    changedEmotes.Add(ModContent.EmoteBubbleType<PurrpurrEmote>());
+                }
+
+                // Add White Tail if he has been defeated
+                if (DownedBossSystem.DownedWhiteTail)
+                    changedEmotes.Add(ModContent.EmoteBubbleType<WhiteTailEmote>());
+
+                if (DownedBossSystem.DownedWolfKing)
+                    changedEmotes.Add(ModContent.EmoteBubbleType<WolfKingEmote>());
+
+                if (DownedBossSystem.DownedBehemoth)
+                    changedEmotes.Add(ModContent.EmoteBubbleType<BehemothEmote>());
+
+                if (isChangedNPCTalking || Main.rand.NextBool(3))
+                    emoteList.AddRange(changedEmotes);
+
+                return emoteList;
+            }
+            catch
             {
-                changedEmotes.Add(ModContent.EmoteBubbleType<BloodStripeEmote>());
-                changedEmotes.Add(ModContent.EmoteBubbleType<PurrpurrEmote>());
+                return emoteList;
             }
-
-            // Add White Tail if he has been defeated
-            if (DownedBossSystem.DownedWhiteTail)
-                changedEmotes.Add(ModContent.EmoteBubbleType<WhiteTailEmote>());
-
-            if (DownedBossSystem.DownedWolfKing)
-                changedEmotes.Add(ModContent.EmoteBubbleType<WolfKingEmote>());
-
-            if (DownedBossSystem.DownedBehemoth)
-                changedEmotes.Add(ModContent.EmoteBubbleType<BehemothEmote>());
-
-            if (isChangedNPC || Main.rand.NextBool(chance))
-                emoteList.AddRange(changedEmotes);
-
-            return emoteList;
         }
 
         public override int? PickEmote(NPC npc, Player closestPlayer, List<int> emoteList, WorldUIAnchor otherAnchor)
         {
-            emoteList = GetEmoteList(npc, closestPlayer, emoteList);
+            emoteList = GetEmoteList(npc, closestPlayer, emoteList, otherAnchor);
             return base.PickEmote(npc, closestPlayer, emoteList, otherAnchor);
         }
 
@@ -1118,6 +1208,11 @@ namespace ChangedSpecialMod.Content.NPCs
                     var hasAnyBook = (hasNormalBook || hasBookOfSkulls || hasWaterBolt || hasDemonScythe || hasCrystalStorm || hasCursedFlames ||
                         hasGoldenShower || hasRazorblade || hasMagnetSphere || hasLunarFlare);
 
+                    AddIf(hasAnyBook, "PlayerHasBook");
+                    AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");
+                    AddIf(hasWaterBolt, "PlayerHasWaterBolt");
+                    AddIf(hasGoldenShower, "PlayerHasGoldenShower");
+
                     var orangeItem = player.inventory.FirstOrDefault(x => x.type == ModContent.ItemType<Orange>());
                     if (orangeItem != null)
                     {
@@ -1126,10 +1221,8 @@ namespace ChangedSpecialMod.Content.NPCs
                             AddIf(true, "PlayerHasManyOranges", string.Empty);
                     }
 
-                    AddIf(hasAnyBook, "PlayerHasBook");
-                    AddIf(hasBookOfSkulls, "PlayerHasBookOfSkulls");
-                    AddIf(hasWaterBolt, "PlayerHasWaterBolt");
-                    AddIf(hasGoldenShower, "PlayerHasGoldenShower");
+                    var hasFartGun = player.HasItem(ModContent.ItemType<FartGun>());
+                    AddIf(hasFartGun, "PlayerHasFartGun", string.Empty);
 
                     var wearingPartyHat = player.armor.Any(item => item.type == ItemID.PartyHat);
                     if (!wearingPartyHat)
