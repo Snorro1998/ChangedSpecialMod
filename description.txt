@@ -105,15 +105,18 @@ Description goes here
 Items
 - Buffed Shredder and Mega Mauler by giving them a bleeding effect
 - Added Vitamin Flood. It is a magic weapon that creates waves of orange juice
-- Added several fireworks rockets
+- Added fireworks rockets with shapes of vanilla and mod NPCs
 
 Resprited
 - Dr K. Also added all his missing animations (attack, sitting, talking, blinking and shaking hands)
 - Crimclaw and its upgrades
 - Snow Leopard (cleanup)
 
+NPCs
+- Dr K sells fireworks during a party
+
 World generation
-- Chest in shrines can no longer contain a mace. Instead they can contain a new magic weapon
+- Chest in shrines can no longer contain a mace. Instead they can contain the new magic weapon
 - Underground labs try to generate in normal caves and will only generate in the desert, jungle or snow if it could not find a suitable place.
 
 Fixed
@@ -123,3 +126,6 @@ Fixed
 
 Mod calls
 - Added "SetNPCEvo". You can use this to make two of the same NPCs merge into something else, like the goops do
+
+Other
+- Update the wiki

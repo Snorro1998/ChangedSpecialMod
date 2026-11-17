@@ -539,7 +539,7 @@ Painting18: {
 }
 
 MusicBoxWhiteTail: {
-	DisplayName: Caja de música (Cola Blanco parte 2)
+	DisplayName: Caja de música (Cola Blanca parte 2)
 	Tooltip: Por ShiZi
 }
 
@@ -1010,7 +1010,7 @@ MusicBoxSquidDog: {
 }
 
 MusicBoxWhiteTail1: {
-	DisplayName: Caja de música (Cola Blanco parte 1)
+	DisplayName: Caja de música (Cola Blanca parte 1)
 	Tooltip: Por ShiZi
 }
 
@@ -1025,7 +1025,7 @@ DebugItem: {
 }
 
 WhiteTailTrophy: {
-	DisplayName: Trofeo Cola Blanco
+	DisplayName: Trofeo Cola Blanca
 	Tooltip: ""
 }
 
@@ -1040,7 +1040,7 @@ DisguiseSetBreastplate: {
 }
 
 WhiteTailRelic: {
-	DisplayName: Reliquia de Cola Blanco
+	DisplayName: Reliquia de Cola Blanca
 	Tooltip: ""
 }
 
@@ -1070,7 +1070,7 @@ BehemothTreasureBag: {
 }
 
 WhiteTailTreasureBag: {
-	DisplayName: Bolsa del tesoro (Cola Blanco)
+	DisplayName: Bolsa del tesoro (Cola Blanca)
 	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 }
 
@@ -1091,7 +1091,7 @@ BehemothWeapon: {
 
 WhiteTailMountItem: {
 	DisplayName: Bola de pelo
-	Tooltip: Invoca Cola Blanco como montura, que puede lanzarse hacia adelante
+	Tooltip: Invoca Cola Blanca como montura, que puede lanzarse hacia adelante
 }
 
 QuestBook: {
@@ -1163,36 +1163,46 @@ MusicBoxGas: {
 }
 
 OrangeJuiceWeapon: {
-	// DisplayName: Orange Juice Weapon
-	// Tooltip: ""
+	DisplayName: Cartón de jugo de naranja
+	Tooltip: ""
 }
 
 Carton: {
-	// DisplayName: Carton
-	// Tooltip: ""
+	DisplayName: Cartón
+	Tooltip: ""
 }
 
 RocketWhiteTail: {
-	// DisplayName: Rocket White Tail
-	// Tooltip: ""
+	DisplayName: Cohete de fuegos artificiales (Cola Blanca)
+	Tooltip: ""
 }
 
 RocketPrototype: {
-	// DisplayName: Rocket Prototype
-	// Tooltip: ""
+	DisplayName: Cohete de fuegos artificiales (Prototipo)
+	Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	// DisplayName: Rocket Eater Of Worlds
-	// Tooltip: ""
+	DisplayName: Cohete de fuegos artificiales (Devoramundos)
+	Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	// DisplayName: Rocket Eye Of Cthulu
-	// Tooltip: ""
+	DisplayName: Cohete de fuegos artificiales (Eye Of Cthulu)
+	Tooltip: ""
 }
 
 RocketGuide: {
-	// DisplayName: Rocket Guide
-	// Tooltip: ""
+	DisplayName: Cohete de fuegos artificiales (Guide)
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: Cohete de fuegos artificiales (Puro)
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: Cohete de fuegos artificiales (Skeletron)
+	Tooltip: ""
 }

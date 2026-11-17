@@ -9,6 +9,7 @@ using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Content.Items.Weapons;
 using ChangedSpecialMod.Content.NPCs.TownPets;
 using ChangedSpecialMod.Content.Projectiles;
+using ChangedSpecialMod.Content.Projectiles.Fireworks;
 using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
@@ -257,6 +258,35 @@ namespace ChangedSpecialMod.Content.NPCs
             if (Main.netMode != NetmodeID.MultiplayerClient && !npc.boss &&
                 Main.rand.NextBool(dropChance) && puroPresent && !isCritter)
                 Item.NewItem(new EntitySource_Gift(npc), npc.Hitbox, ModContent.ItemType<QuestBook>(), 1);
+
+            /*
+            if (npc.boss)
+            {
+                var fireworksProjectileType = (int)ChangedUtils.Choose(ProjectileID.RocketFireworkRed, ProjectileID.RocketFireworkBlue, ProjectileID.RocketFireworkGreen);
+
+                var rocketTypes = new Dictionary<int, int>()
+                {
+                    { NPCID.EyeofCthulhu, ModContent.ProjectileType<RocketEyeOfCthuluProjectile>() },
+                    // Need custom logic for EOW, because it has multiple segments
+                    { NPCID.SkeletronHead, ModContent.ProjectileType<RocketSkeletronProjectile>() },
+                };
+
+                if (rocketTypes.ContainsKey(npc.type))
+                    fireworksProjectileType = rocketTypes[npc.type];
+
+                if (fireworksProjectileType != -1)
+                {
+                    var pos = npc.Center / 16;
+                    var player = ChangedUtils.GetClosestPlayer((int)pos.X, (int)pos.Y);
+                    if (player == null)
+                        player = ChangedUtils.GetClosestPlayer((int)pos.X, (int)pos.Y, true);
+                    if (player != null)
+                    {
+                        var projectile = Projectile.NewProjectileDirect(player.GetSource_FromThis(), player.Center, new Vector2(0, -8), fireworksProjectileType, 0, 0, player.whoAmI);
+                    }
+                }
+            }
+            */
         }
 
         // If the NPC is already big, we can change this value to make statscaling increase his size less

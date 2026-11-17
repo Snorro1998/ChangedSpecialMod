@@ -202,6 +202,7 @@ DrK: {
 	Thunder2: "{Thunder}Che coincidenza, il fulmine ha appena colpito l'edificio dedicato alla 'scienza dei fulmini'."
 	Windy1: "{Windy}Chi ha lasciato la finestra aperta? Ora tutti i miei appunti sono sparsi sul pavimento!"
 	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Per favore, non aprire quel tuo libro sulla 'Doccia dorata' qui intorno."
+	// PlayerHasFartGun: "{PlayerHasFartGun}Dear god, is that Dr N's fart gun? Don't you dare use that thing around me."
 	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Perché indossi un abito da sposa? Hai intenzione di sposare il tuo amico lupo nero gelatinoso?"
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Cosa? Hai fatto amicizia con quel gatto gigante? Ok, devo ammettere che è impressionante."
 	Valentine1: "{Valentine}L'amore è come la chimica. Ha risultati inaspettati e le cose possono farsi molto intense."

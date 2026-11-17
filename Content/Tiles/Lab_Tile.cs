@@ -42,11 +42,13 @@ namespace ChangedSpecialMod.Content.Tiles
                 RetroDraw(i, j, spriteBatch);
                 return false;
             }
+            /*
             else if (ChangedSpecialModClientConfig.Instance.ModRedemptionLabs)
             {
                 OtherLabTileDraw(i, j, spriteBatch);
                 return false;
             }
+            */
             return base.PreDraw(i, j, spriteBatch);
         }
 

@@ -87,5 +87,12 @@ namespace ChangedSpecialMod.Content.NPCs.Drunk
             }
             base.AI();
         }
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+        {
+            if (Main.rand.Next(3) == 0)
+                AudioSystem.PlayNomSound(NPC.Center);
+            base.OnHitPlayer(target, hurtInfo);
+        }
     }
 }

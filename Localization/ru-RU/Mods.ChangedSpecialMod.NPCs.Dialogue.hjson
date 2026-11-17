@@ -202,6 +202,7 @@ DrK: {
 	Thunder2: "{Thunder}Каковы шансы? Молния только что ударила в здание «Гром Наука»."
 	Windy1: "{Windy}Кто оставил окно открытым? Теперь все мои записи разбросаны по полу!"
 	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Пожалуйста, не открывайте здесь свою книгу 'Золотой душ'."
+	// PlayerHasFartGun: "{PlayerHasFartGun}Dear god, is that Dr N's fart gun? Don't you dare use that thing around me."
 	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Почему ты в свадебном платье? Ты собираешься выйти замуж за своего приятеля, черного желейного волка?"
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr} Что? Ты подружился с этим гигантским котом? Ладно, должен признать, это впечатляет."
 	Valentine1: "{Valentine}Любовь похожа на химию. Она приводит к неожиданным результатам, и чувства могут стать очень теплыми."

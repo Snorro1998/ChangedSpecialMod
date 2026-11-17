@@ -1163,36 +1163,46 @@ MusicBoxGas: {
 }
 
 OrangeJuiceWeapon: {
-	// DisplayName: Orange Juice Weapon
-	// Tooltip: ""
+	DisplayName: 盒装橙汁
+	Tooltip: ""
 }
 
 Carton: {
-	// DisplayName: Carton
-	// Tooltip: ""
+	DisplayName: 纸盒
+	Tooltip: ""
 }
 
 RocketWhiteTail: {
-	// DisplayName: Rocket White Tail
-	// Tooltip: ""
+	DisplayName: 烟花火箭 (White Tail)
+	Tooltip: ""
 }
 
 RocketPrototype: {
-	// DisplayName: Rocket Prototype
-	// Tooltip: ""
+	DisplayName: 烟花火箭 (Prototype)
+	Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	// DisplayName: Rocket Eater Of Worlds
-	// Tooltip: ""
+	DisplayName: 烟花火箭 (Eater Of Worlds)
+	Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	// DisplayName: Rocket Eye Of Cthulu
-	// Tooltip: ""
+	DisplayName: 烟花火箭 (Eye Of Cthulu)
+	Tooltip: ""
 }
 
 RocketGuide: {
-	// DisplayName: Rocket Guide
-	// Tooltip: ""
+	DisplayName: 烟花火箭 (Guide)
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: 烟花火箭 (Puro)
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: 烟花火箭 (Skeletron)
+	Tooltip: ""
 }

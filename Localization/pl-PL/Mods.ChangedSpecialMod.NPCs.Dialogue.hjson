@@ -202,6 +202,7 @@ DrK: {
 	Thunder2: "{Thunder}Cóż za zbieg okoliczności. Piorun właśnie uderzył w budynek „nauki o piorunach”."
 	Windy1: "{Windy}Kto zostawił otwarte okno? Teraz wszystkie moje notatki leżą porozrzucane po podłodze!"
 	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Proszę, nie otwieraj tutaj swojej książki „Złoty deszcz”."
+	// PlayerHasFartGun: "{PlayerHasFartGun}Dear god, is that Dr N's fart gun? Don't you dare use that thing around me."
 	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Dlaczego nosisz suknię ślubną? Czy zamierzasz poślubić swojego czarnego wilkołaka?"
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr} Co? Zaprzyjaźniłeś się z tym gigantycznym kotem? No dobra, muszę przyznać, że to imponujące."
 	Valentine1: "{Valentine}Miłość jest jak chemia. Przynosi nieoczekiwane rezultaty i może zrobić się naprawdę gorąco."

@@ -1161,3 +1161,48 @@ MusicBoxGas: {
 	DisplayName: オルゴール (ガス)
 	Tooltip: シズ作
 }
+
+OrangeJuiceWeapon: {
+	DisplayName: オレンジジュースの紙パック
+	Tooltip: ""
+}
+
+Carton: {
+	DisplayName: 紙パック
+	Tooltip: ""
+}
+
+RocketWhiteTail: {
+	DisplayName: 打ち上げ花火 (White Tail)
+	Tooltip: ""
+}
+
+RocketPrototype: {
+	DisplayName: 打ち上げ花火 (Prototype)
+	Tooltip: ""
+}
+
+RocketEaterOfWorlds: {
+	DisplayName: 打ち上げ花火 (Eater Of Worlds)
+	Tooltip: ""
+}
+
+RocketEyeOfCthulu: {
+	DisplayName: 打ち上げ花火 (Eye Of Cthulu)
+	Tooltip: ""
+}
+
+RocketGuide: {
+	DisplayName: 打ち上げ花火 (Guide)
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: 打ち上げ花火 (Puro)
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: 打ち上げ花火 (Skeletron)
+	Tooltip: ""
+}

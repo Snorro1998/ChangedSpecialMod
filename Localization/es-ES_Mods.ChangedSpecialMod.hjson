@@ -1,8 +1,8 @@
 BossChecklistIntegration: {
 	WhiteTail: {
-		EntryName: Cola Blanco
+		EntryName: Cola Blanca
 		SpawnInfo: Puede aparecer en cualquier zona de limo tras derrotar al menos a 20 monstruos.
-		DespawnMessage: Cola Blanco ya no te persigue
+		DespawnMessage: Cola Blanca ya no te persigue
 	}
 
 	WolfKing: {

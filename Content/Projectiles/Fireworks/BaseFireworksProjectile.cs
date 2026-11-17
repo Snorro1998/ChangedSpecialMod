@@ -1,4 +1,5 @@
-﻿using ChangedSpecialMod.Utilities;
+﻿using ChangedSpecialMod.Content.Dusts;
+using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -38,33 +39,36 @@ namespace ChangedSpecialMod.Content.Projectiles.Fireworks
             Projectile.tileCollide = false;
         }
 
-        public override void OnSpawn(IEntitySource source)
+        private void LoadTextureData()
         {
-            Projectile.velocity.X = 0;
-            Projectile.velocity.Y = -8;
-
             try
             {
-                //Content/NPCs/SweeperItem
-
                 ChangedSpecialMod.Instance.RequestAssetIfExists<Texture2D>($"Assets/Textures/FireworksPatterns/{PatternName}", out ReLogic.Content.Asset<Texture2D> texture);
                 if (texture != null)
                 {
                     var tex = texture.Value;
                     pixels = new Color[tex.Width * tex.Height];
+                    width = tex.Width;
+                    height = tex.Height;
 
                     Main.QueueMainThreadAction(() =>
                     {
+                        // GetData has to run on the main thread or else it will crash
                         tex.GetData(pixels);
-                        width = tex.Width;
-                        height = tex.Height;
                     });
                 }
             }
             catch
             {
-
+                Mod.Logger.Error("Fireworks projectile crashed while loading texture data!");
             }
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            Projectile.velocity.X = 0;
+            Projectile.velocity.Y = -8;
+            LoadTextureData();
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -85,7 +89,7 @@ namespace ChangedSpecialMod.Content.Projectiles.Fireworks
             {
                 var spacing = 8; //16
                 var pos = Projectile.Center;
-                var fireworksType = DustID.FireworksRGB;
+                var fireworksType = DustID.FireworksRGB; //ModContent.DustType<FireworksLingerDust>();
 
                 for (int y = 0; y < height; y++)
                 {
@@ -113,6 +117,17 @@ namespace ChangedSpecialMod.Content.Projectiles.Fireworks
                     }
                 }
             }   
+        }
+
+        public override void AI()
+        {
+            if (Main.rand.NextBool(2))
+            {
+                var pos = Projectile.Center;
+                pos += new Vector2(Main.rand.Next(-4, 4), Main.rand.Next(-4, 4));
+                var dustType = DustID.Torch;
+                var dust = Dust.NewDustPerfect(pos, dustType, new Vector2(0, 2), 0);
+            }
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -143,8 +158,18 @@ namespace ChangedSpecialMod.Content.Projectiles.Fireworks
         public override string PatternName => "EOW";
     }
 
+    public class RocketSkeletronProjectile : BaseFireworksProjectile
+    {
+        public override string PatternName => "Skeletron";
+    }
+
     public class RocketGuideProjectile : BaseFireworksProjectile
     {
         public override string PatternName => "Guide";
+    }
+
+    public class RocketPuroProjectile : BaseFireworksProjectile
+    {
+        public override string PatternName => "Puro";
     }
 }

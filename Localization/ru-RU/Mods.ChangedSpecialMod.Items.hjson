@@ -1163,36 +1163,46 @@ MusicBoxGas: {
 }
 
 OrangeJuiceWeapon: {
-	// DisplayName: Orange Juice Weapon
-	// Tooltip: ""
+	DisplayName: Пакет апельсинового сока
+	Tooltip: ""
 }
 
 Carton: {
-	// DisplayName: Carton
-	// Tooltip: ""
+	DisplayName: Пакет
+	Tooltip: ""
 }
 
 RocketWhiteTail: {
-	// DisplayName: Rocket White Tail
-	// Tooltip: ""
+	DisplayName: Фейерверочная ракета (White Tail)
+	Tooltip: ""
 }
 
 RocketPrototype: {
-	// DisplayName: Rocket Prototype
-	// Tooltip: ""
+	DisplayName: Фейерверочная ракета (Prototype)
+	Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	// DisplayName: Rocket Eater Of Worlds
-	// Tooltip: ""
+	DisplayName: Фейерверочная ракета (Eater Of Worlds)
+	Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	// DisplayName: Rocket Eye Of Cthulu
-	// Tooltip: ""
+	DisplayName: Фейерверочная ракета (Eye Of Cthulu)
+	Tooltip: ""
 }
 
 RocketGuide: {
-	// DisplayName: Rocket Guide
-	// Tooltip: ""
+	DisplayName: Фейерверочная ракета (Guide)
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: Фейерверочная ракета (Puro)
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: Фейерверочная ракета (Skeletron)
+	Tooltip: ""
 }

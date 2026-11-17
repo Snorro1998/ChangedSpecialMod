@@ -464,10 +464,13 @@ namespace ChangedSpecialMod.Content.NPCs
                 .Add(ItemID.RedRocket)
                 .Add(ItemID.GreenRocket)
                 .Add(ItemID.BlueRocket)
-                .Add<RocketPrototype>()
-                .Add<RocketWhiteTail>()
+                .Add<RocketGuide>()
                 .Add<RocketEyeOfCthulu>()
                 .Add<RocketEaterOfWorlds>()
+                .Add<RocketSkeletron>()
+                .Add<RocketWhiteTail>()
+                .Add<RocketPuro>()
+                .Add<RocketPrototype>()
                 .Register();
 
             new NPCShop(Type, Shops[6].InternalName)
@@ -488,6 +491,14 @@ namespace ChangedSpecialMod.Content.NPCs
         /// <param name="items"></param>
 		public override void ModifyActiveShop(string shopName, Item[] items)
         {
+            var downedEye = NPC.downedBoss1;
+            var downedWorm = NPC.downedBoss2;
+            var downedSkeletron = NPC.downedBoss3;
+
+            var guidePresent = NPC.AnyNPCs(NPCID.Guide);
+            var puroPresent = NPC.AnyNPCs(ModContent.NPCType<Puro>());
+            var prototypePresent = NPC.AnyNPCs(ModContent.NPCType<Prototype>());
+
             // Potions
             if (shopName.Contains("Second Shop"))
             {
@@ -535,6 +546,45 @@ namespace ChangedSpecialMod.Content.NPCs
                             item.type = manaPotion;
                         }
                     }
+                }
+            }
+
+            // Fireworks
+            else if (shopName.Contains("Sixth Shop"))
+            {
+                // Clear the shop
+                for (int i = 0; i < items.Length; i++)
+                    items[i] = null;
+
+                var itemList = new List<int>()
+                {
+                    ItemID.RedRocket,
+                    ItemID.GreenRocket,
+                    ItemID.BlueRocket,
+                };
+
+                if (guidePresent)
+                    itemList.Add(ModContent.ItemType<RocketGuide>());
+                if (downedEye)
+                    itemList.Add(ModContent.ItemType<RocketEyeOfCthulu>());
+                if (downedWorm)
+                    itemList.Add(ModContent.ItemType<RocketEaterOfWorlds>());
+                if (downedSkeletron)
+                    itemList.Add(ModContent.ItemType<RocketSkeletron>());
+                
+                if (puroPresent)
+                    itemList.Add(ModContent.ItemType<RocketPuro>());
+                if (prototypePresent)
+                    itemList.Add(ModContent.ItemType<RocketPrototype>());
+                if (DownedBossSystem.DownedWhiteTail)
+                    itemList.Add(ModContent.ItemType<RocketWhiteTail>());
+
+                for (int i = 0; i < itemList.Count; i++)
+                {
+                    if (i >= items.Length)
+                        break;
+
+                    items[i] = new Item(itemList[i]);
                 }
             }
         }

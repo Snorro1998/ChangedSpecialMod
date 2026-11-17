@@ -1161,3 +1161,49 @@ MusicBoxGas: {
 	DisplayName: Speeldoos (Gas)
 	Tooltip: Door ShiZi
 }
+
+OrangeJuiceWeapon: {
+	DisplayName: Pak sinaasappelsap
+	Tooltip: Mmmm sappig
+}
+
+Carton: {
+	DisplayName: Pak
+	Tooltip: ""
+}
+
+
+RocketWhiteTail: {
+	DisplayName: Vuurpijl (Witte Staart)
+	Tooltip: ""
+}
+
+RocketPrototype: {
+	DisplayName: Vuurpijl (Prototype)
+	Tooltip: ""
+}
+
+RocketEaterOfWorlds: {
+	DisplayName: Vuurpijl (Wereldvreter)
+	Tooltip: ""
+}
+
+RocketEyeOfCthulu: {
+	DisplayName: Vuurpijl (Oog van Cthulu)
+	Tooltip: ""
+}
+
+RocketGuide: {
+	DisplayName: Vuurpijl (Gids)
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: Vuurpijl (Puro)
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: Vuurpijl (Skeletron)
+	Tooltip: ""
+}

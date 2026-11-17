@@ -1163,36 +1163,46 @@ MusicBoxGas: {
 }
 
 OrangeJuiceWeapon: {
-	// DisplayName: Orange Juice Weapon
-	// Tooltip: ""
+	DisplayName: Caixa de suco de laranja
+	Tooltip: ""
 }
 
 Carton: {
-	// DisplayName: Carton
-	// Tooltip: ""
+	DisplayName: Caixa
+	Tooltip: ""
 }
 
 RocketWhiteTail: {
-	// DisplayName: Rocket White Tail
-	// Tooltip: ""
+	DisplayName: Foguete de artifício (White Tail)
+	Tooltip: ""
 }
 
 RocketPrototype: {
-	// DisplayName: Rocket Prototype
-	// Tooltip: ""
+	DisplayName: Foguete de artifício (Prototype)
+	Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	// DisplayName: Rocket Eater Of Worlds
-	// Tooltip: ""
+	DisplayName: Foguete de artifício (Eater Of Worlds)
+	Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	// DisplayName: Rocket Eye Of Cthulu
-	// Tooltip: ""
+	DisplayName: Foguete de artifício (Eye Of Cthulu)
+	Tooltip: ""
 }
 
 RocketGuide: {
-	// DisplayName: Rocket Guide
-	// Tooltip: ""
+	DisplayName: Foguete de artifício (Guide)
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: Foguete de artifício (Puro)
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: Foguete de artifício (Skeletron)
+	Tooltip: ""
 }

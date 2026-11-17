@@ -15,7 +15,7 @@ namespace ChangedSpecialMod.Content.Items.Rockets
             Item.value = Item.buyPrice(silver: 15);
             Item.maxStack = 9999;
 
-            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.UseSound = null;
@@ -52,8 +52,18 @@ namespace ChangedSpecialMod.Content.Items.Rockets
         public override int ShootProjectile => ModContent.ProjectileType<RocketEaterOfWorldsProjectile>();
     }
 
+    public class RocketSkeletron : RocketBase
+    {
+        public override int ShootProjectile => ModContent.ProjectileType<RocketSkeletronProjectile>();
+    }
+
     public class RocketGuide : RocketBase
     {
         public override int ShootProjectile => ModContent.ProjectileType<RocketGuideProjectile>();
+    }
+
+    public class RocketPuro : RocketBase
+    {
+        public override int ShootProjectile => ModContent.ProjectileType<RocketPuroProjectile>();
     }
 }

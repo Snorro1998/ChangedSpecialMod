@@ -202,6 +202,7 @@ DrK: {
 	Thunder2: "{Thunder}Que coincidência, o raio acabou de atingir o prédio do Departamento de Ciências do Trovão."
 	Windy1: "{Windy}Quem deixou a janela aberta? Agora todas as minhas anotações estão espalhadas pelo chão!"
 	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Por favor, não abra esse seu livro 'Chuva Dourada' por aqui."
+	// PlayerHasFartGun: "{PlayerHasFartGun}Dear god, is that Dr N's fart gun? Don't you dare use that thing around me."
 	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Por que você está usando um vestido de noiva? Vai se casar com seu amigo lobo de gelatina preta?"
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr} O quê? Você fez amizade com aquele gato gigante? Ok, tenho que admitir que isso é impressionante."
 	Valentine1: "{Valentine}O amor é como a química. Tem resultados inesperados e as coisas podem ficar muito quentes."

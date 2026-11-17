@@ -202,6 +202,7 @@ DrK: {
 	Thunder2: "{Thunder}Wie passend, dass der Blitz genau in das Donner-Wissenschaftsgebäude eingeschlagen ist."
 	Windy1: "{Windy}Wer hat das Fenster offen gelassen? Jetzt liegen alle meine Notizen verstreut auf dem Boden!"
 	PlayerHasGoldenShower: "{PlayerHasGoldenShower}Bitte schlagen Sie Ihr Buch „Goldener Schauer“ hier nicht auf."
+	// PlayerHasFartGun: "{PlayerHasFartGun}Dear god, is that Dr N's fart gun? Don't you dare use that thing around me."
 	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}Warum trägst du ein Brautkleid? Willst du etwa deinen schwarzen Gelee-Wolf-Kumpel heiraten?"
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr}Was? Hast du dich mit dieser Riesenkatze angefreundet? Okay, ich muss zugeben, das ist beeindruckend."
 	Valentine1: "{Valentine}Liebe ist wie Chemie. Sie hat unerwartete Folgen und es kann ganz schön heiß hergehen."

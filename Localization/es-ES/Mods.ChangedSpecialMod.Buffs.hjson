@@ -29,7 +29,7 @@ BehemothWeaponBuff: {
 }
 
 WhiteTailMountBuff: {
-	DisplayName: Cola Blanco
+	DisplayName: Cola Blanca
 	Description: Blanco y rápido
 }
 

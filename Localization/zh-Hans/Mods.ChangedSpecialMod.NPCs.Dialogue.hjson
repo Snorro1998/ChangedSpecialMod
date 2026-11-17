@@ -202,6 +202,7 @@ DrK: {
 	Thunder2: "{Thunder}真是巧合，闪电刚刚击中了雷霆科学大楼。"
 	Windy1: "{Windy}谁忘了关窗户？我的笔记全散落在地上了！"
 	PlayerHasGoldenShower: "{PlayerHasGoldenShower}请不要在这里打开你那本《黄金雨》之类的书。"
+	// PlayerHasFartGun: "{PlayerHasFartGun}Dear god, is that Dr N's fart gun? Don't you dare use that thing around me."
 	PlayerIsWearingWeddingDress: "{PlayerIsWearingWeddingDress}{PuroPresent}你为什么穿着婚纱？你要嫁给你那只黑色果冻狼朋友吗？"
 	PlayerHasPurrpurr: "{PlayerHasPurrpurr} 什么？你跟那只巨型猫成了朋友？好吧，我得承认这很了不起。"
 	Valentine1: "{Valentine}爱情就像化学反应，会带来意想不到的结果，而且气氛可能会变得非常火热。"

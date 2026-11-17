@@ -1163,7 +1163,7 @@ MusicBoxGas: {
 }
 
 OrangeJuiceWeapon: {
-	DisplayName: Orange Juice Weapon
+	DisplayName: Carton of Orange Juice
 	Tooltip: ""
 }
 
@@ -1172,27 +1172,41 @@ Carton: {
 	Tooltip: ""
 }
 
+CommonNames: {
+	FireworkRocket: Firework Rocket
+}
+
 RocketWhiteTail: {
-	DisplayName: Rocket White Tail
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.WhiteTail.DisplayName})"
 	Tooltip: ""
 }
 
 RocketPrototype: {
-	DisplayName: Rocket Prototype
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Prototype.DisplayName})"
 	Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	DisplayName: Rocket Eater Of Worlds
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCs.NPCName.EaterofWorldsHead})"
 	Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	DisplayName: Rocket Eye Of Cthulu
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCs.NPCName.EyeofCthulhu})"
 	Tooltip: ""
 }
 
 RocketGuide: {
-	DisplayName: Rocket Guide
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCs.NPCName.Guide})"
+	Tooltip: ""
+}
+
+RocketPuro: {
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Puro.DisplayName})" 
+	Tooltip: ""
+}
+
+RocketSkeletron: {
+	DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCs.NPCName.SkeletronHead})"
 	Tooltip: ""
 }
