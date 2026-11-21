@@ -1172,37 +1172,59 @@ Carton: {
 	Tooltip: ""
 }
 
+CommonNames.FireworkRocket: Feuerwerksrakete
+
 RocketWhiteTail: {
-	DisplayName: Feuerwerksrakete (Weißschwanz)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.WhiteTail.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketPrototype: {
-	DisplayName: Feuerwerksrakete (Prototyp)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Prototype.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	DisplayName: Feuerwerksrakete (Weltenfresser)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.EaterofWorldsHead})"
+	// Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	DisplayName: Feuerwerksrakete (Auge von Cthulhu)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.EyeofCthulhu})"
+	// Tooltip: ""
 }
 
 RocketGuide: {
-	DisplayName: Feuerwerksrakete (Fremdenführer)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.Guide})"
+	// Tooltip: ""
 }
 
 RocketPuro: {
-	DisplayName: Feuerwerksrakete (Puro)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Puro.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketSkeletron: {
-	DisplayName: Feuerwerksrakete (Skeletron)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.SkeletronHead})"
+	// Tooltip: ""
+}
+
+BlackLatexLiquidBucket: {
+	// DisplayName: Black Latex Liquid Bucket
+	// Tooltip: ""
+}
+
+BlackLatexBottomlessLiquidBucket: {
+	// DisplayName: Black Latex Bottomless Liquid Bucket
+	// Tooltip: ""
+}
+
+WhiteLatexBottomlessLiquidBucket: {
+	// DisplayName: White Latex Bottomless Liquid Bucket
+	// Tooltip: ""
+}
+
+WhiteLatexLiquidBucket: {
+	// DisplayName: White Latex Liquid Bucket
+	// Tooltip: ""
 }

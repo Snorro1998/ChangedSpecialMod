@@ -1172,38 +1172,4 @@ Carton: {
 	Tooltip: ""
 }
 
-
-RocketWhiteTail: {
-	DisplayName: Vuurpijl (Witte Staart)
-	Tooltip: ""
-}
-
-RocketPrototype: {
-	DisplayName: Vuurpijl (Prototype)
-	Tooltip: ""
-}
-
-RocketEaterOfWorlds: {
-	DisplayName: Vuurpijl (Wereldvreter)
-	Tooltip: ""
-}
-
-RocketEyeOfCthulu: {
-	DisplayName: Vuurpijl (Oog van Cthulu)
-	Tooltip: ""
-}
-
-RocketGuide: {
-	DisplayName: Vuurpijl (Gids)
-	Tooltip: ""
-}
-
-RocketPuro: {
-	DisplayName: Vuurpijl (Puro)
-	Tooltip: ""
-}
-
-RocketSkeletron: {
-	DisplayName: Vuurpijl (Skeletron)
-	Tooltip: ""
-}
+CommonNames.FireworkRocket: Vuurpijl

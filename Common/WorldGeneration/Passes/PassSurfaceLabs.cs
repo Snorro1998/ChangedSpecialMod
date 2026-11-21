@@ -132,112 +132,133 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
             var neighs = new List<int[]>();
             var nX = worldRegionsNew.GetLength(0);
             var nY = worldRegionsNew.GetLength(1);
-
-            // Check for suitable regions 3 times, becoming less strict every time it fails
-            for (int k = 0; k < 4; k++)
+            var validRegionTypes = new HashSet<WorldRegionType>()
             {
-                // O: current region
-                // X: neighbor
-                if (k == 0)
+                WorldRegionType.Forest,
+                WorldRegionType.Desert,
+                WorldRegionType.Snow,
+                WorldRegionType.Jungle,
+                WorldRegionType.Crimson,
+                WorldRegionType.Corruption,
+            };
+
+            for (int l = 0; l < 3; l++)
+            {
+                bool avoidSpawn = l <= 1;
+
+                // Include modbiomes if no suitable region was found the first time
+                if (l == 1)
                 {
-                    // XOX
-                    // XXX
-                    neighs = new List<int[]>()
+                    validRegionTypes = new HashSet<WorldRegionType>()
                     {
-                        new int[] { -1, 0 },
-                        new int[] { -1, 1 },
-                        new int[] { 1, 0 },
-                        new int[] { 0, 1 },
-                        new int[] { 1, 1 },
+                        WorldRegionType.Forest,
+                        WorldRegionType.Desert,
+                        WorldRegionType.Snow,
+                        WorldRegionType.Jungle,
+                        WorldRegionType.Crimson,
+                        WorldRegionType.Corruption,
+                        WorldRegionType.ModBiome
                     };
                 }
-                else if (k == 1)
+
+                // Check for suitable regions 4 times, becoming less strict every time it fails
+                for (int k = 0; k < 4; k++)
                 {
-                    // OX
-                    // XX
-                    neighs = new List<int[]>()
+                    // O: current region
+                    // X: neighbor
+                    if (k == 0)
                     {
-                        new int[] { 1, 0 },
-                        new int[] { 0, 1 },
-                        new int[] { 1, 1 },
-                    };
-                }
-                else if (k == 2)
-                {
-                    // OX
-                    neighs = new List<int[]>
-                    {
-                        new int[] { 1, 0 },
-                    };
-                }
-                else
-                {
-                    // O
-                    neighs = new List<int[]>();
-                }
-
-                List<RegionObject> tmpRegions = new List<RegionObject>();
-
-                for (int x2 = 0; x2 < nX; x2++)
-                {
-                    // Iterate every region
-                    for (int y2 = 0; y2 < nY; y2++)
-                    {
-                        var region = WorldMaker.worldRegionsNew[x2, y2];
-
-                        if (validRegions.Contains(region))
-                            continue;
-
-                        var regionValid = region.surfaceLayer &&
-                        (
-                            region.regionType == WorldRegionType.Forest ||
-                            region.regionType == WorldRegionType.Desert ||
-                            region.regionType == WorldRegionType.Snow ||
-                            region.regionType == WorldRegionType.Jungle ||
-                            region.regionType == WorldRegionType.Crimson ||
-                            region.regionType == WorldRegionType.Corruption
-                        );
-
-                        var neighsValid = true;
-
-                        // Check neighs
-                        foreach (var neigh in neighs)
+                        // XOX
+                        // XXX
+                        neighs = new List<int[]>()
                         {
-                            var x3 = x2 + neigh[0];
-                            var y3 = y2 + neigh[1];
+                            new int[] { -1, 0 },
+                            new int[] { -1, 1 },
+                            new int[] { 1, 0 },
+                            new int[] { 0, 1 },
+                            new int[] { 1, 1 },
+                        };
+                    }
+                    else if (k == 1)
+                    {
+                        // OX
+                        // XX
+                        neighs = new List<int[]>()
+                        {
+                            new int[] { 1, 0 },
+                            new int[] { 0, 1 },
+                            new int[] { 1, 1 },
+                        };
+                    }
+                    else if (k == 2)
+                    {
+                        // OX
+                        neighs = new List<int[]>
+                        {
+                            new int[] { 1, 0 },
+                        };
+                    }
+                    else
+                    {
+                        // O
+                        neighs = new List<int[]>();
+                    }
 
-                            if (x3 < 0 || x3 >= nX || y3 < 0 || y3 >= nY)
+                    List<RegionObject> tmpRegions = new List<RegionObject>();
+
+                    for (int x2 = 0; x2 < nX; x2++)
+                    {
+                        // Iterate every region
+                        for (int y2 = 0; y2 < nY; y2++)
+                        {
+                            var region = WorldMaker.worldRegionsNew[x2, y2];
+
+                            if (validRegions.Contains(region))
                                 continue;
 
-                            var region2 = WorldMaker.worldRegionsNew[x3, y3];
+                            var regionValid = region.surfaceLayer && validRegionTypes.Contains(region.regionType);
+                            if (avoidSpawn && regionValid)
+                                regionValid = !region.nearSpawn;
+                                
+                            var neighsValid = true;
 
-                            var region2Valid =
-                            (
-                                region2.regionType == WorldRegionType.Forest ||
-                                region2.regionType == WorldRegionType.Desert ||
-                                region2.regionType == WorldRegionType.Snow ||
-                                region2.regionType == WorldRegionType.Jungle ||
-                                region2.regionType == WorldRegionType.Crimson ||
-                                region2.regionType == WorldRegionType.Corruption ||
-                                region2.regionType == WorldRegionType.Sky
-                            );
-
-                            if (!region2Valid)
+                            // Check neighs
+                            foreach (var neigh in neighs)
                             {
-                                neighsValid = false;
-                                break;
+                                var x3 = x2 + neigh[0];
+                                var y3 = y2 + neigh[1];
+
+                                if (x3 < 0 || x3 >= nX || y3 < 0 || y3 >= nY)
+                                    continue;
+
+                                var region2 = WorldMaker.worldRegionsNew[x3, y3];
+
+                                var region2Valid =
+                                (
+                                    validRegionTypes.Contains(region2.regionType) ||
+                                    region2.regionType == WorldRegionType.Sky
+                                );
+
+                                if (avoidSpawn && region2Valid)
+                                    region2Valid = !region2.nearSpawn;
+
+                                if (!region2Valid)
+                                {
+                                    neighsValid = false;
+                                    break;
+                                }
+                            }
+
+                            if (regionValid && neighsValid)
+                            {
+                                validRegions.Add(region);
                             }
                         }
-
-                        if (regionValid && neighsValid)
-                        {
-                            validRegions.Add(region);
-                        }
                     }
-                }
 
-                if (validRegions.Any())
-                    return validRegions;
+                    if (validRegions.Any())
+                        return validRegions;
+                }
             }
 
             return validRegions;
@@ -252,6 +273,10 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 var isLeftSide = pos.X < Main.maxTilesX / 2;
 
                 var validRegions = GetSuitableRegions();
+
+                var nMaxAttempts = 5;
+                var attempt = 0;
+                var xShiftOnFailSmall = 5;
 
                 bool skipLegacy = false;
 
@@ -278,13 +303,34 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 
                         while (y < Main.worldSurface)
                         {
+                            var tile = Main.tile[x, y];
+
                             if (WorldGen.SolidTile(x, y))
                             {
-                                var tileType = Main.tile[x, y].TileType;
+                                var tileType = tile.TileType;
                                 lab.Position = new Vector2(x, y);
                                 skipLegacy = true;
                                 break;
                             }
+
+                            var wallType = tile.WallType;
+                            var isCorruptionShaft = wallType == WallID.EbonstoneUnsafe;
+
+                            if (isCorruptionShaft && attempt < nMaxAttempts)
+                            {
+                                attempt++;
+                                // Reset the height to check from
+                                y = (int)GenVars.worldSurfaceLow;
+                                if (isLeftSide)
+                                {
+                                    x += xShiftOnFailSmall;
+                                }
+                                else
+                                {
+                                    x = x - xShiftOnFailSmall - lab.Lab.totalWidth;
+                                }
+                            }
+
                             y++;
                         }
 

@@ -61,9 +61,11 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         public string modName = "UnknownMod";
 
         public WorldPass VanillaPassAfterBiomeGeneration = WorldPass.SurfaceOreandStone;
+        public string highestWorldGenPassName = null;
 
         // Tiles
         public List<int> tilesAvoidedByWorldGen = new List<int>();
+        public List<int> tilesBiome = new List<int>();
 
         // Items
         public Dictionary<string, ExternalModItem> items = new Dictionary<string, ExternalModItem>();
@@ -103,7 +105,7 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         public virtual void AddItemsHerb() { }
         public virtual void AddItemsSeed() { }
 
-        public void AddTileType(string name, bool avoidedByWorldGen = false)
+        public void AddTileType(string name, bool avoidedByWorldGen = false, bool biome = false)
         {
             if (tileTypes == null)
                 tileTypes = new Dictionary<string, int>();
@@ -117,6 +119,8 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 tileTypes.Add(name, itemType);
                 if (avoidedByWorldGen)
                     tilesAvoidedByWorldGen.Add(itemType);
+                if (biome)
+                    tilesBiome.Add(itemType);
             }
         }
 

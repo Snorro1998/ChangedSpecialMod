@@ -7,19 +7,20 @@ using ChangedSpecialMod.Content.Items;
 using ChangedSpecialMod.Content.Items.Food;
 using ChangedSpecialMod.Content.Items.Licenses;
 using ChangedSpecialMod.Content.Items.Weapons;
+using ChangedSpecialMod.Content.Liquids;
 using ChangedSpecialMod.Content.NPCs.TownPets;
 using ChangedSpecialMod.Content.Projectiles;
-using ChangedSpecialMod.Content.Projectiles.Fireworks;
 using ChangedSpecialMod.Content.Walls;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ModLiquidLib.ModLoader;
+using ModLiquidLib.Utils.LiquidContent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading.Channels;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -328,12 +329,19 @@ namespace ChangedSpecialMod.Content.NPCs
 
         public override bool InstancePerEntity => true;
 
-        /*
+
         public override void SetDefaults(NPC entity)
         {
             base.SetDefaults(entity);
+            if (ModSupportSystem.IsModActive("ModLiquidLib"))
+                SetupModLiquidMovementSpeed(entity);
+        }
+
+        [JITWhenModsEnabled("ModLiquidLib")]
+        private void SetupModLiquidMovementSpeed(NPC entity)
+        {
             var changedNPC = entity.Changed();
-            var modLiquidNPC = entity.ModLiquid();
+            var modLiquidNPC = entity.GetGlobalNPC<ModLiquidNPC>();
 
             if (changedNPC == null || modLiquidNPC == null)
                 return;
@@ -348,7 +356,6 @@ namespace ChangedSpecialMod.Content.NPCs
             if (liquidID != -1)
                 modLiquidNPC.moddedLiquidMovementSpeed[liquidID - LiquidID.Count] = 1.5f;
         }
-        */
 
         // Debug method to visualize a position by spamming confetti particles at it
         public void VisualizePosition(NPC npc, int xPos, int yPos)

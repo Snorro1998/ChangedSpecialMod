@@ -29,13 +29,6 @@ namespace ChangedSpecialMod.Content.Items.Weapons
             Item.value = Item.buyPrice(0, 6, 0, 0);
             Item.UseSound = SoundID.Item1;
 
-            //BallofFrost, bouncing ball
-            //Frostboltstaff
-            //IceBolt
-            //FrostBlastFriendly, fast
-            //FrostBeam, dont use, from ice golem
-            //FrostHydra, dont use
-
             Item.shoot = ProjectileID.WandOfFrostingFrost;
             Item.shootSpeed = 10;
         }
@@ -60,12 +53,10 @@ namespace ChangedSpecialMod.Content.Items.Weapons
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
-            //searched so long for this. It was in player.cs wtf
             if (Main.rand.NextBool(3))
             {
                 GetPointOnSwungItemPath(player, 70f, 70f, 0.2f + 0.8f * Main.rand.NextFloat(), 1, out var location, out var outwardDirection);
                 Vector2 vector = outwardDirection.RotatedBy((float)Math.PI / 2f * (float)player.direction * player.gravDir);
-                //Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Frost);
                 Dust.NewDustPerfect(location, DustID.Frost, vector * 4f, 100, default(Color), 1.25f).noGravity = true;
             }
         }

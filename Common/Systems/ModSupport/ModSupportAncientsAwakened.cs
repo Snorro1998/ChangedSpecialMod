@@ -15,7 +15,8 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
 
         public override void Init()
         {
-            VanillaPassAfterBiomeGeneration = Utilities.WorldPass.WaterPlants;
+            highestWorldGenPassName = "Mire and Inferno";
+            //VanillaPassAfterBiomeGeneration = Utilities.WorldPass.WaterPlants;
         }
 
         public override void AddTownNPCs()

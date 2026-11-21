@@ -17,7 +17,7 @@ namespace ChangedSpecialMod.Content.Items.Weapons
 
         public override void SetDefaults()
         {
-            Item.damage = 10;//20
+            Item.damage = 10;
             Item.knockBack = 2f;
             Item.mana = 10;
             Item.width = 32;

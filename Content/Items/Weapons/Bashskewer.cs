@@ -1,5 +1,4 @@
-﻿using ChangedSpecialMod.Content.Projectiles;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -57,7 +56,6 @@ namespace ChangedSpecialMod.Content.Items.Weapons
                 Dust.NewDustPerfect(location, DustID.Frost, vector * 4f, 100, default(Color), 1.25f).noGravity = true;
             }
         }
-
 
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

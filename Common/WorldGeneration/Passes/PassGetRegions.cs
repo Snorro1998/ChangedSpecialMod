@@ -50,6 +50,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 }
             }
 
+            var spawnPoint = new Vector2(Main.spawnTileX, Main.spawnTileY);
+
             // Mark surface regions
             for (int x2 = 0; x2 < nX; x2++)
             {
@@ -58,12 +60,18 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                     var region = WorldMaker.worldRegionsNew[x2, y2];
                     var regionAbove = WorldMaker.worldRegionsNew[x2, y2 - 1];
 
-                    if (region.regionType != WorldRegionType.Structure &&
-                    region.area.Top >= (int)GenVars.worldSurfaceLow &&
+                    if (region.area.Top >= (int)GenVars.worldSurfaceLow &&
                     regionAbove.regionType == WorldRegionType.Sky
                     )
                     {
                         region.surfaceLayer = true;
+                    }
+
+                    var regionCenter = region.area.Center();
+
+                    if (Vector2.DistanceSquared(spawnPoint, regionCenter) < 300)
+                    {
+                        region.nearSpawn = true;
                     }
                 }
             }

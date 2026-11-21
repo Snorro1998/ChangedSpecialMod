@@ -1,12 +1,16 @@
 ﻿using ChangedSpecialMod.Common.Configs;
+using ChangedSpecialMod.Common.Systems;
+using ChangedSpecialMod.Content.Liquids;
 using ChangedSpecialMod.Content.NPCs;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
+using ModLiquidLib.ModLoader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace ChangedSpecialMod.Common.WorldGeneration.Passes
 {
@@ -114,6 +118,26 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                     }
                 }
 
+                var liquidId = -1;
+                try
+                {
+                    if (ModSupportSystem.IsModActive("ModLiquidLib"))
+                        GetLiquidType(poolType);
+                }
+                catch
+                {
+                    // Just carry on
+                }
+
+                if (liquidId != -1)
+                {
+                    foreach (var tilePos in waterTiles)
+                    {
+                        var tile = Main.tile[tilePos.x, tilePos.y];
+                        tile.LiquidType = (ushort)liquidId;
+                    }
+                }
+
                 //padding 20 15
                 MakeBiomeAroundPool(bounds, 30, 25, poolType);
                 placedPositions.Add((x, y));
@@ -122,6 +146,15 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                 labelSkip:
                 var dummy = 0;
             }
+        }
+
+        [JITWhenModsEnabled("ModLiquidLib")]
+        public int GetLiquidType(GooType gooType)
+        {
+            if (gooType == GooType.White)
+                return LiquidLoader.LiquidType<WhiteLatexLiquid>();
+            else
+                return LiquidLoader.LiquidType<BlackLatexLiquid>();
         }
 
         private static void MakeBiomeAroundPool(Rectangle bounds, int paddingX, int paddingY, GooType gooType)

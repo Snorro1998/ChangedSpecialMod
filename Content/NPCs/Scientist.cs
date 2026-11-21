@@ -12,7 +12,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -655,15 +654,10 @@ namespace ChangedSpecialMod.Content.NPCs
             {
                 hatYOffset += 2;
             }
-            // Walking
-            else if (fr == 4 || fr == 5 || fr == 11 || fr == 12)
+            // Walking (18 = sitting)
+            else if (fr == 4 || fr == 5 || fr == 11 || fr == 12 || fr == 18)
             {
                 hatYOffset -= 2;
-            }
-            // Sitting
-            else if (fr == 18)
-            {
-                hatYOffset -= 4;
             }
             // Attack frame 1
             else if (fr == 21)

@@ -1172,37 +1172,59 @@ Carton: {
 	Tooltip: ""
 }
 
+CommonNames.FireworkRocket: Cohete de fuegos artificiales
+
 RocketWhiteTail: {
-	DisplayName: Cohete de fuegos artificiales (Cola Blanca)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.WhiteTail.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketPrototype: {
-	DisplayName: Cohete de fuegos artificiales (Prototipo)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Prototype.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	DisplayName: Cohete de fuegos artificiales (Devoramundos)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.EaterofWorldsHead})"
+	// Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	DisplayName: Cohete de fuegos artificiales (Eye Of Cthulu)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.EyeofCthulhu})"
+	// Tooltip: ""
 }
 
 RocketGuide: {
-	DisplayName: Cohete de fuegos artificiales (Guide)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.Guide})"
+	// Tooltip: ""
 }
 
 RocketPuro: {
-	DisplayName: Cohete de fuegos artificiales (Puro)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Puro.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketSkeletron: {
-	DisplayName: Cohete de fuegos artificiales (Skeletron)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.SkeletronHead})"
+	// Tooltip: ""
+}
+
+BlackLatexLiquidBucket: {
+	// DisplayName: Black Latex Liquid Bucket
+	// Tooltip: ""
+}
+
+BlackLatexBottomlessLiquidBucket: {
+	// DisplayName: Black Latex Bottomless Liquid Bucket
+	// Tooltip: ""
+}
+
+WhiteLatexBottomlessLiquidBucket: {
+	// DisplayName: White Latex Bottomless Liquid Bucket
+	// Tooltip: ""
+}
+
+WhiteLatexLiquidBucket: {
+	// DisplayName: White Latex Liquid Bucket
+	// Tooltip: ""
 }

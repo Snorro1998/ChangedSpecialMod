@@ -1,5 +1,6 @@
 using ChangedSpecialMod.Content.Biomes;
 using ChangedSpecialMod.Content.Items.Placeable.Banners;
+using ChangedSpecialMod.Content.NPCs.AIStyles;
 using ChangedSpecialMod.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -76,6 +77,17 @@ namespace ChangedSpecialMod.Content.NPCs
         {
             NPC.Changed().PostDrawExtra(NPC, spriteBatch, screenPos, drawColor);
             base.PostDraw(spriteBatch, screenPos, drawColor);
+        }
+
+        public override void AI()
+        {
+            AIFighter.Update(NPC);
+        }
+
+        public override bool? CanFallThroughPlatforms()
+        {
+            if (!NPC.HasValidTarget) return false;
+            else return Main.player[NPC.target].Bottom.Y > NPC.Bottom.Y + 32;
         }
     }
 }

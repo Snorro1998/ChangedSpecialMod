@@ -1,7 +1,5 @@
 ﻿using ChangedSpecialMod.Common.Systems;
 using ChangedSpecialMod.Content.Tiles;
-using ChangedSpecialMod.Content.Tiles.Latex.Black;
-using ChangedSpecialMod.Content.Tiles.Latex.White;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

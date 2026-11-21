@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 namespace ChangedSpecialMod.Common.Systems
 {
@@ -224,6 +225,29 @@ namespace ChangedSpecialMod.Common.Systems
             }
 
             return list;
+        }
+
+        public static string GetHighestWorldGenerationPassIndex(List<GenPass> passes)
+        {
+            string highestPassName = null;
+            var highestPassIndex = -1;
+            var passNames = passes.Select(x => x.Name).ToList();
+
+            foreach (var mod in externalMods)
+            {
+                var passName = mod.highestWorldGenPassName;
+                if (passName != null)
+                {
+                    var passIndex = passNames.LastIndexOf(passName);
+                    if (passIndex > highestPassIndex)
+                    {
+                        highestPassName = passName;
+                        highestPassIndex = passIndex;
+                    }
+                }
+            }
+
+            return highestPassName;
         }
 
         private void TryUpdateTitle()

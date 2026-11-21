@@ -60,7 +60,6 @@ namespace ChangedSpecialMod.Content.Items.Weapons
                 projectile.penetrate = 1;
             }
             return false;
-            //return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
 
         public override bool? UseItem(Player player)

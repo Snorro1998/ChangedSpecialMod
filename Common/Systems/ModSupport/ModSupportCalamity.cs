@@ -6,6 +6,11 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
     {
         public ModSupportCalamity(Mod mod, string modName) : base(mod, modName) { }
 
+        public override void Init()
+        {
+            highestWorldGenPassName = "Abyss";
+        }
+
         public override void AddTownNPCs()
         {
             AddTownNPC("DILF", "CalamityArchmage");

@@ -156,10 +156,12 @@ namespace ChangedSpecialMod.Content.NPCs.AIStyles
             if (isBlackCub || isWhiteCub || isFennec || isSnake || isTabbyCat || isMingCat || isBlackLatex)
             {
                 float num80 = 1.5f;
+                /*
                 if (isBlackLatex)
                 {
                     num80 = 1f;
                 }
+                */
                 // Make them much faster if the target player is drunk
                 if (isSnake)
                 {

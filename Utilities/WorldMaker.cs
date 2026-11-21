@@ -11,8 +11,10 @@ using ChangedSpecialMod.Content.Tiles.Furniture.Paintings;
 using ChangedSpecialMod.Content.Tiles.Latex.Black;
 using ChangedSpecialMod.Content.Walls;
 using Microsoft.Xna.Framework;
+using MonoMod.Cil;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -354,6 +356,187 @@ namespace ChangedSpecialMod.Utilities
             {
                 Mod.Logger.Error($"Something went wrong while trying to load the structure data: {e.Message}");
             }
+        }
+
+        public override void Load()
+        {
+            IL_WorldGen.GenerateWorld_RunTasksAndFinish +=
+                Edit_GenerateWorld_RunTasksAndFinish;
+        }
+
+        public override void Unload()
+        {
+            IL_WorldGen.GenerateWorld_RunTasksAndFinish -=
+                Edit_GenerateWorld_RunTasksAndFinish;
+        }
+
+        private void Edit_GenerateWorld_RunTasksAndFinish(ILContext il)
+        {
+            try
+            {
+                var cursor = new ILCursor(il);
+
+                // Find the call to SystemLoader.ModifyWorldGenTasks.
+                if (!cursor.TryGotoNext(
+                    MoveType.After,
+                    instruction => instruction.MatchCall(
+                        typeof(SystemLoader).GetMethod(
+                            "ModifyWorldGenTasks",
+                            BindingFlags.Public | BindingFlags.Static
+                        )
+                    )))
+                {
+                    throw new Exception(
+                        "Could not find ModifyWorldGenTasks!"
+                    );
+                }
+
+                // Inject our code immediately after all mods
+                // have modified the generation-pass list.
+                cursor.EmitDelegate(FinalizeWorldGenPasses);
+            }
+            catch (Exception exception)
+            {
+                MonoModHooks.DumpIL(Mod, il);
+                Mod.Logger.Error(
+                    "Failed to edit GenerateWorld_RunTasksAndFinish",
+                    exception
+                );
+            }
+        }
+
+        private static void FinalizeWorldGenPasses()
+        {
+            FieldInfo generatorField = typeof(WorldGen).GetField(
+                "_generator",
+                BindingFlags.NonPublic | BindingFlags.Static
+            );
+
+            Terraria.WorldBuilding.WorldGenerator generator =
+                (Terraria.WorldBuilding.WorldGenerator)generatorField.GetValue(null);
+
+
+            // Dump all registered generation passes.
+            FieldInfo passesField = typeof(Terraria.WorldBuilding.WorldGenerator).GetField(
+                "_passes",
+                BindingFlags.NonPublic | BindingFlags.Instance
+            );
+
+            List<GenPass> passes = (List<GenPass>)passesField.GetValue(generator);
+
+            /*
+            ChangedSpecialMod.Instance.Logger.Info(
+                "========== World Generation Passes =========="
+            );
+
+            for (int i = 0; i < passes.Count; i++)
+            {
+                ChangedSpecialMod.Instance.Logger.Info(
+                    $"[{i}] {passes[i].Name}"
+                );
+            }
+            */
+
+            var config = ChangedSpecialModClientConfig.Instance;
+            var changedPassNames = new List<string>()
+            {
+                "ChangedAnalyzeWorld"
+            };
+
+            if (config.WorldGenStepSurfaceLabs)
+                changedPassNames.Add("ChangedStructures");
+            if (config.WorldGenStepOrangeShrine)
+                changedPassNames.Add("ChangedOrangeShrines");
+            if (config.WorldGenStepLatexCaves)
+                changedPassNames.Add("ChangedLatexPools");
+            if (config.WorldGenStepUndergroundLab)
+                changedPassNames.Add("ChangedUndergroundLab");
+
+            for (int i = 0; i < changedPassNames.Count; i++)
+            {
+                var previousPassName = i > 0 ? changedPassNames[i - 1] : ModSupportSystem.GetHighestWorldGenerationPassIndex(passes);
+                var currentPassName = changedPassNames[i];
+
+                if (previousPassName == null || currentPassName == null)
+                    continue;
+
+                int previousPassIndex = passes.FindLastIndex(
+                    pass => pass.Name == previousPassName
+                );
+
+                int currentPassIndex = passes.FindLastIndex(
+                    pass => pass.Name == currentPassName
+                );
+
+                if (previousPassIndex == -1 || currentPassIndex == -1)
+                    continue;
+
+                if (currentPassIndex > previousPassIndex)
+                    continue;
+
+                if (i == 0)
+                {
+                    ChangedSpecialMod.Instance.Logger.Info($"Moved world generation passes further back. They will now happen after {previousPassName}");
+                }
+
+                // Remove our pass from its current position.
+                GenPass currentPass = passes[currentPassIndex];
+                passes.RemoveAt(currentPassIndex);
+
+                // Recalculate the target index after removing our pass.
+                previousPassIndex = passes.FindIndex(
+                    pass => pass.Name == previousPassName
+                );
+
+                // Insert our pass immediately after the latest external pass.
+                passes.Insert(previousPassIndex + 1, currentPass);
+            }
+            /*
+            var latestPassName = ModSupportSystem.GetHighestWorldGenerationPassIndex(passes);
+            int analyzeWorldPassIndex = passes.FindIndex(
+                pass => pass.Name == "ChangedAnalyzeWorld"
+            );
+
+            // Find the latest pass from another mod.
+            int latestPassIndex = passes.FindLastIndex(
+                pass => pass.Name == latestPassName
+            );
+
+            // Do nothing if no Changed passes are enabled
+            if (analyzeWorldPassIndex == -1)
+            {
+                return;
+            }
+
+            // Do nothing if it couldn't find the last pass index, meaning the tasks are probably in the right order.
+            if (latestPassIndex == -1)
+            {
+                return;
+            }
+
+            // Already positioned correctly.
+            if (analyzeWorldPassIndex > latestPassIndex)
+            {
+                //ChangedSpecialMod.Instance.Logger.Info("MakeLaboratories is already positioned correctly.");
+                return;
+            }
+
+            // Remove our pass from its current position.
+            GenPass ourPass = passes[analyzeWorldPassIndex];
+            passes.RemoveAt(analyzeWorldPassIndex);
+
+            // Recalculate the target index after removing our pass.
+            latestPassIndex = passes.FindIndex(
+                pass => pass.Name == latestPassName
+            );
+
+            // Insert our pass immediately after the latest external pass.
+            passes.Insert(latestPassIndex + 1, ourPass);
+
+            ChangedSpecialMod.Instance.Logger.Info(
+                $"Moved MakeLaboratories to position {latestPassIndex + 1}, immediately after {latestPassName}."
+            );
+            */
         }
     }
 }

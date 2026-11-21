@@ -85,19 +85,6 @@ namespace ChangedSpecialMod.Content.NPCs
             base.PostDraw(spriteBatch, screenPos, drawColor);
         }
 
-        /*
-        public override void OnSpawn(IEntitySource source)
-        {
-            var position = NPC.position.ToTileCoordinates();
-            var tile = Framing.GetTileSafely(position);
-            // Make him asleep if he spawns in the lab
-            if (tile.WallType == ModContent.WallType<LabWall>())
-            {
-                NPC.ai[0] = 10;
-            }
-        }
-        */
-
         public override void AI()
         {
             AIFighter.Update(NPC);

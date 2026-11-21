@@ -1,5 +1,4 @@
 ﻿using ChangedSpecialMod.Content.Items.Placeable.Furniture;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +26,7 @@ namespace ChangedSpecialMod.Content.Items.Weapons
             Item.damage = 0;
             Item.knockBack = 5f;
             Item.noUseGraphic = true;
-            Item.noMelee = true; // The projectile will do the damage and not the item
+            Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
 
             // Projectile Properties

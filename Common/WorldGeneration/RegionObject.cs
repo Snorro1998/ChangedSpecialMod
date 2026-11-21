@@ -32,7 +32,9 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         Mushroom,
         Granite,
         Marble,
-        Beehive
+        Beehive,
+
+        ModBiome
     }
 
     public class RegionObject
@@ -40,6 +42,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         public Rectangle area;
         public WorldRegionType regionType;
         public bool surfaceLayer = false;
+        public bool nearSpawn = false;
         public List<RegionObject> labyrinthConnections = new List<RegionObject>();
 
         public RegionObject(Rectangle area)
@@ -49,42 +52,42 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         }
 
         private static readonly List<int> forestTiles = new()
-            {
-                TileID.Grass,
-                TileID.Dirt,
-                TileID.Stone
-            };
+        {
+            TileID.Grass,
+            TileID.Dirt,
+            TileID.Stone
+        };
 
         private static readonly List<int> snowTiles = new()
-            {
-                TileID.SnowBlock,
-                TileID.IceBlock
-            };
+        {
+            TileID.SnowBlock,
+            TileID.IceBlock
+        };
 
         private static readonly List<int> JungleTiles = new()
-            {
-                TileID.JungleGrass,
-                TileID.Mud
-            };
+        {
+            TileID.JungleGrass,
+            TileID.Mud
+        };
 
         private static readonly List<int> DesertTiles = new()
-            {
-                TileID.Sand,
-                TileID.HardenedSand,
-                TileID.Sandstone
-            };
+        {
+            TileID.Sand,
+            TileID.HardenedSand,
+            TileID.Sandstone
+        };
 
         private static readonly List<int> MushroomTiles = new()
-            {
-                TileID.MushroomGrass
-            };
+        {
+            TileID.MushroomGrass
+        };
 
         private static readonly List<int> CorruptTiles = new()
-            {
-                TileID.Ebonstone,
-                TileID.Ebonsand,
-                TileID.CorruptGrass
-            };
+        {
+            TileID.Ebonstone,
+            TileID.Ebonsand,
+            TileID.CorruptGrass
+        };
 
         private static readonly List<int> CrimsonTiles = new()
         {
@@ -187,6 +190,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
         {
             // Make a copy so external mod tiles don't permanently modify structureTiles.
             var allStructureTiles = new HashSet<int>(structureTiles);
+            var tilesBiome = new HashSet<int>();
 
             var externalMods = ModSupportSystem.externalMods;
             if (externalMods != null)
@@ -194,6 +198,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                 foreach (var mod in externalMods)
                 {
                     allStructureTiles.UnionWith(mod.tilesAvoidedByWorldGen);
+                    tilesBiome.UnionWith(mod.tilesBiome);
                 }
             }
 
@@ -214,6 +219,7 @@ namespace ChangedSpecialMod.Common.WorldGeneration
 
             var corruptCount = 0;
             var crimsonCount = 0;
+            var modBiomeCount = 0;
             var hellCount = 0;
 
             var forestCount = 0;
@@ -274,6 +280,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                         crimsonCount++;
                     else if (HellTiles.Contains(tileType))
                         hellCount++;
+                    else if (tilesBiome.Contains(tileType))
+                        modBiomeCount++;
 
                     else if (MushroomTiles.Contains(tileType))
                         mushroomCount++;
@@ -326,6 +334,8 @@ namespace ChangedSpecialMod.Common.WorldGeneration
                 regionType = WorldRegionType.Corruption;
             else if (crimsonCount > 0)
                 regionType = WorldRegionType.Crimson;
+            else if (modBiomeCount > 0)
+                regionType = WorldRegionType.ModBiome;
 
             // For normal biomes, check which is the most present
             else if (jungleCount > 0 && jungleCount > desertCount && jungleCount > snowCount && jungleCount > forestCount)

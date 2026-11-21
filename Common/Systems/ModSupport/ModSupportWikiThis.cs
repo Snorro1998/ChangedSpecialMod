@@ -146,6 +146,12 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 ModContent.ItemType<BookBarrage>(),
 
                 ModContent.ItemType<BasketballWeapon>(),
+                ModContent.ItemType<FartGun>(),
+                ModContent.ItemType<OrangeJuiceWeapon>(),
+
+                ModContent.ItemType<GreenCrystalStaff>(),
+                ModContent.ItemType<RedCrystalStaff>(),
+                ModContent.ItemType<WhiteCrystalStaff>(),
             };
         }
 
@@ -193,6 +199,8 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 ModContent.ItemType<Painting17>(),
                 ModContent.ItemType<Painting18>(),
                 ModContent.ItemType<Painting19>(),
+                ModContent.ItemType<Painting20>(),
+                ModContent.ItemType<Painting21>(),
 
                 // Drunk paintings
                 ModContent.ItemType<DrunkPainting1>(),
@@ -335,10 +343,10 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
         {
             return new List<int>
             {
-                ModContent.ItemType<MusicBoxBehemoth>(),
                 ModContent.ItemType<MusicBoxBlackLatexZone1>(),
                 ModContent.ItemType<MusicBoxBlackLatexZone2>(),
                 ModContent.ItemType<MusicBoxCrystalZone>(),
+                ModContent.ItemType<MusicBoxGas>(),
                 ModContent.ItemType<MusicBoxGreenhouse>(),
                 ModContent.ItemType<MusicBoxHappyBirthday>(),
                 ModContent.ItemType<MusicBoxLab>(),
@@ -348,8 +356,10 @@ namespace ChangedSpecialMod.Common.Systems.ModSupport
                 ModContent.ItemType<MusicBoxPuroDance>(),
                 ModContent.ItemType<MusicBoxVents>(),
                 ModContent.ItemType<MusicBoxWhiteLatexZone>(),
+
                 ModContent.ItemType<MusicBoxWhiteTail>(),
-                ModContent.ItemType<MusicBoxWolfKing>()
+                ModContent.ItemType<MusicBoxWolfKing>(),
+                ModContent.ItemType<MusicBoxBehemoth>(),
             };
         }
 

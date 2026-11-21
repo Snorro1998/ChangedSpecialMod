@@ -1172,37 +1172,59 @@ Carton: {
 	Tooltip: ""
 }
 
+CommonNames.FireworkRocket: Foguete de artifício
+
 RocketWhiteTail: {
-	DisplayName: Foguete de artifício (White Tail)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.WhiteTail.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketPrototype: {
-	DisplayName: Foguete de artifício (Prototype)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Prototype.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketEaterOfWorlds: {
-	DisplayName: Foguete de artifício (Eater Of Worlds)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.EaterofWorldsHead})"
+	// Tooltip: ""
 }
 
 RocketEyeOfCthulu: {
-	DisplayName: Foguete de artifício (Eye Of Cthulu)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.EyeofCthulhu})"
+	// Tooltip: ""
 }
 
 RocketGuide: {
-	DisplayName: Foguete de artifício (Guide)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.Guide})"
+	// Tooltip: ""
 }
 
 RocketPuro: {
-	DisplayName: Foguete de artifício (Puro)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$Mods.ChangedSpecialMod.NPCs.Puro.DisplayName})"
+	// Tooltip: ""
 }
 
 RocketSkeletron: {
-	DisplayName: Foguete de artifício (Skeletron)
-	Tooltip: ""
+	// DisplayName: "{$Mods.ChangedSpecialMod.Items.CommonNames.FireworkRocket} ({$NPCName.SkeletronHead})"
+	// Tooltip: ""
+}
+
+BlackLatexLiquidBucket: {
+	// DisplayName: Black Latex Liquid Bucket
+	// Tooltip: ""
+}
+
+BlackLatexBottomlessLiquidBucket: {
+	// DisplayName: Black Latex Bottomless Liquid Bucket
+	// Tooltip: ""
+}
+
+WhiteLatexBottomlessLiquidBucket: {
+	// DisplayName: White Latex Bottomless Liquid Bucket
+	// Tooltip: ""
+}
+
+WhiteLatexLiquidBucket: {
+	// DisplayName: White Latex Liquid Bucket
+	// Tooltip: ""
 }

@@ -35,7 +35,8 @@ This mod has built-in support for:
 	[*]Wikithis
 [/list]
 
-The mod also tries to avoid generating things in structures and biomes from these mods
+
+The world generator tries to avoid placing things close to structures and biomes from these mods
 [list]
 	[*]Ancients Awakened
 	[*]Bismuth
@@ -43,16 +44,22 @@ The mod also tries to avoid generating things in structures and biomes from thes
 	[*]Coralite
 	[*]Mod of Redemption
 	[*]Spirit and Spirit Reforged
+	[*]Spooky Mod
 	[*]Thorium
+	[*]Ultranium
 [/list]
 
-Town NPCs can also sell herbs and fruit from the previously listed mods.
+In addition, town NPCs can sell herbs and fruit from the previously listed mods. 
 
-Mods that can cause issues:
-[list]
-	[*]Modliquid library: there is a bug in this mod that causes waterfalls to freeze in all modded biomes, included the Changed biomes.
-	[*]MrPlague's Authentic Races: Not game-breaking, but the visuals of races are overwritten when transfurred.
-[/list]
+[h3]Modliquid Library[/h3]
+If you want to have custom liquids in caves, you need to enable Modliquid Library manually, unless 
+another mod requires it and already did this. The reason it is disabled by default is because 
+it has a visual bug with waterfalls. If you enable it, the best thing you can do is to restart Terraria 
+so you won't run into any strange issues such as the liquids not generating in a new world or them looking 
+like normal water.
+
+[h3]MrPlague's Authentic Races[/h3]
+Any race mod that depends on it will work, but their visuals are overwritten if you are transfurred.
 
 
 [h2]Multiplayer[/h2]
@@ -104,78 +111,64 @@ This mod is a continuation of the old abandoned "ChangedMod" which had two monst
 [h2]Changelog[/h2]
 
 
-[h3]0.5.8[/h3]
+[h3]0.5.8.1[/h3]
 
 
-I want to thank you all for 1000 downloads. This is the first mod I have made for Terraria, 
-so I am happy to see that despite some of its flaws, it is still well received.
-
-This update is a bigger than most of the previous ones to celebrate the occasion.
-It adds a large underground lab section, consisting of 6 rooms. 
-Each room respresents a different part of a normal Changed playthrough. 
-You can enter this underground section from the double door in the basement of a laboratory. 
-
-[b]Underground lab[/b]
-[list]
-	[*]An underground building featuring different parts of a normal Changed playthrough
-	[*]Consists of 6 room:
-	[*]Black Goo Zone: Flickering lights
-	[*]Crystal Zone: Slippery blocks
-	[*]Library: White Tail spawns here if you haven't defeated thim yet
-	[*]Vents: Dark and difficult to navigate
-	[*]Gas room: Stand under the fans to avoid the blue gas
-	[*]Water room: Flip the switches to turn on the generators and the lights
-[/list]
-
-[b]General[/b]
-[list]
-	[*]Flying oranges make less noise if there are many of them
-[/list]
+This update adds fireworks, a new magic weapon and resprites a couple of things.
 
 [b]Items[/b]
 [list]
-	[*]Added music box for the music that plays in the room filled with gas
-	[*]Added a new magic weapon. You can find it in the underground lab
+	[*]Buffed Shredder and Mega Mauler by giving them a bleeding effect
+	[*]Added Carton of Orange Juice. It is a magic weapon that creates waves of orange juice
+	[*]Added fireworks rockets with shapes of vanilla and mod NPCs
 [/list]
 
-[b]Blocks[/b]
+[b]Liquid latex[/b]
 [list]
-	[*]Added doors, elevators and tiles for the underground lab. These cannot be mined or blown up
-	[*]Infected ice blocks no longer makes you slide around weirdly
-	[*]Laboratory tiles can no longer be blown up with bombs
-[/list]
-
-[b]World Generation[/b]
-[list]
-	[*]Added biome variants for underground shrines
-	[*]World generator now tries to avoid structures and biomes from:
-	[*]Ultranium
-	[*]Spooky Mod
-[/list]
-
-[b]NPC[/b]
-[list]
-	[*]Reduced spawn change of Ming Cat, Tabby Cat and German Shepherd
-[/list]
-
-[b]Fixed[/b]
-[list]
-	[*]World generator often spammed sounds (brrrrrrt), because of the way it placed wires
-	[*]World generator dug out too much space when a lab generated inside the terrain
-	[*]Camera moving smoothly when using an elevator in multiplayer, but not in single player
-	[*]Enemies using the custom FigtherAI did not fall through platforms if the player was below them
-	[*]Multiple tabby cats could spawn, because it was wrongly checking for german shepherds
-	[*]Added missing map entries for a few tiles
+	[*]Added black and white liquid latex in the underground. These liquids are optional and require you to enable "modliquid library". 
+	[*]The reason they are not enabled by default is because there is still a bug modliquid library that can break waterfall animations.
+	[*]Can be collected with a bucket or soaked up with an ultra absorbant sponge
+	[*]Buckets can be upgraded to bottomless variants with hallowed bars
+	[*]A bucket with black liquid can be shimmered into one with white liquid and vice versa
+	[*]It can infect blocks that are in direct contact with it
+	[*]Latex beasts move much quicker in liquids that are the same color as they are
+	[*]Players are slowed down by it like honey
 [/list]
 
 [b]Resprited[/b]
 [list]
-	[*]Wolf King
-	[*]Cheerleader
+	[*]Dr K. Also added all his missing animations (attack, sitting, talking, blinking and shaking hands)
+	[*]Crimclaw and its upgrades
+	[*]Dreadhorn and its upgrades
+	[*]Snow Leopard (a little bit of cleanup)
 [/list]
 
-[b]Mod calls (technical)[/b]
+[b]NPCs[/b]
 [list]
-	[*]Added "AddAvoidTile". You can use this to add tiles from your own mod that the world generator should avoid.
-	[*]Added "SpawnAllTown". It spawns in Puro, Prototype and Dr K
+	[*]Dr K sells fireworks during a party
+[/list]
+
+[b]World generation[/b]
+[list]
+	[*]World generator will try to avoid the area near spawn, unless it could not find any suitable place elsewhere
+	[*]Chest in shrines can no longer contain a mace. Instead they can contain the new magic weapon
+	[*]Underground labs try to generate in normal caves and will only generate in the desert, jungle or snow if it could not find a suitable place.
+[/list]
+
+[b]Fixed[/b]
+[list]
+	[*]Labs could sometimes generate deep down in corruption shafts
+	[*]Town NPCs could talk about the same NPC that they were talking to
+	[*]Slipping sound played for all players instead of the local player (your own character)
+	[*]Underground latex biomes could generate anywhere and did not check for biomes or structures from other mods.
+[/list]
+
+[b]Mod calls[/b]
+[list]
+	[*]Added "SetNPCEvo". You can use this to make two of the same NPCs merge into something else, like the goops do
+[/list]
+
+[b]Other[/b]
+[list]
+	[*]Updated the wiki
 [/list]
