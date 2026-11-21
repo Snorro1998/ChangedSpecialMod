@@ -1210,21 +1210,21 @@ RocketSkeletron: {
 }
 
 BlackLatexLiquidBucket: {
-	// DisplayName: Black Latex Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Cubo de limo negro
+	Tooltip: ""
 }
 
 BlackLatexBottomlessLiquidBucket: {
-	// DisplayName: Black Latex Bottomless Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Cubo de limo negro sin fondo
+	Tooltip: ""
 }
 
 WhiteLatexBottomlessLiquidBucket: {
-	// DisplayName: White Latex Bottomless Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Cubo de limo blanco sin fondo
+	Tooltip: ""
 }
 
 WhiteLatexLiquidBucket: {
-	// DisplayName: White Latex Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Cubo de limo blanco
+	Tooltip: ""
 }

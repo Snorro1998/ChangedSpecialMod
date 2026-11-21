@@ -8,10 +8,11 @@ This Terraria mod is about the game Changed by DragonSnow. It adds laboratories 
 	[*]22 monsters
 	[*]Some extra monsters on the drunk world
 	[*]3 bosses
-	[*]5 upgradeable weapons
+	[*]9 normal weapons and 5 upgradable weapons
 	[*]3 mounts
 	[*]Many furniture items
-	[*]Transformation mechanic
+	[*]Transfur mechanic
+	[*]Custom liquids (optional, requires Modliquid Library)
 	[*]NEW: An underground laboratory, which is like a mini playthrough of Changed
 [/list]
 
@@ -73,6 +74,8 @@ Most items and NPCs used to have scaled down sprites from Changed as placeholder
 [h2]Links[/h2]
 Wiki:
 https://changedterraria.wiki.gg/
+Planned things (if you have any ideas feel free to suggest them):
+https://docs.google.com/document/d/1WUo-yyjfjg7q15Q6x2vte-W9YK0kMO2HuVCujBcxEP0
 Known bugs: 
 https://docs.google.com/document/d/1JlBIPpI40I-NGavY7DLrfr3lmCUzudDF4j4ScAdtW7M
 Source code:

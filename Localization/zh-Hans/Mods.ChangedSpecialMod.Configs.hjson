@@ -168,9 +168,4 @@ ChangedSpecialModClientConfig: {
 		Label: 短音乐
 		Tooltip: 如果能在黏液区域播放短小且重复的音乐。
 	}
-
-	ModRedemptionLabs: {
-		// Label: Mod Redemption Labs
-		// Tooltip: ""
-	}
 }

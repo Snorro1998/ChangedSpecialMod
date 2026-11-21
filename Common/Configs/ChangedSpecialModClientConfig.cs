@@ -95,8 +95,6 @@ namespace ChangedSpecialMod.Common.Configs
         [DefaultValue(false)]
         public bool RetroVisualsTiles { get; set; }
         public bool RetroVisualsNPCs { get; set; }
-        //[DefaultValue(false)]
-        //public bool ModRedemptionLabs { get; set; }
 
         [Header("Misc")]
         [DefaultValue(false)]

@@ -1211,20 +1211,20 @@ RocketSkeletron: {
 
 BlackLatexLiquidBucket: {
 	DisplayName: Black Latex Liquid Bucket
-	Tooltip: ""
+	Tooltip: This... is a bucket
 }
 
 BlackLatexBottomlessLiquidBucket: {
 	DisplayName: Black Latex Bottomless Liquid Bucket
-	Tooltip: ""
+	Tooltip: There's more...
 }
 
 WhiteLatexBottomlessLiquidBucket: {
 	DisplayName: White Latex Bottomless Liquid Bucket
-	Tooltip: ""
+	Tooltip: There's more...
 }
 
 WhiteLatexLiquidBucket: {
 	DisplayName: White Latex Liquid Bucket
-	Tooltip: ""
+	Tooltip: This... is a bucket
 }

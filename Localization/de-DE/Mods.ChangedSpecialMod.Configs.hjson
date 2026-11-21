@@ -168,9 +168,4 @@ ChangedSpecialModClientConfig: {
 		Label: Kurze Lieder
 		Tooltip: In den Schleimzonen kann kurze und sich wiederholende Lieder abgespielt werden.
 	}
-
-	ModRedemptionLabs: {
-		// Label: Mod Redemption Labs
-		// Tooltip: ""
-	}
 }

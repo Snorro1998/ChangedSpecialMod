@@ -1210,21 +1210,21 @@ RocketSkeletron: {
 }
 
 BlackLatexLiquidBucket: {
-	// DisplayName: Black Latex Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Schwarzer Schleimeimer
+	Tooltip: Also, ein Schleimer?
 }
 
 BlackLatexBottomlessLiquidBucket: {
-	// DisplayName: Black Latex Bottomless Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Bodenloser Schwarzer Schleimeimer
+	Tooltip: Also, ein Schleimer?
 }
 
 WhiteLatexBottomlessLiquidBucket: {
-	// DisplayName: White Latex Bottomless Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Bodenloser Weißer Schleimeimer
+	Tooltip: Also, ein Schleimer?
 }
 
 WhiteLatexLiquidBucket: {
-	// DisplayName: White Latex Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Weißer Schleimeimer
+	Tooltip: Also, ein Schleimer?
 }

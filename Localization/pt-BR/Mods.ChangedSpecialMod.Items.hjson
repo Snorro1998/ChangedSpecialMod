@@ -1210,21 +1210,21 @@ RocketSkeletron: {
 }
 
 BlackLatexLiquidBucket: {
-	// DisplayName: Black Latex Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Balde com gosma preta
+	Tooltip: ""
 }
 
 BlackLatexBottomlessLiquidBucket: {
-	// DisplayName: Black Latex Bottomless Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Balde Sem Fundo com gosma preta
+	Tooltip: ""
 }
 
 WhiteLatexBottomlessLiquidBucket: {
-	// DisplayName: White Latex Bottomless Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Balde Sem Fundo gosma branca
+	Tooltip: ""
 }
 
 WhiteLatexLiquidBucket: {
-	// DisplayName: White Latex Liquid Bucket
-	// Tooltip: ""
+	DisplayName: Balde com gosma branca
+	Tooltip: ""
 }

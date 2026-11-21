@@ -168,9 +168,4 @@ ChangedSpecialModClientConfig: {
 		Label: Krótkie piosenki
 		Tooltip: W strefach ze szlamem może być odtwarzana krótka i powtarzalna muzyka.
 	}
-
-	ModRedemptionLabs: {
-		// Label: Mod Redemption Labs
-		// Tooltip: ""
-	}
 }

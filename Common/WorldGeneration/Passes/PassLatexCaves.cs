@@ -124,9 +124,10 @@ namespace ChangedSpecialMod.Common.WorldGeneration.Passes
                     if (ModSupportSystem.IsModActive("ModLiquidLib"))
                         GetLiquidType(poolType);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    // Just carry on
+                    // Log it, and just carry on. This will keep the liquid in the pool unchanged (lava or water)
+                    ChangedSpecialMod.Instance.Logger.Error($"PassLatexCaves: Error with ModLiquidLibrary: {ex.Message}");
                 }
 
                 if (liquidId != -1)

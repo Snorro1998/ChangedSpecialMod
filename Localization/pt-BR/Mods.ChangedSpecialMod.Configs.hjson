@@ -168,9 +168,4 @@ ChangedSpecialModClientConfig: {
 		Label: Música curta
 		Tooltip: Se uma música curta e repetitiva puder tocar nas zonas de lodo.
 	}
-
-	ModRedemptionLabs: {
-		// Label: Mod Redemption Labs
-		// Tooltip: ""
-	}
 }
